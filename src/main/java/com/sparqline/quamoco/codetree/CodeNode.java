@@ -155,8 +155,10 @@ public abstract class CodeNode implements Comparable<CodeNode> {
     }
 
     public Double getMetric(String metric) {
-        if (metric == null || metric.isEmpty() || !hasMetric(metric))
+        if (metric == null || metric.isEmpty() || !hasMetric(metric)) {
+            System.out.println("Bad Metric: " + metric);
             return Double.NaN;
+        }
 
         return metrics.get(metric);
     }

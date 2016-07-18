@@ -1,0 +1,5 @@
+projectKey=sparqline-codetree:1.0
+serverUrl=http://localhost:9099
+dashboardUrl=http://localhost:9099/dashboard/index/sparqline-codetree:1.0
+ceTaskId=AVWmJUcuOiuJepKy0OWz
+ceTaskUrl=http://localhost:9099/api/ce/task?id=AVWmJUcuOiuJepKy0OWz

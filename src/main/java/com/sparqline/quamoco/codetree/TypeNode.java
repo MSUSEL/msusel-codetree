@@ -157,7 +157,7 @@ public class TypeNode extends CodeNode {
 
         if (child.getStart() < getStart() || child.getEnd() > getEnd()) {
             throw new IllegalArgumentException(
-                    "A method's start cannot be less than the type's start line, and a method's end cannot exceed a type's end line.");
+                    "A field's start cannot be less than the type's start line, and a field's end cannot exceed a type's end line.");
         }
 
         fields.put(child.getQIdentifier(), child);
