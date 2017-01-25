@@ -1,3 +1,7 @@
 /target
 *.class
 *.jar
+/target/**
+/.sonar
+/.sonar/**
+*.udb

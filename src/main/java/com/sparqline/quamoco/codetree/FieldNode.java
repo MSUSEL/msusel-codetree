@@ -61,4 +61,39 @@ public class FieldNode extends CodeNode {
 
         updateLocation(f.getStart(), f.getEnd());
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.sparqline.quamoco.codetree.CodeNode#cloneNoChildren()
+     */
+    @Override
+    public FieldNode cloneNoChildren() {
+    	FieldNode fnode = new FieldNode(this.qIdentifier, this.name, this.getStart());
+
+        copyMetrics(fnode);
+
+        return fnode;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#clone()
+     */
+    @Override
+    protected FieldNode clone() throws CloneNotSupportedException {
+        return cloneNoChildren();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#finalize()
+     */
+    @Override
+    protected void finalize() throws Throwable {
+        // TODO Auto-generated method stub
+        super.finalize();
+    }
 }

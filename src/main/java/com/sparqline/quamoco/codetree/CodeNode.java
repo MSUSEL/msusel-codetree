@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * Sonar Quamoco Plugin
- * Copyright (c) 2015 Isaac Griffith, SiliconCode, LLC
+ * Copyright (c) 2015-2017 Isaac Griffith, SiliconCode, LLC
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,8 +24,13 @@
  */
 package com.sparqline.quamoco.codetree;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import org.apache.commons.lang3.tuple.Pair;
+
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Range;
 import com.google.gson.annotations.Expose;
@@ -49,14 +54,18 @@ public abstract class CodeNode implements Comparable<CodeNode> {
     protected String              qIdentifier;
     @Expose
     protected String              name;
+    protected List<Relationship>  outRelations;
 
-    protected CodeNode() {
+    protected CodeNode()
+    {
         metrics = Maps.newHashMap();
         qIdentifier = "";
         name = "";
+        outRelations = Lists.newArrayList();
     }
 
-    public CodeNode(final String qIdentifier, final String name, final int start, final int end) {
+    public CodeNode(final String qIdentifier, final String name, final int start, final int end)
+    {
         this.qIdentifier = qIdentifier;
         this.name = name;
 
@@ -72,7 +81,8 @@ public abstract class CodeNode implements Comparable<CodeNode> {
     /**
      * @return the start
      */
-    public int getStart() {
+    public int getStart()
+    {
         return start;
     }
 
@@ -80,12 +90,15 @@ public abstract class CodeNode implements Comparable<CodeNode> {
      * @param start
      *            the start to set
      */
-    public void setStart(final int start) {
-        if (start > end) {
+    public void setStart(final int start)
+    {
+        if (start > end)
+        {
             throw new IllegalArgumentException("Start cannot be greater than end");
         }
 
-        if (start < 1) {
+        if (start < 1)
+        {
             throw new IllegalArgumentException("Start cannot be less than 1.");
         }
 
@@ -96,7 +109,8 @@ public abstract class CodeNode implements Comparable<CodeNode> {
     /**
      * @return the end
      */
-    public int getEnd() {
+    public int getEnd()
+    {
         return end;
     }
 
@@ -104,8 +118,10 @@ public abstract class CodeNode implements Comparable<CodeNode> {
      * @param end
      *            the end to set
      */
-    public void setEnd(final int end) {
-        if (end < start) {
+    public void setEnd(final int end)
+    {
+        if (end < start)
+        {
             throw new IllegalArgumentException("End cannot be less than start");
         }
 
@@ -115,15 +131,16 @@ public abstract class CodeNode implements Comparable<CodeNode> {
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     @Override
-    public int compareTo(final CodeNode o) {
+    public int compareTo(final CodeNode o)
+    {
         return Integer.compare(start, o.start);
     }
 
-    public boolean containsLine(final int line) {
+    public boolean containsLine(final int line)
+    {
         return range.contains(line);
     }
 
@@ -132,42 +149,49 @@ public abstract class CodeNode implements Comparable<CodeNode> {
      */
     public abstract String getType();
 
-    private void updateRange() {
+    private void updateRange()
+    {
         range = Range.closed(start, end);
     }
 
-    public void addMetric(String name, Double value) {
+    public void addMetric(String name, Double value)
+    {
         if (name == null || name.isEmpty() || value == null || Double.isNaN(value) || Double.isInfinite(value))
             return;
 
         metrics.put(name, value);
     }
 
-    public void incrementMetric(String name, Double increment) {
+    public void incrementMetric(String name, Double increment)
+    {
         if (name == null || name.isEmpty() || increment == null || Double.isNaN(increment)
                 || Double.isInfinite(increment))
             return;
 
         if (metrics.containsKey(name))
-            metrics.put(name, metrics.get(name));
+            metrics.put(name, metrics.get(name) + increment);
         else
             metrics.put(name, increment);
     }
 
-    public Double getMetric(String metric) {
-        if (metric == null || metric.isEmpty() || !hasMetric(metric)) {
-            System.out.println("Bad Metric: " + metric);
+    public Double getMetric(String metric)
+    {
+        if (metric == null || metric.isEmpty() || !hasMetric(metric))
+        {
+            System.out.println("Bad Metric: " + metric + " for " + this.getClass().getSimpleName());
             return Double.NaN;
         }
 
         return metrics.get(metric);
     }
 
-    public boolean hasMetric(String metric) {
+    public boolean hasMetric(String metric)
+    {
         return metrics.containsKey(metric);
     }
 
-    public void updateLocation(int start, int end) {
+    public void updateLocation(int start, int end)
+    {
         this.start = start;
         this.end = end;
     }
@@ -175,24 +199,26 @@ public abstract class CodeNode implements Comparable<CodeNode> {
     /**
      * @return the qIdentifier
      */
-    public String getQIdentifier() {
+    public String getQIdentifier()
+    {
         return qIdentifier;
     }
 
     /**
      * @return the name
      */
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
     /*
      * (non-Javadoc)
-     * 
      * @see java.lang.Object#toString()
      */
     @Override
-    public String toString() {
+    public String toString()
+    {
         StringBuilder builder = new StringBuilder();
         builder.append("CodeNode [start=").append(start).append(", end=").append(end).append(", qIdentifier=")
                 .append(qIdentifier).append(", name=").append(name).append("]");
@@ -201,11 +227,11 @@ public abstract class CodeNode implements Comparable<CodeNode> {
 
     /*
      * (non-Javadoc)
-     * 
      * @see java.lang.Object#hashCode()
      */
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         final int prime = 31;
         int result = 1;
         result = prime * result + end;
@@ -217,45 +243,81 @@ public abstract class CodeNode implements Comparable<CodeNode> {
 
     /*
      * (non-Javadoc)
-     * 
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
+        {
             return true;
         }
-        if (obj == null) {
+        if (obj == null)
+        {
             return false;
         }
-        if (!(obj instanceof CodeNode)) {
+        if (!(obj instanceof CodeNode))
+        {
             return false;
         }
         CodeNode other = (CodeNode) obj;
-        if (end != other.end) {
+        if (end != other.end)
+        {
             return false;
         }
-        if (name == null) {
-            if (other.name != null) {
+        if (name == null)
+        {
+            if (other.name != null)
+            {
                 return false;
             }
         }
-        else if (!name.equals(other.name)) {
+        else if (!name.equals(other.name))
+        {
             return false;
         }
-        if (qIdentifier == null) {
-            if (other.qIdentifier != null) {
+        if (qIdentifier == null)
+        {
+            if (other.qIdentifier != null)
+            {
                 return false;
             }
         }
-        else if (!qIdentifier.equals(other.qIdentifier)) {
+        else if (!qIdentifier.equals(other.qIdentifier))
+        {
             return false;
         }
-        if (start != other.start) {
+        if (start != other.start)
+        {
             return false;
         }
         return true;
     }
 
     public abstract void update(CodeNode c);
+
+    public abstract CodeNode cloneNoChildren();
+
+    protected void copyMetrics(CodeNode other)
+    {
+        for (String key : metrics.keySet())
+        {
+            other.addMetric(key, metrics.get(key));
+        }
+    }
+
+    public Set<String> getMetricNames()
+    {
+        return metrics.keySet();
+    }
+
+    /**
+     * @param join
+     */
+    public void addMetrics(List<Pair<String, Double>> join)
+    {
+        for (Pair<String, Double> pair : join) {
+            addMetric(pair.getKey(), pair.getValue());
+        }
+    }
 }

@@ -1,8 +1,8 @@
 /**
  * The MIT License (MIT)
  *
- * Sonar Quamoco Plugin
- * Copyright (c) 2015 Isaac Griffith, SiliconCode, LLC
+ * SparQLine Code Tree
+ * Copyright c) 2015-2017 Isaac Griffith, SparQLine Analytics, LLC
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,17 +25,36 @@
 package com.sparqline.quamoco.codetree;
 
 /**
- * CodeNodeType -
- *
  * @author Isaac Griffith
  */
-public interface CodeNodeType {
+public class Relationship {
 
-    static final String FIELD   = "FIELD";
-    static final String TYPE    = "TYPE";
-    static final String METHOD  = "METHOD";
-    static final String FILE    = "FILE";
-    static final String PROJECT = "PROJECT";
-    static final String MODULE  = "MODULE";
-    static final String STATEMENT = "STATEMENT";
+    private RelationshipType type;
+
+    private TypeNode source;
+    private TypeNode dest;
+
+    /**
+     * @return
+     */
+    public RelationshipType getType()
+    {
+        return type;
+    }
+
+    /**
+     * @return
+     */
+    public TypeNode getSource()
+    {
+        return source;
+    }
+
+    /**
+     * @return
+     */
+    public TypeNode getDest()
+    {
+        return dest;
+    }
 }

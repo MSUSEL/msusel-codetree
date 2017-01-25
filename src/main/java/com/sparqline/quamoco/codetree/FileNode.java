@@ -24,9 +24,11 @@
  */
 package com.sparqline.quamoco.codetree;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
@@ -46,6 +48,8 @@ public class FileNode extends CodeNode {
 
     @Expose
     private final Map<String, TypeNode> types = Maps.newHashMap();
+    @Expose
+    private String                      parentID;
 
     /**
      * 
@@ -222,7 +226,7 @@ public class FileNode extends CodeNode {
                 addType(t);
             }
         }
-        
+
         for (String key : f.metrics.keySet()) {
             this.metrics.put(key, f.metrics.get(key));
         }
@@ -247,5 +251,73 @@ public class FileNode extends CodeNode {
      */
     public boolean hasType(TypeNode cnode) {
         return types.containsKey(cnode.getQIdentifier());
+    }
+
+    /**
+     * @return
+     */
+    public String getParentID() {
+        return parentID;
+    }
+
+    public void setParentID(String parentID) {
+        this.parentID = parentID;
+    }
+
+    /**
+     * @return
+     */
+    public List<MethodNode> getMethods() {
+        List<MethodNode> methods = Lists.newArrayList();
+        for (String t : types.keySet()) {
+            methods.addAll(types.get(t).getMethods());
+        }
+
+        return methods;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.sparqline.quamoco.codetree.CodeNode#cloneNoChildren()
+     */
+    @Override
+    public FileNode cloneNoChildren() {
+        FileNode fnode = new FileNode(qIdentifier);
+
+        copyMetrics(fnode);
+
+        fnode.setParentID(parentID);
+        fnode.setEnd(this.getEnd());
+        fnode.setStart(this.getStart());
+
+        return fnode;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#clone()
+     */
+    @Override
+    protected FileNode clone() throws CloneNotSupportedException {
+        FileNode fnode = cloneNoChildren();
+
+        for (String key : types.keySet()) {
+            fnode.addType(types.get(key).clone());
+        }
+
+        return fnode;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#finalize()
+     */
+    @Override
+    protected void finalize() throws Throwable {
+        // TODO Auto-generated method stub
+        super.finalize();
     }
 }

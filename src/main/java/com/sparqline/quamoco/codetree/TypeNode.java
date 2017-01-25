@@ -43,8 +43,15 @@ public class TypeNode extends CodeNode {
     private final Map<String, MethodNode> methods = Maps.newHashMap();
     @Expose
     private final Map<String, FieldNode>  fields  = Maps.newHashMap();
+    @Expose
+    private String                        parentFileID;
+    @Expose
+    private boolean                       isInterface;
+    @Expose
+    private boolean                       isAbstract;
 
-    private TypeNode() {
+    private TypeNode()
+    {
         super();
     }
 
@@ -53,23 +60,30 @@ public class TypeNode extends CodeNode {
      * @param start
      * @param end
      */
-    public TypeNode(final String qIdentifier, final String identifier, final int start, final int end) {
+    public TypeNode(final String qIdentifier, final String identifier, final int start, final int end)
+    {
         super(qIdentifier, identifier, start, end);
     }
 
-    public void removeMethod(final MethodNode method) {
-        if (method == null) {
+    public void removeMethod(final MethodNode method)
+    {
+        if (method == null)
+        {
             return;
         }
 
         methods.remove(method.getQIdentifier());
     }
 
-    public MethodNode getMethod(final int line) {
-        if (line >= getStart() && line <= getEnd()) {
+    public MethodNode getMethod(final int line)
+    {
+        if (line >= getStart() && line <= getEnd())
+        {
             Collection<MethodNode> nodes = methods.values();
-            for (MethodNode node : nodes) {
-                if (node.containsLine(line)) {
+            for (MethodNode node : nodes)
+            {
+                if (node.containsLine(line))
+                {
                     return node;
                 }
             }
@@ -78,7 +92,8 @@ public class TypeNode extends CodeNode {
         return null;
     }
 
-    public MethodNode getMethod(final String name) {
+    public MethodNode getMethod(final String name)
+    {
         if (name == null || name.isEmpty())
             return null;
 
@@ -88,7 +103,8 @@ public class TypeNode extends CodeNode {
         return addMethod(name);
     }
 
-    public MethodNode addMethod(final String name) {
+    public MethodNode addMethod(final String name)
+    {
         if (name == null || name.isEmpty())
             return null;
 
@@ -100,12 +116,15 @@ public class TypeNode extends CodeNode {
         return m;
     }
 
-    public boolean addMethod(final MethodNode child) {
-        if (child == null) {
+    public boolean addMethod(final MethodNode child)
+    {
+        if (child == null)
+        {
             return false;
         }
 
-        if (child.getStart() < getStart() || child.getEnd() > getEnd()) {
+        if (child.getStart() < getStart() || child.getEnd() > getEnd())
+        {
             throw new IllegalArgumentException(
                     "A method's start cannot be less than the type's start line, and a method's end cannot exceed a type's end line.");
         }
@@ -115,33 +134,40 @@ public class TypeNode extends CodeNode {
         return true;
     }
 
-    public Set<MethodNode> getMethods() {
+    public Set<MethodNode> getMethods()
+    {
         return Sets.newHashSet(methods.values());
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see net.siliconcode.quamoco.codetree.CodeNode#getType()
      */
     @Override
-    public String getType() {
+    public String getType()
+    {
         return CodeNodeType.TYPE;
     }
 
-    public void removeField(final FieldNode field) {
-        if (field == null) {
+    public void removeField(final FieldNode field)
+    {
+        if (field == null)
+        {
             return;
         }
 
         fields.remove(field.getQIdentifier());
     }
 
-    public FieldNode getField(final int line) {
-        if (line >= getStart() && line <= getEnd()) {
+    public FieldNode getField(final int line)
+    {
+        if (line >= getStart() && line <= getEnd())
+        {
             Collection<FieldNode> nodes = fields.values();
-            for (final FieldNode node : nodes) {
-                if (node.containsLine(line)) {
+            for (final FieldNode node : nodes)
+            {
+                if (node.containsLine(line))
+                {
                     return node;
                 }
             }
@@ -150,12 +176,15 @@ public class TypeNode extends CodeNode {
         return null;
     }
 
-    public boolean addField(final FieldNode child) {
-        if (child == null) {
+    public boolean addField(final FieldNode child)
+    {
+        if (child == null)
+        {
             return false;
         }
 
-        if (child.getStart() < getStart() || child.getEnd() > getEnd()) {
+        if (child.getStart() < getStart() || child.getEnd() > getEnd())
+        {
             throw new IllegalArgumentException(
                     "A field's start cannot be less than the type's start line, and a field's end cannot exceed a type's end line.");
         }
@@ -165,28 +194,33 @@ public class TypeNode extends CodeNode {
         return true;
     }
 
-    public Set<FieldNode> getFields() {
+    public Set<FieldNode> getFields()
+    {
         return Sets.newHashSet(fields.values());
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
+    public boolean equals(final Object obj)
+    {
+        if (this == obj)
+        {
             return true;
         }
-        if (obj == null) {
+        if (obj == null)
+        {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (getClass() != obj.getClass())
+        {
             return false;
         }
 
-        if (obj instanceof TypeNode) {
+        if (obj instanceof TypeNode)
+        {
             TypeNode other = (TypeNode) obj;
 
             if (!other.qIdentifier.equals(qIdentifier))
@@ -198,11 +232,13 @@ public class TypeNode extends CodeNode {
 
     /*
      * (non-Javadoc)
-     * 
-     * @see com.sparqline.quamoco.codetree.CodeNode#update(com.sparqline.quamoco.codetree.CodeNode)
+     * @see
+     * com.sparqline.quamoco.codetree.CodeNode#update(com.sparqline.quamoco.
+     * codetree.CodeNode)
      */
     @Override
-    public void update(CodeNode t) {
+    public void update(CodeNode t)
+    {
         if (t == null)
             return;
 
@@ -213,22 +249,33 @@ public class TypeNode extends CodeNode {
 
         updateLocation(t.getStart(), t.getEnd());
 
-        for (MethodNode m : type.getMethods()) {
-            if (getMethod(m.getQIdentifier()) != null) {
+        for (MethodNode m : type.getMethods())
+        {
+            if (getMethod(m.getQIdentifier()) != null)
+            {
                 getMethod(m.getQIdentifier()).update(m);
             }
-            else {
+            else
+            {
                 addMethod(m);
             }
         }
 
-        for (FieldNode f : type.getFields()) {
-            if (getField(f.getQIdentifier()) != null) {
+        for (FieldNode f : type.getFields())
+        {
+            if (getField(f.getQIdentifier()) != null)
+            {
                 getField(f.getQIdentifier()).update(f);
             }
-            else {
+            else
+            {
                 addField(f);
             }
+        }
+
+        for (String key : t.metrics.keySet())
+        {
+            this.metrics.put(key, t.metrics.get(key));
         }
     }
 
@@ -236,7 +283,8 @@ public class TypeNode extends CodeNode {
      * @param name
      * @return
      */
-    private FieldNode getField(String name) {
+    private FieldNode getField(String name)
+    {
         if (name == null || name.isEmpty())
             return null;
 
@@ -246,7 +294,8 @@ public class TypeNode extends CodeNode {
         return addField(name);
     }
 
-    public FieldNode addField(final String name) {
+    public FieldNode addField(final String name)
+    {
         if (name == null || name.isEmpty())
             return null;
 
@@ -262,7 +311,81 @@ public class TypeNode extends CodeNode {
      * @param cnode
      * @return
      */
-    public boolean hasMethod(MethodNode cnode) {
+    public boolean hasMethod(MethodNode cnode)
+    {
         return methods.containsKey(cnode.getQIdentifier());
+    }
+
+    public String getParentFileID()
+    {
+        return parentFileID;
+    }
+
+    public void setParentFileID(String parentFileID)
+    {
+        this.parentFileID = parentFileID;
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see com.sparqline.quamoco.codetree.CodeNode#cloneNoChildren()
+     */
+    @Override
+    public TypeNode cloneNoChildren()
+    {
+        TypeNode tnode = new TypeNode(qIdentifier, name, getStart(), getEnd());
+
+        copyMetrics(tnode);
+
+        return tnode;
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#clone()
+     */
+    @Override
+    protected TypeNode clone() throws CloneNotSupportedException
+    {
+        TypeNode tnode = cloneNoChildren();
+
+        for (String key : fields.keySet())
+        {
+            tnode.addField(fields.get(key).clone());
+        }
+
+        for (String key : methods.keySet())
+        {
+            tnode.addMethod(methods.get(key).clone());
+        }
+
+        return tnode;
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#finalize()
+     */
+    @Override
+    protected void finalize() throws Throwable
+    {
+        // TODO Auto-generated method stub
+        super.finalize();
+    }
+
+    /**
+     * @return
+     */
+    public boolean isInterface()
+    {
+        return isInterface;
+    }
+
+    /**
+     * @return
+     */
+    public boolean isAbstract()
+    {
+        return isAbstract;
     }
 }

@@ -24,8 +24,11 @@
  */
 package com.sparqline.quamoco.codetree;
 
+import java.util.Queue;
 import java.util.Set;
+import java.util.Stack;
 
+import com.google.common.collect.Queues;
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -89,14 +92,14 @@ public class CodeTree {
 
         return "";
     }
-    
+
     public MethodNode findMethod(final String identifier) {
         String[] ids = identifier.split("#");
         TypeNode tn = findType(ids[0]);
-        
+
         if (tn != null)
             return tn.getMethod(ids[1]);
-        
+
         return null;
     }
 
@@ -142,11 +145,11 @@ public class CodeTree {
 
         project.addFile(node);
     }
-    
+
     public synchronized void updateProject(final ProjectNode node) {
         if (node == null)
             return;
-        
+
         if (project == null)
             this.project = node;
         else
@@ -157,10 +160,24 @@ public class CodeTree {
         if (node == null)
             return;
 
-        if (project.getFile(node.getQIdentifier()) == null)
-            addFile(node);
+        CodeNode p = null;
+        if (findProject(node.getParentID()) != null)
+            p = findProject(node.getParentID());
+        else
+            p = findModule(node.getParentID());
 
-        getFile(node.getQIdentifier()).update(node);
+        if (p instanceof ProjectNode) {
+            if (((ProjectNode) p).getFile(node.getQIdentifier()) == null) {
+                ((ProjectNode) p).addFile(node);
+                ((ProjectNode) p).getFile(node.getQIdentifier()).update(node);
+            }
+        }
+        else {
+            if (((ModuleNode) p).getFile(node.getQIdentifier()) == null) {
+                ((ModuleNode) p).addFile(node);
+                ((ModuleNode) p).getFile(node.getQIdentifier()).update(node);
+            }
+        }
     }
 
     /**
@@ -169,7 +186,15 @@ public class CodeTree {
     public Set<FileNode> getFiles() {
         Set<FileNode> files = Sets.newConcurrentHashSet();
 
-        files.addAll(project.getFiles());
+        Queue<ProjectNode> queue = Queues.newArrayDeque();
+
+        queue.add(project);
+
+        while (!queue.isEmpty()) {
+            ProjectNode pn = queue.poll();
+            files.addAll(pn.getFiles());
+            queue.addAll(pn.getSubProjects());
+        }
 
         return files;
     }
@@ -210,7 +235,18 @@ public class CodeTree {
             return null;
         }
 
-        return project.getFile(string);
+        for (ProjectNode p : getProjects()) {
+            if (p.hasFile(string)) {
+                return p.getFile(string);
+            }
+            else {
+                for (ModuleNode m : p.getModules()) {
+                    if (m.hasFile(string))
+                        return m.getFile(string);
+                }
+            }
+        }
+        return null;
     }
 
     /**
@@ -245,16 +281,41 @@ public class CodeTree {
         return type.getMethod(line);
     }
 
+    public ModuleNode findModule(String qIdentifier) {
+        Set<ProjectNode> projs = getProjects();
+
+        for (ProjectNode p : projs) {
+            if (p.hasModule(qIdentifier))
+                return p.getModule(qIdentifier);
+        }
+
+        return null;
+    }
+
+    public Set<ProjectNode> getProjects() {
+        Set<ProjectNode> projs = Sets.newHashSet();
+        Queue<ProjectNode> q = Queues.newArrayDeque();
+
+        if (project != null)
+            q.offer(project);
+
+        while (!q.isEmpty()) {
+            ProjectNode pnode = q.poll();
+            projs.add(pnode);
+            q.addAll(pnode.getSubProjects());
+        }
+
+        return projs;
+    }
+
     /**
      * @return
      */
     public Set<MethodNode> getMethods() {
-        final Set<MethodNode> methods = Sets.newHashSet();
+        final Set<MethodNode> methods = Sets.newConcurrentHashSet();
 
-        project.getFiles().parallelStream().forEach((file) -> {
-            for (final TypeNode type : file.getTypes()) {
-                methods.addAll(type.getMethods());
-            }
+        getTypes().parallelStream().forEach((type) -> {
+            methods.addAll(type.getMethods());
         });
 
         return methods;
@@ -266,7 +327,7 @@ public class CodeTree {
     public Set<TypeNode> getTypes() {
         final Set<TypeNode> types = Sets.newConcurrentHashSet();
 
-        project.getFiles().parallelStream().forEach((file) -> {
+        getFiles().parallelStream().forEach((file) -> {
             types.addAll(file.getTypes());
         });
 
@@ -278,11 +339,9 @@ public class CodeTree {
      * @return
      */
     public TypeNode findType(final String key) {
-        for (final FileNode fnode : project.getFiles()) {
-            for (final TypeNode tnode : fnode.getTypes()) {
-                if (tnode.getQIdentifier().equals(key)) {
-                    return tnode;
-                }
+        for (final TypeNode tnode : getTypes()) {
+            if (tnode.getQIdentifier().equals(key)) {
+                return tnode;
             }
         }
 
@@ -292,10 +351,17 @@ public class CodeTree {
     public void merge(CodeTree other) {
         ProjectNode pn = other.getProject();
 
-        if (project == null)
+        if (project == null) {
             project = pn;
-        else
+        }
+        if (pn.hasParent()) {
+            if (pn.getParentQID().equals(project.getQIdentifier())) {
+                project.addSubProject(pn);
+            }
+        }
+        else if (project.equals(pn)) {
             project.update(pn);
+        }
     }
 
     public static CodeTree createFromJson(String json) {
@@ -360,5 +426,247 @@ public class CodeTree {
             return false;
         }
         return true;
+    }
+
+    public ProjectNode findProject(String qid) {
+        Queue<ProjectNode> queue = Queues.newArrayDeque();
+
+        if (this.project != null)
+            queue.offer(this.project);
+
+        while (!queue.isEmpty()) {
+            ProjectNode node = queue.poll();
+            if (node.getQIdentifier().equals(qid))
+                return node;
+
+            for (ProjectNode pn : node.getSubProjects()) {
+                queue.offer(pn);
+            }
+        }
+
+        return null;
+    }
+
+    public CodeTree extractTree(CodeNode cnode) {
+        CodeTree retVal = null;
+
+        if (cnode instanceof ProjectNode) {
+            ProjectNode pnode = (ProjectNode) cnode;
+            if (pnode.getParentQID() == null) {
+                retVal = this;
+            }
+            else {
+                retVal = new CodeTree();
+                Stack<ProjectNode> stack = new Stack<>();
+                stack.push(pnode);
+                while (pnode.hasParent()) {
+                    pnode = findProject(pnode.getParentQID());
+                    stack.push(pnode);
+                }
+
+                ProjectNode current = stack.pop().cloneNoChildren();
+                ProjectNode next = null;
+                while (!stack.isEmpty()) {
+                    if (stack.size() == 1) {
+                        try {
+                            next = stack.pop().clone();
+                        }
+                        catch (CloneNotSupportedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    else {
+                        next = stack.pop().cloneNoChildren();
+                    }
+
+                    if (next != null) {
+                        current.addSubProject(next);
+                        current = next;
+                    }
+                    next = null;
+                }
+            }
+        }
+        else if (cnode instanceof ModuleNode) {
+            ModuleNode mnode = (ModuleNode) cnode;
+
+            retVal = new CodeTree();
+            Stack<ProjectNode> stack = new Stack<>();
+            ProjectNode pnode = findProject(mnode.getParentID());
+            stack.push(pnode);
+            while (pnode.hasParent()) {
+                pnode = findProject(pnode.getParentQID());
+                stack.push(pnode);
+            }
+
+            ProjectNode current = stack.pop().cloneNoChildren();
+            ProjectNode root = current;
+            ProjectNode next;
+            while (!stack.isEmpty()) {
+                next = stack.pop().cloneNoChildren();
+
+                current.addSubProject(next);
+                current = next;
+                next = null;
+            }
+
+            try {
+                ModuleNode mod = mnode.clone();
+                current.addModule(mod);
+            }
+            catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+
+            retVal.setProject(root);
+        }
+        else if (cnode instanceof FileNode) {
+            FileNode fnode = (FileNode) cnode;
+
+            retVal = new CodeTree();
+            Stack<ProjectNode> stack = new Stack<>();
+            ProjectNode pnode = null;
+            ModuleNode mnode = null;
+
+            if (findProject(fnode.getParentID()) != null) {
+                pnode = findProject(fnode.getParentID());
+            }
+            else {
+                mnode = findModule(fnode.getParentID());
+                pnode = findProject(mnode.getParentID());
+            }
+
+            stack.push(pnode);
+            while (pnode.hasParent()) {
+                pnode = findProject(pnode.getParentQID());
+                stack.push(pnode);
+            }
+
+            ProjectNode current = stack.pop().cloneNoChildren();
+            ProjectNode root = current;
+            ProjectNode next;
+            ProjectNode actual = null;
+            while (!stack.isEmpty()) {
+                next = stack.pop().cloneNoChildren();
+
+                current.addSubProject(next);
+                if (next.getQIdentifier().equals(fnode.getParentID()))
+                    actual = next;
+                
+                current = next;
+                next = null;
+            }
+
+            try {
+                actual.addFile(fnode.clone());
+            }
+            catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+
+            retVal.setProject(root);
+        }
+        else if (cnode instanceof TypeNode) {
+            TypeNode tnode = (TypeNode) cnode;
+
+            FileNode fnode = findFile(tnode.getParentFileID());
+
+            retVal = new CodeTree();
+            Stack<ProjectNode> stack = new Stack<>();
+            ProjectNode pnode = null;
+            ModuleNode mnode = null;
+
+            if (findProject(fnode.getParentID()) != null) {
+                pnode = findProject(fnode.getParentID());
+            }
+            else {
+                mnode = findModule(fnode.getParentID());
+                pnode = findProject(mnode.getParentID());
+            }
+
+            stack.push(pnode);
+            while (pnode.hasParent()) {
+                pnode = findProject(pnode.getParentQID());
+                stack.push(pnode);
+            }
+
+            ProjectNode current = stack.pop().cloneNoChildren();
+            ProjectNode root = current;
+            ProjectNode next;
+            while (!stack.isEmpty()) {
+                next = stack.pop().cloneNoChildren();
+
+                current.addSubProject(next);
+                current = next;
+                next = null;
+            }
+
+            ProjectNode curProj = findProject(current.getQIdentifier());
+
+            fnode = curProj.getFile(tnode.getParentFileID()).cloneNoChildren();
+
+            curProj.addFile(fnode);
+
+            fnode.addType(tnode.cloneNoChildren());
+
+            retVal.setProject(root);
+        }
+        else if (cnode instanceof MethodNode) {
+            MethodNode methnode = (MethodNode) cnode;
+
+            TypeNode tnode = findType(methnode.getParentTypeID());
+
+            FileNode fnode = findFile(tnode.getParentFileID());
+
+            retVal = new CodeTree();
+            Stack<ProjectNode> stack = new Stack<>();
+            ProjectNode pnode = null;
+            ModuleNode mnode = null;
+
+            if (findProject(fnode.getParentID()) != null) {
+                pnode = findProject(fnode.getParentID());
+            }
+            else {
+                mnode = findModule(fnode.getParentID());
+                pnode = findProject(mnode.getParentID());
+            }
+
+            stack.push(pnode);
+            while (pnode.hasParent()) {
+                pnode = findProject(pnode.getParentQID());
+                stack.push(pnode);
+            }
+
+            ProjectNode current = stack.pop().cloneNoChildren();
+            ProjectNode root = current;
+            ProjectNode next;
+            while (!stack.isEmpty()) {
+                next = stack.pop().cloneNoChildren();
+
+                current.addSubProject(next);
+                current = next;
+                next = null;
+            }
+
+            ProjectNode curProj = findProject(current.getQIdentifier());
+
+            fnode = curProj.getFile(tnode.getParentFileID()).cloneNoChildren();
+
+            curProj.addFile(fnode);
+
+            tnode = tnode.cloneNoChildren();
+            fnode.addType(tnode);
+
+            try {
+                tnode.addMethod(methnode.clone());
+            }
+            catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+
+            retVal.setProject(root);
+        }
+
+        return retVal;
     }
 }

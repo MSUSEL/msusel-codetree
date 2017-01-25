@@ -11,6 +11,10 @@ public class CodeTreeJsonTest {
 
     public static void main(String args[]) {
         ProjectNode pn = new ProjectNode("project");
+        
+        pn.addMetric("TEST", 4.0);
+        pn.addMetric("TEST2", 10.0);
+        
         FileNode fn = new FileNode("/home/git/test");
 
         fn.addMetric("TEST", 1.0);
@@ -43,13 +47,15 @@ public class CodeTreeJsonTest {
         
         CodeTree ct2 = CodeTree.createFromJson(tree.toJSON());
         
-        ProjectNode pn2 = ProjectNode.createFromJson(pn.toJSON());
+//        ProjectNode pn2 = ProjectNode.createFromJson(pn.toJSON());
+//        
+//        tree = new CodeTree();
+//        tree.setProject("Bob");
+//        
+//        System.out.println("\n" + tree.toJSON());
+//        
+//        ct2 = CodeTree.createFromJson(tree.toJSON());
         
-        tree = new CodeTree();
-        tree.setProject("Bob");
-        
-        System.out.println("\n" + tree.toJSON());
-        
-        ct2 = CodeTree.createFromJson(tree.toJSON());
+        System.out.println("\n\n" + ct2.toJSON());
     }
 }

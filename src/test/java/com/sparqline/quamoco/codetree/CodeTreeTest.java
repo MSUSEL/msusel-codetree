@@ -1,6 +1,6 @@
 package com.sparqline.quamoco.codetree;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -627,6 +627,42 @@ public class CodeTreeTest {
         CodeTree ct2 = CodeTree.createFromJson(tree.toJSON());
         assertEquals(tree, ct2);
     }
+    
+    @Test
+    public void testExtractTree() throws Exception {
+        fixture = new CodeTree();
+        fixture.setProject("project");
+        FileNode file1 = new FileNode("path1");
+        FileNode file2 = new FileNode("path2");
+        FileNode file3 = new FileNode("path3");
+        FileNode file4 = new FileNode("path4");
+                
+        ProjectNode subProj1 = new ProjectNode("subproject1");
+        subProj1.addFile(file1);
+        subProj1.addFile(file2);
+        ProjectNode subProj2 = new ProjectNode("subproject2");
+        subProj2.addFile(file3);
+        subProj2.addFile(file4);
+        
+        fixture.getProject().addSubProject(subProj1);
+        fixture.getProject().addSubProject(subProj2);
+
+        final TypeNode type1 = new TypeNode("path1.namespace.Type1", "Type1", 100, 150);
+        final MethodNode method1 = new MethodNode("path1.namespace.Type1#method1", "method1", false, 110, 150);
+        type1.addMethod(method1);
+        file1.addType(type1);
+
+        final TypeNode type2 = new TypeNode("path2.namespace.Type2", "Type2", 100, 150);
+        final MethodNode method2 = new MethodNode("path2.namespace.Type2#method2", "method2", false, 110, 150);
+        type2.addMethod(method2);
+        file2.addType(type2);
+        FileNode file5 = fixture.findFile("path1");
+        assertNotNull(file5);
+        assertEquals("subproject1", file1.getParentID());
+        CodeTree test = fixture.extractTree(file1);
+    
+        System.out.println(test.toJSON());
+    }
 
     /**
      * Perform pre-test initialization.
@@ -641,8 +677,8 @@ public class CodeTreeTest {
         fixture.setProject("project");
         final FileNode file1 = new FileNode("path1");
         final FileNode file2 = new FileNode("path2");
-        fixture.addFile(file1);
-        fixture.addFile(file2);
+        fixture.getProject().addFile(file1);
+        fixture.getProject().addFile(file2);
 
         final TypeNode type1 = new TypeNode("path1.namespace.Type1", "Type1", 100, 150);
         final MethodNode method1 = new MethodNode("path1.namespace.Type1#method1", "method1", false, 110, 150);
