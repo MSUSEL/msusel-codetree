@@ -5,11 +5,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sparqline.codetree.node.CodeNode;
-import com.sparqline.codetree.node.FieldNode;
-import com.sparqline.codetree.node.FileNode;
-import com.sparqline.codetree.node.TypeNode;
-
 /**
  * The class <code>CodeNodeTest</code> contains tests for the class
  * <code>{@link CodeNode}</code>.
@@ -29,8 +24,9 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testCompareTo_1() throws Exception {
-        final CodeNode other = new TypeNode("namespace.Type", "Type", 1, 100);
+    public void testCompareTo_1() throws Exception
+    {
+        final CodeNode other = TypeNode.builder("Type", "namespace.Type").range(1, 100).create();
 
         final int result = fixture.compareTo(other);
 
@@ -45,8 +41,9 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testCompareTo_2() throws Exception {
-        final CodeNode other = new TypeNode("namespace.Type", "Type", 100, 1000);
+    public void testCompareTo_2() throws Exception
+    {
+        final CodeNode other = TypeNode.builder("Type", "namespace.Type").range(100, 1000).create();
 
         final int result = fixture.compareTo(other);
 
@@ -61,8 +58,9 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testCompareTo_3() throws Exception {
-        final CodeNode other = new TypeNode("namespace.Type", "Type", 200, 1000);
+    public void testCompareTo_3() throws Exception
+    {
+        final CodeNode other = TypeNode.builder("Type", "namespace.Type").range(200, 1000).create();
 
         final int result = fixture.compareTo(other);
 
@@ -77,7 +75,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testContainsLine_1() throws Exception {
+    public void testContainsLine_1() throws Exception
+    {
         final int line = 100;
 
         final boolean result = fixture.containsLine(line);
@@ -93,7 +92,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testContainsLine_2() throws Exception {
+    public void testContainsLine_2() throws Exception
+    {
         final int line = 99;
 
         final boolean result = fixture.containsLine(line);
@@ -109,7 +109,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testContainsLine_3() throws Exception {
+    public void testContainsLine_3() throws Exception
+    {
         final int line = 1000;
 
         final boolean result = fixture.containsLine(line);
@@ -125,7 +126,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testContainsLine_4() throws Exception {
+    public void testContainsLine_4() throws Exception
+    {
         final int line = 1001;
 
         final boolean result = fixture.containsLine(line);
@@ -141,8 +143,9 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testEquals_1() throws Exception {
-        final CodeNode obj = new TypeNode("namespace.Type", "Type", 100, 1000);
+    public void testEquals_1() throws Exception
+    {
+        final CodeNode obj = TypeNode.builder("Type", "namespace.Type").range(100, 1000).create();
 
         final boolean result = fixture.equals(obj);
 
@@ -157,7 +160,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testEquals_2() throws Exception {
+    public void testEquals_2() throws Exception
+    {
         final Object obj = null;
 
         final boolean result = fixture.equals(obj);
@@ -173,7 +177,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testEquals_3() throws Exception {
+    public void testEquals_3() throws Exception
+    {
         final Object obj = new Object();
 
         final boolean result = fixture.equals(obj);
@@ -189,8 +194,9 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testEquals_4() throws Exception {
-        final CodeNode obj = new TypeNode("namespace.Type", "Type", 100, 1000);
+    public void testEquals_4() throws Exception
+    {
+        final CodeNode obj = TypeNode.builder("Type", "namespace.Type").range(100, 1000).create();
 
         final boolean result = fixture.equals(obj);
 
@@ -205,8 +211,9 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testEquals_5() throws Exception {
-        final CodeNode obj = new TypeNode("namespace.NewType", "NewType", 100, 1000);
+    public void testEquals_5() throws Exception
+    {
+        final CodeNode obj = TypeNode.builder("NewType", "namespace.NewType").range(100, 1000).create();
 
         final boolean result = fixture.equals(obj);
 
@@ -221,7 +228,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testEquals_6() throws Exception {
+    public void testEquals_6() throws Exception
+    {
         final FileNode obj = new FileNode("path");
 
         final boolean result = fixture.equals(obj);
@@ -237,8 +245,10 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testEquals_7() throws Exception {
-        final CodeNode obj = new TypeNode("namespace.Type", "Type", 125, 1000);
+    public void testEquals_7() throws Exception
+    {
+        final CodeNode obj = TypeNode.builder("Type", "namespace.Type").range(125, 1000).create();
+        ;
 
         final boolean result = fixture.equals(obj);
 
@@ -253,8 +263,9 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testEquals_8() throws Exception {
-        final CodeNode obj = new TypeNode("namespace.Type", "Type", 100, 900);
+    public void testEquals_8() throws Exception
+    {
+        final CodeNode obj = TypeNode.builder("Type", "namespace.Type").range(100, 900).create();
 
         final boolean result = fixture.equals(obj);
 
@@ -269,7 +280,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetEnd_1() throws Exception {
+    public void testGetEnd_1() throws Exception
+    {
         final int result = fixture.getEnd();
 
         // add additional test code here
@@ -283,7 +295,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetQIdentifier_1() throws Exception {
+    public void testGetQIdentifier_1() throws Exception
+    {
         final String result = fixture.getQIdentifier();
 
         // add additional test code here
@@ -297,7 +310,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetStart_1() throws Exception {
+    public void testGetStart_1() throws Exception
+    {
         final int result = fixture.getStart();
 
         // add additional test code here
@@ -311,14 +325,17 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testSetEnd_1() throws Exception {
+    public void testSetEnd_1() throws Exception
+    {
         final int end = 150;
 
-        try {
+        try
+        {
             fixture.setEnd(end);
             Assert.assertEquals(end, fixture.getEnd());
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
             Assert.fail();
         }
     }
@@ -330,14 +347,17 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testSetEnd_2() throws Exception {
+    public void testSetEnd_2() throws Exception
+    {
         final int end = 1;
 
-        try {
+        try
+        {
             fixture.setEnd(end);
             Assert.fail();
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
 
         }
     }
@@ -349,15 +369,18 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testSetEnd_3() throws Exception {
-        fixture = new FieldNode("field", "field", 150);
+    public void testSetEnd_3() throws Exception
+    {
+        fixture = FieldNode.builder("field", "field").range(150, 150).create();
         final int end = 1001;
 
-        try {
+        try
+        {
             fixture.setEnd(end);
 
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
             Assert.fail();
         }
     }
@@ -369,14 +392,17 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testSetStart_1() throws Exception {
+    public void testSetStart_1() throws Exception
+    {
         final int start = 1001;
 
-        try {
+        try
+        {
             fixture.setStart(start);
             Assert.fail();
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
         }
     }
 
@@ -387,14 +413,17 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testSetStart_2() throws Exception {
+    public void testSetStart_2() throws Exception
+    {
         final int start = -1;
 
-        try {
+        try
+        {
             fixture.setStart(start);
             Assert.fail();
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
         }
     }
 
@@ -405,14 +434,17 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testSetStart_3() throws Exception {
+    public void testSetStart_3() throws Exception
+    {
         final int start = 250;
 
-        try {
+        try
+        {
             fixture.setStart(start);
             Assert.assertEquals(start, fixture.getStart());
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
             Assert.fail();
         }
     }
@@ -425,8 +457,9 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Before
-    public void setUp() throws Exception {
-        fixture = new TypeNode("namespace.Type", "Type", 100, 1000);
+    public void setUp() throws Exception
+    {
+        fixture = TypeNode.builder("Type", "namespace.Type").range(100, 1000).create();
     }
 
     /**
@@ -437,7 +470,8 @@ public class CodeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() throws Exception
+    {
         // Add additional tear down code here
     }
 
@@ -448,7 +482,8 @@ public class CodeNodeTest {
      *            the command line arguments
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args)
+    {
         new org.junit.runner.JUnitCore().run(CodeNodeTest.class);
     }
 }

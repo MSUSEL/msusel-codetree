@@ -520,6 +520,44 @@ public class TypeNode extends CodeNode {
     }
 
     /**
+     * Searches this TypeNode for a method whose line range contains the given
+     * line
+     * 
+     * @param line
+     *            The line
+     * @return MethodNode whose range contains the given line, or null if no
+     *         such MethodNode exists in this type.
+     */
+    public MethodNode findMethod(int line)
+    {
+        if (line < getStart() || line > getEnd())
+            return null;
+
+        for (MethodNode method : methods.values())
+        {
+            if (method.containsLine(line))
+                return method;
+        }
+
+        return null;
+    }
+
+    /**
+     * Creates a new Builder for a TypeNode with the given simple name and
+     * qualified identifier
+     * 
+     * @param name
+     *            Simple Name
+     * @param qID
+     *            Qualified Identifier
+     * @return the TypeNode.Builder instance
+     */
+    public static Builder builder(String name, String qID)
+    {
+        return new Builder(name, qID);
+    }
+
+    /**
      * Builder for Types implemented using the fluent interface and method
      * chaining patterns.
      * 
@@ -542,7 +580,7 @@ public class TypeNode extends CodeNode {
          * @param qID
          *            Qualified Identifier
          */
-        public Builder(String name, String qID)
+        private Builder(String name, String qID)
         {
             node = new TypeNode(qID, name);
         }

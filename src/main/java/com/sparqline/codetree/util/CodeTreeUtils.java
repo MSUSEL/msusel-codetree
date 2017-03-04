@@ -557,7 +557,7 @@ public class CodeTreeUtils {
      */
     public Set<FileNode> getFiles()
     {
-        Set<FileNode> files = Sets.newConcurrentHashSet();
+        Set<FileNode> files = Sets.newHashSet();
 
         Queue<ProjectNode> queue = Queues.newArrayDeque();
 
@@ -578,9 +578,9 @@ public class CodeTreeUtils {
      */
     public Set<MethodNode> getMethods()
     {
-        final Set<MethodNode> methods = Sets.newConcurrentHashSet();
+        final Set<MethodNode> methods = Sets.newHashSet();
 
-        getTypes().parallelStream().forEach((type) -> {
+        getTypes().forEach((type) -> {
             methods.addAll(type.getMethods());
         });
 
@@ -614,9 +614,9 @@ public class CodeTreeUtils {
      */
     public Set<TypeNode> getTypes()
     {
-        final Set<TypeNode> types = Sets.newConcurrentHashSet();
+        final Set<TypeNode> types = Sets.newHashSet();
 
-        getFiles().parallelStream().forEach((file) -> {
+        getFiles().forEach((file) -> {
             types.addAll(file.getTypes());
         });
 

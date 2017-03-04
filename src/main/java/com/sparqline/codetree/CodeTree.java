@@ -92,7 +92,7 @@ public class CodeTree {
         if (key == null || key.isEmpty())
             throw new IllegalArgumentException("Project key cannot be null or empty.");
 
-        project = new ProjectNode.Builder(key).create();
+        project = ProjectNode.builder(key).create();
     }
 
     /**

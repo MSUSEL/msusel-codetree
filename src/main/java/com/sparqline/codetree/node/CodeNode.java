@@ -177,8 +177,15 @@ public abstract class CodeNode extends AbstractNode implements Comparable<CodeNo
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append("CodeNode [start=").append(start).append(", end=").append(end).append(", qIdentifier=")
-                .append(qIdentifier).append(", name=").append(name).append("]");
+        builder.append("CodeNode [start=")
+                .append(start)
+                .append(", end=")
+                .append(end)
+                .append(", qIdentifier=")
+                .append(qIdentifier)
+                .append(", name=")
+                .append(name)
+                .append("]");
         return builder.toString();
     }
 

@@ -127,7 +127,8 @@ public abstract class AbstractNode implements INode {
             return;
 
         if (metrics.containsKey(MetricNameRegistry.getInstance().lookup(name)))
-            metrics.put(MetricNameRegistry.getInstance().lookup(name),
+            metrics.put(
+                    MetricNameRegistry.getInstance().lookup(name),
                     metrics.get(MetricNameRegistry.getInstance().lookup(name)) + increment);
         else
             metrics.put(MetricNameRegistry.getInstance().lookup(name), increment);
@@ -141,8 +142,9 @@ public abstract class AbstractNode implements INode {
     {
         if (metric == null || metric.isEmpty() || !hasMetric(metric))
         {
-            LOG.warn("Bad Metric: " + metric + " for " + this.getClass().getSimpleName() + " with id: "
-                    + this.getQIdentifier());
+            LOG.warn(
+                    "Bad Metric: " + metric + " for " + this.getClass().getSimpleName() + " with id: "
+                            + this.getQIdentifier());
             return -1.0;
         }
 

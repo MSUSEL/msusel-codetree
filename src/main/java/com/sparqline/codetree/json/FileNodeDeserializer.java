@@ -59,7 +59,7 @@ public class FileNodeDeserializer implements JsonDeserializer<FileNode> {
             throw new JsonParseException("Missing qIdentifier field.");
         String path = obj.get("qIdentifier").getAsString();
 
-        FileNode.Builder builder = new FileNode.Builder(path);
+        FileNode.Builder builder = FileNode.builder(path);
 
         if (obj.has("metrics"))
         {

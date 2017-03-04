@@ -309,12 +309,11 @@ public class ProjectNode extends StructuralNode {
      * @param path
      *            Path of file to find
      * @return The file with matching path if it is contained in this project,
-     *         or null if no such file exists or the path is empty, null, or
-     *         non-existent
+     *         or null if the path is empty, null, or
      */
     public FileNode getFile(String path)
     {
-        if (path == null || path.isEmpty() || !Files.exists(Paths.get(path)))
+        if (path == null || path.isEmpty())
             return null;
 
         return files.get(path);
@@ -677,6 +676,19 @@ public class ProjectNode extends StructuralNode {
     }
 
     /**
+     * Constructs a new Builder for a Project with the given qualified
+     * identifier.
+     * 
+     * @param qID
+     *            Qualified Identifier of the project to be constructed
+     * @return the ProjectNode.Builder instance.
+     */
+    public static Builder builder(String qID)
+    {
+        return new Builder(qID);
+    }
+
+    /**
      * Builder for Projects implemented using the fluent interface and method
      * chaining patterns.
      * 
@@ -697,7 +709,7 @@ public class ProjectNode extends StructuralNode {
          * @param qID
          *            Qualified Identifier of the project to be constructed
          */
-        public Builder(String qID)
+        private Builder(String qID)
         {
             node = new ProjectNode(qID);
         }

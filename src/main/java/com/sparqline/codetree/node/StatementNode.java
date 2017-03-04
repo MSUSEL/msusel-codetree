@@ -142,13 +142,26 @@ public class StatementNode extends CodeNode {
     }
 
     /**
+     * Constructs a new Builder for a StatementNode with the given
+     * StatementType
+     * 
+     * @param type
+     *            Type of the Node to be built.
+     * @return The StatementNode.Builder instance
+     */
+    public static Builder builder(StatementType type)
+    {
+        return new Builder(type);
+    }
+
+    /**
      * Builder for Statements implemented using the fluent interface and method
      * chaining patterns.
      * 
      * @author Isaac Griffith
      * @version 1.1.0
      */
-    public class Builder {
+    public static class Builder {
 
         /**
          * StatementNode to be constructed.
@@ -162,7 +175,7 @@ public class StatementNode extends CodeNode {
          * @param type
          *            Type of the Node to be built.
          */
-        public Builder(StatementType type)
+        private Builder(StatementType type)
         {
             node = new StatementNode(type);
         }
@@ -187,8 +200,7 @@ public class StatementNode extends CodeNode {
          */
         public Builder range(int start, int end)
         {
-            node.setStart(start);
-            node.setEnd(end);
+            node.setRange(start, end);
 
             return this;
         }

@@ -35,6 +35,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 import com.sparqline.codetree.node.NamespaceNode;
+import com.sparqline.codetree.node.TypeNode;
 
 /**
  * @author Isaac Griffith
@@ -58,7 +59,7 @@ public class NamespaceNodeDeserializer implements JsonDeserializer<NamespaceNode
             throw new JsonParseException("Missing qIdentifier field.");
         String key = obj.get("qIdentifier").getAsString();
 
-        NamespaceNode.Builder builder = new NamespaceNode.Builder(key);
+        NamespaceNode.Builder builder = NamespaceNode.builder(key);
 
         if (obj.has("metrics"))
         {
@@ -70,9 +71,9 @@ public class NamespaceNodeDeserializer implements JsonDeserializer<NamespaceNode
 
         if (obj.has("types"))
         {
-            Type typesType = new TypeToken<Set<String>>() {
+            Type typesType = new TypeToken<Set<TypeNode>>() {
             }.getType();
-            Set<String> types = context.deserialize(obj.get("types"), typesType);
+            Set<TypeNode> types = context.deserialize(obj.get("types"), typesType);
             types.forEach((type) -> builder.type(type));
         }
 

@@ -62,7 +62,7 @@ public class ProjectNodeDeserializer implements JsonDeserializer<ProjectNode> {
             throw new JsonParseException("Missing qIdentifier field.");
         String key = obj.get("qIdentifier").getAsString();
 
-        ProjectNode.Builder builder = new ProjectNode.Builder(key);
+        ProjectNode.Builder builder = ProjectNode.builder(key);
 
         if (obj.has("metrics"))
         {

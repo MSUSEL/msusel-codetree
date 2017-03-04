@@ -338,6 +338,21 @@ public class MethodNode extends CodeNode {
     }
 
     /**
+     * Constructs a new Builder for a MethodNode with the given initial
+     * simple name and qualified identifier
+     * 
+     * @param name
+     *            Initial simple name
+     * @param qID
+     *            Initial qualified identifier
+     * @return The MethodNode.Builder instance
+     */
+    public static Builder builder(String name, String qID)
+    {
+        return new Builder(name, qID);
+    }
+
+    /**
      * Builder for Methods implemented using the fluent interface and method
      * chaining patterns.
      * 
@@ -360,7 +375,7 @@ public class MethodNode extends CodeNode {
          * @param qID
          *            Initial qualified identifier
          */
-        public Builder(String name, String qID)
+        private Builder(String name, String qID)
         {
             node = new MethodNode(qID, name);
         }

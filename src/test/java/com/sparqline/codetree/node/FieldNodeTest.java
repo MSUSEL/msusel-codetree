@@ -5,8 +5,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sparqline.codetree.node.FieldNode;
-
 /**
  * The class <code>FieldNodeTest</code> contains tests for the class
  * <code>{@link FieldNode}</code>.
@@ -26,13 +24,15 @@ public class FieldNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testFieldNode_1() throws Exception {
+    public void testFieldNode_1() throws Exception
+    {
         final String qIdentifier = "path#field";
         final String name = "field";
         final int line = 1;
 
-        try {
-            final FieldNode result = new FieldNode(qIdentifier, name, line);
+        try
+        {
+            final FieldNode result = FieldNode.builder(qIdentifier, name).range(line, line).create();
 
             // add additional test code here
             Assert.assertNotNull(result);
@@ -41,7 +41,8 @@ public class FieldNodeTest {
             Assert.assertEquals(1, result.getEnd());
             Assert.assertEquals(1, result.getStart());
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
             Assert.fail();
         }
     }
@@ -53,15 +54,18 @@ public class FieldNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testFieldNode_2() throws Exception {
+    public void testFieldNode_2() throws Exception
+    {
         final String identifier = "";
         final int line = 1;
 
-        try {
-            new FieldNode(identifier, identifier, line);
+        try
+        {
+            FieldNode.builder(identifier, identifier).range(line, line).create();
             Assert.fail();
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
 
         }
     }
@@ -73,15 +77,18 @@ public class FieldNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testFieldNode_3() throws Exception {
+    public void testFieldNode_3() throws Exception
+    {
         final String identifier = null;
         final int line = 1;
 
-        try {
-            new FieldNode(identifier, identifier, line);
+        try
+        {
+            FieldNode.builder(identifier, identifier).range(line, line).create();
             Assert.fail();
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
 
         }
     }
@@ -93,7 +100,8 @@ public class FieldNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetType_1() throws Exception {
+    public void testGetType_1() throws Exception
+    {
         final String result = fixture.getType();
 
         // add additional test code here
@@ -108,8 +116,9 @@ public class FieldNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Before
-    public void setUp() throws Exception {
-        fixture = new FieldNode("path#field", "field", 1);
+    public void setUp() throws Exception
+    {
+        fixture = FieldNode.builder("field", "path#field").range(1, 1).create();
     }
 
     /**
@@ -120,7 +129,8 @@ public class FieldNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() throws Exception
+    {
         // Add additional tear down code here
     }
 
@@ -131,7 +141,8 @@ public class FieldNodeTest {
      *            the command line arguments
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args)
+    {
         new org.junit.runner.JUnitCore().run(FieldNodeTest.class);
     }
 }

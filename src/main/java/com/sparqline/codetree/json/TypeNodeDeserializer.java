@@ -70,7 +70,7 @@ public class TypeNodeDeserializer implements JsonDeserializer<TypeNode> {
             throw new JsonParseException("Missing end field.");
         int end = obj.get("end").getAsInt();
 
-        TypeNode.Builder builder = new TypeNode.Builder(shortKey, key).range(start, end);
+        TypeNode.Builder builder = TypeNode.builder(shortKey, key).range(start, end);
 
         if (obj.has("metrics"))
         {

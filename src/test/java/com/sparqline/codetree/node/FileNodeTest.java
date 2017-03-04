@@ -7,11 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sparqline.codetree.node.FieldNode;
-import com.sparqline.codetree.node.FileNode;
-import com.sparqline.codetree.node.MethodNode;
-import com.sparqline.codetree.node.TypeNode;
-
 /**
  * The class <code>FileNodeTest</code> contains tests for the class
  * <code>{@link FileNode}</code>.
@@ -31,19 +26,20 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testFileNode_1() throws Exception {
+    public void testFileNode_1() throws Exception
+    {
         final String fullPath = "path";
 
         // add additional test code here
-        try {
+        try
+        {
             final FileNode result = new FileNode(fullPath);
             Assert.assertNotNull(result);
             Assert.assertEquals("FILE", result.getType());
             Assert.assertEquals("path", result.getQIdentifier());
-            Assert.assertEquals(1, result.getEnd());
-            Assert.assertEquals(1, result.getStart());
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
             Assert.fail();
         }
     }
@@ -55,15 +51,18 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testFileNode_2() throws Exception {
+    public void testFileNode_2() throws Exception
+    {
         final String fullPath = "";
 
         // add additional test code here
-        try {
+        try
+        {
             new FileNode(fullPath);
             Assert.fail();
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
 
         }
     }
@@ -75,15 +74,18 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testFileNode_3() throws Exception {
+    public void testFileNode_3() throws Exception
+    {
         final String fullPath = null;
 
         // add additional test code here
-        try {
+        try
+        {
             new FileNode(fullPath);
             Assert.fail();
         }
-        catch (final IllegalArgumentException e) {
+        catch (final IllegalArgumentException e)
+        {
 
         }
     }
@@ -95,8 +97,9 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testAddType_1() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
+    public void testAddType_1() throws Exception
+    {
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).create();
 
         final boolean result = fixture.addType(node);
 
@@ -111,8 +114,9 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testAddType_2() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
+    public void testAddType_2() throws Exception
+    {
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).create();
 
         Assert.assertTrue(fixture.addType(node));
         final boolean result = fixture.addType(node);
@@ -128,7 +132,8 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testAddType_3() throws Exception {
+    public void testAddType_3() throws Exception
+    {
         final TypeNode node = null;
 
         final boolean result = fixture.addType(node);
@@ -144,10 +149,11 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetMethod_1() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
-        final MethodNode method = new MethodNode("namespace.Type#method", "method", false, 25, 100);
-        Assert.assertTrue(node.addMethod(method));
+    public void testGetMethod_1() throws Exception
+    {
+        MethodNode method;
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).method(
+                method = MethodNode.builder("method", "namespace.Type#method").range(25, 100).create()).create();
         Assert.assertTrue(fixture.addType(node));
         final int line = 25;
 
@@ -164,10 +170,11 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetMethod_2() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
-        final MethodNode method = new MethodNode("namespace.Type#method", "method", false, 25, 100);
-        Assert.assertTrue(node.addMethod(method));
+    public void testGetMethod_2() throws Exception
+    {
+        MethodNode method;
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).method(
+                method = MethodNode.builder("method", "namespace.Type#method").range(25, 100).create()).create();
         Assert.assertTrue(fixture.addType(node));
 
         int line = 25;
@@ -188,10 +195,11 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetMethod_3() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 20, 100);
-        final MethodNode method = new MethodNode("namespace.Type#method", "method", false, 25, 100);
-        Assert.assertTrue(node.addMethod(method));
+    public void testGetMethod_3() throws Exception
+    {
+        MethodNode method;
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(20, 100).method(
+                method = MethodNode.builder("method", "namespace.Type#method").range(25, 100).create()).create();
         Assert.assertTrue(fixture.addType(node));
 
         int line = 25;
@@ -212,10 +220,13 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetField_1() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
-        final FieldNode field = new FieldNode("namespace.Type#field", "field", 25);
-        Assert.assertTrue(node.addField(field));
+    public void testGetField_1() throws Exception
+    {
+        FieldNode field;
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000)
+                .field(field = FieldNode.builder("field", "namespace.Type#field").range(25, 25).create())
+                .create();
+
         Assert.assertTrue(fixture.addType(node));
         final int line = 25;
 
@@ -232,10 +243,13 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetField_2() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 27, 99);
-        final FieldNode field = new FieldNode("namespace.Type#field", "field", 28);
-        Assert.assertTrue(node.addField(field));
+    public void testGetField_2() throws Exception
+    {
+        FieldNode field;
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(27, 99)
+                .field(field = FieldNode.builder("field", "namespace.Type#field").range(28, 28).create())
+                .create();
+
         Assert.assertTrue(fixture.addType(node));
 
         final int line = 56;
@@ -251,10 +265,12 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetField_3() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 27, 99);
-        final FieldNode field = new FieldNode("namespace.Type#field", "field", 28);
-        Assert.assertTrue(node.addField(field));
+    public void testGetField_3() throws Exception
+    {
+        FieldNode field;
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(27, 99)
+                .field(field = FieldNode.builder("field", "namespace.Type#field").range(28, 28).create())
+                .create();
         Assert.assertTrue(fixture.addType(node));
 
         final int line = 100;
@@ -270,7 +286,8 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetType_1() throws Exception {
+    public void testGetType_1() throws Exception
+    {
         final String result = fixture.getType();
 
         // add additional test code here
@@ -284,8 +301,9 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetType_2() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
+    public void testGetType_2() throws Exception
+    {
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).create();
         fixture.addType(node);
         final int line = 1;
 
@@ -302,8 +320,9 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetType_3() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
+    public void testGetType_3() throws Exception
+    {
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).create();
         fixture.addType(node);
         final int line = 1000;
 
@@ -320,8 +339,9 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetType_4() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
+    public void testGetType_4() throws Exception
+    {
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).create();
         fixture.addType(node);
         final int line = -1;
 
@@ -338,8 +358,9 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetType_5() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
+    public void testGetType_5() throws Exception
+    {
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).create();
         fixture.addType(node);
         final int line = 1001;
 
@@ -356,8 +377,9 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetTypes_1() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
+    public void testGetTypes_1() throws Exception
+    {
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).create();
         Assert.assertTrue(fixture.addType(node));
         final Set<TypeNode> result = fixture.getTypes();
 
@@ -373,8 +395,9 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testRemoveType_1() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
+    public void testRemoveType_1() throws Exception
+    {
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).create();
         Assert.assertTrue(fixture.addType(node));
         final boolean result = fixture.removeType(node);
 
@@ -389,8 +412,9 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testRemoveType_2() throws Exception {
-        final TypeNode node = new TypeNode("namespace.Type", "type", 1, 1000);
+    public void testRemoveType_2() throws Exception
+    {
+        final TypeNode node = TypeNode.builder("Type", "namespace.Type").range(1, 1000).create();
 
         final boolean result = fixture.removeType(node);
 
@@ -406,7 +430,8 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() throws Exception
+    {
         fixture = new FileNode("path");
     }
 
@@ -418,7 +443,8 @@ public class FileNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() throws Exception
+    {
         // Add additional tear down code here
     }
 
@@ -429,7 +455,8 @@ public class FileNodeTest {
      *            the command line arguments
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args)
+    {
         new org.junit.runner.JUnitCore().run(FileNodeTest.class);
     }
 }

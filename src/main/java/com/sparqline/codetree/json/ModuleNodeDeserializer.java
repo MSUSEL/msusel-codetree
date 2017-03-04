@@ -56,7 +56,7 @@ public class ModuleNodeDeserializer implements JsonDeserializer<ModuleNode> {
 
         String key = obj.get("qIdentifier").getAsString();
 
-        ModuleNode.Builder builder = new ModuleNode.Builder(key);
+        ModuleNode.Builder builder = ModuleNode.builder(key);
 
         if (obj.has("metrics"))
         {

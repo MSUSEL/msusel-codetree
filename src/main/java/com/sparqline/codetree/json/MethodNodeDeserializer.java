@@ -81,10 +81,11 @@ public class MethodNodeDeserializer implements JsonDeserializer<MethodNode> {
         boolean accessor = obj.get("accessor").getAsBoolean();
         boolean abs = obj.get("abstract").getAsBoolean();
 
-        MethodNode.Builder builder = new MethodNode.Builder(name, qId)
+        MethodNode.Builder builder = MethodNode.builder(name, qId)
                 .constructor(constructor)
                 .isAbstract(abs)
-                .accessor(accessor).range(start, end);
+                .accessor(accessor)
+                .range(start, end);
 
         if (obj.has("metrics"))
         {

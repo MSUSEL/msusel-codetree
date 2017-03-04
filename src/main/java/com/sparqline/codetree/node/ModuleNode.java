@@ -271,7 +271,7 @@ public class ModuleNode extends StructuralNode {
      */
     public Set<MethodNode> getMethods()
     {
-        Set<MethodNode> methods = Sets.newConcurrentHashSet();
+        Set<MethodNode> methods = Sets.newHashSet();
         for (TypeNode tn : getTypes())
         {
             Sets.union(methods, tn.getMethods());
@@ -357,6 +357,33 @@ public class ModuleNode extends StructuralNode {
     }
 
     /**
+     * Constructs a Builder for a ModuleNode with the given Simple Name and
+     * Qualified Identifier
+     * 
+     * @param name
+     *            Simple Name
+     * @param qID
+     *            Qualified Identifier
+     * @return The ModuleNode.Builder instance.
+     */
+    public static Builder builder(String name, String qID)
+    {
+        return new Builder(name, qID);
+    }
+
+    /**
+     * Constructs a Builder for a ModuleNode with the given Qualified Identifier
+     * 
+     * @param qID
+     *            Qualified Identifier
+     * @return The ModuleNode.Builder instance.
+     */
+    public static Builder builder(String qID)
+    {
+        return new Builder(qID);
+    }
+
+    /**
      * Builder for Modules implemented using the fluent interface and method
      * chaining patterns.
      * 
@@ -379,7 +406,7 @@ public class ModuleNode extends StructuralNode {
          * @param qID
          *            Qualified Identifier
          */
-        public Builder(String name, String qID)
+        private Builder(String name, String qID)
         {
             this(qID);
             node.setName(name);
@@ -392,7 +419,7 @@ public class ModuleNode extends StructuralNode {
          * @param qID
          *            Qualified Identifier
          */
-        public Builder(String qID)
+        private Builder(String qID)
         {
             node = new ModuleNode(qID);
         }

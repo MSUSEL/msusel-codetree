@@ -5,8 +5,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sparqline.codetree.node.MethodNode;
-
 /**
  * The class <code>MethodNodeTest</code> contains tests for the class
  * <code>{@link MethodNode}</code>.
@@ -27,14 +25,17 @@ public class MethodNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testMethodNode_1() throws Exception {
+    public void testMethodNode_1() throws Exception
+    {
         final String name = "method";
         final String qIdentifier = "path#" + name;
         final boolean constructor = true;
         final int start = 1;
         final int end = 1;
 
-        final MethodNode result = new MethodNode(qIdentifier, name, constructor, start, end);
+        final MethodNode result = MethodNode.builder(name, qIdentifier).constructor(constructor)
+                .range(start, end)
+                .create();
 
         // add additional test code here
         Assert.assertNotNull(result);
@@ -52,7 +53,8 @@ public class MethodNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetType_1() throws Exception {
+    public void testGetType_1() throws Exception
+    {
         final String result = fixture.getType();
 
         // add additional test code here
@@ -66,7 +68,8 @@ public class MethodNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testIsConstructor_1() throws Exception {
+    public void testIsConstructor_1() throws Exception
+    {
         final boolean result = fixture.isConstructor();
 
         // add additional test code here
@@ -80,7 +83,8 @@ public class MethodNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testIsConstructor_2() throws Exception {
+    public void testIsConstructor_2() throws Exception
+    {
         fixture.setConstructor(false);
         final boolean result = fixture.isConstructor();
 
@@ -89,7 +93,8 @@ public class MethodNodeTest {
     }
 
     @Test
-    public void testSetConstructor_1() throws Exception {
+    public void testSetConstructor_1() throws Exception
+    {
         Assert.assertTrue(fixture.isConstructor());
 
         fixture.setConstructor(false);
@@ -105,8 +110,9 @@ public class MethodNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Before
-    public void setUp() throws Exception {
-        fixture = new MethodNode("path#method", "method", true, 1, 1);
+    public void setUp() throws Exception
+    {
+        fixture = MethodNode.builder("method", "path#method").constructor().range(1, 1).create();
     }
 
     /**
@@ -117,7 +123,8 @@ public class MethodNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() throws Exception
+    {
         // Add additional tear down code here
     }
 
@@ -128,7 +135,8 @@ public class MethodNodeTest {
      *            the command line arguments
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args)
+    {
         new org.junit.runner.JUnitCore().run(MethodNodeTest.class);
     }
 }

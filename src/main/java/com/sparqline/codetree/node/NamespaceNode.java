@@ -44,7 +44,7 @@ public class NamespaceNode extends StructuralNode {
      * set of type references defined within this namespace.
      */
     @Expose
-    private Set<String>                types;
+    private Set<TypeNode>              types;
     /**
      * Map of sub-namespaces defined within the confines of this namespace,
      * indexed by their qualified identifier.
@@ -62,7 +62,7 @@ public class NamespaceNode extends StructuralNode {
     public NamespaceNode(String key)
     {
         super(key);
-        types = Sets.newConcurrentHashSet();
+        types = Sets.newHashSet();
         subNS = Maps.newHashMap();
     }
 
@@ -96,23 +96,23 @@ public class NamespaceNode extends StructuralNode {
     }
 
     /**
-     * @return The set of type references contained within this namespace.
+     * @return The set of types contained within this namespace.
      */
-    public Set<String> getTypes()
+    public Set<TypeNode> getTypes()
     {
         return types;
     }
 
     /**
-     * Adds a new type reference with the given qualified identifier to this
-     * namespace. If the provided identifier is null or empty, nothing happens.
+     * Adds a new type to this namespace. If the provided identifier is null or
+     * empty, nothing happens.
      * 
      * @param qid
      *            Qualified Identifier of a type defined within this namespace.
      */
-    public void addType(String qid)
+    public void addType(TypeNode qid)
     {
-        if (qid == null || qid.isEmpty())
+        if (qid == null)
             return;
 
         types.add(qid);
@@ -164,6 +164,19 @@ public class NamespaceNode extends StructuralNode {
     }
 
     /**
+     * Constructs a new Builder for a NamespaceNode with the given qualified
+     * identifier
+     * 
+     * @param qID
+     *            Qualified Identifier of the File
+     * @return The NamespaceNode.Builder instance
+     */
+    public static Builder builder(String qID)
+    {
+        return new Builder(qID);
+    }
+
+    /**
      * Builder for Namespaces implemented using the fluent interface and method
      * chaining patterns.
      * 
@@ -184,7 +197,7 @@ public class NamespaceNode extends StructuralNode {
          * @param qID
          *            Qualified Identifier of the File
          */
-        public Builder(String qID)
+        private Builder(String qID)
         {
             node = new NamespaceNode(qID);
         }
@@ -217,14 +230,14 @@ public class NamespaceNode extends StructuralNode {
         }
 
         /**
-         * Adds the given type reference to the NamespaceNode under construction
+         * Adds the given type to the NamespaceNode under construction
          * 
          * @param type
-         *            Type reference to add
+         *            Type to add
          * @return this
          */
         @NonNull
-        public Builder type(String type)
+        public Builder type(TypeNode type)
         {
             node.addType(type);
 

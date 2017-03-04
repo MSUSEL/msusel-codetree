@@ -73,7 +73,7 @@ public class FieldNodeDeserializer implements JsonDeserializer<FieldNode> {
         else
             throw new JsonParseException("name is missing from json definition");
 
-        FieldNode.Builder builder = new FieldNode.Builder(name, qId).range(start, start);
+        FieldNode.Builder builder = FieldNode.builder(name, qId).range(start, start);
 
         if (obj.has("metrics"))
         {

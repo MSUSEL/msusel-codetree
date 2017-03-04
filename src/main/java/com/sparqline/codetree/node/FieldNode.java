@@ -113,6 +113,21 @@ public class FieldNode extends CodeNode {
     }
 
     /**
+     * Constructs a new Builder for a FieldNode with the given Qualified
+     * Identifier and Simple Name
+     * 
+     * @param name
+     *            Simple Name
+     * @param qID
+     *            Qualified Identifier
+     * @return The FieldNode.Builder instance
+     */
+    public static Builder builder(String name, String qID)
+    {
+        return new Builder(name, qID);
+    }
+
+    /**
      * Builder for Fields implemented using the fluent interface and method
      * chaining patterns.
      * 
@@ -135,7 +150,7 @@ public class FieldNode extends CodeNode {
          * @param qID
          *            Qualified Identifier
          */
-        public Builder(String name, String qID)
+        private Builder(String name, String qID)
         {
             node = new FieldNode(qID, name);
         }
@@ -165,6 +180,20 @@ public class FieldNode extends CodeNode {
             node.setEnd(end);
 
             return this;
+        }
+
+        /**
+         * Sets the line range to the given line for the FieldNode under
+         * construction.
+         * 
+         * @param line
+         *            Line containing the field
+         * @return this
+         */
+        @NonNull
+        public Builder range(int line)
+        {
+            return range(line, line);
         }
 
         /**

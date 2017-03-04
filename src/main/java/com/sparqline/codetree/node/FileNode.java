@@ -65,6 +65,11 @@ public class FileNode extends StructuralNode {
      */
     @Expose
     private final Set<String>           imports;
+    /**
+     * 
+     */
+    @Expose
+    private int                         length;
 
     /**
      * Constructs a new FileNode using the provided absolute path as the
@@ -78,6 +83,7 @@ public class FileNode extends StructuralNode {
         super(fullPath);
         types = Maps.newHashMap();
         imports = Sets.newHashSet();
+        length = 1;
     }
 
     /**
@@ -355,6 +361,28 @@ public class FileNode extends StructuralNode {
     }
 
     /**
+     * Sets the length of this file.
+     * 
+     * @param length
+     *            The new length of this File
+     */
+    private void setLength(int length)
+    {
+        if (length <= 0)
+            throw new IllegalArgumentException("File length cannot be less than or equal to 0");
+
+        this.length = length;
+    }
+
+    /**
+     * @return Length of this file
+     */
+    public int getLength()
+    {
+        return length;
+    }
+
+    /**
      * Adds the given import to the set of imports, unless the provided value is
      * empty or null.
      * 
@@ -451,6 +479,57 @@ public class FileNode extends StructuralNode {
     }
 
     /**
+     * Searches this FileNode for a type at the given line.
+     * 
+     * @param line
+     *            The line within this file for which a type whose range
+     *            contains this line number is being searched for.
+     * @return A type in this file whose line range contains the given line
+     *         number, or null if no such type exists.
+     */
+    public TypeNode findType(int line)
+    {
+        if (line > length || line <= 0)
+            return null;
+
+        for (TypeNode type : types.values())
+        {
+            if (type.containsLine(line))
+                return type;
+        }
+
+        return null;
+    }
+
+    /**
+     * Constructs a new Builder for a FileNode with the given name and
+     * qualified identifier
+     * 
+     * @param name
+     *            Name of the file
+     * @param qID
+     *            Qualified Identifier of the File
+     * @return The FileNode.Builder instance
+     */
+    public static Builder builder(String name, String qID)
+    {
+        return new Builder(name, qID);
+    }
+
+    /**
+     * Constructs a new Builder for a FileNode with the given qualified
+     * identifier
+     * 
+     * @param qID
+     *            Qualified Identifier of the File
+     * @return The FileNode.Builder instance
+     */
+    public static Builder builder(String qID)
+    {
+        return new Builder(qID);
+    }
+
+    /**
      * Builder for Files implemented using the fluent interface and method
      * chaining patterns.
      * 
@@ -473,7 +552,7 @@ public class FileNode extends StructuralNode {
          * @param qID
          *            Qualified Identifier of the File
          */
-        public Builder(String name, String qID)
+        private Builder(String name, String qID)
         {
             node = new FileNode(qID);
             node.setName(name);
@@ -486,7 +565,7 @@ public class FileNode extends StructuralNode {
          * @param qID
          *            Qualified Identifier of the File
          */
-        public Builder(String qID)
+        private Builder(String qID)
         {
             node = new FileNode(qID);
         }
@@ -529,6 +608,21 @@ public class FileNode extends StructuralNode {
         public Builder metric(String metric, Double value)
         {
             node.addMetric(metric, value);
+
+            return this;
+        }
+
+        /**
+         * Sets the length of the FileNode under construction
+         * 
+         * @param length
+         *            Length in lines
+         * @return this
+         */
+        @NonNull
+        public Builder length(int length)
+        {
+            node.setLength(length);
 
             return this;
         }
