@@ -5,3 +5,8 @@
 /.sonar
 /.sonar/**
 *.udb
+/.settings/
+/.classpath
+/.project
+/build.sh
+/deploy.sh
