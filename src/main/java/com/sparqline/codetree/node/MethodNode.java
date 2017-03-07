@@ -25,10 +25,12 @@
 package com.sparqline.codetree.node;
 
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.jdt.annotation.NonNull;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.sparqline.codetree.INode;
@@ -51,47 +53,47 @@ public class MethodNode extends CodeNode {
      * method
      */
     @Expose
-    private boolean             constructor;
+    private boolean                    constructor;
     /**
      * Boolean flag indicating that this method is abstract
      */
     @Expose
     @SerializedName("abstract")
-    private boolean             isAbstract;
+    private boolean                    isAbstract;
     /**
      * Boolean flag indicating that this method is an accessor/mutator method
      */
     @Expose
     @SerializedName("accessor")
-    private boolean             accessorMethod;
+    private boolean                    accessorMethod;
     /**
      * Boolean flag indicating that this method is static
      */
     @Expose
     @SerializedName("static")
-    private boolean             isStatic;
+    private boolean                    isStatic;
     /**
      * Boolean flag indicating that this method is final
      */
     @Expose
     @SerializedName("final")
-    private boolean             isFinal;
+    private boolean                    isFinal;
     /**
      * The list of contained statements in the body of this method
      */
     @Expose
-    private List<StatementNode> statements;
+    private Map<String, StatementNode> statements;
     /**
      * The set of parameters for this method
      */
     @Expose
-    private List<Parameter>     params;
+    private List<Parameter>            params;
     /**
      * The return type reference for this method
      */
     @Expose
     @SerializedName("returnType")
-    private String              returnTypeRef;
+    private String                     returnTypeRef;
 
     /**
      * Constructs a new method with the given qualified identifier and simple
@@ -108,7 +110,7 @@ public class MethodNode extends CodeNode {
         this.constructor = false;
         this.isAbstract = false;
         this.accessorMethod = false;
-        statements = Lists.newArrayList();
+        statements = Maps.newHashMap();
     }
 
     /**
@@ -219,8 +221,7 @@ public class MethodNode extends CodeNode {
             return;
 
         MethodNode node = (MethodNode) m;
-        setStart(node.getStart());
-        setEnd(node.getEnd());
+        this.setRange(node.getStart(), node.getEnd());
 
         setConstructor(node.isConstructor());
 
@@ -228,6 +229,36 @@ public class MethodNode extends CodeNode {
         {
             this.metrics.put(key, m.getMetric(key));
         }
+
+        for (StatementNode stmt : node.getStatements())
+        {
+            if (getStatement(stmt.getQIdentifier()) != null)
+            {
+                getStatement(stmt.getQIdentifier()).update(stmt);
+            }
+            else
+            {
+                addStatement(stmt);
+            }
+        }
+    }
+
+    /**
+     * Returns a statement with the given identifier contained in this method
+     * 
+     * @param identifier
+     *            Identifier of the statement requested
+     * @return StatementNode contained in this method with the given identifier,
+     *         or null otherwise
+     * @throws IllegalArgumentException
+     *             if provided identifier is null or the empty string
+     */
+    public StatementNode getStatement(String identifier)
+    {
+        if (identifier == null || identifier.isEmpty())
+            throw new IllegalArgumentException("Statment identifier cannot be null or empty");
+
+        return statements.get(identifier);
     }
 
     /**
@@ -252,7 +283,7 @@ public class MethodNode extends CodeNode {
      */
     public List<StatementNode> getStatements()
     {
-        return statements;
+        return Lists.newArrayList(statements.values());
     }
 
     /**
@@ -266,8 +297,10 @@ public class MethodNode extends CodeNode {
     {
         if (node == null)
             return;
+        if (statements.containsKey(node.getQIdentifier()))
+            return;
 
-        statements.add(node);
+        statements.put(node.getQIdentifier(), node);
     }
 
     /**
