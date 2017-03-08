@@ -25,7 +25,6 @@
 package com.sparqline.codetree.json;
 
 import java.lang.reflect.Type;
-import java.util.List;
 import java.util.Map;
 
 import com.google.gson.JsonDeserializationContext;
@@ -97,10 +96,10 @@ public class MethodNodeDeserializer implements JsonDeserializer<MethodNode> {
 
         if (obj.has("statements"))
         {
-            Type stmtType = new TypeToken<List<StatementNode>>() {
+            Type stmtType = new TypeToken<Map<String, StatementNode>>() {
             }.getType();
-            List<StatementNode> stmts = context.deserialize(obj.get("statements"), stmtType);
-            stmts.forEach((stmt) -> builder.statement(stmt));
+            Map<String, StatementNode> stmts = context.deserialize(obj.get("statements"), stmtType);
+            stmts.forEach((id, stmt) -> builder.statement(stmt));
         }
 
         return builder.create();
