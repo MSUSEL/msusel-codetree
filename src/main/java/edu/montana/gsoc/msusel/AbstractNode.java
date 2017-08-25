@@ -1,8 +1,9 @@
 /**
  * The MIT License (MIT)
  *
- * SparQLine Code Tree
- * Copyright (c) 2015-2017 Isaac Griffith, SparQLine Analytics, LLC
+ * MSUSEL CodeTree
+ * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -45,223 +46,203 @@ import edu.montana.gsoc.msusel.util.MetricNameRegistry;
  */
 public abstract class AbstractNode implements INode {
 
-    /**
-     * Data structure for recording metric values
-     */
-    @Expose
-    protected Map<String, Double> metrics;
-    /**
-     * Unique qualified identifier for this entity
-     */
-    @Expose
-    protected String              qIdentifier;
-    /**
-     * Simple name of this entity
-     */
-    @Expose
-    protected String              name;
-    /**
-     * Relationships between this entity and others
-     */
-    protected List<Relationship>  outRelations;
-    /**
-     * The unique qualified identifier of a parent entity
-     */
-    @Expose
-    protected String              parentID;
-    /**
-     * Logger used to output events associated with CodeNodes
-     */
-    protected Logger              LOG = Logger.getLogger(CodeNode.class);
+	/**
+	 * Data structure for recording metric values
+	 */
+	@Expose
+	protected Map<String, Double> metrics;
+	/**
+	 * Unique qualified identifier for this entity
+	 */
+	@Expose
+	protected String qIdentifier;
+	/**
+	 * Simple name of this entity
+	 */
+	@Expose
+	protected String name;
+	/**
+	 * Relationships between this entity and others
+	 */
+	protected List<Relationship> outRelations;
+	/**
+	 * The unique qualified identifier of a parent entity
+	 */
+	@Expose
+	protected String parentID;
+	/**
+	 * Logger used to output events associated with CodeNodes
+	 */
+	protected Logger LOG = Logger.getLogger(CodeNode.class);
 
-    /**
-     * Constructs a new AbstractNode with the given qualified identifier and
-     * name
-     * 
-     * @param qIdentifier
-     *            The Qualified Identifier
-     * @param name
-     *            The Name
-     */
-    protected AbstractNode(String qIdentifier, String name)
-    {
-        if (qIdentifier == null || qIdentifier.isEmpty() || name == null || name.isEmpty())
-            throw new IllegalArgumentException("Name and QIdentifier can be neither null nor empty.");
+	/**
+	 * Constructs a new AbstractNode with the given qualified identifier and
+	 * name
+	 * 
+	 * @param qIdentifier
+	 *            The Qualified Identifier
+	 * @param name
+	 *            The Name
+	 */
+	protected AbstractNode(String qIdentifier, String name) {
+		if (qIdentifier == null || qIdentifier.isEmpty() || name == null || name.isEmpty())
+			throw new IllegalArgumentException("Name and QIdentifier can be neither null nor empty.");
 
-        this.qIdentifier = qIdentifier;
-        this.name = name;
-        metrics = Maps.newHashMap();
-        outRelations = Lists.newArrayList();
-    }
+		this.qIdentifier = qIdentifier;
+		this.name = name;
+		metrics = Maps.newHashMap();
+		outRelations = Lists.newArrayList();
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public abstract String getType();
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public abstract String getType();
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void addMetric(String name, Double value)
-    {
-        if (name == null || name.isEmpty() || value == null || Double.isNaN(value) || Double.isInfinite(value))
-            return;
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void addMetric(String name, Double value) {
+		if (name == null || name.isEmpty() || value == null || Double.isNaN(value) || Double.isInfinite(value))
+			return;
 
-        String metric = MetricNameRegistry.getInstance().lookup(name);
+		String metric = MetricNameRegistry.getInstance().lookup(name);
 
-        if (metric != null)
-        {
-            metrics.put(metric, value);
-        }
-    }
+		if (metric != null) {
+			metrics.put(metric, value);
+		}
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void incrementMetric(String name, Double increment)
-    {
-        if (name == null || name.isEmpty() || increment == null || Double.isNaN(increment)
-                || Double.isInfinite(increment))
-            return;
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void incrementMetric(String name, Double increment) {
+		if (name == null || name.isEmpty() || increment == null || Double.isNaN(increment)
+				|| Double.isInfinite(increment))
+			return;
 
-        if (metrics.containsKey(MetricNameRegistry.getInstance().lookup(name)))
-            metrics.put(
-                    MetricNameRegistry.getInstance().lookup(name),
-                    metrics.get(MetricNameRegistry.getInstance().lookup(name)) + increment);
-        else
-            metrics.put(MetricNameRegistry.getInstance().lookup(name), increment);
-    }
+		if (metrics.containsKey(MetricNameRegistry.getInstance().lookup(name)))
+			metrics.put(MetricNameRegistry.getInstance().lookup(name),
+					metrics.get(MetricNameRegistry.getInstance().lookup(name)) + increment);
+		else
+			metrics.put(MetricNameRegistry.getInstance().lookup(name), increment);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Double getMetric(String metric)
-    {
-        if (metric == null || metric.isEmpty() || !hasMetric(metric))
-        {
-            LOG.warn(
-                    "Bad Metric: " + metric + " for " + this.getClass().getSimpleName() + " with id: "
-                            + this.getQIdentifier());
-            return -1.0;
-        }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Double getMetric(String metric) {
+		if (metric == null || metric.isEmpty() || !hasMetric(metric)) {
+			LOG.warn("Bad Metric: " + metric + " for " + this.getClass().getSimpleName() + " with id: "
+					+ this.getQIdentifier());
+			return -1.0;
+		}
 
-        return metrics.get(MetricNameRegistry.getInstance().lookup(metric));
-    }
+		return metrics.get(MetricNameRegistry.getInstance().lookup(metric));
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean hasMetric(String metric)
-    {
-        return metrics.containsKey(MetricNameRegistry.getInstance().lookup(metric));
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean hasMetric(String metric) {
+		return metrics.containsKey(MetricNameRegistry.getInstance().lookup(metric));
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getQIdentifier()
-    {
-        return qIdentifier;
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getQIdentifier() {
+		return qIdentifier;
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getName()
-    {
-        return name;
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * @param name
-     *            set the name
-     */
-    protected void setName(String name)
-    {
-        this.name = name;
-    }
+	/**
+	 * @param name
+	 *            set the name
+	 */
+	protected void setName(String name) {
+		this.name = name;
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public abstract void update(INode c);
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public abstract void update(INode c);
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public abstract INode cloneNoChildren();
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public abstract INode cloneNoChildren();
 
-    /**
-     * @param other
-     *            The other node in which to copy metrics from.
-     */
-    protected void copyMetrics(INode other)
-    {
-        for (String key : getMetricNames())
-        {
-            other.addMetric(key, getMetric(key));
-        }
-    }
+	/**
+	 * @param other
+	 *            The other node in which to copy metrics from.
+	 */
+	protected void copyMetrics(INode other) {
+		for (String key : getMetricNames()) {
+			other.addMetric(key, getMetric(key));
+		}
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Set<String> getMetricNames()
-    {
-        return metrics.keySet();
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Set<String> getMetricNames() {
+		return metrics.keySet();
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void addMetrics(List<Pair<String, Double>> join)
-    {
-        for (Pair<String, Double> pair : join)
-        {
-            addMetric(pair.getKey(), pair.getValue());
-        }
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void addMetrics(List<Pair<String, Double>> join) {
+		for (Pair<String, Double> pair : join) {
+			addMetric(pair.getKey(), pair.getValue());
+		}
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getParentID()
-    {
-        return parentID;
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getParentID() {
+		return parentID;
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setParentID(String id)
-    {
-        if (id == null)
-            parentID = id;
-        else if (id.isEmpty() || id.equals(this.qIdentifier))
-            throw new IllegalArgumentException("Parent ID cannot be same as this id or empty");
-        else
-            parentID = id;
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setParentID(String id) {
+		if (id == null)
+			parentID = id;
+		else if (id.isEmpty() || id.equals(this.qIdentifier))
+			throw new IllegalArgumentException("Parent ID cannot be same as this id or empty");
+		else
+			parentID = id;
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean hasParent()
-    {
-        return parentID != null;
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean hasParent() {
+		return parentID != null;
+	}
 }
