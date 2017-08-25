@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.sparqline.quamoco</groupId>
-  <artifactId>sparqline-codetree</artifactId>
-  <version>${sparqline.version}</version>
-  <name>Quamoco Code Tree</name>
+  <groupId>edu.montana.gsoc.msusel</groupId>
+  <artifactId>msusel-codetree</artifactId>
+  <version>${msusel.version}</version>
+  <name>Code Tree</name>
   
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<jdk.min.version>1.8</jdk.min.version>
-  	<sparqline.version>1.1.1</sparqline.version>
+  	<msusel.version>1.1.1</msusel.version>
   </properties>
   
   <dependencies>
@@ -86,7 +86,7 @@
 			<artifactId>org.eclipse.jdt.annotation</artifactId>
 			<version>2.1.0</version>
 		</dependency>
-  </dependencies>
+  	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -174,8 +174,8 @@
 		</plugins>
 	</reporting>
 	<organization>
-		<name>SparQLine Analytics, LLC</name>
-		<url>http://sparqline.com</url>
+		<name>Montana State University - Software Engineering Laboratory</name>
+		<url>https://msusel.github.io</url>
 	</organization>
 	<pluginRepositories>
 		<pluginRepository>
@@ -185,9 +185,9 @@
 	</pluginRepositories>
 	<distributionManagement>
 		<repository>
-			<id>sparqline-maven-repo</id>
-			<name>sparqline-maven-repo</name>
-			<url>git:releases://git@bitbucket.org:isaacgriffith/sparqline-maven-repo.git</url>
+			<id>msusel-maven-repo</id>
+			<name>msusel-maven-repo</name>
+			<url>git:releases://git@github.com:MSUSEL/msusel-maven-repo.git</url>
 		</repository>
 	</distributionManagement>
 </project>
