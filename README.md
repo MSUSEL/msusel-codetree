@@ -1,5 +1,45 @@
 # MSUSEL  Code Tree
 
+## Installing Maven
+
+This project uses the Maven wrapper so that you do not need to install maven manually.
+The first time you go to build this project, simply execute the following command:
+
+```
+./mvnw clean install -Dmaven.test.skip=true
+```
+or for windows:
+```
+.\mvnw.cmd clean package -Dmaven.test.skip=true
+```
+
+## Building
+
+This project can be built using the following command:
+
+```
+./mvnw clean package -Dmaven.test.skip=true
+```
+
+This project can be compile, tested, or packaged with the following commands:
+
+```
+./mvnw clean compile
+./mvnw clean test
+./mvnw clean package
+```
+
+on windows the same commands can be used, but substitute `./mvnw` with `.\mvnw.cmd`
+
+## Deploying
+This module is setup to be used by maven as a dependency for several other modules. 
+As such it must be deployed to the SparQLine Maven Repository stored on BitBucket.
+This can be achieved with the following command (note only perform this on the master branch):
+
+```
+./mvnw deploy
+```
+
 ## Introduction
 This module provides the constructs necessary to provide a model of a software project. The basic
 component is the `CodeNode` A code node is simply an abstraction of some artifact that occurs within
@@ -54,18 +94,3 @@ a type and a name.
 An abstraction of the statements making up the body of a method. A statement has a defined Statement Type
 and its unique qualitfied name is a combination of that type and a separate long integer representing the
 count of that statement type within the system.
-
-## Building
-This module uses maven to manage its build. As such the following commands can be issued:
-
-`mvn compile` to simply compile the code
-`mvn test` to simply execute the JUnit tests
-`mvn integeration-test` to execute the Integration Tests
-`mvn package` to construct the JAR file for this module
-
-## Deploying
-This module is setup to be used by maven as a dependency for several other modules. 
-As such it must be deployed to the SparQLine Maven Repository stored on BitBucket.
-This can be achieved with the following command (note only perform this on the master branch):
-
-`mvn deploy`
