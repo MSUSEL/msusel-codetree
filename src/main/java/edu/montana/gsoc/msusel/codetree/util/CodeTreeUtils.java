@@ -82,8 +82,8 @@ public class CodeTreeUtils {
 
         if (node instanceof ProjectNode)
         {
-            ProjectNode pnode = (ProjectNode) node;
-            if (pnode.getParentID() == null)
+            ProjectNode project = (ProjectNode) node;
+            if (project.getParentKey() == null)
             {
                 retVal = tree;
             }
@@ -91,11 +91,11 @@ public class CodeTreeUtils {
             {
                 retVal = new CodeTree();
                 Stack<ProjectNode> stack = new Stack<>();
-                stack.push(pnode);
-                while (pnode.hasParent())
+                stack.push(project);
+                while (project.hasParent())
                 {
-                    pnode = findProject(pnode.getParentID());
-                    stack.push(pnode);
+                    project = findProject(project.getParentKey());
+                    stack.push(project);
                 }
 
                 ProjectNode current = stack.pop().cloneNoChildren();
@@ -123,22 +123,21 @@ public class CodeTreeUtils {
                         current.addSubProject(next);
                         current = next;
                     }
-                    next = null;
                 }
             }
         }
         else if (node instanceof ModuleNode)
         {
-            ModuleNode mnode = (ModuleNode) node;
+            ModuleNode module = (ModuleNode) node;
 
             retVal = new CodeTree();
             Stack<ProjectNode> stack = new Stack<>();
-            ProjectNode pnode = findProject(mnode.getParentID());
-            stack.push(pnode);
-            while (pnode.hasParent())
+            ProjectNode project = findProject(module.getParentKey());
+            stack.push(project);
+            while (project.hasParent())
             {
-                pnode = findProject(pnode.getParentID());
-                stack.push(pnode);
+                project = findProject(project.getParentKey());
+                stack.push(project);
             }
 
             ProjectNode current = stack.pop().cloneNoChildren();
@@ -150,12 +149,11 @@ public class CodeTreeUtils {
 
                 current.addSubProject(next);
                 current = next;
-                next = null;
             }
 
             try
             {
-                ModuleNode mod = mnode.clone();
+                ModuleNode mod = module.clone();
                 current.addModule(mod);
             }
             catch (CloneNotSupportedException e)
@@ -167,28 +165,28 @@ public class CodeTreeUtils {
         }
         else if (node instanceof FileNode)
         {
-            FileNode fnode = (FileNode) node;
+            FileNode file = (FileNode) node;
 
             retVal = new CodeTree();
             Stack<ProjectNode> stack = new Stack<>();
-            ProjectNode pnode = null;
-            ModuleNode mnode = null;
+            ProjectNode project;
+            ModuleNode module;
 
-            if (findProject(fnode.getParentID()) != null)
+            if (findProject(file.getParentKey()) != null)
             {
-                pnode = findProject(fnode.getParentID());
+                project = findProject(file.getParentKey());
             }
             else
             {
-                mnode = findModule(fnode.getParentID());
-                pnode = findProject(mnode.getParentID());
+                module = findModule(file.getParentKey());
+                project = findProject(module.getParentKey());
             }
 
-            stack.push(pnode);
-            while (pnode.hasParent())
+            stack.push(project);
+            while (project.hasParent())
             {
-                pnode = findProject(pnode.getParentID());
-                stack.push(pnode);
+                project = findProject(project.getParentKey());
+                stack.push(project);
             }
 
             ProjectNode current = stack.pop().cloneNoChildren();
@@ -200,16 +198,15 @@ public class CodeTreeUtils {
                 next = stack.pop().cloneNoChildren();
 
                 current.addSubProject(next);
-                if (next.getQIdentifier().equals(fnode.getParentID()))
+                if (next.getQIdentifier().equals(file.getParentKey()))
                     actual = next;
 
                 current = next;
-                next = null;
             }
 
             try
             {
-                actual.addFile(fnode.clone());
+                actual.addFile(file.clone());
             }
             catch (CloneNotSupportedException e)
             {
@@ -220,30 +217,30 @@ public class CodeTreeUtils {
         }
         else if (node instanceof TypeNode)
         {
-            TypeNode tnode = (TypeNode) node;
+            TypeNode type = (TypeNode) node;
 
-            FileNode fnode = findFile(tnode.getParentID());
+            FileNode file = findFile(type.getParentKey());
 
             retVal = new CodeTree();
             Stack<ProjectNode> stack = new Stack<>();
-            ProjectNode pnode = null;
-            ModuleNode mnode = null;
+            ProjectNode project;
+            ModuleNode module;
 
-            if (findProject(fnode.getParentID()) != null)
+            if (findProject(file.getParentKey()) != null)
             {
-                pnode = findProject(fnode.getParentID());
+                project = findProject(file.getParentKey());
             }
             else
             {
-                mnode = findModule(fnode.getParentID());
-                pnode = findProject(mnode.getParentID());
+                module = findModule(file.getParentKey());
+                project = findProject(module.getParentKey());
             }
 
-            stack.push(pnode);
-            while (pnode.hasParent())
+            stack.push(project);
+            while (project.hasParent())
             {
-                pnode = findProject(pnode.getParentID());
-                stack.push(pnode);
+                project = findProject(project.getParentKey());
+                stack.push(project);
             }
 
             ProjectNode current = stack.pop().cloneNoChildren();
@@ -255,47 +252,46 @@ public class CodeTreeUtils {
 
                 current.addSubProject(next);
                 current = next;
-                next = null;
             }
 
-            ProjectNode curProj = findProject(current.getQIdentifier());
+            ProjectNode currentProject = findProject(current.getQIdentifier());
 
-            fnode = curProj.getFile(tnode.getParentID()).cloneNoChildren();
+            file = currentProject.getFile(type.getParentKey()).cloneNoChildren();
 
-            curProj.addFile(fnode);
+            currentProject.addFile(file);
 
-            fnode.addType(tnode.cloneNoChildren());
+            file.addType(type.cloneNoChildren());
 
             retVal.setProject(root);
         }
         else if (node instanceof MethodNode)
         {
-            MethodNode methnode = (MethodNode) node;
+            MethodNode method = (MethodNode) node;
 
-            TypeNode tnode = findType(methnode.getParentID());
+            TypeNode type = findType(method.getParentKey());
 
-            FileNode fnode = findFile(tnode.getParentID());
+            FileNode file = findFile(type.getParentKey());
 
             retVal = new CodeTree();
             Stack<ProjectNode> stack = new Stack<>();
-            ProjectNode pnode = null;
-            ModuleNode mnode = null;
+            ProjectNode project;
+            ModuleNode module;
 
-            if (findProject(fnode.getParentID()) != null)
+            if (findProject(file.getParentKey()) != null)
             {
-                pnode = findProject(fnode.getParentID());
+                project = findProject(file.getParentKey());
             }
             else
             {
-                mnode = findModule(fnode.getParentID());
-                pnode = findProject(mnode.getParentID());
+                module = findModule(file.getParentKey());
+                project = findProject(module.getParentKey());
             }
 
-            stack.push(pnode);
-            while (pnode.hasParent())
+            stack.push(project);
+            while (project.hasParent())
             {
-                pnode = findProject(pnode.getParentID());
-                stack.push(pnode);
+                project = findProject(project.getParentKey());
+                stack.push(project);
             }
 
             ProjectNode current = stack.pop().cloneNoChildren();
@@ -307,21 +303,20 @@ public class CodeTreeUtils {
 
                 current.addSubProject(next);
                 current = next;
-                next = null;
             }
 
-            ProjectNode curProj = findProject(current.getQIdentifier());
+            ProjectNode currentProject = findProject(current.getQIdentifier());
 
-            fnode = curProj.getFile(tnode.getParentID()).cloneNoChildren();
+            file = currentProject.getFile(type.getParentKey()).cloneNoChildren();
 
-            curProj.addFile(fnode);
+            currentProject.addFile(file);
 
-            tnode = tnode.cloneNoChildren();
-            fnode.addType(tnode);
+            type = type.cloneNoChildren();
+            file.addType(type);
 
             try
             {
-                tnode.addMethod(methnode.clone());
+                type.addMethod(method.clone());
             }
             catch (CloneNotSupportedException e)
             {
@@ -404,9 +399,9 @@ public class CodeTreeUtils {
         if (qIdentifier == null || qIdentifier.isEmpty())
             return null;
 
-        Set<ProjectNode> projs = getProjects();
+        Set<ProjectNode> projects = getProjects();
 
-        for (ProjectNode p : projs)
+        for (ProjectNode p : projects)
         {
             if (p.hasModule(qIdentifier))
                 return p.getModule(qIdentifier);
@@ -430,38 +425,34 @@ public class CodeTreeUtils {
         INode parent = null;
         if (node instanceof FieldNode)
         {
-            parent = findType(node.getParentID());
+            parent = findType(node.getParentKey());
         }
         else if (node instanceof StatementNode)
         {
-            parent = findMethod(node.getParentID());
+            parent = findMethod(node.getParentKey());
         }
         else if (node instanceof MethodNode)
         {
-            parent = findType(node.getParentID());
+            parent = findType(node.getParentKey());
         }
         else if (node instanceof TypeNode)
         {
-            parent = findFile(node.getParentID());
+            parent = findFile(node.getParentKey());
         }
         else if (node instanceof FileNode)
         {
-            parent = findProject(node.getParentID());
+            parent = findProject(node.getParentKey());
             if (parent == null)
-                parent = findModule(node.getParentID());
+                parent = findModule(node.getParentKey());
         }
-        else if (node instanceof ModuleNode)
+        else if (node instanceof ModuleNode || node instanceof NamespaceNode)
         {
-            parent = findProject(node.getParentID());
-        }
-        else if (node instanceof NamespaceNode)
-        {
-            parent = findProject(node.getParentID());
+            parent = findProject(node.getParentKey());
         }
         else if (node instanceof ProjectNode)
         {
-            if (node.getParentID() != null)
-                parent = findProject(node.getParentID());
+            if (node.getParentKey() != null)
+                parent = findProject(node.getParentKey());
         }
 
         return parent;
@@ -517,11 +508,11 @@ public class CodeTreeUtils {
         if (key == null || key.isEmpty())
             return null;
 
-        for (final TypeNode tnode : getTypes())
+        for (final TypeNode type : getTypes())
         {
-            if (tnode.getQIdentifier().equals(key))
+            if (type.getQIdentifier().equals(key))
             {
-                return tnode;
+                return type;
             }
         }
 
@@ -582,9 +573,7 @@ public class CodeTreeUtils {
     {
         final Set<MethodNode> methods = Sets.newHashSet();
 
-        getTypes().forEach((type) -> {
-            methods.addAll(type.getMethods());
-        });
+        getTypes().forEach((type) -> methods.addAll(type.getMethods()));
 
         return methods;
     }
@@ -595,7 +584,7 @@ public class CodeTreeUtils {
      */
     public Set<ProjectNode> getProjects()
     {
-        Set<ProjectNode> projs = Sets.newHashSet();
+        Set<ProjectNode> projects = Sets.newHashSet();
         Queue<ProjectNode> q = Queues.newArrayDeque();
 
         if (tree.getProject() != null)
@@ -603,12 +592,12 @@ public class CodeTreeUtils {
 
         while (!q.isEmpty())
         {
-            ProjectNode pnode = q.poll();
-            projs.add(pnode);
-            q.addAll(pnode.getSubProjects());
+            ProjectNode project = q.poll();
+            projects.add(project);
+            q.addAll(project.getSubProjects());
         }
 
-        return projs;
+        return projects;
     }
 
     /**
@@ -618,9 +607,7 @@ public class CodeTreeUtils {
     {
         final Set<TypeNode> types = Sets.newHashSet();
 
-        getFiles().forEach((file) -> {
-            types.addAll(file.getTypes());
-        });
+        getFiles().forEach((file) -> types.addAll(file.getTypes()));
 
         return types;
     }
@@ -644,7 +631,7 @@ public class CodeTreeUtils {
         }
         if (pn.hasParent())
         {
-            if (pn.getParentID().equals(tree.getProject().getQIdentifier()))
+            if (pn.getParentKey().equals(tree.getProject().getQIdentifier()))
             {
                 tree.getProject().addSubProject(pn);
             }
@@ -695,29 +682,26 @@ public class CodeTreeUtils {
         if (node == null)
             return;
 
-        INode p = null;
-        if (findProject(node.getParentID()) != null)
-            p = findProject(node.getParentID());
-        else
-            p = findModule(node.getParentID());
+        INode container;
+        container = findProject(node.getParentKey()) != null ? findProject(node.getParentKey()) : findModule(node.getParentKey());
 
-        if (p instanceof ProjectNode)
+        if (container instanceof ProjectNode)
         {
-            if (((ProjectNode) p).getFile(node.getQIdentifier()) == null)
+            if (((ProjectNode) container).getFile(node.getQIdentifier()) == null)
             {
-                ((ProjectNode) p).addFile(node);
+                ((ProjectNode) container).addFile(node);
             }
 
-            ((ProjectNode) p).getFile(node.getQIdentifier()).update(node);
+            ((ProjectNode) container).getFile(node.getQIdentifier()).update(node);
         }
         else
         {
-            if (((ModuleNode) p).getFile(node.getQIdentifier()) == null)
+            if (((ModuleNode) container).getFile(node.getQIdentifier()) == null)
             {
-                ((ModuleNode) p).addFile(node);
+                ((ModuleNode) container).addFile(node);
             }
 
-            ((ModuleNode) p).getFile(node.getQIdentifier()).update(node);
+            ((ModuleNode) container).getFile(node.getQIdentifier()).update(node);
         }
     }
 

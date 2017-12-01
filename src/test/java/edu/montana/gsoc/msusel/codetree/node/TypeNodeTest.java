@@ -1,20 +1,20 @@
 /**
  * The MIT License (MIT)
- *
+ * <p>
  * MSUSEL CodeTree
  * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -36,9 +36,9 @@ import org.junit.Test;
  * The class <code>TypeNodeTest</code> contains tests for the class
  * <code>{@link TypeNode}</code>.
  *
- * @generatedBy CodePro at 1/26/16 6:38 PM
  * @author Isaac Griffith
  * @version 1.1.1
+ * @generatedBy CodePro at 1/26/16 6:38 PM
  */
 public class TypeNodeTest {
 
@@ -52,16 +52,14 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testTypeNode_1() throws Exception
-    {
+    public void testTypeNode_1() throws Exception {
         final String identifier = "type";
         final String qIdentifier = "namespace.Type";
         final int start = 1;
         final int end = 1000;
 
-        try
-        {
-            final TypeNode result = TypeNode.builder(identifier, qIdentifier).range(start, end).create();
+        try {
+            final TypeNode result = TypeNode.builder().name(identifier).identifier(qIdentifier).start(start).end(end).create();
 
             // add additional test code here
             Assert.assertNotNull(result);
@@ -69,9 +67,7 @@ public class TypeNodeTest {
             Assert.assertEquals("namespace.Type", result.getQIdentifier());
             Assert.assertEquals(1000, result.getEnd());
             Assert.assertEquals(1, result.getStart());
-        }
-        catch (final IllegalArgumentException e)
-        {
+        } catch (final IllegalArgumentException e) {
             Assert.fail();
         }
     }
@@ -83,23 +79,14 @@ public class TypeNodeTest {
      * @throws Exception
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    @Test
-    public void testTypeNode_2() throws Exception
-    {
+    @Test(expected = IllegalArgumentException.class)
+    public void testTypeNode_2() throws Exception {
         final String identifier = "";
         final String qIdentifier = "";
         final int start = 1;
         final int end = 1000;
 
-        try
-        {
-            TypeNode.builder(identifier, qIdentifier).range(start, end).create();
-            Assert.fail();
-        }
-        catch (final IllegalArgumentException e)
-        {
-
-        }
+        TypeNode.builder().name(identifier).identifier(qIdentifier).start(start).end(end).create();
     }
 
     /**
@@ -109,23 +96,14 @@ public class TypeNodeTest {
      * @throws Exception
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    @Test
-    public void testTypeNode_3() throws Exception
-    {
+    @Test(expected = IllegalArgumentException.class)
+    public void testTypeNode_3() throws Exception {
         final String identifier = null;
         final String qIdentifier = "";
         final int start = 1;
         final int end = 1000;
 
-        try
-        {
-            TypeNode.builder(identifier, qIdentifier).range(start, end).create();
-            Assert.fail();
-        }
-        catch (final IllegalArgumentException e)
-        {
-
-        }
+        TypeNode.builder().name(identifier).identifier(qIdentifier).start(start).end(end).create();
     }
 
     /**
@@ -135,9 +113,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testAddMethod_1() throws Exception
-    {
-        final MethodNode method = MethodNode.builder("method", "namespace.type#method").range(25, 100).create();
+    public void testAddMethod_1() throws Exception {
+        final MethodNode method = MethodNode.builder().name("method").identifier("namespace.type#method").start(25).end(100).create();
 
         fixture.addMethod(method);
 
@@ -152,8 +129,7 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testAddMethod_2() throws Exception
-    {
+    public void testAddMethod_2() throws Exception {
         final MethodNode method = null;
 
         Assert.assertTrue(fixture.getMethods().isEmpty());
@@ -170,9 +146,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testAddMethod_3() throws Exception
-    {
-        final MethodNode method = MethodNode.builder("method", "namespace.type#method").range(25, 100).create();
+    public void testAddMethod_3() throws Exception {
+        final MethodNode method = MethodNode.builder().name("method").identifier("namespace.type#method").start(25).end(100).create();
 
         fixture.addMethod(method);
 
@@ -188,20 +163,10 @@ public class TypeNodeTest {
      * @throws Exception
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    @Test
-    public void testAddMethod_4() throws Exception
-    {
-        try
-        {
-            final MethodNode method = MethodNode.builder("method", "namespace.type#method").range(25, 1001)
-                    .create();
-            fixture.addMethod(method);
-            Assert.fail();
-        }
-        catch (final IllegalArgumentException e)
-        {
-
-        }
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddMethod_4() throws Exception {
+        final MethodNode method = MethodNode.builder().name("method").identifier("namespace.type#method").start(25).end(1001).create();
+        fixture.addMethod(method);
     }
 
     /**
@@ -210,21 +175,11 @@ public class TypeNodeTest {
      * @throws Exception
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    @Test
-    public void testAddMethod_5() throws Exception
-    {
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddMethod_5() throws Exception {
         fixture.setStart(100);
-        try
-        {
-            final MethodNode method = MethodNode.builder("method", "namespace.type#method").range(25, 1009)
-                    .create();
-            fixture.addMethod(method);
-            Assert.fail();
-        }
-        catch (final IllegalArgumentException e)
-        {
-
-        }
+        final MethodNode method = MethodNode.builder().name("method").identifier("namespace.type#method").start(25).end(1009).create();
+        fixture.addMethod(method);
     }
 
     /**
@@ -234,9 +189,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testAddField_1() throws Exception
-    {
-        final FieldNode field = FieldNode.builder("field", "namespace.type#field").range(25, 25).create();
+    public void testAddField_1() throws Exception {
+        final FieldNode field = FieldNode.builder().name("field").identifier("namespace.type#field").start(25).end(25).create();
 
         fixture.addField(field);
 
@@ -251,8 +205,7 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testAddField_2() throws Exception
-    {
+    public void testAddField_2() throws Exception {
         final FieldNode field = null;
 
         Assert.assertTrue(fixture.getFields().isEmpty());
@@ -269,9 +222,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testAddField_3() throws Exception
-    {
-        final FieldNode field = FieldNode.builder("field", "namespace.type#field").range(25, 25).create();
+    public void testAddField_3() throws Exception {
+        final FieldNode field = FieldNode.builder().name("field").identifier("namespace.type#field").start(25).end(25).create();
 
         fixture.addField(field);
 
@@ -287,18 +239,10 @@ public class TypeNodeTest {
      * @throws Exception
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    @Test
-    public void testAddField_4() throws Exception
-    {
-        try
-        {
-            final FieldNode field = FieldNode.builder("field", "namespace.type#field").range(1001, 1001).create();
-            fixture.addField(field);
-            Assert.fail();
-        }
-        catch (final IllegalArgumentException e)
-        {
-        }
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddField_4() throws Exception {
+        final FieldNode field = FieldNode.builder().name("field").identifier("namespace.type#field").start(1001).end(1001).create();
+        fixture.addField(field);
     }
 
     /**
@@ -307,19 +251,12 @@ public class TypeNodeTest {
      * @throws Exception
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    @Test
-    public void testAddField_5() throws Exception
-    {
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddField_5() throws Exception {
         fixture.setStart(25);
-        try
-        {
-            final FieldNode field = FieldNode.builder("field", "namespace.type#field").range(24, 24).create();
+        final FieldNode field = FieldNode.builder().name("field").identifier("namespace.type#field").start(24).end(24).create();
             fixture.addField(field);
             Assert.fail();
-        }
-        catch (final IllegalArgumentException e)
-        {
-        }
     }
 
     /**
@@ -329,9 +266,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetMethod_1() throws Exception
-    {
-        final MethodNode method = MethodNode.builder("method", "namespace.type#method").range(25, 100).create();
+    public void testGetMethod_1() throws Exception {
+        final MethodNode method = MethodNode.builder().name("method").identifier("namespace.type#method").start(25).end(100).create();
         fixture.addMethod(method);
 
         MethodNode result = fixture.getMethod(30);
@@ -359,9 +295,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetMethod_2() throws Exception
-    {
-        final MethodNode method = MethodNode.builder("method", "namespace.type#method").range(25, 100).create();
+    public void testGetMethod_2() throws Exception {
+        final MethodNode method = MethodNode.builder().name("method").identifier("namespace.type#method").start(25).end(100).create();
         fixture.addMethod(method);
 
         MethodNode result = fixture.getMethod(30);
@@ -389,8 +324,7 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetMethod_3() throws Exception
-    {
+    public void testGetMethod_3() throws Exception {
         MethodNode result = fixture.getMethod(30);
 
         // add additional test code here
@@ -416,8 +350,7 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetMethod_4() throws Exception
-    {
+    public void testGetMethod_4() throws Exception {
         Assert.assertTrue(fixture.getMethods().isEmpty());
 
         MethodNode result = fixture.getMethod(30);
@@ -445,9 +378,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetField_1() throws Exception
-    {
-        final FieldNode field = FieldNode.builder("field", "namespace.type#field").range(25, 25).create();
+    public void testGetField_1() throws Exception {
+        final FieldNode field = FieldNode.builder().name("field").identifier("namespace.type#field").start(25).end(25).create();
         fixture.addField(field);
 
         final FieldNode result = fixture.getField(25);
@@ -463,9 +395,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetField_2() throws Exception
-    {
-        final FieldNode field = FieldNode.builder("field", "namespace.type#field").range(25, 25).create();
+    public void testGetField_2() throws Exception {
+        final FieldNode field = FieldNode.builder().name("field").identifier("namespace.type#field").start(25).end(25).create();
         fixture.addField(field);
 
         FieldNode result = fixture.getField(26);
@@ -484,8 +415,7 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetField_3() throws Exception
-    {
+    public void testGetField_3() throws Exception {
         final FieldNode result = fixture.getField(25);
 
         // add additional test code here
@@ -499,9 +429,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetMethods_1() throws Exception
-    {
-        final MethodNode method = MethodNode.builder("method", "namespace.type#method").range(25, 100).create();
+    public void testGetMethods_1() throws Exception {
+        final MethodNode method = MethodNode.builder().name("method").identifier("namespace.type#method").start(25).end(100).create();
         fixture.addMethod(method);
         final Set<MethodNode> result = fixture.getMethods();
 
@@ -517,9 +446,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetFields_1() throws Exception
-    {
-        final FieldNode field = FieldNode.builder("field", "namespace.type#field").range(25, 25).create();
+    public void testGetFields_1() throws Exception {
+        final FieldNode field = FieldNode.builder().name("field").identifier("namespace.type#field").start(25).end(25).create();
         fixture.addField(field);
         final Set<FieldNode> result = fixture.getFields();
 
@@ -535,8 +463,7 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testGetType_1() throws Exception
-    {
+    public void testGetType_1() throws Exception {
         final String result = fixture.getType();
 
         // add additional test code here
@@ -550,9 +477,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testRemoveMethod_1() throws Exception
-    {
-        final MethodNode method = MethodNode.builder("method", "namespace.type#method").range(25, 100).create();
+    public void testRemoveMethod_1() throws Exception {
+        final MethodNode method = MethodNode.builder().name("method").identifier("namespace.type#method").start(25).end(100).create();
         fixture.addMethod(method);
 
         Assert.assertEquals(1, fixture.getMethods().size());
@@ -569,9 +495,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testRemoveMethod_2() throws Exception
-    {
-        final MethodNode method = MethodNode.builder("method", "namespace.type#method").range(25, 100).create();
+    public void testRemoveMethod_2() throws Exception {
+        final MethodNode method = MethodNode.builder().name("method").identifier("namespace.type#method").start(25).end(100).create();
         fixture.addMethod(method);
 
         Assert.assertEquals(1, fixture.getMethods().size());
@@ -588,10 +513,9 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testRemoveMethod_3() throws Exception
-    {
-        final MethodNode method = MethodNode.builder("method", "namespace.type#method").range(25, 100).create();
-        final MethodNode method2 = MethodNode.builder("method2", "namespace.type#method2").range(100, 120).create();
+    public void testRemoveMethod_3() throws Exception {
+        final MethodNode method = MethodNode.builder().name("method").identifier("namespace.type#method").start(25).end(100).create();
+        final MethodNode method2 = MethodNode.builder().name("method2").identifier("namespace.type#method2").start(100).end(120).create();
         fixture.addMethod(method);
 
         Assert.assertEquals(1, fixture.getMethods().size());
@@ -608,9 +532,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testRemoveField_1() throws Exception
-    {
-        final FieldNode field = FieldNode.builder("field", "namespace.type#field").range(25, 25).create();
+    public void testRemoveField_1() throws Exception {
+        final FieldNode field = FieldNode.builder().name("field").identifier("namespace.type#field").start(25).end(25).create();
         fixture.addField(field);
 
         Assert.assertEquals(1, fixture.getFields().size());
@@ -627,9 +550,8 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testRemoveField_2() throws Exception
-    {
-        final FieldNode field = FieldNode.builder("field", "namespace.type#field").range(25, 25).create();
+    public void testRemoveField_2() throws Exception {
+        final FieldNode field = FieldNode.builder().name("field").identifier("namespace.type#field").start(25).end(25).create();
         fixture.addField(field);
 
         Assert.assertEquals(1, fixture.getFields().size());
@@ -646,10 +568,9 @@ public class TypeNodeTest {
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Test
-    public void testRemoveField_3() throws Exception
-    {
-        final FieldNode field = FieldNode.builder("field", "namespace.type#field").range(25, 25).create();
-        final FieldNode field2 = FieldNode.builder("field2", "namespace.type#field2").range(24, 24).create();
+    public void testRemoveField_3() throws Exception {
+        final FieldNode field = FieldNode.builder().name("field").identifier("namespace.type#field").start(25).end(25).create();
+        final FieldNode field2 = FieldNode.builder().name("field").identifier("namespace.type#field").start(24).end(24).create();
         fixture.addField(field);
 
         Assert.assertEquals(1, fixture.getFields().size());
@@ -662,38 +583,32 @@ public class TypeNodeTest {
     /**
      * Perform pre-test initialization.
      *
-     * @throws Exception
-     *             if the initialization fails for some reason
+     * @throws Exception if the initialization fails for some reason
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @Before
-    public void setUp() throws Exception
-    {
+    public void setUp() throws Exception {
         fixture = new TypeNode("namespace.type", "type");
     }
 
     /**
      * Perform post-test clean-up.
      *
-     * @throws Exception
-     *             if the clean-up fails for some reason
+     * @throws Exception if the clean-up fails for some reason
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
     @After
-    public void tearDown() throws Exception
-    {
+    public void tearDown() throws Exception {
         // Add additional tear down code here
     }
 
     /**
      * Launch the test.
      *
-     * @param args
-     *            the command line arguments
+     * @param args the command line arguments
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    public static void main(final String[] args)
-    {
+    public static void main(final String[] args) {
         new org.junit.runner.JUnitCore().run(TypeNodeTest.class);
     }
 }

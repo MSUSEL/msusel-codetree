@@ -47,7 +47,7 @@ public enum RelationshipType {
      */
     Association,
     /**
-     * A relationshp indicating a IS-A relationship. Here the source type is an
+     * A relationship indicating a IS-A relationship. Here the source type is an
      * extension of the dest type, indicating that the source specializes the
      * dest and the dest generalizes the source. Here the dest type and source
      * type must both be classes or both be interfaces.

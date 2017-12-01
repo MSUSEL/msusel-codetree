@@ -65,7 +65,7 @@ public class ModuleNodeDeserializer implements JsonDeserializer<ModuleNode> {
             Type metricsType = new TypeToken<Map<String, Double>>() {
             }.getType();
             Map<String, Double> metrics = context.deserialize(obj.get("metrics"), metricsType);
-            metrics.forEach((name, value) -> builder.metric(name, value));
+            metrics.forEach(builder::metric);
         }
 
         if (obj.has("files"))

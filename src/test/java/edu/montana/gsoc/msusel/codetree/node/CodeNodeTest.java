@@ -51,7 +51,7 @@ public class CodeNodeTest {
     @Test
     public void testCompareTo_1() throws Exception
     {
-        final CodeNode other = TypeNode.builder("Type", "namespace.Type").range(1, 100).create();
+        final CodeNode other = TypeNode.builder().name("Type").identifier("namespace.Type").start(1).end(100).create();
 
         final int result = fixture.compareTo(other);
 
@@ -68,7 +68,7 @@ public class CodeNodeTest {
     @Test
     public void testCompareTo_2() throws Exception
     {
-        final CodeNode other = TypeNode.builder("Type", "namespace.Type").range(100, 1000).create();
+        final CodeNode other = TypeNode.builder().name("Type").identifier("namespace.Type").start(100).end(1000).create();
 
         final int result = fixture.compareTo(other);
 
@@ -85,7 +85,7 @@ public class CodeNodeTest {
     @Test
     public void testCompareTo_3() throws Exception
     {
-        final CodeNode other = TypeNode.builder("Type", "namespace.Type").range(200, 1000).create();
+        final CodeNode other = TypeNode.builder().name("Type").identifier("namespace.Type").start(200).end(1000).create();
 
         final int result = fixture.compareTo(other);
 
@@ -170,7 +170,7 @@ public class CodeNodeTest {
     @Test
     public void testEquals_1() throws Exception
     {
-        final CodeNode obj = TypeNode.builder("Type", "namespace.Type").range(100, 1000).create();
+        final CodeNode obj = TypeNode.builder().name("Type").identifier("namespace.Type").start(100).end(1000).create();
 
         final boolean result = fixture.equals(obj);
 
@@ -221,7 +221,7 @@ public class CodeNodeTest {
     @Test
     public void testEquals_4() throws Exception
     {
-        final CodeNode obj = TypeNode.builder("Type", "namespace.Type").range(100, 1000).create();
+        final CodeNode obj = TypeNode.builder().name("Type").identifier("namespace.Type").start(100).end(1000).create();
 
         final boolean result = fixture.equals(obj);
 
@@ -238,7 +238,7 @@ public class CodeNodeTest {
     @Test
     public void testEquals_5() throws Exception
     {
-        final CodeNode obj = TypeNode.builder("NewType", "namespace.NewType").range(100, 1000).create();
+        final CodeNode obj = TypeNode.builder().name("Type").identifier("namespace.Type").start(100).end(1000).create();
 
         final boolean result = fixture.equals(obj);
 
@@ -272,7 +272,7 @@ public class CodeNodeTest {
     @Test
     public void testEquals_7() throws Exception
     {
-        final CodeNode obj = TypeNode.builder("Type", "namespace.Type").range(125, 1000).create();
+        final CodeNode obj = TypeNode.builder().name("Type").identifier("namespace.Type").start(125).end(1000).create();
         ;
 
         final boolean result = fixture.equals(obj);
@@ -290,7 +290,7 @@ public class CodeNodeTest {
     @Test
     public void testEquals_8() throws Exception
     {
-        final CodeNode obj = TypeNode.builder("Type", "namespace.Type").range(100, 900).create();
+        final CodeNode obj = TypeNode.builder().name("Type").identifier("namespace.Type").start(100).end(900).create();
 
         final boolean result = fixture.equals(obj);
 
@@ -396,7 +396,7 @@ public class CodeNodeTest {
     @Test
     public void testSetEnd_3() throws Exception
     {
-        fixture = FieldNode.builder("field", "field").range(150, 150).create();
+        fixture = FieldNode.builder().name("field").identifier("field").start(150).end(150).create();
         final int end = 1001;
 
         try
@@ -484,7 +484,7 @@ public class CodeNodeTest {
     @Before
     public void setUp() throws Exception
     {
-        fixture = TypeNode.builder("Type", "namespace.Type").range(100, 1000).create();
+        fixture = TypeNode.builder().name("Type").identifier("namespace.Type").start(100).end(1000).create();
     }
 
     /**

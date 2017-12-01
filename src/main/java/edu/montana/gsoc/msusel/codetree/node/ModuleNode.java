@@ -99,23 +99,23 @@ public class ModuleNode extends StructuralNode {
             return;
 
         if (files.containsKey(node.getQIdentifier()))
-            files.get(node).update(node);
+            files.get(node.getQIdentifier()).update(node);
         else
             files.put(node.getQIdentifier(), node);
 
-        node.setParentID(this.getQIdentifier());
+        node.setParentKey(this.getQIdentifier());
     }
 
     /**
      * Adds a new FileNode to the module with the given absolute path as its
-     * qualified identifer. If the provided path is empty or null, then null is
+     * qualified identifier. If the provided path is empty or null, then null is
      * returned and nothing happens. On the other hand if a file with the same
      * path already exists in this module, that file is returned. Finally, if
      * neither of previous cases are met, then a new FileNode is created and
      * added to this Module, which is then returned.
      * 
      * @param path
-     *            The absoulte path of a File to be added to this Module
+     *            The absolute path of a File to be added to this Module
      * @return The newly created file, if one with the same path does not
      *         already exists, otherwise that file is returned. In the case that
      *         the provided path is null, empty, or non-existent then null is
@@ -132,7 +132,7 @@ public class ModuleNode extends StructuralNode {
         FileNode fn = new FileNode(path);
         files.put(path, fn);
 
-        fn.setParentID(this.getQIdentifier());
+        fn.setParentKey(this.getQIdentifier());
         return fn;
     }
 
@@ -216,11 +216,11 @@ public class ModuleNode extends StructuralNode {
     @Override
     public ModuleNode cloneNoChildren()
     {
-        ModuleNode mnode = new ModuleNode(this.qIdentifier);
+        ModuleNode node = new ModuleNode(this.getQIdentifier());
 
-        copyMetrics(mnode);
+        copyMetrics(node);
 
-        return mnode;
+        return node;
     }
 
     /**
@@ -229,14 +229,14 @@ public class ModuleNode extends StructuralNode {
     @Override
     public ModuleNode clone() throws CloneNotSupportedException
     {
-        ModuleNode mnode = cloneNoChildren();
+        ModuleNode node = cloneNoChildren();
 
         for (String key : files.keySet())
         {
-            mnode.addFile(files.get(key).clone());
+            node.addFile(files.get(key).clone());
         }
 
-        return mnode;
+        return node;
     }
 
     /**
@@ -258,12 +258,9 @@ public class ModuleNode extends StructuralNode {
      * @return true if a file exists in this module with the given absolute
      *         path, false otherwise.
      */
-    public boolean hasFile(String path)
-    {
-        if (path == null || path.isEmpty())
-            return false;
+    public boolean hasFile(String path) {
+        return path != null && !path.isEmpty() && files.containsKey(path);
 
-        return files.containsKey(path);
     }
 
     /**
@@ -275,7 +272,7 @@ public class ModuleNode extends StructuralNode {
         Set<MethodNode> methods = Sets.newHashSet();
         for (TypeNode tn : getTypes())
         {
-            Sets.union(methods, tn.getMethods());
+            methods = Sets.union(methods, tn.getMethods());
         }
 
         return methods;
@@ -316,12 +313,9 @@ public class ModuleNode extends StructuralNode {
      * @return true if a namespace with the given identifier is contained in
      *         this module, false otherwise.
      */
-    public boolean hasNamespace(String nsID)
-    {
-        if (nsID == null || nsID.isEmpty())
-            return false;
+    public boolean hasNamespace(String nsID) {
+        return nsID != null && !nsID.isEmpty() && namespaces.containsKey(nsID);
 
-        return namespaces.containsKey(nsID);
     }
 
     /**
@@ -337,7 +331,7 @@ public class ModuleNode extends StructuralNode {
             return;
 
         namespaces.put(node.getQIdentifier(), node);
-        node.setParentID(this.getQIdentifier());
+        node.setParentKey(this.getQIdentifier());
     }
 
     /**
@@ -353,7 +347,7 @@ public class ModuleNode extends StructuralNode {
         if (qid == null || qid.isEmpty() || !files.containsKey(qid))
             return;
 
-        files.get(qid).setParentID(null);
+        files.get(qid).setParentKey(null);
         files.remove(qid);
     }
 
@@ -391,12 +385,12 @@ public class ModuleNode extends StructuralNode {
      * @author Isaac Griffith
      * @version 1.1.0
      */
-    public static class Builder {
+    public static final class Builder {
 
         /**
          * The ModuleNode to be constructed.
          */
-        private ModuleNode node;
+        private final ModuleNode node;
 
         /**
          * Constructs a Builder for a ModuleNode with the given Simple Name and
@@ -440,7 +434,7 @@ public class ModuleNode extends StructuralNode {
          *            File to be added
          * @return this
          */
-        public Builder file(FileNode file)
+        public Builder file(final FileNode file)
         {
             node.addFile(file);
 
@@ -451,12 +445,11 @@ public class ModuleNode extends StructuralNode {
          * Adds the given namespace to the ModuleNode
          * under construction
          * 
-         * @param ns
+         * @param namespace
          *            Namespace to add
          * @return this
          */
-        @NonNull
-        public Builder namespace(NamespaceNode namespace)
+        public final @NonNull Builder namespace(final NamespaceNode namespace)
         {
             node.addNamespace(namespace);
 
@@ -464,17 +457,16 @@ public class ModuleNode extends StructuralNode {
         }
 
         /**
-         * The the metric and measurement value to the ModuleNode under
+         * The the name and measurement value to the ModuleNode under
          * construction.
          * 
-         * @param metric
+         * @param name
          *            Metric name
          * @param value
          *            Measurement value
          * @return this
          */
-        @NonNull
-        public Builder metric(String name, Double value)
+        public final @NonNull Builder metric(final String name, final Double value)
         {
             node.addMetric(name, value);
 
@@ -491,10 +483,9 @@ public class ModuleNode extends StructuralNode {
          *            construction
          * @return this
          */
-        @NonNull
-        public Builder parent(String pID)
+        public final @NonNull Builder parent(final String pID)
         {
-            node.setParentID(pID);
+            node.setParentKey(pID);
 
             return this;
         }

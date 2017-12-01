@@ -47,7 +47,7 @@ import edu.montana.gsoc.msusel.codetree.json.FieldNodeDeserializer;
 /**
  * An abstraction representing a file within the project (typically a source
  * code/test code file). Each file's qualified identifier is its key as defined
- * by some arbitary system, while its name is the absolute path witin the
+ * by some arbitrary system, while its name is the absolute path within the
  * filesystem it resides in. Files can then define a set of Types which are
  * defined within the file.
  * 
@@ -127,7 +127,7 @@ public class FileNode extends StructuralNode {
 
         types.put(node.getQIdentifier(), node);
 
-        node.setParentID(this.getQIdentifier());
+        node.setParentKey(this.getQIdentifier());
 
         return true;
     }
@@ -147,9 +147,9 @@ public class FileNode extends StructuralNode {
             return false;
         }
 
-        types.remove(node);
+        types.remove(node.getQIdentifier());
 
-        node.setParentID(null);
+        node.setParentKey(null);
 
         return true;
     }
@@ -231,10 +231,7 @@ public class FileNode extends StructuralNode {
         if (name == null || name.isEmpty())
             return null;
 
-        if (types.containsKey(name))
-            return types.get(name);
-        else
-            return addType(name);
+        return types.containsKey(name) ? types.get(name) : addType(name);
     }
 
     /**
@@ -335,17 +332,14 @@ public class FileNode extends StructuralNode {
     /**
      * Checks whether the provided type is contained within this file.
      * 
-     * @param cnode
+     * @param node
      *            Type
      * @return true if contained in this file, false if provided type is null or
      *         not contained in this file.
      */
-    public boolean hasType(TypeNode cnode)
-    {
-        if (cnode == null)
-            return false;
+    public boolean hasType(TypeNode node) {
+        return node != null && types.containsKey(node.getQIdentifier());
 
-        return types.containsKey(cnode.getQIdentifier());
     }
 
     /**
@@ -423,12 +417,9 @@ public class FileNode extends StructuralNode {
      *         the provided value is null, empty, or not contained in the
      *         FileNode.
      */
-    public boolean hasImport(String imp)
-    {
-        if (imp == null || imp.isEmpty())
-            return false;
+    public boolean hasImport(String imp) {
+        return imp != null && !imp.isEmpty() && imports.contains(imp);
 
-        return imports.contains(imp);
     }
 
     /**
@@ -445,13 +436,13 @@ public class FileNode extends StructuralNode {
     @Override
     public FileNode cloneNoChildren()
     {
-        FileNode fnode = new FileNode(qIdentifier);
+        FileNode node = new FileNode(getQIdentifier());
 
-        copyMetrics(fnode);
+        copyMetrics(node);
 
-        fnode.setParentID(parentID);
+        node.setParentKey(parentKey);
 
-        return fnode;
+        return node;
     }
 
     /**
@@ -460,14 +451,14 @@ public class FileNode extends StructuralNode {
     @Override
     public FileNode clone() throws CloneNotSupportedException
     {
-        FileNode fnode = cloneNoChildren();
+        FileNode node = cloneNoChildren();
 
         for (String key : types.keySet())
         {
-            fnode.addType(types.get(key).clone());
+            node.addType(types.get(key).clone());
         }
 
-        return fnode;
+        return node;
     }
 
     /**
@@ -538,12 +529,12 @@ public class FileNode extends StructuralNode {
      * @author Isaac Griffith
      * @version 1.1.0
      */
-    public static class Builder {
+    public static final class Builder {
 
         /**
          * The FileNode to be constructed by this Builder
          */
-        private FileNode node;
+        private final FileNode node;
 
         /**
          * Constructs a new Builder for a FileNode with the given name and
@@ -567,7 +558,7 @@ public class FileNode extends StructuralNode {
          * @param qID
          *            Qualified Identifier of the File
          */
-        private Builder(String qID)
+        private Builder(final String qID)
         {
             node = new FileNode(qID);
         }
@@ -575,8 +566,7 @@ public class FileNode extends StructuralNode {
         /**
          * @return The Constructed FileNode
          */
-        @NonNull
-        public FileNode create()
+        public final @NonNull FileNode create()
         {
             return node;
         }
@@ -588,8 +578,7 @@ public class FileNode extends StructuralNode {
          *            Type to add
          * @return this
          */
-        @NonNull
-        public Builder type(TypeNode type)
+        public final @NonNull Builder type(final TypeNode type)
         {
             node.addType(type);
 
@@ -597,7 +586,7 @@ public class FileNode extends StructuralNode {
         }
 
         /**
-         * The the metric and measurement value to the FileNode under
+         * The the name and measurement value to the FileNode under
          * construction.
          * 
          * @param metric
@@ -606,8 +595,7 @@ public class FileNode extends StructuralNode {
          *            Measurement value
          * @return this
          */
-        @NonNull
-        public Builder metric(String metric, Double value)
+        public final @NonNull Builder metric(final String metric, final Double value)
         {
             node.addMetric(metric, value);
 
@@ -621,8 +609,7 @@ public class FileNode extends StructuralNode {
          *            Length in lines
          * @return this
          */
-        @NonNull
-        public Builder length(int length)
+        public final @NonNull Builder length(final int length)
         {
             node.setLength(length);
 
@@ -638,10 +625,9 @@ public class FileNode extends StructuralNode {
          *            construction
          * @return this
          */
-        @NonNull
-        public Builder parent(String pID)
+        public final @NonNull Builder parent(final String pID)
         {
-            node.setParentID(pID);
+            node.setParentKey(pID);
 
             return this;
         }
@@ -653,8 +639,7 @@ public class FileNode extends StructuralNode {
          *            Import to add
          * @return this
          */
-        @NonNull
-        public Builder imports(String imp)
+        public final @NonNull Builder imports(final String imp)
         {
             node.addImport(imp);
 

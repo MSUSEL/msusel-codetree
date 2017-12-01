@@ -32,7 +32,7 @@ import edu.montana.gsoc.msusel.codetree.INode;
  * outside the confines of the containment relationships inherent to the tree
  * structure.
  * 
- * @author Isaac Griffith
+ * @author Isaac Griffith`
  * @version 1.1.0
  */
 public class Relationship {

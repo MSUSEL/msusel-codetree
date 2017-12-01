@@ -41,7 +41,7 @@ import edu.montana.gsoc.msusel.codetree.node.NamespaceNode;
 
 /**
  * @author Isaac Griffith
- * @version
+ * @version 1.1.1
  */
 public class NamespaceNodeDeserializer implements JsonDeserializer<NamespaceNode> {
 
@@ -68,7 +68,7 @@ public class NamespaceNodeDeserializer implements JsonDeserializer<NamespaceNode
             Type metricsType = new TypeToken<Map<String, Double>>() {
             }.getType();
             Map<String, Double> metrics = context.deserialize(obj.get("metrics"), metricsType);
-            metrics.forEach((metric, value) -> builder.metric(metric, value));
+            metrics.forEach(builder::metric);
         }
 
         if (obj.has("types"))
@@ -76,7 +76,7 @@ public class NamespaceNodeDeserializer implements JsonDeserializer<NamespaceNode
             Type typesType = new TypeToken<Set<TypeNode>>() {
             }.getType();
             Set<TypeNode> types = context.deserialize(obj.get("types"), typesType);
-            types.forEach((type) -> builder.type(type));
+            types.forEach(builder::type);
         }
 
         if (obj.has("namespaces"))

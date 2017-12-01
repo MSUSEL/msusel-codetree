@@ -115,7 +115,7 @@ public class ProjectNode extends StructuralNode {
         else
             subprojects.put(node.getQIdentifier(), node);
 
-        node.setParentID(this.qIdentifier);
+        node.setParentKey(this.getQIdentifier());
     }
 
     /**
@@ -134,7 +134,7 @@ public class ProjectNode extends StructuralNode {
 
         ProjectNode node = new ProjectNode(key);
         subprojects.put(key, node);
-        node.setParentID(this.qIdentifier);
+        node.setParentKey(this.getQIdentifier());
         return node;
     }
 
@@ -176,7 +176,7 @@ public class ProjectNode extends StructuralNode {
         if (subprojects.containsKey(id))
         {
             ProjectNode n = subprojects.remove(id);
-            n.setParentID(null);
+            n.setParentKey(null);
             return n;
         }
 
@@ -196,7 +196,7 @@ public class ProjectNode extends StructuralNode {
         if (subprojects.containsKey(node.getQIdentifier()))
         {
             ProjectNode n = subprojects.remove(node.getQIdentifier());
-            n.setParentID(null);
+            n.setParentKey(null);
             return n;
         }
 
@@ -279,7 +279,7 @@ public class ProjectNode extends StructuralNode {
         else
             files.put(node.getQIdentifier(), node);
 
-        node.setParentID(this.qIdentifier);
+        node.setParentKey(this.getQIdentifier());
     }
 
     /**
@@ -300,7 +300,7 @@ public class ProjectNode extends StructuralNode {
         FileNode fn = new FileNode(path);
         files.put(path, fn);
 
-        fn.setParentID(this.parentID);
+        fn.setParentKey(this.parentKey);
 
         return fn;
     }
@@ -492,13 +492,13 @@ public class ProjectNode extends StructuralNode {
     @Override
     public ProjectNode cloneNoChildren()
     {
-        ProjectNode pnode = new ProjectNode(qIdentifier);
+        ProjectNode node = new ProjectNode(getQIdentifier());
 
-        copyMetrics(pnode);
+        copyMetrics(node);
 
-        pnode.setParentID(this.parentID);
+        node.setParentKey(this.parentKey);
 
-        return pnode;
+        return node;
     }
 
     /**
@@ -507,24 +507,24 @@ public class ProjectNode extends StructuralNode {
     @Override
     public ProjectNode clone() throws CloneNotSupportedException
     {
-        ProjectNode pnode = cloneNoChildren();
+        ProjectNode node = cloneNoChildren();
 
         for (String key : files.keySet())
         {
-            pnode.addFile(files.get(key).clone());
+            node.addFile(files.get(key).clone());
         }
 
         for (String key : modules.keySet())
         {
-            pnode.addModule(modules.get(key).clone());
+            node.addModule(modules.get(key).clone());
         }
 
         for (String key : subprojects.keySet())
         {
-            pnode.addSubProject(subprojects.get(key).clone());
+            node.addSubProject(subprojects.get(key).clone());
         }
 
-        return pnode;
+        return node;
     }
 
     /**
@@ -545,12 +545,9 @@ public class ProjectNode extends StructuralNode {
      * @return true if this project contains a module with the provided
      *         qIdentifier, false otherwise.
      */
-    public boolean hasModule(String qIdentifier)
-    {
-        if (qIdentifier == null || qIdentifier.isEmpty())
-            return false;
+    public boolean hasModule(String qIdentifier) {
+        return qIdentifier != null && !qIdentifier.isEmpty() && modules.containsKey(qIdentifier);
 
-        return modules.containsKey(qIdentifier);
     }
 
     /**
@@ -562,12 +559,9 @@ public class ProjectNode extends StructuralNode {
      * @return true if a file exists, within this project, with the given path,
      *         false otherwise.
      */
-    public boolean hasFile(String path)
-    {
-        if (path == null || path.isEmpty())
-            return false;
+    public boolean hasFile(String path) {
+        return path != null && !path.isEmpty() && files.containsKey(path);
 
-        return files.containsKey(path);
     }
 
     /**
@@ -589,7 +583,7 @@ public class ProjectNode extends StructuralNode {
             return;
         }
 
-        ns.setParentID(this.getQIdentifier());
+        ns.setParentKey(this.getQIdentifier());
         namespaces.put(ns.getQIdentifier(), ns);
     }
 
@@ -609,7 +603,7 @@ public class ProjectNode extends StructuralNode {
             return namespaces.get(ns);
 
         NamespaceNode namespace = new NamespaceNode(ns);
-        namespace.setParentID(this.getQIdentifier());
+        namespace.setParentKey(this.getQIdentifier());
 
         namespaces.put(namespace.getQIdentifier(), namespace);
 
@@ -669,12 +663,9 @@ public class ProjectNode extends StructuralNode {
      * @return true if this project contains a namespace matching the provided
      *         qualified identifier, false otherwise.
      */
-    public boolean hasNamespace(String ns)
-    {
-        if (ns == null || ns.isEmpty())
-            return false;
+    public boolean hasNamespace(String ns) {
+        return ns != null && !ns.isEmpty() && namespaces.containsKey(ns);
 
-        return namespaces.containsKey(ns);
     }
 
     /**
@@ -697,12 +688,12 @@ public class ProjectNode extends StructuralNode {
      * @author Isaac Griffith
      * @version 1.1.0
      */
-    public static class Builder {
+    public static final class Builder {
 
         /**
          * Node to be constructed
          */
-        private ProjectNode node;
+        private final ProjectNode node;
 
         /**
          * Constructs a new Builder for a Project with the given qualified
@@ -782,12 +773,12 @@ public class ProjectNode extends StructuralNode {
         }
 
         /**
-         * Adds a metric and its measurement value to this project.
+         * Adds a name and its measurement value to this project.
          * 
          * @param metric
-         *            Name of metric to add.
+         *            Name of name to add.
          * @param value
-         *            Measurement value of the metric.
+         *            Measurement value of the name.
          * @return this
          */
         public Builder metric(String metric, Double value)
@@ -806,7 +797,7 @@ public class ProjectNode extends StructuralNode {
          */
         public Builder parent(String pID)
         {
-            node.setParentID(pID);
+            node.setParentKey(pID);
 
             return this;
         }

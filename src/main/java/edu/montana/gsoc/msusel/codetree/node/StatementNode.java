@@ -31,7 +31,7 @@ import edu.montana.gsoc.msusel.codetree.INode;
 
 /**
  * An abstraction of the statements making up the body of a method. A statement
- * has a defined Statement Type and its unique qualitfied name is a combination
+ * has a defined Statement Type and its unique qualified name is a combination
  * of that type and a separate long integer representing the count of that
  * statement type within the system.
  * 
@@ -43,7 +43,7 @@ public class StatementNode extends CodeNode {
     /**
      * The next valid IDNum
      */
-    private static long   nextIDNum = 0;
+    private static long   nextIDNum = 0L;
     /**
      * The type of this statement
      */
@@ -54,11 +54,11 @@ public class StatementNode extends CodeNode {
      * Constructs a new StatementNode with the given type.
      * 
      * @param type
-     *            The StatementNode's tyupe
+     *            The StatementNode's type
      */
     protected StatementNode(StatementType type)
     {
-        super(type + ":" + nextIDNum++, type.toString());
+        super(type + ":" + (nextIDNum += 1), type.toString());
         this.type = type;
     }
 
@@ -101,11 +101,11 @@ public class StatementNode extends CodeNode {
     @Override
     public StatementNode cloneNoChildren()
     {
-        StatementNode fnode = new StatementNode(this.type);
-        fnode.setRange(this.getStart(), this.getEnd());
-        copyMetrics(fnode);
+        StatementNode node = new StatementNode(this.type);
+        node.setRange(this.getStart(), this.getEnd());
+        copyMetrics(node);
 
-        return fnode;
+        return node;
     }
 
     /**
@@ -163,12 +163,12 @@ public class StatementNode extends CodeNode {
      * @author Isaac Griffith
      * @version 1.1.0
      */
-    public static class Builder {
+    public static final class Builder {
 
         /**
          * StatementNode to be constructed.
          */
-        private StatementNode node;
+        private final StatementNode node;
 
         /**
          * Constructs a new Builder for a StatementNode with the given
@@ -208,7 +208,7 @@ public class StatementNode extends CodeNode {
         }
 
         /**
-         * Sets the line range of this new statement, assmuming that the
+         * Sets the line range of this new statement, assuming that the
          * statement only spans a single line
          * 
          * @param line
@@ -230,7 +230,7 @@ public class StatementNode extends CodeNode {
          */
         public Builder parent(String pID)
         {
-            node.setParentID(pID);
+            node.setParentKey(pID);
 
             return this;
         }

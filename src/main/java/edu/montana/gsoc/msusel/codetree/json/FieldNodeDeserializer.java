@@ -56,9 +56,9 @@ public class FieldNodeDeserializer implements JsonDeserializer<FieldNode> {
             throw new JsonParseException("FieldNode not defined as a json object.");
         JsonObject obj = json.getAsJsonObject();
 
-        int start = 0;
-        String qId = null;
-        String name = null;
+        int start;
+        String qId;
+        String name;
 
         if (obj.has("start"))
             start = obj.get("start").getAsInt();
@@ -75,17 +75,17 @@ public class FieldNodeDeserializer implements JsonDeserializer<FieldNode> {
         else
             throw new JsonParseException("name is missing from json definition");
 
-        FieldNode.Builder builder = FieldNode.builder(name, qId).range(start, start);
+        FieldNode builder = FieldNode.builder().identifier(qId).start(start).end(start).create();
 
         if (obj.has("metrics"))
         {
             Type metricsType = new TypeToken<Map<String, Double>>() {
             }.getType();
             Map<String, Double> metrics = context.deserialize(obj.get("metrics"), metricsType);
-            metrics.forEach((metric, value) -> builder.metric(metric, value));
+            metrics.forEach(builder::addMetric);
         }
 
-        return builder.create();
+        return builder;
     }
 
 }

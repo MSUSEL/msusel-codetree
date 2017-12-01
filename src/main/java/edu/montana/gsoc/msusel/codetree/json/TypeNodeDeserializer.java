@@ -25,19 +25,14 @@
  */
 package edu.montana.gsoc.msusel.codetree.json;
 
-import java.lang.reflect.Type;
-import java.util.Map;
-
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-
 import edu.montana.gsoc.msusel.codetree.node.FieldNode;
 import edu.montana.gsoc.msusel.codetree.node.MethodNode;
 import edu.montana.gsoc.msusel.codetree.node.TypeNode;
+
+import java.lang.reflect.Type;
+import java.util.Map;
 
 /**
  * JSON Deserializer for TypeNodes
@@ -72,14 +67,14 @@ public class TypeNodeDeserializer implements JsonDeserializer<TypeNode> {
             throw new JsonParseException("Missing end field.");
         int end = obj.get("end").getAsInt();
 
-        TypeNode.Builder builder = TypeNode.builder(shortKey, key).range(start, end);
+        TypeNode builder = TypeNode.builder().name(shortKey).identifier(key).start(start).end(end).create();
 
         if (obj.has("metrics"))
         {
             Type metricsType = new TypeToken<Map<String, Double>>() {
             }.getType();
             Map<String, Double> metrics = context.deserialize(obj.get("metrics"), metricsType);
-            metrics.forEach((metric, value) -> builder.metric(metric, value));
+            metrics.forEach(builder::addMetric);
         }
 
         if (obj.has("fields"))
@@ -87,7 +82,7 @@ public class TypeNodeDeserializer implements JsonDeserializer<TypeNode> {
             Type fieldsType = new TypeToken<Map<String, FieldNode>>() {
             }.getType();
             Map<String, FieldNode> fields = context.deserialize(obj.get("fields"), fieldsType);
-            fields.forEach((id, field) -> builder.field(field));
+            fields.forEach((id, field) -> builder.addField(field));
         }
 
         if (obj.has("methods"))
@@ -95,10 +90,10 @@ public class TypeNodeDeserializer implements JsonDeserializer<TypeNode> {
             Type methodsType = new TypeToken<Map<String, MethodNode>>() {
             }.getType();
             Map<String, MethodNode> methods = context.deserialize(obj.get("methods"), methodsType);
-            methods.forEach((id, method) -> builder.method(method));
+            methods.forEach((id, method) -> builder.addMethod(method));
         }
 
-        return builder.create();
+        return builder;
     }
 
 }

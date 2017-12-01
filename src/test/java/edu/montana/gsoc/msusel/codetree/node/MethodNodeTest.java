@@ -58,8 +58,12 @@ public class MethodNodeTest {
         final int start = 1;
         final int end = 1;
 
-        final MethodNode result = MethodNode.builder(name, qIdentifier).constructor(constructor)
-                .range(start, end)
+        final MethodNode result = MethodNode.builder()
+                .name(name)
+                .identifier(qIdentifier)
+                .constructor(constructor)
+                .start(start)
+                .end(end)
                 .create();
 
         // add additional test code here
@@ -137,7 +141,13 @@ public class MethodNodeTest {
     @Before
     public void setUp() throws Exception
     {
-        fixture = MethodNode.builder("method", "path#method").constructor().range(1, 1).create();
+        fixture = MethodNode.builder()
+            .name("method")
+            .identifier("path#method")
+            .constructor(true)
+            .start(1)
+            .end(1)
+            .create();
     }
 
     /**

@@ -42,21 +42,23 @@ import edu.montana.gsoc.msusel.codetree.node.ModuleNode;
 import edu.montana.gsoc.msusel.codetree.json.FieldNodeDeserializer;
 import edu.montana.gsoc.msusel.codetree.json.ModuleNodeDeserializer;
 import edu.montana.gsoc.msusel.codetree.node.FieldNode;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * A data structure used to represent a model of a software system (both
  * structure and code entities). This structure can then be used for multiple
- * analyses such as metric and static analysis.
+ * analyses such as name and static analysis.
  *
  * @author Isaac Griffith
  * @version 1.1.0
  */
+@EqualsAndHashCode(of = {"project"})
 public class CodeTree {
 
-    /**
-     * The ProjectNode representing the root of the tree.
-     */
     @Expose
+    @Getter
     private ProjectNode project;
     /**
      * The CodeTreeUtils for this CodeTree
@@ -69,14 +71,6 @@ public class CodeTree {
     public CodeTree()
     {
 
-    }
-
-    /**
-     * @return The root project node.
-     */
-    public ProjectNode getProject()
-    {
-        return project;
     }
 
     /**
@@ -94,22 +88,11 @@ public class CodeTree {
         if (key == null || key.isEmpty())
             throw new IllegalArgumentException("Project key cannot be null or empty.");
 
-        project = ProjectNode.builder(key).create();
+        setProject(ProjectNode.builder(key).create());
     }
 
-    /**
-     * Sets the root project to the provided ProjectNode. If the provided
-     * ProjectNode is null, nothing happens.
-     * 
-     * @param pn
-     *            new root.
-     */
-    public void setProject(ProjectNode pn)
-    {
-        if (pn == null)
-            return;
-
-        project = pn;
+    public void setProject(ProjectNode node) {
+        this.project = node;
     }
 
     /**
@@ -143,51 +126,6 @@ public class CodeTree {
     {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
         return gson.toJson(this);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int hashCode()
-    {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((project == null) ? 0 : project.hashCode());
-        return result;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean equals(Object obj)
-    {
-        if (this == obj)
-        {
-            return true;
-        }
-        if (obj == null)
-        {
-            return false;
-        }
-        if (!(obj instanceof CodeTree))
-        {
-            return false;
-        }
-        CodeTree other = (CodeTree) obj;
-        if (project == null)
-        {
-            if (other.project != null)
-            {
-                return false;
-            }
-        }
-        else if (!project.equals(other.project))
-        {
-            return false;
-        }
-        return true;
     }
 
     /**

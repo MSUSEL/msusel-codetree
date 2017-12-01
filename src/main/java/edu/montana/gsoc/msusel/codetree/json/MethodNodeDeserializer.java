@@ -82,29 +82,31 @@ public class MethodNodeDeserializer implements JsonDeserializer<MethodNode> {
         boolean accessor = obj.get("accessor").getAsBoolean();
         boolean abs = obj.get("abstract").getAsBoolean();
 
-        MethodNode.Builder builder = MethodNode.builder(name, qId)
+        MethodNode builder = MethodNode.builder().name(name).identifier(qId)
                 .constructor(constructor)
                 .isAbstract(abs)
                 .accessor(accessor)
-                .range(start, end);
+                .start(start)
+                .end(end)
+                .create();
 
         if (obj.has("metrics"))
         {
             Type metricsType = new TypeToken<Map<String, Double>>() {
             }.getType();
             Map<String, Double> metrics = context.deserialize(obj.get("metrics"), metricsType);
-            metrics.forEach((metric, value) -> builder.metric(metric, value));
+            metrics.forEach(builder::addMetric);
         }
 
         if (obj.has("statements"))
         {
             Type stmtType = new TypeToken<Map<String, StatementNode>>() {
             }.getType();
-            Map<String, StatementNode> stmts = context.deserialize(obj.get("statements"), stmtType);
-            stmts.forEach((id, stmt) -> builder.statement(stmt));
+            Map<String, StatementNode> statements = context.deserialize(obj.get("statements"), stmtType);
+            statements.forEach((id, stmt) -> builder.addStatement(stmt));
         }
 
-        return builder.create();
+        return builder;
     }
 
 }

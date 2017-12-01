@@ -25,74 +25,91 @@
  */
 package edu.montana.gsoc.msusel.codetree;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.gson.annotations.Expose;
+import edu.montana.gsoc.msusel.codetree.relations.Relationship;
+import edu.montana.gsoc.msusel.codetree.util.MetricNameRegistry;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.tuple.Pair;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang3.tuple.Pair;
-import org.apache.log4j.Logger;
-
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.gson.annotations.Expose;
-
-import edu.montana.gsoc.msusel.codetree.node.CodeNode;
-import edu.montana.gsoc.msusel.codetree.relations.Relationship;
-import edu.montana.gsoc.msusel.codetree.util.MetricNameRegistry;
-
 /**
  * @author Isaac Griffith
- * @version
+ * @version 1.1.1
  */
+@EqualsAndHashCode(of={"key", "name"})
+@ToString(of = {"key"})
+@Log
 public abstract class AbstractNode implements INode {
 
 	/**
-	 * Data structure for recording metric values
+	 * Data structure for recording name values
 	 */
 	@Expose
 	protected Map<String, Double> metrics;
-	/**
-	 * Unique qualified identifier for this entity
-	 */
+    /**
+     * The unique identifying key of this node
+     */
 	@Expose
-	protected String qIdentifier;
-	/**
-	 * Simple name of this entity
-	 */
+	@Getter
+	@Setter
+	protected String key;
 	@Expose
+	@Getter
+	@Setter
 	protected String name;
 	/**
 	 * Relationships between this entity and others
 	 */
+	@Getter
 	protected List<Relationship> outRelations;
 	/**
 	 * The unique qualified identifier of a parent entity
 	 */
 	@Expose
-	protected String parentID;
-	/**
-	 * Logger used to output events associated with CodeNodes
-	 */
-	protected Logger LOG = Logger.getLogger(CodeNode.class);
+	@Getter
+	protected String parentKey;
+    @Getter
+	protected boolean aggregated = false;
+    protected List<AbstractNode> children;
 
 	/**
 	 * Constructs a new AbstractNode with the given qualified identifier and
 	 * name
 	 * 
-	 * @param qIdentifier
+	 * @param key
 	 *            The Qualified Identifier
 	 * @param name
 	 *            The Name
 	 */
-	protected AbstractNode(String qIdentifier, String name) {
-		if (qIdentifier == null || qIdentifier.isEmpty() || name == null || name.isEmpty())
+	protected AbstractNode(String key, String name) {
+		if (key == null || key.isEmpty() || name == null || name.isEmpty())
 			throw new IllegalArgumentException("Name and QIdentifier can be neither null nor empty.");
 
-		this.qIdentifier = qIdentifier;
-		this.name = name;
+		this.setKey(key);
+		this.setName(name);
 		metrics = Maps.newHashMap();
 		outRelations = Lists.newArrayList();
 	}
+
+	public AbstractNode(String name, String key, List<Relationship> relations, String parentKey, Map<String, Double> metrics) {
+	    this.key = key;
+	    if (relations != null && !relations.isEmpty())
+	        this.outRelations = Lists.newArrayList(relations);
+	    this.parentKey = parentKey;
+	    if (metrics != null && !metrics.isEmpty())
+            this.metrics = Maps.newHashMap(metrics);
+    }
 
 	/**
 	 * {@inheritDoc}
@@ -137,7 +154,7 @@ public abstract class AbstractNode implements INode {
 	@Override
 	public Double getMetric(String metric) {
 		if (metric == null || metric.isEmpty() || !hasMetric(metric)) {
-			LOG.warn("Bad Metric: " + metric + " for " + this.getClass().getSimpleName() + " with id: "
+			log.warning("Bad Metric: " + metric + " for " + this.getClass().getSimpleName() + " with id: "
 					+ this.getQIdentifier());
 			return -1.0;
 		}
@@ -151,30 +168,6 @@ public abstract class AbstractNode implements INode {
 	@Override
 	public boolean hasMetric(String metric) {
 		return metrics.containsKey(MetricNameRegistry.getInstance().lookup(metric));
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String getQIdentifier() {
-		return qIdentifier;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name
-	 *            set the name
-	 */
-	protected void setName(String name) {
-		this.name = name;
 	}
 
 	/**
@@ -221,21 +214,13 @@ public abstract class AbstractNode implements INode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getParentID() {
-		return parentID;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void setParentID(String id) {
+	public void setParentKey(String id) {
 		if (id == null)
-			parentID = id;
-		else if (id.isEmpty() || id.equals(this.qIdentifier))
+			parentKey = id;
+		else if (id.isEmpty() || id.equals(this.getQIdentifier()))
 			throw new IllegalArgumentException("Parent ID cannot be same as this id or empty");
 		else
-			parentID = id;
+			parentKey = id;
 	}
 
 	/**
@@ -243,6 +228,6 @@ public abstract class AbstractNode implements INode {
 	 */
 	@Override
 	public boolean hasParent() {
-		return parentID != null;
+		return parentKey != null;
 	}
 }

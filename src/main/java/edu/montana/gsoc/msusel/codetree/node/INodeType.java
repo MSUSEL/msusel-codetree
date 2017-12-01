@@ -34,12 +34,12 @@ package edu.montana.gsoc.msusel.codetree.node;
  */
 public interface INodeType {
 
-    static final String FIELD     = "FIELD";
-    static final String TYPE      = "TYPE";
-    static final String METHOD    = "METHOD";
-    static final String FILE      = "FILE";
-    static final String PROJECT   = "PROJECT";
-    static final String MODULE    = "MODULE";
-    static final String STATEMENT = "STATEMENT";
-    static final String NAMESPACE = "NAMESPACE";
+    String FIELD     = "FIELD";
+    String TYPE      = "TYPE";
+    String METHOD    = "METHOD";
+    String FILE      = "FILE";
+    String PROJECT   = "PROJECT";
+    String MODULE    = "MODULE";
+    String STATEMENT = "STATEMENT";
+    String NAMESPACE = "NAMESPACE";
 }

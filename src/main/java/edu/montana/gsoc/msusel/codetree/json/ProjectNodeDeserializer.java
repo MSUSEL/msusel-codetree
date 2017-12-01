@@ -71,7 +71,7 @@ public class ProjectNodeDeserializer implements JsonDeserializer<ProjectNode> {
             Type metricsType = new TypeToken<Map<String, Double>>() {
             }.getType();
             Map<String, Double> metrics = context.deserialize(obj.get("metrics"), metricsType);
-            metrics.forEach((metric, value) -> builder.metric(metric, value));
+            metrics.forEach(builder::metric);
         }
 
         if (obj.has("files"))

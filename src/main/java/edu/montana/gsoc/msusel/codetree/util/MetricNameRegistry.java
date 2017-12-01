@@ -30,7 +30,7 @@ import java.util.Map;
 import com.google.common.collect.Maps;
 
 /**
- * A registration utility for metric names, given that most metrics have
+ * A registration utility for name names, given that most metrics have
  * different names depending on the tools producing them. Note that this is
  * implemented as a Singleton.
  * 
@@ -40,11 +40,11 @@ import com.google.common.collect.Maps;
 public class MetricNameRegistry {
 
     /**
-     * The mapping of names to the actual acronym used by the sparqline-metrics
+     * The mapping of names to the actual acronym used by the msusel-metrics
      * module. The index is the alternate name and the value is the known
      * acronym.
      */
-    private Map<String, String> nameMap;
+    private final Map<String, String> nameMap;
 
     /**
      * @return The single instance of this registry.
@@ -55,7 +55,7 @@ public class MetricNameRegistry {
     }
 
     /**
-     * Constructs a new metric registry with the names for LOC already entered.
+     * Constructs a new name registry with the names for LOC already entered.
      */
     private MetricNameRegistry()
     {
@@ -66,12 +66,12 @@ public class MetricNameRegistry {
     }
 
     /**
-     * Registers a metric acronym and its alternate names. If the acronym is
+     * Registers a name acronym and its alternate names. If the acronym is
      * null nothing happens. If their are no alternative names, then simply the
      * acronym is mapped to itself.
      * 
      * @param metric
-     *            The metric acronym
+     *            The name acronym
      * @param alts
      *            The alternate names.
      */
@@ -91,7 +91,7 @@ public class MetricNameRegistry {
      * Looks up the acronym assigned to the given name.
      * 
      * @param name
-     *            A metric name.
+     *            A name name.
      * @return The acronym associated with the given name, or null if no such
      *         mapping exists or if the provided name is null or empty.
      */

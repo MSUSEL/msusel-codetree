@@ -57,7 +57,7 @@ public class FieldNodeTest {
 
         try
         {
-            final FieldNode result = FieldNode.builder(qIdentifier, name).range(line, line).create();
+            final FieldNode result = FieldNode.builder().identifier(qIdentifier).name(name).start(line).end(line).create();
 
             // add additional test code here
             Assert.assertNotNull(result);
@@ -78,21 +78,13 @@ public class FieldNodeTest {
      * @throws Exception
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testFieldNode_2() throws Exception
     {
         final String identifier = "";
         final int line = 1;
 
-        try
-        {
-            FieldNode.builder(identifier, identifier).range(line, line).create();
-            Assert.fail();
-        }
-        catch (final IllegalArgumentException e)
-        {
-
-        }
+        FieldNode.builder().identifier(identifier).name(identifier).start(line).end(line).create();
     }
 
     /**
@@ -101,21 +93,13 @@ public class FieldNodeTest {
      * @throws Exception
      * @generatedBy CodePro at 1/26/16 6:38 PM
      */
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testFieldNode_3() throws Exception
     {
         final String identifier = null;
         final int line = 1;
 
-        try
-        {
-            FieldNode.builder(identifier, identifier).range(line, line).create();
-            Assert.fail();
-        }
-        catch (final IllegalArgumentException e)
-        {
-
-        }
+        FieldNode.builder().identifier(identifier).name(identifier).start(line).end(line).create();
     }
 
     /**
@@ -143,7 +127,7 @@ public class FieldNodeTest {
     @Before
     public void setUp() throws Exception
     {
-        fixture = FieldNode.builder("field", "path#field").range(1, 1).create();
+        fixture = FieldNode.builder().name("field").identifier("path#field").start(1).end(1).create();
     }
 
     /**

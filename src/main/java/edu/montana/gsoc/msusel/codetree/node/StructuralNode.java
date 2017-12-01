@@ -44,5 +44,4 @@ public abstract class StructuralNode extends AbstractNode {
     {
         super(qIdentifier, qIdentifier);
     }
-
 }

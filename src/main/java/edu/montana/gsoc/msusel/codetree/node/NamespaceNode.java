@@ -101,7 +101,7 @@ public class NamespaceNode extends StructuralNode {
      */
     public Set<TypeNode> getTypes()
     {
-        return types;
+        return Sets.newHashSet(types);
     }
 
     /**
@@ -131,7 +131,7 @@ public class NamespaceNode extends StructuralNode {
         if (ns == null || subNS.containsKey(ns.getQIdentifier()))
             return;
 
-        ns.setParentID(this.getQIdentifier());
+        ns.setParentKey(this.getQIdentifier());
         subNS.put(ns.getQIdentifier(), ns);
     }
 
@@ -158,7 +158,7 @@ public class NamespaceNode extends StructuralNode {
         }
 
         NamespaceNode ns = new NamespaceNode(qid);
-        ns.setParentID(this.getQIdentifier());
+        ns.setParentKey(this.getQIdentifier());
         subNS.put(qid, ns);
 
         return ns;
@@ -184,12 +184,12 @@ public class NamespaceNode extends StructuralNode {
      * @author Isaac Griffith
      * @version 1.1.0
      */
-    public static class Builder {
+    public static final class Builder {
 
         /**
          * The NamespaceNode to be constructed by this Builder
          */
-        private NamespaceNode node;
+        private final NamespaceNode node;
 
         /**
          * Constructs a new Builder for a NamespaceNode with the given qualified
@@ -206,14 +206,13 @@ public class NamespaceNode extends StructuralNode {
         /**
          * @return The Constructed NamespaceNode
          */
-        @NonNull
-        public NamespaceNode create()
+        public final @NonNull NamespaceNode create()
         {
             return node;
         }
 
         /**
-         * The the metric and measurement value to the NamespaceNode under
+         * The the name and measurement value to the NamespaceNode under
          * construction.
          * 
          * @param metric
@@ -222,8 +221,7 @@ public class NamespaceNode extends StructuralNode {
          *            Measurement value
          * @return this
          */
-        @NonNull
-        public Builder metric(String metric, Double value)
+        public final @NonNull Builder metric(final String metric, final Double value)
         {
             node.addMetric(metric, value);
 
@@ -237,8 +235,7 @@ public class NamespaceNode extends StructuralNode {
          *            Type to add
          * @return this
          */
-        @NonNull
-        public Builder type(TypeNode type)
+        public final @NonNull Builder type(final TypeNode type)
         {
             node.addType(type);
 
@@ -253,8 +250,7 @@ public class NamespaceNode extends StructuralNode {
          *            Namespace to add
          * @return this
          */
-        @NonNull
-        public Builder namespace(NamespaceNode ns)
+        public final @NonNull Builder namespace(final NamespaceNode ns)
         {
             node.addSubNamespace(ns);
 
@@ -271,10 +267,9 @@ public class NamespaceNode extends StructuralNode {
          *            under construction
          * @return this
          */
-        @NonNull
-        public Builder parent(String pID)
+        public final @NonNull Builder parent(final String pID)
         {
-            node.setParentID(pID);
+            node.setParentKey(pID);
 
             return this;
         }

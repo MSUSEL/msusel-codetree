@@ -76,17 +76,26 @@ public class CodeTreeTest {
                 .metric("TEST", 1.0)
                 .metric("TEST2", 2.0)
                 .type(
-                        TypeNode.builder("Class", "Class")
-                                .range(1, 100)
+                        TypeNode.builder()
+                                .name("Class")
+                                .identifier("Class")
+                                .start(1)
+                                .end(100)
                                 .metric("TEST1", 1.0)
-                                .method(
-                                        MethodNode.builder("Method", "Method")
-                                                .range(50, 100)
+                                .method("Method",
+                                        MethodNode.builder()
+                                                .name("Method")
+                                                .identifier("Method")
+                                                .start(50)
+                                                .end(100)
                                                 .metric("Test1", 1.0)
                                                 .create())
-                                .field(
-                                        FieldNode.builder("TestField", "TestField")
-                                                .range(25, 25)
+                                .field("TestField",
+                                        FieldNode.builder()
+                                                .name("TestField")
+                                                .identifier("TestField")
+                                                .start(25)
+                                                .end(25)
                                                 .metric("Test1", 1.0)
                                                 .create())
                                 .create())
@@ -114,24 +123,34 @@ public class CodeTreeTest {
                         .file(
                                 file1 = FileNode.builder("path1")
                                         .type(
-                                                TypeNode.builder("Type1", "path1.namespace.Type1")
-                                                        .range(100, 150)
-                                                        .method(
-                                                                MethodNode.builder(
-                                                                        "method1", "path1.namespace.Type1#method1")
-                                                                        .range(110, 150)
+                                                TypeNode.builder()
+                                                        .name("Type1")
+                                                        .identifier("path1.namespace.Type1")
+                                                        .start(100)
+                                                        .end(150)
+                                                        .method("method1",
+                                                                MethodNode.builder()
+                                                                        .name("method1")
+                                                                        .identifier("path1.namespace.Type1#method1")
+                                                                        .start(110)
+                                                                        .end(150)
                                                                         .create())
                                                         .create())
                                         .create())
                         .file(
                                 file2 = FileNode.builder("path2")
                                         .type(
-                                                TypeNode.builder("Type2", "path2.namespace.Type2")
-                                                        .range(100, 150)
-                                                        .method(
-                                                                MethodNode.builder(
-                                                                        "method2", "path2.namespace.Type2#method2")
-                                                                        .range(110, 150)
+                                                TypeNode.builder()
+                                                        .name("Type2")
+                                                        .identifier("path2.namespace.Type2")
+                                                        .start(100)
+                                                        .end(150)
+                                                        .method("method2",
+                                                                MethodNode.builder()
+                                                                        .name("method2")
+                                                                        .identifier("path2.namespace.Type2#method2")
+                                                                        .start(110)
+                                                                        .end(150)
                                                                         .create())
                                                         .create())
                                         .create())
@@ -145,7 +164,7 @@ public class CodeTreeTest {
 
         FileNode file5 = fixture.getUtils().findFile("path1");
         assertNotNull(file5);
-        Assert.assertEquals("subproject1", file1.getParentID());
+        Assert.assertEquals("subproject1", file1.getParentKey());
         CodeTree test = fixture.getUtils().extractTree(file1);
 
         System.out.println(test.toJSON());
@@ -167,22 +186,34 @@ public class CodeTreeTest {
                 .file(
                         FileNode.builder("path1")
                                 .type(
-                                        TypeNode.builder("Type1", "path1.namespace.Type1")
-                                                .range(100, 150)
-                                                .method(
-                                                        MethodNode.builder("method1", "path1.namespace.Type1#method1")
-                                                                .range(110, 150)
+                                        TypeNode.builder()
+                                                .name("Type1")
+                                                .identifier("path1.namespace.Type1")
+                                                .start(100)
+                                                .end(150)
+                                                .method("method1",
+                                                        MethodNode.builder()
+                                                                .name("method1")
+                                                                .identifier("path1.namespace.Type1#method1")
+                                                                .start(110)
+                                                                .end(150)
                                                                 .create())
                                                 .create())
                                 .create())
                 .file(
                         FileNode.builder("path2")
                                 .type(
-                                        TypeNode.builder("Type2", "path2.namespace.Type2")
-                                                .range(100, 150)
-                                                .method(
-                                                        MethodNode.builder("method2", "path2.namespace.Type2#method2")
-                                                                .range(110, 150)
+                                        TypeNode.builder()
+                                                .name("Type2")
+                                                .identifier("path2.namespace.Type2")
+                                                .start(100)
+                                                .end(150)
+                                                .method("method2",
+                                                        MethodNode.builder()
+                                                                .name("method2")
+                                                                .identifier("path2.namespace.Type2#method2")
+                                                                .start(110)
+                                                                .end(150)
                                                                 .create())
                                                 .create())
                                 .create())

@@ -45,7 +45,7 @@ public interface INode {
     String getType();
 
     /**
-     * Adds a measurement value for the named metric to this Node
+     * Adds a measurement value for the named name to this Node
      * 
      * @param name
      *            Metric name
@@ -55,7 +55,7 @@ public interface INode {
     void addMetric(String name, Double value);
 
     /**
-     * Increments a measurement value for the named metric by the given
+     * Increments a measurement value for the named name by the given
      * increment value
      * 
      * @param name
@@ -66,23 +66,23 @@ public interface INode {
     void incrementMetric(String name, Double increment);
 
     /**
-     * Retrieves the stored measurement value of the named metric, if such a
+     * Retrieves the stored measurement value of the named name, if such a
      * value exists.
      * 
      * @param metric
      *            Metric name
-     * @return Measurement value, or null if no such metric has been measured
+     * @return Measurement value, or null if no such name has been measured
      *         for this node.
      */
     Double getMetric(String metric);
 
     /**
      * Checks whether this node has a recorded measurement value for the named
-     * metric.
+     * name.
      * 
      * @param metric
      *            Metric name
-     * @return true if a value has been recorded for the named metric, false
+     * @return true if a value has been recorded for the named name, false
      *         otherwise.
      */
     boolean hasMetric(String metric);
@@ -115,7 +115,7 @@ public interface INode {
     INode cloneNoChildren();
 
     /**
-     * @return
+     * @return The names of the metrics
      */
     Set<String> getMetricNames();
 
@@ -124,14 +124,14 @@ public interface INode {
      * 
      * @param join
      *            Updates the metrics of this node with the content of the
-     *            provided List of metric name and measurement value pairs.
+     *            provided List of name name and measurement value pairs.
      */
     void addMetrics(List<Pair<String, Double>> join);
 
     /**
      * @return This node's parent's qualified identifier
      */
-    String getParentID();
+    String getParentKey();
 
     /**
      * Sets the parent qualified identifier of this node.
@@ -139,7 +139,7 @@ public interface INode {
      * @param id
      *            parent's qualified identifier.
      */
-    void setParentID(String id);
+    void setParentKey(String id);
 
     /**
      * Checks if this node has a parent.

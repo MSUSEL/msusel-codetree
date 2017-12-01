@@ -34,13 +34,7 @@ package edu.montana.gsoc.msusel.codetree.node;
  */
 public class Parameter {
 
-    /**
-     * The context unique name of the parameter
-     */
     private String  name;
-    /**
-     * The qualified identifier of the type
-     */
     private String  typeRef;
     /**
      * Boolean flag indicating that this is a collection, array, or hash
@@ -76,12 +70,14 @@ public class Parameter {
      */
     public Parameter(String name, String type, boolean collection)
     {
-        this.name = name;
-        this.typeRef = type;
+        this.setName(name);
+        this.setTypeRef(type);
         this.collection = collection;
     }
 
     /**
+     * The context unique name of the parameter
+     */ /**
      * @return the name
      */
     public String getName()
@@ -99,6 +95,8 @@ public class Parameter {
     }
 
     /**
+     * The qualified identifier of the type
+     */ /**
      * @return the typeRef
      */
     public String getTypeRef()
@@ -138,7 +136,7 @@ public class Parameter {
     @Override
     public String toString()
     {
-        return "Parameter [name=" + name + ", typeRef=" + typeRef + ", collection=" + collection + "]";
+        return "Parameter [name=" + getName() + ", typeRef=" + getTypeRef() + ", collection=" + collection + "]";
     }
 
     /**
@@ -149,8 +147,8 @@ public class Parameter {
     {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((typeRef == null) ? 0 : typeRef.hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getTypeRef() == null) ? 0 : getTypeRef().hashCode());
         return result;
     }
 
@@ -173,25 +171,25 @@ public class Parameter {
             return false;
         }
         Parameter other = (Parameter) obj;
-        if (name == null)
+        if (getName() == null)
         {
-            if (other.name != null)
+            if (other.getName() != null)
             {
                 return false;
             }
         }
-        else if (!name.equals(other.name))
+        else if (!getName().equals(other.getName()))
         {
             return false;
         }
-        if (typeRef == null)
+        if (getTypeRef() == null)
         {
-            if (other.typeRef != null)
+            if (other.getTypeRef() != null)
             {
                 return false;
             }
         }
-        else if (!typeRef.equals(other.typeRef))
+        else if (!getTypeRef().equals(other.getTypeRef()))
         {
             return false;
         }
