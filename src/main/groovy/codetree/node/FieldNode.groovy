@@ -98,4 +98,8 @@ class FieldNode extends MemberNode implements Cloneable {
 
         return fnode;
     }
+
+    def extractTree(tree) {
+
+    }
 }

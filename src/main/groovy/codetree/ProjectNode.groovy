@@ -37,7 +37,6 @@ import codetree.node.StructuralNode
 import codetree.node.TypeNode
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.sparqline.codetree.json.*
 
 /**
  * @author Isaac Griffith
@@ -161,12 +160,12 @@ class ProjectNode extends StructuralNode {
             return null;
 
         GsonBuilder gb = new GsonBuilder();
-        gb.registerTypeAdapter(FileNode.class, new FileNodeDeserializer());
-        gb.registerTypeAdapter(TypeNode.class, new TypeNodeDeserializer());
-        gb.registerTypeAdapter(FieldNode.class, new FieldNodeDeserializer());
-        gb.registerTypeAdapter(MethodNode.class, new MethodNodeDeserializer());
-        gb.registerTypeAdapter(ProjectNode.class, new ProjectNodeDeserializer());
-        gb.registerTypeAdapter(ModuleNode.class, new ModuleNodeDeserializer());
+//        gb.registerTypeAdapter(FileNode.class, new FileNodeDeserializer());
+//        gb.registerTypeAdapter(TypeNode.class, new TypeNodeDeserializer());
+//        gb.registerTypeAdapter(FieldNode.class, new FieldNodeDeserializer());
+//        gb.registerTypeAdapter(MethodNode.class, new MethodNodeDeserializer());
+//        gb.registerTypeAdapter(ProjectNode.class, new ProjectNodeDeserializer());
+//        gb.registerTypeAdapter(ModuleNode.class, new ModuleNodeDeserializer());
         Gson g = gb.create();
         return g.fromJson(json, ProjectNode.class);
     }
@@ -298,5 +297,59 @@ class ProjectNode extends StructuralNode {
     {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    def extractTree(CodeTree tree) {
+        CodeTree retVal
+
+        ProjectNode project = this
+        if (project.getParentKey() == null)
+        {
+            retVal = tree
+        }
+        else
+        {
+            retVal = new CodeTree()
+            Stack<ProjectNode> stack = new Stack<>()
+            stack.push(project)
+            while (project.hasParent())
+            {
+                project = findProject(project.getParentKey())
+                stack.push(project)
+            }
+
+            ProjectNode current = stack.pop().cloneNoChildren()
+            ProjectNode next = null
+            while (!stack.isEmpty())
+            {
+                if (stack.size() == 1)
+                {
+                    try
+                    {
+                        next = stack.pop().clone()
+                    }
+                    catch (CloneNotSupportedException e)
+                    {
+                        e.printStackTrace()
+                    }
+                }
+                else
+                {
+                    next = stack.pop().cloneNoChildren()
+                }
+
+                if (next != null)
+                {
+                    current.addSubProject(next)
+                    current = next
+                }
+            }
+        }
+
+        return retVal
+    }
+
+    def extractTree(tree) {
+        null
     }
 }

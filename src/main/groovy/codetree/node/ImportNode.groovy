@@ -54,7 +54,7 @@ class ImportNode extends StructuralNode {
      * {@inheritDoc}
      */
     @Override
-    public Object type()
+    def type()
     {
         // TODO Auto-generated method stub
         return null;
@@ -74,7 +74,7 @@ class ImportNode extends StructuralNode {
      * {@inheritDoc}
      */
     @Override
-    public Object types()
+    def types()
     {
         // TODO Auto-generated method stub
         return null;
@@ -87,6 +87,14 @@ class ImportNode extends StructuralNode {
     public INode cloneNoChildren()
     {
         // TODO Auto-generated method stub
+        return null;
+    }
+
+    def files() {
+        return null;
+    }
+
+    def extractTree(tree) {
         return null;
     }
 }

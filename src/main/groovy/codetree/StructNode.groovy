@@ -53,4 +53,19 @@ class StructNode extends TypeNode {
         false
     }
 
+    INode cloneNoChildren() {
+        null
+    }
+
+    def extractTree(tree) {
+        null
+    }
+
+    void update(INode other) {
+
+    }
+
+    def type() {
+        null
+    }
 }

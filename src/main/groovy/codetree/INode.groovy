@@ -126,4 +126,6 @@ interface INode {
      * @return True if the parent id is not null, false otherwise.
      */
     boolean hasParent()
+
+    def extractTree(tree)
 }

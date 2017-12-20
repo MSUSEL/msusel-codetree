@@ -90,4 +90,8 @@ class ParameterNode extends CodeNode {
         // TODO Auto-generated method stub
         return null;
     }
+
+    def extractTree(tree) {
+        null
+    }
 }

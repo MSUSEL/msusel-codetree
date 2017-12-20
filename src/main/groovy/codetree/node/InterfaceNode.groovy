@@ -28,6 +28,8 @@
  */
 package codetree.node
 
+import codetree.INode
+
 /**
  * @author Isaac Griffith
  *
@@ -57,8 +59,24 @@ class InterfaceNode extends TypeNode {
      * {@inheritDoc}
      */
     @Override
-    public boolean isInterface()
+    boolean isInterface()
     {
         true
+    }
+
+    INode cloneNoChildren() {
+        null
+    }
+
+    def extractTree(tree) {
+        null
+    }
+
+    void update(INode other) {
+
+    }
+
+    def type() {
+        null
     }
 }

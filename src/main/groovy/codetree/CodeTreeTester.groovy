@@ -31,7 +31,6 @@ package codetree
 import codetree.node.FileNode
 import codetree.node.NamespaceNode
 import codetree.node.TypeNode
-import com.sparqline.codetree.mmap.Tag
 
 import java.security.SecureRandom
 
@@ -56,8 +55,7 @@ class CodeTreeTester {
 
     static main(args) {
         CodeTree tree = new CodeTree()
-        MemberMMap.init()
-        
+
         readNamespaceNames()
         readClassFileNames()
         readFieldNames()
@@ -91,14 +89,14 @@ class CodeTreeTester {
                     
                     tree.addGeneralizes(tn, tn)
                     
-                    for (int l in 0..20) { // members
-                        val = rand.nextInt(2) + 1
-                        Tag mn = null
-                        if (val == 1)
-                            mn = NodeFactory.getMethodNode(randMethodKey(tn.key))
-                        else
-                            mn = NodeFactory.getFieldNode(randFieldKey(tn.key))
-                    }
+//                    for (int l in 0..20) { // members
+//                        val = rand.nextInt(2) + 1
+//                        Tag mn = null
+//                        if (val == 1)
+//                            mn = NodeFactory.getMethodNode(randMethodKey(tn.key))
+//                        else
+//                            mn = NodeFactory.getFieldNode(randFieldKey(tn.key))
+//                    }
                 }
             }
         }
@@ -107,9 +105,6 @@ class CodeTreeTester {
         println "Free memory (bytes): ${Runtime.getRuntime().freeMemory() / 1024 / 1024} MB"
         println "Maximum memory (bytes): ${Runtime.getRuntime().maxMemory() / 1024 / 1024} MB"
         println "Total Nodes: ${NodeFactory.nodes.size()}"
-        println "Nodes added to Member Map ${MemberMMap.getCount()}"
-        
-        MemberMMap.close();
     }
 
     

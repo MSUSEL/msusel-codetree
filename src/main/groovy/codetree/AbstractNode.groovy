@@ -25,7 +25,7 @@
  */
 package codetree
 
-import com.sparqline.codetree.util.MetricNameRegistry
+import codetree.utils.MetricNameRegistry
 import groovy.transform.EqualsAndHashCode
 import org.apache.commons.lang3.tuple.Pair
 import org.apache.log4j.Logger

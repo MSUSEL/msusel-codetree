@@ -25,6 +25,7 @@
  */
 package codetree.node
 
+import codetree.CodeTree
 import codetree.INode
 import codetree.ProjectNode
 
@@ -177,5 +178,42 @@ class ModuleNode extends StructuralNode {
     def type()
     {
         "Module"
+    }
+
+    def extractTree(tree) {
+        ModuleNode module = (ModuleNode) node
+
+        CodeTree retVal = new CodeTree()
+        Stack<ProjectNode> stack = new Stack<>()
+        ProjectNode project = findProject(module.getParentKey())
+        stack.push(project)
+        while (project.hasParent())
+        {
+            project = findProject(project.getParentKey())
+            stack.push(project)
+        }
+
+        ProjectNode current = stack.pop().cloneNoChildren()
+        ProjectNode root = current
+        ProjectNode next
+        while (!stack.isEmpty())
+        {
+            next = stack.pop().cloneNoChildren()
+
+            current.addSubProject(next)
+            current = next
+        }
+
+        try
+        {
+            ModuleNode mod = module.clone()
+            current.addModule(mod)
+        }
+        catch (CloneNotSupportedException e)
+        {
+            e.printStackTrace()
+        }
+
+        retVal.setProject(root)
     }
 }

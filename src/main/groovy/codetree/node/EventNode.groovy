@@ -28,6 +28,8 @@
  */
 package codetree.node
 
+import codetree.INode
+
 /**
  * @author Isaac Griffith
  *
@@ -51,4 +53,19 @@ class EventNode extends TypeNode {
         false;
     }
 
+    INode cloneNoChildren() {
+        null
+    }
+
+    def extractTree(tree) {
+        null
+    }
+
+    void update(INode other) {
+
+    }
+
+    def type() {
+        null
+    }
 }

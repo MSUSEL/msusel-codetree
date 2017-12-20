@@ -29,6 +29,8 @@
 package codetree.node
 
 import codetree.INode
+import codetree.CodeTree
+import codetree.ProjectNode
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 
@@ -274,5 +276,61 @@ class FileNode extends StructuralNode {
         }
 
         return fnode;
+    }
+
+    def extractTree(tree) {
+        FileNode file = (FileNode) node
+
+        retVal = new CodeTree()
+        Stack<ProjectNode> stack = new Stack<>()
+        ProjectNode project
+        ModuleNode module
+
+        if (findProject(file.getParentKey()) != null)
+        {
+            project = findProject(file.getParentKey())
+        }
+        else
+        {
+            module = findModule(file.getParentKey())
+            project = findProject(module.getParentKey())
+        }
+
+        stack.push(project)
+        while (project.hasParent())
+        {
+            project = findProject(project.getParentKey())
+            stack.push(project)
+        }
+
+        ProjectNode current = stack.pop().cloneNoChildren()
+        ProjectNode root = current
+        ProjectNode next
+        ProjectNode actual = current
+        while (!stack.isEmpty())
+        {
+            next = stack.pop().cloneNoChildren()
+
+            current.addSubProject(next)
+            if (next.getQIdentifier().equals(file.getParentKey()))
+                actual = next
+
+            current = next
+        }
+
+        try
+        {
+            actual.addFile(file.clone())
+        }
+        catch (CloneNotSupportedException e)
+        {
+            e.printStackTrace()
+        }
+
+        retVal.setProject(root)
+    }
+
+    def files() {
+        null
     }
 }

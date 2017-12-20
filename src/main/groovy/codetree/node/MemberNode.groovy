@@ -34,7 +34,7 @@ import codetree.CodeNode
  * @author Isaac Griffith
  *
  */
-class MemberNode extends CodeNode {
+abstract class MemberNode extends CodeNode {
 
     TypeNode type
     

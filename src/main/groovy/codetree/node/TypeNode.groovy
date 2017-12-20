@@ -28,6 +28,8 @@ package codetree.node
 import codetree.Accessibility
 import codetree.CodeNode
 import codetree.Modifiers
+import codetree.CodeTree
+import codetree.ProjectNode
 
 /**
  * @author Isaac Griffith
@@ -78,5 +80,52 @@ abstract class TypeNode extends CodeNode {
     
     abstract boolean isInterface()
     
-    
+    def extractTree(tree) {
+        TypeNode type = (TypeNode) node
+
+        FileNode file = findFile(type.getParentKey())
+
+        retVal = new CodeTree()
+        Stack<ProjectNode> stack = new Stack<>()
+        ProjectNode project
+        ModuleNode module
+
+        if (findProject(file.getParentKey()) != null)
+        {
+            project = findProject(file.getParentKey())
+        }
+        else
+        {
+            module = findModule(file.getParentKey())
+            project = findProject(module.getParentKey())
+        }
+
+        stack.push(project)
+        while (project.hasParent())
+        {
+            project = findProject(project.getParentKey())
+            stack.push(project)
+        }
+
+        ProjectNode current = stack.pop().cloneNoChildren()
+        ProjectNode root = current
+        ProjectNode next
+        while (!stack.isEmpty())
+        {
+            next = stack.pop().cloneNoChildren()
+
+            current.addSubProject(next)
+            current = next
+        }
+
+        ProjectNode currentProject = findProject(current.getQIdentifier())
+
+        file = currentProject.getFile(type.getParentKey()).cloneNoChildren()
+
+        currentProject.addFile(file)
+
+        file.addType(type.cloneNoChildren())
+
+        retVal.setProject(root)
+    }
 }

@@ -82,4 +82,7 @@ class StatementNode extends CodeNode {
         return null;
     }
 
+    def extractTree(tree) {
+        null
+    }
 }

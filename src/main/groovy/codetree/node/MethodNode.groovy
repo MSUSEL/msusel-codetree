@@ -32,6 +32,7 @@ import codetree.Accessibility
 import codetree.CodeTree
 import codetree.INode
 import codetree.Modifiers
+import codetree.ProjectNode
 import com.google.common.collect.Lists
 import com.google.common.graph.Graph
 
@@ -194,5 +195,66 @@ class MethodNode extends MemberNode {
     def type()
     {
         "Method"
+    }
+
+    def extractTree(tree) {
+        MethodNode method = (MethodNode) node
+
+        TypeNode type = findType(method.getParentKey())
+
+        FileNode file = findFile(type.getParentKey())
+
+        retVal = new CodeTree()
+        Stack<ProjectNode> stack = new Stack<>()
+        ProjectNode project
+        ModuleNode module
+
+        if (findProject(file.getParentKey()) != null)
+        {
+            project = findProject(file.getParentKey())
+        }
+        else
+        {
+            module = findModule(file.getParentKey())
+            project = findProject(module.getParentKey())
+        }
+
+        stack.push(project)
+        while (project.hasParent())
+        {
+            project = findProject(project.getParentKey())
+            stack.push(project)
+        }
+
+        ProjectNode current = stack.pop().cloneNoChildren()
+        ProjectNode root = current
+        ProjectNode next
+        while (!stack.isEmpty())
+        {
+            next = stack.pop().cloneNoChildren()
+
+            current.addSubProject(next)
+            current = next
+        }
+
+        ProjectNode currentProject = findProject(current.getQIdentifier())
+
+        file = currentProject.getFile(type.getParentKey()).cloneNoChildren()
+
+        currentProject.addFile(file)
+
+        type = type.cloneNoChildren()
+        file.addType(type)
+
+        try
+        {
+            type.addMethod(method.clone())
+        }
+        catch (CloneNotSupportedException e)
+        {
+            e.printStackTrace()
+        }
+
+        retVal.setProject(root)
     }
 }

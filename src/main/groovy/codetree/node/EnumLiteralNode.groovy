@@ -28,6 +28,8 @@
  */
 package codetree.node
 
+import codetree.INode
+
 /**
  * @author Isaac Griffith
  *
@@ -42,4 +44,19 @@ class EnumLiteralNode extends MemberNode {
         // TODO Auto-generated constructor stub
     }
 
+    INode cloneNoChildren() {
+        null
+    }
+
+    def extractTree(tree) {
+        null
+    }
+
+    void update(INode other) {
+
+    }
+
+    def type() {
+        null
+    }
 }

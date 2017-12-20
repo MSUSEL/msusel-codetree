@@ -87,4 +87,12 @@ class NamespaceNode extends StructuralNode {
         // TODO Auto-generated method stub
         return null
     }
+
+    def files() {
+        null
+    }
+
+    def extractTree(tree) {
+        null
+    }
 }

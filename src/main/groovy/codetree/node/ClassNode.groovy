@@ -90,7 +90,7 @@ class ClassNode extends TypeNode implements Cloneable {
     @Override
     void update(INode other)
     {
-        TypeNode tnode = new TypeNode(qIdentifier, name);
+        TypeNode tnode = new ClassNode(qIdentifier, name);
         tnode.setStart(getStart());
         tnode.setEnd(getEnd());
 
@@ -149,7 +149,7 @@ class ClassNode extends TypeNode implements Cloneable {
     @Override
     INode cloneNoChildren()
     {
-        TypeNode tnode = new TypeNode(qIdentifier, name);
+        TypeNode tnode = new ClassNode(qIdentifier, name);
         tnode.setStart(getStart());
         tnode.setEnd(getEnd());
 
