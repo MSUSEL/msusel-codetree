@@ -23,34 +23,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package codetree.relations
+package codetree.node.member
 
-import groovy.transform.EqualsAndHashCode
-import groovy.transform.ToString
-
+import codetree.AbstractTypeRef
+import codetree.node.Accessibility
+import groovy.transform.builder.Builder
 /**
- * A basic relationship class used to connect entities within a code tree
- * outside the confines of the containment relationships inherent to the tree
- * structure.
- *
  * @author Isaac Griffith
  * @version 1.2.0
  */
-@EqualsAndHashCode
-@ToString
-class Relationship {
+class InitializerNode extends MethodNode {
 
-    /**
-     * The type of this relationship
-     */
-    def type
 
-    /**
-     * The node acting as the start point of this relationship
-     */
-    def source
-    /**
-     * The node acting as the end point of this relationship
-     */
-    def dest
+    @Builder(buildMethodName = "create")
+    InitializerNode(String key, String parentKey, Map<String, Double> metrics = [:],
+                    Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+                    int start, int end, AbstractTypeRef type, params = [], templateParams = [], statements = []) {
+        super(key, parentKey, metrics, accessibility, specifiers, start, end, type, params, templateParams, statements)
+    }
 }

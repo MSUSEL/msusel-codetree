@@ -1,8 +1,8 @@
 /**
- * MIT License
+ * The MIT License (MIT)
  *
- * MSUSEL Design Pattern Generator
- * Copyright (c) 2017 Montana State University, Gianforte School of Computing
+ * MSUSEL CodeTree
+ * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,9 +25,11 @@
  */
 package codetree
 
-import codetree.node.MethodNode
-import codetree.node.TypeNode
+import codetree.node.member.MethodNode
+import codetree.node.structural.ProjectNode
+import codetree.node.type.TypeNode
 import codetree.relations.RelationshipType
+import codetree.utils.CodeTreeUtils
 import com.google.common.collect.HashBasedTable
 import com.google.common.collect.Table
 import groovy.json.JsonOutput
@@ -35,18 +37,19 @@ import groovy.json.JsonSlurper
 
 /**
  * @author Isaac Griffith
- *
+ * @version 1.2.0
  */
 class CodeTree {
 
-    ProjectNode project;
+    ProjectNode project
     Table<TypeNode, TypeNode, RelationshipType> table = HashBasedTable.create()
+    CodeTreeUtils utils
 
     /**
-     * 
+     *
      */
-    public CodeTree() {
-        // TODO Auto-generated constructor stub
+    CodeTree() {
+        utils = new CodeTreeUtils(tree: this)
     }
 
     def addRelation(TypeNode from, TypeNode to, RelationshipType r) {
@@ -56,7 +59,7 @@ class CodeTree {
     def addGeneralizes(TypeNode from, TypeNode to) {
         addRelation(from, to, RelationshipType.GENERALIZATION)
     }
-    
+
     def getGeneralizedFrom(TypeNode from) {
         def map = table.row(from).findAll { it.getValue() == RelationshipType.GENERALIZATION }
         def list = []
@@ -65,7 +68,7 @@ class CodeTree {
         }
         list
     }
-    
+
     def getGeneralizedTo(TypeNode to) {
         table.column(to).findAll { it.getValue() == RelationshipType.GENERALIZATION }
     }
@@ -73,7 +76,7 @@ class CodeTree {
     def addRealizes(TypeNode from, TypeNode to) {
         addRelation(from, to, RelationshipType.REALIZATION)
     }
-    
+
     def getRealizedFrom(TypeNode from) {
         def map = table.row(from).findAll { it.getValue() == RelationshipType.REALIZATION }
         def list = []
@@ -82,7 +85,7 @@ class CodeTree {
         }
         list
     }
-    
+
     def getRealizedTo(TypeNode to) {
         table.column(to).findAll { it.getValue() == RelationshipType.REALIZATION }
     }
@@ -92,11 +95,11 @@ class CodeTree {
         if (bidirectional)
             addRelation(to, from, RelationshipType.ASSOCIATION)
     }
-    
+
     def getAssociatedFrom(TypeNode from) {
         table.row(from).findAll { it.getValue() == RelationshipType.ASSOCIATION }
     }
-    
+
     def getAssociatedTo(TypeNode to) {
         table.column(to).findAll { it.getValue() == RelationshipType.ASSOCIATION }
     }
@@ -106,11 +109,11 @@ class CodeTree {
         if (bidirectional)
             addRelation(to, from, RelationshipType.AGGREGATION)
     }
-    
+
     def getAggregatedFrom(TypeNode from) {
         table.row(from).findAll { it.getValue() == RelationshipType.ASSOCIATION }
     }
-    
+
     def getAggregatedTo(TypeNode to) {
         table.column(to).findAll { it.getValue() == RelationshipType.ASSOCIATION }
     }
@@ -120,11 +123,11 @@ class CodeTree {
         if (bidirectional)
             addRelation(to, from, RelationshipType.COMPOSITION)
     }
-    
+
     def getComposedFrom(TypeNode from) {
         table.row(from).findAll { it.getValue() == RelationshipType.COMPOSITION }
     }
-    
+
     def getComposedTo(TypeNode to) {
         table.column(to).findAll { it.getValue() == RelationshipType.COMPOSITION }
     }
@@ -132,11 +135,11 @@ class CodeTree {
     def addUse(TypeNode from, TypeNode to) {
         addRelation(from, to, RelationshipType.USE)
     }
-    
+
     def getUseFrom(TypeNode from) {
         table.row(from).findAll { it.getValue() == RelationshipType.USE }
     }
-    
+
     def getUseTo(TypeNode to) {
         table.column(to).findAll { it.getValue() == RelationshipType.USE }
     }
@@ -144,43 +147,43 @@ class CodeTree {
     def addDependency(TypeNode from, TypeNode to) {
         addRelation(from, to, RelationshipType.DEPENDENCY)
     }
-    
+
     def getDependencyFrom(TypeNode from) {
         table.row(from).findAll { it.getValue() == RelationshipType.DEPENDENCY }
     }
-    
+
     def getDependencyTo(TypeNode to) {
         table.column(to).findAll { it.getValue() == RelationshipType.DEPENDENCY }
     }
-    
+
     def getTypesUsingMethod(MethodNode method) {
-        
+
     }
-    
+
     def getMethodsCalledFrom(TypeNode type) {
-        
+
     }
-    
+
     def getMethodsCalledFrom(MethodNode method) {
-        
+
     }
-    
+
     def getMethodsCallingMethod(MethodNode method) {
-        
+
     }
-    
+
     def getFieldsUsedBy(MethodNode method) {
-        
+
     }
-    
+
     def getAllParentClasses(TypeNode type) {
-        
+
     }
-    
+
     def getAllDescendentClasses(TypeNode type) {
-        
+
     }
-    
+
     /**
      * Deserializes a CodeTree object from a given JSON string.
      *
@@ -189,8 +192,7 @@ class CodeTree {
      * @return A newly instantiated CodeTree deserialized from the given string,
      *         or null if the provided string is null or empty.
      */
-    public static CodeTree createFromJson(String json)
-    {
+    public static CodeTree createFromJson(String json) {
         def jsonSlurper = new JsonSlurper()
         def object = jsonSlurper.parseText(json)
     }
@@ -198,9 +200,21 @@ class CodeTree {
     /**
      * @return Serializes this code tree and its contents to a JSON string.
      */
-    public String toJSON()
-    {
+    public String toJSON() {
         def json = JsonOutput.toJson(this)
         JsonOutput.prettyPrint(json)
+    }
+
+    def generatePlantUML() {
+        StringBuilder builder = new StringBuilder()
+        builder.append("@startuml\n")
+        builder.append("\n")
+        getUtils().getTypes().each { TypeNode t -> builder.append(t.generatePlantUML()) }
+        getUtils().getTypes().each { TypeNode from -> table.row(from).each { TypeNode to, RelationshipType r ->
+                            builder.append("${to.name()} ${r.getPlantUML()} ${from.name()}\n")
+        } }
+        builder.append("@enduml")
+
+        builder.toString()
     }
 }

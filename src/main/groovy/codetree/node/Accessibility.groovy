@@ -23,34 +23,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package codetree.relations
-
-import groovy.transform.EqualsAndHashCode
-import groovy.transform.ToString
+package codetree.node
 
 /**
- * A basic relationship class used to connect entities within a code tree
- * outside the confines of the containment relationships inherent to the tree
- * structure.
- *
  * @author Isaac Griffith
  * @version 1.2.0
  */
-@EqualsAndHashCode
-@ToString
-class Relationship {
+enum Accessibility {
 
-    /**
-     * The type of this relationship
-     */
-    def type
+    PUBLIC("+"),
+    PROTECTED("#"),
+    PRIVATE("-"),
+    DEFAULT("~"),
+    PACKAGE("~"),
+    INTERNAL(""),
+    PROTECTED_INTERNAL("")
 
-    /**
-     * The node acting as the start point of this relationship
-     */
-    def source
-    /**
-     * The node acting as the end point of this relationship
-     */
-    def dest
+    String plantUML
+
+    Accessibility(String plantUML) {
+        this.plantUML = plantUML
+    }
 }

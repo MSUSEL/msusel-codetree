@@ -1,24 +1,53 @@
+/**
+ * The MIT License (MIT)
+ *
+ * MSUSEL CodeTree
+ * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Software Engineering Laboratory
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 package codetree.utils
 
 import codetree.CodeTree
 import codetree.INode
-import codetree.ProjectNode
-import codetree.node.FieldNode
-import codetree.node.FileNode
-import codetree.node.MethodNode
-import codetree.node.ModuleNode
-import codetree.node.NamespaceNode
-import codetree.node.StatementNode
-import codetree.node.TypeNode
+import codetree.node.structural.ProjectNode
+import codetree.node.member.FieldNode
+import codetree.node.structural.FileNode
+import codetree.node.member.MethodNode
+import codetree.node.structural.ModuleNode
+import codetree.node.structural.NamespaceNode
+import codetree.node.member.StatementNode
+import codetree.node.type.TypeNode
 import com.google.common.collect.Queues
 import com.google.common.collect.Sets
 
+/**
+ * @author Isaac Griffith
+ * @version 1.2.0
+ */
 class CodeTreeUtils {
 
     /**
      * The tree used for the various operations herein.
      */
-    private final CodeTree tree
+    private CodeTree tree
 
     /**
      * Extracts the code tree section from the root down to the provided node
@@ -196,7 +225,7 @@ class CodeTreeUtils {
      *         provided, or null if no such ProjectNode exists in the CodeTree
      *         or the provided identifier is null or empty.
      */
-    public ProjectNode findProject(String qid)
+    ProjectNode findProject(String qid)
     {
         if (qid == null || qid.isEmpty())
             return null
@@ -218,7 +247,7 @@ class CodeTreeUtils {
             }
         }
 
-        return null
+        null
     }
 
     /**
@@ -231,20 +260,22 @@ class CodeTreeUtils {
      *         or null if no such TypeNode exists in the CodeTree or the
      *         provided identifier is null or empty.
      */
-    public TypeNode findType(final String key)
+    TypeNode findType(final String key)
     {
         if (key == null || key.isEmpty())
             return null
 
+        TypeNode ret = null
+
         for (final TypeNode type : getTypes())
         {
-            if (type.getQIdentifier().equals(key))
+            if (type.key == key)
             {
-                return type
+                ret = type
             }
         }
 
-        return null
+        ret
     }
 
     /**
@@ -257,7 +288,7 @@ class CodeTreeUtils {
      *         or null if no such FileNode exists in the CodeTree or the
      *         provided identifier is null or empty.
      */
-    public FileNode getFile(final String file)
+    FileNode getFile(final String file)
     {
         if (file == null || file.isEmpty())
         {
@@ -266,7 +297,7 @@ class CodeTreeUtils {
 
         for (FileNode fn : getFiles())
         {
-            if (fn.getQIdentifier().equals(file))
+            if (fn.key == file)
                 return fn
         }
 
@@ -276,7 +307,7 @@ class CodeTreeUtils {
     /**
      * @return The set of all files within the tree.
      */
-    public Set<FileNode> getFiles()
+    Set<FileNode> getFiles()
     {
         Set<FileNode> files = Sets.newHashSet()
 
@@ -287,8 +318,8 @@ class CodeTreeUtils {
         while (!queue.isEmpty())
         {
             ProjectNode pn = queue.poll()
-            files.addAll(pn.getFiles())
-            queue.addAll(pn.getSubProjects())
+            files.addAll(pn.files())
+            queue.addAll(pn.subprojects())
         }
 
         return files
@@ -297,11 +328,11 @@ class CodeTreeUtils {
     /**
      * @return The set of all methods within the tree.
      */
-    public Set<MethodNode> getMethods()
+    Set<MethodNode> getMethods()
     {
         final Set<MethodNode> methods = Sets.newHashSet()
 
-        getTypes().forEach({type -> methods.addAll(type.getMethods())})
+        getTypes().forEach({type -> methods.addAll(type.methods())})
 
         return methods
     }
@@ -311,7 +342,7 @@ class CodeTreeUtils {
      * @return The set of all projects within the tree (including the root
      *         project)
      */
-    public Set<ProjectNode> getProjects()
+    Set<ProjectNode> getProjects()
     {
         Set<ProjectNode> projects = Sets.newHashSet()
         Queue<ProjectNode> q = Queues.newArrayDeque()
@@ -323,7 +354,7 @@ class CodeTreeUtils {
         {
             ProjectNode project = q.poll()
             projects.add(project)
-            q.addAll(project.getSubProjects())
+            q.addAll(project.subprojects())
         }
 
         return projects
@@ -332,11 +363,11 @@ class CodeTreeUtils {
     /**
      * @return The set of all known types in the tree.
      */
-    public Set<TypeNode> getTypes()
+    Set<TypeNode> getTypes()
     {
         final Set<TypeNode> types = Sets.newHashSet()
 
-        getFiles().forEach({file -> types.addAll(file.getTypes())})
+        getFiles().forEach({file -> types.addAll(file.types())})
 
         return types
     }
@@ -360,12 +391,12 @@ class CodeTreeUtils {
         }
         if (pn.hasParent())
         {
-            if (pn.getParentKey().equals(tree.getProject().getQIdentifier()))
+            if (pn.getParentKey() == tree.getProject().getQIdentifier())
             {
                 tree.getProject().addSubProject(pn)
             }
         }
-        else if (tree.getProject().equals(pn))
+        else if (tree.getProject() == pn)
         {
             tree.getProject().update(pn)
         }

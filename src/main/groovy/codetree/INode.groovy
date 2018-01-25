@@ -1,8 +1,8 @@
 /**
- * MIT License
+ * The MIT License (MIT)
  *
- * MSUSEL Design Pattern Generator
- * Copyright (c) 2017 Montana State University, Gianforte School of Computing
+ * MSUSEL CodeTree
+ * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,16 +23,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
- * 
- */
 package codetree
 
 import org.apache.commons.lang3.tuple.Pair
 
 /**
  * @author Isaac Griffith
- *
+ * @version 1.2.0
  */
 interface INode {
 
@@ -128,4 +125,8 @@ interface INode {
     boolean hasParent()
 
     def extractTree(tree)
+
+    def addChild(child)
+
+    def removeChild(child)
 }

@@ -23,57 +23,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package codetree.utils
+package codetree.node.member
 
+import codetree.AbstractTypeRef
+import codetree.node.Accessibility
+import codetree.INode
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
-@Singleton
-class MetricNameRegistry {
+class EnumLiteralNode extends MemberNode {
 
     /**
-     * The mapping of names to the actual acronym used by the msusel-metrics
-     * module. The index is the alternate name and the value is the known
-     * acronym.
+     * 
      */
-    private nameMap = ["LOC": "LOC", "LoC": "LOC", "CountLineCode": "LOC"]
-
-    /**
-     * Registers a name acronym and its alternate names. If the acronym is
-     * null nothing happens. If their are no alternative names, then simply the
-     * acronym is mapped to itself.
-     *
-     * @param metric
-     *            The name acronym
-     * @param alts
-     *            The alternate names.
-     */
-    void register(metric, String... alts)
-    {
-        if (metric == null || metric.isEmpty())
-            return;
-
-        nameMap[metric] = metric
-        for (String alt : alts)
-        {
-            nameMap[alt] = metric
-        }
+    EnumLiteralNode(String key, String parentKey, Map<String, Double> metrics = [:],
+                    Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+                    int start, int end, AbstractTypeRef type) {
+        super(key, parentKey, metrics, accessibility, specifiers, start, end, type)
     }
 
-    /**
-     * Looks up the acronym assigned to the given name.
-     *
-     * @param name
-     *            A name name.
-     * @return The acronym associated with the given name, or null if no such
-     *         mapping exists or if the provided name is null or empty.
-     */
-    def lookup(String name)
-    {
-        if (name == null || name.isEmpty() || !nameMap.containsKey(name))
-            return null
+    INode cloneNoChildren() {
+        null
+    }
 
-        return nameMap[name]
+    def extractTree(tree) {
+        null
+    }
+
+    void update(INode other) {
+
+    }
+
+    def type() {
+        null
     }
 }

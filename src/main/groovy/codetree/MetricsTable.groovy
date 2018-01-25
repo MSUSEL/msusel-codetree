@@ -1,8 +1,8 @@
 /**
- * MIT License
+ * The MIT License (MIT)
  *
- * MSUSEL Design Pattern Generator
- * Copyright (c) 2017 Montana State University, Gianforte School of Computing
+ * MSUSEL CodeTree
+ * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,16 +23,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
- * 
- */
 package codetree
 
+import codetree.node.AbstractNode
 import com.google.common.collect.Table
 
 /**
  * @author Isaac Griffith
- *
+ * @version 1.2.0
  */
 class MetricsTable {
 
@@ -41,7 +39,7 @@ class MetricsTable {
     /**
      * 
      */
-    public MetricsTable()
+    MetricsTable()
     {
         // TODO Auto-generated constructor stub
     }

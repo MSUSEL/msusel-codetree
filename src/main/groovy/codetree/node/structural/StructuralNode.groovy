@@ -23,34 +23,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package codetree.relations
+package codetree.node.structural
 
-import groovy.transform.EqualsAndHashCode
-import groovy.transform.ToString
+import codetree.node.AbstractNode
 
 /**
- * A basic relationship class used to connect entities within a code tree
- * outside the confines of the containment relationships inherent to the tree
- * structure.
- *
  * @author Isaac Griffith
  * @version 1.2.0
  */
-@EqualsAndHashCode
-@ToString
-class Relationship {
+abstract class StructuralNode extends AbstractNode {
 
-    /**
-     * The type of this relationship
-     */
-    def type
+    StructuralNode(String key, String parentKey, Map<String, Double> metrics = [:]) {
+        super(key, parentKey, metrics)
+    }
 
-    /**
-     * The node acting as the start point of this relationship
-     */
-    def source
-    /**
-     * The node acting as the end point of this relationship
-     */
-    def dest
+    abstract def types()
+    
+    abstract def files()
 }
