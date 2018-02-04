@@ -25,18 +25,18 @@
  */
 package codetree.node.type
 
-import codetree.*
+import codetree.CodeTree
 import codetree.node.Accessibility
 import codetree.node.CodeNode
 import codetree.node.Modifiers
 import codetree.node.member.FieldNode
-import codetree.node.structural.FileNode
 import codetree.node.member.MethodNode
+import codetree.node.member.PropertyNode
+import codetree.node.structural.FileNode
 import codetree.node.structural.ModuleNode
 import codetree.node.structural.NamespaceNode
-import codetree.node.member.ParameterNode
-import codetree.node.member.PropertyNode
 import codetree.node.structural.ProjectNode
+import codetree.typeref.TypeVarTypeRef
 
 /**
  * @author Isaac Griffith
@@ -44,15 +44,23 @@ import codetree.node.structural.ProjectNode
  */
 abstract class TypeNode extends CodeNode {
 
-    List<ParameterNode> templateParams = []
+    List<TypeVarTypeRef> templateParams = []
     NamespaceNode namespace
 
     TypeNode(String key, String parentKey, Map<String, Double> metrics = [:],
-             Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
-             int start, int end, List<ParameterNode> templateParams, NamespaceNode namespace) {
+             Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+             int start, int end, List<TypeVarTypeRef> templateParams = [], NamespaceNode namespace) {
         super(key, parentKey, metrics, accessibility, specifiers, start, end)
         this.templateParams = templateParams
         this.namespace = namespace
+    }
+
+    void addTypeParam(TypeVarTypeRef node) {
+        if (templateParams == null)
+            templateParams = []
+
+        if (node != null || !templateParams.contains(node))
+            templateParams << node
     }
 
     def methods() {
@@ -65,6 +73,10 @@ abstract class TypeNode extends CodeNode {
         children.findAll {
             it instanceof FieldNode
         }
+    }
+
+    def getField(String name) {
+        fields().find { it.name() == name }
     }
 
     def properties() {
@@ -139,4 +151,20 @@ abstract class TypeNode extends CodeNode {
     }
 
     abstract def generatePlantUML()
+
+    def getMethod(String name) {
+        methods().find { it.name() == name }
+    }
+
+    def getAllMethodsByName(String name) {
+        methods().findAll { it.name() == name }
+    }
+
+    TypeVarTypeRef getTypeParamByName(String param) {
+        templateParams.find { it.name() == param }
+    }
+
+    boolean hasTypeParam(String name) {
+        templateParams.find { it.name() == name } != null
+    }
 }

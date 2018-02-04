@@ -276,6 +276,13 @@ class ProjectNode extends StructuralNode {
         return namespaces().find {it instanceof NamespaceNode && it.key == ns} != null
     }
 
+    NamespaceNode getNamespace(String ns) {
+        if (ns == null || ns.isEmpty())
+            return null
+
+        return (NamespaceNode) namespaces().find {it instanceof NamespaceNode && it.key == ns}
+    }
+
     /**
      * {@inheritDoc}
      */

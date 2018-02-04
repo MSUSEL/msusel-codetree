@@ -25,10 +25,10 @@
  */
 package codetree.node.type
 
-import codetree.node.Accessibility
 import codetree.INode
+import codetree.node.Accessibility
 import codetree.node.structural.NamespaceNode
-import codetree.node.member.ParameterNode
+import codetree.typeref.TypeVarTypeRef
 import groovy.transform.builder.Builder
 
 /**
@@ -43,7 +43,7 @@ class StructNode extends TypeNode {
     @Builder(buildMethodName = "create")
     StructNode(String key, String parentKey, Map<String, Double> metrics = [:],
                Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
-               int start, int end, List<ParameterNode> templateParams, NamespaceNode namespace) {
+               int start, int end, List<TypeVarTypeRef> templateParams, NamespaceNode namespace) {
         super(key, parentKey, metrics, accessibility, specifiers, start, end, templateParams, namespace)
     }
 

@@ -26,10 +26,11 @@
 package codetree.node.type
 
 import codetree.node.Accessibility
-import codetree.node.structural.NamespaceNode
+import codetree.node.member.EnumLiteralNode
 import codetree.node.member.FieldNode
 import codetree.node.member.MethodNode
-import codetree.node.member.ParameterNode
+import codetree.node.structural.NamespaceNode
+import codetree.typeref.TypeVarTypeRef
 import groovy.transform.builder.Builder
 /**
  * @author Isaac Griffith
@@ -41,14 +42,16 @@ class EnumNode extends ClassNode {
 
     @Builder(buildMethodName = "create")
     EnumNode(String key, String parentKey, Map<String, Double> metrics = [:],
-             Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
-             int start, int end, List<ParameterNode> templateParams, NamespaceNode namespace, literals = []) {
+             Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+             int start, int end, List<TypeVarTypeRef> templateParams, NamespaceNode namespace, literals = []) {
         super(key, parentKey, metrics, accessibility, specifiers, start, end, templateParams, namespace)
         this.literals = literals
     }
 
     def getLiterals() {
-        extract(literals)
+        children.findAll {
+            it instanceof EnumLiteralNode
+        }
     }
 
     def generatePlantUML() {
@@ -56,8 +59,8 @@ class EnumNode extends ClassNode {
 
         builder.append("enum ${this.name()} {\n")
         literals.each { builder.append(it.name()) }
-        fields().each { FieldNode f -> builder.append("${f.accessibility.plantUML}${f.getSimpleName()} ${f.getType().getSimpleName()}") }
-        methods().each { MethodNode m -> builder.append("${m.accessibility.toUML()}${m.getSimpleName()}() : ${m.getType().getSimpleName()}") }
+        fields().each { FieldNode f -> builder.append("${f.accessibility.plantUML}${f.name()} ${f.getType()}\n") }
+        methods().each { MethodNode m -> builder.append("${m.accessibility.plantUML}${m.name()}() : ${m.getType()}\n") }
         builder.append("}\n")
         builder.append("\n")
 

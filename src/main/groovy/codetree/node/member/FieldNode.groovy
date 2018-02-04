@@ -40,7 +40,7 @@ class FieldNode extends MemberNode implements Cloneable {
      */
     @Builder(buildMethodName = "create")
     FieldNode(String key, String parentKey, Map<String, Double> metrics = [:],
-              Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+              Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
               int start, int end, AbstractTypeRef type) {
         super(key, parentKey, metrics, accessibility, specifiers, start, end, type)
     }

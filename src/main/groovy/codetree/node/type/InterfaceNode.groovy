@@ -25,12 +25,12 @@
  */
 package codetree.node.type
 
-import codetree.node.Accessibility
 import codetree.INode
+import codetree.node.Accessibility
 import codetree.node.member.FieldNode
 import codetree.node.member.MethodNode
 import codetree.node.structural.NamespaceNode
-import codetree.node.member.ParameterNode
+import codetree.typeref.TypeVarTypeRef
 import groovy.transform.builder.Builder
 /**
  * @author Isaac Griffith
@@ -43,8 +43,8 @@ class InterfaceNode extends TypeNode {
      */
     @Builder(buildMethodName='create')
     InterfaceNode(String key, String parentKey, Map<String, Double> metrics = [:],
-                  Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
-                  int start, int end, List<ParameterNode> templateParams, NamespaceNode namespace) {
+                  Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+                  int start, int end, List<TypeVarTypeRef> templateParams, NamespaceNode namespace) {
         super(key, parentKey, metrics, accessibility, specifiers, start, end, templateParams, namespace)
     }
 
@@ -84,8 +84,8 @@ class InterfaceNode extends TypeNode {
     def generatePlantUML() {
         StringBuilder builder = new StringBuilder()
         builder.append("interface ${this.name()} {\n")
-        fields().each { FieldNode f -> builder.append("${f.accessibility.plantUML}${f.getSimpleName()} ${f.getType().getSimpleName()}")}
-        methods().each { MethodNode m -> builder.append("${m.accessibility.toUML()}${m.getSimpleName()}() : ${m.getType().getSimpleName()}") }
+        fields().each { FieldNode f -> builder.append("${f.accessibility.plantUML}${f.name()} ${f.getType()}\n")}
+        methods().each { MethodNode m -> builder.append("${m.accessibility.plantUML}${m.name()}() : ${m.getType()}\n") }
         builder.append("}\n")
         builder.append("\n")
 

@@ -34,6 +34,7 @@ import codetree.node.structural.FileNode
 import codetree.node.structural.ModuleNode
 import codetree.node.structural.ProjectNode
 import codetree.node.type.TypeNode
+import codetree.typeref.TypeVarTypeRef
 import codetree.utils.CodeTreeUtils
 import com.google.common.graph.Graph
 import groovy.transform.builder.Builder
@@ -52,21 +53,28 @@ import groovy.transform.builder.Builder
 class MethodNode extends MemberNode {
 
     def params = []
-    def templateParams = []
+    def typeParams = []
     Graph<StatementNode> cfg
     def statements = []
+    def exceptions = []
 
     /**
      *
      */
     @Builder(buildMethodName = 'create')
     MethodNode(String key, String parentKey, Map<String, Double> metrics = [:],
-               Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
-               int start, int end, AbstractTypeRef type, params = [], templateParams = [], statements = []) {
+               Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+               int start, int end, AbstractTypeRef type, params = [], typeParams = [], statements = []) {
         super(key, parentKey, metrics, accessibility, specifiers, start, end, type)
         this.params = params
-        this.templateParams = templateParams
+        this.typeParams = typeParams
         this.statements = statements
+    }
+
+    def addException(AbstractTypeRef ref) {
+        if (ref != null && !exceptions.contains(ref)) {
+            exceptions << ref;
+        }
     }
 
     def hasModifier(String mod) {
@@ -94,7 +102,8 @@ class MethodNode extends MemberNode {
         params.each {
             sig += it.getKey() + ", "
         }
-        sig = sig.trim()[0..-2]
+        if (sig.endsWith(", "))
+            sig = sig.trim()[0..-2]
         sig += ")"
         sig
     }
@@ -139,7 +148,7 @@ class MethodNode extends MemberNode {
         if (identifier == null || identifier.isEmpty())
             throw new IllegalArgumentException("Statment identifier cannot be null or empty")
 
-        (StatementNode) statements.find {it.key == identifier}
+        (StatementNode) statements.find { it.key == identifier }
     }
 
     /**
@@ -225,5 +234,11 @@ class MethodNode extends MemberNode {
         }
 
         retVal.setProject(root)
+    }
+
+    def getParameterByName(String param) { params.find { it.name() == param } }
+
+    TypeVarTypeRef getTypeParamByName(String paramName) {
+        typeParams.find { it.name() == paramName }
     }
 }

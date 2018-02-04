@@ -61,7 +61,9 @@ class NamespaceNode extends StructuralNode {
     }
 
     def files() {
-        []
+        children.findAll {
+            it instanceof FileNode
+        }
     }
 
     def name() {
@@ -110,5 +112,13 @@ class NamespaceNode extends StructuralNode {
         builder.append("package ${this.getSimpleName()} {")
 
         builder.append("}")
+    }
+
+    boolean hasFile(String key) {
+        children.find { it instanceof FileNode && it.name() == key } != null
+    }
+
+    boolean containsNamespace(NamespaceNode current) {
+        children.find { it instanceof NamespaceNode && it == current } != null
     }
 }

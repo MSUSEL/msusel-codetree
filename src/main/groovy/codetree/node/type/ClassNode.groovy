@@ -26,13 +26,14 @@
 
 package codetree.node.type
 
-import codetree.node.Accessibility
 import codetree.INode
-import codetree.node.structural.NamespaceNode
+import codetree.node.Accessibility
 import codetree.node.member.FieldNode
 import codetree.node.member.MethodNode
-import codetree.node.member.ParameterNode
+import codetree.node.structural.NamespaceNode
+import codetree.typeref.TypeVarTypeRef
 import groovy.transform.builder.Builder
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
@@ -44,8 +45,8 @@ class ClassNode extends TypeNode implements Cloneable {
      */
     @Builder(buildMethodName='create')
     ClassNode(String key, String parentKey, Map<String, Double> metrics = [:],
-              Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
-              int start, int end, List<ParameterNode> templateParams, NamespaceNode namespace) {
+              Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+              int start, int end, List<TypeVarTypeRef> templateParams, NamespaceNode namespace) {
         super(key, parentKey, metrics, accessibility, specifiers, start, end, templateParams, namespace)
     }
 
@@ -141,7 +142,7 @@ class ClassNode extends TypeNode implements Cloneable {
         StringBuilder builder = new StringBuilder()
         builder.append("class ${this.name()} {\n")
         fields().each { FieldNode f -> builder.append("${f.plantUML()}\n")}
-        methods().each { MethodNode m -> builder.append("${m.accessibility.toUML()}${m.name()}() : ${m.getType().getSimpleName()}") }
+        methods().each { MethodNode m -> builder.append("${m.accessibility.plantUML}${m.name()}() : ${m.getType()}\n") }
         builder.append("}\n")
         builder.append("\n")
 

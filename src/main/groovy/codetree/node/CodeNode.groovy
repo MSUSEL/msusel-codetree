@@ -95,4 +95,8 @@ abstract class CodeNode extends AbstractNode {
                 .append("]")
         return builder.toString()
     }
+
+    boolean hasModifier(Modifiers mod) {
+        modifiers.contains(mod)
+    }
 }

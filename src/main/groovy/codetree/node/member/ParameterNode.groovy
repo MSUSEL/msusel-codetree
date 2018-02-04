@@ -52,7 +52,7 @@ class ParameterNode extends CodeNode {
     }
 
     def name() {
-        key.split('#').reverse()[0].split(':')[1]
+        key
     }
 
     /**

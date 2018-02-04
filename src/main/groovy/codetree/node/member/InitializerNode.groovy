@@ -34,11 +34,13 @@ import groovy.transform.builder.Builder
  */
 class InitializerNode extends MethodNode {
 
+    boolean instance
 
     @Builder(buildMethodName = "create")
     InitializerNode(String key, String parentKey, Map<String, Double> metrics = [:],
                     Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
-                    int start, int end, AbstractTypeRef type, params = [], templateParams = [], statements = []) {
+                    int start, int end, AbstractTypeRef type, params = [], templateParams = [], statements = [], boolean instance = false) {
         super(key, parentKey, metrics, accessibility, specifiers, start, end, type, params, templateParams, statements)
+        this.instance = instance
     }
 }

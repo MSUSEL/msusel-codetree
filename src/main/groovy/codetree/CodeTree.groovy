@@ -34,7 +34,6 @@ import com.google.common.collect.HashBasedTable
 import com.google.common.collect.Table
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-
 /**
  * @author Isaac Griffith
  * @version 1.2.0
@@ -44,6 +43,7 @@ class CodeTree {
     ProjectNode project
     Table<TypeNode, TypeNode, RelationshipType> table = HashBasedTable.create()
     CodeTreeUtils utils
+    List<TypeNode> unknownTypes = []
 
     /**
      *
@@ -70,7 +70,12 @@ class CodeTree {
     }
 
     def getGeneralizedTo(TypeNode to) {
-        table.column(to).findAll { it.getValue() == RelationshipType.GENERALIZATION }
+        def map = table.column(to).findAll { it.getValue() == RelationshipType.GENERALIZATION }
+        def list = []
+        map.each {
+            list << it.getKey()
+        }
+        list
     }
 
     def addRealizes(TypeNode from, TypeNode to) {
@@ -148,12 +153,24 @@ class CodeTree {
         addRelation(from, to, RelationshipType.DEPENDENCY)
     }
 
+    def addContainment(TypeNode contained, TypeNode container) {
+        addRelation(contained, container, RelationshipType.CONTAINMENT);
+    }
+
     def getDependencyFrom(TypeNode from) {
         table.row(from).findAll { it.getValue() == RelationshipType.DEPENDENCY }
     }
 
     def getDependencyTo(TypeNode to) {
         table.column(to).findAll { it.getValue() == RelationshipType.DEPENDENCY }
+    }
+
+    def getContainedIn(TypeNode container) {
+        table.column(container).findAll { it.getValue() == RelationshipType.CONTAINMENT}
+    }
+
+    def getContainedBy(TypeNode contained) {
+        table.row(contained).findAll { it.getValue() == RelationshipType.CONTAINMENT}
     }
 
     def getTypesUsingMethod(MethodNode method) {
@@ -192,7 +209,7 @@ class CodeTree {
      * @return A newly instantiated CodeTree deserialized from the given string,
      *         or null if the provided string is null or empty.
      */
-    public static CodeTree createFromJson(String json) {
+    static CodeTree createFromJson(String json) {
         def jsonSlurper = new JsonSlurper()
         def object = jsonSlurper.parseText(json)
     }
@@ -200,9 +217,14 @@ class CodeTree {
     /**
      * @return Serializes this code tree and its contents to a JSON string.
      */
-    public String toJSON() {
+    String toJSON() {
         def json = JsonOutput.toJson(this)
         JsonOutput.prettyPrint(json)
+    }
+
+    void addUnknownType(TypeNode node) {
+        if (node != null && !unknownTypes.contains(node))
+            unknownTypes.add(node);
     }
 
     def generatePlantUML() {
@@ -216,5 +238,23 @@ class CodeTree {
         builder.append("@enduml")
 
         builder.toString()
+    }
+
+    boolean hasBiDirectionalAssociation(TypeNode from, TypeNode to) {
+        getDependencyFrom(from).find { it == to } != null &&
+                getDependencyFrom(to).find { it == from } != null
+    }
+
+    boolean hasContainmentRelation(TypeNode from, TypeNode to) {
+        getContainedBy(from).find {it == to} != null
+    }
+
+    boolean hasUniDirectionalAssociation(TypeNode from, TypeNode to) {
+        getAssociatedFrom(from).find { it == to } != null &&
+                getAssociatedFrom(to).find { it == from } != null
+    }
+
+    boolean hasUseDependency(TypeNode from, TypeNode to) {
+        getDependencyFrom(from).find { it == to } != null
     }
 }
