@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,17 +23,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package edu.montana.gsoc.msusel.codetree.node.type
 
 import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
-import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
 import edu.montana.gsoc.msusel.codetree.node.member.FieldNode
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
+import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
 import groovy.transform.builder.Builder
-
 /**
  * @author Isaac Griffith
  * @version 1.2.0

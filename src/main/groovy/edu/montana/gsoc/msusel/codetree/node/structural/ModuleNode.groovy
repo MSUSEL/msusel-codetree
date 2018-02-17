@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -98,11 +98,11 @@ class ModuleNode extends StructuralNode {
     @Override
     ModuleNode cloneNoChildren()
     {
-        ModuleNode mnode = new ModuleNode(this.qIdentifier)
+        ModuleNode mnode = builder().key(this.key).create()
 
         copyMetrics(mnode)
 
-        return mnode
+        mnode
     }
 
     /**
@@ -152,7 +152,7 @@ class ModuleNode extends StructuralNode {
         if (nsID == null || nsID.isEmpty() || !namespaces.containsKey(nsID))
             return null
 
-        return namespaces.get(nsID)
+        namespaces.get(nsID)
     }
 
     /**

@@ -2,7 +2,7 @@
 @REM The MIT License (MIT)
 @REM
 @REM MSUSEL CodeTree
-@REM Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+@REM Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
 @REM Software Engineering Laboratory
 @REM
 @REM Permission is hereby granted, free of charge, to any person obtaining a copy

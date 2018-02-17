@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +25,7 @@
  */
 package edu.montana.gsoc.msusel.codetree.node.member
 
+import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.CodeTree
 import edu.montana.gsoc.msusel.codetree.INode
@@ -52,10 +53,12 @@ import groovy.transform.builder.Builder
  */
 class MethodNode extends MemberNode {
 
+    @Expose
     def params = []
+    @Expose
     def typeParams = []
     ControlFlowGraph cfg
-    def statements = []
+    @Expose
     def exceptions = []
 
     /**
@@ -64,11 +67,16 @@ class MethodNode extends MemberNode {
     @Builder(buildMethodName = 'create')
     MethodNode(String key, String parentKey, Map<String, Double> metrics = [:],
                Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
-               int start, int end, AbstractTypeRef type, params = [], typeParams = [], statements = []) {
+               int start, int end, AbstractTypeRef type, params = [], typeParams = []) {
         super(key, parentKey, metrics, accessibility, specifiers, start, end, type)
         this.params = params
         this.typeParams = typeParams
-        this.statements = statements
+        this.exceptions = []
+    }
+
+    def addParameter(ParameterNode param) {
+        if (param != null)
+            params << param
     }
 
     def addException(AbstractTypeRef ref) {
@@ -98,13 +106,14 @@ class MethodNode extends MemberNode {
     }
 
     String signature() {
-        String sig = getType().name() + " " + name() + "("
+        String sig = "${getType() != null ? getType().name() + ' ' + name() : name()}("
         params.each { ParameterNode param ->
             sig += param.getType().name() + ", "
         }
         if (sig.endsWith(", "))
             sig = sig.trim()[0..-2]
         sig += ")"
+
         sig
     }
 
@@ -240,5 +249,9 @@ class MethodNode extends MemberNode {
 
     TypeVarTypeRef getTypeParamByName(String paramName) {
         typeParams.find { it.name() == paramName }
+    }
+
+    AbstractTypeRef getExceptionByName(String exception) {
+        exceptions.find { it.name() == exception }
     }
 }

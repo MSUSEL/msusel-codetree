@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,44 +30,58 @@ import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
 import edu.montana.gsoc.msusel.codetree.node.type.ClassNode
 import edu.montana.gsoc.msusel.codetree.node.type.EnumNode
 import edu.montana.gsoc.msusel.codetree.node.type.InterfaceNode
+import groovy.util.logging.Slf4j
 
-class EnvironmentLoader {
+/**
+ * @author Isaac Griffith
+ * @version 1.2.0
+ */
+@Slf4j
+abstract class EnvironmentLoader {
 
     NamespaceNode currentNamespace
     CodeTree tree
 
     EnvironmentLoader(CodeTree tree) {
         this.tree = tree
+        tree.setLoader(this)
     }
+
+    abstract void find(String ns, String name)
 
     void find(String ns, InputStream stream, String name) {
         try {
             def type = ~/^(interface|class|enum) (${name})$/
             BufferedReader br = new BufferedReader(new InputStreamReader(stream))
-            
+
             String line
             while ((line = br.readLine()) != null) {
                 def group = line =~ type
-                switch (group[0][1]) {
-                    case "class":
-                        constructClass(group[0][2], ns)
-                        break
-                    case "interface":
-                        constructInterface(group[0][2], ns)
-                        break
-                    case "enum":
-                        constructEnum(group[0][2], ns)
-                        break
+                if (group.size() > 0) {
+                    println group.size()
+                    println group[0]
+                    switch (group[0][1]) {
+                        case "class":
+                            constructClass(group[0][2], ns)
+                            break
+                        case "interface":
+                            constructInterface(group[0][2], ns)
+                            break
+                        case "enum":
+                            constructEnum(group[0][2], ns)
+                            break
+                    }
                 }
             }
-        } catch (Exception e) {
-
+        }
+        catch (Exception e) {
+            log.warn(e.getMessage())
         }
     }
 
     def constructClass(String name, String pkg) {
         if (currentNamespace == null)
-            loadNamespace()
+            loadNamespace(pkg)
 
         ClassNode node = ClassNode.builder()
                 .key("${pkg}.${name}")
@@ -78,7 +92,7 @@ class EnvironmentLoader {
 
     def constructInterface(String name, String pkg) {
         if (currentNamespace == null)
-            loadNamespace()
+            loadNamespace(pkg)
 
         InterfaceNode node = InterfaceNode.builder()
                 .key("${pkg}.${name}")
@@ -89,7 +103,7 @@ class EnvironmentLoader {
 
     def constructEnum(String name, String pkg) {
         if (currentNamespace == null)
-            loadNamespace()
+            loadNamespace(pkg)
 
         EnumNode node = EnumNode.builder()
                 .key("${pkg}.${name}")
@@ -100,12 +114,14 @@ class EnvironmentLoader {
 
     def loadNamespace(String ns) {
         def space = tree.languageNamespace(ns)
-        if (ns == null) {
+        if (space == null) {
             currentNamespace = NamespaceNode.builder()
                     .key(ns)
                     .create()
+            tree.addLanguageNamespace(ns, currentNamespace);
         } else {
             currentNamespace = space
         }
     }
+
 }

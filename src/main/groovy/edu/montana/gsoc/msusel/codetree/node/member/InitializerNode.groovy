@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +25,7 @@
  */
 package edu.montana.gsoc.msusel.codetree.node.member
 
+import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import groovy.transform.builder.Builder
@@ -34,13 +35,14 @@ import groovy.transform.builder.Builder
  */
 class InitializerNode extends MethodNode {
 
+    @Expose
     boolean instance
 
     @Builder(buildMethodName = "create")
     InitializerNode(String key, String parentKey, Map<String, Double> metrics = [:],
                     Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
-                    int start, int end, AbstractTypeRef type, params = [], templateParams = [], statements = [], boolean instance = false) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, type, params, templateParams, statements)
+                    int start, int end, AbstractTypeRef type, params = [], templateParams = [], boolean instance = false) {
+        super(key, parentKey, metrics, accessibility, specifiers, start, end, type, params, templateParams)
         this.instance = instance
     }
 }

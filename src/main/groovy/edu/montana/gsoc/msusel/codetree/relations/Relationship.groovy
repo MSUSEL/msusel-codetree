@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +25,7 @@
  */
 package edu.montana.gsoc.msusel.codetree.relations
 
+import com.google.gson.annotations.Expose
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
@@ -43,14 +44,17 @@ class Relationship {
     /**
      * The type of this relationship
      */
+    @Expose
     def type
 
     /**
      * The node acting as the start point of this relationship
      */
+    @Expose
     def source
     /**
      * The node acting as the end point of this relationship
      */
+    @Expose
     def dest
 }

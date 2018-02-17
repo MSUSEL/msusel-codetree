@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,18 +25,15 @@
  */
 package edu.montana.gsoc.msusel.codetree.node.structural
 
-import edu.montana.gsoc.msusel.codetree.CodeTree
-import edu.montana.gsoc.msusel.codetree.INode
-import edu.montana.gsoc.msusel.codetree.json.FieldNodeDeserializer
-import edu.montana.gsoc.msusel.codetree.json.FileNodeDeserializer
-import edu.montana.gsoc.msusel.codetree.json.MethodNodeDeserializer
-import edu.montana.gsoc.msusel.codetree.json.ModuleNodeDeserializer
-import edu.montana.gsoc.msusel.codetree.json.ProjectNodeDeserializer
 import com.google.common.collect.Sets
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import edu.montana.gsoc.msusel.codetree.CodeTree
+import edu.montana.gsoc.msusel.codetree.INode
+import edu.montana.gsoc.msusel.codetree.json.*
 import edu.montana.gsoc.msusel.codetree.node.member.FieldNode
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
+import edu.montana.gsoc.msusel.codetree.node.type.TypeNode
 import groovy.transform.builder.Builder
 
 /**
@@ -49,7 +46,6 @@ class ProjectNode extends StructuralNode {
     ProjectNode(String key, String parentKey, Map<String, Double> metrics) {
         super(key, parentKey, metrics)
     }
-
 
     def files() {
         children.findAll {
@@ -77,11 +73,29 @@ class ProjectNode extends StructuralNode {
 
     def types()
     {
-        []
+        List<TypeNode> types = []
+        children.each {
+            if (it instanceof TypeNode)
+                types << it
+        }
+        files().each { FileNode file ->
+            types.addAll(file.types())
+        }
+        modules().each { ModuleNode module ->
+            types.addAll(module.types())
+        }
+        subprojects().each { ProjectNode proj ->
+            types.addAll(proj.types())
+        }
+        types
     }
     
     def methods() {
-        []
+        def methods = []
+        types().each { TypeNode type ->
+            methods << type.methods()
+        }
+        methods
     }
     
     def name() {
@@ -186,7 +200,7 @@ class ProjectNode extends StructuralNode {
     @Override
     ProjectNode cloneNoChildren()
     {
-        ProjectNode pnode = new ProjectNode(key: this.key)
+        ProjectNode pnode = builder().key(this.key).create()
 
         copyMetrics(pnode)
 
@@ -254,7 +268,7 @@ class ProjectNode extends StructuralNode {
     boolean hasFile(String path)
     {
         if (path == null || path.isEmpty())
-            return false;
+            return false
 
         return files().find {it instanceof FileNode && it.key == path} != null
     }
@@ -290,7 +304,7 @@ class ProjectNode extends StructuralNode {
     def type()
     {
         // TODO Auto-generated method stub
-        return null;
+        null
     }
 
     def extractTree(tree) {

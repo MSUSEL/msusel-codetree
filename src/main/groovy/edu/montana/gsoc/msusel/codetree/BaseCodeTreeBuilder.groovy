@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,7 +25,6 @@
  */
 package edu.montana.gsoc.msusel.codetree
 
-import codetree.typeref.*
 import com.google.common.collect.Lists
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.node.Modifiers
@@ -85,10 +84,20 @@ abstract class BaseCodeTreeBuilder {
     public static final int TYPE_DECL = 7
     public static final int FIELD_DECL = 8
 
+    /**
+     * Constructs a new BaseCodeTreeBuilder
+     * @param identifier
+     */
     BaseCodeTreeBuilder(ArtifactIdentifier identifier) {
         this.identifier = identifier
     }
 
+    /**
+     * Template method to construct the codetree for the given project key and root project path
+     * @param projectKey Project Key
+     * @param path root path for the project
+     * @return Code Tree constructed for the project
+     */
     CodeTree build(String projectKey, String path) {
         ProjectNode root = ProjectNode.builder().key(projectKey).create()
         tree = new CodeTree()
@@ -97,6 +106,9 @@ abstract class BaseCodeTreeBuilder {
         getIdentifier().identify(path)
         final List<Path> files = getIdentifier().getSourceFiles()
         parseStructure(files)
+        AssociationExtractor extract = new AssociationExtractor(tree);
+        extract.extractAssociations()
+        extract.extractDependencies()
 
         tree
     }
@@ -119,23 +131,42 @@ abstract class BaseCodeTreeBuilder {
         files.each { file ->
             setFile(tree.getUtils().getFile(file.toAbsolutePath().toString()))
             gatherRelationships()
-            addComponentsToTypes()
+            gatherTypeMembers()
         }
     }
 
+    /**
+     * Extracts the types defined in the file with the provided path
+     * @param file String encoding of the path for the file to be analyzed
+     */
     abstract void gatherTypes(String file)
 
+    /**
+     * Extracts the relationships between types
+     */
     abstract void gatherRelationships()
 
-    abstract void addComponentsToTypes()
+    /**
+     * Extracts the members of types
+     */
+    abstract void gatherTypeMembers()
 
+    /**
+     * Executes the parser with the given listener attached
+     * @param listener Parse tree listener which extracts information
+     */
     abstract void utilizeParser(ParseTreeListener listener)
 
-    NamespaceNode getOrCreateNamespace(String packageName) {
-        NamespaceNode current = tree.getProject().getNamespace(packageName)
+    /**
+     * Finds or creates a NamespaceNode for the given Namespace name.
+     * @param namespaceName Name of the namespace to finde or create
+     * @return The namespace
+     */
+    NamespaceNode getOrCreateNamespace(String namespaceName) {
+        NamespaceNode current = tree.getProject().getNamespace(namespaceName)
         if (current == null) {
 
-            String[] packageNames = packageName.split(/\./)
+            String[] packageNames = namespaceName.split(/\./)
 
             for (String seg : packageNames) {
                 String pKey = current == null ? "" : current.getKey()
@@ -144,13 +175,11 @@ abstract class BaseCodeTreeBuilder {
                 if (!tree.getProject().hasNamespace(key)) {
                     NamespaceNode parent = current
                     current = NamespaceNode.builder().key(key).parentKey(pKey).create()
-                    if (parent != null && !parent.containsNamespace(current))
-                        parent.addChild(current)
+                    setParentNamespace(parent, current)
                     tree.getProject().addChild(current)
                 } else {
                     NamespaceNode parent = current
-                    if (parent != null && !parent.containsNamespace(current))
-                        parent.addChild(current)
+                    setParentNamespace(parent, current)
                     current = tree.getProject().getNamespace(key)
                 }
             }
@@ -158,9 +187,28 @@ abstract class BaseCodeTreeBuilder {
         return current
     }
 
+    /**
+     * Adds the child namespace to the provided parent namespace
+     * @param parent Parent of the child namespace
+     * @param child Child namespace
+     */
+    void setParentNamespace(NamespaceNode parent, NamespaceNode child) {
+        if (parent != null && !parent.containsNamespace(child))
+            parent.addChild(child)
+    }
+
+    /**
+     * Finds a type with the given name, first searching the current namespace, then searching fully specified imported types,
+     * then checking the types defined in known language specific wildcard imports, then checking automatically included language
+     * types, and finally checking unknown wildcard imports. If the type is not defined within the context of the system under analysis
+     * it will be constructed as an UnknownTypeNode.
+     *
+     * @param name The name of the type
+     * @return The TypeNode corresponding to the provided type name.
+     */
     TypeNode findType(String name) {
-        List<String> general = Lists.newArrayList()
-        List<String> specific = Lists.newArrayList()
+        List<String> general = []
+        List<String> specific = []
 
         TypeNode candidate
 
@@ -232,58 +280,52 @@ abstract class BaseCodeTreeBuilder {
         candidate
     }
 
+    /**
+     * A heuristic to determine if the provided type name is fully defined. That is whether the type name has more than one "."
+     * @param name Name to evaluate
+     * @return true if the name has more than one ".", false otherwise.
+     */
     boolean notFullySpecified(String name) {
-        return !name.contains(".")
+        return name.count(".") > 1
     }
 
+    /**
+     * Retrieves the full name of the the type with the short name provided. This name is constructed by appending the current package name
+     * to the provided name, if it is not already present.
+     * @param name The name to evaluate.
+     * @return The fully qualified name of the type
+     */
     String getFullName(String name) {
         if (!types.empty()) {
-            return types.peek().getKey() + "." + name
+            "${typeKey()}.${name}"
         } else {
-            return namespace == null ? name : namespace.getKey() + "." + name
+            namespace == null ? name : "${namespace.getKey()}.${name}"
         }
     }
 
-    protected <T> Stack<T> reverseStack(Stack<T> stack) {
+    /**
+     * Method to reverse a stack
+     * @param stack The stack to reverse
+     * @return The reversed stack
+     */
+    protected static <T> Stack<T> reverseStack(Stack<T> stack) {
         Stack<T> rev = new Stack<>()
         while (!stack.empty())
             rev.push(stack.pop())
 
-        return rev
+        rev
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     TypeNode findTypeNode(String name) {
         final String fullName = getFullName(name)
         TypeNode type = tree.getUtils().findType(fullName)
         types.push(type)
         type
-    }
-
-    void handleModifiers(String modifier) {
-        Modifiers mod = null
-        Accessibility access = null
-        try {
-            mod = Modifiers.valueForJava(modifier)
-        } catch (IllegalArgumentException x) {
-
-        }
-        try {
-            access = Accessibility.valueOf(modifier.toUpperCase())
-        } catch (IllegalArgumentException e) {
-
-        }
-
-        if (flags.get(CONSTRUCTOR_MODIFIER) || flags.get(METHOD_MODIFIER)) {
-            if (access != null)
-                methods.peek().setAccessibility(access)
-            else if (mod != null)
-                methods.peek().addModifier(mod)
-        } else if (flags.get(VARIABLE_MODIFIER)) {
-            if (access != null)
-                params.peek().setAccessibility(access)
-            else if (mod != null)
-                params.peek().addModifier(mod)
-        }
     }
 
     void clearFlags() {
@@ -295,9 +337,8 @@ abstract class BaseCodeTreeBuilder {
     }
 
     void createInitializer(String initKey, boolean instance = true) {
-        String key = "${types.peek().getKey()}#${initKey}"
+        String key = "${typeKey()}#${initKey}"
         methods.push(InitializerNode.builder().key(key).instance(instance).create())
-
         types.peek().addChild(methods.peek())
     }
 
@@ -310,8 +351,15 @@ abstract class BaseCodeTreeBuilder {
     }
 
     void handleMethodDeclarator(String name) {
-        name = types.peek().getKey() + "#" + name
-        methods.peek().setKey(name)
+        methods.peek().setKey(generateMemberKey(name))
+    }
+
+    String generateMemberKey(String name) {
+        typeKey() + "#" + name
+    }
+
+    String typeKey() {
+        types.peek().getKey()
     }
 
     void finalizeMethod(interfaceMethod = false) {
@@ -327,13 +375,13 @@ abstract class BaseCodeTreeBuilder {
     }
 
     void setMethodParams() {
-        methods.peek().setParams(Lists.newArrayList(reverseStack(params)))
+        params = reverseStack(params)
+        Lists.newArrayList(params).each { methods.peek().addParameter(it) }
         params = new Stack<>()
     }
 
     void createFormalParameter(String identifier = "", receiver = false) {
         flags.set(FORMAL_PARAMETERS)
-
         if (receiver) {
             params.push(ParameterNode.builder().key(identifier).create())
         } else {
@@ -342,20 +390,18 @@ abstract class BaseCodeTreeBuilder {
     }
 
     void finalizeFormalParameter() {
-        clearFlags()
+        flags.clear(FORMAL_PARAMETERS)
     }
 
     protected void setCurrentNodeTypeRefs(AbstractTypeRef ref) {
         if (flags.get(FORMAL_PARAMETERS)) {
             params.peek().setType(ref)
-        } else if (flags.get(TYPE_PARAMETER)) {
+        } else if (flags.get(TYPE_PARAMETER) || flags.get(TYPE_DECL)) {
             typeParams.peek().addBound(ref)
         } else if (flags.get(METHOD_RESULT)) {
             methods.peek().setType(ref)
         } else if (flags.get(EXCEPTION_LIST)) {
             exceptions.push(ref)
-        } else if (flags.get(TYPE_DECL)) {
-            typeParams.peek().addBound(ref)
         } else if (flags.get(FIELD_DECL)) {
             if (currentTypeRef.empty())
                 currentTypeRef.push(ref)
@@ -377,19 +423,28 @@ abstract class BaseCodeTreeBuilder {
 
     void createTypeParameter(String type) {
         flags.set(TYPE_PARAMETER)
+        generateTypeVarTypeRef(type)
+    }
+
+    void finalizeTypeParameter() {
+        flags.clear(TYPE_PARAMETER)
+    }
+
+    void generateTypeVarTypeRef(String type) {
         TypeVarTypeRef param = TypeVarTypeRef.builder().typeVar(type).create()
         typeParams.push(param)
     }
 
     void startMethodExceptionList() {
         flags.set(EXCEPTION_LIST)
+        exceptions = new Stack<>()
     }
 
     void finalizeMethodExceptionList() {
-        clearFlags()
-        List<AbstractTypeRef> refs = Lists.newArrayList(reverseStack(exceptions))
+        flags.clear(EXCEPTION_LIST)
+        exceptions = reverseStack(exceptions)
+        List<AbstractTypeRef> refs = Lists.newArrayList(exceptions)
         refs.each { methods.peek().addException(it) }
-        exceptions = new Stack<>()
     }
 
     void startTypeParamList() {
@@ -406,28 +461,32 @@ abstract class BaseCodeTreeBuilder {
 
     void startMethodModifier(String modifier) {
         setFlag(METHOD_MODIFIER)
-        handleModifiers(modifier)
+        handleModifiers(modifier, false, false, true)
     }
 
     void finalizeMethodModifier() {
-        clearFlags()
+        flags.clear(METHOD_MODIFIER)
     }
 
     void startVariableModifier(String modifier) {
         setFlag(VARIABLE_MODIFIER)
-        handleModifiers(modifier)
+        handleModifiers(modifier, false, false, true)
     }
 
-    void createTypeRef(String type) {
+    void finalizeVariableModifier() {
+        flags.clear(VARIABLE_MODIFIER)
+    }
+
+    void createInnerTypeRef(String type) {
         TypeNode node = findType(type)
-        AbstractTypeRef ref = TypeRef.builder().type(node).create()
+        AbstractTypeRef ref = TypeRef.builder().type(node.getKey()).typeName(node.name()).create()
         updateCurrentTypeRef(ref)
         currentTypeRef.push(ref)
     }
 
-    void constructTypeRef(String typeId) {
+    void constructOuterTypeRef(String typeId) {
         TypeNode type = this.findType(typeId)
-        AbstractTypeRef ref = TypeRef.builder().type(type).create()
+        AbstractTypeRef ref = TypeRef.builder().type(type.getKey()).typeName(type.name()).create()
         setCurrentNodeTypeRefs(ref)
         currentTypeRef.push(ref)
     }
@@ -440,7 +499,6 @@ abstract class BaseCodeTreeBuilder {
         AbstractTypeRef ref = ArrayTypeRef.builder().dimensions(dims).create()
         if (update) {
             updateCurrentTypeRef(ref)
-
         }
         currentTypeRef.push(ref)
     }
@@ -454,7 +512,6 @@ abstract class BaseCodeTreeBuilder {
             if (currentTypeRef.peek() instanceof TypeRef) {
                 ((TypeRef) currentTypeRef.peek()).addTypeArg(ref)
             } else if (currentTypeRef.peek() instanceof WildCardTypeRef) {
-                System.out.println("Adding Bound: " + ref.name())
                 ((WildCardTypeRef) currentTypeRef.peek()).addBound(ref)
             } else if (currentTypeRef.peek() instanceof ArrayTypeRef) {
                 ((ArrayTypeRef) currentTypeRef.peek()).setRef(ref)
@@ -462,6 +519,7 @@ abstract class BaseCodeTreeBuilder {
                 ((TypeVarTypeRef) currentTypeRef.peek()).addBound(ref)
             }
         }
+        else setCurrentNodeTypeRefs(ref)
     }
 
     void createWildcardTypeRef() {
@@ -479,14 +537,14 @@ abstract class BaseCodeTreeBuilder {
 
     void createTypeVarTypeRef(String type) {
         if (flags.get(TYPE_DECL)) {
-            TypeVarTypeRef param = TypeVarTypeRef.builder().typeVar(type).create()
-            typeParams.push(param)
-        } else
+            generateTypeVarTypeRef(type)
+        } else {
             updateCurrentTypeRef(TypeVarTypeRef.builder().typeVar(type).create())
+        }
     }
 
     void createTypeVariable(String typeVar) {
-        setCurrentNodeTypeRefs(TypeVarTypeRef.builder().typeVar(types.peek().getKey() + "#" + typeVar).create())
+        setCurrentNodeTypeRefs(TypeVarTypeRef.builder().typeVar(generateMemberKey(typeVar)).create())
     }
 
     void dropTypeNode() {
@@ -503,20 +561,21 @@ abstract class BaseCodeTreeBuilder {
     }
 
     void finalizeMethodReturnType() {
-        clearFlags()
+        flags.clear(METHOD_RESULT)
     }
 
     void setMethodIdentifier(String methodId, String dimensions) {
-        methodId = types.peek().getKey() + "#" + methodId
-        methods.peek().setKey(methodId)
+        methods.peek().setKey(generateMemberKey(methodId))
     }
 
-    void findMethodFromSignature(String signature) {
+    def findMethodFromSignature(String signature) {
         MethodNode mnode = types.peek().findMethodBySignature(signature)
         if (mnode != null)
             methods.push(mnode)
         else
             log.warn("Could not find method with sig: ${signature}")
+
+        mnode
     }
 
     void createClassNode(String name, int start, int end) {
@@ -542,64 +601,69 @@ abstract class BaseCodeTreeBuilder {
             namespace.addChild(node)
     }
 
-    void handleTypeModifier(String mod) {
-        Accessibility access = null
-        try {
-            access = Accessibility.valueOf(mod.toUpperCase())
-        } catch (IllegalArgumentException e) {
+    void handleModifiers(String mod, boolean type, boolean field, boolean method) {
+        Accessibility access = handleAccessibility(mod)
+        Modifiers modifier = handleNamedModifiers(mod)
 
+        if (type) {
+            if (modifier != null)
+                types.peek().addModifier(modifier)
+            else if (access != null)
+                types.peek().setAccessibility(access)
         }
-
-        Modifiers modifier = null
-        try {
-            modifier = Modifiers.valueForJava(mod)
-        } catch (IllegalArgumentException e) {
-
+        else if (field) {
+            for (FieldNode node : currentNodes) {
+                if (modifier != null)
+                    node.addModifier(modifier)
+                else if (access != null)
+                    node.setAccessibility(access)
+            }
         }
-
-        if (modifier != null)
-            types.peek().addModifier(modifier)
-        else if (access != null)
-            types.peek().setAccessibility(access)
+        else if (method) {
+            if (flags.get(CONSTRUCTOR_MODIFIER) || flags.get(METHOD_MODIFIER)) {
+                if (access != null)
+                    methods.peek().setAccessibility(access)
+                else if (modifier != null)
+                    methods.peek().addModifier(modifier)
+            } else if (flags.get(VARIABLE_MODIFIER)) {
+                if (access != null)
+                    params.peek().setAccessibility(access)
+                else if (modifier != null)
+                    params.peek().addModifier(modifier)
+            }
+        }
     }
 
-    void handleFieldModifier(String mod) {
-        Accessibility access = null
+    def handleNamedModifiers(String mod) {
         try {
-            access = Accessibility.valueOf(mod.toUpperCase());
+            return Modifiers.valueForJava(mod)
         } catch (IllegalArgumentException e) {
 
         }
 
-        Modifiers modifier = null
+        null
+    }
+
+    def handleAccessibility(String mod) {
         try {
-            modifier = Modifiers.valueForJava(mod)
+            return Accessibility.valueOf(mod.toUpperCase())
         } catch (IllegalArgumentException e) {
 
         }
 
-        for (FieldNode node : currentNodes) {
-            if (modifier != null)
-                node.addModifier(modifier)
-            else if (access != null)
-                node.setAccessibility(access)
-        }
+        null
     }
 
     void createFloatingPointTypeRef(String type) {
-        AbstractTypeRef ref = PrimitiveTypeRef.getInstance(type);
-        if (!currentTypeRef.empty() && currentTypeRef.peek() instanceof ArrayTypeRef)
-            ((ArrayTypeRef) currentTypeRef.peek()).setRef(ref)
-        else
-            currentTypeRef.push(ref)
-
-        for (FieldNode node : currentNodes) {
-            node.setType(currentTypeRef.peek())
-        }
+        createNumericalPrimitiveTypeRef(type)
     }
 
     void createIntegralTypeRef(String type) {
-        AbstractTypeRef ref = PrimitiveTypeRef.getInstance(type);
+        createNumericalPrimitiveTypeRef(type)
+    }
+
+    void createNumericalPrimitiveTypeRef(String type) {
+        AbstractTypeRef ref = PrimitiveTypeRef.getInstance(type)
         if (!currentTypeRef.empty() && currentTypeRef.peek() instanceof ArrayTypeRef)
             ((ArrayTypeRef) currentTypeRef.peek()).setRef(ref)
         else
@@ -612,7 +676,7 @@ abstract class BaseCodeTreeBuilder {
 
     void createFieldNode(String name, int start, int end) {
         flags.set(FIELD_DECL)
-        FieldNode f = FieldNode.builder().key(types.peek().getKey() + "#" + name).start(start).end(end).create()
+        FieldNode f = FieldNode.builder().key(generateMemberKey(name)).start(start).end(end).create()
         currentNodes.add(f)
     }
 
@@ -623,6 +687,7 @@ abstract class BaseCodeTreeBuilder {
 
         currentNodes.clear()
         currentTypeRef.clear()
+        clearFlags()
     }
 
     void createRealization(TypeNode type, String implementsType) {
@@ -642,8 +707,25 @@ abstract class BaseCodeTreeBuilder {
     }
 
     void createContainment(TypeNode type) {
-        if (!types.empty()) {
-            tree.addContainment(type, types.peek())
+        if (types.size() > 1) {
+            tree.addContainment(type, types.get(types.indexOf(type) - 1))
         }
+    }
+
+    void addUseDependency(String name) {
+        TypeNode type = findType(name)
+        tree.addUse(types.peek(), type)
+    }
+
+    def findStaticInitializer(int num) {
+        InitializerNode init = types.peek().getStaticInitializer(num)
+        if (init != null) methods.push(init)
+        init
+    }
+
+    def findInstanceInitializer(int num) {
+        InitializerNode init = types.peek().getInstanceInitializer(num)
+        if (init != null) methods.push(init)
+        init
     }
 }

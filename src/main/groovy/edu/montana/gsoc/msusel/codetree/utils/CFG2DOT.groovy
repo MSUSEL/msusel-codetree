@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,10 +23,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package edu.montana.gsoc.msusel.codetree.cfg
+package edu.montana.gsoc.msusel.codetree.utils
 
 import com.google.common.graph.EndpointPair
 import com.google.common.graph.Graph
+import edu.montana.gsoc.msusel.codetree.cfg.ControlFlowNode
 import lombok.extern.slf4j.Slf4j
 
 import java.nio.file.Files
@@ -41,9 +42,12 @@ import java.nio.file.StandardOpenOption
 @Slf4j
 class CFG2DOT {
 
-    static String generateDot(Graph<ControlFlowNode> graph, String name) {
+    static String generateDot(Graph<ControlFlowNode> graph, String name = null) {
         StringBuilder builder = new StringBuilder()
-        builder.append("digraph \"" + name + "\" {\n")
+        if (name)
+            builder.append("digraph \"" + name + "\" {\n")
+        else
+            builder.append("digraph {\n")
 
         for (EndpointPair<ControlFlowNode> pair : graph.edges()) {
             builder.append("  " + pair.source().getType() + "_" + pair.source().getLabel() + " -> " + pair.target().getType() + "_" + pair.target().getLabel() + "\n")
@@ -51,7 +55,7 @@ class CFG2DOT {
 
         builder.append("}")
 
-        return builder.toString()
+        builder.toString()
     }
 
     static void saveDOTFile(String filename, Graph<ControlFlowNode> graph, String name = "") {

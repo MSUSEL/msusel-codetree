@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,9 +25,10 @@
  */
 package edu.montana.gsoc.msusel.codetree.node.structural
 
-import edu.montana.gsoc.msusel.codetree.node.Accessibility
+import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.CodeTree
 import edu.montana.gsoc.msusel.codetree.INode
+import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.node.type.TypeNode
 import groovy.transform.builder.Builder
 
@@ -37,6 +38,7 @@ import groovy.transform.builder.Builder
  */
 class NamespaceNode extends StructuralNode {
 
+    @Expose
     Accessibility accessibility
 
     /**
@@ -120,5 +122,9 @@ class NamespaceNode extends StructuralNode {
 
     boolean containsNamespace(NamespaceNode current) {
         children.find { it instanceof NamespaceNode && it == current } != null
+    }
+
+    TypeNode findTypeByName(String name) {
+        types().find { it.name() == name }
     }
 }

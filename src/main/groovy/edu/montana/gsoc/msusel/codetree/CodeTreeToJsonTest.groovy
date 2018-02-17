@@ -23,15 +23,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package edu.montana.gsoc.msusel.codetree.cfg
+package edu.montana.gsoc.msusel.codetree
 
-/**
- * @author Isaac Griffith
- * @version 1.2.0
- */
-class MethodEnd extends AbstractCFGNode {
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import edu.montana.gsoc.msusel.codetree.node.Accessibility
+import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
+import edu.montana.gsoc.msusel.codetree.node.type.ClassNode
+import edu.montana.gsoc.msusel.codetree.node.type.TypeNode
+import edu.montana.gsoc.msusel.codetree.typeref.TypeRef
 
-    MethodEnd() {
-        super(StatementType.METHOD_END, 0)
+class CodeTreeToJsonTest {
+
+    static void main(String[] args) {
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create()
+
+        TypeNode type = ClassNode.builder().key("TestClass").create();
+
+        MethodNode mnode = MethodNode.builder()
+                .key("Test")
+                .accessibility(Accessibility.PUBLIC)
+                .type(TypeRef.builder().type(type).create())
+                .create()
+
+        println gson.toJson(mnode).toString()
     }
 }

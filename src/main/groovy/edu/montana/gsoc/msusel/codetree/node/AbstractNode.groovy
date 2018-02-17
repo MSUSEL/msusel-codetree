@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +25,7 @@
  */
 package edu.montana.gsoc.msusel.codetree.node
 
+import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.utils.MetricNameRegistry
 import groovy.transform.EqualsAndHashCode
@@ -43,10 +44,12 @@ abstract class AbstractNode implements INode {
     /**
      * The collection of children of this node
      */
+    @Expose
     def children = []
     /**
      * The unique identifying key of this node
      */
+    @Expose
     String key
     /**
      * Data structure for recording metric values
@@ -55,10 +58,12 @@ abstract class AbstractNode implements INode {
     /**
      * The unique identifier of the parent node or null if there is no parent
      */
+    @Expose
     String parentKey
     /**
      * flag indicating that the node's metrics have been aggregated
      */
+    @Expose
     boolean aggregated = false
 
     AbstractNode(String key, String parentKey, Map<String, Double> metrics = [:]) {

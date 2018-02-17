@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,6 +27,10 @@ package edu.montana.gsoc.msusel.codetree.cfg
 
 import com.google.common.graph.Graph
 
+/**
+ * @author Isaac Griffith
+ * @version 1.2.0
+ */
 class ControlFlowGraph {
 
     MethodStart start
@@ -37,5 +41,9 @@ class ControlFlowGraph {
         this.start = start
         this.end = end
         this.graph = graph
+    }
+
+    String toDOT() {
+        edu.montana.gsoc.msusel.codetree.utils.CFG2DOT.generateDot(graph)
     }
 }

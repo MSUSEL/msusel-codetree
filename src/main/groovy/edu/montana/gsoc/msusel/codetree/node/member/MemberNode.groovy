@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +25,7 @@
  */
 package edu.montana.gsoc.msusel.codetree.node.member
 
+import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.node.CodeNode
@@ -34,6 +35,7 @@ import edu.montana.gsoc.msusel.codetree.node.CodeNode
  */
 abstract class MemberNode extends CodeNode {
 
+    @Expose
     AbstractTypeRef type
     
     /**

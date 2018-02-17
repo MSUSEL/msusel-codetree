@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,6 +28,7 @@ package edu.montana.gsoc.msusel.codetree.cfg
 import com.google.common.collect.Sets
 import com.google.common.graph.GraphBuilder
 import com.google.common.graph.MutableGraph
+import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import org.apache.commons.lang3.tuple.Pair
 
 /**
@@ -41,23 +42,24 @@ class CFGBuilder {
     Stack<Pair<BlockStart, BlockEnd>> blocks
     Stack<Pair<MethodStart, MethodEnd>> methodNodes
     int stmtCount = 1
-    def labeledStatements = {}
+    def labeledStatements = [:]
+    ControlFlowNode loopNext
 
     CFGBuilder() {
         currentCFG = GraphBuilder.directed().build()
         prevNode = null
         blocks = new Stack<>()
-
+        methodNodes = new Stack<>()
     }
-    
+
     void inject(BlockStart start, BlockEnd end) {
         Set<ControlFlowNode> outs = Sets.newHashSet(currentCFG.successors(prevNode))
-        println("Outs:")
+        if (loopNext != null && outs.contains(loopNext))
+            outs.remove(loopNext)
 
         // unless special case of if
         //if (!blocks.empty() && blocks.peek().getLeft().getType() != StatementType.IF) {
         for (ControlFlowNode out : outs) {
-            println("\t" + out)
             currentCFG.removeEdge(prevNode, out)
         }
         //}
@@ -67,7 +69,6 @@ class CFGBuilder {
 
         // Unless special case of Break, Continue, or Return
         for (ControlFlowNode out : outs) {
-            println("\t" + out)
             currentCFG.putEdge(end, out)
         }
 
@@ -78,9 +79,6 @@ class CFGBuilder {
 
     void inject(ControlFlowNode node) {
         Set<ControlFlowNode> outs = Sets.newHashSet(currentCFG.successors(prevNode))
-
-        if (!blocks.empty() && blocks.peek().getLeft().getType() == StatementType.IF)
-            prevNode = blocks.peek().getLeft()
 
         ControlFlowNode endNode = !blocks.empty() ? blocks.peek().getRight() : null
         if (endNode != null) {
@@ -98,12 +96,11 @@ class CFGBuilder {
         prevNode = node
     }
 
-    void createStatement(StatementType type, String label = null, boolean jump = false, JumpTo jumpto = null) {
+    ControlFlowNode createStatement(StatementType type, String label = null, boolean jump = false, JumpTo jumpto = null) {
         ControlFlowNode s
-        if (label != null) {
+        if (label != null && type == null) {
             s = LabeledStatement.builder().label(stmtCount++).codeLabel(label).create()
             labeledStatements.put(label, s)
-            inject(s)
         } else {
             s = Statement.builder().type(type).label(stmtCount++).create()
         }
@@ -113,23 +110,42 @@ class CFGBuilder {
             inject(s)
             prevNode = oldPrev
             Pair<BlockStart, BlockEnd> loop = findLoop()
+            Set<ControlFlowNode> succ = Sets.newHashSet(currentCFG.successors(s))
             switch (jumpto) {
                 case JumpTo.LABEL:
+                    succ.each { currentCFG.removeEdge(s, it)}
                     currentCFG.putEdge(s, (ControlFlowNode) labeledStatements.get(label))
                     break
                 case JumpTo.LOOP_END:
-                    currentCFG.putEdge(s, loop.getRight())
+                    if (loop != null) {
+                        succ.each { currentCFG.removeEdge(s, it)}
+                        if (loopNext != null)
+                            currentCFG.putEdge(s, loopNext)
+                        else
+                            currentCFG.putEdge(s, loop.getRight())
+                    }
+                    else {
+                        succ.each { currentCFG.removeEdge(s, it) }
+                        currentCFG.putEdge(s, blocks.peek().getRight())
+                    }
                     break
                 case JumpTo.LOOP_START:
-                    currentCFG.putEdge(s, blocks.peek().getLeft())
+                    succ.each { currentCFG.removeEdge(s, it)}
+                    if (loop != null)
+                        currentCFG.putEdge(s, loop.getLeft())
+                    else
+                        currentCFG.putEdge(s, blocks.peek().getLeft())
                     break
                 case JumpTo.METHOD_END:
+                    succ.each { currentCFG.removeEdge(s, it)}
                     currentCFG.putEdge(s, methodNodes.peek().getRight())
                     break
             }
         } else {
             inject(s)
         }
+
+        s
     }
 
     private Pair<BlockStart, BlockEnd> findLoop() {
@@ -154,18 +170,26 @@ class CFGBuilder {
     void startLoop(StatementType type, boolean atLeastOne = false) {
         BlockStart bs = LoopStart.builder().type(type).label(stmtCount++).create()
         BlockEnd be = BlockEnd.builder().type(StatementType.END).label(stmtCount++).create()
+        BlockEnd next = BlockEnd.builder().type(StatementType.END).label(stmtCount++).create()
 
-        injectBlock(bs, be)
-
-        if (!atLeastOne) {
-            Set<ControlFlowNode> set = Sets.newHashSet(currentCFG.successors(be))
-
-            for (ControlFlowNode node : set) {
-                currentCFG.putEdge(bs, node)
-                currentCFG.removeEdge(be, node)
-            }
+        if (atLeastOne)
+            inject(bs, be)
+        else {
+            inject(bs, next)
+            currentCFG.putEdge(bs, be)
+            blocks.pop()
+            blocks.push(Pair.of(bs, be))
+//            Set<ControlFlowNode> set = Sets.newHashSet(currentCFG.successors(be))
+//
+//            for (ControlFlowNode node : set) {
+//                currentCFG.putEdge(bs, node)
+//                currentCFG.removeEdge(be, node)
+//            }
+            loopNext = next
         }
         currentCFG.putEdge(be, bs)
+
+        prevNode = bs
     }
 
     void endLoop(atLeastOne = false) {
@@ -184,8 +208,8 @@ class CFGBuilder {
         inject(bs, be)
     }
 
-    void endDecision(boolean noDefault = true) {
-        if (!noDefault)
+    void endDecision(boolean hasDefault = true) {
+        if (hasDefault)
             currentCFG.putEdge(blocks.peek().getLeft(), blocks.peek().getRight())
 
         endBlock()
@@ -200,16 +224,21 @@ class CFGBuilder {
 
     void endBlock() {
         Pair<BlockStart, BlockEnd> p = blocks.pop()
+        loopNext = null
 
-        if (!blocks.empty() && (blocks.peek().getLeft().getType() == StatementType.IF || blocks.peek().getLeft().getType() == StatementType.SWITCH))
+        if (!blocks.empty() && (blocks.peek().getLeft().getType() == StatementType.IF || blocks.peek().getLeft().getType() == StatementType.SWITCH)) {
             prevNode = blocks.peek().getLeft()
+        }
         else
             prevNode = p.getRight()
     }
 
     void startMethod() {
+        currentCFG = GraphBuilder.directed().build()
         MethodStart ms = new MethodStart()
         MethodEnd me = new MethodEnd()
+
+        methodNodes.push(Pair.of(ms, me))
 
         currentCFG.addNode(ms)
         currentCFG.addNode(me)
@@ -218,10 +247,11 @@ class CFGBuilder {
         prevNode = ms
     }
 
-    void endMethod() {
-        methods.peek().setCfg(currentCFG)
+    void endMethod(MethodNode method) {
+        Pair<MethodStart, MethodEnd> pair = methodNodes.pop()
+        method.setCfg(new ControlFlowGraph(currentCFG, pair.getLeft(), pair.getRight()))
 
-        println(CFG2DOT.generateDot(currentCFG, (String)methods.peek().name()))
+        //println(CFG2DOT.generateDot(currentCFG, (String)methods.peek().name()))
 
         currentCFG = null
         prevNode = null
@@ -229,4 +259,21 @@ class CFGBuilder {
     }
 
 
+    void createReturnStatement() {
+        ControlFlowNode s = createStatement(StatementType.RETURN, null, true, JumpTo.METHOD_END)
+        def others = currentCFG.successors(s).findAll { it != methodNodes.peek().getRight() }
+        others.each { currentCFG.removeEdge(s, it) }
+    }
+
+    void exitSwitchBlock() {
+        def succ = currentCFG.successors(prevNode).find { it.type == StatementType.BREAK }
+
+        if (succ != null) {
+            prevNode = blocks.peek().getLeft()
+        }
+    }
+
+    void startDecisionBlock() {
+        prevNode = blocks.peek().getLeft()
+    }
 }

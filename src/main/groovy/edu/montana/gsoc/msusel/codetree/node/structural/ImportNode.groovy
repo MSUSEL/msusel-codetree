@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +25,7 @@
  */
 package edu.montana.gsoc.msusel.codetree.node.structural
 
+import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.INode
 import groovy.transform.builder.Builder
 
@@ -34,7 +35,8 @@ import groovy.transform.builder.Builder
  */
 class ImportNode extends StructuralNode {
 
-    EnumSet modifiers
+    @Expose
+    def modifiers = []
     
     /**
      * 
@@ -55,14 +57,14 @@ class ImportNode extends StructuralNode {
     def type()
     {
         // TODO Auto-generated method stub
-        return null;
+        null
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void update(INode other)
+    void update(INode other)
     {
         // TODO Auto-generated method stub
         
@@ -75,24 +77,24 @@ class ImportNode extends StructuralNode {
     def types()
     {
         // TODO Auto-generated method stub
-        return null;
+        null
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public INode cloneNoChildren()
+    INode cloneNoChildren()
     {
         // TODO Auto-generated method stub
-        return null;
+        null
     }
 
     def files() {
-        return null;
+        null
     }
 
     def extractTree(tree) {
-        return null;
+        null
     }
 }

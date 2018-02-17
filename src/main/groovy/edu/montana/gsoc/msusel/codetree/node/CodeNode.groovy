@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,6 +24,9 @@
  * SOFTWARE.
  */
 package edu.montana.gsoc.msusel.codetree.node
+
+import com.google.gson.annotations.Expose
+
 /**
  * Base class for source code entities.
  *
@@ -32,15 +35,19 @@ package edu.montana.gsoc.msusel.codetree.node
  */
 abstract class CodeNode extends AbstractNode {
 
+    @Expose
     Accessibility accessibility
+    @Expose
     def modifiers
     /**
      * The starting line value, only applicable to source code elements
      */
+    @Expose
     int start
     /**
      * The ending line value, only applicable to source code elements
      */
+    @Expose
     int end
 
     CodeNode(String key, String parentKey, Map<String, Double> metrics = [:],

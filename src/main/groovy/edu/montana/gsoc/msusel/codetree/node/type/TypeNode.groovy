@@ -2,7 +2,7 @@
  * The MIT License (MIT)
  *
  * MSUSEL CodeTree
- * Copyright (c) 2015-2017 Montana State University, Gianforte School of Computing,
+ * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,11 +25,13 @@
  */
 package edu.montana.gsoc.msusel.codetree.node.type
 
+import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.CodeTree
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.node.CodeNode
 import edu.montana.gsoc.msusel.codetree.node.Modifiers
 import edu.montana.gsoc.msusel.codetree.node.member.FieldNode
+import edu.montana.gsoc.msusel.codetree.node.member.InitializerNode
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import edu.montana.gsoc.msusel.codetree.node.member.PropertyNode
 import edu.montana.gsoc.msusel.codetree.node.structural.FileNode
@@ -44,7 +46,9 @@ import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
  */
 abstract class TypeNode extends CodeNode {
 
+    @Expose
     List<TypeVarTypeRef> templateParams = []
+    @Expose
     NamespaceNode namespace
 
     TypeNode(String key, String parentKey, Map<String, Double> metrics = [:],
@@ -169,6 +173,13 @@ abstract class TypeNode extends CodeNode {
     }
 
     MethodNode findMethodBySignature(String sig) {
-        methods().find {MethodNode m -> println m.signature(); m.signature() == sig }
+        methods().find {MethodNode m -> m.signature() == sig }
+    }
+InitializerNode getStaticInitializer(int i) {
+    methods().find { it.name() == '<static_init$' + i + '>' }
+}
+
+    InitializerNode getInstanceInitializer(int i) {
+        methods().find { it.name() =~ /^<init\$${i}>$/ }
     }
 }
