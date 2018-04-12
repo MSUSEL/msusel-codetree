@@ -26,6 +26,7 @@
 package edu.montana.gsoc.msusel.codetree.cfg
 
 import com.google.common.graph.Graph
+import edu.montana.gsoc.msusel.codetree.utils.CFG2DOT
 
 /**
  * @author Isaac Griffith
@@ -44,6 +45,6 @@ class ControlFlowGraph {
     }
 
     String toDOT() {
-        edu.montana.gsoc.msusel.codetree.utils.CFG2DOT.generateDot(graph)
+        CFG2DOT.generateDot(graph)
     }
 }

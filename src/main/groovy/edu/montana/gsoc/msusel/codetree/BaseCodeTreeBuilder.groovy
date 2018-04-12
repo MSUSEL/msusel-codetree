@@ -100,7 +100,7 @@ abstract class BaseCodeTreeBuilder {
      */
     CodeTree build(String projectKey, String path) {
         ProjectNode root = ProjectNode.builder().key(projectKey).create()
-        tree = new CodeTree()
+        tree = new DefaultCodeTree()
         tree.setProject(root)
 
         getIdentifier().identify(path)

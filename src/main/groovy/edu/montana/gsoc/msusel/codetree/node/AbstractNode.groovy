@@ -27,10 +27,9 @@ package edu.montana.gsoc.msusel.codetree.node
 
 import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.INode
-import edu.montana.gsoc.msusel.codetree.utils.MetricNameRegistry
 import groovy.transform.EqualsAndHashCode
 import groovy.util.logging.Slf4j
-import org.apache.commons.lang3.tuple.Pair
+
 /**
  * The Abstract Class for all Nodes in a CodeTree
  * 
@@ -52,10 +51,6 @@ abstract class AbstractNode implements INode {
     @Expose
     String key
     /**
-     * Data structure for recording metric values
-     */
-    Map<String, Double> metrics = [:]
-    /**
      * The unique identifier of the parent node or null if there is no parent
      */
     @Expose
@@ -66,10 +61,9 @@ abstract class AbstractNode implements INode {
     @Expose
     boolean aggregated = false
 
-    AbstractNode(String key, String parentKey, Map<String, Double> metrics = [:]) {
+    AbstractNode(String key, String parentKey) {
         this.key = key
         this.parentKey = parentKey
-        this.metrics = metrics
         aggregated = false
     }
 
@@ -77,88 +71,7 @@ abstract class AbstractNode implements INode {
      * {@inheritDoc}
      */
     @Override
-    void addMetric(String name, Double value) {
-        if (name == null || name.isEmpty() || value == null || Double.isNaN(value) || Double.isInfinite(value))
-            return
-
-        String metric = MetricNameRegistry.getInstance().lookup(name)
-
-        if (metric != null) {
-            metrics[metric] = value
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    void incrementMetric(String name, Double increment) {
-        if (name == null || name.isEmpty() || increment == null || Double.isNaN(increment)
-        || Double.isInfinite(increment))
-            return
-
-        if (metrics.containsKey(MetricNameRegistry.getInstance().lookup(name)))
-            metrics[MetricNameRegistry.getInstance().lookup(name)] = metrics[MetricNameRegistry.getInstance().lookup(name)] + increment
-        else
-            metrics[MetricNameRegistry.getInstance().lookup(name)] = increment
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    double getMetric(String metric) {
-        if (metric == null || metric.isEmpty() || !hasMetric(metric)) {
-            LOG.warn(
-                    "Bad Metric: " + metric + " for " + this.getClass().getSimpleName() + " with id: "
-                    + this.key)
-            return -1.0
-        }
-
-        return metrics[MetricNameRegistry.getInstance().lookup(metric)]
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    boolean hasMetric(String metric) {
-        return metrics.containsKey(MetricNameRegistry.getInstance().lookup(metric))
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     abstract INode cloneNoChildren()
-
-    /**
-     * @param other
-     *            The other node in which to copy metrics from.
-     */
-    protected void copyMetrics(INode other) {
-        for (String key : getMetricNames()) {
-            other.addMetric(key, getMetric(key))
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    Set<String> getMetricNames() {
-        metrics.keySet()
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    void addMetrics(List<Pair<String, Double>> join) {
-        for (Pair<String, Double> pair : join) {
-            addMetric(pair.getKey(), pair.getValue())
-        }
-    }
 
     /**
      * {@inheritDoc}
@@ -169,15 +82,25 @@ abstract class AbstractNode implements INode {
     }
 
     def leftShift(CodeNode node) {
-        children << node
+        addChild(node)
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def addChild(node) {
         children << node
+        node.setParentKey(this.key)
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def removeChild(node) {
-        if (children.contains(node))
+        if (children.contains(node)) {
             children.remove(node)
+        }
     }
 }

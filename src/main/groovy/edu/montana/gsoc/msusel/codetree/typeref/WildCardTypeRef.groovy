@@ -39,6 +39,9 @@ class WildCardTypeRef extends AbstractTypeRef {
     @Expose
     List<AbstractTypeRef> bounds = []
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     String name() {
         "?"

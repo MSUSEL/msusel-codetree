@@ -26,16 +26,21 @@
 package edu.montana.gsoc.msusel.codetree.node.structural
 
 import com.google.gson.annotations.Expose
-import edu.montana.gsoc.msusel.codetree.CodeTree
+import edu.montana.gsoc.msusel.codetree.DefaultCodeTree
 import edu.montana.gsoc.msusel.codetree.INode
+import edu.montana.gsoc.msusel.codetree.node.AbstractNode
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.node.type.TypeNode
+import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
 import groovy.transform.builder.Builder
+
+import javax.persistence.Entity
 
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Entity
 class NamespaceNode extends StructuralNode {
 
     @Expose
@@ -45,8 +50,8 @@ class NamespaceNode extends StructuralNode {
      *
      */
     @Builder(buildMethodName = 'create')
-    NamespaceNode(String key, String parentKey, Map<String, Double> metrics = [:], Accessibility accessibility = Accessibility.PUBLIC) {
-        super(key, parentKey, metrics)
+    NamespaceNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC) {
+        super(key, parentKey)
         this.accessibility = accessibility
     }
 
@@ -73,12 +78,16 @@ class NamespaceNode extends StructuralNode {
     }
 
     def extractTree(tree) {
-        def retVal = new CodeTree()
+        def retVal = new DefaultCodeTree()
 
         retVal
     }
 
-    /**
+    @Override
+    def findParent(CodeTreeUtils utils) {
+        utils.findProject(getParentKey())
+    }
+/**
      * {@inheritDoc}
      */
     @Override
@@ -127,4 +136,6 @@ class NamespaceNode extends StructuralNode {
     TypeNode findTypeByName(String name) {
         types().find { it.name() == name }
     }
+
+    List<AbstractNode> methods() {}
 }

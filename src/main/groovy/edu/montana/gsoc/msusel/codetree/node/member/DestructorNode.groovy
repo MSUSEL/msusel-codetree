@@ -28,6 +28,7 @@ package edu.montana.gsoc.msusel.codetree.node.member
 import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import groovy.transform.builder.Builder
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
@@ -38,20 +39,31 @@ class DestructorNode extends MethodNode {
      * 
      */
     @Builder(buildMethodName = 'create')
-    DestructorNode(String key, String parentKey, Map<String, Double> metrics = [:],
-                   Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+    DestructorNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
                    int start, int end, AbstractTypeRef type, params = [], templateParams = []) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, type, params, templateParams)
+        super(key, parentKey, accessibility, specifiers, start, end, type, params, templateParams)
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def isConstructor() {
         false
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def isAccessor() {
         false
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def isMutator() {
         false
     }

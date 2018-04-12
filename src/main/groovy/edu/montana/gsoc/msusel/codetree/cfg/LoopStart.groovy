@@ -38,6 +38,10 @@ class LoopStart extends BlockStart {
         super(type, label)
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     boolean isLoop() {
         true
     }

@@ -29,10 +29,13 @@ import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import groovy.transform.builder.Builder
 
+import javax.persistence.Entity
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Entity
 class UnknownTypeNode extends TypeNode {
 
     /**
@@ -40,28 +43,43 @@ class UnknownTypeNode extends TypeNode {
      */
     @Builder(buildMethodName='create')
     UnknownTypeNode(String key) {
-        super(key, null, null, Accessibility.PUBLIC, [], 0, 0, [], null)
+        super(key, null, Accessibility.PUBLIC, [], 0, 0, [], null)
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     boolean isInterface() {
         false
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     def generatePlantUML() {
         "class ${name()} <<Uknown>> {}"
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     def type() {
         "Unknown Class"
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     void update(INode other) {
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     INode cloneNoChildren() {
         return null

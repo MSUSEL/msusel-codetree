@@ -29,6 +29,7 @@ import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.node.CodeNode
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
@@ -41,13 +42,16 @@ abstract class MemberNode extends CodeNode {
     /**
      * 
      */
-    MemberNode(String key, String parentKey, Map<String, Double> metrics = [:],
-                      Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+    MemberNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
                       int start, int end, AbstractTypeRef type) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end)
+        super(key, parentKey, accessibility, specifiers, start, end)
         this.type = type
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def name() {
         key.split("#").last()
     }

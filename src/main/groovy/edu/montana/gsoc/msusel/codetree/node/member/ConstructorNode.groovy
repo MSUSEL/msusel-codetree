@@ -38,20 +38,31 @@ class ConstructorNode extends MethodNode {
      * 
      */
     @Builder(buildMethodName = 'create')
-    ConstructorNode(String key, String parentKey, Map<String, Double> metrics = [:],
-                    Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+    ConstructorNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
                     int start, int end, AbstractTypeRef type, params = [], templateParams = []) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, type, params, templateParams)
+        super(key, parentKey, accessibility, specifiers, start, end, type, params, templateParams)
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def isConstructor() {
         true
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def isAccessor() {
         false
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def isMutator() {
         false
     }

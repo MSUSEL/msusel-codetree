@@ -34,20 +34,22 @@ import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
 import groovy.transform.builder.Builder
 
+import javax.persistence.Entity
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Entity
 class EnumNode extends ClassNode {
 
     @Expose
-    def literals
+    List<EnumLiteralNode> literals
 
     @Builder(buildMethodName = "create")
-    EnumNode(String key, String parentKey, Map<String, Double> metrics = [:],
-             Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+    EnumNode(String key, String parentKey, Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
              int start, int end, List<TypeVarTypeRef> templateParams, NamespaceNode namespace, literals = []) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, templateParams, namespace)
+        super(key, parentKey, accessibility, specifiers, start, end, templateParams, namespace)
         this.literals = literals
     }
 
@@ -57,6 +59,10 @@ class EnumNode extends ClassNode {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def generatePlantUML() {
         StringBuilder builder = new StringBuilder()
 

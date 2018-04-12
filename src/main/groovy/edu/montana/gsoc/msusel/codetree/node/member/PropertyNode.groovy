@@ -37,9 +37,8 @@ class PropertyNode extends FieldNode {
 
 
     @Builder(buildMethodName = "create")
-    PropertyNode(String key, String parentKey, Map<String, Double> metrics = [:],
-                 Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+    PropertyNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
                  int start, int end, AbstractTypeRef type) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, type)
+        super(key, parentKey, accessibility, specifiers, start, end, type)
     }
 }

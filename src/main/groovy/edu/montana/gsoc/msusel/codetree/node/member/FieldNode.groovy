@@ -28,7 +28,9 @@ package edu.montana.gsoc.msusel.codetree.node.member
 import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.INode
+import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
 import groovy.transform.builder.Builder
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
@@ -39,10 +41,9 @@ class FieldNode extends MemberNode implements Cloneable {
      *
      */
     @Builder(buildMethodName = "create")
-    FieldNode(String key, String parentKey, Map<String, Double> metrics = [:],
-              Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+    FieldNode(String key, String parentKey, Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
               int start, int end, AbstractTypeRef type) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, type)
+        super(key, parentKey, accessibility, specifiers, start, end, type)
     }
 
     /**
@@ -94,8 +95,17 @@ class FieldNode extends MemberNode implements Cloneable {
         fnode
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
 
+    }
+
+    @Override
+    def findParent(CodeTreeUtils utils) {
+        utils.findType(getParentKey())
     }
 
     def plantUML() {

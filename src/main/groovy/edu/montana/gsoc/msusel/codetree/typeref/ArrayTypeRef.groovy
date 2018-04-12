@@ -45,6 +45,9 @@ class ArrayTypeRef extends AbstractTypeRef {
         "${ref.toString()} + $dimensions"
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     String name() {
         "${ref.name()}${dimensions}"

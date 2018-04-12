@@ -28,6 +28,7 @@ package edu.montana.gsoc.msusel.codetree.node.member
 import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.CodeTree
+import edu.montana.gsoc.msusel.codetree.DefaultCodeTree
 import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.cfg.ControlFlowGraph
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
@@ -54,21 +55,20 @@ import groovy.transform.builder.Builder
 class MethodNode extends MemberNode {
 
     @Expose
-    def params = []
+    List<ParameterNode> params = []
     @Expose
     def typeParams = []
     ControlFlowGraph cfg
     @Expose
-    def exceptions = []
+    List<AbstractTypeRef> exceptions = []
 
     /**
      *
      */
     @Builder(buildMethodName = 'create')
-    MethodNode(String key, String parentKey, Map<String, Double> metrics = [:],
-               Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+    MethodNode(String key, String parentKey, Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
                int start, int end, AbstractTypeRef type, params = [], typeParams = []) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, type)
+        super(key, parentKey, accessibility, specifiers, start, end, type)
         this.params = params
         this.typeParams = typeParams
         this.exceptions = []
@@ -86,7 +86,11 @@ class MethodNode extends MemberNode {
     }
 
     def hasModifier(String mod) {
-        modifiers.contains(Modifiers.valueOf(mod.toLowerCase()))
+        modifiers.contains(Modifiers.valueOf(mod.toUpperCase()))
+    }
+
+    boolean isAbstract() {
+        return hasModifier("abstract")
     }
 
     def isOverriding(TypeNode owner, CodeTree tree) {
@@ -129,35 +133,6 @@ class MethodNode extends MemberNode {
             return
 
         MethodNode node = (MethodNode) m
-
-        for (String key : m.getMetricNames()) {
-            this.metrics[key] = m.getMetric(key)
-        }
-
-        node.statements.each { StatementNode stmt ->
-            if (findStatement(stmt.key) != null) {
-                findStatement(stmt.key).update(stmt)
-            } else {
-                statements << stmt
-            }
-        }
-    }
-
-    /**
-     * Returns a statement with the given identifier contained in this method
-     *
-     * @param identifier
-     *            Identifier of the statement requested
-     * @return StatementNode contained in this method with the given identifier,
-     *         or null otherwise
-     * @throws IllegalArgumentException
-     *             if provided identifier is null or the empty string
-     */
-    StatementNode findStatement(String identifier) {
-        if (identifier == null || identifier.isEmpty())
-            throw new IllegalArgumentException("Statment identifier cannot be null or empty")
-
-        (StatementNode) statements.find { it.key == identifier }
     }
 
     /**
@@ -192,13 +167,17 @@ class MethodNode extends MemberNode {
         "Method"
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
         CodeTreeUtils utils = tree.utils
         TypeNode type = utils.findType(parentKey)
 
         FileNode file = utils.findFile(type.parentKey)
 
-        def retVal = new CodeTree()
+        def retVal = new DefaultCodeTree()
         Stack<ProjectNode> stack = new Stack<>()
         ProjectNode project
         ModuleNode module
@@ -245,6 +224,11 @@ class MethodNode extends MemberNode {
         retVal.setProject(root)
     }
 
+    @Override
+    def findParent(CodeTreeUtils utils) {
+        utils.findType(getParentKey())
+    }
+
     def getParameterByName(String param) { params.find { it.name() == param } }
 
     TypeVarTypeRef getTypeParamByName(String paramName) {
@@ -253,5 +237,17 @@ class MethodNode extends MemberNode {
 
     AbstractTypeRef getExceptionByName(String exception) {
         exceptions.find { it.name() == exception }
+    }
+
+    def isConstructor() {
+        false
+    }
+
+    def isAccessor() {
+        return (name().startsWith("get") && params.size() == 0 && (getType() != null && getType().name() != "void"))
+    }
+
+    def isMutator() {
+        return (name().startsWith("set") && params.size() == 1 && (getType() != null && getType().name() == "void"))
     }
 }

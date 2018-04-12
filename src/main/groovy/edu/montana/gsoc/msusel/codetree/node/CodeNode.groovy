@@ -50,10 +50,9 @@ abstract class CodeNode extends AbstractNode {
     @Expose
     int end
 
-    CodeNode(String key, String parentKey, Map<String, Double> metrics = [:],
-             Accessibility accessibility = Accessibility.PUBLIC, modifiers = [],
+    CodeNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC, modifiers = [],
              int start, int end) {
-        super(key, parentKey, metrics)
+        super(key, parentKey)
         this.accessibility = accessibility
         this.modifiers = modifiers
         this.start = start

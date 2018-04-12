@@ -29,6 +29,7 @@ import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import groovy.transform.builder.Builder
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
@@ -39,10 +40,9 @@ class InitializerNode extends MethodNode {
     boolean instance
 
     @Builder(buildMethodName = "create")
-    InitializerNode(String key, String parentKey, Map<String, Double> metrics = [:],
-                    Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+    InitializerNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
                     int start, int end, AbstractTypeRef type, params = [], templateParams = [], boolean instance = false) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, type, params, templateParams)
+        super(key, parentKey, accessibility, specifiers, start, end, type, params, templateParams)
         this.instance = instance
     }
 }

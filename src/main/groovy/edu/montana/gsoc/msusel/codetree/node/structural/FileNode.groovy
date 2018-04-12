@@ -25,31 +25,47 @@
  */
 package edu.montana.gsoc.msusel.codetree.node.structural
 
-import edu.montana.gsoc.msusel.codetree.CodeTree
+import edu.montana.gsoc.msusel.codetree.DefaultCodeTree
 import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import edu.montana.gsoc.msusel.codetree.node.type.TypeNode
 import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
 import groovy.transform.builder.Builder
 
+import javax.persistence.Entity
+import java.nio.file.Paths
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Entity
 class FileNode extends StructuralNode {
+
+    List<ImportNode> imports = []
+    NamespaceNode namespace
 
     /**
      *
      */
     @Builder(buildMethodName = 'create')
-    FileNode(String key, String parentKey, Map<String, Double> metrics) {
-        super(key, parentKey, metrics)
+    FileNode(String key, String parentKey, NamespaceNode namespace) {
+        super(key, parentKey)
+        this.namespace = namespace
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def name() {
-        key
+        Paths.get(key).fileName.toString()
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def type() {
         "File"
     }
@@ -60,12 +76,20 @@ class FileNode extends StructuralNode {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def types() {
         children.findAll {
             it instanceof TypeNode
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def files() {
         null
     }
@@ -157,7 +181,7 @@ class FileNode extends StructuralNode {
             }
         }
 
-        f.getMetricNames().each { this.addMetric(key, f.getMetric(key)) }
+//        f.getMetricNames().each { this.addMetric(key, f.getMetric(key)) }
     }
 
     /**
@@ -231,8 +255,12 @@ class FileNode extends StructuralNode {
         return fnode
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
-        def retVal = new CodeTree()
+        def retVal = new DefaultCodeTree()
         Stack<ProjectNode> stack = new Stack<>()
         ProjectNode project
         ModuleNode module
@@ -273,5 +301,14 @@ class FileNode extends StructuralNode {
         }
 
         retVal.setProject(root)
+    }
+
+    @Override
+    def findParent(CodeTreeUtils utils) {
+        def parent = utils.findProject(getParentKey())
+        if (parent == null)
+            parent = utils.findModule(getParentKey())
+
+        parent
     }
 }

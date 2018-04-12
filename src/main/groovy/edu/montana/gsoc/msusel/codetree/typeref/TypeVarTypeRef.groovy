@@ -41,6 +41,10 @@ class TypeVarTypeRef extends AbstractTypeRef {
     @Expose
     def bounds = []
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     String toString() {
         typeVar
     }
@@ -52,6 +56,9 @@ class TypeVarTypeRef extends AbstractTypeRef {
             bounds << ref
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     String name() {
         typeVar

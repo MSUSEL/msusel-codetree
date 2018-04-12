@@ -26,26 +26,43 @@
 package edu.montana.gsoc.msusel.codetree.node.structural
 
 import edu.montana.gsoc.msusel.codetree.CodeTree
+import edu.montana.gsoc.msusel.codetree.DefaultCodeTree
 import edu.montana.gsoc.msusel.codetree.INode
+import edu.montana.gsoc.msusel.codetree.node.type.TypeNode
+import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
 import groovy.transform.builder.Builder
+
+import javax.persistence.Entity
 
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Entity
 class ModuleNode extends StructuralNode {
+
+    List<ModuleNode> modules = []
+    List<FileNode> files = []
 
     /**
      * 
      */
     @Builder(buildMethodName = 'create')
-    ModuleNode(String key, String parentKey, Map<String, Double> metrics = [:]) {
-        super(key, parentKey, metrics)
+    ModuleNode(String key, String parentKey) {
+        super(key, parentKey)
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def files() {
     }
-    
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def types() {
         
     }
@@ -55,7 +72,11 @@ class ModuleNode extends StructuralNode {
 
     def namespaces() {
     }
-    
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def name() {
         key
     }
@@ -181,10 +202,14 @@ class ModuleNode extends StructuralNode {
         "Module"
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
         ModuleNode module = (ModuleNode) node
 
-        CodeTree retVal = new CodeTree()
+        CodeTree retVal = new DefaultCodeTree()
         Stack<ProjectNode> stack = new Stack<>()
         ProjectNode project = findProject(module.getParentKey())
         stack.push(project)
@@ -216,5 +241,18 @@ class ModuleNode extends StructuralNode {
         }
 
         retVal.setProject(root)
+    }
+
+    @Override
+    def findParent(CodeTreeUtils utils) {
+        utils.findProject(getParentKey())
+    }
+
+    def methods() {
+        def methods = []
+        types().each { TypeNode type ->
+            methods << type.methods()
+        }
+        methods
     }
 }

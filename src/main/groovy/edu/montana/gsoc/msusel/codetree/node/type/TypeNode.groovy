@@ -26,7 +26,7 @@
 package edu.montana.gsoc.msusel.codetree.node.type
 
 import com.google.gson.annotations.Expose
-import edu.montana.gsoc.msusel.codetree.CodeTree
+import edu.montana.gsoc.msusel.codetree.DefaultCodeTree
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.node.CodeNode
 import edu.montana.gsoc.msusel.codetree.node.Modifiers
@@ -39,11 +39,15 @@ import edu.montana.gsoc.msusel.codetree.node.structural.ModuleNode
 import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
 import edu.montana.gsoc.msusel.codetree.node.structural.ProjectNode
 import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
+import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
+
+import javax.persistence.Entity
 
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Entity
 abstract class TypeNode extends CodeNode {
 
     @Expose
@@ -51,10 +55,9 @@ abstract class TypeNode extends CodeNode {
     @Expose
     NamespaceNode namespace
 
-    TypeNode(String key, String parentKey, Map<String, Double> metrics = [:],
-             Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+    TypeNode(String key, String parentKey, Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
              int start, int end, List<TypeVarTypeRef> templateParams = [], NamespaceNode namespace) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end)
+        super(key, parentKey, accessibility, specifiers, start, end)
         this.templateParams = templateParams
         this.namespace = namespace
     }
@@ -99,6 +102,10 @@ abstract class TypeNode extends CodeNode {
 
     abstract boolean isInterface()
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def name() {
         key.split("\\.").last()
     }
@@ -110,12 +117,16 @@ abstract class TypeNode extends CodeNode {
         methods().find { MethodNode m -> m.containsLine(line) }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
         TypeNode type = (TypeNode) node
 
         FileNode file = findFile(type.getParentKey())
 
-        retVal = new CodeTree()
+        retVal = new DefaultCodeTree()
         Stack<ProjectNode> stack = new Stack<>()
         ProjectNode project
         ModuleNode module
@@ -154,6 +165,11 @@ abstract class TypeNode extends CodeNode {
         retVal.setProject(root)
     }
 
+    @Override
+    def findParent(CodeTreeUtils utils) {
+        utils.findFile(getParentKey())
+    }
+
     abstract def generatePlantUML()
 
     def getMethod(String name) {
@@ -173,13 +189,18 @@ abstract class TypeNode extends CodeNode {
     }
 
     MethodNode findMethodBySignature(String sig) {
-        methods().find {MethodNode m -> m.signature() == sig }
+        methods().find { MethodNode m -> m.signature() == sig }
     }
-InitializerNode getStaticInitializer(int i) {
-    methods().find { it.name() == '<static_init$' + i + '>' }
-}
+
+    InitializerNode getStaticInitializer(int i) {
+        methods().find { it.name() == '<static_init$' + i + '>' }
+    }
 
     InitializerNode getInstanceInitializer(int i) {
         methods().find { it.name() =~ /^<init\$${i}>$/ }
+    }
+
+    boolean hasMethod(MethodNode node) {
+        methods().find { it == node } != null
     }
 }

@@ -31,20 +31,22 @@ import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
 import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
 import groovy.transform.builder.Builder
 
+import javax.persistence.Entity
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Entity
 class EventNode extends TypeNode {
 
     /**
      * 
      */
     @Builder(buildMethodName = "create")
-    EventNode(String key, String parentKey, Map<String, Double> metrics = [:],
-              Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+    EventNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
               int start, int end, List<TypeVarTypeRef> templateParams, NamespaceNode namespace) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, templateParams, namespace)
+        super(key, parentKey, accessibility, specifiers, start, end, templateParams, namespace)
     }
 
     /**
@@ -56,23 +58,42 @@ class EventNode extends TypeNode {
         false
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     INode cloneNoChildren() {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     def generatePlantUML() {
         ""
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     void update(INode other) {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def type() {
         null
     }

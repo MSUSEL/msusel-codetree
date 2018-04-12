@@ -28,6 +28,8 @@ package edu.montana.gsoc.msusel.codetree.node.member
 import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.INode
+import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
@@ -37,24 +39,43 @@ class EnumLiteralNode extends MemberNode {
     /**
      * 
      */
-    EnumLiteralNode(String key, String parentKey, Map<String, Double> metrics = [:],
-                    Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+    EnumLiteralNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
                     int start, int end, AbstractTypeRef type) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, type)
+        super(key, parentKey, accessibility, specifiers, start, end, type)
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     INode cloneNoChildren() {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
         null
     }
 
+    @Override
+    def findParent(CodeTreeUtils utils) {
+        utils.findType(getParentKey())
+    }
+/**
+     * {@inheritDoc}
+     */
+    @Override
     void update(INode other) {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def type() {
         null
     }

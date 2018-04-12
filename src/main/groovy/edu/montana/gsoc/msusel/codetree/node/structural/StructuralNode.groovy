@@ -27,17 +27,28 @@ package edu.montana.gsoc.msusel.codetree.node.structural
 
 import edu.montana.gsoc.msusel.codetree.node.AbstractNode
 
+import javax.persistence.Entity
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Entity
 abstract class StructuralNode extends AbstractNode {
 
-    StructuralNode(String key, String parentKey, Map<String, Double> metrics = [:]) {
-        super(key, parentKey, metrics)
+    StructuralNode(String key, String parentKey) {
+        super(key, parentKey)
     }
 
     abstract def types()
     
     abstract def files()
+
+    FileNode findFile(String key) {
+        (FileNode) files().find { it.key == key }
+    }
+
+    void removeFile(String s) {
+        children.remove(findFile(s))
+    }
 }

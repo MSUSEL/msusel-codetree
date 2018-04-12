@@ -27,25 +27,34 @@ package edu.montana.gsoc.msusel.codetree.node.structural
 
 import com.google.gson.annotations.Expose
 import edu.montana.gsoc.msusel.codetree.INode
+import edu.montana.gsoc.msusel.codetree.node.Modifiers
+import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
 import groovy.transform.builder.Builder
+
+import javax.persistence.Entity
 
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Entity
 class ImportNode extends StructuralNode {
 
     @Expose
-    def modifiers = []
+    List<Modifiers> modifiers = []
     
     /**
      * 
      */
     @Builder(buildMethodName = 'create')
-    ImportNode(String key, String parentKey, Map<String, Double> metrics = [:]) {
-        super(key, parentKey, metrics)
+    ImportNode(String key, String parentKey) {
+        super(key, parentKey)
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def name() {
         key
     }
@@ -90,11 +99,24 @@ class ImportNode extends StructuralNode {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def files() {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
         null
+    }
+
+    @Override
+    def findParent(CodeTreeUtils utils) {
+        return null
     }
 }

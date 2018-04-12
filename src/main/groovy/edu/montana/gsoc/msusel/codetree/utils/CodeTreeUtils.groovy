@@ -25,20 +25,15 @@
  */
 package edu.montana.gsoc.msusel.codetree.utils
 
-import edu.montana.gsoc.msusel.codetree.CodeTree
-import edu.montana.gsoc.msusel.codetree.INode
-import edu.montana.gsoc.msusel.codetree.node.structural.ProjectNode
-import edu.montana.gsoc.msusel.codetree.node.member.FieldNode
-import edu.montana.gsoc.msusel.codetree.node.structural.FileNode
-import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
-import edu.montana.gsoc.msusel.codetree.node.structural.ModuleNode
-import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
-import edu.montana.gsoc.msusel.codetree.node.member.StatementNode
-import edu.montana.gsoc.msusel.codetree.node.type.TypeNode
 import com.google.common.collect.Lists
 import com.google.common.collect.Queues
 import com.google.common.collect.Sets
-
+import edu.montana.gsoc.msusel.codetree.CodeTree
+import edu.montana.gsoc.msusel.codetree.INode
+import edu.montana.gsoc.msusel.codetree.node.CodeNode
+import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
+import edu.montana.gsoc.msusel.codetree.node.structural.*
+import edu.montana.gsoc.msusel.codetree.node.type.TypeNode
 /**
  * @author Isaac Griffith
  * @version 1.2.0
@@ -60,21 +55,7 @@ class CodeTreeUtils {
      *         is null or not present in the tree.
      */
     def extractTree(INode node) {
-        CodeTree retVal = null
-
-        if (node instanceof ProjectNode) {
-            retVal = node.extractTree(tree)
-        } else if (node instanceof ModuleNode) {
-            retVal = node.extractTree(tree)
-        } else if (node instanceof FileNode) {
-            retVal = node.extractTree(tree)
-        } else if (node instanceof TypeNode) {
-            retVal = node.extractTree(tree)
-        } else if (node instanceof MethodNode) {
-            retVal = node.extractTree(tree)
-        }
-
-        return retVal
+        node.extractTree(tree)
     }
 
     /**
@@ -93,11 +74,11 @@ class CodeTreeUtils {
 
         for (ProjectNode p : getProjects()) {
             if (p.hasFile(qid)) {
-                return p.getFile(qid)
+                return p.findFile(qid)
             } else {
                 for (ModuleNode m : p.getModules()) {
                     if (m.hasFile(qid))
-                        return m.getFile(qid)
+                        return m.findFile(qid)
                 }
             }
         }
@@ -200,27 +181,7 @@ class CodeTreeUtils {
      *         no such node exists in the code tree with the parent id.
      */
     def findParent(INode node) {
-        INode parent = null
-        if (node instanceof FieldNode) {
-            parent = findType(node.getParentKey())
-        } else if (node instanceof StatementNode) {
-            parent = findMethod(node.getParentKey())
-        } else if (node instanceof MethodNode) {
-            parent = findType(node.getParentKey())
-        } else if (node instanceof TypeNode) {
-            parent = findFile(node.getParentKey())
-        } else if (node instanceof FileNode) {
-            parent = findProject(node.getParentKey())
-            if (parent == null)
-                parent = findModule(node.getParentKey())
-        } else if (node instanceof ModuleNode || node instanceof NamespaceNode) {
-            parent = findProject(node.getParentKey())
-        } else if (node instanceof ProjectNode) {
-            if (node.getParentKey() != null)
-                parent = findProject(node.getParentKey())
-        }
-
-        parent
+        node.findParent(this)
     }
 
     /**
@@ -244,7 +205,7 @@ class CodeTreeUtils {
 
         while (!queue.isEmpty()) {
             ProjectNode node = queue.poll()
-            if (node.getQIdentifier().equals(qid))
+            if (node.getKey() == qid)
                 return node
 
             for (ProjectNode pn : node.getSubProjects()) {
@@ -409,11 +370,8 @@ class CodeTreeUtils {
         }
 
         INode parent = findParent(findFile(file))
-        if (parent instanceof ProjectNode) {
-            ((ProjectNode) parent).removeFile(file)
-        } else if (parent instanceof ModuleNode) {
-            ((ModuleNode) parent).removeFile(file)
-        }
+        if (parent instanceof StructuralNode)
+            ((StructuralNode) parent).removeFile(file)
     }
 
     /**
@@ -430,21 +388,12 @@ class CodeTreeUtils {
         if (node == null)
             return
 
-        INode container
-        container = findProject(node.getParentKey()) != null ? findProject(node.getParentKey()) : findModule(node.getParentKey())
+        StructuralNode container = findProject(node.getParentKey()) != null ? findProject(node.getParentKey()) : findModule(node.getParentKey())
 
-        if (container instanceof ProjectNode) {
-            if (((ProjectNode) container).getFile(node.getQIdentifier()) == null) {
-                ((ProjectNode) container).addFile(node)
-            }
-
-            ((ProjectNode) container).getFile(node.getQIdentifier()).update(node)
+        if (container.findFile(node.getKey()) == null) {
+            container.addChild(node)
         } else {
-            if (((ModuleNode) container).getFile(node.getQIdentifier()) == null) {
-                ((ModuleNode) container).addFile(node)
-            }
-
-            ((ModuleNode) container).getFile(node.getQIdentifier()).update(node)
+            container.findFile(node.getKey()).update(node)
         }
     }
 
@@ -463,5 +412,9 @@ class CodeTreeUtils {
             tree.setProject(node)
         else
             tree.getProject().update(node)
+    }
+
+    FileNode findParentFile(CodeNode codeNode) {
+        findFile(codeNode.getParentKey())
     }
 }

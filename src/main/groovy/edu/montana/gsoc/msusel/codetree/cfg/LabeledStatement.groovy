@@ -41,6 +41,10 @@ class LabeledStatement extends AbstractCFGNode {
         this.codeLabel = codeLabel
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     String toString() {
         label
     }

@@ -28,33 +28,27 @@ package edu.montana.gsoc.msusel.codetree.node.type
 import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.node.member.FieldNode
-import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
+import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
 import groovy.transform.builder.Builder
+
+import javax.persistence.Entity
 
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
-class InterfaceNode extends TypeNode {
+@Entity
+class InterfaceNode extends ClassifierNode {
 
     /**
      *
      */
     @Builder(buildMethodName='create')
-    InterfaceNode(String key, String parentKey, Map<String, Double> metrics = [:],
-                  Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+    InterfaceNode(String key, String parentKey, Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
                   int start, int end, List<TypeVarTypeRef> templateParams, NamespaceNode namespace) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, templateParams, namespace)
-    }
-
-    def getFields() {
-        extract(fields)
-    }
-
-    def getMethods() {
-        extract(methods)
+        super(key, parentKey, accessibility, specifiers, start, end, templateParams, namespace)
     }
 
     /**
@@ -66,22 +60,42 @@ class InterfaceNode extends TypeNode {
         true
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     INode cloneNoChildren() {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     void update(INode other) {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def type() {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def generatePlantUML() {
         StringBuilder builder = new StringBuilder()
         builder.append("interface ${this.name()} {\n")

@@ -29,7 +29,6 @@ import com.google.gson.*
 import com.google.gson.reflect.TypeToken
 import edu.montana.gsoc.msusel.codetree.node.member.ConstructorNode
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
-import edu.montana.gsoc.msusel.codetree.node.member.StatementNode
 
 import java.lang.reflect.Type
 
@@ -68,13 +67,6 @@ class ConstructorNodeDeserializer implements JsonDeserializer<MethodNode> {
             }.getType()
             Map<String, Double> metrics = context.deserialize(obj.get("metrics"), metricsType)
             builder.metrics(metrics)
-        }
-
-        if (obj.has("statements")) {
-            Type stmtType = new TypeToken<List<StatementNode>>() {
-            }.getType()
-            List<StatementNode> stmts = context.deserialize(obj.get("statements"), stmtType)
-            builder.statements(stmts)
         }
 
         return builder.create()

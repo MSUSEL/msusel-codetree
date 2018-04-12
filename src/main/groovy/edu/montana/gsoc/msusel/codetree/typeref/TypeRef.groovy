@@ -42,6 +42,10 @@ class TypeRef extends AbstractTypeRef {
     @Expose
     def typeArgs = []
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     String toString() {
         String args = ""
         if (typeArgs != null && !typeArgs.empty) {
@@ -61,6 +65,9 @@ class TypeRef extends AbstractTypeRef {
             typeArgs << ref
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     String name() {
         typeName

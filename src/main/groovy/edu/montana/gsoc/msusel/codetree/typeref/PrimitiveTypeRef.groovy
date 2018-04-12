@@ -47,6 +47,9 @@ class PrimitiveTypeRef extends AbstractTypeRef {
         MultitonHolder.map.values()
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     String name() {
         key
@@ -83,6 +86,10 @@ class PrimitiveTypeRef extends AbstractTypeRef {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     String toString() {
         key
     }

@@ -25,10 +25,13 @@
  */
 package edu.montana.gsoc.msusel.codetree.node
 
+import javax.persistence.Embeddable
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Embeddable
 enum Accessibility {
 
     PUBLIC("+"),

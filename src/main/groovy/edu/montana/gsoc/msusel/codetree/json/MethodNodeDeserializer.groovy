@@ -26,7 +26,6 @@
 package edu.montana.gsoc.msusel.codetree.json
 
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
-import edu.montana.gsoc.msusel.codetree.node.member.StatementNode
 
 import java.lang.reflect.Type
 
@@ -80,14 +79,6 @@ class MethodNodeDeserializer implements JsonDeserializer<MethodNode> {
             }.getType()
             Map<String, Double> metrics = context.deserialize(obj.get("metrics"), metricsType)
             builder.metrics(metrics)
-        }
-
-        if (obj.has("statements"))
-        {
-            Type stmtType = new TypeToken<List<StatementNode>>() {
-            }.getType()
-            List<StatementNode> stmts = context.deserialize(obj.get("statements"), stmtType)
-            builder.statements(stmts)
         }
 
         return builder.create()

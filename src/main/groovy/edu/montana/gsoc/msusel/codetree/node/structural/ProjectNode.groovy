@@ -29,24 +29,38 @@ import com.google.common.collect.Sets
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import edu.montana.gsoc.msusel.codetree.CodeTree
+import edu.montana.gsoc.msusel.codetree.DefaultCodeTree
 import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.json.*
 import edu.montana.gsoc.msusel.codetree.node.member.FieldNode
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import edu.montana.gsoc.msusel.codetree.node.type.TypeNode
+import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
 import groovy.transform.builder.Builder
+
+import javax.persistence.Entity
 
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
+@Entity
 class ProjectNode extends StructuralNode {
 
+    List<FileNode> files = []
+    List<ModuleNode> modules = []
+    List<NamespaceNode> namespaces = []
+    List<ProjectNode> projects = []
+
     @Builder(buildMethodName = "create")
-    ProjectNode(String key, String parentKey, Map<String, Double> metrics) {
-        super(key, parentKey, metrics)
+    ProjectNode(String key, String parentKey) {
+        super(key, parentKey)
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def files() {
         children.findAll {
             it instanceof FileNode
@@ -71,6 +85,10 @@ class ProjectNode extends StructuralNode {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def types()
     {
         List<TypeNode> types = []
@@ -97,7 +115,11 @@ class ProjectNode extends StructuralNode {
         }
         methods
     }
-    
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def name() {
         key
     }
@@ -140,7 +162,7 @@ class ProjectNode extends StructuralNode {
             }
         }
 
-        project_update.metricNames.each {this.addMetric(it, project_update.getMetric(it))}
+//        project_update.metricNames.each {this.addMetric(it, project_update.getMetric(it))}
     }
 
     /**
@@ -307,6 +329,10 @@ class ProjectNode extends StructuralNode {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
         CodeTree retVal
 
@@ -317,7 +343,7 @@ class ProjectNode extends StructuralNode {
         }
         else
         {
-            retVal = new CodeTree()
+            retVal = new DefaultCodeTree()
             Stack<ProjectNode> stack = new Stack<>()
             stack.push(project)
             while (project.hasParent())
@@ -355,5 +381,12 @@ class ProjectNode extends StructuralNode {
         }
 
         return retVal
+    }
+
+    @Override
+    def findParent(CodeTreeUtils utils) {
+        if (getParentKey() != null)
+            return utils.findProject(getParentKey())
+        null
     }
 }

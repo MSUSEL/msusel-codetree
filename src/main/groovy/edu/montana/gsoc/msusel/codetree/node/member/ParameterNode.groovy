@@ -30,6 +30,7 @@ import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.node.CodeNode
+import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
 import groovy.transform.builder.Builder
 
 /**
@@ -47,14 +48,17 @@ class ParameterNode extends CodeNode {
      * 
      */
     @Builder(buildMethodName = "create")
-    ParameterNode(String key, String parentKey, Map<String, Double> metrics = [:],
-                  Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
+    ParameterNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
                   int start, int end, AbstractTypeRef type, boolean array = false) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end)
+        super(key, parentKey, accessibility, specifiers, start, end)
         this.type = type
         this.array = array
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def name() {
         key
     }
@@ -88,7 +92,17 @@ class ParameterNode extends CodeNode {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     def extractTree(tree) {
         null
     }
+
+    @Override
+    def findParent(CodeTreeUtils utils) {
+        utils.findMethod(getParentKey())
+    }
+
 }

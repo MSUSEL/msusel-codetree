@@ -26,14 +26,12 @@
 package edu.montana.gsoc.msusel.codetree.cfg
 
 import groovy.transform.EqualsAndHashCode
-import groovy.transform.ToString
 
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
 @EqualsAndHashCode
-@ToString
 abstract class AbstractCFGNode implements ControlFlowNode {
 
     StatementType type
@@ -44,6 +42,10 @@ abstract class AbstractCFGNode implements ControlFlowNode {
         this.label = label
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     String toString() {
         "${type.toString()}_${label}"
     }

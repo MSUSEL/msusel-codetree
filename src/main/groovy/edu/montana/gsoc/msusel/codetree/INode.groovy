@@ -25,7 +25,7 @@
  */
 package edu.montana.gsoc.msusel.codetree
 
-import org.apache.commons.lang3.tuple.Pair
+import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
 
 /**
  * @author Isaac Griffith
@@ -39,52 +39,9 @@ interface INode {
     def type()
 
     /**
-     * Adds a measurement value for the named metric to this Node
-     *
-     * @param name
-     *            Metric name
-     * @param value
-     *            Measurement Value
-     */
-    void addMetric(String name, Double value)
-
-    /**
-     * Increments a measurement value for the named metric by the given
-     * increment value
-     *
-     * @param name
-     *            Metric name
-     * @param increment
-     *            Increment value
-     */
-    void incrementMetric(String name, Double increment)
-
-    /**
-     * Retrieves the stored measurement value of the named metric, if such a
-     * value exists.
-     *
-     * @param metric
-     *            Metric name
-     * @return Measurement value, or null if no such metric has been measured
-     *         for this node.
-     */
-    double getMetric(String metric)
-
-    /**
-     * Checks whether this node has a recorded measurement value for the named
-     * metric.
-     *
-     * @param metric
-     *            Metric name
-     * @return true if a value has been recorded for the named metric, false
-     *         otherwise.
-     */
-    boolean hasMetric(String metric)
-
-    /**
      * @return the name of this node
      */
-    def name();
+    def name()
 
     /**
      * Merges the contents of this node with those of the other node. In the
@@ -104,20 +61,6 @@ interface INode {
     INode cloneNoChildren()
 
     /**
-     * @return
-     */
-    Set<String> getMetricNames()
-
-    /**
-     * Adds metrics in bulk, overriding any existing measurement values.
-     *
-     * @param join
-     *            Updates the metrics of this node with the content of the
-     *            provided List of metric name and measurement value pairs.
-     */
-    void addMetrics(List<Pair<String, Double>> join)
-
-    /**
      * Checks if this node has a parent.
      *
      * @return True if the parent id is not null, false otherwise.
@@ -129,4 +72,10 @@ interface INode {
     def addChild(child)
 
     def removeChild(child)
+
+    def getParentKey()
+
+    def findParent(CodeTreeUtils utils)
+
+    def getKey()
 }

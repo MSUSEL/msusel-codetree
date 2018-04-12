@@ -26,6 +26,12 @@
         </developer>
     </developers>
 
+    <properties>
+        <jee.version>8.0</jee.version>
+        <h2.version>1.4.196</h2.version>
+        <hibernate.version>5.2.11.Final</hibernate.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -74,6 +80,24 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>com.devexperts.bintray</groupId>-->
+                <!--<artifactId>bintray-maven-plugin</artifactId>-->
+                <!--<version>1.2</version>-->
+                <!--<configuration>-->
+                    <!--<id>bintray-REPO-deploy</id>-->
+                    <!--<url>https://api.bintray.com/maven/SUBJECT/maven/REPO</url>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>bintray-deploy</id>-->
+                        <!--<goals>-->
+                            <!--<goal>deploy</goal>-->
+                            <!--<goal>publish</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 
@@ -101,6 +125,24 @@
             <artifactId>spock-core</artifactId>
             <version>1.1-groovy-2.4-rc-3</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Hibernate and JPA -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${jee.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
     </dependencies>
 

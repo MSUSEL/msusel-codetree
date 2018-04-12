@@ -32,36 +32,23 @@ import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
 import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
 import groovy.transform.builder.Builder
+
+import javax.persistence.Entity
+
 /**
  * @author Isaac Griffith
  * @version 1.2.0
  */
-class ClassNode extends TypeNode implements Cloneable {
+@Entity
+class ClassNode extends ClassifierNode implements Cloneable {
 
     /**
      *
      */
     @Builder(buildMethodName='create')
-    ClassNode(String key, String parentKey, Map<String, Double> metrics = [:],
-              Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
+    ClassNode(String key, String parentKey, Accessibility accessibility = Accessibility.DEFAULT, specifiers = [],
               int start, int end, List<TypeVarTypeRef> templateParams, NamespaceNode namespace) {
-        super(key, parentKey, metrics, accessibility, specifiers, start, end, templateParams, namespace)
-    }
-
-    MethodNode findMethod(String key) {
-        methods().find { MethodNode m -> m.key == key}
-    }
-
-    boolean hasMethod(String key) {
-        findMethod(key) != null
-    }
-
-    FieldNode findField(String key) {
-        fields().find { FieldNode f -> f.key == key}
-    }
-
-    boolean hasField(String key) {
-        findField(key) != null
+        super(key, parentKey, accessibility, specifiers, start, end, templateParams, namespace)
     }
 
     /**
@@ -103,10 +90,6 @@ class ClassNode extends TypeNode implements Cloneable {
         type.fields().each { FieldNode f ->
             hasField(f.key) ? findField(f.key).update(f) : children << f
         }
-
-        type.getMetricNames().each { name ->
-            this.metrics[name] = type.metrics[name]
-        }
     }
     
     /**
@@ -135,6 +118,9 @@ class ClassNode extends TypeNode implements Cloneable {
         return cnode
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     def generatePlantUML() {
         StringBuilder builder = new StringBuilder()

@@ -25,75 +25,51 @@
  */
 package edu.montana.gsoc.msusel.codetree.node.type
 
-import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
-import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
+import edu.montana.gsoc.msusel.codetree.node.member.FieldNode
+import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
-import groovy.transform.builder.Builder
+import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
 
 import javax.persistence.Entity
 
-/**
- * @author Isaac Griffith
- * @version 1.2.0
- */
 @Entity
-class StructNode extends TypeNode {
+abstract class ClassifierNode extends TypeNode {
 
-    /**
-     *
-     */
-    @Builder(buildMethodName = "create")
-    StructNode(String key, String parentKey, Accessibility accessibility = Accessibility.PUBLIC, specifiers = [],
-               int start, int end, List<TypeVarTypeRef> templateParams, NamespaceNode namespace) {
+    List<FieldNode> fields = []
+    List<MethodNode> methods = []
+
+    ClassifierNode(String key, String parentKey, Accessibility accessibility, Object specifiers, int start, int end, NamespaceNode namespace) {
+        super(key, parentKey, accessibility, specifiers, start, end, namespace)
+    }
+
+    ClassifierNode(String key, String parentKey, Accessibility accessibility, Object specifiers, int start, int end, List<TypeVarTypeRef> templateParams, NamespaceNode namespace) {
         super(key, parentKey, accessibility, specifiers, start, end, templateParams, namespace)
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    boolean isInterface() {
-        false
+    ClassifierNode(String key, String parentKey, Accessibility accessibility, int start, int end, NamespaceNode namespace) {
+        super(key, parentKey, accessibility, start, end, namespace)
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    INode cloneNoChildren() {
-        null
+    ClassifierNode(String key, String parentKey, int start, int end, NamespaceNode namespace) {
+        super(key, parentKey, start, end, namespace)
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    def extractTree(tree) {
-        null
+    MethodNode findMethod(String key) {
+        methods().find { MethodNode m -> m.key == key}
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    def generatePlantUML() {
-        ""
+    boolean hasMethod(String key) {
+        findMethod(key) != null
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    void update(INode other) {
-
+    FieldNode findField(String key) {
+        fields().find { FieldNode f -> f.key == key}
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    def type() {
-        null
+    boolean hasField(String key) {
+        findField(key) != null
     }
+
+    abstract boolean isInterface()
 }
