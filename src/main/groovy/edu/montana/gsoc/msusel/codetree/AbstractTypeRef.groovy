@@ -32,4 +32,6 @@ package edu.montana.gsoc.msusel.codetree
 abstract class AbstractTypeRef {
 
     abstract String name()
+
+    abstract String type()
 }

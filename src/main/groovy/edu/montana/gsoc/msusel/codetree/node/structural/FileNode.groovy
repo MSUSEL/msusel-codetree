@@ -27,6 +27,7 @@ package edu.montana.gsoc.msusel.codetree.node.structural
 
 import edu.montana.gsoc.msusel.codetree.DefaultCodeTree
 import edu.montana.gsoc.msusel.codetree.INode
+import edu.montana.gsoc.msusel.codetree.node.CodeNode
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import edu.montana.gsoc.msusel.codetree.node.type.TypeNode
 import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
@@ -34,7 +35,6 @@ import groovy.transform.builder.Builder
 
 import javax.persistence.Entity
 import java.nio.file.Paths
-
 /**
  * @author Isaac Griffith
  * @version 1.2.0
@@ -70,7 +70,7 @@ class FileNode extends StructuralNode {
         "File"
     }
 
-    def imports() {
+    List<ImportNode> imports() {
         children.findAll {
             it instanceof ImportNode
         }
@@ -80,7 +80,7 @@ class FileNode extends StructuralNode {
      * {@inheritDoc}
      */
     @Override
-    def types() {
+    List<TypeNode> types() {
         children.findAll {
             it instanceof TypeNode
         }
@@ -310,5 +310,11 @@ class FileNode extends StructuralNode {
             parent = utils.findModule(getParentKey())
 
         parent
+    }
+
+    def following(int line) {
+        children.findAll { CodeNode c ->
+            c.containsLine(line) || c.start >= line
+        }
     }
 }

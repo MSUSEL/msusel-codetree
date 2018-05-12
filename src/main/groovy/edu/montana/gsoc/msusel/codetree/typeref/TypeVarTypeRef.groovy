@@ -63,4 +63,9 @@ class TypeVarTypeRef extends AbstractTypeRef {
     String name() {
         typeVar
     }
+
+    @Override
+    String type() {
+        typeVar
+    }
 }

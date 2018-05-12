@@ -69,16 +69,14 @@ class DefaultCodeTree implements CodeTree {
     }
 
     def getGeneralizedFrom(TypeNode from) {
-        def map = table.row(from).findAll { it.getValue().contains(RelationshipType.GENERALIZATION) }
-        def list = []
-        map.each {
-            list << it.getKey()
-        }
-        list
+        extractRelations(table.row(from).findAll { it.getValue().contains(RelationshipType.GENERALIZATION) })
     }
 
     def getGeneralizedTo(TypeNode to) {
-        def map = table.column(to).findAll { it.getValue().contains(RelationshipType.GENERALIZATION) }
+        extractRelations(table.column(to).findAll { it.getValue().contains(RelationshipType.GENERALIZATION) })
+    }
+
+    def extractRelations(map) {
         def list = []
         map.each {
             list << it.getKey()
@@ -91,16 +89,11 @@ class DefaultCodeTree implements CodeTree {
     }
 
     def getRealizedFrom(TypeNode from) {
-        def map = table.row(from).findAll { it.getValue().contains(RelationshipType.REALIZATION) }
-        def list = []
-        map.each {
-            list << it.getKey()
-        }
-        list
+        extractRelations(table.row(from).findAll { it.getValue().contains(RelationshipType.REALIZATION) })
     }
 
     def getRealizedTo(TypeNode to) {
-        table.column(to).findAll { it.getValue().contains(RelationshipType.REALIZATION) }
+        extractRelations(table.column(to).findAll { it.getValue().contains(RelationshipType.REALIZATION) })
     }
 
     def addAssociation(TypeNode from, TypeNode to, boolean bidirectional) {
@@ -110,11 +103,11 @@ class DefaultCodeTree implements CodeTree {
     }
 
     def getAssociatedFrom(TypeNode from) {
-        table.row(from).findAll { it.getValue().contains(RelationshipType.ASSOCIATION) }
+        extractRelations(table.row(from).findAll { it.getValue().contains(RelationshipType.ASSOCIATION) })
     }
 
     def getAssociatedTo(TypeNode to) {
-        table.column(to).findAll { it.getValue().contains(RelationshipType.ASSOCIATION) }
+        extractRelations(table.column(to).findAll { it.getValue().contains(RelationshipType.ASSOCIATION) })
     }
 
     def addAggregation(TypeNode from, TypeNode to, boolean bidirectional) {
@@ -124,11 +117,11 @@ class DefaultCodeTree implements CodeTree {
     }
 
     def getAggregatedFrom(TypeNode from) {
-        table.row(from).findAll { it.getValue() == RelationshipType.ASSOCIATION }
+        extractRelations(table.row(from).findAll { it.getValue() == RelationshipType.ASSOCIATION })
     }
 
     def getAggregatedTo(TypeNode to) {
-        table.column(to).findAll { it.getValue() == RelationshipType.ASSOCIATION }
+        extractRelations(table.column(to).findAll { it.getValue() == RelationshipType.ASSOCIATION })
     }
 
     def addComposition(TypeNode from, TypeNode to, boolean bidirectional) {
@@ -138,11 +131,11 @@ class DefaultCodeTree implements CodeTree {
     }
 
     def getComposedFrom(TypeNode from) {
-        table.row(from).findAll { it.getValue().contains(RelationshipType.COMPOSITION) }
+        extractRelations(table.row(from).findAll { it.getValue().contains(RelationshipType.COMPOSITION) })
     }
 
     def getComposedTo(TypeNode to) {
-        table.column(to).findAll { it.getValue().contains(RelationshipType.COMPOSITION) }
+        extractRelations(table.column(to).findAll { it.getValue().contains(RelationshipType.COMPOSITION) })
     }
 
     def addUse(TypeNode from, TypeNode to) {
@@ -150,11 +143,11 @@ class DefaultCodeTree implements CodeTree {
     }
 
     def getUseFrom(TypeNode from) {
-        table.row(from).findAll { it.getValue() == RelationshipType.USE }
+        extractRelations(table.row(from).findAll { it.getValue() == RelationshipType.USE })
     }
 
     def getUseTo(TypeNode to) {
-        table.column(to).findAll { it.getValue().contains(RelationshipType.USE) }
+        extractRelations(table.column(to).findAll { it.getValue().contains(RelationshipType.USE) })
     }
 
     def addDependency(TypeNode from, TypeNode to) {
@@ -166,19 +159,19 @@ class DefaultCodeTree implements CodeTree {
     }
 
     def getDependencyFrom(TypeNode from) {
-        table.row(from).values().findAll { it.contains(RelationshipType.DEPENDENCY) }
+        extractRelations(table.row(from).values().findAll { it.contains(RelationshipType.DEPENDENCY) })
     }
 
     def getDependencyTo(TypeNode to) {
-        table.column(to).findAll { it.getValue().contains(RelationshipType.DEPENDENCY) }
+        extractRelations(table.column(to).findAll { it.getValue().contains(RelationshipType.DEPENDENCY) })
     }
 
     def getContainedIn(TypeNode container) {
-        table.column(container).findAll { it.getValue().contains(RelationshipType.CONTAINMENT) }
+        extractRelations(table.column(container).findAll { it.getValue().contains(RelationshipType.CONTAINMENT) })
     }
 
     def getContainedBy(TypeNode contained) {
-        table.row(contained).findAll { it.getValue().contains(RelationshipType.CONTAINMENT) }
+        extractRelations(table.row(contained).findAll { it.getValue().contains(RelationshipType.CONTAINMENT) })
     }
 
     def getTypesUsingMethod(MethodNode method) {

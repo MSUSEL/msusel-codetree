@@ -27,6 +27,7 @@ package edu.montana.gsoc.msusel.codetree.node.type
 
 import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
+import edu.montana.gsoc.msusel.codetree.node.CodeNode
 import edu.montana.gsoc.msusel.codetree.typeref.TypeVarTypeRef
 import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
 import groovy.transform.builder.Builder
@@ -96,5 +97,10 @@ class EventNode extends TypeNode {
     @Override
     def type() {
         null
+    }
+
+    @Override
+    List<CodeNode> following(int line) {
+        return [] // TODO implement this
     }
 }

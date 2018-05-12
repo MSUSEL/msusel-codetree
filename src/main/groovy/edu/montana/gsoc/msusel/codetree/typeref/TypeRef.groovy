@@ -72,4 +72,9 @@ class TypeRef extends AbstractTypeRef {
     String name() {
         typeName
     }
+
+    @Override
+    String type() {
+        return type
+    }
 }

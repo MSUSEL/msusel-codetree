@@ -26,6 +26,7 @@
 package edu.montana.gsoc.msusel.codetree.node.type
 
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
+import edu.montana.gsoc.msusel.codetree.node.CodeNode
 import edu.montana.gsoc.msusel.codetree.node.member.FieldNode
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
 import edu.montana.gsoc.msusel.codetree.node.structural.NamespaceNode
@@ -35,9 +36,6 @@ import javax.persistence.Entity
 
 @Entity
 abstract class ClassifierNode extends TypeNode {
-
-    List<FieldNode> fields = []
-    List<MethodNode> methods = []
 
     ClassifierNode(String key, String parentKey, Accessibility accessibility, Object specifiers, int start, int end, NamespaceNode namespace) {
         super(key, parentKey, accessibility, specifiers, start, end, namespace)
@@ -72,4 +70,17 @@ abstract class ClassifierNode extends TypeNode {
     }
 
     abstract boolean isInterface()
+
+    List<CodeNode> following(int line) {
+        List<CodeNode> nodes = []
+        nodes << fields().findAll { FieldNode fld ->
+            fld.containsLine(line) || fld.start > line
+        }
+
+        nodes << methods().findAll { MethodNode meth ->
+            meth.containsLine(line) || meth.start > line
+        }
+
+        nodes
+    }
 }

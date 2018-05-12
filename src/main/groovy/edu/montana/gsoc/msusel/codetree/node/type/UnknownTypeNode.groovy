@@ -27,6 +27,7 @@ package edu.montana.gsoc.msusel.codetree.node.type
 
 import edu.montana.gsoc.msusel.codetree.INode
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
+import edu.montana.gsoc.msusel.codetree.node.CodeNode
 import groovy.transform.builder.Builder
 
 import javax.persistence.Entity
@@ -83,5 +84,10 @@ class UnknownTypeNode extends TypeNode {
     @Override
     INode cloneNoChildren() {
         return null
+    }
+
+    @Override
+    List<CodeNode> following(int line) {
+        return [] // TODO implement this
     }
 }

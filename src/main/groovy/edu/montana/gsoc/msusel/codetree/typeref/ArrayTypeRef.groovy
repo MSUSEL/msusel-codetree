@@ -52,4 +52,9 @@ class ArrayTypeRef extends AbstractTypeRef {
     String name() {
         "${ref.name()}${dimensions}"
     }
+
+    @Override
+    String type() {
+        return ref.type()
+    }
 }

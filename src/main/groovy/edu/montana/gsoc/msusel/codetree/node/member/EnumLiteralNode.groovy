@@ -28,6 +28,7 @@ package edu.montana.gsoc.msusel.codetree.node.member
 import edu.montana.gsoc.msusel.codetree.AbstractTypeRef
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.INode
+import edu.montana.gsoc.msusel.codetree.node.CodeNode
 import edu.montana.gsoc.msusel.codetree.utils.CodeTreeUtils
 
 /**

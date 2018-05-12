@@ -55,4 +55,12 @@ abstract class MemberNode extends CodeNode {
     def name() {
         key.split("#").last()
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    List<CodeNode> following(int line) {
+        return []
+    }
 }

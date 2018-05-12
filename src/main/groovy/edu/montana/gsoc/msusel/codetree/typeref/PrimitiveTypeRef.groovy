@@ -55,6 +55,11 @@ class PrimitiveTypeRef extends AbstractTypeRef {
         key
     }
 
+    @Override
+    String type() {
+        return key
+    }
+
     private static class MultitonHolder {
         private static def map = [:]
 

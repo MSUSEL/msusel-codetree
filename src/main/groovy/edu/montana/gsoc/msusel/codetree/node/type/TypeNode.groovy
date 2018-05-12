@@ -30,6 +30,7 @@ import edu.montana.gsoc.msusel.codetree.DefaultCodeTree
 import edu.montana.gsoc.msusel.codetree.node.Accessibility
 import edu.montana.gsoc.msusel.codetree.node.CodeNode
 import edu.montana.gsoc.msusel.codetree.node.Modifiers
+import edu.montana.gsoc.msusel.codetree.node.member.ConstructorNode
 import edu.montana.gsoc.msusel.codetree.node.member.FieldNode
 import edu.montana.gsoc.msusel.codetree.node.member.InitializerNode
 import edu.montana.gsoc.msusel.codetree.node.member.MethodNode
@@ -70,13 +71,19 @@ abstract class TypeNode extends CodeNode {
             templateParams << node
     }
 
-    def methods() {
+    List<MethodNode> methods() {
         children.findAll {
             it instanceof MethodNode
         }
     }
 
-    def fields() {
+    def constructors() {
+        children.findAll {
+            it instanceof ConstructorNode
+        }
+    }
+
+    List<FieldNode> fields() {
         children.findAll {
             it instanceof FieldNode
         }

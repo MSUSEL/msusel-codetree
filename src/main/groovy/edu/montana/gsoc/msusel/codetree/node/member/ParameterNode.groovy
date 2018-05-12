@@ -100,9 +100,19 @@ class ParameterNode extends CodeNode {
         null
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     def findParent(CodeTreeUtils utils) {
         utils.findMethod(getParentKey())
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    List<CodeNode> following(int line) {
+        return []
+    }
 }

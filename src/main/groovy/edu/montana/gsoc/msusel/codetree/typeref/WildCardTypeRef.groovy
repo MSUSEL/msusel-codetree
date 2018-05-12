@@ -47,6 +47,11 @@ class WildCardTypeRef extends AbstractTypeRef {
         "?"
     }
 
+    @Override
+    String type() {
+        return name()
+    }
+
     void addBound(AbstractTypeRef ref) {
         if (bounds == null)
             bounds = []

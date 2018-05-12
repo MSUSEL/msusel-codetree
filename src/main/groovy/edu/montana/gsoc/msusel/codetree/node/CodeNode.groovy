@@ -105,4 +105,6 @@ abstract class CodeNode extends AbstractNode {
     boolean hasModifier(Modifiers mod) {
         modifiers.contains(mod)
     }
+
+    abstract List<CodeNode> following(int line)
 }
