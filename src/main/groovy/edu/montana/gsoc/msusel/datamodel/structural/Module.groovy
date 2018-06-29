@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * MSUSEL CodeTree
+ * MSUSEL DataModel
  * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
@@ -26,6 +26,7 @@
 package edu.montana.gsoc.msusel.datamodel.structural
 
 import edu.montana.gsoc.msusel.datamodel.System
+import edu.montana.gsoc.msusel.datamodel.member.Method
 import edu.montana.gsoc.msusel.datamodel.type.Type
 import groovy.transform.builder.Builder
 
@@ -133,11 +134,19 @@ class Module extends Structure {
         namespaces.containsKey(nsID)
     }
 
-    def methods() {
+    List<Method> methods() {
         def methods = []
         types().each { Type type ->
             methods << type.methods()
         }
         methods
+    }
+
+    List<Type> types() {
+        []
+    }
+
+    List<File> files() {
+        []
     }
 }

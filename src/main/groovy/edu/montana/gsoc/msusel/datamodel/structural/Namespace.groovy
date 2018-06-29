@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * MSUSEL CodeTree
+ * MSUSEL DataModel
  * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *
@@ -26,6 +26,7 @@
 package edu.montana.gsoc.msusel.datamodel.structural
 
 import edu.montana.gsoc.msusel.datamodel.measures.Measurable
+import edu.montana.gsoc.msusel.datamodel.member.Method
 import edu.montana.gsoc.msusel.datamodel.type.Type
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.builder.Builder
@@ -138,6 +139,10 @@ class Namespace implements Measurable {
         }
 
         f
+    }
+
+    List<Method> methods() {
+        []
     }
 
     def getPlantUML() {

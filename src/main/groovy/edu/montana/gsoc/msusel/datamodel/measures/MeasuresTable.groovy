@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * MSUSEL Metrics
+ * MSUSEL DataModel
  * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
  *

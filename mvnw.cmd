@@ -1,7 +1,7 @@
 @REM
 @REM The MIT License (MIT)
 @REM
-@REM MSUSEL CodeTree
+@REM MSUSEL DataModel
 @REM Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
 @REM Software Engineering Laboratory
 @REM
