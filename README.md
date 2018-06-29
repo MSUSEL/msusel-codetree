@@ -42,13 +42,13 @@ This can be achieved with the following command (note only perform this on the m
 
 ## Introduction
 This module provides the constructs necessary to provide a model of a software project. The basic
-component is the `CodeNode` A code node is simply an abstraction of some artifact that occurs within
+component is the `CodeNode` A code type is simply an abstraction of some artifact that occurs within
 the software. The `CodeNode` is further refined into serveral subtypes. Containing the entire set of
 code nodes is the `CodeTree`. The CodeTree is the datastructure reprsenting the structure of the Project
 as a whole.
 
 ### Code Tree
-The Code Tree provides the means to store the struture of a software project. It's root node, is the
+The Code Tree provides the means to store the struture of a software project. It's root type, is the
 highest-level parent project of a system. 
 
 ### Code Node Types
