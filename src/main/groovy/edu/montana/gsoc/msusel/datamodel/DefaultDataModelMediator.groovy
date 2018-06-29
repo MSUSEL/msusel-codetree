@@ -216,19 +216,19 @@ class DefaultDataModelMediator implements DataModelMediator {
         []
     }
 
-    List<Type> getMethodsCalledFrom(Type type) {
+    List<Method> getMethodsCalledFrom(Type type) {
         []
     }
 
-    List<Type> getMethodsCalledFrom(Method method) {
+    List<Method> getMethodsCalledFrom(Method method) {
         []
     }
 
-    List<Type> getMethodsCallingMethod(Method method) {
+    List<Method> getMethodsCallingMethod(Method method) {
         []
     }
 
-    List<Type> getFieldsUsedBy(Method method) {
+    List<Field> getFieldsUsedBy(Method method) {
         []
     }
 
