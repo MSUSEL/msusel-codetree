@@ -63,7 +63,7 @@ abstract class MemberDAOImpl<T extends Member> extends GenericDAOImpl<T, Long> i
     @Override
     List<T> findAll(String ownerKey) {
         CriteriaBuilder cb = em.getCriteriaBuilder()
-        CriteriaQuery<T> f = em.getCriteriaBuilder().createQueury(entityClass)
+        CriteriaQuery<T> f = em.getCriteriaBuilder().createQuery(entityClass)
         Root<T> r = f.from(entityClass)
         f.select(r).where(cb.equal(r.<Type>get("owner").get("compKey"), ownerKey))
         return em.createQuery(f).getResultList()

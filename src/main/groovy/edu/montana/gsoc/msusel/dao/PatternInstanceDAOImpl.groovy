@@ -50,7 +50,7 @@ class PatternInstanceDAOImpl extends GenericDAOImpl<PatternInstance, Long> imple
     Project findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<Project> f = em.getCriteriaBuilder().createQueury(Project.class)
+            CriteriaQuery<Project> f = em.getCriteriaBuilder().createQuery(Project.class)
             Root<PatternInstance> r = f.from(entityClass)
             f.select(r.<Project>get("project")).where(cb.equal(r.get("instKey"), key))
             return em.createQuery(f).getSingleResult()

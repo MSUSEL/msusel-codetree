@@ -51,7 +51,7 @@ class ModuleDAOImpl extends GenericDAOImpl<Module, Long> implements ModuleDAO {
     Project findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<Project> f = em.getCriteriaBuilder().createQueury(Project.class)
+            CriteriaQuery<Project> f = em.getCriteriaBuilder().createQuery(Project.class)
             Root<Module> r = f.from(entityClass)
             f.select(r.<Project>get("parent")).where(cb.equal(r.get("moduleKey"), key))
             return em.createQuery(f).getSingleResult()

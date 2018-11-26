@@ -32,6 +32,10 @@ import groovy.transform.builder.Builder
 
 import javax.persistence.*
 
+/**
+ * @author Isaac Griffith
+ * @version 1.3.0
+ */
 @Entity
 @Builder(buildMethodName = "create", excludes = ["id"])
 class System implements Measurable {

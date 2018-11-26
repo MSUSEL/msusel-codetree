@@ -47,7 +47,7 @@ class MeasureDAOImpl extends GenericDAOImpl<Measure, Long> implements MeasureDAO
     Project findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<Project> f = em.getCriteriaBuilder().createQueury(Project.class)
+            CriteriaQuery<Project> f = em.getCriteriaBuilder().createQuery(Project.class)
             Root<Measure> r = f.from(entityClass)
             f.select(r.<Project>get("project")).where(cb.equal(r.get("measureKey"), key))
             return em.createQuery(f).getSingleResult()

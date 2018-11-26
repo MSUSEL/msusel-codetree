@@ -30,6 +30,7 @@ import edu.montana.gsoc.msusel.datamodel.Component
 import edu.montana.gsoc.msusel.datamodel.Modifier
 import edu.montana.gsoc.msusel.datamodel.member.Field
 import edu.montana.gsoc.msusel.datamodel.member.Method
+import edu.montana.gsoc.msusel.datamodel.structural.File
 import groovy.transform.builder.Builder
 
 import javax.persistence.Entity
@@ -61,12 +62,13 @@ class Interface extends Classifier {
     /**
      * {@inheritDoc}
      */
+    // TODO Remove this
     @Override
     def generatePlantUML() {
         StringBuilder builder = new StringBuilder()
         builder.append("interface ${this.name()} {\n")
-        fields().each { Field f -> builder.append("${f.accessibility.plantUML}${f.name()} ${f.getType()}\n")}
-        methods().each { Method m -> builder.append("${m.accessibility.plantUML}${m.name()}() : ${m.getType()}\n") }
+        fields().each { Field f -> builder.append("${f.access.plantUML}${f.name()} ${f.getType()}\n")}
+        methods().each { Method m -> builder.append("${m.access.plantUML}${m.name()}() : ${m.getType()}\n") }
         builder.append("}\n")
         builder.append("\n")
 

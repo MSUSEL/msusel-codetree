@@ -46,10 +46,10 @@ class NamespaceDAOImpl extends GenericDAOImpl<Namespace, Long> implements Namesp
     }
 
     @Transactional
-    Structure findParent(String key) {
+    Module findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<Structure> f = em.getCriteriaBuilder().createQueury(Structure.class)
+            CriteriaQuery<Module> f = em.getCriteriaBuilder().createQuery(Module.class)
             Root<Metric> r = f.from(entityClass)
             f.select(r.<Module>get("container")).where(cb.equal(r.get("nsKey"), key))
             return em.createQuery(f).getSingleResult()

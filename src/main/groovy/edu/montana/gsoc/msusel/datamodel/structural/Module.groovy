@@ -25,28 +25,36 @@
  */
 package edu.montana.gsoc.msusel.datamodel.structural
 
-import edu.montana.gsoc.msusel.datamodel.System
+import edu.montana.gsoc.msusel.datamodel.measures.Measurable
 import edu.montana.gsoc.msusel.datamodel.member.Method
 import edu.montana.gsoc.msusel.datamodel.type.Type
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.builder.Builder
 
-import javax.persistence.Entity
-import javax.persistence.FetchType
-import javax.persistence.ManyToOne
-
+import javax.persistence.*
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
 @Entity
-class Module extends Structure {
+@EqualsAndHashCode(excludes = ["id", "namespaces", "system"])
+class Module implements Measurable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    long id
+    String modKey
+    String name
+    @OneToMany(mappedBy = "container")
+    List<Namespace> namespaces = []
     @ManyToOne(fetch = FetchType.LAZY)
     Project project
 
     @Builder(buildMethodName = "create")
-    Module(String key, String name, System system, List<Namespace> namespaces, Project project) {
-        super(key, name, system, namespaces)
+    Module(String key, String name, List<Namespace> namespaces, Project project) {
+        this.modKey = key
+        this.name = name
+        this.namespaces = namespaces
         this.project = project
     }
 
@@ -97,7 +105,7 @@ class Module extends Structure {
         if (path == null || path.isEmpty())
             return false
 
-        return files.containsKey(path)
+        return files().containsKey(path)
     }
     
     /**
@@ -111,10 +119,10 @@ class Module extends Structure {
      */
     Namespace getNamespace(String nsID)
     {
-        if (nsID == null || nsID.isEmpty() || !namespaces.containsKey(nsID))
+        if (nsID == null || nsID.isEmpty())
             return null
 
-        namespaces.get(nsID)
+        namespaces.find { it.key() == nsID }
     }
 
     /**
@@ -131,7 +139,7 @@ class Module extends Structure {
         if (nsID == null || nsID.isEmpty())
             return false
 
-        namespaces.containsKey(nsID)
+        namespaces.any { it.key() == nsID }
     }
 
     List<Method> methods() {
@@ -143,10 +151,45 @@ class Module extends Structure {
     }
 
     List<Type> types() {
-        []
+        def types = []
+
+        namespaces.each {
+            types += it.types()
+        }
+
+        types
     }
 
     List<File> files() {
-        []
+        def fs = []
+
+        namespaces.each {
+            fs += it.files()
+        }
+
+        fs
+    }
+
+    File findFile(String key) {
+        files().find { it.key() == key }
+    }
+
+    void removeFile(String s) {
+        File f = findFile(s)
+        if (f != null) {
+            if (namespaces.contains(f.getNamespace())) {
+                f.getNamespace().removeFile(f)
+            }
+        }
+    }
+
+    @Override
+    String key() {
+        modKey
+    }
+
+    @Override
+    String name() {
+        name
     }
 }

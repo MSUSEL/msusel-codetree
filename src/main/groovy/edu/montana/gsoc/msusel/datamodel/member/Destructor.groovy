@@ -25,39 +25,20 @@
  */
 package edu.montana.gsoc.msusel.datamodel.member
 
-import edu.montana.gsoc.msusel.datamodel.TypeReference
 import edu.montana.gsoc.msusel.datamodel.Accessibility
 import edu.montana.gsoc.msusel.datamodel.Modifier
-import edu.montana.gsoc.msusel.datamodel.cfg.ControlFlowGraph
+import edu.montana.gsoc.msusel.datamodel.TypeReference
 import edu.montana.gsoc.msusel.datamodel.type.Type
 import groovy.transform.builder.Builder
-
-import javax.persistence.Embedded
-import javax.persistence.Transient
-
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
-class Destructor extends TypedMember {
-
-    @Embedded
-    List<Parameter> params = []
-    @Transient
-    ControlFlowGraph cfg
-    @Embedded
-    List<TypeReference> exceptions = []
-    @Embedded
-    List<TypeReference> typeParams = []
+class Destructor extends Method {
 
     @Builder(buildMethodName = "create")
     private Destructor(String key, Type parent, String name, Accessibility access, List<Modifier> modifiers, TypeReference type, List<Parameter> params, int start, int end) {
-        super(key, parent, name, access, modifiers, type, start, end)
-        this.params = params
-    }
-
-    Destructor() {
-        super()
+        super(key, parent, name, access, modifiers, type, params, start, end)
     }
 
     Destructor plus(Parameter p) {
@@ -75,16 +56,6 @@ class Destructor extends TypedMember {
         this
     }
 
-    void addParameter(Parameter p) {
-        if (p && !params.contains(p))
-            params << p
-    }
-
-    void removeParameter(Parameter p) {
-        if (p && params.contains(p))
-            params -= p
-    }
-
     Destructor plus(Modifier m) {
         addModifier(m)
         this
@@ -98,33 +69,5 @@ class Destructor extends TypedMember {
     Destructor minus(Modifier m) {
         removeModifier(m)
         this
-    }
-
-    void addModifier(Modifier m) {
-        if (m && !modifiers.contains(m)) {
-            modifiers << m
-        }
-    }
-
-    void removeModifier(Modifier m) {
-        if (m && modifiers.contains(m)) {
-            modifiers -= m
-        }
-    }
-
-    def addException(TypeReference ref) {
-        if (ref != null && !exceptions.contains(ref)) {
-            exceptions << ref
-        }
-    }
-
-    def getParameterByName(String param) { params.find { it.name() == param } }
-
-    TypeReference getTypeParamByName(String paramName) {
-        typeParams.find { it.name() == paramName }
-    }
-
-    TypeReference getExceptionByName(String exception) {
-        exceptions.find { it.name() == exception }
     }
 }

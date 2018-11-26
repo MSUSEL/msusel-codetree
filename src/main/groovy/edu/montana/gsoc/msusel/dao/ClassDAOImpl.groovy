@@ -47,7 +47,7 @@ class ClassDAOImpl extends TypeDAOImpl<Class> implements ClassDAO {
     File findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<File> f = em.getCriteriaBuilder().createQueury(File.class)
+            CriteriaQuery<File> f = em.getCriteriaBuilder().createQuery(File.class)
             Root<Class> r = f.from(entityClass)
             f.select(r.<File>get("container")).where(cb.equal(r.get("compKey"), key))
             return em.createQuery(f).getSingleResult()

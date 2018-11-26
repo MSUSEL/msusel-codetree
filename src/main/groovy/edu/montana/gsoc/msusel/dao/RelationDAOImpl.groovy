@@ -52,7 +52,7 @@ class RelationDAOImpl extends GenericDAOImpl<Relation, Long> implements Relation
     Project findParent() {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<Project> f = em.getCriteriaBuilder().createQueury(Project.class)
+            CriteriaQuery<Project> f = em.getCriteriaBuilder().createQuery(Project.class)
             Root<Relation> r = f.from(entityClass)
             f.select(r.<Project>get("project")).where(cb.equal(r.get("relKey"), key))
             return em.createQuery(f).getSingleResult()
@@ -97,6 +97,7 @@ class RelationDAOImpl extends GenericDAOImpl<Relation, Long> implements Relation
         types
     }
 
+    // TODO Fix this
     private List<Member> extractMembers(List<Relation> rels) {
         List<Member> members = []
         rels.each {
@@ -202,21 +203,25 @@ class RelationDAOImpl extends GenericDAOImpl<Relation, Long> implements Relation
         return em.createQuery(cq).getResultList()
     }
 
+    // TODO Finish this
     @Override
     List<Type> findTypesUsingMethod(Method method) {
         return null
     }
 
+    // TODO Finish this
     @Override
     List<Method> findMethodsCalledFrom(Type type) {
         return null
     }
 
+    // TODO Finish this
     @Override
     List<Field> findFieldsUsedBy(Method method) {
         return null
     }
 
+    // TODO Finish this
     @Override
     List<Field> findFieldsUsedBy(Type type) {
         return null
@@ -260,41 +265,49 @@ class RelationDAOImpl extends GenericDAOImpl<Relation, Long> implements Relation
         desc as List
     }
 
+    // TODO Finish this
     @Override
     boolean hasBidirectionalAssociation(Type from, Type to) {
         return false
     }
 
+    // TODO Finish this
     @Override
     boolean hasContainmentRelation(Type from, Type to) {
         return false
     }
 
+    // TODO Finish this
     @Override
     boolean hasUniDirectionalAssociation(Type from, Type to) {
         return false
     }
 
+    // TODO Finish this
     @Override
     boolean hasUseDependency(Type from, Type to) {
         return false
     }
 
+    // TODO Finish this
     @Override
     boolean hasGeneralization(Type type, Type gen) {
         return false
     }
 
+    // TODO Finish this
     @Override
     boolean hasRealization(Type type, Type real) {
         return false
     }
 
+    // TODO Finish this
     @Override
     List<Method> findMethodUseInSameClass(Method method, Type type) {
         return null
     }
 
+    // TODO Finish this
     @Override
     List<Field> findFieldUseInSameClass(Method method, Type type) {
         return null

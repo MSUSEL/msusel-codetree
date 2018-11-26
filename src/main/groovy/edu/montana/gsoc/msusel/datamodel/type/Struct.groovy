@@ -28,6 +28,7 @@ package edu.montana.gsoc.msusel.datamodel.type
 import edu.montana.gsoc.msusel.datamodel.Accessibility
 import edu.montana.gsoc.msusel.datamodel.Component
 import edu.montana.gsoc.msusel.datamodel.Modifier
+import edu.montana.gsoc.msusel.datamodel.structural.File
 
 /**
  * @author Isaac Griffith
@@ -48,15 +49,16 @@ class Struct extends Type {
         false
     }
 
+    List<Component> following(int line) {
+        return [] // TODO implement this
+    }
+
     /**
      * {@inheritDoc}
      */
+    // TODO Remove this
     @Override
     def generatePlantUML() {
         ""
-    }
-
-    List<Component> following(int line) {
-        return [] // TODO implement this
     }
 }

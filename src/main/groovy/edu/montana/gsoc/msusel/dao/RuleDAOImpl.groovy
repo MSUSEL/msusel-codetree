@@ -47,7 +47,7 @@ class RuleDAOImpl extends GenericDAOImpl<Rule, Long> implements RuleDAO {
     RuleRepository findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<RuleRepository> f = em.getCriteriaBuilder().createQueury(RuleRepository.class)
+            CriteriaQuery<RuleRepository> f = em.getCriteriaBuilder().createQuery(RuleRepository.class)
             Root<Rule> r = f.from(entityClass)
             f.select(r.<RuleRepository>get("repository")).where(cb.equal(r.get("ruleKey"), key))
             return em.createQuery(f).getSingleResult()

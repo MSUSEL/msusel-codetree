@@ -47,7 +47,7 @@ class InterfaceDAOImpl extends TypeDAOImpl<Interface> implements InterfaceDAO {
     File findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<File> f = em.getCriteriaBuilder().createQueury(File.class)
+            CriteriaQuery<File> f = em.getCriteriaBuilder().createQuery(File.class)
             Root<Interface> r = f.from(entityClass)
             f.select(r.<File>get("container")).where(cb.equal(r.get("compKey"), key))
             return em.createQuery(f).getSingleResult()

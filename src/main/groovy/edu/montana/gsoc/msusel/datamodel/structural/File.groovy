@@ -26,6 +26,7 @@
 package edu.montana.gsoc.msusel.datamodel.structural
 
 import edu.montana.gsoc.msusel.datamodel.measures.Measurable
+import edu.montana.gsoc.msusel.datamodel.member.Field
 import edu.montana.gsoc.msusel.datamodel.member.Method
 import edu.montana.gsoc.msusel.datamodel.type.Type
 import groovy.transform.EqualsAndHashCode
@@ -35,7 +36,7 @@ import javax.persistence.*
 
 /**
  * @author Isaac Griffith
- * @version 1.2.0
+ * @version 1.3.0
  */
 @Entity
 @Builder(buildMethodName = "create", excludes = ["id"])
@@ -139,7 +140,7 @@ class File implements Measurable {
      *         outside the range of any type in this file.
      */
     Type findType(final int line) {
-        types().find { Type t -> t.containsLine(line) }
+        types.find { Type t -> t.containsLine(line) }
     }
 
     /**
@@ -154,7 +155,7 @@ class File implements Measurable {
         if (key == null || key.isEmpty())
             return null
 
-        types().find { Type t -> t.key == key }
+        types.find { Type t -> t.key == key }
     }
 
     /**
@@ -167,13 +168,12 @@ class File implements Measurable {
      *         definition, empty string otherwise.
      */
     String findField(final int line) {
-        final String type = getType(line)
+        final Type type = findType(line)
 
-        if (type != null && types.containsKey(type)) {
-            final Type node = types.get(type)
-            if (node.getField(line) != null) {
-                return node.getField(line).getQIdentifier()
-            }
+        if (type != null) {
+            Field field = type.findField(line)
+            if (field != null)
+                return field.key()
         }
 
         return ""
@@ -196,7 +196,7 @@ class File implements Measurable {
      */
     List<Method> methods() {
         def methods = []
-        types().each { Type t ->
+        types.each { Type t ->
             methods.addAll(t.methods())
         }
 
@@ -223,9 +223,15 @@ class File implements Measurable {
      * @return The set of Imports contained in the File
      */
     List<String> getImports() {
-        []
+        List<String> imps = []
+        imports.each {
+            imps << it.name
+        }
+
+        imps
     }
 
+    // TODO Finish this
     def following(int line) {
 
     }

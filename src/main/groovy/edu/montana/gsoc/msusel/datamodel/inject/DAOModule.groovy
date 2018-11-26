@@ -36,13 +36,13 @@ class DAOModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(ClassDAO.class).to(ClassDAOImpl.class)
-        bind(EnumDAO.class).to(EnumDAOImpl.class)
-        bind(EventDAO.class).to(EventDAOImpl.class)
-        bind(StructDAO.class).to(StructDAOImpl.class)
         bind(ConstructorDAO.class).to(ConstructorDAOImpl.class)
         bind(DestructorDAO).to(DestructorDAOImpl.class)
+        bind(EnumDAO.class).to(EnumDAOImpl.class)
+        bind(EventDAO.class).to(EventDAOImpl.class)
         bind(FieldDAO.class).to(FieldDAOImpl.class)
-        bind(PropertyDAO.class).to(PropertyDAOImpl.class)
+        bind(StructDAO.class).to(StructDAOImpl.class)
+        bind(FieldDAO.class).to(FieldDAOImpl.class)
         bind(FileDAO.class).to(FileDAOImpl.class)
         bind(FindingDAO.class).to(FindingDAOImpl.class)
         bind(InitializerDAO.class).to(InitializerDAOImpl.class)
@@ -59,11 +59,13 @@ class DAOModule extends AbstractModule {
         bind(PatternInstanceDAO.class).to(PatternInstanceDAOImpl.class)
         bind(PatternRepositoryDAO.class).to(PatternRepositoryDAOImpl.class)
         bind(ProjectDAO.class).to(ProjectDAOImpl.class)
+        bind(PropertyDAO.class).to(PropertyDAOImpl.class)
         bind(RelationDAO.class).to(RelationDAOImpl.class)
         bind(RoleDAO.class).to(RoleDAOImpl.class)
         bind(RuleDAO.class).to(RuleDAOImpl.class)
         bind(RuleRepositoryDAO.class).to(RuleRepositoryDAOImpl.class)
-        bind(SystemDAO.class).to(SystemDAOImpl.class)
         bind(SCMDAO.class).to(SCMDAOImpl.class)
+        bind(StructDAO.class).to(StructDAOImpl.class)
+        bind(SystemDAO.class).to(SystemDAOImpl.class)
     }
 }

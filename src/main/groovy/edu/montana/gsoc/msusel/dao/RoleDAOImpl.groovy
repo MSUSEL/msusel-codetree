@@ -47,7 +47,7 @@ class RoleDAOImpl extends GenericDAOImpl<Role, Long> implements RoleDAO {
     Pattern findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<Pattern> f = em.getCriteriaBuilder().createQueury(Pattern.class)
+            CriteriaQuery<Pattern> f = em.getCriteriaBuilder().createQuery(Pattern.class)
             Root<Role> r = f.from(entityClass)
             f.select(r.<Pattern>get("pattern")).where(cb.equal(r.get("roleKey"), key))
             return em.createQuery(f).getSingleResult()

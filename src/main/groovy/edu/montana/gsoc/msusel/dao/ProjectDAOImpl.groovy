@@ -51,7 +51,7 @@ class ProjectDAOImpl extends GenericDAOImpl<Project, Long> implements ProjectDAO
     System findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<System> f = em.getCriteriaBuilder().createQueury(System.class)
+            CriteriaQuery<System> f = em.getCriteriaBuilder().createQuery(System.class)
             Root<Project> r = f.from(entityClass)
             f.select(r.<System>get("system")).where(cb.equal(r.get("projKey"), key))
             return em.createQuery(f).getSingleResult()

@@ -30,9 +30,10 @@ import groovy.transform.builder.Builder
 
 import javax.persistence.Embeddable
 import javax.persistence.Embedded
+
 /**
  * @author Isaac Griffith
- * @version 1.2.0
+ * @version 1.3.0
  */
 @Embeddable
 @Builder(buildMethodName = "create", excludes = ["bounds, typeArgs"])

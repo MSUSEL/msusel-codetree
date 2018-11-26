@@ -34,6 +34,10 @@ import edu.montana.gsoc.msusel.datamodel.structural.File
 
 import javax.persistence.Entity
 
+/**
+ * @author Isaac Griffith
+ * @version 1.3.0
+ */
 @Entity
 abstract class Classifier extends Type {
 
@@ -65,11 +69,11 @@ abstract class Classifier extends Type {
 
     List<Component> following(int line) {
         List<Component> nodes = []
-        nodes << fields().findAll { Field fld ->
+        nodes += fields().findAll { Field fld ->
             fld.containsLine(line) || fld.start > line
         }
 
-        nodes << methods().findAll { Method meth ->
+        nodes += methods().findAll { Method meth ->
             meth.containsLine(line) || meth.start > line
         }
 

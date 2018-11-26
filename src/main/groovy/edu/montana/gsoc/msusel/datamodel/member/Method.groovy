@@ -63,7 +63,7 @@ class Method extends TypedMember {
     List<TypeReference> exceptions = []
 
     @Builder(buildMethodName = "create")
-    private Method(String key, Type parent, String name, Accessibility access, List<Modifier> modifiers, TypeReference type, List<Parameter> params, int start, int end) {
+    protected Method(String key, Type parent, String name, Accessibility access, List<Modifier> modifiers, TypeReference type, List<Parameter> params, int start, int end) {
         super(key, parent, name, access, modifiers, type, start, end)
         this.params = params
     }
@@ -131,7 +131,7 @@ class Method extends TypedMember {
     }
 
     def hasModifier(String mod) {
-        modifiers.contains(edu.montana.gsoc.msusel.codetree.node.Modifier.valueOf(mod.toUpperCase()))
+        modifiers.contains(Modifier.valueOf(mod.toUpperCase()))
     }
 
     boolean isAbstract() {
@@ -146,7 +146,7 @@ class Method extends TypedMember {
             parents << current
         }
 
-        parents.each { p ->
+        parents.each { Type p ->
             if (p.hasMethodWithMatchingSignature(this))
                 return true
         }

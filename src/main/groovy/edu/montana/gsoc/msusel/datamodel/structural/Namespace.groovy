@@ -52,7 +52,7 @@ class Namespace implements Measurable {
     @OneToMany(mappedBy = "parent")
     List<Namespace> children = []
     @ManyToOne(fetch = FetchType.LAZY)
-    Structure container
+    Module container
     @ManyToOne(fetch = FetchType.LAZY)
     Namespace parent
 
@@ -142,18 +142,24 @@ class Namespace implements Measurable {
     }
 
     List<Method> methods() {
-        []
+        List<Method> methods = []
+        files().each {
+            methods += it.methods()
+        }
+
+        methods
     }
 
+    // TODO Remove this
     def getPlantUML() {
         StringBuilder builder = new StringBuilder()
-        builder.append("package ${this.getSimpleName()} {")
+        builder.append("package ${this.name()} {")
 
         builder.append("}")
     }
 
     boolean hasFile(String key) {
-        files.find { it.fileKey == key } != null
+        files.find { it.key() == key } != null
     }
 
     boolean containsNamespace(Namespace current) {
@@ -161,7 +167,7 @@ class Namespace implements Measurable {
     }
 
     Type findTypeByName(String name) {
-        types().find { it.name == name }
+        types().find { it.name() == name }
     }
 
     @Override
@@ -172,5 +178,9 @@ class Namespace implements Measurable {
     @Override
     String name() {
         name
+    }
+
+    File findFile(String s) {
+        files().find { it.key() == s }
     }
 }

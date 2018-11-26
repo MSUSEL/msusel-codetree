@@ -29,14 +29,21 @@ import com.google.common.collect.Sets
 import edu.montana.gsoc.msusel.datamodel.SCM
 import edu.montana.gsoc.msusel.datamodel.System
 import edu.montana.gsoc.msusel.datamodel.measures.Finding
+import edu.montana.gsoc.msusel.datamodel.measures.Measurable
 import edu.montana.gsoc.msusel.datamodel.measures.Measure
 import edu.montana.gsoc.msusel.datamodel.member.Method
 import edu.montana.gsoc.msusel.datamodel.pattern.PatternInstance
 import edu.montana.gsoc.msusel.datamodel.relations.Relation
 import edu.montana.gsoc.msusel.datamodel.type.Type
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.builder.Builder
 
 import javax.persistence.Entity
+import javax.persistence.FetchType
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
+import javax.persistence.ManyToOne
 import javax.persistence.OneToMany
 import javax.persistence.OneToOne
 import javax.persistence.Table
@@ -47,8 +54,16 @@ import javax.persistence.Table
  */
 @Entity
 @Table(name = "Project")
-class Project extends Structure {
+@EqualsAndHashCode(excludes = ["id", "namespaces", "system"])
+class Project implements Measurable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    long id
+    String projKey
+    String name
+    @ManyToOne(fetch = FetchType.LAZY)
+    System system
     @OneToMany(mappedBy = "project")
     List<Module> modules = []
     String version
@@ -63,10 +78,13 @@ class Project extends Structure {
     List<Relation> relations = []
     @OneToOne(mappedBy = "project")
     SCM scm
+    String projectRoot
 
     @Builder(buildMethodName = "create")
-    Project(String key, String name, String version, System system, List<Module> modules, List<String> languages, SCM scm) {
-        super(key, name, system, [])
+    Project(String key, String name, String version, System system, List<Module> modules, List<String> languages, SCM scm, String projectRoot) {
+        this.projKey = key
+        this.name = name
+        this.system = system
         this.version = version
         this.modules = modules
         this.languages = languages
@@ -75,6 +93,7 @@ class Project extends Structure {
         patterns = []
         relations = []
         this.scm = scm
+        this.projectRoot = projectRoot
     }
 
     Project leftShift(Relation relation) {
@@ -105,32 +124,19 @@ class Project extends Structure {
         }
     }
 
-    Project leftShift(Structure structure) {
-        addStructure(structure)
+    Project leftShift(Module mod) {
+        addModule(mod)
         this
     }
 
-    Project plus(Structure structure) {
-        addStructure(structure)
+    Project plus(Module mod) {
+        addModule(mod)
         this
     }
 
-    Project minus(Structure structure) {
-        removeStructure(structure)
-    }
-
-    void addStructure(Structure structure) {
-        if (structure && !structures.contains(structure)) {
-            structures << structure
-            structure.project = this
-        }
-    }
-
-    void removeStructure(Structure structure) {
-        if (structure && structures.contains(structure)) {
-            structures -= structure
-            structure.project = null
-        }
+    Project minus(Module mod) {
+        removeModule(mod)
+        this
     }
 
     Project leftShift(PatternInstance instance) {
@@ -222,61 +228,17 @@ class Project extends Structure {
         modules = []
     }
 
-    Project plus(Project p) {
-        addModule(p)
-        this
-    }
-
-    Project minus(Project p) {
-        removeModule(p)
-        this
-    }
-
-    Project leftShift(Project p) {
-        addModule(p)
-        this
-    }
-
-    Project plus(Namespace ns) {
-        addNamespace(ns)
-        this
-    }
-
-    Project minus(Namespace ns) {
-        removeNamespace(ns)
-        this
-    }
-
-    Project leftShift(Namespace ns) {
-        addNamespace(ns)
-        this
-    }
-
-    void addModule(Project p) {
-        if (p && !modules.contains(p)) {
-            modules << p
-            p.parent = this
+    void addModule(Module m) {
+        if (m && !modules.contains(m)) {
+            modules << m
+            m.parent = this
         }
     }
 
-    void removeModule(Project p) {
-        if (p && !modules.contains(p)) {
-            modules -= p
-            p.parent = null
-        }
-    }
-
-    void addNamespace(Namespace ns) {
-        if (ns && !namespaces.contains(ns)) {
-            namespaces << ns
-            ns.proj = this
-        }
-    }
-
-    void removeNamespace(Namespace ns) {
-        if (ns && namespaces.contains(ns)) {
-            namespaces -= ns
-            ns.proj = null
+    void removeModule(Module m) {
+        if (m && !modules.contains(m)) {
+            modules -= m
+            m.parent = null
         }
     }
 
@@ -301,9 +263,6 @@ class Project extends Structure {
         namespaces
     }
 
-    /**
-     * {@inheritDoc}
-     */
     List<Type> types()
     {
         List<Type> types = []
@@ -330,51 +289,34 @@ class Project extends Structure {
     {
         def set = Sets.newHashSet()
 
-        files().each { java.io.File fn -> set << fn.key}
+        files().each { File fn -> set << fn.key}
 
         set
     }
 
     /**
-     * @return true if this project has any subprojects, modules, or files
+     * @return true if this project has any modules
      */
     boolean hasChildren()
     {
-        return !children.isEmpty()
-    }
-
-    /**
-     * Searches this project for a subproject with the provided qualified
-     * identifier.
-     *
-     * @param qIdentifier
-     *            Identifier to search for modules with
-     * @return true if this project contains a module with the provided
-     *         qIdentifier, false otherwise.
-     */
-    boolean hasSubProject(String qIdentifier)
-    {
-        if (qIdentifier == null || qIdentifier.isEmpty())
-            return false
-
-        return subprojects().find { it instanceof Project && it.getKey() == qIdentifier } != null
+        return !modules.isEmpty()
     }
     
     /**
      * Searches this project for a module with the provided qualified
      * identifier.
      *
-     * @param qIdentifier
+     * @param key
      *            Identifier to search for modules with
      * @return true if this project contains a module with the provided
-     *         qIdentifier, false otherwise.
+     *         key, false otherwise.
      */
-    boolean hasModule(String qIdentifier)
+    boolean hasModule(String key)
     {
-        if (qIdentifier == null || qIdentifier.isEmpty())
+        if (key == null || key.isEmpty())
             return false
 
-        return modules().find { it instanceof Module && it.getKey() == qIdentifier } != null
+        return modules.find { it.key() == key } != null
     }
 
     /**
@@ -391,7 +333,7 @@ class Project extends Structure {
         if (path == null || path.isEmpty())
             return false
 
-        return files().find {it instanceof java.io.File && it.key == path} != null
+        return files().find {it instanceof File && it.key() == path} != null
     }
     
     /**
@@ -408,13 +350,36 @@ class Project extends Structure {
         if (ns == null || ns.isEmpty())
             return false
 
-        return namespaces().find {it instanceof Namespace && it.key == ns} != null
+        return namespaces().find {it instanceof Namespace && it.key() == ns} != null
     }
 
     Namespace getNamespace(String ns) {
         if (ns == null || ns.isEmpty())
             return null
 
-        return (Namespace) namespaces().find {it instanceof Namespace && it.key == ns}
+        return (Namespace) namespaces().find {it instanceof Namespace && it.key() == ns}
+    }
+
+    File findFile(String key) {
+        files().find { it.key() == key }
+    }
+
+    void removeFile(String s) {
+        File f = findFile(s)
+        if (f != null) {
+            if (namespaces.contains(f.getNamespace())) {
+                f.getNamespace().removeFile(f)
+            }
+        }
+    }
+
+    @Override
+    String key() {
+        projKey
+    }
+
+    @Override
+    String name() {
+        name
     }
 }

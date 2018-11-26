@@ -47,7 +47,7 @@ class MetricDAOImpl extends GenericDAOImpl<Metric, Long> implements MetricDAO {
     MetricRepository findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<MetricRepository> f = em.getCriteriaBuilder().createQueury(MetricRepository.class)
+            CriteriaQuery<MetricRepository> f = em.getCriteriaBuilder().createQuery(MetricRepository.class)
             Root<Metric> r = f.from(entityClass)
             f.select(r.<MetricRepository>get("repository")).where(cb.equal(r.get("metricKey"), key))
             return em.createQuery(f).getSingleResult()

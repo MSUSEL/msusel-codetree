@@ -157,21 +157,33 @@ abstract class Type extends Component {
     }
 
     List<Method> methods() {
-        members.findAll {
+        List<Method> m = []
+
+        m += members.findAll {
             it instanceof Method
         }
+
+        m
     }
 
-    def constructors() {
-        members.findAll {
+    List<Constructor> constructors() {
+        List<Constructor> c = []
+
+        c += members.findAll {
             it instanceof Constructor
         }
+
+        c
     }
 
     List<Field> fields() {
-        members.findAll {
+        List<Field> f = []
+
+        f += members.findAll {
             it instanceof Field
         }
+
+        f
     }
 
     def getField(String name) {
@@ -222,16 +234,27 @@ abstract class Type extends Component {
     }
 
     Initializer getStaticInitializer(int i) {
-        methods().find { it.name == '<static_init$' + i + '>' }
+        (Initializer) members.find { it instanceof Initializer && it.modifiers.contains(Modifier.STATIC) && it.name == '<static_init$' + i + '>' }
     }
 
     Initializer getInstanceInitializer(int i) {
-        methods().find { it.name =~ /^<init\$${i}>$/ }
+        (Initializer) members.find { it instanceof Initializer && !it.modifiers.contains(Modifier.STATIC) && it.name =~ /^<init\$${i}>$/ }
     }
 
     boolean hasMethod(Method node) {
         methods().find { it == node } != null
     }
 
+    Field findField(int line) {
+        fields().find { it.containsLine(line) }
+    }
+
+    // TODO Remove this
     abstract def generatePlantUML()
+
+    boolean hasMethodWithMatchingSignature(Method method) {
+        methods().any { Method m ->
+            m.signature() == method.signature()
+        }
+    }
 }

@@ -28,6 +28,7 @@ package edu.montana.gsoc.msusel.datamodel.type
 import edu.montana.gsoc.msusel.datamodel.Accessibility
 import edu.montana.gsoc.msusel.datamodel.Component
 import edu.montana.gsoc.msusel.datamodel.Modifier
+import edu.montana.gsoc.msusel.datamodel.structural.File
 import groovy.transform.builder.Builder
 
 import javax.persistence.Entity
@@ -59,6 +60,7 @@ class UnknownType extends Type {
     /**
      * {@inheritDoc}
      */
+    // TODO Remove This
     @Override
     def generatePlantUML() {
         "class ${name()} <<Uknown>> {}"

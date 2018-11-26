@@ -28,9 +28,11 @@ package edu.montana.gsoc.msusel.datamodel.type
 import edu.montana.gsoc.msusel.datamodel.Accessibility
 import edu.montana.gsoc.msusel.datamodel.Component
 import edu.montana.gsoc.msusel.datamodel.Modifier
+import edu.montana.gsoc.msusel.datamodel.structural.File
+
 /**
  * @author Isaac Griffith
- * @version 1.2.0
+ * @version 1.3.0
  */
 class Event extends Type {
 
@@ -54,11 +56,13 @@ class Event extends Type {
     /**
      * {@inheritDoc}
      */
+    // TODO Remove this
     @Override
     def generatePlantUML() {
         ""
     }
 
+    // TODO Finish this
     List<Component> following(int line) {
         return [] // TODO implement this
     }

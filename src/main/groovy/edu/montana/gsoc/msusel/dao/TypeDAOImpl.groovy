@@ -31,7 +31,6 @@ import edu.montana.gsoc.msusel.datamodel.relations.RelationType
 import edu.montana.gsoc.msusel.datamodel.structural.File
 import edu.montana.gsoc.msusel.datamodel.structural.Module
 import edu.montana.gsoc.msusel.datamodel.structural.Namespace
-import edu.montana.gsoc.msusel.datamodel.structural.Structure
 import edu.montana.gsoc.msusel.datamodel.type.Type
 
 import javax.persistence.criteria.CriteriaBuilder
@@ -59,11 +58,8 @@ abstract class TypeDAOImpl<T extends Type> extends GenericDAOImpl<T, Long> imple
         aClass = em.merge(aClass)
         File f = aClass.getContainer()
         Namespace n = f.getNamespace()
-        Structure s = n.getContainer()
-        if (s instanceof Module)
-            s
-        else
-            null
+        Module s = n.getContainer()
+        s
     }
 
     @Transactional

@@ -121,6 +121,7 @@ class JpaDataModelMediator implements DataModelMediator {
         relationDao.findToRelations(to, RelationType.GENERALIZATION)
     }
 
+    // TODO Fix this
     @Override
     boolean hasGeneralization(Type from, Type to) {
         return false
@@ -141,6 +142,7 @@ class JpaDataModelMediator implements DataModelMediator {
         relationDao.findToRelations(to, RelationType.REALIZATION)
     }
 
+    // TODO Fix this
     @Override
     boolean hasRealization(Type from, Type to) {
         return false
@@ -217,6 +219,7 @@ class JpaDataModelMediator implements DataModelMediator {
         addRelation(from, to, RelationType.DEPENDENCY)
     }
 
+    // TODO Fix this
     @Override
     boolean hasDependency(Type from, Type to) {
         return false
@@ -654,6 +657,7 @@ class JpaDataModelMediator implements DataModelMediator {
         moduleDao.findByKey(qIdentifier)
     }
 
+    // TODO Fix this
     @Override
     Module findModule(Type t) {
         return null
@@ -665,14 +669,13 @@ class JpaDataModelMediator implements DataModelMediator {
     }
 
     @Override
-    List<Type> findTypes(Structure struct) {
-        switch (struct) {
-            case Project:
-                return projectDao.findTypes((Project) structure)
-            case Module:
-                return moduleDao.findTypes((Module) structure)
-        }
-        return []
+    List<Type> findTypes(Module mod) {
+        return moduleDao.findTypes(mod)
+    }
+
+    @Override
+    List<Type> findTypes(Project proj) {
+        return projectDao.findTypes(proj)
     }
 
     @Override
@@ -716,27 +719,26 @@ class JpaDataModelMediator implements DataModelMediator {
     }
 
     @Override
-    List<Method> findMethods(Structure struct) {
-        switch (structure) {
-            case Project:
-                return projectDao.findMethods((Project) structure)
-            case Module:
-                return moduleDao.findMethods((Module) structure)
-        }
-        return []
+    List<Method> findMethods(Module mod) {
+        return moduleDao.findMethods(mod)
     }
 
     @Override
-    List<File> findFiles(Structure structure) {
-        switch (structure) {
-            case Project:
-                return projectDao.findFiles((Project) structure)
-            case Module:
-                return moduleDao.findFiles((Module) structure)
-        }
-        return []
+    List<Method> findMethods(Project proj) {
+        return projectDao.findMethods(proj)
     }
 
+    @Override
+    List<File> findFiles(Project proj) {
+        return projectDao.findFiles(proj)
+    }
+
+    @Override
+    List<File> findFiles(Module mod) {
+        return moduleDao.findFiles(mod)
+    }
+
+    // TODO Fix this
     @Override
     List<File> findFiles(Pattern pattern) {
         return null
@@ -747,21 +749,25 @@ class JpaDataModelMediator implements DataModelMediator {
         namespaceDao.findFiles(namespace)
     }
 
+    // TODO Fix this
     @Override
     boolean hasNamespace(String key) {
         return false
     }
 
+    // TODO Fix this
     @Override
     Measurable findParent(Measurable decorated) {
         return null
     }
 
+    // TODO Fix this
     @Override
     Project currentProject() {
         return null
     }
 
+    // TODO Fix this
     @Override
     Component findComponentByName(String name) {
         return null
@@ -842,11 +848,13 @@ class JpaDataModelMediator implements DataModelMediator {
         moduleDao.findTypes(mod)
     }
 
+    // TODO Fix this
     @Override
     Type findType(String key) {
         return null
     }
 
+    // TODO Fix this
     @Override
     void updateFile(File node) {
 

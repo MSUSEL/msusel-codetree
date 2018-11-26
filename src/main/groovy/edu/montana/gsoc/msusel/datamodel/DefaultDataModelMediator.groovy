@@ -25,11 +25,7 @@
  */
 package edu.montana.gsoc.msusel.datamodel
 
-import com.google.common.collect.HashBasedTable
-import com.google.common.collect.Lists
-import com.google.common.collect.Queues
-import com.google.common.collect.Sets
-import com.google.common.collect.Table
+import com.google.common.collect.*
 import edu.montana.gsoc.msusel.datamodel.environment.EnvironmentLoader
 import edu.montana.gsoc.msusel.datamodel.measures.*
 import edu.montana.gsoc.msusel.datamodel.member.*
@@ -39,7 +35,6 @@ import edu.montana.gsoc.msusel.datamodel.structural.File
 import edu.montana.gsoc.msusel.datamodel.structural.Module
 import edu.montana.gsoc.msusel.datamodel.structural.Namespace
 import edu.montana.gsoc.msusel.datamodel.structural.Project
-import edu.montana.gsoc.msusel.datamodel.structural.Structure
 import edu.montana.gsoc.msusel.datamodel.type.*
 /**
  * @author Isaac Griffith
@@ -80,6 +75,7 @@ class DefaultDataModelMediator implements DataModelMediator {
 
     }
 
+    @Override
     void addRelation(Type from, Type to, RelationType r) {
         List<RelationType> list = table.get(from, to) != null ? table.get(from, to) : []
         if (r != null)
@@ -87,14 +83,17 @@ class DefaultDataModelMediator implements DataModelMediator {
         table.put(from, to, list)
     }
 
+    @Override
     void addGeneralizes(Type from, Type to) {
         addRelation(from, to, RelationType.GENERALIZATION)
     }
 
+    @Override
     List<Type> getGeneralizedFrom(Type from) {
         extractRelations(table.row(from).findAll { it.getValue().contains(RelationType.GENERALIZATION) })
     }
 
+    @Override
     List<Type> getGeneralizedTo(Type to) {
         extractRelations(table.column(to).findAll { it.getValue().contains(RelationType.GENERALIZATION) })
     }
@@ -112,14 +111,17 @@ class DefaultDataModelMediator implements DataModelMediator {
         list
     }
 
+    @Override
     void addRealizes(Type from, Type to) {
         addRelation(from, to, RelationType.REALIZATION)
     }
 
+    @Override
     List<Type> getRealizedFrom(Type from) {
         extractRelations(table.row(from).findAll { it.getValue().contains(RelationType.REALIZATION) })
     }
 
+    @Override
     List<Type> getRealizedTo(Type to) {
         extractRelations(table.column(to).findAll { it.getValue().contains(RelationType.REALIZATION) })
     }
@@ -129,157 +131,199 @@ class DefaultDataModelMediator implements DataModelMediator {
         return false
     }
 
+    @Override
     void addAssociation(Type from, Type to, boolean bidirectional) {
         addRelation(from, to, RelationType.ASSOCIATION)
         if (bidirectional)
             addRelation(to, from, RelationType.ASSOCIATION)
     }
 
+    @Override
     List<Type> getAssociatedFrom(Type from) {
         extractRelations(table.row(from).findAll { it.getValue().contains(RelationType.ASSOCIATION) })
     }
 
+    @Override
     List<Type> getAssociatedTo(Type to) {
         extractRelations(table.column(to).findAll { it.getValue().contains(RelationType.ASSOCIATION) })
     }
 
+    @Override
     void addAggregation(Type from, Type to, boolean bidirectional) {
         addRelation(from, to, RelationType.AGGREGATION)
         if (bidirectional)
             addRelation(to, from, RelationType.AGGREGATION)
     }
 
+    @Override
     List<Type> getAggregatedFrom(Type from) {
         extractRelations(table.row(from).findAll { it.getValue() == RelationType.ASSOCIATION })
     }
 
+    @Override
     List<Type> getAggregatedTo(Type to) {
         extractRelations(table.column(to).findAll { it.getValue() == RelationType.ASSOCIATION })
     }
 
+    @Override
     void addComposition(Type from, Type to, boolean bidirectional) {
         addRelation(from, to, RelationType.COMPOSITION)
         if (bidirectional)
             addRelation(to, from, RelationType.COMPOSITION)
     }
 
+    @Override
     List<Type> getComposedFrom(Type from) {
         extractRelations(table.row(from).findAll { it.getValue().contains(RelationType.COMPOSITION) })
     }
 
+    @Override
     List<Type> getComposedTo(Type to) {
         extractRelations(table.column(to).findAll { it.getValue().contains(RelationType.COMPOSITION) })
     }
 
+    @Override
     void addUse(Type from, Type to) {
         addRelation(from, to, RelationType.USE)
     }
 
+    @Override
     List<Type> getUseFrom(Type from) {
         extractRelations(table.row(from).findAll { it.getValue() == RelationType.USE })
     }
 
+    @Override
     List<Type> getUseTo(Type to) {
         extractRelations(table.column(to).findAll { it.getValue().contains(RelationType.USE) })
     }
 
+    @Override
     void addDependency(Type from, Type to) {
         addRelation(from, to, RelationType.DEPENDENCY)
     }
 
     @Override
     boolean hasDependency(Type from, Type to) {
-        return false
+        extractRelations(table.row(from).values().findAll { it.contains(RelationType.DEPENDENCY) }).contains(to)
     }
 
+    @Override
     void addContainment(Type contained, Type container) {
         addRelation(contained, container, RelationType.CONTAINMENT)
     }
 
+    @Override
     List<Type> getDependencyFrom(Type from) {
         extractRelations(table.row(from).values().findAll { it.contains(RelationType.DEPENDENCY) })
     }
 
+    @Override
     List<Type> getDependencyTo(Type to) {
         extractRelations(table.column(to).findAll { it.getValue().contains(RelationType.DEPENDENCY) })
     }
 
+    @Override
     List<Type> getContainedIn(Type container) {
         extractRelations(table.column(container).findAll { it.getValue().contains(RelationType.CONTAINMENT) })
     }
 
+    @Override
     List<Type> getContainedBy(Type contained) {
         extractRelations(table.row(contained).findAll { it.getValue().contains(RelationType.CONTAINMENT) })
     }
 
+    // TODO Fix This
+    @Override
     List<Type> getTypesUsingMethod(Method method) {
         []
     }
 
+    // TODO Fix This
+    @Override
     List<Method> getMethodsCalledFrom(Type type) {
         []
     }
 
+    // TODO Fix This
+    @Override
     List<Method> getMethodsCalledFrom(Method method) {
         []
     }
 
+    // TODO Fix This
+    @Override
     List<Method> getMethodsCallingMethod(Method method) {
         []
     }
 
+    // TODO Fix This
+    @Override
     List<Field> getFieldsUsedBy(Method method) {
         []
     }
 
+    // TODO Fix This
     @Override
     List<Field> getFieldsUsedBy(Type type) {
         []
     }
 
+    // TODO Fix This
+    @Override
     List<Type> getAllParentClasses(Type type) {
         []
     }
 
+    // TODO Fix This
+    @Override
     List<Type> getAllDescendentClasses(Type type) {
         []
     }
 
+    @Override
     void addUnknownType(Type node) {
         if (node != null && !unknownTypes.contains(node))
             unknownTypes.add(node)
     }
 
+    @Override
     boolean hasBiDirectionalAssociation(Type from, Type to) {
         hasUniDirectionalAssociation(from, to) && hasUniDirectionalAssociation(to, from)
     }
 
+    @Override
     boolean hasContainmentRelation(Type from, Type to) {
         table.get(from, to)?.contains(RelationType.CONTAINMENT)
     }
 
+    @Override
     boolean hasUniDirectionalAssociation(Type from, Type to) {
         table.get(from, to)?.contains(RelationType.ASSOCIATION)
     }
 
+    @Override
     boolean hasUseDependency(Type from, Type to) {
         table.get(from, to)?.contains(RelationType.DEPENDENCY)
     }
 
+    @Override
     Namespace languageNamespace(String s) {
         langNs[s]
     }
 
+    @Override
     void addLanguageNamespace(String s, Namespace namespaceNode) {
         println "NS: ${s}@${namespaceNode}"
         if (s != null && !s.empty && namespaceNode != null)
             langNs[s] = namespaceNode
     }
 
+    @Override
     boolean inheritsFrom(Type type, Type gen) {
         table.get(type, gen)?.contains(RelationType.GENERALIZATION)
     }
 
+    @Override
     boolean realizes(Type type, Type real) {
         table.get(type, real)?.contains(RelationType.REALIZATION)
     }
@@ -289,37 +333,44 @@ class DefaultDataModelMediator implements DataModelMediator {
         system
     }
 
+    // TODO Fix This
     @Override
     void updateMetricRepository(MetricRepository metricRepository) {
 
     }
 
+    // TODO Fix This
     @Override
     void updatePatternRepository(PatternRepository patternRepository) {
 
     }
 
+    // TODO Fix This
     @Override
     void updatePattern(Pattern pattern) {
 
     }
 
+    // TODO Fix This
     @Override
     void updateRuleRepository(RuleRepository ruleRepository) {
 
     }
 
+    // TODO Fix This
     @Override
     void setSystem(System sys) {
         if (sys)
             system = sys
     }
 
+    // TODO Fix This
     @Override
     List<Method> getMethodUseInSameClass(Method m, Type t) {
         return null
     }
 
+    // TODO Fix This
     @Override
     List<Field> getFieldUseInSameClass(Method m, Type t) {
         return null
@@ -722,6 +773,7 @@ class DefaultDataModelMediator implements DataModelMediator {
      *         identifier is null or empty or if no such file exists in the
      *         model.
      */
+    @Override
     File findFile(final String qid) {
         if (qid == null || qid.isEmpty()) {
             return null
@@ -740,6 +792,8 @@ class DefaultDataModelMediator implements DataModelMediator {
         return null
     }
 
+    // TODO Fix This
+    @Override
     Namespace findNamespace(Type t) {
 
     }
@@ -750,6 +804,7 @@ class DefaultDataModelMediator implements DataModelMediator {
      * @param identifier Identifier of the namespace to find
      * @return The namespace in the associated model, with the given identifier. If no such namespace exists or if the provided identifier is null or the empty string, then null is returned
      */
+    @Override
     Namespace findNamespace(final String identifier) {
         if (identifier == null || identifier.isEmpty())
             return null
@@ -769,6 +824,7 @@ class DefaultDataModelMediator implements DataModelMediator {
     /**
      * @return The set of all namespaces within the model.
      */
+    @Override
     List<Namespace> getNamespaces() {
         List<Namespace> namespaces = Lists.newArrayList()
 
@@ -793,6 +849,7 @@ class DefaultDataModelMediator implements DataModelMediator {
      * @return Method with matching qualified identifier, or null if the
      *         identifier is null, empty, or no such Method exists.
      */
+    @Override
     Method findMethod(final String identifier) {
         if (identifier == null || identifier.isEmpty())
             return null
@@ -815,6 +872,7 @@ class DefaultDataModelMediator implements DataModelMediator {
      *         provided qualified identifier is null or empty or no such
      *         matching Module exists.
      */
+    @Override
     Module findModule(String qIdentifier) {
         if (qIdentifier == null || qIdentifier.isEmpty())
             return null
@@ -843,6 +901,8 @@ class DefaultDataModelMediator implements DataModelMediator {
      *         provided, or null if no such Project exists in the DataModelMediator
      *         or the provided identifier is null or empty.
      */
+    // TODO Fix This
+    @Override
     Project findProject(String qid) {
         if (qid == null || qid.isEmpty())
             return null
@@ -875,6 +935,8 @@ class DefaultDataModelMediator implements DataModelMediator {
      *         or null if no such Type exists in the DataModelMediator or the
      *         provided identifier is null or empty.
      */
+    // TODO Fix This
+    @Override
     Type findType(final String key) {
         if (key == null || key.isEmpty())
             return null
@@ -898,25 +960,37 @@ class DefaultDataModelMediator implements DataModelMediator {
         ret
     }
 
-    List<Type> findTypes(Structure struct) {
-        []
+    @Override
+    List<Type> findTypes(Project proj) {
+        proj.types()
     }
 
+    @Override
+    List<Type> findTypes(Module mod) {
+        mod.types()
+    }
+
+    // TODO Fix This
+    @Override
     List<Type> findTypes(PatternInstance inst) {
         []
     }
 
+    @Override
     List<Type> findTypes(File file) {
-        []
+        file.types
     }
 
+    @Override
     List<Type> findTypes(Namespace namespace) {
-        []
+        namespace.types()
     }
 
     /**
      * @return The set of all files within the model.
      */
+    // TODO Fix This
+    @Override
     List<File> getFiles() {
         Set<File> files = Sets.newHashSet()
 
@@ -936,6 +1010,7 @@ class DefaultDataModelMediator implements DataModelMediator {
     /**
      * @return The set of all methods within the model.
      */
+    @Override
     List<Method> getMethods() {
         final Set<Method> methods = Sets.newHashSet()
 
@@ -948,6 +1023,8 @@ class DefaultDataModelMediator implements DataModelMediator {
      * @return The set of all projects within the model (including the root
      *         project)
      */
+    // TODO Fix This
+    @Override
     List<Project> getProjects() {
         Set<Project> projects = Sets.newHashSet()
         Queue<Project> q = Queues.newArrayDeque()
@@ -967,6 +1044,7 @@ class DefaultDataModelMediator implements DataModelMediator {
     /**
      * @return The set of all known types in the model.
      */
+    @Override
     List<Type> getTypes() {
         final Set<Type> types = Sets.newHashSet()
 
@@ -981,6 +1059,7 @@ class DefaultDataModelMediator implements DataModelMediator {
      * @param other
      *            DataModelMediator to merge into the currently operated on DataModelMediator.
      */
+    // TODO Fix This
     void merge(DataModelMediator other) {
         if (other == null)
             return
@@ -1006,6 +1085,8 @@ class DefaultDataModelMediator implements DataModelMediator {
      * @param file
      *            Qualified Identifier of the file to be removed.
      */
+    // TODO Fix This
+    @Override
     void removeFile(final String file) {
         if (file == null || file.isEmpty()) {
             return
@@ -1022,62 +1103,89 @@ class DefaultDataModelMediator implements DataModelMediator {
      * @param node
      *            File to be used to update the model.
      */
+    @Override
     synchronized void updateFile(final File node) {
         if (node == null)
             return
 
-        Structure container = findProject(node.getParentKey()) != null ? findProject(node.getParentKey()) : findModule(node.getParentKey())
+        Namespace container = node.getNamespace()
 
-        if (container.findFile(node.fileKey) == null) {
-            container.addChild(node)
+        if (container.hasFile(node.key())) {
+            container.addFile(node)
         } else {
-            container.findFile(node.fileKey).update(node)
+            // TODO Fix the update
+            container.findFile(node.key()).update(node)
         }
     }
 
+    @Override
     File findParentFile(Component codeNode) {
         findFile(codeNode.compKey)
     }
 
+    @Override
     List<Type> getNamespaceClasses(Namespace namespace) {
-        null
+        namespace.types()
     }
 
+    // TODO Fix This
+    @Override
     Module getModuleForType(Type type) {
         null
     }
 
     @Override
     List<Type> getModuleClasses(Module mod) {
-        return null
+        mod.types()
     }
 
+    // TODO Fix This
     Set<Type> getModuleClasses(Set<Type> types) {
         null
     }
 
-    List<Method> findMethods(Structure struct) {
+    // TODO Fix This
+    @Override
+    List<Method> findMethods(Project proj) {
         []
     }
 
-    List<File> findFiles(Structure structure) {
+    // TODO Fix This
+    @Override
+    List<Method> findMethods(Module mod) {
+        []
+    }
+
+    // TODO Fix This
+    @Override
+    List<File> findFiles(Module mod) {
         null
     }
 
+    // TODO Fix This
+    @Override
+    List<File> findFiles(Project proj) {
+        null
+    }
+
+    // TODO Fix This
     @Override
     List<File> findFiles(Pattern pattern) {
         return null
     }
 
+    // TODO Fix This
+    @Override
     List<File> findFiles(Namespace namespace) {
         []
     }
 
     @Override
     boolean hasNamespace(String key) {
-        return false
+        namespaces.find { it.key() == key } != null
     }
 
+    // TODO Fix This
     @Override
     Measurable findParent(Measurable decorated) {
         return null
@@ -1088,23 +1196,28 @@ class DefaultDataModelMediator implements DataModelMediator {
         return project
     }
 
+    // TODO Fix This
     @Override
     Component findComponentByName(String name) {
         null
     }
 
+    // TODO Fix This
     def storeMeasure(Measure m) {
         measures.put(m.getItemKey(), m.getMetricKey(), m.getValue())
     }
 
+    // TODO Fix This
     def retrieveMeasure(Measurable node, String metric) {
         measures.get(node.getKey(), metric)
     }
 
+    // TODO Fix This
     boolean hasMetric(Measurable c, String metric) {
         measures.get(c.getKey(), metric) != null
     }
 
+    // TODO Fix This
     List<Double> getAllClassValues(String metric) {
         List<Double> values = []
 
@@ -1113,6 +1226,7 @@ class DefaultDataModelMediator implements DataModelMediator {
         values
     }
 
+    // TODO Fix This
     List<Double> getAllFileValues(String metric) {
         List<Double> values = []
 
@@ -1121,6 +1235,7 @@ class DefaultDataModelMediator implements DataModelMediator {
         values
     }
 
+    // TODO Fix This
     List<Double> getAllMethodValues(String metric) {
         List<Double> values = []
 
@@ -1129,6 +1244,7 @@ class DefaultDataModelMediator implements DataModelMediator {
         values
     }
 
+    // TODO Fix This
     double getProjectMetric(String metric) {
         if (hasMetric(getProject(), metric))
             (double) retrieve(tree.getSystem(), metric)

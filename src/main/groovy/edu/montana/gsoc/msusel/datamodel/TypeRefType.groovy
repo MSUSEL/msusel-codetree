@@ -25,6 +25,10 @@
  */
 package edu.montana.gsoc.msusel.datamodel
 
+/**
+ * @author Isaac Griffith
+ * @version 1.3.0
+ */
 enum TypeRefType {
     WILDCARD,
     TYPEVAR,

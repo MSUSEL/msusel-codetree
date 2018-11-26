@@ -49,7 +49,7 @@ class MethodDAOImpl extends MemberDAOImpl<Method> implements MethodDAO {
             CriteriaBuilder cb = em.getCriteriaBuilder()
             CriteriaQuery<Method> c = em.getCriteriaBuilder().createQuery(entityClass)
             Root<Method> m = c.from(entityClass)
-            c.select(m).where(cb.equal(m.get("metricKey"), key))
+            c.select(m).where(cb.equal(m.get("compKey"), key))
             return em.createQuery(c).getSingleResult()
         } catch (NonUniqueResultException ex) {
             return null

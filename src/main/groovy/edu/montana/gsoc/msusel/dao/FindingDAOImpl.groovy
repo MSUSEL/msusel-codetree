@@ -47,7 +47,7 @@ class FindingDAOImpl extends GenericDAOImpl<Finding, Long> implements FindingDAO
     Project findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<Project> f = em.getCriteriaBuilder().createQueury(Project.class)
+            CriteriaQuery<Project> f = em.getCriteriaBuilder().createQuery(Project.class)
             Root<Finding> r = f.from(entityClass)
             f.select(r.<Project>get("project")).where(cb.equal(r.get("findingKey"), key))
             return em.createQuery(f).getSingleResult()

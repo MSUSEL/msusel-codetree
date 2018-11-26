@@ -37,13 +37,13 @@ import javax.persistence.Entity
 
 /**
  * @author Isaac Griffith
- * @version 1.2.0
+ * @version 1.3.0
  */
 @Entity
 class Class extends Classifier {
 
     @Builder(buildMethodName = "create")
-    private Class(String key, File file, Type parent, String name, Accessibility access, List<Modifier> modifiers, List<Type> children, List<Component> members, int start, int end) {
+    protected Class(String key, File file, Type parent, String name, Accessibility access, List<Modifier> modifiers, List<Type> children, List<Component> members, int start, int end) {
         super(key, file, parent, name, access, modifiers, children, members, start, end)
     }
 

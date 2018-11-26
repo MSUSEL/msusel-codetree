@@ -76,6 +76,7 @@ class Field extends TypedMember {
         }
     }
 
+    // TODO Remove this
     def plantUML() {
         "${this.accessibility.getPlantUML()} ${name()} : ${type.toString()}"
     }

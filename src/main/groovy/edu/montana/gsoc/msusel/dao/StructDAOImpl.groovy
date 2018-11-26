@@ -34,6 +34,10 @@ import javax.persistence.criteria.CriteriaBuilder
 import javax.persistence.criteria.CriteriaQuery
 import javax.persistence.criteria.Root
 
+/**
+ * @author Isaac Griffith
+ * @version 1.3.0
+ */
 class StructDAOImpl extends TypeDAOImpl<Struct> implements StructDAO {
 
     StructDAOImpl() {
@@ -44,7 +48,7 @@ class StructDAOImpl extends TypeDAOImpl<Struct> implements StructDAO {
     File findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<File> f = em.getCriteriaBuilder().createQueury(File.class)
+            CriteriaQuery<File> f = em.getCriteriaBuilder().createQuery(File.class)
             Root<Struct> r = f.from(entityClass)
             f.select(r.<File>get("container")).where(cb.equal(r.get("compKey"), key))
             return em.createQuery(f).getSingleResult()

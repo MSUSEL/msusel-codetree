@@ -332,7 +332,9 @@ interface DataModelMediator {
      */
     Type findType(final String key)
 
-    List<Type> findTypes(Structure struct)
+    List<Type> findTypes(Project proj)
+
+    List<Type> findTypes(Module mod)
 
     List<Type> findTypes(PatternInstance inst)
 
@@ -390,9 +392,13 @@ interface DataModelMediator {
 
     List<Type> getModuleClasses(Module mod)
 
-    List<Method> findMethods(Structure struct)
+    List<Method> findMethods(Module mod)
 
-    List<File> findFiles(Structure structure)
+    List<Method> findMethods(Project proj)
+
+    List<File> findFiles(Module mod)
+
+    List<File> findFiles(Project proj)
 
     List<File> findFiles(Pattern pattern)
 

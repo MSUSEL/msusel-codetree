@@ -47,7 +47,7 @@ class PatternDAOImpl extends GenericDAOImpl<Pattern, Long> implements PatternDAO
     PatternRepository findParent(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<PatternRepository> f = em.getCriteriaBuilder().createQueury(PatternRepository.class)
+            CriteriaQuery<PatternRepository> f = em.getCriteriaBuilder().createQuery(PatternRepository.class)
             Root<Pattern> r = f.from(entityClass)
             f.select(r.<PatternRepository>get("repository")).where(cb.equal(r.get("patternKey"), key))
             return em.createQuery(f).getSingleResult()

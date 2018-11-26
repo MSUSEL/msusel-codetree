@@ -27,16 +27,17 @@ package edu.montana.gsoc.msusel.dao
 
 import com.google.inject.persist.Transactional
 import edu.montana.gsoc.msusel.datamodel.member.Destructor
+import edu.montana.gsoc.msusel.datamodel.member.Method
 
 import javax.persistence.NonUniqueResultException
 import javax.persistence.criteria.CriteriaBuilder
 import javax.persistence.criteria.CriteriaQuery
 import javax.persistence.criteria.Root
 
-class DestructorDAOImpl extends MemberDAOImpl<Destructor> implements DestructorDAO {
+class DestructorDAOImpl extends MethodDAOImpl implements DestructorDAO {
 
     DestructorDAOImpl() {
-        super(Destructor.class)
+        super()
     }
 
     @Transactional
@@ -44,12 +45,17 @@ class DestructorDAOImpl extends MemberDAOImpl<Destructor> implements DestructorD
     Destructor findByKey(String key) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder()
-            CriteriaQuery<Destructor> c = em.getCriteriaBuilder().createQuery(entityClass)
-            Root<Destructor> r = c.from(entityClass)
+            CriteriaQuery<Method> c = em.getCriteriaBuilder().createQuery(entityClass)
+            Root<Method> r = c.from(entityClass)
             c.select(r).where(cb.equal(r.get("compKey"), key))
-            return em.createQuery(c).getSingleResult()
+            Method m = em.createQuery(c).getSingleResult()
+            if (m instanceof Destructor) {
+                (Destructor) m
+            } else {
+                null
+            }
         } catch (NonUniqueResultException ex) {
-            return null
+            null
         }
     }
 }

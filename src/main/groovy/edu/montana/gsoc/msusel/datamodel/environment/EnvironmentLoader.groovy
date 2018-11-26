@@ -28,6 +28,7 @@ package edu.montana.gsoc.msusel.datamodel.environment
 import edu.montana.gsoc.msusel.datamodel.DataModelMediator
 import edu.montana.gsoc.msusel.datamodel.structural.Namespace
 import edu.montana.gsoc.msusel.datamodel.type.Interface
+import edu.montana.gsoc.msusel.datamodel.type.Class
 import groovy.util.logging.Slf4j
 
 /**
@@ -116,7 +117,7 @@ abstract class EnvironmentLoader {
             currentNamespace = Namespace.builder()
                     .key(ns)
                     .create()
-            tree.addLanguageNamespace(ns, currentNamespace);
+            tree.addLanguageNamespace(ns, currentNamespace)
         } else {
             currentNamespace = space
         }

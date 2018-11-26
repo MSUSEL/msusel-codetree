@@ -25,6 +25,10 @@
  */
 package edu.montana.gsoc.msusel.datamodel.measures
 
+/**
+ * @author Isaac Griffith
+ * @version 1.3.0
+ */
 interface Measurable {
 
     String key()
