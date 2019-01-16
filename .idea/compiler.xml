@@ -6,11 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="arc_test" />
         <module name="msusel-codetree" />
+        <module name="msusel-java-parser" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="arc_test" target="1.8" />
       <module name="msusel-codetree" target="1.8" />
+      <module name="msusel-java-parser" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
