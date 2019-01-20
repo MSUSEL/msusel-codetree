@@ -79,7 +79,7 @@ public class Measure extends Model {
 
     public static void store(String metricKey, Measurable m, double value) {}
 
-    public static Measure retreive(Measurable m, String metricKey) {
+    public static Measure retrieve(Measurable m, String metricKey) {
         return null;
     }
 }
