@@ -36,7 +36,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public class Project extends Model implements Measureable {
+public class Project extends Model implements Measurable {
 
     public static void main(String[] args) {
         Base.open("org.sqlite.JDBC", "jdbc:sqlite:data/dev.db", "dev1", "");
@@ -167,5 +167,10 @@ public class Project extends Model implements Measureable {
         List<System> systems = Lists.newLinkedList();
         systems.add(parent(System.class));
         return systems;
+    }
+
+    @Override
+    public String getRefKey() {
+        return getString("projKey");
     }
 }

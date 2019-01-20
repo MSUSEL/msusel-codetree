@@ -28,7 +28,6 @@ package edu.isu.isuese.datamodel;
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import org.javalite.activejdbc.Model;
-import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 import java.util.List;
 
@@ -36,7 +35,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public class PatternInstance extends Model implements Measureable {
+public class PatternInstance extends Model implements Measurable {
 
     public String getInstKey() { return getString("instKey"); }
 
@@ -64,5 +63,10 @@ public class PatternInstance extends Model implements Measureable {
         List<PatternChain> chains = Lists.newLinkedList();
         chains.add(parent(PatternChain.class));
         return chains;
+    }
+
+    @Override
+    public String getRefKey() {
+        return getString("instKey");
     }
 }

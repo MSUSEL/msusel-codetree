@@ -33,7 +33,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public abstract class Component extends Model implements Measureable {
+public abstract class Component extends Model implements Measurable {
 
     public void setStart(int start) { set("start", start); save(); }
 

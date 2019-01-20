@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/msusel-codetree.iml" filepath="$PROJECT_DIR$/msusel-codetree.iml" />
       <module fileurl="file://$PROJECT_DIR$/../msusel-java-parser/msusel-java-parser.iml" filepath="$PROJECT_DIR$/../msusel-java-parser/msusel-java-parser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../msusel-loc-metrics/msusel-loc-metrics.iml" filepath="$PROJECT_DIR$/../msusel-loc-metrics/msusel-loc-metrics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../msusel-metrics/msusel-metrics.iml" filepath="$PROJECT_DIR$/../msusel-metrics/msusel-metrics.iml" />
     </modules>
   </component>
 </project>

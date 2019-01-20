@@ -43,4 +43,5 @@ public class Method extends TypedMember {
     public List<Parameter> getParams() { return getAll(Parameter.class); }
 
     public void setReturnType(TypeRef ref) { setType(ref); }
+
 }

@@ -30,7 +30,6 @@ import edu.isu.isuese.datamodel.util.DbUtils;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToParents;
-import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 import java.util.List;
 
@@ -42,7 +41,7 @@ import java.util.List;
         @BelongsTo(foreignKeyName="module_id", parent=Module.class),
         @BelongsTo(foreignKeyName="namespace_id", parent=Namespace.class)
 })
-public class Namespace extends Model implements Measureable {
+public class Namespace extends Model implements Measurable {
 
     public String getNsKey() { return getString("nsKey"); }
 
@@ -130,5 +129,10 @@ public class Namespace extends Model implements Measureable {
         List<Module> modules = Lists.newLinkedList();
         modules.add(parent(Module.class));
         return modules;
+    }
+
+    @Override
+    public String getRefKey() {
+        return getString("nsKey");
     }
 }

@@ -35,7 +35,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public class Module extends Model implements Measureable {
+public class Module extends Model implements Measurable {
 
     public String getModuleKey() { return getString("moduleKey"); }
 
@@ -117,5 +117,10 @@ public class Module extends Model implements Measureable {
         List<Project> projects = Lists.newLinkedList();
         projects.add(parent(Project.class));
         return projects;
+    }
+
+    @Override
+    public String getRefKey() {
+        return getString("moduleKey");
     }
 }

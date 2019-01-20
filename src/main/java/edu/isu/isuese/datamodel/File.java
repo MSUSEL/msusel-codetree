@@ -35,7 +35,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public class File extends Model implements Measureable {
+public class File extends Model implements Measurable {
 
     public String getFileKey() {
         return getString("fileKey");
@@ -161,5 +161,10 @@ public class File extends Model implements Measureable {
         List<Namespace> namespaces = Lists.newLinkedList();
         namespaces.add(parent(Namespace.class));
         return namespaces;
+    }
+
+    @Override
+    public String getRefKey() {
+        return getString("fileKey");
     }
 }

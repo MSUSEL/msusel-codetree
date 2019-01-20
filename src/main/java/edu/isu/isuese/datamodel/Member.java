@@ -63,4 +63,9 @@ public abstract class Member extends Component {
         types.add(parent(Interface.class));
         return types;
     }
+
+    @Override
+    public String getRefKey() {
+        return getString("compKey");
+    }
 }

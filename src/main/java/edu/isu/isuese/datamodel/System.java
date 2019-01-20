@@ -34,33 +34,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public class System extends Model implements Measureable {
-
-    private static final String ALL_PATTERN_CHAINS = "SELECT * FROM pattern_chains JOIN systems ON pattern_chains.system_id = 1;";
-    private static final String ALL_SCM = "SELECT * FROM scms JOIN projects ON scms.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_MODULES = "SELECT * FROM modules JOIN projects ON modules.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_NAMESPACES = "SELECT * FROM namespaces JOIN modules ON namespaces.module_id = modules.id JOIN projects ON modules.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_FILES = "SELECT * FROM files JOIN namespaces ON files.namespace_id = namespaces.id JOIN modules ON namespaces.module_id = modules.id JOIN projects ON modules.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_IMPORTS = "SELECT * FROM imports JOIN files ON imports.file_id = files.id JOIN namespaces ON files.namespace_id = namespaces.id JOIN modules ON namespaces.module_id = modules.id JOIN projects ON modules.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_TYPES = "";
-    private static final String ALL_CLASSES = "SELECT * FROM classes JOIN files ON classes.file_id = files.id JOIN namespaces ON files.namespace_id = namespaces.id JOIN modules ON namespaces.module_id = modules.id JOIN projects ON modules.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_INTERFACES = "SELECT * FROM interfaces JOIN files ON interfaces.file_id = files.id JOIN namespaces ON files.namespace_id = namespaces.id JOIN modules ON namespaces.module_id = modules.id JOIN projects ON modules.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_ENUMS = "SELECT * FROM enums JOIN files ON enums.file_id = files.id JOIN namespaces ON files.namespace_id = namespaces.id JOIN modules ON namespaces.module_id = modules.id JOIN projects ON modules.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_MEMBERS = "";
-    private static final String ALL_LITERALS = "";
-    private static final String ALL_INITIALIZERS = "";
-    private static final String ALL_TYPED_MEMBERS = "";
-    private static final String ALL_FIELDS = "";
-    private static final String ALL_METHODS = "";
-    private static final String ALL_ACTUAL_METHODS = "";
-    private static final String ALL_CONSTRUCTORS = "";
-    private static final String ALL_DESTRUCTORS = "";
-    private static final String ALL_PATTERN_INSTANCES = "SELECT * FROM pattern_instances JOIN projects ON pattern_instances.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_LANGUAGES = "SELECT * FROM languages JOIN projects_languages ON languages.id = projects_languages.language_id JOIN projects ON projects_languages.language_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_MEASURES = "SELECT * FROM measures JOIN projects ON measures.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_ROLE_BINDINGS = "SELECT * FROM role_bindings JOIN pattern_instances ON role_bindings.pattern_instance_id = pattern_instances.id JOIN projects ON pattern_instances.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_FINDINGS = "SELECT * FROM findings JOIN projects ON findings.project_id = projects.id JOIN systems ON projects.system_id = 1;";
-    private static final String ALL_RELATIONS = "SELECT * FROM relations JOIN projects ON relations.project_id = projects.id JOIN systems ON projects.system_id = 1;";
+public class System extends Model implements Measurable, Structure {
 
     public void addProject(Project p) {
         add(p);
@@ -184,5 +158,10 @@ public class System extends Model implements Measureable {
 
     public List<Relation> getRelations() {
         return DbUtils.getRelations(this.getClass(), (Integer) getId());
+    }
+
+    @Override
+    public String getRefKey() {
+        return getIdName();
     }
 }

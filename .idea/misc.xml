@@ -6,6 +6,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../msusel-java-parser/pom.xml" />
         <option value="$PROJECT_DIR$/.idea/pom.xml" />
+        <option value="$PROJECT_DIR$/../msusel-loc-metrics/pom.xml" />
+        <option value="$PROJECT_DIR$/../msusel-metrics/pom.xml" />
       </list>
     </option>
   </component>

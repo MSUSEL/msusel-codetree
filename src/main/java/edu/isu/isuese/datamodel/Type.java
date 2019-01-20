@@ -88,4 +88,9 @@ public abstract class Type extends Component {
     public List<Literal> getLiterals() {
         return getAll(Literal.class);
     }
+
+    @Override
+    public String getRefKey() {
+        return getString("compKey");
+    }
 }
