@@ -76,4 +76,10 @@ public class Measure extends Model {
         metrics.add(parent(Metric.class));
         return metrics;
     }
+
+    public static void store(String metricKey, Measurable m, double value) {}
+
+    public static Measure receive(Measurable m, String metricKey) {
+        return null;
+    }
 }
