@@ -684,4 +684,28 @@ public class DbUtils {
             return Lists.newArrayList();
         }
     }
+
+    public static List<Type> getRelationTo(Type t, RelationType relType) {
+        try {
+            return Type.findBySQL("SELECT * FROM types t" +
+                    " JOIN refs r on r.refkey = t.key" +
+                    " JOIN relations rel on rel.to_id = r.id AND rel.type = ?" +
+                    " JOIN refs s on s.id = rel.from_id" +
+                    " JOIN types x on x.key = s.refKey;");
+        } catch (Exception e) {
+            return Lists.newArrayList();
+        }
+    }
+
+    public static List<Type> getRelationFrom(Type t, RelationType relType) {
+        try {
+            return Type.findBySQL("SELECT * FROM types t" +
+                    " JOIN refs r on refs.refKey = t.key" +
+                    " JOIN relations rel on rel.from_id = r.id AND rel.type = ?" +
+                    " JOIN refs s on s.id = rel.to_id" +
+                    " JOIN types x on x.key = s.refKey;");
+        } catch (Exception e) {
+            return Lists.newArrayList();
+        }
+    }
 }

@@ -53,13 +53,15 @@ public class Namespace extends Model implements Measurable {
 
     public void removeFile(File file) { remove(file); save(); }
 
-    public List<File> getFiles() { return getAll(File.class); }
-
     public void addNamespace(Namespace ns) { add(ns); save(); }
 
     public void removeNamespace(Namespace ns) { remove(ns); save(); }
 
     public List<Namespace> getNamespaces() { return getAll(Namespace.class); }
+
+    public boolean containsNamespace(Namespace ns) {
+        return getNamespaces().contains(ns);
+    }
 
     public List<Import> getImports() {
         return DbUtils.getImports(this.getClass(), (Integer) getId());

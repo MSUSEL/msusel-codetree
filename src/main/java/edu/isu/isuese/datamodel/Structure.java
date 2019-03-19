@@ -37,4 +37,8 @@ public interface Structure {
      * @return A list of files contained within the children of this structure
      */
     List<File> getFiles();
+
+    List<Type> getTypes();
+
+    List<Method> getAllMethods();
 }

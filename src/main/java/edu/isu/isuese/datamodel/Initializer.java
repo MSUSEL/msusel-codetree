@@ -25,6 +25,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 /**
@@ -33,4 +34,17 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
  */
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 public class Initializer extends Member {
+
+    protected Initializer() {}
+
+
+    @Builder(buildMethodName = "create")
+    public Initializer(String name, int start, int end, String compKey, Accessibility accessibility, boolean instance) {
+        set("name", name, "start", start, "end", end, "compKey", compKey, "instance", instance);
+        if (accessibility != null)
+            setAccessibility(accessibility);
+        else
+            setAccessibility(Accessibility.PUBLIC);
+        save();
+    }
 }

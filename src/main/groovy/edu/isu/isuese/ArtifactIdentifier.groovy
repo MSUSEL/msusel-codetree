@@ -25,7 +25,11 @@
  */
 package edu.isu.isuese
 
+import java.nio.file.Path
+
 interface ArtifactIdentifier {
 
     void identify(String root)
+
+    List<Path> getSourceFiles()
 }

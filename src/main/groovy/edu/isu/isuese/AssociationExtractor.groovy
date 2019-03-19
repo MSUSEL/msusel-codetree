@@ -30,69 +30,67 @@ import org.javalite.activejdbc.ModelListener
 
 class AssociationExtractor {
 
-    System sys
+    Project project
 
-    AssociationExtractor(System sys) {
-        this.sys = sys
+    AssociationExtractor(Project proj) {
+        this.project = proj
     }
 
-    // TODO figure out how to get all the types associated with a particular system
     void extractAssociations() {
-        Set<Type> types = sys.getTypes()
+        Set<Type> types = project.getTypes()
 
-        Class.find("", new ModelListener<Class>() {
+        Class.findWith(new ModelListener<Class>() {
             @Override
             void onModel(Class cls) {
                 handleTypeAssociation(cls)
             }
-        })
+        }, "")
 
-        Interface.find("", new ModelListener<Interface>() {
+        Interface.findWith(new ModelListener<Interface>() {
             @Override
             void onModel(Interface inter) {
                 handleTypeAssociation(inter)
             }
-        })
+        }, "")
 
-        Enum.find("", new ModelListener<Enum>() {
+        Enum.findWith(new ModelListener<Enum>() {
             @Override
             void onModel(Enum enm) {
                 handleTypeAssociation(enm)
             }
-        })
+        }, "")
     }
 
     private void handleTypeAssociation(Type type) {
         type.getAll(Field.class).each { Field f ->
-            if (f.getType() != null && f.getType().getReferences().get(0) != null)
+            if (f.getType() != null && f.getType().getReference() != null)
                 createAssociation(type, f.getType())
         }
     }
 
-    // TODO figure out how to get all the types associated with a particular system
     void extractDependencies() {
-        Set<Type> types = sys.getTypes()
+        Set<Type> types = project.getTypes()
 
-        Class.find("", new ModelListener<Class>() {
+        Class.findWith(new ModelListener<Class>() {
             @Override
             void onModel(Class cls) {
                 handleTypeDependency(cls)
             }
-        })
+        }, "")
 
-        Interface.find("", new ModelListener<Interface>() {
+        Interface.findWith(new ModelListener<Interface>() {
             @Override
             void onModel(Interface inter) {
                 handleTypeDependency(inter)
             }
-        })
+        }, "")
 
-        Enum.find("", new ModelListener<Enum>() {
+        Enum.findWith(new ModelListener<Enum>() {
             @Override
             void onModel(Enum enm) {
                 handleTypeDependency(enm)
             }
-        })
+        }, "")
     }
 
     private void handleTypeDependency(Type type) {
@@ -109,30 +107,21 @@ class AssociationExtractor {
         }
     }
 
-    // TODO Fix reference to include type name and type of reference
     private void createAssociation(Type type, TypeRef abref) {
         TypeRef ref = (TypeRef) abref
-        Type dep = tree.findType(ref.type)
-
-        Relation rel = Relation.createIt("relKey", "rel")
-        rel.setType(RelationType.ASSOCIATION)
-        Reference from = Reference.createIt("refKey", "ref")
-        Reference to = Reference.createIt("refKey", "ref")
-        rel.setToAndFromRefs(to, from)
-
-        tree.addAssociation(type, dep, false)
+        Reference reference = ref.getReference()
+        if (reference) {
+            Type dep = project.findType(reference.getRefKey())
+            project.addRelation(type, dep, RelationType.ASSOCIATION)
+        }
     }
 
-    // TODO Fix reference to include type name and type of reference
     private void createDependency(Type type, TypeRef abref) {
         TypeRef ref = (TypeRef) abref
-        Type dep = tree.findType(ref.type)
-        tree.addDependency(type, dep)
-
-        Relation rel = Relation.createIt("relKey", "rel")
-        rel.setType(RelationType.DEPENDENCY)
-        Reference from = Reference.createIt("refKey", "ref")
-        Reference to = Reference.createIt("refKey", "ref")
-        rel.setToAndFromRefs(to, from)
+        Reference reference = ref.getReference()
+        if (reference) {
+            Type dep = project.findType(reference.getRefKey())
+            project.addRelation(type, dep, RelationType.DEPENDENCY)
+        }
     }
 }

@@ -26,22 +26,37 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToParents;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsToPolymorphic(parents = {Parameter.class, Method.class, Constructor.class, Destructor.class, Field.class})
+@BelongsToPolymorphic(parents = {Parameter.class, Method.class, Constructor.class, Destructor.class, Field.class, MethodException.class})
 @BelongsToParents(
         @BelongsTo(foreignKeyName = "typeref_id", parent = TypeRef.class)
 )
 public class TypeRef extends Model {
+
+    protected TypeRef() {}
+
+    @Builder(buildMethodName = "create")
+    public TypeRef(String typeName, String dimensions, TypeRefType type, Reference ref) {
+        set("typeName", typeName, "dimensions", dimensions);
+        setType(type);
+        setReference(ref);
+        save();
+    }
 
     public String getDimensions() { return getString("dimensions"); }
 
@@ -110,4 +125,96 @@ public class TypeRef extends Model {
     public void removeReference(Reference ref) { remove(ref); save(); }
 
     public List<Reference> getReferences() { return getAll(Reference.class); }
+
+    public Reference getReference() {
+        try {
+            return getReferences().get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public static TypeRef createPrimitiveTypeRef(String key) {
+        return TypeRef.createIt("typeName", key, "type", TypeRefType.Primitive.value());
+    }
+
+    public static TypeRef createWildCardTypeRef() {
+        return TypeRef.createIt("typeName", "?", "type", TypeRefType.WildCard.value());
+    }
+
+    public static TypeRef createTypeVarTypeRef(String typeVar) {
+        return builder().typeName(typeVar).type(TypeRefType.Type).create();
+    }
+
+    public static List<TypeRef> knownTypes() {
+        return findAll();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(getTypeName() + " ");
+        List<TypeRef> bounds = getBounds();
+        if (!bounds.isEmpty()) {
+            builder.append("extends ");
+            for (TypeRef it : bounds) {
+                builder.append(it.toString());
+                if (it != bounds.get(bounds.size() - 1))
+                    builder.append(" & ");
+            }
+        } else {
+            List<TypeRef> typeArgs = getTypeArgs();
+            if (typeArgs != null && !typeArgs.isEmpty()) {
+                builder.append("<");
+                for(TypeRef arg : typeArgs) {
+                    builder.append(arg.toString());
+                    if (arg != typeArgs.get(typeArgs.size() - 1))
+                        builder.append(", ");
+                }
+                builder.append(">");
+            }
+            builder.append(" " + getDimensions());
+        }
+        return builder.toString();
+    }
+
+    public boolean isKnownType() {
+        return KnownTypeMultiton.set.contains(getTypeName());
+    }
+
+    private static class KnownTypeMultiton {
+        public static Set<String> set = Sets.newHashSet();
+
+        static {
+            // Shared Java and C# Primitive Types
+            set.add("int");
+            set.add("long");
+            set.add("char");
+            set.add("byte");
+            set.add("short");
+            set.add("double");
+            set.add("float");
+            set.add("void");
+
+            // Java Primitive Types
+            set.add("boolean");
+
+            // C# Primitive Types
+            set.add("sbyte");
+            set.add("ushort");
+            set.add("uint");
+            set.add("ulong");
+            set.add("object");
+            set.add("string");
+            set.add("decimal");
+            set.add("bool");
+            set.add("DataTime");
+            set.add("DateSpan");
+
+            set.add("?");
+        }
+    }
 }

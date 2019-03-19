@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../msusel-patterns-experimenter/msusel-arc-framework.iml" filepath="$PROJECT_DIR$/../msusel-patterns-experimenter/msusel-arc-framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/msusel-codetree.iml" filepath="$PROJECT_DIR$/msusel-codetree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../msusel-config/msusel-config.iml" filepath="$PROJECT_DIR$/../msusel-config/msusel-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/../msusel-java-parser/msusel-java-parser.iml" filepath="$PROJECT_DIR$/../msusel-java-parser/msusel-java-parser.iml" />
       <module fileurl="file://$PROJECT_DIR$/../msusel-loc-metrics/msusel-loc-metrics.iml" filepath="$PROJECT_DIR$/../msusel-loc-metrics/msusel-loc-metrics.iml" />
       <module fileurl="file://$PROJECT_DIR$/../msusel-metrics/msusel-metrics.iml" filepath="$PROJECT_DIR$/../msusel-metrics/msusel-metrics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../msusel-parent/msusel-parent.iml" filepath="$PROJECT_DIR$/../msusel-parent/msusel-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../msusel-pattern-generator/msusel-pattern-generator.iml" filepath="$PROJECT_DIR$/../msusel-pattern-generator/msusel-pattern-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../msusel-quamoco/msusel-quamoco.iml" filepath="$PROJECT_DIR$/../msusel-quamoco/msusel-quamoco.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../msusel-rbml-dsl/msusel-rbml-dsl.iml" filepath="$PROJECT_DIR$/../msusel-rbml-dsl/msusel-rbml-dsl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../msusel-software-injector/msusel-software-injector.iml" filepath="$PROJECT_DIR$/../msusel-software-injector/msusel-software-injector.iml" />
     </modules>
   </component>
 </project>

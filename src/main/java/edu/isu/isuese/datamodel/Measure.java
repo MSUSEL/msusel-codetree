@@ -77,7 +77,24 @@ public class Measure extends Model {
         return metrics;
     }
 
-    public static void store(String metricKey, Measurable m, double value) {}
+    public static Measure of(String metricKey) {
+        return Measure.create("metricKey", metricKey);
+    }
+
+    public Measure on(Measurable m) {
+        Reference ref = Reference.createIt("refKey", m.getRefKey());
+        add(ref);
+        return this;
+    }
+
+    public Measure withValue(double value) {
+        set("value", value);
+        return this;
+    }
+
+    public void store() {
+        save();
+    }
 
     public static Measure retrieve(Measurable m, String metricKey) {
         return null;

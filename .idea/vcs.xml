@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/../msusel-config" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../msusel-java-parser" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../msusel-loc-metrics" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../msusel-metrics" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../msusel-parent" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../msusel-pattern-generator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../msusel-patterns-experimenter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../msusel-quamoco" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../msusel-rbml-dsl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../msusel-software-injector" vcs="Git" />
   </component>
 </project>

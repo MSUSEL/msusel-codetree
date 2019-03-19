@@ -27,6 +27,9 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
+import edu.isu.isuese.datamodel.util.Filter;
+import edu.isu.isuese.datamodel.util.FilterOperator;
+import lombok.Builder;
 import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
 
@@ -45,6 +48,14 @@ public class Project extends Model implements Measurable {
         Project sys2 = Project.findById(1);
         java.lang.System.out.println(sys2);
         Base.close();
+    }
+
+    protected Project() {}
+
+    @Builder(buildMethodName = "create")
+    public Project(String projKey, String name, String version) {
+        set("projKey", projKey, "name", name, "version", version);
+        save();
     }
 
     public String getProjectKey() { return getString("projKey"); }
@@ -103,8 +114,36 @@ public class Project extends Model implements Measurable {
         return DbUtils.getNamespaces(this.getClass(), (Integer) getId());
     }
 
-    public List<File> getFiles() {
-        return DbUtils.getFiles(this.getClass(), (Integer) getId());
+    public Namespace findNamespace(String name) {
+        try {
+            return DbUtils.getNamespaces(this.getClass(), (Integer) getId(),
+                    Filter.builder()
+                            .attribute("name")
+                            .op(FilterOperator.EQ)
+                            .table("namespaces")
+                            .value(name)
+                            .build()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasNamespace(String name) {
+        return findNamespace(name) != null;
+    }
+
+    public List<File> getFiles() { return getAll(File.class); }
+
+    public File getFile(String key) {
+        try {
+            return get(File.class, "fileKey = ?", key).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasFile(String key) {
+        return getFile(key) != null;
     }
 
     public List<Import> getImports() {
@@ -115,16 +154,84 @@ public class Project extends Model implements Measurable {
         return DbUtils.getTypes(this.getClass(), (Integer) getId());
     }
 
+    public Type findType(String name) {
+        if (hasClass(name))
+            return findClass(name);
+        if (hasInterface(name))
+            return findInterface(name);
+        if (hasEnum(name))
+            return findEnum(name);
+        return null;
+    }
+
+    public boolean hasType(String name) {
+        return findType(name) != null;
+    }
+
     public List<Class> getClasses() {
         return DbUtils.getClasses(this.getClass(), (Integer) getId());
+    }
+
+    public Type findClass(String name) {
+        try {
+            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
+                    Filter.builder()
+                            .attribute("name")
+                            .op(FilterOperator.EQ)
+                            .table("classes")
+                            .value(name)
+                            .build()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasClass(String name) {
+        return findClass(name) != null;
     }
 
     public List<Interface> getInterfaces() {
         return DbUtils.getInterfaces(this.getClass(), (Integer) getId());
     }
 
+    public Type findInterface(String name) {
+        try {
+            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
+                    Filter.builder()
+                            .attribute("name")
+                            .op(FilterOperator.EQ)
+                            .table("interfaces")
+                            .value(name)
+                            .build()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasInterface(String name) {
+        return findInterface(name) != null;
+    }
+
     public List<Enum> getEnums() {
         return DbUtils.getEnums(this.getClass(), (Integer) getId());
+    }
+
+    public Type findEnum(String name) {
+        try {
+            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
+                    Filter.builder()
+                            .attribute("name")
+                            .op(FilterOperator.EQ)
+                            .table("enums")
+                            .value(name)
+                            .build()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasEnum(String name) {
+        return findEnum(name) != null;
     }
 
     public List<Member> getMembers() {
@@ -172,5 +279,25 @@ public class Project extends Model implements Measurable {
     @Override
     public String getRefKey() {
         return getString("projKey");
+    }
+
+    public void addRelation(Component from, Component to, RelationType type) {
+        Reference refFrom = Reference.createIt("refKey", from.getRefKey(), "type", RefType.fromComponent(from));
+        Reference refTo = Reference.createIt("refKey", from.getRefKey(), "type", RefType.fromComponent(to));
+
+        Relation rel = Relation.createIt();
+        rel.setToAndFromRefs(refTo, refFrom);
+        rel.setType(type);
+        rel.save();
+
+        add(rel);
+    }
+
+    public void addUnknownType(UnknownType type) {
+        if (type == null)
+            return;
+
+        add(type);
+        save();
     }
 }

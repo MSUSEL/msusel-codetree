@@ -25,6 +25,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToParents;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
@@ -38,4 +39,16 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 })
 @BelongsToPolymorphic(parents = {Class.class, Interface.class, Enum.class})
 public class Interface extends Classifier {
+
+    protected Interface() {}
+
+    @Builder(buildMethodName = "create")
+    public Interface(String name, int start, int end, String compKey, Accessibility accessibility) {
+        set("name", name, "start", start, "end", end, "compKey", compKey);
+        if (accessibility != null)
+            setAccessibility(accessibility);
+        else
+            setAccessibility(Accessibility.PUBLIC);
+        save();
+    }
 }

@@ -60,4 +60,20 @@ public enum RefType {
     public int value() { return value; }
 
     public static RefType fromValue(int value) { return map.get(value); }
+
+    public static RefType fromComponent(Component c) {
+        if (c instanceof Type)
+            return TYPE;
+        if (c instanceof Initializer)
+            return INITIALIZER;
+        if (c instanceof Constructor)
+            return CONSTRUCTOR;
+        if (c instanceof Field)
+            return FIELD;
+        if (c instanceof Literal)
+            return LITERAL;
+        if (c instanceof Method)
+            return METHOD;
+        return null;
+    }
 }

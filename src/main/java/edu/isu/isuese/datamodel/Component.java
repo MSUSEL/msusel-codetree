@@ -35,6 +35,10 @@ import java.util.List;
  */
 public abstract class Component extends Model implements Measurable {
 
+    public void setCompKey(String key) { set("compKey", key); save(); }
+
+    public String getCompKey() { return getString("compKey"); }
+
     public void setStart(int start) { set("start", start); save(); }
 
     public int getStart() { return getInteger("end"); }
@@ -53,7 +57,15 @@ public abstract class Component extends Model implements Measurable {
 
     public void addModifier(String mod) { add(Modifier.findFirst("name = ?", mod)); save(); }
 
+    public void addModifier(Modifier mod) { add(mod); save(); }
+
     public void removeModifier(String mod) { remove(Modifier.findFirst("name = ?", mod)); save(); }
 
+    public void removeModifier(Modifier mod) { remove(mod); save(); }
+
     public List<Modifier> getModifiers() { return getAll(Modifier.class); }
+
+    public boolean hasModifier(String name) { return !get(Modifier.class, "name = ?", name).isEmpty(); }
+
+    public boolean hasModifier(Modifier.Values value) { return hasModifier(value.toString()); }
 }

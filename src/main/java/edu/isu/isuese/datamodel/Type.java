@@ -1,20 +1,20 @@
 /**
  * The MIT License (MIT)
- *
+ * <p>
  * MSUSEL DataModel
  * Copyright (c) 2015-2018 Montana State University, Gianforte School of Computing,
  * Software Engineering Laboratory
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -27,14 +27,25 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 
 import java.util.List;
+import java.util.Queue;
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
 public abstract class Type extends Component {
+
+    @Builder(buildMethodName = "create")
+    public Type(String name, int start, int end, String compKey, Accessibility accessibility) {
+        set("name", name, "start", start, "end", end, "compKey", compKey);
+        if (accessibility != null)
+            setAccessibility(accessibility);
+        else
+            setAccessibility(Accessibility.PUBLIC);
+    }
 
     public List<System> getParentSystems() {
         return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
@@ -85,6 +96,22 @@ public abstract class Type extends Component {
         return getAll(Initializer.class);
     }
 
+    public Initializer getStaticInitializer(int num) {
+        try {
+            return get(Initializer.class, "instance = ? AND number = ?", true, num).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public Initializer getInstanceInitializer(int num) {
+        try {
+            return get(Initializer.class, "instance = ? AND number = ?", true, num).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
     public List<Literal> getLiterals() {
         return getAll(Literal.class);
     }
@@ -92,5 +119,213 @@ public abstract class Type extends Component {
     @Override
     public String getRefKey() {
         return getString("compKey");
+    }
+
+    public List<Type> getRealizes() {
+        return DbUtils.getRelationFrom(this, RelationType.REALIZATION);
+    }
+
+    public List<Type> getGeneralizes() {
+        return DbUtils.getRelationFrom(this, RelationType.GENERALIZATION);
+    }
+
+    public List<Type> getContained() {
+        return DbUtils.getRelationFrom(this, RelationType.CONTAINMENT);
+    }
+
+    public List<Type> getAssociatedTo() {
+        return DbUtils.getRelationFrom(this, RelationType.ASSOCIATION);
+    }
+
+    public List<Type> getAggregatedTo() {
+        return DbUtils.getRelationFrom(this, RelationType.AGGREGATION);
+    }
+
+    public List<Type> getComposedTo() {
+        return DbUtils.getRelationFrom(this, RelationType.COMPOSITION);
+    }
+
+    public List<Type> getDependencyTo() {
+        return DbUtils.getRelationFrom(this, RelationType.DEPENDENCY);
+    }
+
+    public List<Type> getUseTo() {
+        return DbUtils.getRelationFrom(this, RelationType.USE);
+    }
+
+    public List<Type> getRealizedBy() {
+        return DbUtils.getRelationTo(this, RelationType.REALIZATION);
+    }
+
+    public List<Type> getGeneralizedBy() {
+        return DbUtils.getRelationTo(this, RelationType.GENERALIZATION);
+    }
+
+    public List<Type> getContainedBy() {
+        return DbUtils.getRelationTo(this, RelationType.CONTAINMENT);
+    }
+
+    public List<Type> getAssociatedFrom() {
+        return DbUtils.getRelationTo(this, RelationType.ASSOCIATION);
+    }
+
+    public List<Type> getAggregatedFrom() {
+        return DbUtils.getRelationTo(this, RelationType.AGGREGATION);
+    }
+
+    public List<Type> getComposedFrom() {
+        return DbUtils.getRelationTo(this, RelationType.COMPOSITION);
+    }
+
+    public List<Type> getDependencyFrom() {
+        return DbUtils.getRelationTo(this, RelationType.DEPENDENCY);
+    }
+
+    public List<Type> getUseFrom() {
+        return DbUtils.getRelationTo(this, RelationType.USE);
+    }
+
+    public List<Type> getParentTypes() {
+        List<Type> parents = Lists.newArrayList();
+        parents.addAll(getGeneralizes());
+        parents.addAll(getRealizes());
+
+        return parents;
+    }
+
+    public List<Type> getAncestorTypes() {
+        List<Type> ancestors = Lists.newArrayList();
+        Queue<Type> queue = Lists.newLinkedList();
+
+        queue.offer(this);
+        while(!queue.isEmpty()) {
+            Type t = queue.poll();
+            if (!t.equals(this)) {
+                if (!ancestors.contains(t))
+                    ancestors.add(t);
+            }
+
+            queue.addAll(t.getParentTypes());
+        }
+
+        return ancestors;
+    }
+
+    public List<Type> getChildTypes() {
+        List<Type> children = Lists.newArrayList();
+        children.addAll(getGeneralizedBy());
+        children.addAll(getRealizedBy());
+
+        return children;
+    }
+
+    public List<Type> getDescendentTypes() {
+        List<Type> descendants = Lists.newArrayList();
+        Queue<Type> queue = Lists.newLinkedList();
+
+        queue.offer(this);
+        while(!queue.isEmpty()) {
+            Type t = queue.poll();
+            if (!t.equals(this)) {
+                if (!descendants.contains(t))
+                    descendants.add(t);
+            }
+
+            queue.addAll(t.getChildTypes());
+        }
+
+        return descendants;
+    }
+
+    public List<Type> getContainedTypes() {
+        List<Type> children = Lists.newArrayList();
+        children.addAll(getContained());
+
+        return children;
+    }
+
+    public List<Method> findOverridingMethods(List<Method> given) {
+        List<Method> overriding = Lists.newArrayList();
+
+        for (Method give : given) {
+            for (Method curr : getMethods()) {
+                if (curr.signature().equals(give.signature())) {
+                    overriding.add(curr);
+                }
+            }
+        }
+
+        return overriding;
+    }
+
+    public List<Method> findOverridingMethods() {
+        List<Method> overriding = Lists.newArrayList();
+        List<Method> currMethods = Lists.newArrayList(getMethods());
+        List<Type> ancestors = getAncestorTypes();
+
+        outer:
+        for (Type anc : ancestors) {
+            if (anc instanceof Class) {
+                for (Method ancMethod : anc.getMethods()) {
+                    List<Method> toRemove = Lists.newArrayList();
+                    for (Method currMethod : getMethods()) {
+                        if (currMethod.signature().equals(ancMethod.signature())) {
+                            overriding.add(currMethod);
+                            toRemove.add(currMethod);
+                        }
+                    }
+                    currMethods.removeAll(toRemove);
+                    if (currMethods.isEmpty())
+                        break outer;
+                }
+            }
+        }
+
+        return overriding;
+    }
+
+    public List<TemplateParam> getTemplateParams() {
+        return getAll(TemplateParam.class);
+    }
+
+    public void setTemplateParams(List<TemplateParam> params) {
+        if (params == null || params.isEmpty())
+            return;
+
+        for (TemplateParam param : params)
+            add(param);
+        save();
+    }
+
+    public void addTemplateParam(TemplateParam param) {
+        if (param != null) {
+            add(param);
+            save();
+        }
+    }
+
+    public void removeTemplateParam(TemplateParam param) {
+        if (param != null) {
+            remove(param);
+            save();
+        }
+    }
+
+    public Method findMethodBySignature(String sig) {
+        for (Method m : getMethods()) {
+            if (m.signature().equals(sig))
+                return m;
+        }
+
+        return null;
+    }
+
+    public boolean hasMethodWithMatchingSignature(Method method) {
+        for (Method m : getMethods()) {
+            if (m.signature().equals(method.signature()))
+                return true;
+        }
+
+        return false;
     }
 }

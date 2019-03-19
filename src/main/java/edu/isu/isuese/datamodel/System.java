@@ -26,6 +26,8 @@
 package edu.isu.isuese.datamodel;
 
 import edu.isu.isuese.datamodel.util.DbUtils;
+import edu.isu.isuese.datamodel.util.Filter;
+import edu.isu.isuese.datamodel.util.FilterOperator;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -76,6 +78,24 @@ public class System extends Model implements Measurable, Structure {
         return DbUtils.getNamespaces(this.getClass(), (Integer) getId());
     }
 
+    public Namespace findNamespace(String name) {
+        try {
+            return DbUtils.getNamespaces(this.getClass(), (Integer) getId(),
+                    Filter.builder()
+                            .attribute("name")
+                            .op(FilterOperator.EQ)
+                            .table("namespaces")
+                            .value(name)
+                            .build()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasNamespace(String name) {
+        return findNamespace(name) != null;
+    }
+
     public List<File> getFiles() {
         return DbUtils.getFiles(this.getClass(), (Integer) getId());
     }
@@ -88,16 +108,84 @@ public class System extends Model implements Measurable, Structure {
         return DbUtils.getTypes(this.getClass(), (Integer) getId());
     }
 
+    public Type findType(String name) {
+        if (hasClass(name))
+            return findClass(name);
+        if (hasInterface(name))
+            return findInterface(name);
+        if (hasEnum(name))
+            return findEnum(name);
+        return null;
+    }
+
+    public boolean hasType(String name) {
+        return findType(name) != null;
+    }
+
     public List<Class> getClasses() {
         return DbUtils.getClasses(this.getClass(), (Integer) getId());
+    }
+
+    public Type findClass(String name) {
+        try {
+            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
+                    Filter.builder()
+                            .attribute("name")
+                            .op(FilterOperator.EQ)
+                            .table("classes")
+                            .value(name)
+                            .build()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasClass(String name) {
+        return findClass(name) != null;
     }
 
     public List<Interface> getInterfaces() {
         return DbUtils.getInterfaces(this.getClass(), (Integer) getId());
     }
 
+    public Type findInterface(String name) {
+        try {
+            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
+                    Filter.builder()
+                            .attribute("name")
+                            .op(FilterOperator.EQ)
+                            .table("interfaces")
+                            .value(name)
+                            .build()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasInterface(String name) {
+        return findInterface(name) != null;
+    }
+
     public List<Enum> getEnums() {
         return DbUtils.getEnums(this.getClass(), (Integer) getId());
+    }
+
+    public Type findEnum(String name) {
+        try {
+            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
+                    Filter.builder()
+                            .attribute("name")
+                            .op(FilterOperator.EQ)
+                            .table("enums")
+                            .value(name)
+                            .build()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasEnum(String name) {
+        return findEnum(name) != null;
     }
 
     public List<Member> getMembers() {

@@ -27,6 +27,7 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -39,6 +40,17 @@ public class File extends Model implements Measurable {
 
     public String getFileKey() {
         return getString("fileKey");
+    }
+
+    protected File() {
+
+    }
+
+    @Builder(buildMethodName = "create")
+    public File(String fileKey, String name, FileType type) {
+        set("fileKey", fileKey, "name", name);
+        setType(type);
+        save();
     }
 
     public void setName(String name) {

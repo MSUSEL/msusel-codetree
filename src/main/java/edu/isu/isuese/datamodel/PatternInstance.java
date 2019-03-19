@@ -69,4 +69,6 @@ public class PatternInstance extends Model implements Measurable {
     public String getRefKey() {
         return getString("instKey");
     }
+
+    public List<Type> getTypes() { return null; }
 }

@@ -25,6 +25,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 import org.javalite.activejdbc.annotations.Table;
@@ -36,6 +37,13 @@ import org.javalite.activejdbc.annotations.Table;
 @Table("refs")
 @BelongsToPolymorphic(parents = {Relation.class, Finding.class, Measure.class, RoleBinding.class, TypeRef.class})
 public class Reference extends Model {
+
+    @Builder(buildMethodName = "create")
+    public Reference(String refKey, RefType refType) {
+        set("refKey", refKey);
+        setType(refType);
+        save();
+    }
 
     public String getRefKey() { return getString("refKey"); }
 

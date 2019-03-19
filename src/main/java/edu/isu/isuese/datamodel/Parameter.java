@@ -27,6 +27,7 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
@@ -39,13 +40,25 @@ import java.util.List;
 @BelongsToPolymorphic(parents = {Method.class, Constructor.class, Destructor.class})
 public class Parameter extends Model {
 
+    protected Parameter() {}
+
+    @Builder(buildMethodName = "create")
+    public Parameter(String name) {
+        set("name", name);
+        save();
+    }
+
     public String getName() { return getString("name"); }
 
     public void setName(String name) { set("name", name); save(); }
 
     public void addModifier(String mod) { add(Modifier.findFirst("name = ?", mod)); save(); }
 
+    public void addModifier(Modifier mod) { add(mod); save(); }
+
     public void removeModifier(String mod) { remove(Modifier.findFirst("name = ?", mod)); save(); }
+
+    public void removeModifier(Modifier mod) { remove(mod); save(); }
 
     public List<Modifier> getModifiers() { return getAll(Modifier.class); }
 

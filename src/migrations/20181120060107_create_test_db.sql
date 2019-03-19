@@ -269,7 +269,9 @@ create table initializers (
   name VARCHAR,
   accessibility INTEGER,
   parent_id INTEGER,
-  parent_type VARCHAR
+  parent_type VARCHAR,
+  number INTEGER,
+  instance INTEGER(1) -- boolean
 );
 
 create table fields (
@@ -290,6 +292,7 @@ create table methods (
   compKey VARCHAR,
   name VARCHAR,
   accessibility INTEGER,
+  cfg VARCHAR,
   parent_id INTEGER,
   parent_type VARCHAR
 );
@@ -319,6 +322,12 @@ create table destructors (
 create table parameters (
   id INTEGER NOT NULL PRIMARY KEY Autoincrement,
   name VARCHAR,
+  parent_id INTEGER,
+  parent_type VARCHAR
+);
+
+create table method_exceptions (
+  id INTEGER NOT NULL PRIMARY KEY Autoincrement,
   parent_id INTEGER,
   parent_type VARCHAR
 );

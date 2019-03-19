@@ -25,6 +25,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 /**
@@ -33,4 +34,14 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
  */
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 public class Constructor extends Method {
+
+    protected Constructor() {
+        super();
+    }
+
+    @Builder(buildMethodName = "create")
+    public Constructor(String name, int start, int end, String compKey, Accessibility accessibility) {
+        super(name, start, end, compKey, accessibility);
+        save();
+    }
 }

@@ -25,9 +25,19 @@
  */
 package edu.isu.isuese.datamodel;
 
+import lombok.Builder;
+
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
 public class UnknownType extends Type {
+
+    @Builder(buildMethodName = "create")
+    public UnknownType(String name, int start, int end, String compKey, Accessibility accessibility) {
+        set("name", name, "start", start, "end", end, "compKey", compKey);
+        if (accessibility != null)
+            setAccessibility(Accessibility.PUBLIC);
+        save();
+    }
 }

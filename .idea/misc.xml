@@ -8,6 +8,13 @@
         <option value="$PROJECT_DIR$/.idea/pom.xml" />
         <option value="$PROJECT_DIR$/../msusel-loc-metrics/pom.xml" />
         <option value="$PROJECT_DIR$/../msusel-metrics/pom.xml" />
+        <option value="$PROJECT_DIR$/../msusel-config/pom.xml" />
+        <option value="$PROJECT_DIR$/../msusel-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/../msusel-pattern-generator/pom.xml" />
+        <option value="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" />
+        <option value="$PROJECT_DIR$/../msusel-quamoco/pom.xml" />
+        <option value="$PROJECT_DIR$/../msusel-rbml-dsl/pom.xml" />
+        <option value="$PROJECT_DIR$/../msusel-software-injector/pom.xml" />
       </list>
     </option>
   </component>

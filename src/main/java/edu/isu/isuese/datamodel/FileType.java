@@ -40,7 +40,9 @@ public enum FileType {
     SCM(4),
     CI(5),
     DOC(6),
-    CONFIG(7);
+    CONFIG(7),
+    BINARY(8),
+    MODULE(9);
 
     private final int value;
     private static Map<Integer, FileType> map = Maps.newHashMap();
