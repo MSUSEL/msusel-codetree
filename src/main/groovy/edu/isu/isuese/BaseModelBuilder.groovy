@@ -31,6 +31,7 @@ import edu.isu.isuese.datamodel.Constructor
 import edu.isu.isuese.datamodel.Destructor
 import edu.isu.isuese.datamodel.Field
 import edu.isu.isuese.datamodel.File
+import edu.isu.isuese.datamodel.FileType
 import edu.isu.isuese.datamodel.Initializer
 import edu.isu.isuese.datamodel.Member
 import edu.isu.isuese.datamodel.Method
@@ -106,8 +107,9 @@ abstract class BaseModelBuilder {
         proj = Project.builder().projKey(projectKey).version().create()
         system = System.builder()
 
+        getIdentifier().setProj(proj)
         getIdentifier().identify(path)
-        final List<Path> files = getIdentifier().getSourceFiles()
+        final List<File> files = proj.getFilesByType(FileType.SOURCE)
         parseStructure(files)
         AssociationExtractor extract = new AssociationExtractor(proj)
         extract.extractAssociations()
@@ -122,17 +124,17 @@ abstract class BaseModelBuilder {
      *
      * @param files List of input files to be parsed
      */
-    void parseStructure(final List<Path> files) {
+    void parseStructure(final List<File> files) {
         files.each { file ->
             try {
-                gatherTypes(file.toAbsolutePath().toString())
+                gatherTypes(file.getFileKey())
             } catch (final RecognitionException e) {
                 log.warn(e.getMessage(), e)
             }
         }
 
         files.each { file ->
-            setFile(proj.getFile(file.toAbsolutePath().toString()))
+            setFile(proj.getFile(file.getFileKey()))
             gatherRelationships()
             gatherTypeMembers()
         }

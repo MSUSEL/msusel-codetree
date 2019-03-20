@@ -25,11 +25,11 @@
  */
 package edu.isu.isuese
 
-import java.nio.file.Path
+import edu.isu.isuese.datamodel.Project
 
 interface ArtifactIdentifier {
 
     void identify(String root)
 
-    List<Path> getSourceFiles()
+    void setProj(Project proj)
 }

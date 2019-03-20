@@ -185,6 +185,17 @@ public class TypeRef extends Model {
         return KnownTypeMultiton.set.contains(getTypeName());
     }
 
+    public Type getType(String projKey) {
+        getReference().getType();
+        List<Type> types = Type.find("key = ?", getReference().getRefKey());
+        for (Type t : types) {
+            if (t.getParentProjects().get(0).getProjectKey() == projKey)
+                return t;
+        }
+
+        return null;
+    }
+
     private static class KnownTypeMultiton {
         public static Set<String> set = Sets.newHashSet();
 

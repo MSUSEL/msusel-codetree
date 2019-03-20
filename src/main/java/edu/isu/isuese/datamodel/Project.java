@@ -132,7 +132,32 @@ public class Project extends Model implements Measurable {
         return findNamespace(name) != null;
     }
 
+    public void addFile(File file) {
+        if (file != null) {
+            add(file);
+            save();
+        }
+    }
+
+    public void removeFile(File file) {
+        if (file != null) {
+            remove(file);
+            save();
+        }
+    }
+
     public List<File> getFiles() { return getAll(File.class); }
+
+    public List<File> getFilesByType(FileType type) {
+        List<File> files = getFiles();
+        List<File> ret = Lists.newArrayList();
+        for (File f : files) {
+            if (f.getType().equals(type))
+                ret.add(f);
+        }
+
+        return ret;
+    }
 
     public File getFile(String key) {
         try {

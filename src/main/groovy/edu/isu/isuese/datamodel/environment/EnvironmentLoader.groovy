@@ -11,11 +11,8 @@ import groovy.util.logging.Slf4j
 abstract class EnvironmentLoader {
 
     Namespace currentNamespace
-    DataModelMediator tree
 
-    EnvironmentLoader(DataModelMediator tree) {
-        this.tree = tree
-        tree.setLoader(this)
+    EnvironmentLoader() {
     }
 
     abstract void find(String ns, String name)
