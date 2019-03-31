@@ -35,7 +35,7 @@ public class SystemSpec extends DBSpec {
 
     @Test
     public void shouldValidateRequiredAttributes() {
-        System system = new System();
+        System system = System.builder().create();
         a(system).shouldBe("valid");
         //a(rule.errors().get("author")).shouldBeEqual("Author must be provided");
         system.set("name", "fake name", "version", "fake version", "language", "fake lang", "sysKey", "fake key");
@@ -52,7 +52,7 @@ public class SystemSpec extends DBSpec {
 
     @Test
     public void shouldAddProject() {
-        System system = new System();
+        System system = System.builder().create();
         system.set("name", "fake name", "version", "fake version", "language", "fake lang", "sysKey", "fake key");
 
         system.save();

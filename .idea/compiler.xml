@@ -6,32 +6,34 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="msusel-software-injector" />
+        <module name="msusel-loc-metrics" />
+        <module name="msusel-codetree" />
         <module name="arc_test" />
         <module name="msusel-arc-framework" />
-        <module name="msusel-codetree" />
         <module name="msusel-config" />
-        <module name="msusel-java-parser" />
-        <module name="msusel-loc-metrics" />
-        <module name="msusel-metrics" />
-        <module name="msusel-pattern-generator" />
-        <module name="msusel-quamoco" />
         <module name="msusel-rbml-dsl" />
-        <module name="msusel-software-injector" />
+        <module name="msusel-pattern-generator" />
+        <module name="msusel-java-parser" />
+        <module name="msusel-quamoco" />
+        <module name="isuese-ghsearch" />
+        <module name="msusel-metrics" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="arc_test" target="1.8" />
-      <module name="msusel-arc-framework" target="1.8" />
-      <module name="msusel-codetree" target="1.8" />
-      <module name="msusel-config" target="1.8" />
-      <module name="msusel-java-parser" target="1.8" />
-      <module name="msusel-loc-metrics" target="1.8" />
-      <module name="msusel-metrics" target="1.8" />
-      <module name="msusel-parent" target="1.8" />
-      <module name="msusel-pattern-generator" target="1.8" />
-      <module name="msusel-quamoco" target="1.8" />
-      <module name="msusel-rbml-dsl" target="1.8" />
-      <module name="msusel-software-injector" target="1.8" />
+      <module name="isuese-ghsearch" target="1.8" />
+      <module name="msusel-arc-framework" target="1.5" />
+      <module name="msusel-codetree" target="1.5" />
+      <module name="msusel-config" target="1.5" />
+      <module name="msusel-java-parser" target="1.5" />
+      <module name="msusel-loc-metrics" target="1.5" />
+      <module name="msusel-metrics" target="1.5" />
+      <module name="msusel-parent" target="1.5" />
+      <module name="msusel-pattern-generator" target="1.5" />
+      <module name="msusel-quamoco" target="1.5" />
+      <module name="msusel-rbml-dsl" target="1.5" />
+      <module name="msusel-software-injector" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

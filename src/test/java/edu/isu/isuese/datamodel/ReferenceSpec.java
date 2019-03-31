@@ -35,7 +35,7 @@ public class ReferenceSpec extends DBSpec {
 
     @Test
     public void shouldValidateRequiredAttributes() {
-        Reference ref = new Reference();
+        Reference ref = Reference.builder().create();
         a(ref).shouldBe("valid");
 //        //a(ref.errors().get("author")).shouldBeEqual("Author must be provided");
         ref.set("refKey", "ref");

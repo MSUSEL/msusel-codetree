@@ -28,7 +28,6 @@ package edu.isu.isuese.datamodel.cfg
 
 import com.google.common.graph.Graph
 import com.google.common.graph.MutableGraph
-import edu.montana.gsoc.msusel.datamodel.utils.CFG2DOT
 
 /**
  * @author Isaac Griffith

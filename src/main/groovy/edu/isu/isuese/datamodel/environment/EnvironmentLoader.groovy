@@ -26,7 +26,10 @@
  */
 package edu.isu.isuese.datamodel.environment
 
+import edu.isu.isuese.datamodel.Class
+import edu.isu.isuese.datamodel.Interface
 import edu.isu.isuese.datamodel.Namespace
+import edu.isu.isuese.datamodel.Type
 import groovy.util.logging.Slf4j
 
 /**
@@ -88,8 +91,9 @@ abstract class EnvironmentLoader {
         if (currentNamespace == null)
             loadNamespace(pkg)
 
-        Interface node = Interface.builder()
-                .key("${pkg}.${name}")
+        Type node = Interface.builder()
+                .compKey("${pkg}.${name}")
+                .name("${name}")
                 .create()
 
         currentNamespace.addChild(node)

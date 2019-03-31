@@ -47,32 +47,6 @@ public class NamespaceSpec extends DBSpec {
     }
 
     @Test
-    public void canAddFile() {
-        Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
-        File file = File.createIt("fileKey", "fileKey", "name", "file");
-        file.setType(FileType.SOURCE);
-        file.save();
-
-        ns.add(file);
-
-        a(ns.getFiles().size()).shouldBeEqual(1);
-    }
-
-    @Test
-    public void canRemoveFile() {
-        Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
-        File file = File.createIt("fileKey", "fileKey", "name", "file");
-        file.setType(FileType.SOURCE);
-        file.save();
-
-        ns.add(file);
-        ns = Namespace.findById(1);
-        ns.remove(file);
-
-        a(ns.getFiles().isEmpty()).shouldBeTrue();
-    }
-
-    @Test
     public void canAddChildNamespace() {
         Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
         Namespace ns2 = Namespace.createIt("nsKey", "ns2", "name", "ns2");

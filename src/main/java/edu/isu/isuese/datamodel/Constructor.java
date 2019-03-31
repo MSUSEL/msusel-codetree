@@ -40,7 +40,7 @@ public class Constructor extends Method {
         super();
     }
 
-    @Builder(buildMethodName = "create")
+    @Builder(buildMethodName = "create", builderMethodName = "creator")
     public Constructor(String name, int start, int end, String compKey, Accessibility accessibility) {
         super(name, start, end, compKey, accessibility);
         save();

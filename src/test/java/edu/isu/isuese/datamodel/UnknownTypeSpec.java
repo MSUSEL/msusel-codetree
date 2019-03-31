@@ -33,7 +33,7 @@ public class UnknownTypeSpec extends DBSpec {
 
     @Test
     public void shouldValidateRequiredAttributes() {
-        Type type = new UnknownType();
+        Type type = UnknownType.builder().create();
         a(type).shouldBe("valid");
 //        //a(type.errors().get("author")).shouldBeEqual("Author must be provided");
         type.set("name", "TestUnknownType", "start", 1, "end", 100, "compKey", "TestUnknownType");

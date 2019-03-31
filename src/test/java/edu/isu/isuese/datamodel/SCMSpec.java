@@ -33,7 +33,7 @@ public class SCMSpec extends DBSpec {
 
     @Test
     public void shouldValidateRequiredAttributes() {
-        SCM scm = new SCM();
+        SCM scm = SCM.builder().create();
         a(scm).shouldBe("valid");
 //        //a(scm.errors().get("author")).shouldBeEqual("Author must be provided");
         scm.set("scmKey", "scm", "tag", "1.0", "branch", "dev", "url", "git@git.somewhere.com/what");

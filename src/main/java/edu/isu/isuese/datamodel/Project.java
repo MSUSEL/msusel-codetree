@@ -54,8 +54,9 @@ public class Project extends Model implements Measurable {
     protected Project() {}
 
     @Builder(buildMethodName = "create")
-    public Project(String projKey, String name, String version) {
+    public Project(String projKey, String name, String version, SCM scm) {
         set("projKey", projKey, "name", name, "version", version);
+        addSCM(scm);
         save();
     }
 

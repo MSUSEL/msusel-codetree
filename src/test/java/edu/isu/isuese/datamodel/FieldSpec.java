@@ -33,7 +33,7 @@ public class FieldSpec extends DBSpec {
 
     @Test
     public void shouldValidateRequiredAttributes() {
-        Member member = new Field();
+        Member member = Field.builder().create();
         a(member).shouldBe("valid");
 //        //a(member.errors().get("author")).shouldBeEqual("Author must be provided");
         member.set("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass");

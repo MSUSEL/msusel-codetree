@@ -39,14 +39,14 @@ import java.util.Queue;
  */
 public abstract class Type extends Component {
 
-    @Builder(buildMethodName = "create")
-    public Type(String name, int start, int end, String compKey, Accessibility accessibility) {
-        set("name", name, "start", start, "end", end, "compKey", compKey);
-        if (accessibility != null)
-            setAccessibility(accessibility);
-        else
-            setAccessibility(Accessibility.PUBLIC);
-    }
+//    @Builder(buildMethodName = "create")
+//    public Type(String name, int start, int end, String compKey, Accessibility accessibility) {
+//        set("name", name, "start", start, "end", end, "compKey", compKey);
+//        if (accessibility != null)
+//            setAccessibility(accessibility);
+//        else
+//            setAccessibility(Accessibility.PUBLIC);
+//    }
 
     public List<System> getParentSystems() {
         return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
