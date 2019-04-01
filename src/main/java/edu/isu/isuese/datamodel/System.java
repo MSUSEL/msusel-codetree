@@ -45,8 +45,6 @@ public class System extends Model implements Measurable, Structure {
         set("name", name, "sysKey", key);
     }
 
-<<<<<<< HEAD
-=======
     public void setName(String name) {
         set("name", name);
         save();
@@ -65,7 +63,6 @@ public class System extends Model implements Measurable, Structure {
         return getString("sysKey");
     }
 
->>>>>>> d2be91cdfdc0e2fd84c65155bae37557dbe4a492
     public void addProject(Project p) {
         add(p);
         save();

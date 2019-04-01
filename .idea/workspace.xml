@@ -7,11 +7,7 @@
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/SCM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/SCM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../msusel-java-parser/target/" />
@@ -43,7 +39,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformance.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1121">
+            <state relative-caret-position="714">
               <caret line="89" selection-start-line="89" selection-end-line="89" />
             </state>
           </provider>
@@ -52,7 +48,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1957">
+            <state relative-caret-position="714">
               <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -73,20 +69,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3732">
+            <state relative-caret-position="475">
               <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+            <state relative-caret-position="714">
+              <caret line="280" selection-start-line="280" selection-end-line="280" />
               <folding>
                 <element signature="e#1828#1829#0" expanded="true" />
                 <element signature="e#1876#1877#0" expanded="true" />
@@ -205,7 +201,6 @@
         <option value="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformance.groovy" />
         <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/SCM.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" />
         <option value="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/ghsearch/GitHubSearchCommand.java" />
         <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchTool.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" />
@@ -223,6 +218,7 @@
         <option value="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" />
         <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java" />
         <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" />
       </list>
     </option>
   </component>
@@ -558,7 +554,7 @@
       <workItem from="1553790838719" duration="1433000" />
       <workItem from="1553821324693" duration="776000" />
       <workItem from="1553901653915" duration="259000" />
-      <workItem from="1554149420538" duration="434000" />
+      <workItem from="1554149420538" duration="529000" />
     </task>
     <servers />
   </component>
@@ -595,7 +591,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="348834000" />
+    <option name="totallyTimeSpent" value="348929000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -968,34 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformance.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1957">
-          <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
-          <folding>
-            <element signature="e#1828#1829#0" expanded="true" />
-            <element signature="e#1876#1877#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/RoleBlock.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1020,10 +988,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformance.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3732">
+        <state relative-caret-position="475">
           <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="280" selection-start-line="280" selection-end-line="280" />
+          <folding>
+            <element signature="e#1828#1829#0" expanded="true" />
+            <element signature="e#1876#1877#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
