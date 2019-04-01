@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.Table;
 
@@ -39,6 +40,17 @@ import java.util.List;
  */
 @Table("scms")
 public class SCM extends Model {
+
+    @Builder(buildMethodName = "create")
+    public SCM(String name, String key, String tag, String branch, String url, SCMType type) {
+        set("name", name, "scmKey", key);
+        if (tag != null && !tag.isEmpty())
+            set("tag", tag);
+        if (branch != null && !branch.isEmpty())
+            set("branch", branch);
+        setType(type);
+        setURL(url);
+    }
 
     public String getSCMKey() {
         return getString("scmKey");

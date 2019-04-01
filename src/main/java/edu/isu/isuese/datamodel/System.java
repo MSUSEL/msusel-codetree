@@ -29,6 +29,7 @@ package edu.isu.isuese.datamodel;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import edu.isu.isuese.datamodel.util.Filter;
 import edu.isu.isuese.datamodel.util.FilterOperator;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -38,6 +39,29 @@ import java.util.List;
  * @version 1.3.0
  */
 public class System extends Model implements Measurable, Structure {
+
+    @Builder(buildMethodName = "create")
+    public System(String name, String key) {
+        set("name", name, "sysKey", key);
+    }
+
+    public void setName(String name) {
+        set("name", name);
+        save();
+    }
+
+    public String getName() {
+        return getString("name");
+    }
+
+    public void setKey(String key) {
+        set("sysKey", key);
+        save();
+    }
+
+    public String getKey() {
+        return getString("sysKey");
+    }
 
     public void addProject(Project p) {
         add(p);
