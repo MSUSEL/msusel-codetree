@@ -265,9 +265,9 @@ public class DbUtils {
         }
     }
 
-    public static List<Module> getModules(java.lang.Class<? extends Model> model, int id, Filter... filters) {
+    public static List<edu.isu.isuese.datamodel.Module> getModules(java.lang.Class<? extends Model> model, int id, Filter... filters) {
         try {
-            return Module.findBySQL(DbUtils.createDescendingJoin(model, Module.class, id, filters));
+            return edu.isu.isuese.datamodel.Module.findBySQL(DbUtils.createDescendingJoin(model, edu.isu.isuese.datamodel.Module.class, id, filters));
         } catch (Exception e) {
             return Lists.newArrayList();
         }
@@ -530,9 +530,9 @@ public class DbUtils {
         }
     }
 
-    public static List<Module> getParentModule(java.lang.Class<? extends Model> model, int id, Filter... filters) {
+    public static List<edu.isu.isuese.datamodel.Module> getParentModule(java.lang.Class<? extends Model> model, int id, Filter... filters) {
         try {
-            return Module.findBySQL(DbUtils.createAscendingJoin(model, Module.class, id, filters));
+            return edu.isu.isuese.datamodel.Module.findBySQL(DbUtils.createAscendingJoin(model, edu.isu.isuese.datamodel.Module.class, id, filters));
         } catch (Exception e) {
             return Lists.newArrayList();
         }

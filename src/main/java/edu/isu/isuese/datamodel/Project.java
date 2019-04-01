@@ -58,6 +58,8 @@ public class Project extends Model implements Measurable {
         set("projKey", projKey, "name", name, "version", version);
         addSCM(scm);
         save();
+        if (scm != null)
+            addSCM(scm);
     }
 
     public String getProjectKey() { return getString("projKey"); }

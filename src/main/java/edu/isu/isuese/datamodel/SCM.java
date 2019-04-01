@@ -44,10 +44,19 @@ public class SCM extends Model {
     @Builder(buildMethodName = "create")
     public SCM(String name, String key, String tag, String branch, String url, SCMType type) {
         set("name", name, "scmKey", key);
+<<<<<<< HEAD
         setURL(url);
         setBranch(branch);
         setTag(tag);
         setType(type);
+=======
+        if (tag != null && !tag.isEmpty())
+            set("tag", tag);
+        if (branch != null && !branch.isEmpty())
+            set("branch", branch);
+        setType(type);
+        setURL(url);
+>>>>>>> d2be91cdfdc0e2fd84c65155bae37557dbe4a492
     }
 
     public String getSCMKey() {

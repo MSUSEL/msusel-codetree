@@ -5,30 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/cfg/ControlFlowGraph.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/cfg/ControlFlowGraph.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/environment/EnvironmentLoader.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/environment/EnvironmentLoader.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/SCM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/SCM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FieldSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FieldSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/NamespaceSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/NamespaceSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ReferenceSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ReferenceSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/SCMSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/SCMSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/SystemSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/SystemSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/UnknownTypeSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/UnknownTypeSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/ghsearch/GitHubSearchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/ghsearch/GitHubSearchCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformance.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformance.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/model/SPS.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/model/SPS.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../msusel-java-parser/target/" />
@@ -70,7 +53,19 @@
         <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1957">
-              <caret line="114" column="36" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
+              <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="114" column="67" selection-start-line="114" selection-start-column="67" selection-end-line="114" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,13 +74,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-3732">
+              <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -175,7 +167,7 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../isuese-gitsearch" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -254,7 +246,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,10 +279,41 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ghsearch" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msusel-datamodel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msusel-datamodel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msusel-datamodel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msusel-datamodel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
+              <item name="msusel-datamodel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="datamodel" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
@@ -536,6 +558,7 @@
       <workItem from="1553790838719" duration="1433000" />
       <workItem from="1553821324693" duration="776000" />
       <workItem from="1553901653915" duration="259000" />
+      <workItem from="1554149420538" duration="434000" />
     </task>
     <servers />
   </component>
@@ -572,7 +595,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="348400000" />
+    <option name="totallyTimeSpent" value="348834000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -587,7 +610,7 @@
     <frame x="0" y="27" width="1920" height="1012" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49759614" visible="true" weight="0.23143165" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49759614" visible="true" weight="0.23519914" />
       <window_info id="Structure" order="1" sideWeight="0.50240386" side_tool="true" weight="0.22604951" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -788,13 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/ghsearch/GitHubSearchCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1626">
@@ -962,7 +978,7 @@
     <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1957">
-          <caret line="114" column="36" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
+          <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -996,11 +1012,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
+        <state relative-caret-position="437">
+          <caret line="114" column="67" selection-start-line="114" selection-start-column="67" selection-end-line="114" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3732">
+          <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
         </state>
       </provider>
     </entry>
