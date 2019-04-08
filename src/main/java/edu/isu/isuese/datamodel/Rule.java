@@ -50,4 +50,32 @@ public class Rule extends Model {
     public List<RuleRepository> getParentRuleRepositories() {
         return DbUtils.getParentRuleRepository(this.getClass(), (Integer) getId());
     }
+
+    public void setKey(String key)
+    {
+        set("ruleKey", key);
+        save();
+    }
+
+    public String getKey() {
+        return getString("ruleKey");
+    }
+
+    public void setName(String name) {
+        set("name", name);
+        save();
+    }
+
+    public String getName() {
+        return getString("name");
+    }
+
+    public void setDescription(String desc) {
+        set("description", desc);
+        save();
+    }
+
+    public String getDescription() {
+        return getString("description");
+    }
 }

@@ -94,6 +94,11 @@ public class SCM extends Model {
         save();
     }
 
+    public void setName(String name) {
+        set("name", name);
+        save();
+    }
+
     public List<System> getParentSystems() {
         return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
     }

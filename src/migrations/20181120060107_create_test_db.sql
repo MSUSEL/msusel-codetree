@@ -28,8 +28,6 @@
 create table systems (
   id INTEGER NOT NULL PRIMARY KEY Autoincrement,
   name VARCHAR,
-  version VARCHAR,
-  language VARCHAR, -- to remove
   sysKey VARCHAR
 );
 
@@ -176,6 +174,7 @@ create table modules (
 create table scms (
   id INTEGER NOT NULL PRIMARY KEY Autoincrement,
   scmKey VARCHAR,
+  name VARCHAR,
   tag VARCHAR,
   branch VARCHAR,
   url VARCHAR,
