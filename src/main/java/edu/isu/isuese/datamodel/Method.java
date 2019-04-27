@@ -111,7 +111,7 @@ public class Method extends TypedMember {
 
     public List<MethodException> getExceptions() { return getAll(MethodException.class); }
 
-    boolean isAbstract() {
+    public boolean isAbstract() {
         return hasModifier("abstract");
     }
 
