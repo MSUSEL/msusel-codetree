@@ -53,7 +53,7 @@ public class DbUtilsSpec extends DBSpec {
     private Project p;
 
     private void populateDb() {
-        system = System.createIt("name", "fake name", "version", "fake version", "language", "fake lang", "sysKey", "fake key");
+        system = System.createIt("name", "fake name", "sysKey", "fake key");
         p = Project.createIt("name", "fake project", "projKey", "fake key", "version", "fake version");
         SCM scm = SCM.createIt("scmKey", "scm", "tag", "1.0", "branch", "dev", "url", "git@git.somewhere.com/what");
         SCM scm2 = SCM.createIt("scmKey", "scm", "tag", "1.0", "branch", "dev", "url", "git@git.somewhere.com/what");

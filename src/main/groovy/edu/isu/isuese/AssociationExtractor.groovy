@@ -112,7 +112,7 @@ class AssociationExtractor {
         TypeRef ref = (TypeRef) abref
         Reference reference = ref.getReference()
         if (reference) {
-            Type dep = project.findType(reference.getRefKey())
+            Type dep = project.findType("compKey", reference.getRefKey())
             project.addRelation(type, dep, RelationType.ASSOCIATION)
         }
     }
@@ -121,7 +121,7 @@ class AssociationExtractor {
         TypeRef ref = (TypeRef) abref
         Reference reference = ref.getReference()
         if (reference) {
-            Type dep = project.findType(reference.getRefKey())
+            Type dep = project.findType("compKey", reference.getRefKey())
             project.addRelation(type, dep, RelationType.DEPENDENCY)
         }
     }

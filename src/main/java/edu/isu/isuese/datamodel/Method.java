@@ -42,17 +42,22 @@ import java.util.Set;
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 public class Method extends TypedMember {
 
-    protected Method() {
+    public Method() {
 
     }
 
     @Builder(buildMethodName = "create")
-    public Method(String name, int start, int end, String compKey, Accessibility accessibility) {
+    public Method(String name, int start, int end, String compKey, Accessibility accessibility, TypeRef type) {
         set("name", name, "start", start, "end", end, "compKey", compKey);
         if (accessibility != null)
             setAccessibility(accessibility);
         else
             setAccessibility(Accessibility.PUBLIC);
+        if (type == null) {
+            setReturnType(TypeRef.createPrimitiveTypeRef("void"));
+        }
+        else
+            setReturnType(type);
         save();
     }
 

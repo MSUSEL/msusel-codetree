@@ -40,7 +40,8 @@ public enum RefType {
     INITIALIZER(3),
     CONSTRUCTOR(4),
     FIELD(5),
-    LITERAL(6);
+    LITERAL(6),
+    NAMESPACE(7);
 
     private final int value;
     public static Map<Integer, RefType> map = Maps.newHashMap();

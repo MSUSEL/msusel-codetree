@@ -28,10 +28,10 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
-import lombok.Builder;
 
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 
 /**
  * @author Isaac Griffith
@@ -47,6 +47,15 @@ public abstract class Type extends Component {
 //        else
 //            setAccessibility(Accessibility.PUBLIC);
 //    }
+
+    public boolean isAbstract() {
+        return getBoolean("abstract");
+    }
+
+    public void setAbstract(boolean abst) {
+        setBoolean("abstract", abst);
+        save();
+    }
 
     public List<System> getParentSystems() {
         return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
@@ -122,68 +131,133 @@ public abstract class Type extends Component {
         return getString("compKey");
     }
 
-    public List<Type> getRealizes() {
+    public Set<Type> getRealizes() {
         return DbUtils.getRelationFrom(this, RelationType.REALIZATION);
     }
 
-    public List<Type> getGeneralizes() {
+    public void realizes(Type other) {
+        createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.REALIZATION);
+    }
+
+    public Set<Type> getGeneralizes() {
         return DbUtils.getRelationFrom(this, RelationType.GENERALIZATION);
     }
 
-    public List<Type> getContained() {
+    public void generalizes(Type other) {
+        createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.GENERALIZATION);
+    }
+
+    public Set<Type> getContained() {
         return DbUtils.getRelationFrom(this, RelationType.CONTAINMENT);
     }
 
-    public List<Type> getAssociatedTo() {
+    public void contains(Type other) {
+        createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.CONTAINMENT);
+    }
+
+    public Set<Type> getAssociatedTo() {
         return DbUtils.getRelationFrom(this, RelationType.ASSOCIATION);
     }
 
-    public List<Type> getAggregatedTo() {
+    public void associatedTo(Type other) {
+        createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.ASSOCIATION);
+    }
+
+    public Set<Type> getAggregatedTo() {
         return DbUtils.getRelationFrom(this, RelationType.AGGREGATION);
     }
 
-    public List<Type> getComposedTo() {
+    public void aggregatedTo(Type other) {
+        createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.AGGREGATION);
+    }
+
+    public Set<Type> getComposedTo() {
         return DbUtils.getRelationFrom(this, RelationType.COMPOSITION);
     }
 
-    public List<Type> getDependencyTo() {
+    public void composedTo(Type other) {
+        createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.COMPOSITION);
+    }
+
+
+    public Set<Type> getDependencyTo() {
         return DbUtils.getRelationFrom(this, RelationType.DEPENDENCY);
     }
 
-    public List<Type> getUseTo() {
+    public void dependencyTo(Type other) {
+        createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.DEPENDENCY);
+    }
+
+    public Set<Type> getUseTo() {
         return DbUtils.getRelationFrom(this, RelationType.USE);
     }
 
-    public List<Type> getRealizedBy() {
+    public void useTo(Type other) {
+        createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.USE);
+    }
+
+    public Set<Type> getRealizedBy() {
         return DbUtils.getRelationTo(this, RelationType.REALIZATION);
     }
 
-    public List<Type> getGeneralizedBy() {
+    public void realizedBy(Type other) {
+        createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.REALIZATION);
+    }
+
+    public Set<Type> getGeneralizedBy() {
         return DbUtils.getRelationTo(this, RelationType.GENERALIZATION);
     }
 
-    public List<Type> getContainedBy() {
+    public void generalizedBy(Type other) {
+        createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.GENERALIZATION);
+    }
+
+    public Set<Type> getContainedBy() {
         return DbUtils.getRelationTo(this, RelationType.CONTAINMENT);
     }
 
-    public List<Type> getAssociatedFrom() {
+    public void containedBy(Type other) {
+        createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.CONTAINMENT);
+    }
+
+    public Set<Type> getAssociatedFrom() {
         return DbUtils.getRelationTo(this, RelationType.ASSOCIATION);
     }
 
-    public List<Type> getAggregatedFrom() {
+    public void associatedFrom(Type other) {
+        createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.ASSOCIATION);
+    }
+
+    public Set<Type> getAggregatedFrom() {
         return DbUtils.getRelationTo(this, RelationType.AGGREGATION);
     }
 
-    public List<Type> getComposedFrom() {
+    public void aggregatedFrom(Type other) {
+        createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.AGGREGATION);
+    }
+
+    public Set<Type> getComposedFrom() {
         return DbUtils.getRelationTo(this, RelationType.COMPOSITION);
     }
 
-    public List<Type> getDependencyFrom() {
+    public void composedFrom(Type other) {
+        createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.COMPOSITION);
+    }
+
+    public Set<Type> getDependencyFrom() {
         return DbUtils.getRelationTo(this, RelationType.DEPENDENCY);
     }
 
-    public List<Type> getUseFrom() {
+    public void dependencyFrom(Type other) {
+        createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.DEPENDENCY);
+    }
+
+    public Set<Type> getUseFrom() {
         return DbUtils.getRelationTo(this, RelationType.USE);
+    }
+
+    public void useFrom(Type other) {
+        createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.USE);
     }
 
     public List<Type> getParentTypes() {
@@ -329,4 +403,5 @@ public abstract class Type extends Component {
 
         return false;
     }
+
 }

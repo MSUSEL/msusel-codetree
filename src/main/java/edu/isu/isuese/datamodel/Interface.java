@@ -41,7 +41,7 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 @BelongsToPolymorphic(parents = {Class.class, Interface.class, Enum.class})
 public class Interface extends Classifier {
 
-    protected Interface() {}
+    public Interface() {}
 
     @Builder(buildMethodName = "create")
     public Interface(String name, int start, int end, String compKey, Accessibility accessibility) {

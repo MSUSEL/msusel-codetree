@@ -43,7 +43,7 @@ public class File extends Model implements Measurable {
         return getString("fileKey");
     }
 
-    protected File() {
+    public File() {
 
     }
 

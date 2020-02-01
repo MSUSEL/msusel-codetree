@@ -36,7 +36,7 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 public class Initializer extends Member {
 
-    protected Initializer() {}
+    public Initializer() {}
 
 
     @Builder(buildMethodName = "create")

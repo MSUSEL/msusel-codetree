@@ -41,7 +41,7 @@ import java.util.List;
 @BelongsToPolymorphic(parents = {Method.class, Constructor.class, Destructor.class})
 public class Parameter extends Model {
 
-    protected Parameter() {}
+    public Parameter() {}
 
     @Builder(buildMethodName = "create")
     public Parameter(String name) {

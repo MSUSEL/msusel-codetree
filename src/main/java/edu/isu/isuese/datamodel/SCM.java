@@ -41,6 +41,8 @@ import java.util.List;
 @Table("scms")
 public class SCM extends Model {
 
+    public SCM() {}
+
     @Builder(buildMethodName = "create")
     public SCM(String name, String key, String tag, String branch, String url, SCMType type) {
         set("name", name, "scmKey", key);

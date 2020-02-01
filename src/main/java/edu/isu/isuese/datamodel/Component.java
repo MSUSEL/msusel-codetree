@@ -29,6 +29,7 @@ package edu.isu.isuese.datamodel;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
@@ -36,37 +37,115 @@ import java.util.List;
  */
 public abstract class Component extends Model implements Measurable {
 
-    public void setCompKey(String key) { set("compKey", key); save(); }
+    public void setCompKey(String key) {
+        set("compKey", key);
+        save();
+    }
 
-    public String getCompKey() { return getString("compKey"); }
+    public String getCompKey() {
+        return getString("compKey");
+    }
 
-    public void setStart(int start) { set("start", start); save(); }
+    public void setStart(int start) {
+        set("start", start);
+        save();
+    }
 
-    public int getStart() { return getInteger("end"); }
+    public int getStart() {
+        return getInteger("end");
+    }
 
-    public void setEnd(int end) { set("end", end); save(); }
+    public void setEnd(int end) {
+        set("end", end);
+        save();
+    }
 
-    public int getEnd() { return getInteger("end"); }
+    public int getEnd() {
+        return getInteger("end");
+    }
 
-    public void setName(String name) { set("name", name); save(); }
+    public void setName(String name) {
+        set("name", name);
+        save();
+    }
 
-    public String getName() { return getString("name"); }
+    public String getName() {
+        return getString("name");
+    }
 
-    public void setAccessibility(Accessibility access) { set("accessibility", access.value()); save(); }
+    public void setAccessibility(Accessibility access) {
+        set("accessibility", access.value());
+        save();
+    }
 
-    public Accessibility getAccessibility() { return Accessibility.fromValue(getInteger("accessibility")); }
+    public Accessibility getAccessibility() {
+        return Accessibility.fromValue(getInteger("accessibility"));
+    }
 
-    public void addModifier(String mod) { add(Modifier.findFirst("name = ?", mod)); save(); }
+    public void addModifier(String mod) {
+        add(Modifier.findFirst("name = ?", mod));
+        save();
+    }
 
-    public void addModifier(Modifier mod) { add(mod); save(); }
+    public void addModifier(Modifier mod) {
+        add(mod);
+        save();
+    }
 
-    public void removeModifier(String mod) { remove(Modifier.findFirst("name = ?", mod)); save(); }
+    public void removeModifier(String mod) {
+        remove(Modifier.findFirst("name = ?", mod));
+        save();
+    }
 
-    public void removeModifier(Modifier mod) { remove(mod); save(); }
+    public void removeModifier(Modifier mod) {
+        remove(mod);
+        save();
+    }
 
-    public List<Modifier> getModifiers() { return getAll(Modifier.class); }
+    public List<Modifier> getModifiers() {
+        return getAll(Modifier.class);
+    }
 
-    public boolean hasModifier(String name) { return !get(Modifier.class, "name = ?", name).isEmpty(); }
+    public boolean hasModifier(String name) {
+        return !get(Modifier.class, "name = ?", name).isEmpty();
+    }
 
-    public boolean hasModifier(Modifier.Values value) { return hasModifier(value.toString()); }
+    public boolean hasModifier(Modifier.Values value) {
+        return hasModifier(value.toString());
+    }
+
+    protected void createRelation(Component toComp, Component fromComp, RefType toType, RefType fromType, RelationType type) {
+        Reference to, from;
+        List toList = Reference.find("refKey = ?", toComp.getRefKey());
+        List fromList = Reference.find("refKey = ?", fromComp.getRefKey());
+        if (fromList.isEmpty())
+            from = Reference.builder().refKey(fromComp.getRefKey()).refType(fromType).create();
+        else
+            from = (Reference) fromList.get(0);
+        if (toList.isEmpty())
+            to = Reference.builder().refKey(toComp.getRefKey()).refType(toType).create();
+        else
+            to = (Reference) toList.get(0);
+
+        Relation rel = Relation.create("relKey", from.getRefKey() + "-" + to.getRefKey());
+        rel.saveIt();
+        rel.setToAndFromRefs(to, from);
+        rel.setType(type);
+        rel.saveIt();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Component) {
+            Component comp = (Component) o;
+            return comp.getCompKey().equals(this.getCompKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getCompKey());
+    }
 }

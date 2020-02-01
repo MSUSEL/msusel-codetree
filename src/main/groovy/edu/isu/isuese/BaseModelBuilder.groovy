@@ -227,15 +227,15 @@ abstract class BaseModelBuilder {
 
             // Check same package
             if (namespace != null)
-                candidate = proj.findType(namespace.getName() + "." + name)
+                candidate = proj.findType("name", namespace.getName() + "." + name)
             else
-                candidate = proj.findType(name)
+                candidate = proj.findType("name", name)
 
             if (candidate == null) {
                 // Check specific imports
                 for (String spec : specific) {
                     if (spec.endsWith(name)) {
-                        candidate = proj.findType("spec")
+                        candidate = proj.findType("name", "spec")
                     }
 
                     if (candidate != null)
@@ -247,7 +247,7 @@ abstract class BaseModelBuilder {
             if (candidate == null) {
                 for (String gen : general) {
                     String imp = gen.replace("*", name)
-                    candidate = proj.findType(imp)
+                    candidate = proj.findType("name", imp)
                     if (candidate != null)
                         break
                 }
@@ -255,10 +255,10 @@ abstract class BaseModelBuilder {
 
             // else java.lang
             if (candidate == null) {
-                candidate = proj.findType("java.lang." + name)
+                candidate = proj.findType("name", "java.lang." + name)
             }
         } else {
-            candidate = proj.findType(name)
+            candidate = proj.findType("name", name)
         }
 
         // In the event that no valid candidate was found, then it is an unknown type
@@ -329,7 +329,7 @@ abstract class BaseModelBuilder {
      */
     Type findTypeNode(String name) {
         final String fullName = getFullName(name)
-        Type type = proj.findType(fullName)
+        Type type = proj.findType("name", fullName)
         types.push(type)
         type
     }

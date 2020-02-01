@@ -49,7 +49,7 @@ import java.util.Set;
 )
 public class TypeRef extends Model {
 
-    protected TypeRef() {}
+    public TypeRef() {}
 
     @Builder(buildMethodName = "create")
     public TypeRef(String typeName, String dimensions, TypeRefType type, Reference ref) {
@@ -136,15 +136,27 @@ public class TypeRef extends Model {
     }
 
     public static TypeRef createPrimitiveTypeRef(String key) {
-        return TypeRef.createIt("typeName", key, "type", TypeRefType.Primitive.value());
+        TypeRef ref = TypeRef.findFirst("typeName = ? and type = ?", "void", TypeRefType.Primitive.value());
+        if (ref != null)
+            return ref;
+        else
+            return TypeRef.createIt("typeName", key, "type", TypeRefType.Primitive.value());
     }
 
     public static TypeRef createWildCardTypeRef() {
-        return TypeRef.createIt("typeName", "?", "type", TypeRefType.WildCard.value());
+        TypeRef ref = TypeRef.findFirst("typeName = ? and type = ?", "?", TypeRefType.WildCard.value());
+        if (ref != null)
+            return ref;
+        else
+            return TypeRef.createIt("typeName", "?", "type", TypeRefType.WildCard.value());
     }
 
     public static TypeRef createTypeVarTypeRef(String typeVar) {
-        return builder().typeName(typeVar).type(TypeRefType.Type).create();
+        TypeRef ref = TypeRef.findFirst("typeName = ?", typeVar);
+        if (ref != null)
+            return ref;
+        else
+            return builder().typeName(typeVar).type(TypeRefType.Type).create();
     }
 
     public static List<TypeRef> knownTypes() {

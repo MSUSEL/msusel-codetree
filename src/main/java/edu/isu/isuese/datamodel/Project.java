@@ -51,7 +51,7 @@ public class Project extends Model implements Measurable {
         Base.close();
     }
 
-    protected Project() {}
+    public Project() {}
 
     @Builder(buildMethodName = "create")
     public Project(String projKey, String name, String version, SCM scm) {
@@ -182,84 +182,84 @@ public class Project extends Model implements Measurable {
         return DbUtils.getTypes(this.getClass(), (Integer) getId());
     }
 
-    public Type findType(String name) {
-        if (hasClass(name))
-            return findClass(name);
-        if (hasInterface(name))
-            return findInterface(name);
-        if (hasEnum(name))
-            return findEnum(name);
+    public Type findType(String attribute, String value) {
+        if (hasClass(attribute, value))
+            return findClass(attribute, value);
+        if (hasInterface(attribute, value))
+            return findInterface(attribute, value);
+        if (hasEnum(attribute, value))
+            return findEnum(attribute, value);
         return null;
     }
 
-    public boolean hasType(String name) {
-        return findType(name) != null;
+    public boolean hasType(String attribute, String value) {
+        return findType(attribute, value) != null;
     }
 
     public List<Class> getClasses() {
         return DbUtils.getClasses(this.getClass(), (Integer) getId());
     }
 
-    public Type findClass(String name) {
+    public Type findClass(String attribute, String value) {
         try {
             return DbUtils.getClasses(this.getClass(), (Integer) getId(),
                     Filter.builder()
-                            .attribute("name")
+                            .attribute(attribute)
                             .op(FilterOperator.EQ)
                             .table("classes")
-                            .value(name)
+                            .value(value)
                             .build()).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
-    public boolean hasClass(String name) {
-        return findClass(name) != null;
+    public boolean hasClass(String attribute, String value) {
+        return findClass(attribute, value) != null;
     }
 
     public List<Interface> getInterfaces() {
         return DbUtils.getInterfaces(this.getClass(), (Integer) getId());
     }
 
-    public Type findInterface(String name) {
+    public Type findInterface(String attribute, String value) {
         try {
             return DbUtils.getClasses(this.getClass(), (Integer) getId(),
                     Filter.builder()
-                            .attribute("name")
+                            .attribute(attribute)
                             .op(FilterOperator.EQ)
                             .table("interfaces")
-                            .value(name)
+                            .value(value)
                             .build()).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
-    public boolean hasInterface(String name) {
-        return findInterface(name) != null;
+    public boolean hasInterface(String attribute, String value) {
+        return findInterface(attribute, value) != null;
     }
 
     public List<Enum> getEnums() {
         return DbUtils.getEnums(this.getClass(), (Integer) getId());
     }
 
-    public Type findEnum(String name) {
+    public Type findEnum(String attribute, String value) {
         try {
             return DbUtils.getClasses(this.getClass(), (Integer) getId(),
                     Filter.builder()
-                            .attribute("name")
+                            .attribute(attribute)
                             .op(FilterOperator.EQ)
                             .table("enums")
-                            .value(name)
+                            .value(value)
                             .build()).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
-    public boolean hasEnum(String name) {
-        return findEnum(name) != null;
+    public boolean hasEnum(String attribute, String value) {
+        return findEnum(attribute, value) != null;
     }
 
     public List<Member> getMembers() {

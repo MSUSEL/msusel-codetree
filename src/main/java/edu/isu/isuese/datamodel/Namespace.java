@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToParents;
@@ -43,6 +44,14 @@ import java.util.List;
         @BelongsTo(foreignKeyName="namespace_id", parent=Namespace.class)
 })
 public class Namespace extends Model implements Measurable {
+
+    public Namespace() {}
+
+    @Builder(buildMethodName = "create")
+    public Namespace(String nsKey, String name) {
+        set("nsKey", nsKey);
+        setName(name);
+    }
 
     public String getNsKey() { return getString("nsKey"); }
 

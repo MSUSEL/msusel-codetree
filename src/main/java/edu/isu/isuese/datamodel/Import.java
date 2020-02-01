@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 /**
@@ -33,6 +34,13 @@ import org.javalite.activejdbc.Model;
  * @version 1.3.0
  */
 public class Import extends Model {
+
+    public Import() {}
+
+    @Builder(buildMethodName = "create")
+    public Import(String name) {
+        setName(name);
+    }
 
     public String getName() { return getString("name"); }
 

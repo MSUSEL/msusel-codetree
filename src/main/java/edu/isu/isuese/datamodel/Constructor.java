@@ -36,13 +36,13 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 public class Constructor extends Method {
 
-    protected Constructor() {
+    public Constructor() {
         super();
     }
 
     @Builder(buildMethodName = "create", builderMethodName = "creator")
-    public Constructor(String name, int start, int end, String compKey, Accessibility accessibility) {
-        super(name, start, end, compKey, accessibility);
+    public Constructor(String name, int start, int end, String compKey, Accessibility accessibility, TypeRef type) {
+        super(name, start, end, compKey, accessibility, type);
         save();
     }
 }

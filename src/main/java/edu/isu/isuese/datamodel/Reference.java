@@ -31,6 +31,8 @@ import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 import org.javalite.activejdbc.annotations.Table;
 
+import java.util.Objects;
+
 /**
  * @author Isaac Griffith
  * @version 1.3.0
@@ -38,6 +40,8 @@ import org.javalite.activejdbc.annotations.Table;
 @Table("refs")
 @BelongsToPolymorphic(parents = {Relation.class, Finding.class, Measure.class, RoleBinding.class, TypeRef.class})
 public class Reference extends Model {
+
+    public Reference() {}
 
     @Builder(buildMethodName = "create")
     public Reference(String refKey, RefType refType) {
@@ -51,4 +55,19 @@ public class Reference extends Model {
     public RefType getType() { return RefType.fromValue(getInteger("type")); }
 
     public void setType(RefType type) { set("type", type.value()); save(); }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Reference) {
+            Reference ref = (Reference) o;
+            return ref.getRefKey().equals(this.getRefKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getRefKey());
+    }
 }

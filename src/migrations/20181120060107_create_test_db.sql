@@ -220,6 +220,7 @@ create table classes (
   end INTEGER,
   compKey VARCHAR,
   name VARCHAR,
+  abstract INTEGER,
   accessibility INTEGER,
   file_id INTEGER REFERENCES files(id),
   parent_id INTEGER,

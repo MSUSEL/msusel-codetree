@@ -40,6 +40,8 @@ import java.util.List;
  */
 public class System extends Model implements Measurable, Structure {
 
+    public System() {}
+
     @Builder(buildMethodName = "create")
     public System(String name, String key) {
         set("name", name, "sysKey", key);
@@ -62,6 +64,13 @@ public class System extends Model implements Measurable, Structure {
     public String getKey() {
         return getString("sysKey");
     }
+
+    public void setVersion(String version) {
+        set("version", version);
+        save();
+    }
+
+    public String getVersion() { return getString("version"); }
 
     public void addProject(Project p) {
         add(p);

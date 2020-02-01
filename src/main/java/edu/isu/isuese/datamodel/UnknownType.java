@@ -34,6 +34,8 @@ import lombok.Builder;
  */
 public class UnknownType extends Type {
 
+    public UnknownType() {}
+
     @Builder(buildMethodName = "create")
     public UnknownType(String name, int start, int end, String compKey, Accessibility accessibility) {
         set("name", name, "start", start, "end", end, "compKey", compKey);
@@ -41,4 +43,6 @@ public class UnknownType extends Type {
             setAccessibility(Accessibility.PUBLIC);
         save();
     }
+
+
 }

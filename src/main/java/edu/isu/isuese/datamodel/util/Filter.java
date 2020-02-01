@@ -42,6 +42,6 @@ public class Filter {
 
     @Override
     public String toString() {
-        return String.format("%s.%s %s %s", table, attribute, op.value(), value);
+        return String.format("%s.%s %s '%s'", table, attribute, op.value(), value);
     }
 }

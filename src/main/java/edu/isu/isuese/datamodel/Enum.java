@@ -41,7 +41,7 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 @BelongsToPolymorphic(parents = {Class.class, Interface.class, Enum.class})
 public class Enum extends Classifier {
 
-    protected Enum() {
+    public Enum() {
 
     }
 

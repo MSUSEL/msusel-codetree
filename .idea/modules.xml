@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../isuese-detstrat/isuese-detstrat.iml" filepath="$PROJECT_DIR$/../isuese-detstrat/isuese-detstrat.iml" />
       <module fileurl="file://$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" filepath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" />
       <module fileurl="file://$PROJECT_DIR$/../msusel-patterns-experimenter/msusel-arc-framework.iml" filepath="$PROJECT_DIR$/../msusel-patterns-experimenter/msusel-arc-framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/msusel-codetree.iml" filepath="$PROJECT_DIR$/msusel-codetree.iml" />

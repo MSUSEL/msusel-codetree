@@ -27,6 +27,7 @@
 package edu.isu.isuese.datamodel;
 
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -36,6 +37,16 @@ import java.util.List;
  * @version 1.3.0
  */
 public class Rule extends Model {
+
+    public Rule() {}
+
+    @Builder(buildMethodName = "create")
+    public Rule(String key, String name, Priority priority, String description) {
+        setKey(key);
+        setName(name);
+        setPriority(priority);
+        setDescription(description);
+    }
 
     public void setPriority(Priority p) {
         set("priority", p.value());

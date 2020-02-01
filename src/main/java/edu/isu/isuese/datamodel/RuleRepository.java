@@ -27,6 +27,7 @@
 package edu.isu.isuese.datamodel;
 
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -36,6 +37,16 @@ import java.util.List;
  * @version 1.3.0
  */
 public class RuleRepository extends Model {
+
+    public RuleRepository() {
+
+    }
+
+    @Builder(buildMethodName = "create")
+    public RuleRepository(String key, String name) {
+        set("repoKey", key);
+        setName(name);
+    }
 
     public String getRepoKey() { return getString("repoKey"); }
 

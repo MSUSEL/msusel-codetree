@@ -38,6 +38,8 @@ import java.util.List;
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 public class Field extends TypedMember {
 
+    public Field() {}
+
     @Builder(buildMethodName = "create")
     public Field(String name, int start, int end, String compKey, Accessibility accessibility) {
         set("name", name, "start", start, "end", end, "compKey", compKey);

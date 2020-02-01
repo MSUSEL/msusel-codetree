@@ -38,6 +38,8 @@ import java.util.List;
  */
 public class Pattern extends Model {
 
+    public Pattern() {}
+
     public String getPatternKey() { return getString("patternKey"); }
 
     public String getName() { return getString("name"); }

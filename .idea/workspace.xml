@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" description="//            setAccessibility(Accessibility.PUBLI..." line="47" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/CLIProcessor.java" afterDir="false" />
@@ -15,6 +12,52 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/app_config/development.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/test/java/edu/isu/cs/isuese/arc/impl/ghsearch/MainSpec.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.0/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.0/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/AbstractArtifactBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/AbstractDirStructureGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/AbstractFileGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/AbstractPatternGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/AbstractSourceBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/CompositeArtifactBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/MemberBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/java/member/JavaFieldBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/java/member/JavaMethodBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/member/ConstructorBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/member/FieldBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/member/InitializerBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/member/LiteralBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/builders/member/MethodBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/AbstractGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/BuildFileGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/CodeGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/Director.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/DirectoryGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/FieldGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/GitIgnoreGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/LanguageProvider.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/LicenseGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/LiteralGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/MethodGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/PatternBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/ReadmeGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/TypeEnum.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/TypeGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaBuildFileGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaCodeGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaDirectoryGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaFieldGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaGitIgnoreGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaLanguageProvider.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaLiteralGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaMethodGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaTypeGenerator.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/ClassifierBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/EntityBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/GenHierBuilder.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/PatternBuilderParams.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/RelationshipBuilder.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" afterDir="false" />
@@ -23,104 +66,366 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/AssociationExtractor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/AssociationExtractor.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/BaseModelBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/BaseModelBuilder.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Enum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Enum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Import.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Import.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Initializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Initializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Interface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Parameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Pattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Pattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RefType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RefType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Reference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Reference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RuleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RuleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/SCM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/SCM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/TypeRef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/TypeRef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/UnknownType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/UnknownType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ReferenceSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ReferenceSpec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/SystemSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/SystemSpec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/util/DbUtilsSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/util/DbUtilsSpec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/java8/Java8Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/java8/Java8Visitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/ArcMetricsProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/ArcMetricsProvider.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/LoCProfileManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/LoCProfileManager.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods1.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods1.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods2.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods2.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods3.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods3.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods4.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods4.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods5.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods5.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassMethods.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassVariables.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassVariables.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClasses.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClasses.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassesEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassesEvaluator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfFields.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfFields.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfFiles.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfFiles.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfInstanceMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfInstanceMethods.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfInstanceVariables.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfInstanceVariables.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfInterfaces.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfInterfaces.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfMethods.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfOverridenMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfOverridenMethods.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfPolymorphicMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfPolymorphicMethods.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfStatements.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfStatements.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfTypes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfTypes.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-parent/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/msusel-pattern-generator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/msusel-pattern-generator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/Cue.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/Cue.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/CueScript.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/CueScript.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/CueBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/CueBuilder.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/CueFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/CueFactory.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/PatternFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/PatternFactory.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/RoleFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/RoleFactory.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractDirStructGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractDirStructGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractFileGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractPatternGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractPatternGenerator.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractSourceBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractSourceBuilder.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/Generator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/Generator.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpDirStructGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpDirStructGenerator.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpFileGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpPlugin.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpPlugin.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpSourceBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpSourceBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/AbstractNodeBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/AbstractNodeBuilder.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event/EventManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event/EventManager.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/BuilderData.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/BuilderData.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/EnumLiteralBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/EnumLiteralBuilder.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/FieldBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/FieldBuilder.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/FileBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/FileBuilder.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaFileGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaGradleDirStructGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaGradleDirStructGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaGradleFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaGradleFileGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaMavenDirStructGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaMavenDirStructGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaMavenFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaMavenFileGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaPlugin.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaPlugin.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaSourceBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaSourceBuilder.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/MethodBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/MethodBuilder.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/NodeBuilderFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/NodeBuilderFactory.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/ProjectBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/ProjectBuilder.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/TypeBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/TypeBuilder.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/plugin/AbstractLanguagePlugin.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/plugin/AbstractLanguagePlugin.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubyDirStructGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubyDirStructGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubyFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubyFileGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/com/sparqline/srcml/test/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/edu/sparqline/srcml/test/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/com/sparqline/srcml/test/Drive.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/edu/sparqline/srcml/test/Drive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/com/sparqline/srcml/test/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/edu/sparqline/srcml/test/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/com/sparqline/srcml/test/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/edu/sparqline/srcml/test/Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/com/sparqline/srcml/test/Walk.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/edu/sparqline/srcml/test/Walk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/DistilledGraphCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/DistilledGraphCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/DistilledView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/DistilledView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/DistillerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/DistillerData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/DistillerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/DistillerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/EdgeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/EdgeFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/EdgePopulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/EdgePopulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/Grade.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/Grade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/GradeThresholdException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/GradeThresholdException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/GraphModifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/GraphModifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/ModelDistiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/ModelDistiller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/ModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/NodeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/NodeFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/NodePopulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/NodePopulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/NormalizerPopulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/NormalizerPopulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/ProcessorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/ProcessorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/ProcessorPopulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/ProcessorPopulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/WeightUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/WeightUpdater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/INode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/INode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/AbstractEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/AbstractEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/FactorToFactorEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/FactorToFactorEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/FindingToMeasureEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/FindingToMeasureEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/FindingsEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/FindingsEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/InfluenceEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/InfluenceEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/InfluenceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/InfluenceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToFactorFindingsEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToFactorFindingsEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToFactorNumberEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToFactorNumberEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToMeasureFindingsEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToMeasureFindingsEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToMeasureFindingsNumberEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToMeasureFindingsNumberEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToMeasureNumberEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToMeasureNumberEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/Normalizable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/Normalizable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/RankedEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/RankedEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/ValueToMeasureEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/ValueToMeasureEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/WeightedEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/WeightedEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/WeightedRankedEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/WeightedRankedEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/edge/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/FactorMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/FactorMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/FactorNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/FactorNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/Finding.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/Finding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingsUnionNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingsUnionNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/MeasureMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/MeasureMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/MeasureNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/MeasureNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/NormalizationNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/NormalizationNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/ValueNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/ValueNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/AbstractQuamocoReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/AbstractQuamocoReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/AbstractWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/AbstractWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/GradeSchemePropertiesReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/GradeSchemePropertiesReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/JsonSerializable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/JsonSerializable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/MetricPropertiesReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/MetricPropertiesReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/NodeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/NodeHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/RootNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/RootNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/ScriptSerializable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/ScriptSerializable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/XMLSerializable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/XMLSerializable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/YamlSerializable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/YamlSerializable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/AbstractQMElementFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/AbstractQMElementFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/EntityFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/EntityFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/EntityType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/EntityType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/EvaluationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/EvaluationFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/EvaluationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/EvaluationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/FactorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/FactorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/FactorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/FactorType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/FunctionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/FunctionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/FunctionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/FunctionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/MeasureFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/MeasureFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/MeasurementMethodFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/MeasurementMethodFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/MeasurementMethodType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/MeasurementMethodType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/MeasuresType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/MeasuresType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/RankingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/factories/RankingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMJsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMJsonReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMJsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMJsonWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMXMLReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMXMLReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMXMLWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMXMLWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMYamlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMYamlReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMYamlWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QMYamlWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QuamocoScriptWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qm/QuamocoScriptWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRJsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRJsonReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRJsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRJsonWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRXMLReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRXMLReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRXMLWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRXMLWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRYamlReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRYamlReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRYamlWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/io/qmr/QMRYamlWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Annotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Annotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Impact.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Impact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/InfluenceEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/InfluenceEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/MeasureType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/MeasureType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/NormalizationRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/NormalizationRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/QMElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/QMElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/QualityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/QualityModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Ranking.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Ranking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Source.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Source.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/Tool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/entity/ProductPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/entity/ProductPart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/entity/Stakeholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/entity/Stakeholder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/entity/UseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/entity/UseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/Evaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/FactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/FactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/FormBasedEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/FormBasedEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/ManualEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/ManualEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/MeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/MeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/MultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/MultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/QIESLEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/QIESLEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/TextEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/TextEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/HistogramCompFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/HistogramCompFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/MaxFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/MaxFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/MeanFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/MeanFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/MedianFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/MedianFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/MinFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/MinFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/ModeFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/ModeFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/RangeFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/RangeFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/StdDevFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/StdDevFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/SummationFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/SummationFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/VarianceFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/VarianceFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/WeightedSumFactorAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/factor/WeightedSumFactorAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/HistCompMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/HistCompMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/MaxMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/MaxMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/MeanMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/MeanMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/MeasureRanking.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/MeasureRanking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/MedianMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/MedianMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/MinMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/MinMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/ModeMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/ModeMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/RangeMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/RangeMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/SingleMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/SingleMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/StdDevMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/StdDevMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/SummationMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/SummationMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/VarianceMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/VarianceMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/WeightedSumMultiMeasureEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/measure/WeightedSumMultiMeasureEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/ClassificationItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/ClassificationItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/Factor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/Factor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/Goal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/Goal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/ProductFactor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/ProductFactor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/ProductQualityAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/ProductQualityAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/QualityAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/QualityAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/QualityInUseAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/QualityInUseAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/Requirement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/Requirement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/StakeholderSatisfaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/StakeholderSatisfaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/TechnicalIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/factor/TechnicalIssue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/func/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/func/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/func/LinearDecreasingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/func/LinearDecreasingFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/func/LinearFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/func/LinearFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/func/LinearIncreasingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/func/LinearIncreasingFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measure/Measure.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measure/Measure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measure/NormalizationMeasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measure/NormalizationMeasure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/FactorRanking.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/FactorRanking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/Instrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/Instrument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/ManualInstrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/ManualInstrument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/MeasurementMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/MeasurementMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/MetricBasedInstrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/MetricBasedInstrument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/RuleBasedInstrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/RuleBasedInstrument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/ToolBasedInstrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/ToolBasedInstrument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/FindingsIntersectionMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/FindingsIntersectionMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/FindingsUnionMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/FindingsUnionMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/FormBasedMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/FormBasedMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/MeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/MeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberHistogramCompMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberHistogramCompMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberMaxMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberMaxMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberMeanMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberMeanMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberMedianMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberMedianMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberMinMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberMinMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberModeMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberModeMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberRangeMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberRangeMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberStdDevMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberStdDevMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberSummationMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberSummationMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberVarianceMeasureAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/NumberVarianceMeasureAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/QIESLAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/QIESLAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/TextAggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/aggregation/TextAggregation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/AbstractResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/AbstractResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/DoubleInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/DoubleInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/EvaluationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/EvaluationResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/FindingsMeasurementResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/FindingsMeasurementResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/MeasureRankingEvaluationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/MeasureRankingEvaluationResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/MeasurementResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/MeasurementResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/MultiMeasureEvaluationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/MultiMeasureEvaluationResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/NumberMeasurementResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/NumberMeasurementResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/ResultSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/ResultSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/SingleMeasureEvaluationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/SingleMeasureEvaluationResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/SystemDescriptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/result/SystemDescriptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/Aggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/Aggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/AggregatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/AggregatorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/Evaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/EvaluatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/EvaluatorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/FindingsAggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/FindingsAggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/LinearDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/LinearDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/MetricsContextException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/MetricsContextException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/Normalizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/Normalizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/NormalizerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/NormalizerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/NullProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/NullProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/Processor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/Processor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/ProcessorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/ProcessorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsIntersectAggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsIntersectAggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsUnionAggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsUnionAggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/NumberMaxAggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/NumberMaxAggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/NumberMeanAggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/NumberMeanAggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/NumberMedianAggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/NumberMedianAggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/NumberMinAggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/NumberMinAggregator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/evaluators/ManualEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/evaluators/ManualEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/evaluators/MeanEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/evaluators/MeanEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/evaluators/SingleMeasureEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/evaluators/SingleMeasureEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/evaluators/WeightedSumEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/evaluators/WeightedSumEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/evaluators/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/evaluators/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/AbstractNodeExtentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/AbstractNodeExtentDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/Extent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/Extent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/FieldNodeExtentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/FieldNodeExtentDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/FileNodeExtentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/FileNodeExtentDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/MethodNodeExtentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/MethodNodeExtentDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/ModuleNodeExtentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/ModuleNodeExtentDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/NamespaceNodeExtentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/NamespaceNodeExtentDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/NodeExtentDecoratorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/NodeExtentDecoratorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/ProjectNodeExtentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/ProjectNodeExtentDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/TypeNodeExtentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/TypeNodeExtentDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/lineardist/AbstractLinearDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/lineardist/AbstractLinearDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/lineardist/NegativeLinearDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/lineardist/NegativeLinearDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/lineardist/PositiveLinearDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/lineardist/PositiveLinearDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/lineardist/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/lineardist/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/NullNormalizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/NullNormalizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/RangedNormalizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/RangedNormalizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/UnrangedNormalizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/UnrangedNormalizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/generator/classnames1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/generator/classnames2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/generator/classnames3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/generator/fieldnames.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/generator/methodnames1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/generator/methodnames2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/generator/regionnames1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/generator/regionnames2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/generator/regionnames3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/maintainability.txt" beforeDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path="$PROJECT_DIR$/../msusel-java-parser/target/" />
-    <ignored path="$PROJECT_DIR$/.idea/target/" />
-    <ignored path="$PROJECT_DIR$/../msusel-loc-metrics/target/" />
-    <ignored path="$PROJECT_DIR$/../msusel-metrics/target/" />
-    <ignored path="$PROJECT_DIR$/../msusel-config/target/" />
-    <ignored path="$PROJECT_DIR$/../msusel-parent/target/" />
-    <ignored path="$PROJECT_DIR$/../msusel-pattern-generator/target/" />
-    <ignored path="$PROJECT_DIR$/../msusel-patterns-experimenter/target/" />
-    <ignored path="$PROJECT_DIR$/../msusel-quamoco/target/" />
-    <ignored path="$PROJECT_DIR$/../msusel-rbml-dsl/target/" />
-    <ignored path="$PROJECT_DIR$/../msusel-software-injector/target/" />
-    <ignored path="$PROJECT_DIR$/../isuese-gitsearch/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="DepsLocalSettings">
+    <option name="repoId" value="" />
+    <option name="repoUrl" value="" />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="msusel-codetree" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformance.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="394" column="44" selection-start-line="394" selection-start-column="44" selection-end-line="394" selection-end-column="44" />
-              <folding>
-                <element signature="e#1406#1443#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/Generator.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/GeneratorConfig.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/ChainIdentifier.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/ArcMetricsProvider.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="34" column="76" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="76" />
-              <folding>
-                <element signature="e#1396#1444#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -132,346 +437,80 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>assoc</find>
-      <find>Litera</find>
-      <find>extractJoinPath</find>
-      <find>System.out.println</find>
-      <find>getRoles</find>
-      <find>create table role_</find>
-      <find>Tag</find>
-      <find>create table tags</find>
-      <find>pattern_in</find>
-      <find>methods</find>
-      <find>child</find>
-      <find>initiali</find>
-      <find>relations</find>
-      <find>refs</find>
-      <find>signature</find>
-      <find>modifier</find>
-      <find>modifiers</find>
-      <find>TypeRefType.PRIMITIVE</find>
-      <find>Template</find>
-      <find>system.</find>
-      <find>FIXME</find>
-      <find>sys.</find>
-      <find>initia</find>
-      <find>project</find>
-      <find>mediat</find>
-      <find>mediator</find>
-      <find>version</find>
-      <find>SC</find>
-      <find>lombok</find>
-      <find>getG</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>public static List&lt;</replace>
-      <replace>model</replace>
-      <replace>id</replace>
-      <replace>3</replace>
-      <replace>proj</replace>
-      <replace>proj.</replace>
-      <replace>project.</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-rbml-dsl" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/UnknownType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Class.java" />
-        <option value="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/environment/EnvironmentLoader.groovy" />
-        <option value="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/cfg/ControlFlowGraph.groovy" />
-        <option value="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/NamespaceSpec.java" />
-        <option value="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FieldSpec.java" />
-        <option value="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/SCMSpec.java" />
-        <option value="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/UnknownTypeSpec.java" />
-        <option value="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/SystemSpec.java" />
-        <option value="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ReferenceSpec.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/development.properties" />
-        <option value="$USER_HOME$/.m2/settings.xml" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/test/java/edu/isu/cs/isuese/arc/impl/ghsearch/MainSpec.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Rule.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/app_config/development.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/SCM.java" />
-        <option value="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/LICENSE" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/CLIProcessor.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Cloner.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitWorker.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/RepoWorkerException.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/RepoWorker.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" />
-        <option value="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" />
-        <option value="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/ChainIdentifier.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformance.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/Generator.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/NodeBuilderFactory.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaSourceBuilder.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/BuilderData.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/AbstractNodeBuilder.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/EnumLiteralBuilder.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/FieldBuilder.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/FileBuilder.groovy" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/MethodBuilder.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractSourceBuilder.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/ProjectBuilder.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/TypeBuilder.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpDirStructGenerator.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpFileGenerator.groovy" />
-        <option value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpSourceBuilder.groovy" />
-      </list>
-    </option>
-  </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="alwaysUpdateSnapshots" value="true" />
+        <option name="failureBehavior" value="NEVER" />
+        <option name="usePluginRegistry" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="MavenRunner">
     <option name="delegateBuildToMaven" value="true" />
+    <option name="jreName" value="11" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="3840" />
-    <option name="width" value="1920" />
-    <option name="height" value="1039" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <flattenPackages ProjectPane="true" />
-      <hideEmptyPackages ProjectPane="true" />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="isuese-gitsearch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="isuese-gitsearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="isuese-gitsearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="isuese-gitsearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="isuese-gitsearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="isuese-gitsearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="isuese" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="isuese-gitsearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="arc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="isuese-gitsearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ghsearch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-datamodel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-datamodel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-datamodel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-datamodel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-datamodel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="datamodel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-metrics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-parent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-pattern-generator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-pattern-generator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-pattern-generator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-pattern-generator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-pattern-generator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-              <item name="pattern" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-pattern-generator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-              <item name="factory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-pattern-generator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-              <item name="gen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-pattern-generator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-pattern-generator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-rbml-dsl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-rbml-dsl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-rbml-dsl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="msusel-codetree" type="b2602c69:ProjectViewProjectNode" />
-              <item name="msusel-rbml-dsl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="groovy" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
-    </panes>
+  <component name="ProjectId" id="1QdiM4WhfriEspsA10pi6NhkUoC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="GoToKeyword.includeLibraries" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/git/msusel/msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/AbstractLOCMetric.groovy" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547682444928" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/app_config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../msusel-rbml-dsl" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="edu.isu.isuese.datamodel.util" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/app_config" />
-      <recent name="$PROJECT_DIR$/src/main/groovy/edu/isu.isuese" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../msusel-rbml-dsl/src" />
       <recent name="$PROJECT_DIR$/../isuese-gitsearch/app_config" />
       <recent name="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese" />
       <recent name="$PROJECT_DIR$/src/main/groovy/edu/isu.isuese" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.montana.gsoc.msusel.rbml" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../msusel-rbml-dsl" />
+      <recent name="$PROJECT_DIR$/../msusel-pattern-generator/src" />
+      <recent name="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/app_config" />
+      <recent name="$PROJECT_DIR$/src/main/groovy/edu/isu.isuese" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="edu.isu.isuese.datamodel.util" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn process-classes" />
+      <command value="mvn msusel-codetree process-classes" />
+      <command value="mvn clean compile" />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -485,35 +524,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Cloner">
-    <configuration name="Cloner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.isu.cs.isuese.arc.impl.ghsearch.Cloner" />
-      <module name="isuese-ghsearch" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.isu.cs.isuese.arc.impl.ghsearch.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="edu.isu.cs.isuese.arc.impl.ghsearch.Main" />
-      <module name="isuese-ghsearch" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.isu.cs.isuese.arc.impl.ghsearch.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.All in msusel-rbml-dsl">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -523,70 +534,112 @@
       <setting name="workingDir" value="" />
       <setting name="profiles" value="" />
       <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
       <setting name="host" value="" />
       <setting name="port" value="0" />
-      <setting name="replType" value="0" />
+      <setting name="replType" value="NREPL" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="fixLineNumbers" value="false" />
       <module name="" />
       <method v="2" />
     </configuration>
-    <configuration name="All in msusel-codetree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-codetree" />
+    <configuration name="All in msusel-rbml-dsl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-rbml-dsl" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DbUtilsSpec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-codetree" />
+    <configuration name="SPSConformanceSpec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-rbml-dsl" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.isu.isuese.datamodel.util.*" />
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.rbml.conformance.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.isu.isuese.datamodel.util" />
-      <option name="MAIN_CLASS_NAME" value="edu.isu.isuese.datamodel.util.DbUtilsSpec" />
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.rbml.conformance" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.rbml.conformance.SPSConformanceSpec" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainSpec.shouldWork" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="isuese-ghsearch" />
+    <configuration name="SPSConformanceSpec.testCheckBlockConformance_real" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-rbml-dsl" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.isu.cs.isuese.arc.impl.ghsearch.*" />
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.rbml.conformance.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.isu.cs.isuese.arc.impl.ghsearch" />
-      <option name="MAIN_CLASS_NAME" value="edu.isu.cs.isuese.arc.impl.ghsearch.MainSpec" />
-      <option name="METHOD_NAME" value="shouldWork" />
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.rbml.conformance" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.rbml.conformance.SPSConformanceSpec" />
+      <option name="METHOD_NAME" value="testCheckBlockConformance_real" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SPSConformanceSpec.testConforms" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-rbml-dsl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.rbml.conformance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.rbml.conformance" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.rbml.conformance.SPSConformanceSpec" />
+      <option name="METHOD_NAME" value="testConforms" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unittests in test" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="msusel-rbml-dsl" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../msusel-rbml-dsl/src/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/../msusel-rbml-dsl/src/test&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Cloner" />
-      <item itemvalue="JUnit.DbUtilsSpec" />
-      <item itemvalue="JUnit.All in msusel-codetree" />
-      <item itemvalue="JUnit.MainSpec.shouldWork" />
+      <item itemvalue="JUnit.SPSConformanceSpec" />
+      <item itemvalue="JUnit.SPSConformanceSpec.testConforms" />
+      <item itemvalue="JUnit.SPSConformanceSpec.testCheckBlockConformance_real" />
+      <item itemvalue="JUnit.All in msusel-rbml-dsl" />
+      <item itemvalue="Python tests.Unittests in test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Cloner" />
-        <item itemvalue="JUnit.MainSpec.shouldWork" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.All in msusel-codetree" />
-        <item itemvalue="JUnit.DbUtilsSpec" />
+        <item itemvalue="JUnit.All in msusel-rbml-dsl" />
+        <item itemvalue="JUnit.SPSConformanceSpec" />
+        <item itemvalue="JUnit.SPSConformanceSpec.testConforms" />
+        <item itemvalue="Python tests.Unittests in test" />
+        <item itemvalue="JUnit.SPSConformanceSpec.testCheckBlockConformance_real" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="StructuralSearchPlugin">
+    <searchConfiguration name="user defined" created="1556400320317" text="montana.gsoc.msusel.codetree" recursive="true" caseInsensitive="true" type="Groovy" scope_type="MODULE" scope_descriptor="msusel-software-injector" history="1">
+      <constraint name="__context__" target="true" within="" contains="" />
+    </searchConfiguration>
+    <replaceConfiguration name="user defined" created="1556400082179" text="montana.gsoc.msusel.codetree" recursive="false" caseInsensitive="true" type="Groovy" scope_type="MODULE" scope_descriptor="msusel-software-injector" reformatAccordingToStyle="false" shortenFQN="false" replacement="isu.isuese.datamodel" history="1">
+      <constraint name="__context__" within="" contains="" />
+    </replaceConfiguration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -711,608 +764,242 @@
       <workItem from="1556182554123" duration="3758000" />
       <workItem from="1556228832313" duration="5055000" />
       <workItem from="1556259531066" duration="1296000" />
-      <workItem from="1556328958966" duration="598000" />
+      <workItem from="1556328958966" duration="4915000" />
+      <workItem from="1556399335000" duration="4815000" />
+      <workItem from="1556429019486" duration="632000" />
+      <workItem from="1556435599940" duration="2669000" />
+      <workItem from="1556492102245" duration="774000" />
+      <workItem from="1556567061445" duration="701000" />
+      <workItem from="1556662712951" duration="884000" />
+      <workItem from="1556663645816" duration="2917000" />
+      <workItem from="1556670517104" duration="3499000" />
+      <workItem from="1556761595084" duration="1160000" />
+      <workItem from="1556762798612" duration="593000" />
+      <workItem from="1556778626866" duration="595000" />
+      <workItem from="1556976818242" duration="618000" />
+      <workItem from="1556977753032" duration="376000" />
+      <workItem from="1557094248131" duration="841000" />
+      <workItem from="1557139892954" duration="1481000" />
+      <workItem from="1557185216048" duration="641000" />
+      <workItem from="1557219152853" duration="909000" />
+      <workItem from="1557229154292" duration="618000" />
+      <workItem from="1557305392245" duration="8384000" />
+      <workItem from="1557371704488" duration="1980000" />
+      <workItem from="1557394073379" duration="9794000" />
+      <workItem from="1557476184434" duration="5942000" />
+      <workItem from="1557674502901" duration="2449000" />
+      <workItem from="1557764072761" duration="801000" />
+      <workItem from="1557851454465" duration="2834000" />
+      <workItem from="1557934646042" duration="2076000" />
+      <workItem from="1557987660078" duration="2423000" />
+      <workItem from="1558367958844" duration="4000" />
+      <workItem from="1558449872987" duration="733000" />
+      <workItem from="1558457807380" duration="654000" />
+      <workItem from="1558477069562" duration="562000" />
+      <workItem from="1558628266153" duration="2235000" />
+      <workItem from="1558820359418" duration="1196000" />
+      <workItem from="1559002323773" duration="801000" />
+      <workItem from="1559003797058" duration="1806000" />
+      <workItem from="1559104450744" duration="5408000" />
+      <workItem from="1559158325129" duration="610000" />
+      <workItem from="1559171251862" duration="595000" />
+      <workItem from="1559248495706" duration="1197000" />
+      <workItem from="1559267633183" duration="14000" />
+      <workItem from="1559269814340" duration="4190000" />
+      <workItem from="1559525855762" duration="126000" />
+      <workItem from="1559526164851" duration="13103000" />
+      <workItem from="1559648181766" duration="242000" />
+      <workItem from="1559648469737" duration="36000" />
+      <workItem from="1559648540493" duration="636000" />
+      <workItem from="1559768651285" duration="3563000" />
+      <workItem from="1559825293571" duration="1549000" />
+      <workItem from="1559932909115" duration="4288000" />
+      <workItem from="1559961120534" duration="3447000" />
+      <workItem from="1560166323274" duration="1283000" />
+      <workItem from="1560177533702" duration="5809000" />
+      <workItem from="1560242253946" duration="5960000" />
+      <workItem from="1560335038678" duration="2995000" />
+      <workItem from="1560399947998" duration="1302000" />
+      <workItem from="1560504140103" duration="7422000" />
+      <workItem from="1560593801255" duration="1208000" />
+      <workItem from="1560746732352" duration="604000" />
+      <workItem from="1560747377939" duration="121000" />
+      <workItem from="1560749542097" duration="1692000" />
+      <workItem from="1560764233594" duration="596000" />
+      <workItem from="1560766192801" duration="615000" />
+      <workItem from="1560819204814" duration="24807000" />
+      <workItem from="1561012283378" duration="21303000" />
+      <workItem from="1561127688499" duration="10052000" />
+      <workItem from="1561190258136" duration="20390000" />
+      <workItem from="1561395043370" duration="602000" />
+      <workItem from="1561460739287" duration="600000" />
+      <workItem from="1561642974778" duration="2089000" />
+      <workItem from="1561740383239" duration="1255000" />
+      <workItem from="1561827209820" duration="4961000" />
+      <workItem from="1562082332195" duration="3996000" />
+      <workItem from="1562178309729" duration="597000" />
+      <workItem from="1562226797670" duration="591000" />
+      <workItem from="1562361454385" duration="1027000" />
+      <workItem from="1562443261968" duration="2416000" />
+      <workItem from="1562648028484" duration="1206000" />
+      <workItem from="1562767201948" duration="5304000" />
+      <workItem from="1563338580196" duration="609000" />
+      <workItem from="1563461229143" duration="611000" />
+      <workItem from="1563506024058" duration="597000" />
+      <workItem from="1563609054545" duration="8584000" />
+      <workItem from="1563946967056" duration="10286000" />
+      <workItem from="1564093145126" duration="602000" />
+      <workItem from="1564103671837" duration="3304000" />
+      <workItem from="1564258403115" duration="597000" />
+      <workItem from="1564272794551" duration="11871000" />
+      <workItem from="1564711514393" duration="3721000" />
+      <workItem from="1565315081910" duration="597000" />
+      <workItem from="1565380624060" duration="1199000" />
+      <workItem from="1565500123122" duration="7517000" />
+      <workItem from="1565628681402" duration="723000" />
+      <workItem from="1565696182950" duration="605000" />
+      <workItem from="1565716538174" duration="598000" />
+      <workItem from="1565849492554" duration="3077000" />
+      <workItem from="1566029261678" duration="611000" />
+      <workItem from="1566487333571" duration="663000" />
+      <workItem from="1566684077976" duration="5379000" />
+      <workItem from="1566743880098" duration="6017000" />
+      <workItem from="1566755884560" duration="3000" />
+      <workItem from="1567093801168" duration="1008000" />
+      <workItem from="1567121209449" duration="7890000" />
+      <workItem from="1567137679126" duration="805000" />
+      <workItem from="1567464974793" duration="2626000" />
+      <workItem from="1567847216150" duration="12000" />
+      <workItem from="1567931470295" duration="6078000" />
+      <workItem from="1568106659872" duration="39000" />
+      <workItem from="1568106741771" duration="40000" />
+      <workItem from="1568106833495" duration="80000" />
+      <workItem from="1568106949157" duration="689000" />
+      <workItem from="1568304057930" duration="665000" />
+      <workItem from="1568331614188" duration="620000" />
+      <workItem from="1569108076848" duration="5873000" />
+      <workItem from="1569338339636" duration="635000" />
+      <workItem from="1569483914598" duration="4763000" />
+      <workItem from="1569513646437" duration="596000" />
+      <workItem from="1569847818345" duration="634000" />
+      <workItem from="1569875733130" duration="3444000" />
+      <workItem from="1569915939384" duration="1649000" />
+      <workItem from="1570006419971" duration="88000" />
+      <workItem from="1570006539743" duration="1287000" />
+      <workItem from="1570039664167" duration="597000" />
+      <workItem from="1570105507133" duration="616000" />
+      <workItem from="1570117426557" duration="601000" />
+      <workItem from="1570317178515" duration="385000" />
+      <workItem from="1570317688373" duration="3749000" />
+      <workItem from="1570453148263" duration="4392000" />
+      <workItem from="1570527318019" duration="1271000" />
+      <workItem from="1570550672574" duration="1077000" />
+      <workItem from="1571410571678" duration="442000" />
+      <workItem from="1571411063321" duration="596000" />
+      <workItem from="1571413902614" duration="605000" />
+      <workItem from="1571496881890" duration="618000" />
+      <workItem from="1572860263683" duration="604000" />
+      <workItem from="1572896063516" duration="1197000" />
+      <workItem from="1572971251120" duration="598000" />
+      <workItem from="1572973595813" duration="590000" />
+      <workItem from="1572998166859" duration="599000" />
+      <workItem from="1573066816652" duration="5126000" />
+      <workItem from="1573087907416" duration="1858000" />
+      <workItem from="1573144312892" duration="611000" />
+      <workItem from="1573162417029" duration="1431000" />
+      <workItem from="1573183896206" duration="5236000" />
+      <workItem from="1573233944973" duration="11768000" />
+      <workItem from="1573265142045" duration="3348000" />
+      <workItem from="1573339931426" duration="23547000" />
+      <workItem from="1573421838295" duration="29442000" />
+      <workItem from="1573486423415" duration="12467000" />
+      <workItem from="1573546839441" duration="8828000" />
+      <workItem from="1573576011211" duration="1812000" />
+      <workItem from="1573667634050" duration="4024000" />
+      <workItem from="1573720154839" duration="624000" />
+      <workItem from="1573741834946" duration="604000" />
+      <workItem from="1573751870369" duration="883000" />
+      <workItem from="1573773359188" duration="601000" />
+      <workItem from="1573803842047" duration="615000" />
+      <workItem from="1573865790711" duration="1245000" />
+      <workItem from="1573987951728" duration="12931000" />
+      <workItem from="1574146196038" duration="9948000" />
+      <workItem from="1574241968304" duration="3582000" />
+      <workItem from="1574266671418" duration="2807000" />
+      <workItem from="1574876266654" duration="931000" />
+      <workItem from="1575060076613" duration="6993000" />
+      <workItem from="1575660993837" duration="2351000" />
+      <workItem from="1575757262454" duration="596000" />
+      <workItem from="1576188669000" duration="591000" />
+      <workItem from="1576869716428" duration="599000" />
+      <workItem from="1576980664514" duration="3089000" />
+      <workItem from="1577014753839" duration="788000" />
+      <workItem from="1577208188695" duration="5581000" />
+      <workItem from="1577458919827" duration="611000" />
+      <workItem from="1577514683468" duration="4518000" />
+      <workItem from="1577649889640" duration="597000" />
+      <workItem from="1577671012352" duration="4029000" />
+      <workItem from="1577751648919" duration="8689000" />
+      <workItem from="1577785716652" duration="603000" />
+      <workItem from="1577821787125" duration="818000" />
+      <workItem from="1577830236334" duration="9603000" />
+      <workItem from="1578208401689" duration="620000" />
+      <workItem from="1578226952387" duration="2922000" />
+      <workItem from="1578367622391" duration="936000" />
+      <workItem from="1578375379203" duration="20103000" />
+      <workItem from="1578458760894" duration="2531000" />
+      <workItem from="1578538119497" duration="6821000" />
+      <workItem from="1578571219668" duration="14280000" />
+      <workItem from="1578674036242" duration="601000" />
+      <workItem from="1578697072246" duration="623000" />
+      <workItem from="1578708946419" duration="2753000" />
+      <workItem from="1579182887737" duration="5237000" />
+      <workItem from="1579194049095" duration="13996000" />
+      <workItem from="1579268435571" duration="6998000" />
+      <workItem from="1579284469349" duration="3049000" />
+      <workItem from="1579321536499" duration="773000" />
+      <workItem from="1579369436515" duration="8073000" />
+      <workItem from="1579465353107" duration="648000" />
+      <workItem from="1579470424979" duration="2182000" />
+      <workItem from="1579626020708" duration="4918000" />
+      <workItem from="1579640818082" duration="3866000" />
+      <workItem from="1579722331764" duration="1914000" />
+      <workItem from="1579738439969" duration="7790000" />
+      <workItem from="1579791341602" duration="14249000" />
+      <workItem from="1579883731223" duration="831000" />
+      <workItem from="1579896008299" duration="1064000" />
+      <workItem from="1579918268781" duration="1205000" />
+      <workItem from="1579983101733" duration="10752000" />
+      <workItem from="1580277196065" duration="1802000" />
+      <workItem from="1580394909068" duration="1200000" />
+      <workItem from="1580419607450" duration="10563000" />
+      <workItem from="1580519161343" duration="6475000" />
+      <workItem from="1580590694184" duration="594000" />
     </task>
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="MainSpec_shouldWork - 2019.04.06 at 06h 55m 40s.xml">
-      <configuration name="MainSpec.shouldWork" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainSpec_shouldWork - 2019.04.06 at 06h 58m 45s.xml">
-      <configuration name="MainSpec.shouldWork" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainSpec_shouldWork - 2019.04.06 at 07h 05m 56s.xml">
-      <configuration name="MainSpec.shouldWork" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainSpec_shouldWork - 2019.04.06 at 07h 07m 29s.xml">
-      <configuration name="MainSpec.shouldWork" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainSpec_shouldWork - 2019.04.06 at 07h 09m 30s.xml">
-      <configuration name="MainSpec.shouldWork" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainSpec_shouldWork - 2019.04.06 at 07h 14m 33s.xml">
-      <configuration name="MainSpec.shouldWork" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainSpec_shouldWork - 2019.04.06 at 07h 24m 00s.xml">
-      <configuration name="MainSpec.shouldWork" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainSpec_shouldWork - 2019.04.06 at 07h 27m 18s.xml">
-      <configuration name="MainSpec.shouldWork" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainSpec_shouldWork - 2019.04.06 at 07h 31m 32s.xml">
-      <configuration name="MainSpec.shouldWork" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainSpec_shouldWork - 2019.04.06 at 07h 33m 30s.xml">
-      <configuration name="MainSpec.shouldWork" configurationId="JUnit" />
-    </history-entry>
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="424016000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1039" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49759614" visible="true" weight="0.2375" />
-      <window_info id="Structure" order="1" sideWeight="0.50240386" side_tool="true" weight="0.22604951" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" sideWeight="0.5007474" side_tool="true" weight="0.25188375" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Learn" order="7" weight="0.32992464" />
-      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.4994618" weight="0.32932693" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36778846" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993135" />
-      <window_info anchor="bottom" id="Find" order="4" weight="0.32932693" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32951945" />
-      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.23625731" />
-      <window_info anchor="bottom" id="Tool Output" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053823" side_tool="true" weight="0.3488372" />
-      <window_info anchor="bottom" id="EvoSuite" order="11" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="14" />
-      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Build" order="16" weight="0.32930845" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24947916" />
-      <window_info anchor="right" id="PlantUML" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="JSF" order="10" />
-      <window_info anchor="right" id="CDI" order="11" weight="0.32992464" />
-      <window_info anchor="right" id="Bean Validation" order="12" />
-      <window_info anchor="right" id="Leiningen" order="13" />
-      <window_info anchor="right" id="REPL" order="14" side_tool="true" />
-      <window_info anchor="right" id="SciView" order="15" />
-      <window_info anchor="right" id="Maven" order="16" />
-      <window_info anchor="right" x="0" y="0" width="430" height="812" id="Documentation" order="17" side_tool="true" weight="0.32992464" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/model/Role.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/RoleBlock.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="37" column="13" lean-forward="true" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/BlockBinding.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3002">
-          <caret line="198" column="20" selection-start-line="198" selection-start-column="20" selection-end-line="198" selection-end-column="20" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding>
-            <element signature="e#261#262#0" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-all/2.4.8/groovy-all-2.4.8.jar!/org/codehaus/groovy/runtime/DefaultGroovyMethods.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="3718" column="24" selection-start-line="3718" selection-start-column="24" selection-end-line="3718" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-all/2.4.8/groovy-all-2.4.8.jar!/groovy/util/FileTreeBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/BuilderData.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
-          <folding>
-            <element signature="e#1412#1462#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaFileGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaGradleDirStructGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaGradleFileGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2201">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaMavenDirStructGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaMavenFileGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <element signature="e#1412#1452#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaPatternGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaPlugin.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="113" column="11" selection-start-line="113" selection-start-column="11" selection-end-line="113" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/MethodBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="112" column="30" lean-forward="true" selection-start-line="112" selection-start-column="30" selection-end-line="112" selection-end-column="30" />
-          <folding>
-            <element signature="e#1412#1466#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaSourceBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="140" column="2" lean-forward="true" selection-start-line="140" selection-start-column="2" selection-end-line="140" selection-end-column="2" />
-          <folding>
-            <element signature="e#1412#1455#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/NodeBuilderFactory.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="60" column="19" lean-forward="true" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
-          <folding>
-            <element signature="e#1412#1453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/AbstractNodeBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="59" column="25" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/FileBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
-          <folding>
-            <element signature="e#1412#1453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/FieldBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-73">
-          <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/EnumLiteralBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-          <folding>
-            <element signature="e#1412#1453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/ProjectBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="88" column="115" selection-start-line="88" selection-start-column="115" selection-end-line="88" selection-end-column="115" />
-          <folding>
-            <element signature="e#1412#1450#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/ProjectBuilderDirector.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/TypeBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2301">
-          <caret line="162" column="21" selection-start-line="162" selection-start-column="21" selection-end-line="162" selection-end-column="21" />
-          <folding>
-            <element signature="e#1412#1457#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event/DisregardItemEvent.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event/EventManager.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="192" column="5" lean-forward="true" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event/GeneratorEvent.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event/GeneratorEventListener.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpDirStructGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="46" column="4" lean-forward="true" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
-          <folding>
-            <element signature="e#1414#1439#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpFileGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="309" column="77" selection-start-line="309" selection-start-column="77" selection-end-line="309" selection-end-column="77" />
-          <folding>
-            <element signature="e#1414#1477#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpPatternGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpPlugin.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <element signature="e#1414#1486#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractSourceBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1199">
-          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
-          <folding>
-            <element signature="e#1407#1445#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpSourceBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="781">
-          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
-          <folding>
-            <element signature="e#1414#1452#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cpp/CPPSrcMLBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubyDirStructGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubyFileGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubyPatternGenerator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubySrcMLBuilder.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformance.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="394" column="44" selection-start-line="394" selection-start-column="44" selection-end-line="394" selection-end-column="44" />
-          <folding>
-            <element signature="e#1406#1443#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/Generator.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/GeneratorConfig.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/ChainIdentifier.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/ArcMetricsProvider.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="34" column="76" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="76" />
-          <folding>
-            <element signature="e#1396#1444#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>msusel-codetree</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/msusel_codetree$SPSConformanceSpec_testGetUnboundRoles.ic" NAME="SPSConformanceSpec.testGetUnboundRoles Coverage Results" MODIFIED="1579193924727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.montana.gsoc.msusel.rbml.conformance.*</FILTER>
+    </SUITE>
   </component>
 </project>

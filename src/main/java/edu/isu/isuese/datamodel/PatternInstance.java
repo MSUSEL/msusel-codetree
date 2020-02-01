@@ -71,5 +71,20 @@ public class PatternInstance extends Model implements Measurable {
         return getString("instKey");
     }
 
-    public List<Type> getTypes() { return null; }
+    public List<Type> getTypes() {
+        List<Type> types = Lists.newArrayList();
+        List<RoleBinding> bindings = getRoleBindings();
+
+        bindings.forEach(binding -> {
+            Reference ref = binding.getReference();
+
+            if (getParentProjects().size() > 0) {
+                Type t = getParentProjects().get(0).findType("compKey", ref.getRefKey());
+                if (t != null)
+                    types.add(t);
+            }
+        });
+
+        return types;
+    }
 }

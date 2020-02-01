@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel.util;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import edu.isu.isuese.datamodel.Class;
 import edu.isu.isuese.datamodel.*;
 import edu.isu.isuese.datamodel.Enum;
@@ -132,7 +133,7 @@ public class DbUtils {
         String rightTblName = getTableNameReflect(path.get(1).getLeft());
         String fkey = path.get(0).getRight();
 //        String fkey = "";
-        builder.append(String.format("JOIN %s ON %s.%s = %d", leftTblName, rightTblName, fkey, id));
+        builder.append(String.format("JOIN %s ON %s.%s = %d ", leftTblName, rightTblName, fkey, id));
 
         appendFilters(builder, filters);
 
@@ -686,27 +687,57 @@ public class DbUtils {
         }
     }
 
-    public static List<Type> getRelationTo(Type t, RelationType relType) {
+    public static Set<Type> getRelationTo(Type t, RelationType relType) {
         try {
-            return Type.findBySQL("SELECT * FROM types t" +
-                    " JOIN refs r on r.refkey = t.key" +
-                    " JOIN relations rel on rel.to_id = r.id AND rel.type = ?" +
-                    " JOIN refs s on s.id = rel.from_id" +
-                    " JOIN types x on x.key = s.refKey;");
+            List<Reference> refs = Lists.newArrayList();
+            Reference.find("refKey = ?", t.getRefKey()).forEach( ref -> {
+                Relation.find("to_id = ? AND type = ?", ref.getId(), relType.value()). forEach(rel -> {
+                    refs.add(Reference.findById(rel.getString("from_id")));
+                });
+            });
+
+            Set<Type> types = Sets.newHashSet();
+
+            refs.forEach (ref -> {
+                if (!Enum.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    types.add((Type) Enum.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Interface.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    types.add((Type) Interface.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Class.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    types.add((Type) Class.find("compKey = ?", ref.getRefKey()).get(0));
+            });
+
+            return types;
         } catch (Exception e) {
-            return Lists.newArrayList();
+            e.printStackTrace();
+            return Sets.newHashSet();
         }
     }
 
-    public static List<Type> getRelationFrom(Type t, RelationType relType) {
+    public static Set<Type> getRelationFrom(Type t, RelationType relType) {
         try {
-            return Type.findBySQL("SELECT * FROM types t" +
-                    " JOIN refs r on refs.refKey = t.key" +
-                    " JOIN relations rel on rel.from_id = r.id AND rel.type = ?" +
-                    " JOIN refs s on s.id = rel.to_id" +
-                    " JOIN types x on x.key = s.refKey;");
+            List<Reference> refs = Lists.newArrayList();
+            Reference.find("refKey = ?", t.getRefKey()).forEach( ref -> {
+                Relation.find("from_id = ? AND type = ?", ref.getId(), relType.value()). forEach(rel -> {
+                    refs.add(Reference.findById(rel.getString("to_id")));
+                });
+            });
+
+            Set<Type> types = Sets.newHashSet();
+
+            refs.forEach (ref -> {
+                if (!Enum.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    types.add((Type) Enum.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Interface.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    types.add((Type) Interface.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Class.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    types.add((Type) Class.find("compKey = ?", ref.getRefKey()).get(0));
+            });
+
+            return types;
         } catch (Exception e) {
-            return Lists.newArrayList();
+            e.printStackTrace();
+            return Sets.newHashSet();
         }
     }
 }

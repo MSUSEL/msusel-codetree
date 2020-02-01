@@ -10,6 +10,7 @@
         <module name="msusel-loc-metrics" />
         <module name="msusel-codetree" />
         <module name="arc_test" />
+        <module name="isuese-detstrat" />
         <module name="msusel-arc-framework" />
         <module name="msusel-config" />
         <module name="msusel-rbml-dsl" />
@@ -22,6 +23,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="arc_test" target="1.8" />
+      <module name="isuese-detstrat" target="1.8" />
       <module name="isuese-ghsearch" target="1.8" />
       <module name="msusel-arc-framework" target="1.8" />
       <module name="msusel-codetree" target="1.8" />

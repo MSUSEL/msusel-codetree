@@ -38,14 +38,12 @@ public class SystemSpec extends DBSpec {
         System system = System.builder().create();
         a(system).shouldBe("valid");
         //a(rule.errors().get("author")).shouldBeEqual("Author must be provided");
-        system.set("name", "fake name", "version", "fake version", "language", "fake lang", "sysKey", "fake key");
+        system.set("name", "fake name", "sysKey", "fake key");
         a(system).shouldBe("valid");
         system.save();
         system = System.findById(1);
         a(system.getId()).shouldNotBeNull();
         a(system.get("name")).shouldBeEqual("fake name");
-        a(system.get("version")).shouldBeEqual("fake version");
-        a(system.get("language")).shouldBeEqual("fake lang");
         a(system.get("sysKey")).shouldBeEqual("fake key");
         a(System.count()).shouldBeEqual(1);
     }
@@ -53,7 +51,7 @@ public class SystemSpec extends DBSpec {
     @Test
     public void shouldAddProject() {
         System system = System.builder().create();
-        system.set("name", "fake name", "version", "fake version", "language", "fake lang", "sysKey", "fake key");
+        system.set("name", "fake name", "sysKey", "fake key");
 
         system.save();
         a(System.count()).shouldBeEqual(1);
@@ -71,7 +69,7 @@ public class SystemSpec extends DBSpec {
 
     @Test
     public void shouldAddPatternChain() {
-        System system = System.createIt("name", "fake name", "version", "fake version", "language", "fake lang", "sysKey", "fake key");
+        System system = System.createIt("name", "fake name", "sysKey", "fake key");
         system.save();
         a(System.count()).shouldBeEqual(1);
 
@@ -88,7 +86,7 @@ public class SystemSpec extends DBSpec {
 
     @Test
     public void deleteHandlesCorrectly() {
-        System system = System.createIt("name", "fake name", "version", "fake version", "language", "fake lang", "sysKey", "fake key");
+        System system = System.createIt("name", "fake name", "sysKey", "fake key");
         Project p = Project.createIt("name", "fake project", "projKey", "fake key", "version", "fake version");
         PatternChain pc = PatternChain.createIt("chainKey", "fake key");
         system.addProject(p);
@@ -106,7 +104,7 @@ public class SystemSpec extends DBSpec {
 
     @Test
     public void findAllTypes() {
-        System system = System.createIt("name", "fake name", "version", "fake version", "language", "fake lang", "sysKey", "fake key");
+        System system = System.createIt("name", "fake name", "sysKey", "fake key");
         Project p = Project.createIt("name", "fake project", "projKey", "fake key", "version", "fake version");
         Module module = Module.createIt("moduleKey", "module", "name", "module");
         Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
