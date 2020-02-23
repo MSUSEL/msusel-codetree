@@ -135,7 +135,15 @@ public class File extends Model implements Measurable {
     }
 
     public List<TypedMember> getTypedMembers() {
-        return DbUtils.getTypedMembers(this.getClass(), (Integer) getId());
+        List<TypedMember> members = Lists.newLinkedList();
+        List<Type> types = getTypes();
+        types.forEach(type -> {
+            members.addAll(type.getMethods());
+            members.addAll(type.getFields());
+        });
+
+//        return DbUtils.getTypedMembers(this.getClass(), (Integer) getId());
+        return members;
     }
 
     public List<Field> getFields() {
@@ -163,7 +171,14 @@ public class File extends Model implements Measurable {
     }
 
     public List<Project> getParentProjects() {
-        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
+        List<Namespace> parents = getParentNamespaces();
+        List<Project> projects = Lists.newLinkedList();
+        parents.forEach(ns -> {
+            projects.addAll(ns.getParentProjects());
+        });
+
+//        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
+        return projects;
     }
 
     public List<Module> getParentModules() {

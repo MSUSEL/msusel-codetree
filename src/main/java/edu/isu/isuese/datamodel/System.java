@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import edu.isu.isuese.datamodel.util.Filter;
 import edu.isu.isuese.datamodel.util.FilterOperator;
@@ -45,6 +46,7 @@ public class System extends Model implements Measurable, Structure {
     @Builder(buildMethodName = "create")
     public System(String name, String key) {
         set("name", name, "sysKey", key);
+        save();
     }
 
     public void setName(String name) {
@@ -109,7 +111,14 @@ public class System extends Model implements Measurable, Structure {
     }
 
     public List<Namespace> getNamespaces() {
-        return DbUtils.getNamespaces(this.getClass(), (Integer) getId());
+        List<Project> projects = getProjects();
+        List<Namespace> ns = Lists.newArrayList();
+        projects.forEach(p -> {
+            p.getModules().forEach(m -> {
+                ns.addAll(m.getNamespaces());
+            });
+        });
+        return ns;
     }
 
     public Namespace findNamespace(String name) {

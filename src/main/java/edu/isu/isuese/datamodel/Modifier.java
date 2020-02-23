@@ -42,7 +42,10 @@ public class Modifier extends Model {
             Values.valueOf(name);
             return Modifier.findFirst("name = ?", value);
         } catch (IllegalArgumentException ex) {
-            return null;
+            Modifier mod = new Modifier();
+            mod.set("name", value);
+            mod.saveIt();
+            return mod;
         }
     }
 

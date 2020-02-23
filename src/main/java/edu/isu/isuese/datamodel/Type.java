@@ -62,7 +62,10 @@ public abstract class Type extends Component {
     }
 
     public List<Project> getParentProjects() {
-        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
+        List<Project> projects = Lists.newLinkedList();
+        getParentNamespaces().forEach(ns -> projects.addAll(ns.getParentProjects()));
+        return projects;
+//        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
     }
 
     public List<Module> getParentModules() {
@@ -70,7 +73,10 @@ public abstract class Type extends Component {
     }
 
     public List<Namespace> getParentNamespaces() {
-        return DbUtils.getParentNamespace(this.getClass(), (Integer) getId());
+        List<Namespace> parents = Lists.newLinkedList();
+        getParentFiles().forEach(f -> parents.addAll(f.getParentNamespaces()));
+        return parents;
+//        return DbUtils.getParentNamespace(this.getClass(), (Integer) getId());
     }
 
     public List<File> getParentFiles() {
@@ -404,4 +410,12 @@ public abstract class Type extends Component {
         return false;
     }
 
+    public String getFullName() {
+        List<Namespace> parentNs = getParentNamespaces();
+        if (parentNs != null && !parentNs.isEmpty()) {
+            return parentNs.get(0).getFullName() + "." + this.getName();
+        }
+
+        return this.getName();
+    }
 }

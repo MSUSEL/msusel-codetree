@@ -40,12 +40,13 @@ import java.util.List;
  * @version 1.3.0
  */
 @BelongsToParents({
-        @BelongsTo(foreignKeyName="module_id", parent=Module.class),
-        @BelongsTo(foreignKeyName="namespace_id", parent=Namespace.class)
+        @BelongsTo(foreignKeyName = "module_id", parent = Module.class),
+        @BelongsTo(foreignKeyName = "namespace_id", parent = Namespace.class)
 })
 public class Namespace extends Model implements Measurable {
 
-    public Namespace() {}
+    public Namespace() {
+    }
 
     @Builder(buildMethodName = "create")
     public Namespace(String nsKey, String name) {
@@ -53,21 +54,46 @@ public class Namespace extends Model implements Measurable {
         setName(name);
     }
 
-    public String getNsKey() { return getString("nsKey"); }
+    public String getNsKey() {
+        return getString("nsKey");
+    }
 
-    public String getName() { return getString("name"); }
+    public String getName() {
+        return getString("name");
+    }
 
-    public void setName(String name) { set("name", name); save(); }
+    public void setName(String name) {
+        set("name", name);
+        save();
+    }
 
-    public void addFile(File file) { add(file); save(); }
+    public void addFile(File file) {
+        add(file);
+        save();
+    }
 
-    public void removeFile(File file) { remove(file); save(); }
+    public void removeFile(File file) {
+        remove(file);
+        save();
+    }
 
-    public void addNamespace(Namespace ns) { add(ns); save(); }
+    public List<File> getFiles() {
+        return getAll(File.class);
+    }
 
-    public void removeNamespace(Namespace ns) { remove(ns); save(); }
+    public void addNamespace(Namespace ns) {
+        add(ns);
+        save();
+    }
 
-    public List<Namespace> getNamespaces() { return getAll(Namespace.class); }
+    public void removeNamespace(Namespace ns) {
+        remove(ns);
+        save();
+    }
+
+    public List<Namespace> getNamespaces() {
+        return getAll(Namespace.class);
+    }
 
     public boolean containsNamespace(Namespace ns) {
         return getNamespaces().contains(ns);
@@ -134,12 +160,34 @@ public class Namespace extends Model implements Measurable {
     }
 
     public List<Project> getParentProjects() {
-        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
+        List<Project> projects = Lists.newLinkedList();
+        if (getParentNamespace() != null) {
+            projects.addAll(getParentNamespace().getParentProjects());
+        }
+        getParentModules().forEach(mod -> projects.addAll(mod.getParentProjects()));
+
+        return projects;
+//        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
+    }
+
+    public String getFullName() {
+        Namespace parent = getParentNamespace();
+        if (parent != null) {
+            return parent.getFullName() + "." + this.getName();
+        } else {
+            return this.getName();
+        }
+    }
+
+    public Namespace getParentNamespace() {
+        return parent(Namespace.class);
     }
 
     public List<Module> getParentModules() {
         List<Module> modules = Lists.newLinkedList();
-        modules.add(parent(Module.class));
+        Module mod = parent(Module.class);
+        if (mod != null)
+            modules.add(parent(Module.class));
         return modules;
     }
 

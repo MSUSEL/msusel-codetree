@@ -28,8 +28,8 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
-import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 import java.util.List;
 
@@ -38,6 +38,31 @@ import java.util.List;
  * @version 1.3.0
  */
 public class Role extends Model {
+
+    public Role() {}
+
+    @Builder(buildMethodName = "create")
+    public Role(String roleKey, String name, RoleType type) {
+        set("roleKey", roleKey);
+        setName(name);
+        setType(type);
+        save();
+    }
+
+    public RoleType getType() {
+        if (get("type") == null)
+            return null;
+        else
+            return RoleType.fromValue(getInteger("type"));
+    }
+
+    public void setType(RoleType type) {
+        if (type == null)
+            set("type", null);
+        else
+            set("type", type.value());
+        save();
+    }
 
     public String getRoleKey() { return getString("roleKey"); }
 

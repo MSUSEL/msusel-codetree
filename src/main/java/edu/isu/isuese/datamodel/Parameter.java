@@ -44,9 +44,11 @@ public class Parameter extends Model {
     public Parameter() {}
 
     @Builder(buildMethodName = "create")
-    public Parameter(String name) {
+    public Parameter(String name, TypeRef type) {
         set("name", name);
         save();
+        if (type != null)
+            setType(type);
     }
 
     public String getName() { return getString("name"); }
@@ -64,7 +66,7 @@ public class Parameter extends Model {
     public List<Modifier> getModifiers() { return getAll(Modifier.class); }
 
     public void setType(TypeRef ref) {
-        if (this.getAll(TypeRef.class).size() == 0) {
+        if (this.getAll(TypeRef.class).isEmpty()) {
             add(ref);
             save();
         }

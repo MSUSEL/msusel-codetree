@@ -49,7 +49,8 @@ import java.util.Set;
 )
 public class TypeRef extends Model {
 
-    public TypeRef() {}
+    public TypeRef() {
+    }
 
     @Builder(buildMethodName = "create")
     public TypeRef(String typeName, String dimensions, TypeRefType type, Reference ref) {
@@ -59,17 +60,32 @@ public class TypeRef extends Model {
         save();
     }
 
-    public String getDimensions() { return getString("dimensions"); }
+    public String getDimensions() {
+        return getString("dimensions");
+    }
 
-    public void setDimensions(String dim) { set("dimensions", dim); save(); }
+    public void setDimensions(String dim) {
+        set("dimensions", dim);
+        save();
+    }
 
-    public String getTypeName() { return getString("typeName"); }
+    public String getTypeName() {
+        return getString("typeName");
+    }
 
-    public void setTypeName(String typeName) { set("typeName", typeName); save(); }
+    public void setTypeName(String typeName) {
+        set("typeName", typeName);
+        save();
+    }
 
-    public TypeRefType getType() { return TypeRefType.fromValue(getInteger("type")); }
+    public TypeRefType getType() {
+        return TypeRefType.fromValue(getInteger("type"));
+    }
 
-    public void setType(TypeRefType type) { set("type", type.value()); save(); }
+    public void setType(TypeRefType type) {
+        set("type", type.value());
+        save();
+    }
 
     public void addBound(TypeRef bound) {
         if (bound != null) {
@@ -123,9 +139,14 @@ public class TypeRef extends Model {
         save();
     }
 
-    public void removeReference(Reference ref) { remove(ref); save(); }
+    public void removeReference(Reference ref) {
+        remove(ref);
+        save();
+    }
 
-    public List<Reference> getReferences() { return getAll(Reference.class); }
+    public List<Reference> getReferences() {
+        return getAll(Reference.class);
+    }
 
     public Reference getReference() {
         try {
@@ -136,27 +157,27 @@ public class TypeRef extends Model {
     }
 
     public static TypeRef createPrimitiveTypeRef(String key) {
-        TypeRef ref = TypeRef.findFirst("typeName = ? and type = ?", "void", TypeRefType.Primitive.value());
-        if (ref != null)
-            return ref;
-        else
-            return TypeRef.createIt("typeName", key, "type", TypeRefType.Primitive.value());
+//        TypeRef ref = TypeRef.findFirst("typeName = ? and type = ?", key, TypeRefType.Primitive.value());
+//        if (ref != null)
+//            return ref;
+//        else
+        return TypeRef.createIt("typeName", key, "type", TypeRefType.Primitive.value());
     }
 
     public static TypeRef createWildCardTypeRef() {
-        TypeRef ref = TypeRef.findFirst("typeName = ? and type = ?", "?", TypeRefType.WildCard.value());
-        if (ref != null)
-            return ref;
-        else
-            return TypeRef.createIt("typeName", "?", "type", TypeRefType.WildCard.value());
+//        TypeRef ref = TypeRef.findFirst("typeName = ? and type = ?", "?", TypeRefType.WildCard.value());
+//        if (ref != null)
+//            return ref;
+//        else
+        return TypeRef.createIt("typeName", "?", "type", TypeRefType.WildCard.value());
     }
 
     public static TypeRef createTypeVarTypeRef(String typeVar) {
-        TypeRef ref = TypeRef.findFirst("typeName = ?", typeVar);
-        if (ref != null)
-            return ref;
-        else
-            return builder().typeName(typeVar).type(TypeRefType.Type).create();
+//        TypeRef ref = TypeRef.findFirst("typeName = ?", typeVar);
+//        if (ref != null)
+//            return ref;
+//        else
+        return builder().typeName(typeVar).type(TypeRefType.Type).create();
     }
 
     public static List<TypeRef> knownTypes() {
@@ -182,7 +203,7 @@ public class TypeRef extends Model {
             List<TypeRef> typeArgs = getTypeArgs();
             if (typeArgs != null && !typeArgs.isEmpty()) {
                 builder.append("<");
-                for(TypeRef arg : typeArgs) {
+                for (TypeRef arg : typeArgs) {
                     builder.append(arg.toString());
                     if (arg != typeArgs.get(typeArgs.size() - 1))
                         builder.append(", ");
@@ -199,10 +220,13 @@ public class TypeRef extends Model {
     }
 
     public Type getType(String projKey) {
-        getReference().getType();
-        List<Type> types = Type.find("key = ?", getReference().getRefKey());
+        List<Type> types = Lists.newLinkedList();
+        types.addAll(Class.find("compKey = ?", getReference().getRefKey()));
+        types.addAll(Interface.find("compKey = ?", getReference().getRefKey()));
+        types.addAll(Enum.find("compKey = ?", getReference().getRefKey()));
+
         for (Type t : types) {
-            if (t.getParentProjects().get(0).getProjectKey() == projKey)
+            if (t.getParentProjects().get(0).getProjectKey().equals(projKey))
                 return t;
         }
 

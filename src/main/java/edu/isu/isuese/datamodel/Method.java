@@ -55,23 +55,34 @@ public class Method extends TypedMember {
             setAccessibility(Accessibility.PUBLIC);
         if (type == null) {
             setReturnType(TypeRef.createPrimitiveTypeRef("void"));
-        }
-        else
+        } else
             setReturnType(type);
         save();
     }
 
     private ControlFlowGraph cfg = null;
 
-    public void addParameter(Parameter param) { add(param); save(); }
+    public void addParameter(Parameter param) {
+        add(param);
+        save();
+    }
 
-    public void removeParameter(Parameter param) { remove(param); save(); }
+    public void removeParameter(Parameter param) {
+        remove(param);
+        save();
+    }
 
-    public List<Parameter> getParams() { return getAll(Parameter.class); }
+    public List<Parameter> getParams() {
+        return getAll(Parameter.class);
+    }
 
-    public void setReturnType(TypeRef ref) { setType(ref); }
+    public void setReturnType(TypeRef ref) {
+        setType(ref);
+    }
 
-    public List<TemplateParam> getTypeParams() { return getAll(TemplateParam.class); }
+    public List<TemplateParam> getTypeParams() {
+        return getAll(TemplateParam.class);
+    }
 
     public void setTypeParams(List<TemplateParam> params) {
         if (params == null || params.isEmpty())
@@ -82,9 +93,15 @@ public class Method extends TypedMember {
         save();
     }
 
-    public void addTemplateParam(TemplateParam param) { add(param); save(); }
+    public void addTemplateParam(TemplateParam param) {
+        add(param);
+        save();
+    }
 
-    public void removeTemplateParam(TemplateParam param) { remove(param); save(); }
+    public void removeTemplateParam(TemplateParam param) {
+        remove(param);
+        save();
+    }
 
     public void addException(TypeRef excep) {
         if (excep != null) {
@@ -114,18 +131,20 @@ public class Method extends TypedMember {
         }
     }
 
-    public List<MethodException> getExceptions() { return getAll(MethodException.class); }
-
-    public boolean isAbstract() {
-        return hasModifier("abstract");
+    public List<MethodException> getExceptions() {
+        return getAll(MethodException.class);
     }
 
-    public boolean isOverriding(Type owner) {
-        List<Type> parents = owner.getParentTypes();
-        parents.add(owner);
-        for(Type t : parents)  {
-            if (t.hasMethodWithMatchingSignature(this))
-                return true;
+    public boolean isAbstract() {
+        return hasModifier("ABSTRACT");
+    }
+
+    public boolean isOverriding() {
+        for (Type t : getParentTypes()) {
+            for (Type p : t.getParentTypes()) {
+                if (p.hasMethodWithMatchingSignature(this))
+                    return true;
+            }
         }
 
         return false;
@@ -190,13 +209,17 @@ public class Method extends TypedMember {
         return Lists.newArrayList();
     }
 
-    public Set<Field> getFieldsUsedSameClass(Type parent) { return Sets.newHashSet(); }
+    public Set<Field> getFieldsUsedSameClass(Type parent) {
+        return Sets.newHashSet();
+    }
 
     public List<Method> getMethodsCalled() {
         return Lists.newArrayList();
     }
 
-    public Set<Method> getMethodsUsedSameClass(Type parent) { return Sets.newHashSet(); }
+    public Set<Method> getMethodsUsedSameClass(Type parent) {
+        return Sets.newHashSet();
+    }
 
     public List<Type> getTypesUsing() {
         return Lists.newArrayList();

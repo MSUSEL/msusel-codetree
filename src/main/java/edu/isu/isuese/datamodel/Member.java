@@ -59,9 +59,15 @@ public abstract class Member extends Component {
 
     public List<Type> getParentTypes() {
         List<Type> types = Lists.newLinkedList();
-        types.add(parent(Class.class));
-        types.add(parent(Enum.class));
-        types.add(parent(Interface.class));
+        try {
+            types.add(parent(Class.class));
+        } catch (IllegalArgumentException e) {}
+        try {
+            types.add(parent(Enum.class));
+        } catch (IllegalArgumentException e) {}
+        try {
+            types.add(parent(Interface.class));
+        } catch (IllegalArgumentException e) {}
         return types;
     }
 

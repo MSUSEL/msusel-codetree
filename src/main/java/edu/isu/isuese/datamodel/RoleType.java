@@ -26,29 +26,36 @@
  */
 package edu.isu.isuese.datamodel;
 
-import lombok.Builder;
-import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
+import com.google.common.collect.Maps;
 
-import java.util.List;
+import java.util.Map;
 
-/**
- * @author Isaac Griffith
- * @version 1.3.0
- */
-@BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
-public class Field extends TypedMember {
+public enum RoleType {
 
-    public Field() {}
+    CLASSIFIER(1),
+    RELATION(2),
+    STRUCT_FEAT(3),
+    BEHAVE_FEAT(4);
 
-    @Builder(buildMethodName = "create")
-    public Field(String name, int start, int end, String compKey, Accessibility accessibility, TypeRef type) {
-        set("name", name, "start", start, "end", end, "compKey", compKey);
-        if (accessibility != null)
-            setAccessibility(accessibility);
-        else
-            setAccessibility(Accessibility.PUBLIC);
-        if (type != null)
-            setType(type);
-        save();
+    private final int value;
+    private static Map<Integer, RoleType> map = Maps.newHashMap();
+
+    static {
+        map.put(1, CLASSIFIER);
+        map.put(2, RELATION);
+        map.put(3, STRUCT_FEAT);
+        map.put(4, BEHAVE_FEAT);
+    }
+
+    RoleType(int value) {
+        this.value = value;
+    }
+
+    public int value() {
+        return this.value;
+    }
+
+    public static RoleType fromValue(int value) {
+        return map.get(value);
     }
 }

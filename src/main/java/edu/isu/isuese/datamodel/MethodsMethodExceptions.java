@@ -26,29 +26,11 @@
  */
 package edu.isu.isuese.datamodel;
 
-import lombok.Builder;
-import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
-
-import java.util.List;
+import org.javalite.activejdbc.Model;
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
-public class Field extends TypedMember {
-
-    public Field() {}
-
-    @Builder(buildMethodName = "create")
-    public Field(String name, int start, int end, String compKey, Accessibility accessibility, TypeRef type) {
-        set("name", name, "start", start, "end", end, "compKey", compKey);
-        if (accessibility != null)
-            setAccessibility(accessibility);
-        else
-            setAccessibility(Accessibility.PUBLIC);
-        if (type != null)
-            setType(type);
-        save();
-    }
+public class MethodsMethodExceptions extends Model {
 }

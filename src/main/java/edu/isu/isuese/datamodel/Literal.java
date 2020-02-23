@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 /**
@@ -34,4 +35,16 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
  */
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 public class Literal extends Member {
+
+    public Literal() {}
+
+    @Builder(buildMethodName = "create")
+    public Literal(String name, int start, int end, String compKey, Accessibility accessibility) {
+        set("name", name, "start", start, "end", end, "compKey", compKey);
+        if (accessibility != null)
+            setAccessibility(accessibility);
+        else
+            setAccessibility(Accessibility.PUBLIC);
+        save();
+    }
 }

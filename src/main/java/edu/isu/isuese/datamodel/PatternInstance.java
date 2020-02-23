@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -37,6 +38,13 @@ import java.util.List;
  * @version 1.3.0
  */
 public class PatternInstance extends Model implements Measurable {
+
+    public PatternInstance() {}
+
+    @Builder(buildMethodName = "create")
+    public PatternInstance(String instKey) {
+        set("instKey", instKey);
+    }
 
     public String getInstKey() { return getString("instKey"); }
 

@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 /**
@@ -34,4 +35,14 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
  */
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 public class Destructor extends Method {
+
+    public Destructor() {
+        super();
+    }
+
+    @Builder(buildMethodName = "create", builderMethodName = "creator")
+    public Destructor(String name, int start, int end, String compKey, Accessibility accessibility, TypeRef type) {
+        super(name, start, end, compKey, accessibility, type);
+        save();
+    }
 }
