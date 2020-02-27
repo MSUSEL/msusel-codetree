@@ -45,4 +45,24 @@ public class Constructor extends Method {
         super(name, start, end, compKey, accessibility, type);
         save();
     }
+
+    @Override
+    public String signature() {
+        StringBuilder sig = new StringBuilder();
+        sig.append(getName());
+        sig.append("(");
+        for (Parameter param : getParams()) {
+            sig.append(param.getType().getTypeName());
+            sig.append(", ");
+        }
+
+        String retVal = sig.toString();
+        if (retVal.endsWith(", ")) {
+            retVal = retVal.trim();
+            retVal = retVal.substring(0, retVal.length() - 2);
+        }
+        retVal += ")";
+
+        return retVal;
+    }
 }

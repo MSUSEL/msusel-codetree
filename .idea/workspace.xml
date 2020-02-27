@@ -12,117 +12,22 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/app_config/development.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/test/java/edu/isu/cs/isuese/arc/impl/ghsearch/MainSpec.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/ConstructorsMethodExceptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/DestructorsMethodExceptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/MethodsMethodExceptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RoleType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/PatternGenConfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/testing.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/example-config.pg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/launcher/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/launcher/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/launcher/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/launcher/construct.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/launcher/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/launcher/process.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/launcher/process.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/App.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ConfigLoader.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/DBManager.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/GeneratorContext.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/PatternManager.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/AbstractGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/BuildFileGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/CodeGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/DirectoryGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/FieldGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/FileGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/GitIgnoreGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/LanguageProvider.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/LicenseGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/LiteralGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/MethodGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/ModuleGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/NamespaceGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/ProjectGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/ReadmeGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/SystemGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/TypeGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaBuildFileGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaCodeGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaDirectoryGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaFieldGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaFileGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaGitIgnoreGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaGradleBuildFileGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaLanguageProvider.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaLiteralGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaMavenBuildFileGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaMethodGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaModuleGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaNamespaceGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaProjectGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaSystemGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaTypeGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/AbstractBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/AbstractComponentBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/ClassifierBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/FieldBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/FileBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/GenHierBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/MethodBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/ModuleBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/NamespaceBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/ParamBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/PatternBuilderParams.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/ProjectBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/RBML2DataModelManager.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/RelationshipBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/RoleBlock.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/SystemBuilder.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/tree/AbstractTreeGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/tree/RampedHalfHalf.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/tree/RandomBranch.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/tree/Tree.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/tree/TreeGenerator.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/edu/montana/gsoc/msusel/pattern/gen/reset.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/AppTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/ConfigLoaderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/DBManagerTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/MySecurityManager.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/DirectorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/LicenseGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/ReadmeGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaBuildFileGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaCodeGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaDirectoryGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaFieldGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaFileGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaGitIgnoreGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaLanguageProviderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaLiteralGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaMethodGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaModuleGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaNamespaceGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaProjectGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaSystemGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/java/JavaTypeGeneratorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/ClassifierBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/FieldBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/FileBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/GenHierBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/MethodBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/ModuleBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/NamespaceBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/ParamBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/PatternBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/ProjectBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/RBML2DataModelManagerTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/RelationshipBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/SystemBuilderTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/tree/NodeTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/tree/RampedHalfHalfTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/tree/RandomBranchTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/ComponentContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/data/dev.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/data/test.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/data/testing.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyGeneralizesTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyRealizesTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/FileExistsTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/FileHasImportTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/NamespaceExistsTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/TypeExistsTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasConstructorTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasFieldTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasMethodTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHeaderConditionTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/select/SelectInternalClassesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" afterDir="false" />
@@ -134,33 +39,32 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Destructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Destructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/AssociationExtractor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/AssociationExtractor.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Literal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Literal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Modifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Modifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Parameter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Structure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/TypeRef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/TypeRef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/java8/Java8Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/java8/Java8Visitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/ArcMetricsProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/ArcMetricsProvider.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/LoCProfileManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/LoCProfileManager.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/AttributeHidingFactor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/AttributeHidingFactor.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/ChangeDependencyOfClasses.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/ChangeDependencyOfClasses.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods1.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods1.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods2.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods2.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods3.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods3.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods4.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods4.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods5.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LackOfCohesionAmongMethods5.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LogicalLinesOfCode.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LogicalLinesOfCode.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassMethods.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassVariables.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassVariables.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClasses.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClasses.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassesEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassesEvaluator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfCoupledPackages.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfCoupledPackages.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfFields.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfFields.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfFiles.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfFiles.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfInstanceMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfInstanceMethods.groovy" afterDir="false" />
@@ -171,113 +75,18 @@
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfPolymorphicMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfPolymorphicMethods.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfStatements.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfStatements.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfTypes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfTypes.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfAttributes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfAttributes.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfClasses.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfClasses.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfMethods.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/test/groovy/MetricTests.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/test/groovy/MetricTests.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-parent/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/dev.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/test.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/msusel-pattern-generator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/msusel-pattern-generator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/abstract_factory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/abstract_factory.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/adapter.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/adapter.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/bridge.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/bridge.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/builder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/builder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/chain_of_responsibility.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/chain_of_responsibility.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/command.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/command.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/composite.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/composite.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/decorator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/decorator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/facade.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/facade.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/factory_method.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/factory_method.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/flyweight.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/flyweight.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/interpretter.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/interpreter.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/iterator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/iterator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/mediator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/mediator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/memento.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/memento.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/observer.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/observer.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/prototype.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/prototype.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/proxy.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/proxy.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/singleton-java.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/singleton-java.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/state.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/state.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/strategy.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/strategy.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/template_method.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/template_method.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pgcl/gof/visitor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/pgcl/gof/visitor.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/abstract_factory.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/bridge.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/builder.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/chain_of_responsibility.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/command.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/composite.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/decorator.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/facade.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/factory_method.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/flyweight.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/interpretter.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/iterator.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/mediator.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/memento.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/object_adapter.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/observer.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/prototype.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/proxy.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/singleton.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/state.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/strategy.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/template_method.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/rbml/gof/visitor.rbml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/Cue.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/Cue.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/CueRole.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/CueRole.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/CueScript.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/CueScript.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/CueScriptLoader.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/CueScriptLoader.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/CueBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/CueBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/CueFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/CueFactory.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/PatternFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/PatternFactory.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/RoleFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/cue/factory/RoleFactory.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractDirStructGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractFileGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractPatternGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/AbstractSourceBuilder.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/Generator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cpp/CPPSrcMLBuilder.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpDirStructGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpDirStructGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpFileGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpPatternGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpPatternGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpPlugin.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpPlugin.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpSourceBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/csharp/CSharpSourceBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event/EventManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event/EventManager.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event/GeneratorEvent.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event/GeneratorEvent.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/AbstractNodeBuilder.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/BuilderData.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/EnumLiteralBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/current/pb/PatternBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/FieldBuilder.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/FileBuilder.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaFileGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaGradleDirStructGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaGradleFileGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaMavenDirStructGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaMavenFileGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaPatternGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaPlugin.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/JavaSourceBuilder.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/MethodBuilder.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/NodeBuilderFactory.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/ProjectBuilder.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/ProjectBuilderDirector.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/java/TypeBuilder.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/plugin/AbstractLanguagePlugin.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/plugin/AbstractLanguagePlugin.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubyDirStructGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubyFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/Director.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubyPatternGenerator.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ruby/RubySrcMLBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/GeneratorParams.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/com/sparqline/srcml/test/Animal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/com/sparqline/srcml/test/Drive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/com/sparqline/srcml/test/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/com/sparqline/srcml/test/Run.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/java/com/sparqline/srcml/test/Walk.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/datamodel/MethodSpec.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/JavaDirStructGeneratorSpec.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/JavaFileGeneratorSpec.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/JavaPluginSpec.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/JavaSourceBuilderSpec.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/PatternGeneratorSpec.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/testing.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/testing.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ConfigLoader.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ConfigLoader.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/PluginLoader.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/PluginLoader.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaCodeGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaCodeGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaFileGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/GenHierBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/GenHierBuilder.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/GenHierBuilderTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/GenHierBuilderTest.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-quamoco/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/DistilledGraphCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/distiller/DistilledGraphCreator.java" afterDir="false" />
@@ -517,9 +326,27 @@
       <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/resources/com/sparqline/quamoco/it/maintainability.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/data/dev.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/data/test.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/PatternLoader.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/PatternLoader.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/FileOperations.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/FileOperations.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectorContext.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectorContext.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyGeneralizes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyGeneralizes.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyRealizes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyRealizes.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/FileExists.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/FileExists.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/FileHasImport.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/FileHasImport.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/NamespaceExists.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/NamespaceExists.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeExists.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeExists.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasConstructor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasConstructor.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasField.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasField.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasMethod.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasMethod.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHeaderCondition.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHeaderCondition.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularGrimeInjector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/select/SelectInternalClasses.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/select/SelectInternalClasses.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/select/Selector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/select/Selector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateType.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateType.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddConstructorSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddConstructorSpec.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldSpec.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodSpec.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/CreateFileSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/CreateFileSpec.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/CreateTypeSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/CreateTypeSpec.groovy" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -545,14 +372,14 @@
       <list>
         <option value="Interface" />
         <option value="Python Script" />
-        <option value="Class" />
-        <option value="JUnit4 Test Class" />
         <option value="Enum" />
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-pattern-generator" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -588,11 +415,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547682444928" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Spock" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="org.javalite.activejdbc.test.DBSpec" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Spock" value="spock.lang.Specification" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/edu/montana/gsoc/msusel/pattern/gen" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../msusel-software-injector" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -604,20 +432,16 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="edu.montana.gsoc.msusel.inject.select" />
+      <recent name="edu.montana.gsoc.msusel.inject.cond" />
       <recent name="edu.montana.gsoc.msusel.pattern.gen" />
-      <recent name="edu.montana.gsoc.msusel.pattern.gen.current.pb" />
-      <recent name="edu.montana.gsoc.msusel.pattern.gen.current.pb.tree" />
-      <recent name="edu.montana.gsoc.msusel.pattern.gen.current" />
-      <recent name="edu.montana.gsoc.msusel.pattern.gen.current.java" />
+      <recent name="edu.montana.gsoc.msusel.pattern.gen.generators.pb" />
+      <recent name="edu.montana.gsoc.msusel.pattern.gen.generators.pb.tree" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
+      <recent name="org.javalite.activejdbc.test.DBSpec" />
       <recent name="spock.lang.Specification" />
       <recent name="" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="edu.montana.gsoc.msusel.pattern.gen" />
-      <recent name="edu.montana.gsoc.msusel.pattern.gen.current.pb" />
-      <recent name="edu.montana.gsoc.msusel.rbml" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources" />
@@ -626,12 +450,18 @@
       <recent name="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese" />
       <recent name="$PROJECT_DIR$/src/main/groovy/edu/isu.isuese" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.montana.gsoc.msusel.pattern.gen" />
+      <recent name="edu.montana.gsoc.msusel.pattern.gen.event" />
+      <recent name="edu.montana.gsoc.msusel.pattern.gen.generators.pb" />
+      <recent name="edu.montana.gsoc.msusel.rbml" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../msusel-software-injector" />
+      <recent name="$PROJECT_DIR$/../msusel-software-injector/src" />
       <recent name="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/edu/montana/gsoc/msusel/pattern/gen" />
       <recent name="$PROJECT_DIR$/../msusel-rbml-dsl" />
       <recent name="$PROJECT_DIR$/../msusel-pattern-generator/src" />
-      <recent name="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/app_config" />
-      <recent name="$PROJECT_DIR$/src/main/groovy/edu/isu.isuese" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="edu.isu.isuese.datamodel.util" />
@@ -656,7 +486,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PatternBuilderTest">
+  <component name="RunManager" selected="JUnit.AlreadyGeneralizesTest">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -678,88 +508,94 @@
       <module name="" />
       <method v="2" />
     </configuration>
-    <configuration name="All in msusel-pattern-generator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-pattern-generator" />
-      <option name="PACKAGE_NAME" value="" />
+    <configuration name="AlreadyGeneralizesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-software-injector" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.cond.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.cond" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.inject.cond.AlreadyGeneralizesTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AlreadyRealizesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-software-injector" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.cond.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.cond" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.inject.cond.AlreadyRealizesTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileHasImportTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-software-injector" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.cond.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.cond" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.inject.cond.FileHasImportTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TypeExistsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-software-injector" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.cond.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.cond" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.inject.cond.TypeExistsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="edu.montana.gsoc.msusel.inject.cond in msusel-software-injector" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-software-injector" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.cond.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.cond" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JavaFieldGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-pattern-generator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.pattern.gen.current.java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.pattern.gen.current.java" />
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.pattern.gen.current.java.JavaFieldGeneratorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JavaMethodGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-pattern-generator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.pattern.gen.current.java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.pattern.gen.current.java" />
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.pattern.gen.current.java.JavaMethodGeneratorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JavaTypeGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-pattern-generator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.pattern.gen.current.java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.pattern.gen.current.java" />
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.pattern.gen.current.java.JavaTypeGeneratorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PatternBuilderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-pattern-generator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.pattern.gen.current.pb.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.pattern.gen.current.pb" />
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.pattern.gen.current.pb.PatternBuilderTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="JUnit.JavaFieldGeneratorTest" />
-      <item itemvalue="JUnit.JavaMethodGeneratorTest" />
-      <item itemvalue="JUnit.All in msusel-pattern-generator" />
-      <item itemvalue="JUnit.JavaTypeGeneratorTest" />
-      <item itemvalue="JUnit.PatternBuilderTest" />
+      <item itemvalue="JUnit.edu.montana.gsoc.msusel.inject.cond in msusel-software-injector" />
+      <item itemvalue="JUnit.FileHasImportTest" />
+      <item itemvalue="JUnit.TypeExistsTest" />
+      <item itemvalue="JUnit.AlreadyRealizesTest" />
+      <item itemvalue="JUnit.AlreadyGeneralizesTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PatternBuilderTest" />
-        <item itemvalue="JUnit.All in msusel-pattern-generator" />
-        <item itemvalue="JUnit.JavaTypeGeneratorTest" />
-        <item itemvalue="JUnit.JavaMethodGeneratorTest" />
-        <item itemvalue="JUnit.JavaFieldGeneratorTest" />
+        <item itemvalue="JUnit.AlreadyGeneralizesTest" />
+        <item itemvalue="JUnit.AlreadyRealizesTest" />
+        <item itemvalue="JUnit.TypeExistsTest" />
+        <item itemvalue="JUnit.FileHasImportTest" />
+        <item itemvalue="JUnit.edu.montana.gsoc.msusel.inject.cond in msusel-software-injector" />
       </list>
     </recent_temporary>
   </component>
@@ -1144,7 +980,15 @@
       <workItem from="1582305353213" duration="615000" />
       <workItem from="1582310379365" duration="598000" />
       <workItem from="1582379737366" duration="16269000" />
-      <workItem from="1582485947317" duration="1784000" />
+      <workItem from="1582485947317" duration="21187000" />
+      <workItem from="1582558740187" duration="1296000" />
+      <workItem from="1582564328972" duration="619000" />
+      <workItem from="1582573649924" duration="604000" />
+      <workItem from="1582595108726" duration="2209000" />
+      <workItem from="1582642701182" duration="5856000" />
+      <workItem from="1582648967039" duration="18448000" />
+      <workItem from="1582687258447" duration="4302000" />
+      <workItem from="1582812477375" duration="4088000" />
     </task>
     <servers />
   </component>

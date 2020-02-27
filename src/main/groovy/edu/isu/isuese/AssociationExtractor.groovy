@@ -38,7 +38,7 @@ class AssociationExtractor {
     }
 
     void extractAssociations() {
-        Set<Type> types = project.getTypes()
+        Set<Type> types = project.getAllTypes()
 
         Class.findWith(new ModelListener<Class>() {
             @Override
@@ -70,7 +70,7 @@ class AssociationExtractor {
     }
 
     void extractDependencies() {
-        Set<Type> types = project.getTypes()
+        Set<Type> types = project.getAllTypes()
 
         Class.findWith(new ModelListener<Class>() {
             @Override

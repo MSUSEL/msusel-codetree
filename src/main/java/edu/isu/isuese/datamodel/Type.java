@@ -37,7 +37,7 @@ import java.util.Set;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public abstract class Type extends Component {
+public abstract class Type extends Component implements ComponentContainer {
 
 //    @Builder(buildMethodName = "create")
 //    public Type(String name, int start, int end, String compKey, Accessibility accessibility) {
@@ -96,18 +96,22 @@ public abstract class Type extends Component {
         return getAll(Constructor.class);
     }
 
+    @Override
     public List<Method> getMethods() {
         return getAll(Method.class);
     }
 
+    @Override
     public List<Destructor> getDestructors() {
         return getAll(Destructor.class);
     }
 
+    @Override
     public List<Field> getFields() {
         return getAll(Field.class);
     }
 
+    @Override
     public List<Initializer> getInitializers() {
         return getAll(Initializer.class);
     }
@@ -418,4 +422,31 @@ public abstract class Type extends Component {
 
         return this.getName();
     }
+
+    public List<Type> getAllTypes() { return Lists.newArrayList(); }
+
+    public List<Class> getClasses() { return Lists.newArrayList(); }
+
+    public List<Enum> getEnums() { return Lists.newArrayList(); }
+
+    public List<Interface> getInterfaces() { return Lists.newArrayList(); }
+
+    public List<Member> getAllMembers() {
+        List<Member> members = Lists.newArrayList();
+        members.addAll(getLiterals());
+        members.addAll(getInitializers());
+        members.addAll(getAllTypedMembers());
+        return members;
+    }
+
+    public List<TypedMember> getAllTypedMembers() {
+        List<TypedMember> members = Lists.newArrayList();
+        members.addAll(getFields());
+        members.addAll(getAllMethods());
+        return members;
+    }
+
+    public List<Method> getAllMethods() { return null; }
+
+    public List<Constructor> getConstructors() { return null; }
 }

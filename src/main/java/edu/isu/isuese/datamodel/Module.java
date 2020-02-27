@@ -37,7 +37,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public class Module extends Model implements Measurable {
+public class Module extends Model implements Measurable, ComponentContainer {
 
     public Module() {}
 
@@ -68,54 +68,67 @@ public class Module extends Model implements Measurable {
         return DbUtils.getImports(this.getClass(), (Integer) getId());
     }
 
-    public List<Type> getTypes() {
+    @Override
+    public List<Type> getAllTypes() {
         return DbUtils.getTypes(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Class> getClasses() {
         return DbUtils.getClasses(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Interface> getInterfaces() {
         return DbUtils.getInterfaces(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Enum> getEnums() {
         return DbUtils.getEnums(this.getClass(), (Integer) getId());
     }
 
-    public List<Member> getMembers() {
+    @Override
+    public List<Member> getAllMembers() {
         return DbUtils.getMembers(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Literal> getLiterals() {
         return DbUtils.getLiterals(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Initializer> getInitializers() {
         return DbUtils.getInitializers(this.getClass(), (Integer) getId());
     }
 
-    public List<TypedMember> getTypedMembers() {
+    @Override
+    public List<TypedMember> getAllTypedMembers() {
         return DbUtils.getTypedMembers(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Field> getFields() {
         return DbUtils.getFields(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Method> getAllMethods() {
         return DbUtils.getAllMethods(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Method> getMethods() {
         return DbUtils.getMethods(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Constructor> getConstructors() {
         return DbUtils.getConstructors(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Destructor> getDestructors() {
         return DbUtils.getDestructors(this.getClass(), (Integer) getId());
     }

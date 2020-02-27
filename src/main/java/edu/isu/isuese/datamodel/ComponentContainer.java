@@ -32,10 +32,31 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public interface Structure extends ComponentContainer {
+public interface ComponentContainer {
 
-    /**
-     * @return A list of files contained within the children of this structure
-     */
-    List<File> getFiles();
+    List<Type> getAllTypes();
+
+    List<Class> getClasses();
+
+    List<Enum> getEnums();
+
+    List<Interface> getInterfaces();
+
+    List<Member> getAllMembers();
+
+    List<Literal> getLiterals();
+
+    List<Initializer> getInitializers();
+
+    List<TypedMember> getAllTypedMembers();
+
+    List<Field> getFields();
+
+    List<Method> getAllMethods();
+
+    List<Method> getMethods();
+
+    List<Constructor> getConstructors();
+
+    List<Destructor> getDestructors();
 }

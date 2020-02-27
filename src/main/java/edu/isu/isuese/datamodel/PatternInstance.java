@@ -37,7 +37,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public class PatternInstance extends Model implements Measurable {
+public class PatternInstance extends Model implements Measurable, ComponentContainer {
 
     public PatternInstance() {}
 
@@ -94,5 +94,88 @@ public class PatternInstance extends Model implements Measurable {
         });
 
         return types;
+    }
+
+    public List<Type> getAllTypes() { return getTypes(); }
+
+    public List<Class> getClasses() {
+        List<Class> classes = Lists.newArrayList();
+        getTypes().forEach(t -> {
+            if (t instanceof Class)
+                classes.add((Class) t);
+        });
+        return classes;
+    }
+
+    public List<Enum> getEnums() {
+        List<Enum> enums = Lists.newArrayList();
+        getTypes().forEach(t -> {
+            if (t instanceof Enum)
+                enums.add((Enum) t);
+        });
+        return enums;
+    }
+
+    public List<Interface> getInterfaces() {
+        List<Interface> interfaces = Lists.newArrayList();
+        getTypes().forEach(t -> {
+            if (t instanceof Interface)
+                interfaces.add((Interface) t);
+        });
+        return interfaces;
+    }
+
+    public List<Member> getAllMembers() {
+        List<Member> members = Lists.newArrayList();
+        getAllTypes().forEach(t -> members.addAll(t.getAllMembers()));
+        return members;
+    }
+
+    public List<Literal> getLiterals() {
+        List<Literal> literals = Lists.newArrayList();
+        getAllTypes().forEach(t -> literals.addAll(t.getLiterals()));
+        return literals;
+    }
+
+    public List<Initializer> getInitializers() {
+        List<Initializer> inits = Lists.newArrayList();
+        getAllTypes().forEach(t -> inits.addAll(t.getInitializers()));
+        return inits;
+    }
+
+    public List<TypedMember> getAllTypedMembers() {
+        List<TypedMember> members = Lists.newArrayList();
+        getAllTypes().forEach(t -> members.addAll(t.getAllTypedMembers()));
+        return members;
+    }
+
+    public List<Field> getFields() {
+        List<Field> fields = Lists.newArrayList();
+        getAllTypes().forEach(t -> fields.addAll(t.getFields()));
+        return fields;
+    }
+
+    public List<Method> getAllMethods() {
+        List<Method> methods = Lists.newArrayList();
+        getAllTypes().forEach(t -> methods.addAll(t.getAllMethods()));
+        return methods;
+    }
+
+    public List<Method> getMethods() {
+        List<Method> methods = Lists.newArrayList();
+        getAllTypes().forEach(t -> methods.addAll(t.getMethods()));
+        return methods;
+    }
+
+    public List<Constructor> getConstructors() {
+        List<Constructor> cons = Lists.newArrayList();
+        getAllTypes().forEach(t -> cons.addAll(t.getConstructors()));
+        return cons;
+    }
+
+    public List<Destructor> getDestructors() {
+        List<Destructor> dests = Lists.newArrayList();
+        getAllTypes().forEach(t -> dests.addAll(t.getDestructors()));
+        return dests;
     }
 }

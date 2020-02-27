@@ -27,6 +27,7 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Queues;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import edu.isu.isuese.datamodel.util.Filter;
 import edu.isu.isuese.datamodel.util.FilterOperator;
@@ -35,12 +36,13 @@ import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Queue;
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public class Project extends Model implements Measurable {
+public class Project extends Model implements Measurable, ComponentContainer {
 
     public static void main(String[] args) {
         Base.open("org.sqlite.JDBC", "jdbc:sqlite:data/dev.db", "dev1", "");
@@ -114,21 +116,28 @@ public class Project extends Model implements Measurable {
     public List<Relation> getRelations() { return getAll(Relation.class); }
 
     public List<Namespace> getNamespaces() {
-        return DbUtils.getNamespaces(this.getClass(), (Integer) getId());
+        List<Namespace> namespaces = Lists.newArrayList();
+        Queue<Namespace> queue = Queues.newArrayDeque();
+        getModules().forEach(mod -> {
+            queue.addAll(mod.getNamespaces());
+        });
+
+        while (!queue.isEmpty())
+        {
+            Namespace ns = queue.poll();
+            queue.addAll(ns.getNamespaces());
+            namespaces.add(ns);
+        }
+
+        return namespaces;
     }
 
     public Namespace findNamespace(String name) {
-        try {
-            return DbUtils.getNamespaces(this.getClass(), (Integer) getId(),
-                    Filter.builder()
-                            .attribute("name")
-                            .op(FilterOperator.EQ)
-                            .table("namespaces")
-                            .value(name)
-                            .build()).get(0);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
+        for (Namespace ns : getNamespaces()) {
+            if (ns.getName().equals(name))
+                return ns;
         }
+        return null;
     }
 
     public boolean hasNamespace(String name) {
@@ -178,7 +187,8 @@ public class Project extends Model implements Measurable {
         return DbUtils.getImports(this.getClass(), (Integer) getId());
     }
 
-    public List<Type> getTypes() {
+    @Override
+    public List<Type> getAllTypes() {
         return DbUtils.getTypes(this.getClass(), (Integer) getId());
     }
 
@@ -196,6 +206,7 @@ public class Project extends Model implements Measurable {
         return findType(attribute, value) != null;
     }
 
+    @Override
     public List<Class> getClasses() {
         return DbUtils.getClasses(this.getClass(), (Integer) getId());
     }
@@ -218,6 +229,7 @@ public class Project extends Model implements Measurable {
         return findClass(attribute, value) != null;
     }
 
+    @Override
     public List<Interface> getInterfaces() {
         return DbUtils.getInterfaces(this.getClass(), (Integer) getId());
     }
@@ -240,6 +252,7 @@ public class Project extends Model implements Measurable {
         return findInterface(attribute, value) != null;
     }
 
+    @Override
     public List<Enum> getEnums() {
         return DbUtils.getEnums(this.getClass(), (Integer) getId());
     }
@@ -262,38 +275,47 @@ public class Project extends Model implements Measurable {
         return findEnum(attribute, value) != null;
     }
 
-    public List<Member> getMembers() {
+    @Override
+    public List<Member> getAllMembers() {
         return DbUtils.getMembers(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Literal> getLiterals() {
         return DbUtils.getLiterals(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Initializer> getInitializers() {
         return DbUtils.getInitializers(this.getClass(), (Integer) getId());
     }
 
-    public List<TypedMember> getTypedMembers() {
+    @Override
+    public List<TypedMember> getAllTypedMembers() {
         return DbUtils.getTypedMembers(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Field> getFields() {
         return DbUtils.getFields(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Method> getAllMethods() {
         return DbUtils.getAllMethods(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Method> getMethods() {
         return DbUtils.getMethods(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Constructor> getConstructors() {
         return DbUtils.getConstructors(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Destructor> getDestructors() {
         return DbUtils.getDestructors(this.getClass(), (Integer) getId());
     }

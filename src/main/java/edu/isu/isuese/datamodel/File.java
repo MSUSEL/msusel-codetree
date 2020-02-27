@@ -37,7 +37,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public class File extends Model implements Measurable {
+public class File extends Model implements Measurable, ComponentContainer {
 
     public String getFileKey() {
         return getString("fileKey");
@@ -102,7 +102,8 @@ public class File extends Model implements Measurable {
         save();
     }
 
-    public List<Type> getTypes() {
+    @Override
+    public List<Type> getAllTypes() {
         List<Type> types = Lists.newArrayList();
         types.addAll(getAll(Class.class));
         types.addAll(getAll(Interface.class));
@@ -110,33 +111,40 @@ public class File extends Model implements Measurable {
         return types;
     }
 
+    @Override
     public List<Class> getClasses() {
         return getAll(Class.class);
     }
 
+    @Override
     public List<Interface> getInterfaces() {
         return getAll(Interface.class);
     }
 
+    @Override
     public List<Enum> getEnums() {
         return getAll(Enum.class);
     }
 
-    public List<Member> getMembers() {
+    @Override
+    public List<Member> getAllMembers() {
         return DbUtils.getMembers(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Literal> getLiterals() {
         return DbUtils.getLiterals(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Initializer> getInitializers() {
         return DbUtils.getInitializers(this.getClass(), (Integer) getId());
     }
 
-    public List<TypedMember> getTypedMembers() {
+    @Override
+    public List<TypedMember> getAllTypedMembers() {
         List<TypedMember> members = Lists.newLinkedList();
-        List<Type> types = getTypes();
+        List<Type> types = getAllTypes();
         types.forEach(type -> {
             members.addAll(type.getMethods());
             members.addAll(type.getFields());
@@ -146,22 +154,27 @@ public class File extends Model implements Measurable {
         return members;
     }
 
+    @Override
     public List<Field> getFields() {
         return DbUtils.getFields(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Method> getAllMethods() {
         return DbUtils.getAllMethods(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Method> getMethods() {
         return DbUtils.getMethods(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Constructor> getConstructors() {
         return DbUtils.getConstructors(this.getClass(), (Integer) getId());
     }
 
+    @Override
     public List<Destructor> getDestructors() {
         return DbUtils.getDestructors(this.getClass(), (Integer) getId());
     }
