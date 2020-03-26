@@ -30,6 +30,7 @@ import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.*;
 import edu.isu.isuese.datamodel.Class;
 import edu.isu.isuese.datamodel.Enum;
+import edu.isu.isuese.datamodel.Module;
 import edu.isu.isuese.datamodel.System;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.test.DBSpec;

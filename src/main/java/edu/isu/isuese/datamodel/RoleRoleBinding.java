@@ -26,45 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
-import lombok.Builder;
-import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
-import org.javalite.activejdbc.annotations.Many2Many;
+import org.javalite.activejdbc.Model;
 
-/**
- * @author Isaac Griffith
- * @version 1.3.0
- */
-@BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
-@Many2Many(other = TypeRef.class, join = "constructors_typerefs", sourceFKName = "constructor_id", targetFKName = "type_ref_id")
-public class Constructor extends Method {
-
-    public Constructor() {
-        super();
-    }
-
-    @Builder(buildMethodName = "create", builderMethodName = "creator")
-    public Constructor(String name, int start, int end, String compKey, Accessibility accessibility, TypeRef type) {
-        super(name, start, end, compKey, accessibility, type);
-        save();
-    }
-
-    @Override
-    public String signature() {
-        StringBuilder sig = new StringBuilder();
-        sig.append(getName());
-        sig.append("(");
-        for (Parameter param : getParams()) {
-            sig.append(param.getType().getTypeName());
-            sig.append(", ");
-        }
-
-        String retVal = sig.toString();
-        if (retVal.endsWith(", ")) {
-            retVal = retVal.trim();
-            retVal = retVal.substring(0, retVal.length() - 2);
-        }
-        retVal += ")";
-
-        return retVal;
-    }
+public class RoleRoleBinding extends Model {
 }

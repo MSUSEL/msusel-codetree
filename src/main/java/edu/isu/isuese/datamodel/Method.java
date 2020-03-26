@@ -31,6 +31,7 @@ import com.google.common.collect.Sets;
 import edu.isu.isuese.datamodel.cfg.ControlFlowGraph;
 import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
+import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.List;
 import java.util.Set;
@@ -40,6 +41,7 @@ import java.util.Set;
  * @version 1.3.0
  */
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
+@Many2Many(other = TypeRef.class, join = "methods_typerefs", sourceFKName = "method_id", targetFKName = "type_ref_id")
 public class Method extends TypedMember {
 
     public Method() {
@@ -231,5 +233,34 @@ public class Method extends TypedMember {
 
     public boolean isVisible() {
         return true;
+    }
+
+    @Override
+    public void updateKey() {
+        Type parent = null;
+        try {
+            if (parent(Class.class) != null)
+                parent = parent(Class.class);
+        } catch (IllegalArgumentException e) {
+        }
+        try {
+            if (parent(Interface.class) != null)
+                parent = parent(Class.class);
+        } catch (IllegalArgumentException e) {
+        }
+        try {
+            if (parent(Enum.class) != null)
+                parent = parent(Enum.class);
+        } catch (IllegalArgumentException e) {
+        }
+
+        String newKey;
+        if (parent != null)
+            newKey = parent.getCompKey() + "#" + getName();
+        else
+            newKey = signature();
+
+        setString("compKey", newKey);
+        save();
     }
 }

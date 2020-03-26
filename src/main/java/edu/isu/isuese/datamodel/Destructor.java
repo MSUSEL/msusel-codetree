@@ -28,12 +28,14 @@ package edu.isu.isuese.datamodel;
 
 import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
+import org.javalite.activejdbc.annotations.Many2Many;
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
+@Many2Many(other = TypeRef.class, join = "destructors_typerefs", sourceFKName = "destructor_id", targetFKName = "type_ref_id")
 public class Destructor extends Method {
 
     public Destructor() {

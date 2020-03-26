@@ -30,6 +30,7 @@ import com.google.common.collect.Lists;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
@@ -37,9 +38,16 @@ import java.util.List;
  */
 public class RoleBinding extends Model {
 
-    public Role getRole() { return getAll(Role.class).get(0); }
+    public static RoleBinding of(Role role, Reference ref) {
+        RoleBinding binding = new RoleBinding();
+        binding.saveIt();
+        binding.setRoleRefPair(role, ref);
+        return binding;
+    }
 
-    private List<Role> getRoles() { return Lists.newLinkedList(getAll(Role.class)); }
+    public Role getRole() { return getRoles().get(0); }
+
+    public List<Role> getRoles() { return getAll(Role.class); }
 
     private List<Reference> getRefs() { return Lists.newLinkedList(getAll(Reference.class)); }
 
@@ -59,6 +67,7 @@ public class RoleBinding extends Model {
 
         }
 
+        save();
         add(role);
         add(ref);
         save();
@@ -66,5 +75,20 @@ public class RoleBinding extends Model {
 
     public Reference getReference() {
         return getAll(Reference.class).get(0);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof RoleBinding) {
+            RoleBinding role = (RoleBinding) o;
+            return role.getId().equals(this.getId());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getId());
     }
 }

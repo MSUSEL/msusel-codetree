@@ -75,4 +75,32 @@ public abstract class Member extends Component {
     public String getRefKey() {
         return getString("compKey");
     }
+
+    public void updateKey() {
+        Type parent = null;
+        try {
+            if (parent(Class.class) != null)
+                parent = parent(Class.class);
+        } catch (IllegalArgumentException e) {
+        }
+        try {
+            if (parent(Interface.class) != null)
+                parent = parent(Class.class);
+        } catch (IllegalArgumentException e) {
+        }
+        try {
+            if (parent(Enum.class) != null)
+                parent = parent(Enum.class);
+        } catch (IllegalArgumentException e) {
+        }
+
+        String newKey;
+        if (parent != null)
+            newKey = parent.getCompKey() + "#" + getName();
+        else
+            newKey = getName();
+
+        setString("compKey", newKey);
+        save();
+    }
 }

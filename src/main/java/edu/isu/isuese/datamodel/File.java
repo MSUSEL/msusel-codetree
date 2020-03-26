@@ -48,13 +48,18 @@ public class File extends Model implements Measurable, ComponentContainer {
     }
 
     @Builder(buildMethodName = "create")
-    public File(String fileKey, String name, FileType type) {
+    public File(String fileKey, String name, FileType type, String relPath, int start, int end) {
         set("fileKey", fileKey, "name", name);
         setType(type);
+        if (relPath != null && !relPath.isEmpty())
+            setRelPath(relPath);
+        setStart(start);
+        setEnd(end);
         save();
     }
 
     public void setName(String name) {
+        setRelPath(getRelPath().replace(getName(), name));
         set("name", name);
         save();
     }
@@ -207,5 +212,85 @@ public class File extends Model implements Measurable, ComponentContainer {
     @Override
     public String getRefKey() {
         return getString("fileKey");
+    }
+
+    public void updateKey() {
+        Namespace parent = parent(Namespace.class);
+        String newKey;
+        if (parent != null)
+            newKey = parent.getNsKey() + ":" + getName();
+        else
+            newKey = getName();
+
+        setString("fileKey", newKey);
+        save();
+
+        getAllTypes().forEach(Type::updateKey);
+    }
+
+    public void setStart(int start) {
+        setInteger("start", start);
+        save();
+    }
+
+    public int getStart() {
+        return getInteger("start");
+    }
+
+    public void setEnd(int end) {
+        setInteger("end", end);
+        save();
+    }
+
+    public int getEnd() {
+        return getInteger("end");
+    }
+
+    public String getRelPath() { return getString("relPath"); }
+
+    public void setRelPath(String path) { setString("relPath", path); save(); }
+
+    public String getFullPath() {
+        return parent(Namespace.class).getFullPath(getType()) + getRelPath();
+    }
+
+    public List<Object> containing(int line) {
+        List<Object> containing = Lists.newArrayList();
+        getImports().forEach(anImport -> {
+            if (anImport.getStart() <= line && anImport.getEnd() >= line) {
+                containing.add(anImport);
+            }
+        });
+        getAllTypes().forEach(aType -> {
+            if (aType.getStart() <= line && aType.getEnd() >= line) {
+                containing.add(aType);
+            }
+
+            aType.getAllMembers().forEach(member -> {
+                if (member.getStart() <= line && member.getEnd() >= line)
+                    containing.add(member);
+            });
+        });
+
+        return containing;
+    }
+
+    public List<Object> following(int line) {
+        List<Object> following = Lists.newArrayList();
+        getImports().forEach(anImport -> {
+            if (anImport.getStart() > line)
+                following.add(anImport);
+        });
+
+        getAllTypes().forEach(aType -> {
+            if (aType.getStart() >= line)
+                following.add(aType);
+            aType.getAllMembers().forEach(member -> {
+                if (member.getStart() >= line)
+                    following.add(member);
+            });
+        });
+
+        return following;
     }
 }

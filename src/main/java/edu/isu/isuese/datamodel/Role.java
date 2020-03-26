@@ -30,13 +30,17 @@ import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
+import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@Many2Many(other = RoleBinding.class, join = "roles_role_bindings", sourceFKName = "role_id", targetFKName = "role_binding_id")
 public class Role extends Model {
 
     public Role() {}
@@ -98,5 +102,20 @@ public class Role extends Model {
 
     public List<RoleBinding> getParentRoleBindings() {
         return DbUtils.getParentRoleBinding(this.getClass(), (Integer) getId());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Role) {
+            Role role = (Role) o;
+            return role.getRoleKey().equals(this.getRoleKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getRoleKey());
     }
 }

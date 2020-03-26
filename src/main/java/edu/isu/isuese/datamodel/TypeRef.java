@@ -34,6 +34,7 @@ import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToParents;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
+import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.List;
 import java.util.Map;
@@ -43,10 +44,7 @@ import java.util.Set;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsToPolymorphic(parents = {Parameter.class, Method.class, Constructor.class, Destructor.class, Field.class, MethodException.class})
-@BelongsToParents(
-        @BelongsTo(foreignKeyName = "typeref_id", parent = TypeRef.class)
-)
+@Many2Many(other = TypeRef.class, join = "typerefs_typerefs", sourceFKName = "parent_id", targetFKName = "child_id")
 public class TypeRef extends Model {
 
     public TypeRef() {
@@ -55,8 +53,10 @@ public class TypeRef extends Model {
     @Builder(buildMethodName = "create")
     public TypeRef(String typeName, String dimensions, TypeRefType type, Reference ref) {
         set("typeName", typeName, "dimensions", dimensions);
-        setType(type);
-        setReference(ref);
+        if (type != null)
+            setType(type);
+        if (ref != null)
+            setReference(ref);
         save();
     }
 
@@ -157,27 +157,24 @@ public class TypeRef extends Model {
     }
 
     public static TypeRef createPrimitiveTypeRef(String key) {
-//        TypeRef ref = TypeRef.findFirst("typeName = ? and type = ?", key, TypeRefType.Primitive.value());
-//        if (ref != null)
-//            return ref;
-//        else
-        return TypeRef.createIt("typeName", key, "type", TypeRefType.Primitive.value());
+        if (TypeRef.findFirst("typeName = ?", key) != null)
+            return TypeRef.findFirst("typeName = ?", key);
+        else
+            return TypeRef.builder().typeName(key).type(TypeRefType.Primitive).create();
     }
 
     public static TypeRef createWildCardTypeRef() {
-//        TypeRef ref = TypeRef.findFirst("typeName = ? and type = ?", "?", TypeRefType.WildCard.value());
-//        if (ref != null)
-//            return ref;
-//        else
-        return TypeRef.createIt("typeName", "?", "type", TypeRefType.WildCard.value());
+        if (TypeRef.findFirst("typeName = ?", "?") != null)
+            return TypeRef.findFirst("typeName = ?", "?");
+        else
+            return TypeRef.createIt("typeName", "?", "type", TypeRefType.WildCard.value());
     }
 
     public static TypeRef createTypeVarTypeRef(String typeVar) {
-//        TypeRef ref = TypeRef.findFirst("typeName = ?", typeVar);
-//        if (ref != null)
-//            return ref;
-//        else
-        return builder().typeName(typeVar).type(TypeRefType.Type).create();
+        if (TypeRef.findFirst("typeName = ?", typeVar) != null)
+            return TypeRef.findFirst("typeName = ?", typeVar);
+        else
+            return builder().typeName(typeVar).type(TypeRefType.Type).create();
     }
 
     public static List<TypeRef> knownTypes() {
@@ -210,9 +207,10 @@ public class TypeRef extends Model {
                 }
                 builder.append(">");
             }
-            builder.append(" " + getDimensions());
+            if (getDimensions() != null)
+                builder.append(" " + getDimensions());
         }
-        return builder.toString();
+        return builder.toString().trim();
     }
 
     public boolean isKnownType() {

@@ -52,7 +52,7 @@ public abstract class Component extends Model implements Measurable {
     }
 
     public int getStart() {
-        return getInteger("end");
+        return getInteger("start");
     }
 
     public void setEnd(int end) {
@@ -83,7 +83,7 @@ public abstract class Component extends Model implements Measurable {
     }
 
     public void addModifier(String mod) {
-        add(Modifier.findFirst("name = ?", mod));
+        add(Modifier.findFirst("name = ?", mod.toUpperCase()));
         save();
     }
 
@@ -93,7 +93,7 @@ public abstract class Component extends Model implements Measurable {
     }
 
     public void removeModifier(String mod) {
-        remove(Modifier.findFirst("name = ?", mod));
+        remove(Modifier.findFirst("name = ?", mod.toUpperCase()));
         save();
     }
 
@@ -132,6 +132,34 @@ public abstract class Component extends Model implements Measurable {
         rel.setToAndFromRefs(to, from);
         rel.setType(type);
         rel.saveIt();
+
+        List<Project> projects = getParentProjects();
+        if (!projects.isEmpty()) {
+            Project proj = projects.get(0);
+            proj.addRelation(rel);
+        }
+    }
+
+    abstract public List<Project> getParentProjects();
+
+    protected void deleteRelation(Component toComp, Component fromComp, RefType toType, RefType fromType, RelationType type) {
+        List<Project> projects = getParentProjects();
+        final Relation[] rel = new Relation[1];
+        if (!projects.isEmpty()) {
+            Project proj = projects.get(0);
+
+            proj.getRelations().forEach( r -> {
+                if (r.getRelKey().equals(fromComp.getRefKey() + "-" + toComp.getRefKey()) && r.getType() == type)
+                    rel[0] = r;
+            });
+        } else {
+            List<Relation> rels = Relation.find("relKey = ? AND relType = ?", fromComp.getRefKey() + "-" + toComp.getRefKey(), type.value());
+            if (!rels.isEmpty())
+                rel[0] = rels.get(0);
+        }
+
+        if (rel[0] != null)
+            rel[0].delete();
     }
 
     @Override

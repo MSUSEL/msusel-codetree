@@ -29,6 +29,7 @@ package edu.isu.isuese.datamodel;
 import org.javalite.activejdbc.test.DBSpec;
 import org.junit.Test;
 
+
 public class ParameterSpec extends DBSpec {
 
     @Test
@@ -43,6 +44,16 @@ public class ParameterSpec extends DBSpec {
         a(param.getId()).shouldNotBeNull();
         a(param.get("name")).shouldBeEqual("param");
         a(Parameter.count()).shouldBeEqual(1);
+        java.lang.System.out.println(param);
+    }
+
+    @Test
+    public void builderWorks() {
+        Parameter param = Parameter.builder().name("param").create();
+
+        the(param.getId()).shouldNotBeNull();
+        the(param.getName()).shouldEqual("param");
+
     }
 
     @Test
@@ -50,17 +61,16 @@ public class ParameterSpec extends DBSpec {
         Parameter param = Parameter.createIt("name", "param");
         param.save();
 
-        TypeRef typeRef = TypeRef.createIt("typeName", "typeRef", "dimensions", null);
+        TypeRef typeRef = TypeRef.createPrimitiveTypeRef("String");
         typeRef.setType(TypeRefType.Type);
         param.setType(typeRef);
 
         a(param.getAll(TypeRef.class).size()).shouldBeEqual(1);
 
-        typeRef = TypeRef.createIt("typeName", "typeRef2", "dimensions", null);
+        typeRef = TypeRef.createPrimitiveTypeRef("int");
         param.setType(typeRef);
 
         a(param.getAll(TypeRef.class).size()).shouldBeEqual(1);
-        a(TypeRef.count()).shouldBeEqual(1);
     }
 
     @Test
@@ -94,7 +104,6 @@ public class ParameterSpec extends DBSpec {
         a(param.getAll(TypeRef.class).size()).shouldBeEqual(1);
         param.setType(typeRef2);
         a(param.getAll(TypeRef.class).size()).shouldBeEqual(1);
-        a(TypeRef.count()).shouldBeEqual(1);
     }
 
     @Test

@@ -34,7 +34,7 @@ import org.javalite.activejdbc.Model;
  */
 public class Modifier extends Model {
 
-    public String getName() { return getString("name"); }
+    public String getName() { return getString("name").toLowerCase(); }
 
     public static Modifier forName(String name) {
         String value = name.toUpperCase();
@@ -44,7 +44,7 @@ public class Modifier extends Model {
         } catch (IllegalArgumentException ex) {
             Modifier mod = new Modifier();
             mod.set("name", value);
-            mod.saveIt();
+            mod.save();
             return mod;
         }
     }

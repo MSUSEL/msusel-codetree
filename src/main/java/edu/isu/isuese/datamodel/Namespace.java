@@ -49,8 +49,10 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     @Builder(buildMethodName = "create")
-    public Namespace(String nsKey, String name) {
+    public Namespace(String nsKey, String name, String relPath) {
         set("nsKey", nsKey);
+        if (relPath != null && !relPath.isEmpty())
+            setRelPath(relPath);
         setName(name);
     }
 
@@ -63,6 +65,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public void setName(String name) {
+        setRelPath(name);
         set("name", name);
         save();
     }
@@ -207,5 +210,50 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     @Override
     public String getRefKey() {
         return getString("nsKey");
+    }
+
+    public void updateKey() {
+        Namespace pns = parent(Namespace.class);
+        Module pmod = parent(Module.class);
+        String parentKey = null;
+        String newKey;
+        if (pns != null)
+            parentKey = pns.getNsKey();
+        else if (pmod != null)
+            parentKey = pmod.getModuleKey();
+
+        if (parentKey != null) {
+            newKey = parentKey + ":" + getName();
+        } else {
+            newKey = getName();
+        }
+
+        setString("nsKey", newKey);
+        save();
+
+        getNamespaces().forEach(Namespace::updateKey);
+        getFiles().forEach(File::updateKey);
+    }
+
+    public String getRelPath() { return getString("relPath"); }
+
+    public void setRelPath(String path) { setString("relPath", path); save(); }
+
+    public String getFullPath(FileType type) {
+        String path = "";
+        if (parent(Namespace.class) != null) {
+            path = parent(Namespace.class).getFullPath(type);
+        } else if (parent(Module.class) != null) {
+            path = parent(Module.class).getFullPath();
+            if (type == FileType.SOURCE)
+                path += parent(Module.class).getSrcPath();
+            else if (type == FileType.TEST)
+                path += parent(Module.class).getTestPath();
+        }
+
+        if (!path.endsWith(java.io.File.separator))
+            path += java.io.File.separator;
+
+        return path + getRelPath() + java.io.File.separator;
     }
 }

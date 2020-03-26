@@ -92,7 +92,14 @@ public abstract class Type extends Component implements ComponentContainer {
         }
     }
 
-    public List<Constructor> getConstructor() {
+    public void removeMember(Member member) {
+        if (member != null) {
+            remove(member);
+            save();
+        }
+    }
+
+    public List<Constructor> getConstructors() {
         return getAll(Constructor.class);
     }
 
@@ -220,6 +227,10 @@ public abstract class Type extends Component implements ComponentContainer {
 
     public void generalizedBy(Type other) {
         createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.GENERALIZATION);
+    }
+
+    public void removeGeneralizedBy(Type other) {
+        deleteRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.GENERALIZATION);
     }
 
     public Set<Type> getContainedBy() {
@@ -446,7 +457,24 @@ public abstract class Type extends Component implements ComponentContainer {
         return members;
     }
 
-    public List<Method> getAllMethods() { return null; }
+    public List<Method> getAllMethods() {
+        List<Method> methods = Lists.newArrayList();
+        methods.addAll(getMethods());
+        methods.addAll(getConstructors());
+        return methods;
+    }
 
-    public List<Constructor> getConstructors() { return null; }
+    public void updateKey() {
+        File parent = parent(File.class);
+        String newKey;
+        if (parent != null)
+            newKey = parent.getFileKey() + ":" + getName();
+        else
+            newKey = getName();
+
+        setString("compKey", newKey);
+        save();
+
+        getAllMembers().forEach(Member::updateKey);
+    }
 }

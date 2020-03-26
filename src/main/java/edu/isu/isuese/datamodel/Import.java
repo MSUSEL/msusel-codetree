@@ -38,11 +38,21 @@ public class Import extends Model {
     public Import() {}
 
     @Builder(buildMethodName = "create")
-    public Import(String name) {
+    public Import(String name, int start, int end) {
         setName(name);
+        setStart(start);
+        setEnd(end);
     }
 
     public String getName() { return getString("name"); }
 
     public void setName(String name) { set("name", name); save(); }
+
+    public int getStart() { return getInteger("start"); }
+
+    public void setStart(int start) { setInteger("start", start); save(); }
+
+    public int getEnd() { return getInteger("end"); }
+
+    public void setEnd(int end) { setInteger("end", end); save(); }
 }

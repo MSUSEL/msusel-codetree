@@ -27,7 +27,9 @@
 package edu.isu.isuese.datamodel;
 
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Many2Many;
 
+@Many2Many(other = TypeRef.class, join = "methodexceptions_typerefs", sourceFKName = "exception_id", targetFKName = "type_ref_id")
 public class MethodException extends Model {
 
     public void removeTypeRef(TypeRef ref) {

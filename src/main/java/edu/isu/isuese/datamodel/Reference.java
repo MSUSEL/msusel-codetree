@@ -43,6 +43,28 @@ public class Reference extends Model {
 
     public Reference() {}
 
+    public static Reference to(Component comp) {
+        RefType type = null;
+        if (comp instanceof Type)
+            type = RefType.TYPE;
+        else if (comp instanceof Literal)
+            type = RefType.LITERAL;
+        else if (comp instanceof Constructor)
+            type = RefType.CONSTRUCTOR;
+        else if (comp instanceof Initializer)
+            type = RefType.INITIALIZER;
+        else if (comp instanceof Method)
+            type = RefType.METHOD;
+        else if (comp instanceof Field)
+            type = RefType.FIELD;
+
+        if (type != null)
+            return new Reference(comp.getRefKey(), type);
+
+        return null;
+    }
+
+
     @Builder(buildMethodName = "create")
     public Reference(String refKey, RefType refType) {
         set("refKey", refKey);

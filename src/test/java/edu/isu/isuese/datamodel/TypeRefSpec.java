@@ -50,6 +50,18 @@ public class TypeRefSpec extends DBSpec {
     }
 
     @Test
+    public void testCreatingPrimitive() {
+        TypeRef typeRef = TypeRef.createPrimitiveTypeRef("int");
+        the(typeRef.getId()).shouldNotBeNull();
+    }
+
+    @Test
+    public void testCreatingPrimitiveWithBuilder() {
+        TypeRef typeRef = TypeRef.builder().typeName("test").type(TypeRefType.Type).create();
+        the(typeRef.getId()).shouldNotBeNull();
+    }
+
+    @Test
     public void canAddTypeArgs() {
         TypeRef typeRef = TypeRef.createIt("typeName", "typeRef", "dimensions", null);
         typeRef.setType(TypeRefType.Type);

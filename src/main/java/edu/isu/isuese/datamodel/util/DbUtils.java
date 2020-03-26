@@ -416,7 +416,7 @@ public class DbUtils {
             List<Type> types = getTypes(model, id, filters);
             List<Constructor> consts = Lists.newArrayList();
             for (Type t : types) {
-                consts.addAll(t.getConstructor());
+                consts.addAll(t.getConstructors());
             }
             return consts;
         } catch (Exception e) {

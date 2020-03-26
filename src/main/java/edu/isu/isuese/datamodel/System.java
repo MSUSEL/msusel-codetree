@@ -44,12 +44,13 @@ public class System extends Model implements Measurable, Structure {
     public System() {}
 
     @Builder(buildMethodName = "create")
-    public System(String name, String key) {
-        set("name", name, "sysKey", key);
+    public System(String name, String key, String basePath) {
+        set("name", name, "sysKey", key, "basePath", basePath);
         save();
     }
 
     public void setName(String name) {
+        setBasePath(name);
         set("name", name);
         save();
     }
@@ -308,5 +309,13 @@ public class System extends Model implements Measurable, Structure {
     @Override
     public String getRefKey() {
         return getIdName();
+    }
+
+    public void setBasePath(String path) { setString("basePath", path); save(); }
+
+    public String getBasePath() { return getString("basePath"); }
+
+    public void updateKeys() {
+        getProjects().forEach(p -> p.updateKeys(getKey()));
     }
 }

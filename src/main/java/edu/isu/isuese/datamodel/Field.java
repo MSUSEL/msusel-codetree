@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel;
 
 import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
+import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.List;
 
@@ -36,6 +37,7 @@ import java.util.List;
  * @version 1.3.0
  */
 @BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
+@Many2Many(other = TypeRef.class, join = "fields_typerefs", sourceFKName = "field_id", targetFKName = "type_ref_id")
 public class Field extends TypedMember {
 
     public Field() {}

@@ -31,6 +31,8 @@ import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
+import org.javalite.activejdbc.annotations.Many2Many;
+import org.javalite.activejdbc.annotations.Table;
 
 import java.util.List;
 
@@ -39,14 +41,16 @@ import java.util.List;
  * @version 1.3.0
  */
 @BelongsToPolymorphic(parents = {Method.class, Constructor.class, Destructor.class})
+@Many2Many(other = TypeRef.class, join = "parameters_typerefs", sourceFKName = "parameter_id", targetFKName = "type_ref_id")
+@Many2Many(other = Modifier.class, join = "parameters_modifiers", sourceFKName = "parameter_id", targetFKName = "modifier_id")
+@Table("PARAMETERS")
 public class Parameter extends Model {
 
     public Parameter() {}
 
     @Builder(buildMethodName = "create")
     public Parameter(String name, TypeRef type) {
-        set("name", name);
-        save();
+        setName(name);
         if (type != null)
             setType(type);
     }
@@ -71,9 +75,12 @@ public class Parameter extends Model {
             save();
         }
         else {
-            List<TypeRef> refs = this.getAll(TypeRef.class);
-            for (TypeRef r : refs)
+            List<TypeRef> refs = Lists.newArrayList(this.getAll(TypeRef.class));
+            for (TypeRef r : refs) {
+                java.lang.System.out.println("TypeRef: " + r);
                 remove(r);
+                saveIt();
+            }
 
             add(ref);
             save();

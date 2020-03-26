@@ -35,15 +35,16 @@ import java.util.Map;
  * @version 1.3.0
  */
 public enum Accessibility {
-    PUBLIC(1),
-    PROTECTED(2),
-    PRIVATE(3),
-    DEFAULT(4),
-    PACKAGE(5),
-    INTERNAL(6),
-    PROTECTED_INTERNAL(7);
+    PUBLIC(1, "public"),
+    PROTECTED(2, "protected"),
+    PRIVATE(3, "private"),
+    DEFAULT(4, ""),
+    PACKAGE(5, ""),
+    INTERNAL(6, "internal"),
+    PROTECTED_INTERNAL(7, "protected internal");
 
     private final int value;
+    private final String strValue;
     private static Map<Integer, Accessibility> map = Maps.newHashMap();
 
     static {
@@ -56,7 +57,12 @@ public enum Accessibility {
         map.put(7, PROTECTED_INTERNAL);
     }
 
-    Accessibility(int value) { this.value = value; }
+    @Override
+    public String toString() {
+        return strValue;
+    }
+
+    Accessibility(int value, String strValue) { this.value = value; this.strValue = strValue; }
 
     public int value() { return value; }
 

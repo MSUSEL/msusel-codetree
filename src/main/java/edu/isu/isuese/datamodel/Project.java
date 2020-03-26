@@ -53,67 +53,139 @@ public class Project extends Model implements Measurable, ComponentContainer {
         Base.close();
     }
 
-    public Project() {}
+    public Project() {
+    }
 
     @Builder(buildMethodName = "create")
-    public Project(String projKey, String name, String version, SCM scm) {
+    public Project(String projKey, String name, String version, String relPath, SCM scm) {
         set("projKey", projKey, "name", name, "version", version);
         save();
+        if (relPath != null || !relPath.isEmpty())
+            setRelPath(relPath);
         if (scm != null)
             addSCM(scm);
     }
 
-    public String getProjectKey() { return getString("projKey"); }
+    public String getProjectKey() {
+        return getString("projKey");
+    }
 
-    public String getName() { return getString("name"); }
+    public String getName() {
+        return getString("name");
+    }
 
-    public void setName(String name) { set("name", name); save(); }
+    public void setName(String name) {
+        setRelPath(name);
+        set("name", name);
+        save();
+    }
 
-    public String getVersion() { return getString("version"); }
+    public String getVersion() {
+        return getString("version");
+    }
 
-    public void setVersion(String version) { set("version", version); save(); }
+    public void setVersion(String version) {
+        set("version", version);
+        save();
+    }
 
-    public void addLanguage(Language lang) { add(lang); save(); }
+    public void addLanguage(Language lang) {
+        add(lang);
+        save();
+    }
 
-    public void removeLanguage(Language lang) { remove(lang); save(); }
+    public void removeLanguage(Language lang) {
+        remove(lang);
+        save();
+    }
 
-    public List<Language> getLanguages() { return getAll(Language.class); }
+    public List<Language> getLanguages() {
+        return getAll(Language.class);
+    }
 
-    public void addMeasure(Measure meas) { add(meas); save(); }
+    public void addMeasure(Measure meas) {
+        add(meas);
+        save();
+    }
 
-    public void removeMeasure(Measure meas) { remove(meas); save(); }
+    public void removeMeasure(Measure meas) {
+        remove(meas);
+        save();
+    }
 
-    public List<Measure> getMeasures() { return getAll(Measure.class); }
+    public List<Measure> getMeasures() {
+        return getAll(Measure.class);
+    }
 
-    public void addFinding(Finding find) { add(find); save(); }
+    public void addFinding(Finding find) {
+        add(find);
+        save();
+    }
 
-    public void removeFinding(Finding find) { remove(find); save(); }
+    public void removeFinding(Finding find) {
+        remove(find);
+        save();
+    }
 
-    public List<Finding> getFindings() { return getAll(Finding.class); }
+    public List<Finding> getFindings() {
+        return getAll(Finding.class);
+    }
 
-    public void addPatternInstance(PatternInstance inst) { add(inst); save(); }
+    public void addPatternInstance(PatternInstance inst) {
+        add(inst);
+        save();
+    }
 
-    public void removePatternInstance(PatternInstance inst) { remove(inst); save(); }
+    public void removePatternInstance(PatternInstance inst) {
+        remove(inst);
+        save();
+    }
 
-    public List<PatternInstance> getPatternInstances() { return getAll(PatternInstance.class); }
+    public List<PatternInstance> getPatternInstances() {
+        return getAll(PatternInstance.class);
+    }
 
-    public void addSCM(SCM scm) { add(scm); save(); }
+    public void addSCM(SCM scm) {
+        add(scm);
+        save();
+    }
 
-    public void removeSCM(SCM scm) { remove(scm); save(); }
+    public void removeSCM(SCM scm) {
+        remove(scm);
+        save();
+    }
 
-    public List<SCM> getSCMs() { return getAll(SCM.class); }
+    public List<SCM> getSCMs() {
+        return getAll(SCM.class);
+    }
 
-    public void addModule(Module mod) { add(mod); save(); }
+    public void addModule(Module mod) {
+        add(mod);
+        save();
+    }
 
-    public void removeModule(Module mod) { remove(mod); save(); }
+    public void removeModule(Module mod) {
+        remove(mod);
+        save();
+    }
 
-    public List<Module> getModules() { return getAll(Module.class); }
+    public List<Module> getModules() {
+        return getAll(Module.class);
+    }
 
-    public void addRelation(Relation rel) { add(rel); save(); }
+    public void addRelation(Relation rel) {
+        add(rel);
+        save();
+    }
 
-    public void removeRelation(Relation rel) { remove(rel); save(); }
+    public void removeRelation(Relation rel) {
+        remove(rel);
+        save();
+    }
 
-    public List<Relation> getRelations() { return getAll(Relation.class); }
+    public List<Relation> getRelations() {
+        return getAll(Relation.class);
+    }
 
     public List<Namespace> getNamespaces() {
         List<Namespace> namespaces = Lists.newArrayList();
@@ -122,8 +194,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
             queue.addAll(mod.getNamespaces());
         });
 
-        while (!queue.isEmpty())
-        {
+        while (!queue.isEmpty()) {
             Namespace ns = queue.poll();
             queue.addAll(ns.getNamespaces());
             namespaces.add(ns);
@@ -158,7 +229,9 @@ public class Project extends Model implements Measurable, ComponentContainer {
         }
     }
 
-    public List<File> getFiles() { return getAll(File.class); }
+    public List<File> getFiles() {
+        return getAll(File.class);
+    }
 
     public List<File> getFilesByType(FileType type) {
         List<File> files = getFiles();
@@ -349,5 +422,41 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
         add(type);
         save();
+    }
+
+    public String getRelPath() {
+        return getString("relPath");
+    }
+
+    public void setRelPath(String path) {
+        setString("relPath", path);
+        save();
+    }
+
+    public void updateKeys(String parentKey) {
+        String newKey = parentKey + ":" + getName() + "-" + getVersion();
+        setString("projKey", newKey);
+        save();
+        getModules().forEach(Module::updateKey);
+    }
+
+    public String getFullPath() {
+        String path = "";
+
+        if (parent(System.class) != null) {
+            path = parent(System.class).getBasePath().replaceAll("/", java.io.File.separator);
+        }
+
+        if (!path.endsWith(java.io.File.separator)) {
+            path += java.io.File.separator;
+        }
+
+        path += getRelPath();
+
+        if (!path.endsWith(java.io.File.separator)) {
+            path += java.io.File.separator;
+        }
+
+        return path;
     }
 }

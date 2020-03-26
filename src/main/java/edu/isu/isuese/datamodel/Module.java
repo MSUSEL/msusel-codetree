@@ -39,26 +39,49 @@ import java.util.List;
  */
 public class Module extends Model implements Measurable, ComponentContainer {
 
-    public Module() {}
+    public Module() {
+    }
 
     @Builder(buildMethodName = "create")
-    public Module(String name, String moduleKey) {
+    public Module(String name, String moduleKey, String relPath, String srcPath, String testPath) {
         set("moduleKey", moduleKey);
+        if (relPath != null && !relPath.isEmpty())
+            setRelPath(relPath);
+        if (srcPath != null && !srcPath.isEmpty())
+            setSrcPath(srcPath);
+        if (testPath != null && !testPath.isEmpty())
+            setTestPath(testPath);
         setName(name);
         save();
     }
 
-    public String getModuleKey() { return getString("moduleKey"); }
+    public String getModuleKey() {
+        return getString("moduleKey");
+    }
 
-    public String getName() { return getString("name"); }
+    public String getName() {
+        return getString("name");
+    }
 
-    public void setName(String name) { set("name", name); save(); }
+    public void setName(String name) {
+        set("name", name);
+        save();
+        setRelPath(name);
+    }
 
-    public void addNamespace(Namespace ns) { add(ns); save(); }
+    public void addNamespace(Namespace ns) {
+        add(ns);
+        save();
+    }
 
-    public void removeNamespace(Namespace ns) { remove(ns); save(); }
+    public void removeNamespace(Namespace ns) {
+        remove(ns);
+        save();
+    }
 
-    public List<Namespace> getNamespaces() { return getAll(Namespace.class); }
+    public List<Namespace> getNamespaces() {
+        return getAll(Namespace.class);
+    }
 
     public List<File> getFiles() {
         return DbUtils.getFiles(this.getClass(), (Integer) getId());
@@ -146,5 +169,51 @@ public class Module extends Model implements Measurable, ComponentContainer {
     @Override
     public String getRefKey() {
         return getString("moduleKey");
+    }
+
+    public void updateKey() {
+        Project parent = parent(Project.class);
+        String newKey;
+        if (parent != null)
+            newKey = parent.getProjectKey() + ":" + getName();
+        else
+            newKey = getName();
+
+        setString("moduleKey", newKey);
+        save();
+
+        getNamespaces().forEach(Namespace::updateKey);
+    }
+
+    public String getRelPath() {
+        return getString("relPath");
+    }
+
+    public void setRelPath(String path) {
+        if (path == null || path.isEmpty()) return;
+        setString("relPath", path);
+        save();
+    }
+
+    public String getSrcPath() {
+        return getString("srcPath");
+    }
+
+    public void setSrcPath(String path) {
+        setString("srcPath", path);
+        save();
+    }
+
+    public String getTestPath() {
+        return getString("testPath");
+    }
+
+    public void setTestPath(String path) {
+        setString("testPath", path);
+        save();
+    }
+
+    public String getFullPath() {
+        return parent(Project.class).getFullPath() + getRelPath() + java.io.File.separator;
     }
 }
