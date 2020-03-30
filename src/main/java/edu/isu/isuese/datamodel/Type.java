@@ -180,6 +180,10 @@ public abstract class Type extends Component implements ComponentContainer {
         createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.ASSOCIATION);
     }
 
+    public void removeAssociatedTo(Type other) {
+        deleteRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.ASSOCIATION);
+    }
+
     public Set<Type> getAggregatedTo() {
         return DbUtils.getRelationFrom(this, RelationType.AGGREGATION);
     }
@@ -476,5 +480,15 @@ public abstract class Type extends Component implements ComponentContainer {
         save();
 
         getAllMembers().forEach(Member::updateKey);
+    }
+
+    public TypeRef createTypeRef() {
+        if (TypeRef.findFirst("typeFullName = ?", getFullName()) != null) {
+            return TypeRef.findFirst("typeFullName = ?", getFullName());
+        }
+        else {
+            Reference ref = Reference.builder().refKey(getRefKey()).refType(RefType.TYPE).create();
+            return TypeRef.builder().typeName(getName()).typeFullName(getFullName()).type(TypeRefType.Type).ref(ref).create();
+        }
     }
 }

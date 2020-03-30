@@ -32,6 +32,7 @@ import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
@@ -292,5 +293,20 @@ public class File extends Model implements Measurable, ComponentContainer {
         });
 
         return following;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof File) {
+            File comp = (File) o;
+            return comp.getFileKey().equals(getFileKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFileKey());
     }
 }

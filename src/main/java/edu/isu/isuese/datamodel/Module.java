@@ -32,6 +32,7 @@ import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
@@ -215,5 +216,20 @@ public class Module extends Model implements Measurable, ComponentContainer {
 
     public String getFullPath() {
         return parent(Project.class).getFullPath() + getRelPath() + java.io.File.separator;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Module) {
+            Module comp = (Module) o;
+            return comp.getModuleKey().equals(this.getModuleKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getModuleKey());
     }
 }

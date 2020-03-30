@@ -29,6 +29,8 @@ package edu.isu.isuese.datamodel;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
+import java.util.Objects;
+
 /**
  * @author Isaac Griffith
  * @version 1.3.0
@@ -55,4 +57,19 @@ public class Import extends Model {
     public int getEnd() { return getInteger("end"); }
 
     public void setEnd(int end) { setInteger("end", end); save(); }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Import) {
+            Import comp = (Import) o;
+            return comp.getName().equals(this.getName());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName());
+    }
 }

@@ -36,6 +36,7 @@ import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Queue;
 
 /**
@@ -458,5 +459,20 @@ public class Project extends Model implements Measurable, ComponentContainer {
         }
 
         return path;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Project) {
+            Project comp = (Project) o;
+            return comp.getProjectKey().equals(this.getProjectKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getProjectKey());
     }
 }

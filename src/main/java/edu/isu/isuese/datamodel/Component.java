@@ -107,7 +107,7 @@ public abstract class Component extends Model implements Measurable {
     }
 
     public boolean hasModifier(String name) {
-        return !get(Modifier.class, "name = ?", name).isEmpty();
+        return !get(Modifier.class, "name = ?", name.toUpperCase()).isEmpty();
     }
 
     public boolean hasModifier(Modifier.Values value) {
@@ -174,6 +174,6 @@ public abstract class Component extends Model implements Measurable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getCompKey());
+        return Objects.hash(getCompKey());
     }
 }

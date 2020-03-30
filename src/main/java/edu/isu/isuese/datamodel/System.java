@@ -34,6 +34,7 @@ import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
@@ -316,6 +317,22 @@ public class System extends Model implements Measurable, Structure {
     public String getBasePath() { return getString("basePath"); }
 
     public void updateKeys() {
+        this.setKey(getName());
         getProjects().forEach(p -> p.updateKeys(getKey()));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof System) {
+            System comp = (System) o;
+            return comp.getKey().equals(this.getKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getKey());
     }
 }

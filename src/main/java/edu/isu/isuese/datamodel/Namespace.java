@@ -34,6 +34,7 @@ import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToParents;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
@@ -54,6 +55,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
         if (relPath != null && !relPath.isEmpty())
             setRelPath(relPath);
         setName(name);
+        saveIt();
     }
 
     public String getNsKey() {
@@ -255,5 +257,20 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
             path += java.io.File.separator;
 
         return path + getRelPath() + java.io.File.separator;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Namespace) {
+            Namespace comp = (Namespace) o;
+            return comp.getNsKey().equals(this.getNsKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNsKey());
     }
 }

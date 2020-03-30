@@ -493,14 +493,15 @@ create table destructors_method_exceptions
 
 create table type_refs
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
-    dimensions VARCHAR,
-    typeName   VARCHAR,
-    type       INTEGER,
-    typeref_id INTEGER REFERENCES type_refs (id),
-    is_bound   INTEGER(1),
-    created_at NUMERIC,
-    updated_at NUMERIC
+    id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    dimensions   VARCHAR,
+    typeName     VARCHAR,
+    typeFullName VARCHAR,
+    type         INTEGER,
+    typeref_id   INTEGER REFERENCES type_refs (id),
+    is_bound     INTEGER(1),
+    created_at   NUMERIC,
+    updated_at   NUMERIC
 );
 
 create table parameters_typerefs

@@ -51,8 +51,8 @@ public class TypeRef extends Model {
     }
 
     @Builder(buildMethodName = "create")
-    public TypeRef(String typeName, String dimensions, TypeRefType type, Reference ref) {
-        set("typeName", typeName, "dimensions", dimensions);
+    public TypeRef(String typeName, String typeFullName, String dimensions, TypeRefType type, Reference ref) {
+        set("typeName", typeName, "dimensions", dimensions, "typeFullName", typeFullName);
         if (type != null)
             setType(type);
         if (ref != null)
@@ -77,6 +77,8 @@ public class TypeRef extends Model {
         set("typeName", typeName);
         save();
     }
+
+    public String getTypeFullName() { return getString("typeFullName"); }
 
     public TypeRefType getType() {
         return TypeRefType.fromValue(getInteger("type"));
