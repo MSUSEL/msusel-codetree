@@ -67,4 +67,23 @@ public class Constructor extends Method {
 
         return retVal;
     }
+
+    @Override
+    public Member copy(String oldPrefix, String newPrefix) {
+        Constructor copy = Constructor.creator()
+                .name(this.getName())
+                .compKey(this.getName())
+                .accessibility(this.getAccessibility())
+                .type(this.getType().copy(oldPrefix, newPrefix))
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+
+        getModifiers().forEach(copy::addModifier);
+//        getTypeParams().forEach(param -> copy.addTemplateParam(param.copy()));
+        getExceptions().forEach(excep -> copy.addException(excep.getTypeRef().copy(oldPrefix, newPrefix)));
+        getParams().forEach(param -> copy.addParameter(param.copy()));
+
+        return copy;
+    }
 }

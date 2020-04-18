@@ -91,4 +91,8 @@ public class RoleBinding extends Model {
     public int hashCode() {
         return Objects.hash(super.hashCode(), getId());
     }
+
+    public RoleBinding copy(String oldPrefix, String newPrefix) {
+        return RoleBinding.of(this.getRole(), this.getReference().copy(oldPrefix, newPrefix));
+    }
 }

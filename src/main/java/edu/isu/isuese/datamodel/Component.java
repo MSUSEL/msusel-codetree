@@ -98,7 +98,7 @@ public abstract class Component extends Model implements Measurable {
     }
 
     public void removeModifier(Modifier mod) {
-        remove(mod);
+        remove(Modifier.findFirst("name = ?", mod.getName().toUpperCase()));
         save();
     }
 
@@ -116,18 +116,20 @@ public abstract class Component extends Model implements Measurable {
 
     protected void createRelation(Component toComp, Component fromComp, RefType toType, RefType fromType, RelationType type) {
         Reference to, from;
-        List toList = Reference.find("refKey = ?", toComp.getRefKey());
-        List fromList = Reference.find("refKey = ?", fromComp.getRefKey());
+        toComp.refresh();
+        fromComp.refresh();
+        List toList = Reference.find("refKey = ?", toComp.getCompKey());
+        List fromList = Reference.find("refKey = ?", fromComp.getCompKey());
         if (fromList.isEmpty())
-            from = Reference.builder().refKey(fromComp.getRefKey()).refType(fromType).create();
+            from = Reference.builder().refKey(fromComp.getCompKey()).refType(fromType).create();
         else
             from = (Reference) fromList.get(0);
         if (toList.isEmpty())
-            to = Reference.builder().refKey(toComp.getRefKey()).refType(toType).create();
+            to = Reference.builder().refKey(toComp.getCompKey()).refType(toType).create();
         else
             to = (Reference) toList.get(0);
 
-        Relation rel = Relation.create("relKey", from.getRefKey() + "-" + to.getRefKey());
+        Relation rel = Relation.createIt("relKey", fromComp.getCompKey() + "-" + toComp.getCompKey());
         rel.saveIt();
         rel.setToAndFromRefs(to, from);
         rel.setType(type);
@@ -143,17 +145,20 @@ public abstract class Component extends Model implements Measurable {
     abstract public List<Project> getParentProjects();
 
     protected void deleteRelation(Component toComp, Component fromComp, RefType toType, RefType fromType, RelationType type) {
+        toComp.refresh();
+        fromComp.refresh();
+
         List<Project> projects = getParentProjects();
         final Relation[] rel = new Relation[1];
         if (!projects.isEmpty()) {
             Project proj = projects.get(0);
 
             proj.getRelations().forEach( r -> {
-                if (r.getRelKey().equals(fromComp.getRefKey() + "-" + toComp.getRefKey()) && r.getType() == type)
+                if (r.getRelKey().equals(fromComp.getCompKey() + "-" + toComp.getCompKey()) && r.getType() == type)
                     rel[0] = r;
             });
         } else {
-            List<Relation> rels = Relation.find("relKey = ? AND relType = ?", fromComp.getRefKey() + "-" + toComp.getRefKey(), type.value());
+            List<Relation> rels = Relation.find("relKey = ? AND type = ?", fromComp.getCompKey() + "-" + toComp.getCompKey(), type.value());
             if (!rels.isEmpty())
                 rel[0] = rels.get(0);
         }

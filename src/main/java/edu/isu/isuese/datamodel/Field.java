@@ -26,11 +26,14 @@
  */
 package edu.isu.isuese.datamodel;
 
+import com.google.common.collect.Sets;
+import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Isaac Griffith
@@ -52,5 +55,32 @@ public class Field extends TypedMember {
         if (type != null)
             setType(type);
         save();
+    }
+
+    public Set<Method> getMethodsUsing() {
+        Set<Member> membersUsing = DbUtils.getRelationTo(this, RelationType.USE);
+        Set<Method> methodsUsing = Sets.newHashSet();
+        membersUsing.forEach(member -> {
+            if (member instanceof Method)
+                methodsUsing.add((Method) member);
+        });
+
+        return methodsUsing;
+    }
+
+    @Override
+    public Member copy(String oldPrefix, String newPrefix) {
+        Field copy = Field.builder()
+                .name(this.getName())
+                .compKey(this.getName())
+                .accessibility(this.getAccessibility())
+                .type(this.getType().copy(oldPrefix, newPrefix))
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+
+        getModifiers().forEach(copy::addModifier);
+
+        return copy;
     }
 }

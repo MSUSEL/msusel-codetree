@@ -52,4 +52,15 @@ public class Interface extends Classifier {
             setAccessibility(Accessibility.PUBLIC);
         save();
     }
+
+    @Override
+    protected Type copyType() {
+        return Interface.builder()
+                .name(this.getName())
+                .compKey(this.getName())
+                .accessibility(this.getAccessibility())
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+    }
 }

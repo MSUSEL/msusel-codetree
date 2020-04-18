@@ -74,34 +74,15 @@ public class Role extends Model {
 
     public void setName(String name) { set("name", name); save(); }
 
-    public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+    public PatternRepository getParentPatternRepository() {
+        Pattern parent = getParentPattern();
+        if (parent != null)
+            return parent.getParentPatternRepository();
+        return null;
     }
 
-    public List<PatternRepository> getParentPatternRepositories() {
-        return DbUtils.getParentPatternRepository(this.getClass(), (Integer) getId());
-    }
-
-    public List<PatternInstance> getParentPatternInstances() {
-        return DbUtils.getParentPatternInstance(this.getClass(), (Integer) getId());
-    }
-
-    public List<Pattern> getParentPatterns() {
-        List<Pattern> insts = Lists.newLinkedList();
-        insts.add(parent(Pattern.class));
-        return insts;
-    }
-
-    public List<PatternChain> getParentPatternChains() {
-        return DbUtils.getParentPatternChain(this.getClass(), (Integer) getId());
-    }
-
-    public List<Project> getParentProjects() {
-        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
-    }
-
-    public List<RoleBinding> getParentRoleBindings() {
-        return DbUtils.getParentRoleBinding(this.getClass(), (Integer) getId());
+    public Pattern getParentPattern() {
+        return parent(Pattern.class);
     }
 
     @Override

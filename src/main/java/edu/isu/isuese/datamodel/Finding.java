@@ -27,9 +27,7 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
 import org.javalite.activejdbc.Model;
-import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 import java.util.List;
 
@@ -56,20 +54,49 @@ public class Finding extends Model {
     public List<Reference> getReferences() { return getAll(Reference.class); }
 
     public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+        Project parent = getParentProject();
+        if (parent != null)
+            return parent.getParentSystems();
+        return Lists.newArrayList();
     }
 
     public List<Project> getParentProjects() {
-        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
+        List<Project> projects = Lists.newArrayList();
+        Project parent = getParentProject();
+        if (parent != null)
+            projects.add(parent);
+        return projects;
     }
 
-    public List<RuleRepository> getParentRuleRepositories() {
-        return DbUtils.getParentRuleRepository(this.getClass(), (Integer) getId());
+    public RuleRepository getParentRuleRepository() {
+        Rule parent = getParentRule();
+        if (parent != null)
+            return parent.getParentRuleRepository();
+        return null;
     }
 
-    public List<Rule> getParentRule() {
-        List<Rule> rules = Lists.newLinkedList();
-        rules.add(parent(Rule.class));
-        return rules;
+    public Rule getParentRule() {
+        return parent(Rule.class);
+    }
+
+    public Project getParentProject() {
+        return parent(Project.class);
+    }
+
+    public static Finding of(String ruleKey) {
+        Finding f = Finding.create("findingKey", ruleKey);
+        f.save();
+        return f;
+    }
+
+    public Finding on(Reference ref) {
+        add(ref);
+        save();
+        return this;
+    }
+
+    public Finding copy(String oldPrefix, String newPrefix) {
+        return Finding.of(this.getFindingKey())
+                .on(this.getReferences().get(0).copy(oldPrefix, newPrefix));
     }
 }

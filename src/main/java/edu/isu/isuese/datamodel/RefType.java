@@ -41,7 +41,8 @@ public enum RefType {
     CONSTRUCTOR(4),
     FIELD(5),
     LITERAL(6),
-    NAMESPACE(7);
+    NAMESPACE(7),
+    RELATION(8);
 
     private final int value;
     public static Map<Integer, RefType> map = Maps.newHashMap();
@@ -53,6 +54,8 @@ public enum RefType {
         map.put(4, CONSTRUCTOR);
         map.put(5, FIELD);
         map.put(6, LITERAL);
+        map.put(7, NAMESPACE);
+        map.put(8, RELATION);
     }
 
     RefType(int value) {

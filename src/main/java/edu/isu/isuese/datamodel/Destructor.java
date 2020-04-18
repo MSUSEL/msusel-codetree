@@ -47,4 +47,23 @@ public class Destructor extends Method {
         super(name, start, end, compKey, accessibility, type);
         save();
     }
+
+    @Override
+    public Member copy(String oldPrefix, String newPrefix) {
+        Destructor copy = Destructor.creator()
+                .name(this.getName())
+                .compKey(this.getName())
+                .accessibility(this.getAccessibility())
+                .type(this.getType().copy(oldPrefix, newPrefix))
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+
+        getModifiers().forEach(copy::addModifier);
+//        getTypeParams().forEach(param -> copy.addTemplateParam(param.copy()));
+        getExceptions().forEach(excep -> copy.addException(excep.getTypeRef().copy(oldPrefix, newPrefix)));
+        getParams().forEach(param -> copy.addParameter(param.copy()));
+
+        return copy;
+    }
 }

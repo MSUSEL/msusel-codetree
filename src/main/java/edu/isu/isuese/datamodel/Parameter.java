@@ -35,6 +35,7 @@ import org.javalite.activejdbc.annotations.Many2Many;
 import org.javalite.activejdbc.annotations.Table;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
@@ -77,7 +78,6 @@ public class Parameter extends Model {
         else {
             List<TypeRef> refs = Lists.newArrayList(this.getAll(TypeRef.class));
             for (TypeRef r : refs) {
-                java.lang.System.out.println("TypeRef: " + r);
                 remove(r);
                 saveIt();
             }
@@ -124,5 +124,31 @@ public class Parameter extends Model {
         methods.add(this.parent(Constructor.class));
         methods.add(this.parent(Destructor.class));
         return methods;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Parameter) {
+            Parameter param = (Parameter) o;
+            return param.getName().equals(this.getName()) && param.getType().getTypeName().equals(this.getType().getTypeName());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getName(), this.getType().getTypeName());
+    }
+
+    public Parameter copy() {
+        Parameter copy = Parameter.builder()
+                .name(this.getName())
+                .type(this.getType())
+                .create();
+
+        getModifiers().forEach(copy::addModifier);
+
+        return copy;
     }
 }

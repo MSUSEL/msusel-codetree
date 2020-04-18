@@ -27,7 +27,6 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
@@ -134,59 +133,82 @@ public class File extends Model implements Measurable, ComponentContainer {
 
     @Override
     public List<Member> getAllMembers() {
-        return DbUtils.getMembers(this.getClass(), (Integer) getId());
+        List<Member> members = Lists.newLinkedList();
+        getAllTypes().forEach(type -> members.addAll(type.getAllMembers()));
+        return members;
     }
 
     @Override
     public List<Literal> getLiterals() {
-        return DbUtils.getLiterals(this.getClass(), (Integer) getId());
+        List<Literal> literals = Lists.newLinkedList();
+        getAllTypes().forEach(type -> literals.addAll(type.getLiterals()));
+        return literals;
     }
 
     @Override
     public List<Initializer> getInitializers() {
-        return DbUtils.getInitializers(this.getClass(), (Integer) getId());
+        List<Initializer> initializers = Lists.newLinkedList();
+        getAllTypes().forEach(type -> initializers.addAll(type.getInitializers()));
+        return initializers;
     }
 
     @Override
     public List<TypedMember> getAllTypedMembers() {
         List<TypedMember> members = Lists.newLinkedList();
-        List<Type> types = getAllTypes();
-        types.forEach(type -> {
+        getAllTypes().forEach(type -> {
             members.addAll(type.getMethods());
             members.addAll(type.getFields());
         });
-
-//        return DbUtils.getTypedMembers(this.getClass(), (Integer) getId());
         return members;
     }
 
     @Override
     public List<Field> getFields() {
-        return DbUtils.getFields(this.getClass(), (Integer) getId());
+        List<Field> fields = Lists.newLinkedList();
+        getAllTypes().forEach(type -> fields.addAll(type.getFields()));
+        return fields;
     }
 
     @Override
     public List<Method> getAllMethods() {
-        return DbUtils.getAllMethods(this.getClass(), (Integer) getId());
+        List<Method> methods = Lists.newLinkedList();
+        getAllTypes().forEach(type -> methods.addAll(type.getAllMethods()));
+        return methods;
     }
 
     @Override
     public List<Method> getMethods() {
-        return DbUtils.getMethods(this.getClass(), (Integer) getId());
+        List<Method> methods = Lists.newLinkedList();
+        getAllTypes().forEach(type -> methods.addAll(type.getMethods()));
+        return methods;
     }
 
     @Override
     public List<Constructor> getConstructors() {
-        return DbUtils.getConstructors(this.getClass(), (Integer) getId());
+        List<Constructor> constructors = Lists.newLinkedList();
+        getAllTypes().forEach(type -> constructors.addAll(type.getConstructors()));
+        return constructors;
     }
 
     @Override
     public List<Destructor> getDestructors() {
-        return DbUtils.getDestructors(this.getClass(), (Integer) getId());
+        List<Destructor> destructors = Lists.newLinkedList();
+        getAllTypes().forEach(type -> destructors.addAll(type.getDestructors()));
+        return destructors;
     }
 
     public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+        Namespace parent = getParentNamespace();
+        if (parent != null)
+            return parent.getParentSystems();
+        return Lists.newArrayList();
+    }
+
+    public System getParentSystem() {
+        Namespace ns = getParentNamespace();
+        if (ns != null)
+            return ns.getParentSystem();
+        return null;
     }
 
     public List<Project> getParentProjects() {
@@ -195,19 +217,39 @@ public class File extends Model implements Measurable, ComponentContainer {
         parents.forEach(ns -> {
             projects.addAll(ns.getParentProjects());
         });
-
-//        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
         return projects;
     }
 
+    public Project getParentProject() {
+        Namespace ns = getParentNamespace();
+        if (ns != null)
+            return ns.getParentProject();
+        return null;
+    }
+
     public List<Module> getParentModules() {
-        return DbUtils.getParentModule(this.getClass(), (Integer) getId());
+        Namespace ns = getParentNamespace();
+        if (ns != null)
+            return ns.getParentModules();
+        return Lists.newArrayList();
+    }
+
+    public Module getParentModule() {
+        Namespace ns = getParentNamespace();
+        if (ns != null)
+            return ns.getParentModule();
+        return null;
     }
 
     public List<Namespace> getParentNamespaces() {
         List<Namespace> namespaces = Lists.newLinkedList();
-        namespaces.add(parent(Namespace.class));
+        if (getParentNamespace() != null)
+            namespaces.add(getParentNamespace());
         return namespaces;
+    }
+
+    public Namespace getParentNamespace() {
+        return parent(Namespace.class);
     }
 
     @Override
@@ -216,7 +258,7 @@ public class File extends Model implements Measurable, ComponentContainer {
     }
 
     public void updateKey() {
-        Namespace parent = parent(Namespace.class);
+        Namespace parent = getParentNamespace();
         String newKey;
         if (parent != null)
             newKey = parent.getNsKey() + ":" + getName();
@@ -308,5 +350,20 @@ public class File extends Model implements Measurable, ComponentContainer {
     @Override
     public int hashCode() {
         return Objects.hash(getFileKey());
+    }
+
+    public File copy(String oldPrefix, String newPrefix) {
+        File copy = File.builder()
+                .name(this.getName())
+                .fileKey(this.getName())
+                .relPath(this.getRelPath())
+                .type(this.getType())
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+
+        getAllTypes().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix)));
+
+        return copy;
     }
 }

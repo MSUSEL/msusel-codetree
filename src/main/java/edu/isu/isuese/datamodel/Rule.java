@@ -58,8 +58,8 @@ public class Rule extends Model {
         return Priority.fromValue(p);
     }
 
-    public List<RuleRepository> getParentRuleRepositories() {
-        return DbUtils.getParentRuleRepository(this.getClass(), (Integer) getId());
+    public RuleRepository getParentRuleRepository() {
+        return parent(RuleRepository.class);
     }
 
     public void setKey(String key)

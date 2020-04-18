@@ -26,13 +26,9 @@
  */
 package edu.isu.isuese.datamodel;
 
-import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.Table;
-
-import java.util.List;
 
 /**
  * @author Isaac Griffith
@@ -53,6 +49,8 @@ public class SCM extends Model {
         setType(type);
         setURL(url);
     }
+
+    public String getName() { return getString("name"); }
 
     public String getSCMKey() {
         return getString("scmKey");
@@ -101,13 +99,25 @@ public class SCM extends Model {
         save();
     }
 
-    public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+    public System getParentSystems() {
+        Project parent = getParentProject();
+        if (parent != null)
+            return parent.getParentSystem();
+        return null;
     }
 
-    public List<Project> getParentProjects() {
-        List<Project> projects = Lists.newLinkedList();
-        projects.add(parent(Project.class));
-        return projects;
+    public Project getParentProject() {
+        return parent(Project.class);
+    }
+
+    public SCM copy(String oldPrefix, String newPrefix) {
+        return SCM.builder()
+                .name(this.getName())
+                .key(this.getName())
+                .branch(this.getBranch())
+                .tag(this.getTag())
+                .type(this.getType())
+                .url(this.getURL())
+                .create();
     }
 }

@@ -27,7 +27,6 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
 
 import java.util.List;
 
@@ -38,23 +37,59 @@ import java.util.List;
 public abstract class Member extends Component {
 
     public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+        Type parent = getParentType();
+        if (parent != null)
+            return parent.getParentSystems();
+        return Lists.newArrayList();
     }
 
     public List<Project> getParentProjects() {
-        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
+        Type parent = getParentType();
+        if (parent != null)
+            return parent.getParentProjects();
+        return Lists.newArrayList();
     }
 
     public List<Module> getParentModules() {
-        return DbUtils.getParentModule(this.getClass(), (Integer) getId());
+        Type parent = getParentType();
+        if (parent != null)
+            return parent.getParentModules();
+        return Lists.newArrayList();
+    }
+
+    public Module getParentModule() {
+        Type parent = getParentType();
+        if (parent != null)
+            return parent.getParentModule();
+        return null;
     }
 
     public List<Namespace> getParentNamespaces() {
-        return DbUtils.getParentNamespace(this.getClass(), (Integer) getId());
+        Type parent = getParentType();
+        if (parent != null)
+            return parent.getParentNamespaces();
+        return Lists.newArrayList();
+    }
+
+    public Namespace getParentNamespace() {
+        Type parent = getParentType();
+        if (parent != null)
+            return parent.getParentNamespace();
+        return null;
     }
 
     public List<File> getParentFiles() {
-        return DbUtils.getParentFile(this.getClass(), (Integer) getId());
+        Type parent = getParentType();
+        if (parent != null)
+            return parent.getParentFiles();
+        return Lists.newArrayList();
+    }
+
+    public File getParentFile() {
+        Type parent = getParentType();
+        if (parent != null)
+            return parent.getParentFile();
+        return null;
     }
 
     public List<Type> getParentTypes() {
@@ -69,6 +104,18 @@ public abstract class Member extends Component {
             types.add(parent(Interface.class));
         } catch (IllegalArgumentException e) {}
         return types;
+    }
+
+    public Type getParentType() {
+        Type parent = parent(Class.class);
+        if (parent == null) {
+            parent = parent(Enum.class);
+            if (parent == null) {
+                parent = parent(Interface.class);
+            }
+        }
+
+        return parent;
     }
 
     @Override
@@ -103,4 +150,6 @@ public abstract class Member extends Component {
         setString("compKey", newKey);
         save();
     }
+
+    public abstract Member copy(String oldPrefix, String newPrefix);
 }

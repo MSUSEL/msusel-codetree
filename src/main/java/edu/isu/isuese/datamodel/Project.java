@@ -28,9 +28,6 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Queues;
-import edu.isu.isuese.datamodel.util.DbUtils;
-import edu.isu.isuese.datamodel.util.Filter;
-import edu.isu.isuese.datamodel.util.FilterOperator;
 import lombok.Builder;
 import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
@@ -38,6 +35,7 @@ import org.javalite.activejdbc.Model;
 import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Isaac Griffith
@@ -50,7 +48,6 @@ public class Project extends Model implements Measurable, ComponentContainer {
         //Project sys = Project.createIt("version",  "1.0", "name", "java", "projKey", "3.0");
 
         Project sys2 = Project.findById(1);
-        java.lang.System.out.println(sys2);
         Base.close();
     }
 
@@ -61,7 +58,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     public Project(String projKey, String name, String version, String relPath, SCM scm) {
         set("projKey", projKey, "name", name, "version", version);
         save();
-        if (relPath != null || !relPath.isEmpty())
+        if (relPath != null && !relPath.isEmpty())
             setRelPath(relPath);
         if (scm != null)
             addSCM(scm);
@@ -144,6 +141,12 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
     public List<PatternInstance> getPatternInstances() {
         return getAll(PatternInstance.class);
+    }
+
+    public List<RoleBinding> getRoleBindings() {
+        List<RoleBinding> bindings = Lists.newArrayList();
+        getPatternInstances().forEach(inst -> bindings.addAll(inst.getRoleBindings()));
+        return bindings;
     }
 
     public void addSCM(SCM scm) {
@@ -258,12 +261,18 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public List<Import> getImports() {
-        return DbUtils.getImports(this.getClass(), (Integer) getId());
+        List<Import> imports = Lists.newArrayList();
+        getModules().forEach(mod -> imports.addAll(mod.getImports()));
+        return imports;
     }
 
     @Override
     public List<Type> getAllTypes() {
-        return DbUtils.getTypes(this.getClass(), (Integer) getId());
+        List<Type> types = Lists.newArrayList();
+        getModules().forEach(mod -> {
+            types.addAll(mod.getAllTypes());
+        });
+        return types;
     }
 
     public Type findType(String attribute, String value) {
@@ -282,21 +291,19 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
     @Override
     public List<Class> getClasses() {
-        return DbUtils.getClasses(this.getClass(), (Integer) getId());
+        List<Class> classes = Lists.newArrayList();
+        getModules().forEach(mod -> classes.addAll(mod.getClasses()));
+        return classes;
     }
 
     public Type findClass(String attribute, String value) {
-        try {
-            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
-                    Filter.builder()
-                            .attribute(attribute)
-                            .op(FilterOperator.EQ)
-                            .table("classes")
-                            .value(value)
-                            .build()).get(0);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
-        }
+        AtomicReference<Type> type = new AtomicReference<>();
+        getModules().forEach(mod -> {
+            Type t = mod.findClass(attribute, value);
+            if (t != null)
+                type.set(t);
+        });
+        return type.get();
     }
 
     public boolean hasClass(String attribute, String value) {
@@ -305,21 +312,19 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
     @Override
     public List<Interface> getInterfaces() {
-        return DbUtils.getInterfaces(this.getClass(), (Integer) getId());
+        List<Interface> interfaces = Lists.newArrayList();
+        getModules().forEach(mod -> interfaces.addAll(mod.getInterfaces()));
+        return interfaces;
     }
 
     public Type findInterface(String attribute, String value) {
-        try {
-            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
-                    Filter.builder()
-                            .attribute(attribute)
-                            .op(FilterOperator.EQ)
-                            .table("interfaces")
-                            .value(value)
-                            .build()).get(0);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
-        }
+        AtomicReference<Type> type = new AtomicReference<>();
+        getModules().forEach(mod -> {
+            Type t = mod.findInterface(attribute, value);
+            if (t != null)
+                type.set(t);
+        });
+        return type.get();
     }
 
     public boolean hasInterface(String attribute, String value) {
@@ -328,21 +333,19 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
     @Override
     public List<Enum> getEnums() {
-        return DbUtils.getEnums(this.getClass(), (Integer) getId());
+        List<Enum> enums = Lists.newArrayList();
+        getModules().forEach(mod -> enums.addAll(mod.getEnums()));
+        return enums;
     }
 
     public Type findEnum(String attribute, String value) {
-        try {
-            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
-                    Filter.builder()
-                            .attribute(attribute)
-                            .op(FilterOperator.EQ)
-                            .table("enums")
-                            .value(value)
-                            .build()).get(0);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
-        }
+        AtomicReference<Type> type = new AtomicReference<>();
+        getModules().forEach(mod -> {
+            Type t = mod.findEnum(attribute, value);
+            if (t != null)
+                type.set(t);
+        });
+        return type.get();
     }
 
     public boolean hasEnum(String attribute, String value) {
@@ -351,53 +354,76 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
     @Override
     public List<Member> getAllMembers() {
-        return DbUtils.getMembers(this.getClass(), (Integer) getId());
+        List<Member> members = Lists.newArrayList();
+        getModules().forEach(mod -> members.addAll(mod.getAllMembers()));
+        return members;
     }
 
     @Override
     public List<Literal> getLiterals() {
-        return DbUtils.getLiterals(this.getClass(), (Integer) getId());
+        List<Literal> literals = Lists.newArrayList();
+        getModules().forEach(mod -> literals.addAll(mod.getLiterals()));
+        return literals;
     }
 
     @Override
     public List<Initializer> getInitializers() {
-        return DbUtils.getInitializers(this.getClass(), (Integer) getId());
+        List<Initializer> inits = Lists.newArrayList();
+        getModules().forEach(mod -> inits.addAll(mod.getInitializers()));
+        return inits;
     }
 
     @Override
     public List<TypedMember> getAllTypedMembers() {
-        return DbUtils.getTypedMembers(this.getClass(), (Integer) getId());
+        List<TypedMember> members = Lists.newArrayList();
+        getModules().forEach(mod -> members.addAll(mod.getAllTypedMembers()));
+        return members;
     }
 
     @Override
     public List<Field> getFields() {
-        return DbUtils.getFields(this.getClass(), (Integer) getId());
+        List<Field> fields = Lists.newArrayList();
+        getModules().forEach(mod -> fields.addAll(mod.getFields()));
+        return fields;
     }
 
     @Override
     public List<Method> getAllMethods() {
-        return DbUtils.getAllMethods(this.getClass(), (Integer) getId());
+        List<Method> methods = Lists.newArrayList();
+        getModules().forEach(mod -> methods.addAll(mod.getAllMethods()));
+        return methods;
     }
 
     @Override
     public List<Method> getMethods() {
-        return DbUtils.getMethods(this.getClass(), (Integer) getId());
+        List<Method> methods = Lists.newArrayList();
+        getModules().forEach(mod -> methods.addAll(mod.getMethods()));
+        return methods;
     }
 
     @Override
     public List<Constructor> getConstructors() {
-        return DbUtils.getConstructors(this.getClass(), (Integer) getId());
+        List<Constructor> constructors = Lists.newArrayList();
+        getModules().forEach(mod -> constructors.addAll(mod.getConstructors()));
+        return constructors;
     }
 
     @Override
     public List<Destructor> getDestructors() {
-        return DbUtils.getDestructors(this.getClass(), (Integer) getId());
+        List<Destructor> destructors = Lists.newArrayList();
+        getModules().forEach(mod -> destructors.addAll(mod.getDestructors()));
+        return destructors;
     }
 
     public List<System> getParentSystems() {
         List<System> systems = Lists.newLinkedList();
-        systems.add(parent(System.class));
+        if (getParentSystem() != null)
+            systems.add(getParentSystem());
         return systems;
+    }
+
+    public System getParentSystem() {
+        return parent(System.class);
     }
 
     @Override
@@ -474,5 +500,28 @@ public class Project extends Model implements Measurable, ComponentContainer {
     @Override
     public int hashCode() {
         return Objects.hash(getProjectKey());
+    }
+
+    public Project copy(String newKey, String relPath) {
+        Project copy = Project.builder()
+                .name(newKey)
+                .projKey(newKey)
+                .version(this.getVersion())
+                .relPath(relPath)
+                .create();
+
+        this.getParentSystem().add(copy);
+        copy.updateKeys(this.getParentSystem().getKey());
+        copy.refresh();
+
+        getModules().forEach(mod -> copy.addModule(mod.copy(this.getProjectKey(), copy.getProjectKey())));
+        getSCMs().forEach(scm -> copy.addSCM(scm.copy(this.getProjectKey(), copy.getProjectKey())));
+        getLanguages().forEach(copy::addLanguage);
+        getMeasures().forEach(measure -> copy.addMeasure(measure.copy(this.getProjectKey(), copy.getProjectKey())));
+        getFindings().forEach(finding -> copy.addFinding(finding.copy(this.getProjectKey(), copy.getProjectKey())));
+        getPatternInstances().forEach(instance -> copy.addPatternInstance(instance.copy(this.getProjectKey(), copy.getProjectKey())));
+        getRelations().forEach(rel -> copy.addRelation(rel.copy(this.getProjectKey(), copy.getProjectKey())));
+
+        return copy;
     }
 }

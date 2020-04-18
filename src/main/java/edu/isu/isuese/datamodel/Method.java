@@ -29,6 +29,7 @@ package edu.isu.isuese.datamodel;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import edu.isu.isuese.datamodel.cfg.ControlFlowGraph;
+import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 import org.javalite.activejdbc.annotations.Many2Many;
@@ -172,7 +173,10 @@ public class Method extends TypedMember {
     }
 
     public Parameter getParameterByName(String param) {
-        return get(Parameter.class, "name = ?", param).get(0);
+        List<Parameter> named = get(Parameter.class, "name = ?", param);
+        if (!named.isEmpty())
+            return named.get(0);
+        return null;
     }
 
     public TemplateParam getTypeParamByName(String paramName) {
@@ -207,16 +211,30 @@ public class Method extends TypedMember {
         save();
     }
 
-    public List<Field> getFieldsUsed() {
-        return Lists.newArrayList();
+    public Set<Field> getFieldsUsed() {
+        Set<Member> membersCalled = DbUtils.getRelationFrom(this, RelationType.USE);
+        Set<Field> fieldsUsed = Sets.newHashSet();
+        membersCalled.forEach(member -> {
+            if (member instanceof Field)
+                fieldsUsed.add((Field) member);
+        });
+
+        return fieldsUsed;
     }
 
     public Set<Field> getFieldsUsedSameClass(Type parent) {
         return Sets.newHashSet();
     }
 
-    public List<Method> getMethodsCalled() {
-        return Lists.newArrayList();
+    public Set<Method> getMethodsCalled() {
+        Set<Member> membersCalled = DbUtils.getRelationFrom(this, RelationType.USE);
+        Set<Method> methodsCalled = Sets.newHashSet();
+        membersCalled.forEach(member -> {
+            if (member instanceof Method)
+                methodsCalled.add((Method) member);
+        });
+
+        return methodsCalled;
     }
 
     public Set<Method> getMethodsUsedSameClass(Type parent) {
@@ -227,8 +245,15 @@ public class Method extends TypedMember {
         return Lists.newArrayList();
     }
 
-    public List<Method> getMethodsCalling() {
-        return Lists.newArrayList();
+    public Set<Method> getMethodsCalling() {
+        Set<Member> membersCalling = DbUtils.getRelationTo(this, RelationType.USE);
+        Set<Method> methodsCalling = Sets.newHashSet();
+        membersCalling.forEach(member -> {
+            if (member instanceof Method)
+                methodsCalling.add((Method) member);
+        });
+
+        return methodsCalling;
     }
 
     public boolean isVisible() {
@@ -262,5 +287,52 @@ public class Method extends TypedMember {
 
         setString("compKey", newKey);
         save();
+    }
+
+    public void callsMethod(Method method) {
+        createRelation(method, this, RefType.METHOD, RefType.METHOD, RelationType.USE);
+    }
+
+    public void removeCalledMethod(Method method) {
+        deleteRelation(method, this, RefType.METHOD, RefType.METHOD, RelationType.USE);
+    }
+
+    public void calledByMethod(Method method) {
+        createRelation(this, method, RefType.METHOD, RefType.METHOD, RelationType.USE);
+    }
+
+    public void removeCalledByMethod(Method method) {
+        deleteRelation(this, method, RefType.METHOD, RefType.METHOD, RelationType.USE);
+    }
+
+    public void usesField(Field field) {
+        createRelation(field, this, RefType.FIELD, RefType.METHOD, RelationType.USE);
+    }
+
+    public void removeFieldUse(Field field) {
+        deleteRelation(field, this, RefType.FIELD, RefType.METHOD, RelationType.USE);
+    }
+
+    public Reference createReference() {
+        return Reference.builder().refKey(getCompKey()).refType(RefType.METHOD).create();
+    }
+
+    @Override
+    public Member copy(String oldPrefix, String newPrefix) {
+        Method copy = Method.builder()
+                .name(this.getName())
+                .compKey(this.getName())
+                .accessibility(this.getAccessibility())
+                .type(this.getType().copy(oldPrefix, newPrefix))
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+
+        getModifiers().forEach(copy::addModifier);
+//        getTypeParams().forEach(param -> copy.addTemplateParam(param.copy()));
+        getExceptions().forEach(excep -> copy.addException(excep.getTypeRef().copy(oldPrefix, newPrefix)));
+        getParams().forEach(param -> copy.addParameter(param.copy()));
+
+        return copy;
     }
 }

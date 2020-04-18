@@ -12,6 +12,7 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/app_config/development.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/test/java/edu/isu/cs/isuese/arc/impl/ghsearch/MainSpec.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/InjectorConfig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test/test/Test1.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test/test/Test10.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test/test/Test11.java" afterDir="false" />
@@ -27,61 +28,147 @@
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test/test/Test7.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test/test/Test8.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test/test/Test9.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test4/TypeA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test4/TypeB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test4/TypeC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test4/TypeX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test4/TypeXY.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test4/TypeY.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test4/TypeYY.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/SystemX/testproj/testmod/src/main/java/test4/TypeZ.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/data/dev.db" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/data/test.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/AbstractSourceInjector.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/CopyProject.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddLiteral.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMemberModifier.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodParameter.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddTypeModifier.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/ChangeMemberAccessibility.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/ChangeTypeAccessibility.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteAssociation.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteField.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteGeneralization.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteImport.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteLiteral.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteMemberModifier.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteMethod.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteMethodParameter.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteRealization.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteType.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteTypeModifier.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MoveField.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MoveMethod.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MoveType.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/RenameFile.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/RenameMember.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/RenameType.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/TypeTransform.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/AbstractModelTransforms.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/FileModelTransforms.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/MemberModelTransforms.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/App.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/ConfigLoader.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/DBManager.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/Director.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectionFailedException.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectorFactory.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/FileModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/MemberModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/ModelTransform.groovy" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/ModelTransformPreconditionsNotMetException.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/ModuleModelTransforms.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/NamespaceModelTransforms.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/ProjectModelTransforms.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/SystemModelTransforms.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/TypeModelTransforms.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/AddProject.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/DeleteNamespace.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/DeleteProject.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/MoveFile.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/MoveModule.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/MoveNamespace.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/MoveProject.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/RenameModule.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/RenameNamespace.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/RenameProject.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/RenameSystem.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/StructuralCreateTransform.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/StructuralDeleteTransform.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/StructuralMoveTransform.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/StructuralRenameTransform.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/StructuralTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/ModuleModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/NamespaceModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/ProjectModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/SystemModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/TypeModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/AddImportModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/AddTypeModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/ChangeFileTypeModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/DeleteImportModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/DeleteTypeModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/MoveTypeModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/RenameFileModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddFieldUseModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddMemberModifierModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddMethodCallModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddParamModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddParameterUseModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddPrimitiveParamModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddReturnTypeUseModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/ChangeMemberAccessibilityModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/DeleteFieldUseModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/DeleteMemberModifierModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/DeleteMethodCallModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/DeleteParamModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/RenameMemberModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/module/AddNamespaceToModuleModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/module/DeleteNamespaceFromModuleModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/module/MoveNamespaceModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/module/RenameModuleModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/AddFileModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/AddNamespaceToNamespaceModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/DeleteFileModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/DeleteNamespaceFromNamespaceModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/MoveFileModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/MoveNamespaceModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/RenameNamespaceModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/SplitNamespaceModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/project/AddModuleModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/project/DeleteModuleModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/project/MoveModuleModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/project/RenameProjectModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/system/AddProjectModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/system/DeleteProjectModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/system/MoveProjectModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/system/RenameSystemModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddAssociationModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddFieldGetterModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddFieldModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddFieldSetterModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddGeneralizationModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddLiteralModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddMethodModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddPrimitiveFieldModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddPrimitiveMethodModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddRealizationModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddTypeModifierModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/ChangeTypeAccessibilityModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteAssociationModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteFieldModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteGeneralizationModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteLiteralModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteMethodModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteRealizationModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteTypeModifierModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/MoveFieldModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/MoveLiteralModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/MoveMethodModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/RenameTypeModelTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/BasicSourceTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/TypeTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddConstructor.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddLiteral.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddMemberModifier.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddMethod.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddMethodParameter.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/ChangeMemberAccessibility.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/ChangeMemberType.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/DeleteField.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/DeleteLiteral.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/DeleteMemberModifier.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/DeleteMethod.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/DeleteMethodParameter.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/MoveField.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/MoveLiteral.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/MoveMethod.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/RenameMember.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/DeleteAssociation.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/DeleteGeneralization.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/DeleteRealization.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddModule.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddProject.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/DeleteImport.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/DeleteModule.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/DeleteNamespace.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/DeleteProject.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/MoveFile.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/MoveModule.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/MoveNamespace.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/MoveProject.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/RenameModule.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/RenameNamespace.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/RenameSystem.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/StructuralCreateTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/StructuralDeleteTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/StructuralMoveTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/StructuralRenameTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/StructuralTransform.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/AddType.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/AddTypeModifier.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/ChangeTypeAccessibility.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/DeleteTypeModifier.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/MoveType.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/RenameType.groovy" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/AppTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/ConfigLoaderTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/DBManagerTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/InjectorFactoryTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/ProjectCopierTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/TestingSecurityManager.groovy" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyGeneralizesTest.groovy" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyRealizesTest.groovy" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/FileExistsTest.groovy" afterDir="false" />
@@ -92,61 +179,136 @@
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasFieldTest.groovy" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasMethodTest.groovy" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHeaderConditionTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeInjectorTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/grime/GrimeInjectorBaseTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/grime/ModularGrimeInjectorTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/grime/ModularOrgGrimeInjectorTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/grime/PackageOrgGrimeInjectorTest.groovy" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/select/SelectInternalClassesTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddAssociationTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddConstructorTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldGetterTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldSetterTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldUseTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddGeneralizationTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddImportTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddLiteralTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddMemberModifierTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodParameterTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddModuleTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddRealizationTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddTypeModifierTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddTypeTest.groovy" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/BaseSourceTransformSpec.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/ChangeMemberAccessibilityTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/ChangeTypeAccessibilityTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/CreateEncapsulatedFieldTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteAssociationTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteFieldTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteGeneralizationTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteImportTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteLiteralTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteMemberModifierTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteMethodParameterTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteMethodTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteRealizationTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteTypeModifierTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/DeleteTypeTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/FieldMutatorTransformTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/MoveFieldTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/MoveFileTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/MoveMethodTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/MoveTypeTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/RenameMemberTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/RenameTypeTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/FileModelTransformsTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/ModuleModelTransformsTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/NamespaceModelTransformsTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/ProjectModelTransformsTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/SystemModelTransformsTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/AddFileTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/AddNamespaceTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/AddProjectTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/DeleteNamespaceTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/MoveModuleTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/MoveNamespaceTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/MoveProjectTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/RenameFileTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/RenameModuleTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/RenameNamespaceTest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/RenameProjectTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/AddImportModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/AddTypeModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/ChangeFileTypeModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/DeleteImportModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/DeleteTypeModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/FileModelTransformBaseTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/MoveTypeModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/file/RenameFileModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddFieldUseModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddMemberModifierModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddMethodCallModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddParamModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddParameterUseModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddPrimitiveParamModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/AddReturnTypeUseModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/ChangeMemberAccessibilityModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/DeleteFieldUseModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/DeleteMemberModifierModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/DeleteMethodCallModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/DeleteParamModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/MemberModelTransformBaseTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/member/RenameMemberModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/module/AddNamespaceToModuleModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/module/DeleteNamespaceFromModuleModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/module/ModuleModelTransformBaseTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/module/MoveNamespaceModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/module/RenameModuleModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/AddFileModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/AddNamespaceToNamespaceModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/DeleteFileModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/DeleteNamespaceFromNamespaceModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/MoveFileModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/MoveNamespaceModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/NamespaceModelTransformBaseTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/RenameNamespaceModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/SplitNamespaceModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/project/AddModuleModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/project/DeleteModuleModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/project/MoveModuleModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/project/ProjectModelTransformBaseTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/project/RenameProjectModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/system/AddProjectModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/system/DeleteProjectModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/system/MoveProjectModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/system/RenameSystemModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/system/SystemModelTransformBaseTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddAssociationModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddFieldGetterModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddFieldModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddFieldSetterModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddGeneralizationModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddLiteralModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddMethodModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddPrimitiveFieldModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddPrimitiveMethodModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddRealizationModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/AddTypeModifierModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/ChangeTypeAccessibilityModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteAssociationModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteFieldModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteGeneralizationModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteLiteralModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteMethodModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteRealizationModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/DeleteTypeModifierModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/MoveFieldModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/MoveLiteralModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/MoveMethodModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/RenameTypeModelTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/model/type/TypeModelTransformBaseTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/AbstractSourceTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/TypeTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddConstructorTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddFieldGetterTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddFieldSetterTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddFieldTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddLiteralTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddMemberModifierTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddMethodParameterTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddMethodTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/ChangeMemberAccessibilityTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/ChangeMemberTypeTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/CreateEncapsulatedFieldTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/DeleteFieldTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/DeleteLiteralTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/DeleteMemberModifierTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/DeleteMethodParameterTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/DeleteMethodTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/FieldMutatorTransformTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/MoveFieldTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/RenameMemberTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/AddAssociationTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/AddFieldUseTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/AddGeneralizationTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/AddRealizationTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/DeleteAssociationTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/DeleteGeneralizationTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/DeleteRealizationTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddFileTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddImportTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddModuleTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddNamespaceTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddProjectTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/DeleteFileTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/DeleteImportTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/DeleteModuleTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/DeleteNamespaceTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/DeleteProjectTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/MoveFileTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/MoveModuleTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/MoveNamespaceTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/MoveProjectTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/RenameFileTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/RenameModuleTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/RenameNamespaceTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/RenameProjectTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/RenameSystemTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/AddTypeModifierTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/AddTypeTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/DeleteTypeModifierTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/DeleteTypeTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/MoveTypeTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/RenameTypeTest.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/isuese-ghsearch.iml" afterDir="false" />
@@ -155,19 +317,44 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Class.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Destructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Destructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Enum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Enum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Field.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Import.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Import.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Finding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Finding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Initializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Initializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Interface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Language.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Literal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Literal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Metric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Metric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Modifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Modifier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Parameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Pattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Pattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RefType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RefType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Reference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Reference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Relation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Relation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RoleBinding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RoleBinding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/SCM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/SCM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/TypeRef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/TypeRef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/UnknownType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/UnknownType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/util/DbUtilsSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/util/DbUtilsSpec.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/java8/Java8Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/java8/Java8Visitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/ArcMetricsProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/ArcMetricsProvider.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/LoCProfileManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/LoCProfileManager.groovy" afterDir="false" />
@@ -201,7 +388,7 @@
       <change beforePath="$PROJECT_DIR$/../msusel-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-parent/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/dev.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/test.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/testing.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/testing.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/testing.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ConfigLoader.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/ConfigLoader.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/PluginLoader.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/PluginLoader.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaCodeGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaCodeGenerator.groovy" afterDir="false" />
@@ -465,12 +652,12 @@
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/experiment/ResultsWriter.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/experiment/ResultsWriter.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/experiment/Runner.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/experiment/Runner.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/FileOperations.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/FileOperations.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectionController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectionController.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectorCLI.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectorCLI.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectorContext.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectorContext.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectionController.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectorCLI.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/ProjectCopier.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/InjectorContext.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/RenameProject.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/NullInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/NullInjector.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/SourceInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/SourceInjector.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/TransformInvoker.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/TransformInvoker.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/TransformInvoker.groovy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyGeneralizes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyGeneralizes.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyRealizes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/AlreadyRealizes.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/Condition.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/Condition.groovy" afterDir="false" />
@@ -481,11 +668,11 @@
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasConstructor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasConstructor.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasField.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasField.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasMethod.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHasMethod.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHeaderCondition.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHeaderCondition.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/cond/TypeHeaderCondition.groovy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeInjector.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeTypes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeTypes.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/GrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/GrimeInjector.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/GrimeInjectorFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/GrimeInjectorFactory.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/GrimeInjectorFactory.groovy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularGrimeInjector.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularGrimeTypes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularGrimeTypes.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularOrgGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularOrgGrimeInjector.groovy" afterDir="false" />
@@ -502,36 +689,36 @@
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/rot/RotTypes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/rot/RotTypes.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/select/SelectInternalClasses.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/select/SelectInternalClasses.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/select/Selector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/select/Selector.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AbstractSourceTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AbstractSourceTransform.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddAssociation.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddAssociation.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddConstructor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddConstructor.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddField.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddField.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldGetter.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldGetter.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldSetter.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldSetter.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldUse.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldUse.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddImport.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddImport.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddInheritance.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddGeneralization.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMember.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMember.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethod.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethod.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodCall.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodCall.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddRealization.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddRealization.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddRelation.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddRelation.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/BasicSourceTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/BasicSourceTransform.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/ChangeTypeNamespace.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/DeleteFile.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CompositeSourceTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CompositeSourceTransform.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateEncapsulatedField.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateEncapsulatedField.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateFile.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/AddFile.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateNamespace.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/AddNamespace.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateStructure.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/DeleteModule.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateType.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddType.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/FieldMutatorTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/FieldMutatorTransform.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/InvalidTransformException.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/InvalidTransformException.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/Merge.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/Merge.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MergeFiles.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MergeFiles.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MergeMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MergeMethods.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MergeTypes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MergeTypes.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/SourceTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/SourceTransform.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/TypeHeaderTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/TypeHeaderTransform.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AbstractSourceTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/AbstractSourceTransform.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddAssociation.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/AddAssociation.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddConstructor.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddField.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddField.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldGetter.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddFieldGetter.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldSetter.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddFieldSetter.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldUse.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/AddFieldUse.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddImport.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddImport.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddInheritance.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/AddGeneralization.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMember.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/AddMember.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethod.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodCall.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/AddMethodCall.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddRealization.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/AddRealization.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/AddRelation.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/relation/AddRelation.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/BasicSourceTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/DeleteFile.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/ChangeTypeNamespace.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/RenameFile.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CompositeSourceTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/CompositeSourceTransform.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateEncapsulatedField.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/CreateEncapsulatedField.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateFile.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddFile.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateNamespace.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddNamespace.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateStructure.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/DeleteType.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/CreateType.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/FieldMutatorTransform.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/InvalidTransformException.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/InvalidTransformException.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/Merge.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/Merge.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MergeFiles.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/MergeFiles.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MergeMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/MergeMethods.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/MergeTypes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/MergeTypes.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/SourceTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/SourceTransform.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/TypeHeaderTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/TypeHeaderTransform.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/java/edu/montana/gsoc/msusel/experiment/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/java/edu/montana/gsoc/msusel/experiment/package-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/java/edu/montana/gsoc/msusel/inject/cond/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/java/edu/montana/gsoc/msusel/inject/cond/package-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/java/edu/montana/gsoc/msusel/inject/grime/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/java/edu/montana/gsoc/msusel/inject/grime/package-info.java" afterDir="false" />
@@ -542,16 +729,16 @@
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/site/site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/site/site.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddAssociationSpec.groovy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddConstructorSpec.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldGetterSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/RenameSystemTest.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldSetterSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/DeleteModuleTest.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/structural/AddModule.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldUseSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/DeleteProjectTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldGetterSpec.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldSetterSpec.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/type/ChangeTypeAccessibilityTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddFieldUseSpec.groovy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddInheritanceSpec.groovy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodCallSpec.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodSpec.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddMethodSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/MoveMethodTest.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddRealizationSpec.groovy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/AddUseDepSpec.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/BaseTransformSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/structural/DeleteFileTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/BaseTransformSpec.groovy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/CreateFileSpec.groovy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/CreateTypeSpec.groovy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/FileOperationsSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/FileOperationsSpec.groovy" afterDir="false" />
@@ -565,6 +752,9 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="492" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -602,7 +792,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-software-injector" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -641,11 +831,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547682444928" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="edu.montana.gsoc.msusel.inject.transform.BaseSourceTransformSpec" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="org.javalite.activejdbc.test.DBSpec" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Spock" value="spock.lang.Specification" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/event" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../msusel-software-injector/src/main/resources" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/../isuese-detstrat/src/test/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../isuese-detstrat/src/main/resources" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -653,28 +843,29 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="edu.montana.gsoc.msusel.inject.transform.model" />
-      <recent name="edu.montana.gsoc.msusel.inject.transform" />
-      <recent name="edu.montana.gsoc.msusel.inject.select" />
-      <recent name="edu.montana.gsoc.msusel.inject.cond" />
-      <recent name="edu.montana.gsoc.msusel.pattern.gen" />
+      <recent name="edu.isu.isuese.detstrat.impl" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.source" />
+      <recent name="edu.montana.gsoc.msusel.inject" />
+      <recent name="edu.montana.gsoc.msusel.inject.grime" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.model.namespace" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
-      <recent name="edu.montana.gsoc.msusel.inject.transform.BaseSourceTransformSpec" />
       <recent name="org.javalite.activejdbc.test.DBSpec" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.BaseSourceTransformSpec" />
       <recent name="spock.lang.Specification" />
-      <recent name="" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.model.namespace.NamespaceModelTransformBaseTest" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.model.member.MemberModelTransformBaseTest" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="edu.montana.gsoc.msusel.inject.transform.structural" />
-      <recent name="edu.montana.gsoc.msusel.inject.transform" />
-      <recent name="edu.montana.gsoc.msusel.inject" />
-      <recent name="edu.montana.gsoc.msusel.pattern.gen" />
-      <recent name="edu.montana.gsoc.msusel.pattern.gen.event" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.source.member" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.model.member" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.source.structural" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.source" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.source.relation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources" />
@@ -684,11 +875,11 @@
       <recent name="$PROJECT_DIR$/src/main/groovy/edu/isu.isuese" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../isuese-detstrat/src/main/resources" />
+      <recent name="$PROJECT_DIR$/../isuese-detstrat/src" />
       <recent name="$PROJECT_DIR$/../msusel-software-injector/src/main/resources" />
       <recent name="$PROJECT_DIR$/../msusel-software-injector" />
       <recent name="$PROJECT_DIR$/../msusel-software-injector/src" />
-      <recent name="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/edu/montana/gsoc/msusel/pattern/gen" />
-      <recent name="$PROJECT_DIR$/../msusel-rbml-dsl" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="edu.montana.gsoc.msusel.inject.transform" />
@@ -715,11 +906,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.NamespaceModelTransformsTest">
+  <component name="RunManager" selected="JUnit.impl in isuese-detstrat">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
-      <module name="" />
       <setting name="jvmArgs" value="" />
       <setting name="parameters" value="" />
       <setting name="workingDir" value="" />
@@ -734,98 +924,90 @@
       <setting name="replType" value="NREPL" />
       <setting name="configType" value="SPECIFY" />
       <setting name="fixLineNumbers" value="false" />
-      <module name="" />
       <method v="2" />
     </configuration>
-    <configuration name="FileModelTransformsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in msusel-software-injector" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="msusel-software-injector" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.transform.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.transform.model" />
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.inject.transform.model.FileModelTransformsTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ModuleModelTransformsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-software-injector" />
+    <configuration name="edu in msusel-pattern-generator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-pattern-generator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.transform.model.*" />
+          <option name="PATTERN" value="edu.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.transform.model" />
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.inject.transform.model.ModuleModelTransformsTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="edu" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NamespaceModelTransformsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-software-injector" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.transform.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.transform.model" />
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.inject.transform.model.NamespaceModelTransformsTest" />
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="edu.* and 11 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-pattern-generator" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="edu.*" />
+        <pattern testClass="edu.montana.*" />
+        <pattern testClass="edu.montana.gsoc.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.pattern.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.pattern.cue.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.pattern.cue.factory.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.pattern.gen.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.pattern.gen.generators.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.pattern.gen.generators.java.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.pattern.gen.generators.pb.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.pattern.gen.generators.pb.tree.*" />
+      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProjectModelTransformsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-software-injector" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.transform.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.transform.model" />
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.inject.transform.model.ProjectModelTransformsTest" />
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="edu.* and 7 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-rbml-dsl" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="edu.*" />
+        <pattern testClass="edu.montana.*" />
+        <pattern testClass="edu.montana.gsoc.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.rbml.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.rbml.conformance.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.rbml.io.*" />
+        <pattern testClass="edu.montana.gsoc.msusel.rbml.model.*" />
+      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SystemModelTransformsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-software-injector" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.transform.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.transform.model" />
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.inject.transform.model.SystemModelTransformsTest" />
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="impl in isuese-detstrat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="isuese-detstrat" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/../isuese-detstrat/src/test/groovy/edu/isu/isuese/detstrat/impl" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ModuleModelTransformsTest" />
-      <item itemvalue="JUnit.FileModelTransformsTest" />
-      <item itemvalue="JUnit.ProjectModelTransformsTest" />
-      <item itemvalue="JUnit.SystemModelTransformsTest" />
-      <item itemvalue="JUnit.NamespaceModelTransformsTest" />
+      <item itemvalue="JUnit.edu in msusel-pattern-generator" />
+      <item itemvalue="JUnit.edu.* and 11 more" />
+      <item itemvalue="JUnit.edu.* and 7 more" />
+      <item itemvalue="JUnit.All in msusel-software-injector" />
+      <item itemvalue="JUnit.impl in isuese-detstrat" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NamespaceModelTransformsTest" />
-        <item itemvalue="JUnit.SystemModelTransformsTest" />
-        <item itemvalue="JUnit.ProjectModelTransformsTest" />
-        <item itemvalue="JUnit.FileModelTransformsTest" />
-        <item itemvalue="JUnit.ModuleModelTransformsTest" />
+        <item itemvalue="JUnit.impl in isuese-detstrat" />
+        <item itemvalue="JUnit.All in msusel-software-injector" />
+        <item itemvalue="JUnit.edu.* and 7 more" />
+        <item itemvalue="JUnit.edu.* and 11 more" />
+        <item itemvalue="JUnit.edu in msusel-pattern-generator" />
       </list>
     </recent_temporary>
   </component>
@@ -1259,7 +1441,24 @@
       <workItem from="1585467891438" duration="6856000" />
       <workItem from="1585492229448" duration="18554000" />
       <workItem from="1585571337824" duration="16430000" />
-      <workItem from="1585592454430" duration="1560000" />
+      <workItem from="1585592454430" duration="13367000" />
+      <workItem from="1585669212481" duration="8744000" />
+      <workItem from="1585680578053" duration="26111000" />
+      <workItem from="1585824615102" duration="10922000" />
+      <workItem from="1585859228607" duration="3897000" />
+      <workItem from="1585911645471" duration="20236000" />
+      <workItem from="1586044617247" duration="3695000" />
+      <workItem from="1586051206435" duration="33025000" />
+      <workItem from="1586132422523" duration="54984000" />
+      <workItem from="1586384371116" duration="9857000" />
+      <workItem from="1586476869713" duration="4011000" />
+      <workItem from="1586547422356" duration="6677000" />
+      <workItem from="1586728301870" duration="2199000" />
+      <workItem from="1586845949910" duration="1201000" />
+      <workItem from="1586860798332" duration="499000" />
+      <workItem from="1586861329890" duration="12959000" />
+      <workItem from="1586977478390" duration="55189000" />
+      <workItem from="1587185422913" duration="8708000" />
     </task>
     <servers />
   </component>
@@ -1283,8 +1482,20 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/msusel_codetree$edu_in_msusel_pattern_generator.ic" NAME="edu in msusel-pattern-generator Coverage Results" MODIFIED="1587191389400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/msusel_codetree$edu_in_msusel_rbml_dsl.ic" NAME="edu in msusel-rbml-dsl Coverage Results" MODIFIED="1587191807884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/msusel_codetree$All_in_msusel_software_injector.ic" NAME="All in msusel-software-injector Coverage Results" MODIFIED="1587193611505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/msusel_codetree$edu___and_7_more.ic" NAME="edu.* and 7 more Coverage Results" MODIFIED="1587193470179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/msusel_codetree$SPSConformanceSpec_testGetUnboundRoles.ic" NAME="SPSConformanceSpec.testGetUnboundRoles Coverage Results" MODIFIED="1579193924727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.montana.gsoc.msusel.rbml.conformance.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/msusel_codetree$edu_in_msusel_codetree.ic" NAME="edu in msusel-codetree Coverage Results" MODIFIED="1587187151273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/msusel_codetree$edu___and_11_more.ic" NAME="edu.* and 11 more Coverage Results" MODIFIED="1587193105955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

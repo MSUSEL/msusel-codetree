@@ -28,6 +28,8 @@ package edu.isu.isuese.datamodel;
 
 import org.javalite.activejdbc.Model;
 
+import java.util.Objects;
+
 /**
  * @author Isaac Griffith
  * @version 1.3.0
@@ -39,7 +41,6 @@ public class Modifier extends Model {
     public static Modifier forName(String name) {
         String value = name.toUpperCase();
         try {
-            Values.valueOf(name);
             return Modifier.findFirst("name = ?", value);
         } catch (IllegalArgumentException ex) {
             Modifier mod = new Modifier();
@@ -76,5 +77,20 @@ public class Modifier extends Model {
         IMPLICIT,
         YIELD,
         THIS
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Modifier) {
+            Modifier mod = (Modifier) o;
+            return mod.getName().equals(this.getName());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName());
     }
 }

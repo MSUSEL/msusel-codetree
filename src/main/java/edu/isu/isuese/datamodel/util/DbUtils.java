@@ -467,7 +467,6 @@ public class DbUtils {
             List<PatternInstance> patterns = PatternInstance.findBySQL(DbUtils.createDescendingJoin(model, PatternInstance.class, id, filters));
             List<RoleBinding> bindings = Lists.newLinkedList();
 
-            java.lang.System.out.println("Num Instances: " + patterns.size());
             for (PatternInstance p : patterns) {
                 bindings.addAll(RoleBinding.findBySQL(DbUtils.createDescendingJoin(PatternInstance.class, RoleBinding.class, (Integer) p.getId(), filters)));
             }
@@ -735,6 +734,72 @@ public class DbUtils {
             });
 
             return types;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Sets.newHashSet();
+        }
+    }
+
+    public static Set<Member> getRelationFrom(Member m, RelationType relType) {
+        try {
+            List<Reference> refs = Lists.newArrayList();
+            Reference.find("refKey = ?", m.getRefKey()).forEach( ref -> {
+                Relation.find("from_id = ? AND type = ?", ref.getId(), relType.value()). forEach(rel -> {
+                    refs.add(Reference.findById(rel.getString("to_id")));
+                });
+            });
+
+            Set<Member> members = Sets.newHashSet();
+
+            refs.forEach (ref -> {
+                if (!Method.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Method.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Constructor.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Constructor.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Destructor.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Destructor.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Field.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Field.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Initializer.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Initializer.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Literal.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Literal.find("compKey = ?", ref.getRefKey()).get(0));
+            });
+
+            return members;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Sets.newHashSet();
+        }
+    }
+
+    public static Set<Member> getRelationTo(Member m, RelationType relType) {
+        try {
+            List<Reference> refs = Lists.newArrayList();
+            Reference.find("refKey = ?", m.getRefKey()).forEach( ref -> {
+                Relation.find("to_id = ? AND type = ?", ref.getId(), relType.value()). forEach(rel -> {
+                    refs.add(Reference.findById(rel.getString("from_id")));
+                });
+            });
+
+            Set<Member> members = Sets.newHashSet();
+
+            refs.forEach (ref -> {
+                if (!Method.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Method.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Constructor.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Constructor.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Destructor.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Destructor.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Field.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Field.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Initializer.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Initializer.find("compKey = ?", ref.getRefKey()).get(0));
+                else if (!Literal.find("compKey = ?", ref.getRefKey()).isEmpty())
+                    members.add((Member) Literal.find("compKey = ?", ref.getRefKey()).get(0));
+            });
+
+            return members;
         } catch (Exception e) {
             e.printStackTrace();
             return Sets.newHashSet();

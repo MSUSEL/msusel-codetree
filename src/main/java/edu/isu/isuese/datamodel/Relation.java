@@ -26,6 +26,8 @@
  */
 package edu.isu.isuese.datamodel;
 
+import com.google.common.collect.Lists;
+import org.apache.commons.lang3.tuple.Pair;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -98,5 +100,39 @@ public class Relation extends Model {
 
     public List<Reference> getReferences() {
         return getAll(Reference.class);
+    }
+
+    public static Relation findBetween(Type src, Type dest, RelationType type) {
+
+        List<Reference> fromRefs = Reference.find("refKey = ?", src.getRefKey());
+        List<Reference> toRefs = Reference.find("refKey = ?", dest.getRefKey());
+        List<Pair<Reference, Reference>> pairs = Lists.newArrayList();
+        fromRefs.forEach(from -> toRefs.forEach(to -> pairs.add(Pair.of(from, to))));
+
+        List<Relation> rels = Lists.newArrayList();
+        pairs.forEach(pair -> rels.addAll(Relation.find("from_id = ? AND to_id = ? AND type = ?", pair.getLeft().getId(), pair.getRight().getId(), type.value())));
+
+        if (rels.isEmpty())
+            return null;
+        else
+            return rels.get(0);
+    }
+
+    public Reference createReference() {
+        return Reference.builder().refType(RefType.RELATION).refKey(getRelKey()).create();
+    }
+
+    public Relation copy(String oldPrefix, String newPrefix) {
+        Reference to = getReferences().get(0);
+        Reference from = getReferences().get(1);
+        String fromKey = getReferences().get(0).getRefKey().replace(oldPrefix, newPrefix);
+        String toKey = getReferences().get(1).getRefKey().replace(oldPrefix, newPrefix);
+        Relation copy = Relation.createIt("relKey", fromKey + "-" + toKey);
+        copy.saveIt();
+        copy.setToAndFromRefs(to.copy(oldPrefix, newPrefix), from.copy(oldPrefix, newPrefix));
+        copy.setType(this.getType());
+        copy.saveIt();
+
+        return copy;
     }
 }

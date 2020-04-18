@@ -27,10 +27,7 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
 import org.javalite.activejdbc.Model;
-import org.javalite.activejdbc.annotations.BelongsTo;
-import org.javalite.activejdbc.annotations.BelongsToParents;
 
 import java.util.List;
 
@@ -41,6 +38,8 @@ import java.util.List;
 public class Measure extends Model {
 
     public String getMeasureKey() { return getString("measureKey"); }
+
+    public String getMetricKey() { return getString("metricKey"); }
 
     public double getValue() { return getDouble("value"); }
 
@@ -60,36 +59,50 @@ public class Measure extends Model {
 
     public List<Reference> getReferences() { return getAll(Reference.class); }
 
-    public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+    public System getParentSystems() {
+        Project parent = getParentProject();
+        if (parent != null)
+            return parent.getParentSystem();
+        return null;
     }
 
-    public List<Project> getParentProjects() {
-        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
+    public Project getParentProject() {
+        return parent(Project.class);
     }
 
-    public List<MetricRepository> getParentMetricRepositories() {
-        return DbUtils.getParentMetricRepository(this.getClass(), (Integer) getId());
+    public MetricRepository getParentMetricRepository() {
+        Metric parent = getParentMetric();
+        if (parent != null)
+            return parent.getParentMetricRepository();
+        return null;
     }
 
-    public List<Metric> getParentMetrics() {
-        List<Metric> metrics = Lists.newLinkedList();
-        metrics.add(parent(Metric.class));
-        return metrics;
+    public Metric getParentMetric() {
+        return parent(Metric.class);
     }
 
     public static Measure of(String metricKey) {
-        return Measure.create("metricKey", metricKey);
+        Measure m = Measure.create("metricKey", metricKey);
+        m.save();
+        return m;
     }
 
     public Measure on(Measurable m) {
         Reference ref = Reference.createIt("refKey", m.getRefKey());
         add(ref);
+        save();
+        return this;
+    }
+
+    public Measure on(Reference ref) {
+        add(ref);
+        save();
         return this;
     }
 
     public Measure withValue(double value) {
         set("value", value);
+        save();
         return this;
     }
 
@@ -99,5 +112,11 @@ public class Measure extends Model {
 
     public static Measure retrieve(Measurable m, String metricKey) {
         return null;
+    }
+
+    public Measure copy(String oldPrefix, String newPrefix) {
+        return Measure.of(this.getMetricKey())
+                .on(this.getReferences().get(0).copy(oldPrefix, newPrefix))
+                .withValue(this.getValue());
     }
 }

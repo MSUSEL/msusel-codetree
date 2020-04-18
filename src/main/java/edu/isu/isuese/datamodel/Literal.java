@@ -47,4 +47,19 @@ public class Literal extends Member {
             setAccessibility(Accessibility.PUBLIC);
         save();
     }
+
+    @Override
+    public Member copy(String oldPrefix, String newPrefix) {
+        Literal copy = Literal.builder()
+                .name(this.getName())
+                .compKey(this.getName())
+                .accessibility(this.getAccessibility())
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+
+        getModifiers().forEach(copy::addModifier);
+
+        return copy;
+    }
 }

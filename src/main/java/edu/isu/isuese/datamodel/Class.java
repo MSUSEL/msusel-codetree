@@ -55,4 +55,15 @@ public class Class extends Classifier {
 
         save();
     }
+
+    @Override
+    protected Type copyType() {
+        return Class.builder()
+                .name(this.getName())
+                .compKey(this.getName())
+                .accessibility(this.getAccessibility())
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+    }
 }

@@ -27,14 +27,12 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
-import edu.isu.isuese.datamodel.util.Filter;
-import edu.isu.isuese.datamodel.util.FilterOperator;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Isaac Griffith
@@ -42,7 +40,8 @@ import java.util.Objects;
  */
 public class System extends Model implements Measurable, Structure {
 
-    public System() {}
+    public System() {
+    }
 
     @Builder(buildMethodName = "create")
     public System(String name, String key, String basePath) {
@@ -74,7 +73,9 @@ public class System extends Model implements Measurable, Structure {
         save();
     }
 
-    public String getVersion() { return getString("version"); }
+    public String getVersion() {
+        return getString("version");
+    }
 
     public void addProject(Project p) {
         add(p);
@@ -105,36 +106,31 @@ public class System extends Model implements Measurable, Structure {
     }
 
     public List<SCM> getSCMs() {
-        return DbUtils.getSCMs(this.getClass(), (Integer) getId());
+        List<SCM> scms = Lists.newArrayList();
+        getProjects().forEach(proj -> scms.addAll(proj.getSCMs()));
+        return scms;
     }
 
     public List<Module> getModules() {
-        return DbUtils.getModules(this.getClass(), (Integer) getId());
+        List<Module> modules = Lists.newArrayList();
+        getProjects().forEach(proj -> modules.addAll(proj.getModules()));
+        return modules;
     }
 
     public List<Namespace> getNamespaces() {
-        List<Project> projects = getProjects();
-        List<Namespace> ns = Lists.newArrayList();
-        projects.forEach(p -> {
-            p.getModules().forEach(m -> {
-                ns.addAll(m.getNamespaces());
-            });
-        });
-        return ns;
+        List<Namespace> namespaces = Lists.newArrayList();
+        getProjects().forEach(proj -> namespaces.addAll(proj.getNamespaces()));
+        return namespaces;
     }
 
     public Namespace findNamespace(String name) {
-        try {
-            return DbUtils.getNamespaces(this.getClass(), (Integer) getId(),
-                    Filter.builder()
-                            .attribute("name")
-                            .op(FilterOperator.EQ)
-                            .table("namespaces")
-                            .value(name)
-                            .build()).get(0);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
-        }
+        AtomicReference<Namespace> ns = new AtomicReference<>();
+        getProjects().forEach(proj -> {
+            Namespace n = proj.findNamespace(name);
+            if (n != null)
+                ns.set(n);
+        });
+        return ns.get();
     }
 
     public boolean hasNamespace(String name) {
@@ -143,16 +139,22 @@ public class System extends Model implements Measurable, Structure {
 
     @Override
     public List<File> getFiles() {
-        return DbUtils.getFiles(this.getClass(), (Integer) getId());
+        List<File> files = Lists.newArrayList();
+        getProjects().forEach(proj -> files.addAll(proj.getFiles()));
+        return files;
     }
 
     public List<Import> getImports() {
-        return DbUtils.getImports(this.getClass(), (Integer) getId());
+        List<Import> imports = Lists.newArrayList();
+        getProjects().forEach(proj -> imports.addAll(proj.getImports()));
+        return imports;
     }
 
     @Override
     public List<Type> getAllTypes() {
-        return DbUtils.getTypes(this.getClass(), (Integer) getId());
+        List<Type> types = Lists.newArrayList();
+        getProjects().forEach(proj -> types.addAll(proj.getAllTypes()));
+        return types;
     }
 
     public Type findType(String name) {
@@ -171,21 +173,19 @@ public class System extends Model implements Measurable, Structure {
 
     @Override
     public List<Class> getClasses() {
-        return DbUtils.getClasses(this.getClass(), (Integer) getId());
+        List<Class> classes = Lists.newArrayList();
+        getProjects().forEach(proj -> classes.addAll(proj.getClasses()));
+        return classes;
     }
 
     public Type findClass(String name) {
-        try {
-            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
-                    Filter.builder()
-                            .attribute("name")
-                            .op(FilterOperator.EQ)
-                            .table("classes")
-                            .value(name)
-                            .build()).get(0);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
-        }
+        AtomicReference<Type> type = new AtomicReference<>();
+        getProjects().forEach(proj -> {
+            Type t = proj.findClass("name", name);
+            if (t != null)
+                type.set(t);
+        });
+        return type.get();
     }
 
     public boolean hasClass(String name) {
@@ -194,21 +194,19 @@ public class System extends Model implements Measurable, Structure {
 
     @Override
     public List<Interface> getInterfaces() {
-        return DbUtils.getInterfaces(this.getClass(), (Integer) getId());
+        List<Interface> interfaces = Lists.newArrayList();
+        getProjects().forEach(proj -> interfaces.addAll(proj.getInterfaces()));
+        return interfaces;
     }
 
     public Type findInterface(String name) {
-        try {
-            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
-                    Filter.builder()
-                            .attribute("name")
-                            .op(FilterOperator.EQ)
-                            .table("interfaces")
-                            .value(name)
-                            .build()).get(0);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
-        }
+        AtomicReference<Type> type = new AtomicReference<>();
+        getProjects().forEach(proj -> {
+            Type t = proj.findInterface("name", name);
+            if (t != null)
+                type.set(t);
+        });
+        return type.get();
     }
 
     public boolean hasInterface(String name) {
@@ -217,21 +215,19 @@ public class System extends Model implements Measurable, Structure {
 
     @Override
     public List<Enum> getEnums() {
-        return DbUtils.getEnums(this.getClass(), (Integer) getId());
+        List<Enum> enums = Lists.newArrayList();
+        getProjects().forEach(proj -> enums.addAll(proj.getEnums()));
+        return enums;
     }
 
     public Type findEnum(String name) {
-        try {
-            return DbUtils.getClasses(this.getClass(), (Integer) getId(),
-                    Filter.builder()
-                            .attribute("name")
-                            .op(FilterOperator.EQ)
-                            .table("enums")
-                            .value(name)
-                            .build()).get(0);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
-        }
+        AtomicReference<Type> type = new AtomicReference<>();
+        getProjects().forEach(proj -> {
+            Type t = proj.findEnum("name", name);
+            if (t != null)
+                type.set(t);
+        });
+        return type.get();
     }
 
     public boolean hasEnum(String name) {
@@ -240,71 +236,101 @@ public class System extends Model implements Measurable, Structure {
 
     @Override
     public List<Member> getAllMembers() {
-        return DbUtils.getMembers(this.getClass(), (Integer) getId());
+        List<Member> members = Lists.newArrayList();
+        getProjects().forEach(proj -> members.addAll(proj.getAllMembers()));
+        return members;
     }
 
     @Override
     public List<Literal> getLiterals() {
-        return DbUtils.getLiterals(this.getClass(), (Integer) getId());
+        List<Literal> literals = Lists.newArrayList();
+        getProjects().forEach(proj -> literals.addAll(proj.getLiterals()));
+        return literals;
     }
 
     @Override
     public List<Initializer> getInitializers() {
-        return DbUtils.getInitializers(this.getClass(), (Integer) getId());
+        List<Initializer> initializers = Lists.newArrayList();
+        getProjects().forEach(proj -> initializers.addAll(proj.getInitializers()));
+        return initializers;
     }
 
     @Override
     public List<TypedMember> getAllTypedMembers() {
-        return DbUtils.getTypedMembers(this.getClass(), (Integer) getId());
+        List<TypedMember> members = Lists.newArrayList();
+        getProjects().forEach(proj -> members.addAll(proj.getAllTypedMembers()));
+        return members;
     }
 
     @Override
     public List<Field> getFields() {
-        return DbUtils.getFields(this.getClass(), (Integer) getId());
+        List<Field> fields = Lists.newArrayList();
+        getProjects().forEach(proj -> fields.addAll(proj.getFields()));
+        return fields;
     }
 
     @Override
     public List<Method> getAllMethods() {
-        return DbUtils.getAllMethods(this.getClass(), (Integer) getId());
+        List<Method> methods = Lists.newArrayList();
+        getProjects().forEach(proj -> methods.addAll(proj.getAllMethods()));
+        return methods;
     }
 
     @Override
     public List<Method> getMethods() {
-        return DbUtils.getMethods(this.getClass(), (Integer) getId());
+        List<Method> methods = Lists.newArrayList();
+        getProjects().forEach(proj -> methods.addAll(proj.getMethods()));
+        return methods;
     }
 
     @Override
     public List<Constructor> getConstructors() {
-        return DbUtils.getConstructors(this.getClass(), (Integer) getId());
+        List<Constructor> constructors = Lists.newArrayList();
+        getProjects().forEach(proj -> constructors.addAll(proj.getConstructors()));
+        return constructors;
     }
 
     @Override
     public List<Destructor> getDestructors() {
-        return DbUtils.getDestructors(this.getClass(), (Integer) getId());
+        List<Destructor> destructors = Lists.newArrayList();
+        getProjects().forEach(proj -> destructors.addAll(proj.getDestructors()));
+        return destructors;
     }
 
     public List<PatternInstance> getPatternInstances() {
-        return DbUtils.getPatternInstances(this.getClass(), (Integer) getId());
+        List<PatternInstance> instances = Lists.newArrayList();
+        getProjects().forEach(proj -> instances.addAll(proj.getPatternInstances()));
+        return instances;
     }
 
     public List<Language> getLanguages() {
-        return DbUtils.getLanguages(this.getClass(), (Integer) getId());
+        List<Language> languages = Lists.newArrayList();
+        getProjects().forEach(proj -> languages.addAll(proj.getLanguages()));
+        return languages;
     }
 
     public List<Measure> getMeasures() {
-        return DbUtils.getMeasures(this.getClass(), (Integer) getId());
+        List<Measure> measures = Lists.newArrayList();
+        getProjects().forEach(proj -> measures.addAll(proj.getMeasures()));
+        return measures;
     }
 
     public List<RoleBinding> getRoleBindings() {
-        return DbUtils.getRoleBindings(this.getClass(), (Integer) getId());
+        List<RoleBinding> bindings = Lists.newArrayList();
+        getProjects().forEach(proj -> bindings.addAll(proj.getRoleBindings()));
+        return bindings;
     }
 
     public List<Finding> getFindings() {
-        return DbUtils.getFindings(this.getClass(), (Integer) getId());
+        List<Finding> findings = Lists.newArrayList();
+        getProjects().forEach(proj -> findings.addAll(proj.getFindings()));
+        return findings;
     }
 
     public List<Relation> getRelations() {
-        return DbUtils.getRelations(this.getClass(), (Integer) getId());
+        List<Relation> relations = Lists.newArrayList();
+        getProjects().forEach(proj -> relations.addAll(proj.getRelations()));
+        return relations;
     }
 
     @Override
@@ -312,9 +338,14 @@ public class System extends Model implements Measurable, Structure {
         return getIdName();
     }
 
-    public void setBasePath(String path) { setString("basePath", path); save(); }
+    public void setBasePath(String path) {
+        setString("basePath", path);
+        save();
+    }
 
-    public String getBasePath() { return getString("basePath"); }
+    public String getBasePath() {
+        return getString("basePath");
+    }
 
     public void updateKeys() {
         this.setKey(getName());

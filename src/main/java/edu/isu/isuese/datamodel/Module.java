@@ -27,12 +27,12 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Isaac Griffith
@@ -85,86 +85,131 @@ public class Module extends Model implements Measurable, ComponentContainer {
     }
 
     public List<File> getFiles() {
-        return DbUtils.getFiles(this.getClass(), (Integer) getId());
+        List<File> files = Lists.newArrayList();
+        getNamespaces().forEach(ns -> files.addAll(ns.getFiles()));
+        return files;
     }
 
     public List<Import> getImports() {
-        return DbUtils.getImports(this.getClass(), (Integer) getId());
+        List<Import> imports = Lists.newArrayList();
+        getNamespaces().forEach(ns -> imports.addAll(ns.getImports()));
+        return imports;
     }
 
     @Override
     public List<Type> getAllTypes() {
-        return DbUtils.getTypes(this.getClass(), (Integer) getId());
+        List<Type> types = Lists.newArrayList();
+        getNamespaces().forEach(ns -> types.addAll(ns.getAllTypes()));
+        return types;
     }
 
     @Override
     public List<Class> getClasses() {
-        return DbUtils.getClasses(this.getClass(), (Integer) getId());
+        List<Class> classes = Lists.newArrayList();
+        getNamespaces().forEach(ns -> classes.addAll(ns.getClasses()));
+        return classes;
     }
 
     @Override
     public List<Interface> getInterfaces() {
-        return DbUtils.getInterfaces(this.getClass(), (Integer) getId());
+        List<Interface> interfaces = Lists.newArrayList();
+        getNamespaces().forEach(ns -> interfaces.addAll(ns.getInterfaces()));
+        return interfaces;
     }
 
     @Override
     public List<Enum> getEnums() {
-        return DbUtils.getEnums(this.getClass(), (Integer) getId());
+        List<Enum> enums = Lists.newArrayList();
+        getNamespaces().forEach(ns -> enums.addAll(ns.getEnums()));
+        return enums;
     }
 
     @Override
     public List<Member> getAllMembers() {
-        return DbUtils.getMembers(this.getClass(), (Integer) getId());
+        List<Member> members = Lists.newArrayList();
+        getNamespaces().forEach(ns -> members.addAll(ns.getAllMembers()));
+        return members;
     }
 
     @Override
     public List<Literal> getLiterals() {
-        return DbUtils.getLiterals(this.getClass(), (Integer) getId());
+        List<Literal> literals = Lists.newArrayList();
+        getNamespaces().forEach(ns -> literals.addAll(ns.getLiterals()));
+        return literals;
     }
 
     @Override
     public List<Initializer> getInitializers() {
-        return DbUtils.getInitializers(this.getClass(), (Integer) getId());
+        List<Initializer> initializers = Lists.newArrayList();
+        getNamespaces().forEach(ns -> initializers.addAll(ns.getInitializers()));
+        return initializers;
     }
 
     @Override
     public List<TypedMember> getAllTypedMembers() {
-        return DbUtils.getTypedMembers(this.getClass(), (Integer) getId());
+        List<TypedMember> members = Lists.newArrayList();
+        getNamespaces().forEach(ns -> members.addAll(ns.getAllTypedMembers()));
+        return members;
     }
 
     @Override
     public List<Field> getFields() {
-        return DbUtils.getFields(this.getClass(), (Integer) getId());
+        List<Field> fields = Lists.newArrayList();
+        getNamespaces().forEach(ns -> fields.addAll(ns.getFields()));
+        return fields;
     }
 
     @Override
     public List<Method> getAllMethods() {
-        return DbUtils.getAllMethods(this.getClass(), (Integer) getId());
+        List<Method> methods = Lists.newArrayList();
+        getNamespaces().forEach(ns -> methods.addAll(ns.getAllMethods()));
+        return methods;
     }
 
     @Override
     public List<Method> getMethods() {
-        return DbUtils.getMethods(this.getClass(), (Integer) getId());
+        List<Method> methods = Lists.newArrayList();
+        getNamespaces().forEach(ns -> methods.addAll(ns.getMethods()));
+        return methods;
     }
 
     @Override
     public List<Constructor> getConstructors() {
-        return DbUtils.getConstructors(this.getClass(), (Integer) getId());
+        List<Constructor> constructors = Lists.newArrayList();
+        getNamespaces().forEach(ns -> constructors.addAll(ns.getConstructors()));
+        return constructors;
     }
 
     @Override
     public List<Destructor> getDestructors() {
-        return DbUtils.getDestructors(this.getClass(), (Integer) getId());
+        List<Destructor> destructors = Lists.newArrayList();
+        getNamespaces().forEach(ns -> destructors.addAll(ns.getDestructors()));
+        return destructors;
     }
 
     public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+        Project proj = getParentProject();
+        if (proj != null)
+            return proj.getParentSystems();
+        return Lists.newArrayList();
+    }
+
+    public System getParentSystem() {
+        Project proj = getParentProject();
+        if (proj != null)
+            return proj.getParentSystem();
+        return null;
     }
 
     public List<Project> getParentProjects() {
         List<Project> projects = Lists.newLinkedList();
-        projects.add(parent(Project.class));
+        if (getParentProject() != null)
+            projects.add(getParentProject());
         return projects;
+    }
+
+    public Project getParentProject() {
+        return parent(Project.class);
     }
 
     @Override
@@ -231,5 +276,52 @@ public class Module extends Model implements Measurable, ComponentContainer {
     @Override
     public int hashCode() {
         return Objects.hash(getModuleKey());
+    }
+
+    public Type findInterface(String attribute, String value) {
+        AtomicReference<Type> type = new AtomicReference<>();
+        getNamespaces().forEach(ns -> {
+                Type t = ns.findInterface(attribute, value);
+                if (t != null)
+                    type.set(t);
+        });
+
+        return type.get();
+    }
+
+    public Type findClass(String attribute, String value) {
+        AtomicReference<Type> type = new AtomicReference<>();
+        getNamespaces().forEach(ns -> {
+            Type t = ns.findClass(attribute, value);
+            if (t != null)
+                type.set(t);
+        });
+
+        return type.get();
+    }
+
+    public Type findEnum(String attribute, String value) {
+        AtomicReference<Type> type = new AtomicReference<>();
+        getNamespaces().forEach(ns -> {
+            Type t = ns.findEnum(attribute, value);
+            if (t != null)
+                type.set(t);
+        });
+
+        return type.get();
+    }
+
+    public Module copy(String oldPrefix, String newPrefix) {
+        Module copy = Module.builder()
+                .name(this.getName())
+                .moduleKey(this.getName())
+                .relPath(this.getRelPath())
+                .srcPath(this.getSrcPath())
+                .testPath(this.getTestPath())
+                .create();
+
+        getNamespaces().forEach(ns -> copy.addNamespace(ns.copy(oldPrefix, newPrefix)));
+
+        return copy;
     }
 }

@@ -26,11 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
-import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
 import org.javalite.activejdbc.Model;
-
-import java.util.List;
 
 /**
  * @author Isaac Griffith
@@ -38,13 +34,14 @@ import java.util.List;
  */
 public class Language extends Model {
 
-    public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+    public System getParentSystem() {
+        Project parent = getParentProject();
+        if (parent != null)
+            return parent.getParentSystem();
+        return null;
     }
 
-    public List<Project> getParentProjects() {
-        List<Project> projects = Lists.newLinkedList();
-        projects.add(parent(Project.class));
-        return projects;
+    public Project getParentProject() {
+        return parent(Project.class);
     }
 }

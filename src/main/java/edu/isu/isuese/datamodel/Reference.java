@@ -92,4 +92,11 @@ public class Reference extends Model {
     public int hashCode() {
         return Objects.hash(super.hashCode(), getRefKey());
     }
+
+    public Reference copy(String oldPrefix, String newPrefix) {
+        return Reference.builder()
+                .refKey(this.getRefKey().replace(oldPrefix, newPrefix))
+                .refType(this.getType())
+                .create();
+    }
 }

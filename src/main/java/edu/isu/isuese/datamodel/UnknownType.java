@@ -44,5 +44,14 @@ public class UnknownType extends Type {
         save();
     }
 
-
+    @Override
+    protected Type copyType() {
+        return UnknownType.builder()
+                .name(this.getName())
+                .compKey(this.getName())
+                .accessibility(this.getAccessibility())
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+    }
 }

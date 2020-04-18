@@ -26,8 +26,6 @@
  */
 package edu.isu.isuese.datamodel;
 
-import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -54,9 +52,7 @@ public class Metric extends Model {
 
     public List<Measure> getMeasures() { return getAll(Measure.class); }
 
-    public List<MetricRepository> getParentMetricRepositories() {
-        List<MetricRepository> repos = Lists.newLinkedList();
-        repos.add(parent(MetricRepository.class));
-        return repos;
+    public MetricRepository getParentMetricRepository() {
+        return parent(MetricRepository.class);
     }
 }

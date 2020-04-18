@@ -26,8 +26,6 @@
  */
 package edu.isu.isuese.datamodel;
 
-import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -58,27 +56,7 @@ public class Pattern extends Model {
 
     public List<Role> getRoles() { return getAll(Role.class); }
 
-    public List<RoleBinding> getRoleBindings() {
-        return DbUtils.getRoleBindings(this.getClass(), (Integer) getId());
-    }
-
-    public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
-    }
-
-    public List<PatternRepository> getParentPatternRepositories() {
-        return DbUtils.getParentPatternRepository(this.getClass(), (Integer) getId());
-    }
-
-    public List<PatternInstance> getParentPatternInstances() {
-        List<PatternInstance> insts = Lists.newLinkedList();
-        insts.add(parent(PatternInstance.class));
-        return insts;
-    }
-
-    public List<PatternChain> getParentPatternChain() {
-        List<PatternChain> chains = Lists.newLinkedList();
-        chains.add(parent(PatternChain.class));
-        return chains;
+    public PatternRepository getParentPatternRepository() {
+        return parent(PatternRepository.class);
     }
 }

@@ -27,7 +27,6 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
@@ -56,17 +55,31 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
     public void removeRoleBinding(RoleBinding binding) { remove(binding); save(); }
 
     public List<Role> getRoles() {
-        return DbUtils.getRoles(this.getClass(), (Integer) getId());
+        Pattern parent = getParentPattern();
+        if (parent != null)
+            return parent.getRoles();
+        return Lists.newArrayList();
+    }
+
+    public Pattern getParentPattern() {
+        return parent(Pattern.class);
     }
 
     public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+        Project parent = getParentProject();
+        if (parent != null)
+            return parent.getParentSystems();
+        return Lists.newArrayList();
     }
 
     public List<Project> getParentProjects() {
         List<Project> projects = Lists.newLinkedList();
-        projects.add(parent(Project.class));
+        projects.add(getParentProject());
         return projects;
+    }
+
+    public Project getParentProject() {
+        return parent(Project.class);
     }
 
     public List<PatternChain> getParentPatternChain() {
@@ -194,5 +207,13 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
         List<Destructor> dests = Lists.newArrayList();
         getAllTypes().forEach(t -> dests.addAll(t.getDestructors()));
         return dests;
+    }
+
+    public PatternInstance copy(String oldPrefix, String newPrefix) {
+        PatternInstance copy = PatternInstance.builder().instKey(this.getInstKey().replace(oldPrefix, newPrefix)).create();
+
+        getRoleBindings().forEach(bind -> copy.addRoleBinding(bind.copy(oldPrefix, newPrefix)));
+
+        return copy;
     }
 }

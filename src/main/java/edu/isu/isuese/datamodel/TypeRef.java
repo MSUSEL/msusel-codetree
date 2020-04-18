@@ -162,7 +162,7 @@ public class TypeRef extends Model {
         if (TypeRef.findFirst("typeName = ?", key) != null)
             return TypeRef.findFirst("typeName = ?", key);
         else
-            return TypeRef.builder().typeName(key).type(TypeRefType.Primitive).create();
+            return TypeRef.builder().typeName(key).typeFullName(key).type(TypeRefType.Primitive).create();
     }
 
     public static TypeRef createWildCardTypeRef() {
@@ -264,5 +264,20 @@ public class TypeRef extends Model {
 
             set.add("?");
         }
+    }
+
+    public TypeRef copy(String oldPrefix, String newPrefix) {
+        if (getType().equals(TypeRefType.Primitive))
+            return this;
+
+        TypeRef copy = TypeRef.builder()
+                .typeFullName(this.getTypeFullName().replace(oldPrefix, newPrefix))
+                .typeName(this.getTypeName())
+                .dimensions(this.getDimensions())
+                .ref(this.getReference().copy(oldPrefix, newPrefix))
+                .type(this.getType())
+                .create();
+
+        return copy;
     }
 }

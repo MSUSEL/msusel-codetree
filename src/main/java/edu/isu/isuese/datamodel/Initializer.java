@@ -48,4 +48,29 @@ public class Initializer extends Member {
             setAccessibility(Accessibility.PUBLIC);
         save();
     }
+
+    public boolean isInstance() {
+        return getBoolean("instance");
+    }
+
+    public void setInstance(boolean instance) {
+        setBoolean("instance", instance);
+        save();
+    }
+
+    @Override
+    public Member copy(String oldPrefix, String newPrefix) {
+        Initializer copy = Initializer.builder()
+                .name(this.getName())
+                .compKey(this.getName())
+                .accessibility(this.getAccessibility())
+                .instance(this.isInstance())
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+
+        getModifiers().forEach(copy::addModifier);
+
+        return copy;
+    }
 }

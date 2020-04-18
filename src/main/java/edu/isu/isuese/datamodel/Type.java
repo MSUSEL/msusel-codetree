@@ -34,6 +34,8 @@ import java.util.Queue;
 import java.util.Set;
 
 /**
+ * The base class at the head of the types representing a language type system
+ *
  * @author Isaac Griffith
  * @version 1.3.0
  */
@@ -48,17 +50,38 @@ public abstract class Type extends Component implements ComponentContainer {
 //            setAccessibility(Accessibility.PUBLIC);
 //    }
 
+    /**
+     * @return true if this type is abstract; false otherwise.
+     */
     public boolean isAbstract() {
         return getBoolean("abstract");
     }
 
+    /**
+     * Marks this type as abstract or not.
+     *
+     * @param abst the new value of the abstract field
+     */
     public void setAbstract(boolean abst) {
         setBoolean("abstract", abst);
         save();
     }
 
     public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+        File parent = getParentFile();
+        if (parent != null)
+            return parent.getParentSystems();
+        return Lists.newArrayList();
+    }
+
+    /**
+     * @return The parent system of this type or null if no such parent has been defined
+     */
+    public System getParentSystem() {
+        File file = getParentFile();
+        if (file != null)
+            return file.getParentSystem();
+        return null;
     }
 
     public List<Project> getParentProjects() {
@@ -68,21 +91,56 @@ public abstract class Type extends Component implements ComponentContainer {
 //        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
     }
 
+    /**
+     * @return The parent project of this type or null if no such parent has been defined
+     */
+    public Project getParentProject() {
+        File file = getParentFile();
+        if (file != null)
+            return file.getParentProject();
+        return null;
+    }
+
     public List<Module> getParentModules() {
-        return DbUtils.getParentModule(this.getClass(), (Integer) getId());
+        List<Module> parents = Lists.newLinkedList();
+        parents.add(getParentFile().getParentModule());
+        return parents;
+    }
+
+    /**
+     * @return The parent module of this type or null if no such parent has been defined
+     */
+    public Module getParentModule() {
+        File file = getParentFile();
+        if (file != null)
+            return file.getParentModule();
+        return null;
     }
 
     public List<Namespace> getParentNamespaces() {
         List<Namespace> parents = Lists.newLinkedList();
-        getParentFiles().forEach(f -> parents.addAll(f.getParentNamespaces()));
+        File parent = getParentFile();
+        if (parent != null)
+            parents.addAll(getParentFile().getParentNamespaces());
         return parents;
-//        return DbUtils.getParentNamespace(this.getClass(), (Integer) getId());
+    }
+
+    public Namespace getParentNamespace() {
+        File file = getParentFile();
+        if (file != null)
+            return file.getParentNamespace();
+        return null;
     }
 
     public List<File> getParentFiles() {
         List<File> files = Lists.newLinkedList();
-        files.add(parent(File.class));
+        if (getParentFile() != null)
+            files.add(getParentFile());
         return files;
+    }
+
+    public File getParentFile() {
+        return parent(File.class);
     }
 
     public void addMember(Member member) {
@@ -152,6 +210,10 @@ public abstract class Type extends Component implements ComponentContainer {
         return DbUtils.getRelationFrom(this, RelationType.REALIZATION);
     }
 
+    public boolean isRealizing(Type type) {
+        return getRealizes().contains(type);
+    }
+
     public void realizes(Type other) {
         createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.REALIZATION);
     }
@@ -174,6 +236,10 @@ public abstract class Type extends Component implements ComponentContainer {
 
     public Set<Type> getAssociatedTo() {
         return DbUtils.getRelationFrom(this, RelationType.ASSOCIATION);
+    }
+
+    public boolean isAssociatedTo(Type type) {
+        return getAssociatedTo().contains(type);
     }
 
     public void associatedTo(Type other) {
@@ -213,6 +279,10 @@ public abstract class Type extends Component implements ComponentContainer {
         return DbUtils.getRelationFrom(this, RelationType.USE);
     }
 
+    public boolean hasUseTo(Type type) {
+        return getUseTo().contains(type);
+    }
+
     public void useTo(Type other) {
         createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.USE);
     }
@@ -222,11 +292,15 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public void realizedBy(Type other) {
-        createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.REALIZATION);
+        createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.REALIZATION);
     }
 
     public Set<Type> getGeneralizedBy() {
         return DbUtils.getRelationTo(this, RelationType.GENERALIZATION);
+    }
+
+    public boolean isGeneralizedBy(Type type) {
+        return getGeneralizedBy().contains(type);
     }
 
     public void generalizedBy(Type other) {
@@ -235,6 +309,10 @@ public abstract class Type extends Component implements ComponentContainer {
 
     public void removeGeneralizedBy(Type other) {
         deleteRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.GENERALIZATION);
+    }
+
+    public void removeRealizes(Type other) {
+        deleteRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.REALIZATION);
     }
 
     public Set<Type> getContainedBy() {
@@ -298,7 +376,7 @@ public abstract class Type extends Component implements ComponentContainer {
         Queue<Type> queue = Lists.newLinkedList();
 
         queue.offer(this);
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             Type t = queue.poll();
             if (!t.equals(this)) {
                 if (!ancestors.contains(t))
@@ -324,7 +402,7 @@ public abstract class Type extends Component implements ComponentContainer {
         Queue<Type> queue = Lists.newLinkedList();
 
         queue.offer(this);
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             Type t = queue.poll();
             if (!t.equals(this)) {
                 if (!descendants.contains(t))
@@ -438,13 +516,21 @@ public abstract class Type extends Component implements ComponentContainer {
         return this.getName();
     }
 
-    public List<Type> getAllTypes() { return Lists.newArrayList(); }
+    public List<Type> getAllTypes() {
+        return Lists.newArrayList();
+    }
 
-    public List<Class> getClasses() { return Lists.newArrayList(); }
+    public List<Class> getClasses() {
+        return Lists.newArrayList();
+    }
 
-    public List<Enum> getEnums() { return Lists.newArrayList(); }
+    public List<Enum> getEnums() {
+        return Lists.newArrayList();
+    }
 
-    public List<Interface> getInterfaces() { return Lists.newArrayList(); }
+    public List<Interface> getInterfaces() {
+        return Lists.newArrayList();
+    }
 
     public List<Member> getAllMembers() {
         List<Member> members = Lists.newArrayList();
@@ -485,10 +571,26 @@ public abstract class Type extends Component implements ComponentContainer {
     public TypeRef createTypeRef() {
         if (TypeRef.findFirst("typeFullName = ?", getFullName()) != null) {
             return TypeRef.findFirst("typeFullName = ?", getFullName());
-        }
-        else {
-            Reference ref = Reference.builder().refKey(getRefKey()).refType(RefType.TYPE).create();
+        } else {
+            Reference ref = createReference();
             return TypeRef.builder().typeName(getName()).typeFullName(getFullName()).type(TypeRefType.Type).ref(ref).create();
         }
     }
+
+    public Reference createReference() {
+        return Reference.builder().refKey(getCompKey()).refType(RefType.TYPE).create();
+    }
+
+    public Type copy(String oldPrefix, String newPrefix) {
+        Type copy = copyType();
+
+        getModifiers().forEach(copy::addModifier);
+        getAllMembers().forEach(member -> copy.addMember(member.copy(oldPrefix, newPrefix)));
+//        getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy()));
+//        getChildTypes().forEach(type -> copy.add(type.copy()));
+
+        return copy;
+    }
+
+    protected abstract Type copyType();
 }

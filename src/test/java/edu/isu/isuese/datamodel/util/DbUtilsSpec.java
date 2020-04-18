@@ -257,12 +257,7 @@ public class DbUtilsSpec extends DBSpec {
     public void testGetTypes() {
         populateDb();
         List<Type> types = DbUtils.getTypes(System.class, (Integer) system.getId());
-        for (Type t : types)
-            java.lang.System.out.println(t);
-        for (Model e : Enum.findAll())
-            java.lang.System.out.println(e);
-        for (Model e : Interface.findAll())
-            java.lang.System.out.println(e);
+
         the(types.size()).shouldBeEqual(3);
     }
 
