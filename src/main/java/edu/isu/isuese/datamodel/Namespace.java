@@ -248,6 +248,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
         return projects;
     }
 
+    @Override
     public Project getParentProject() {
         Namespace ns = getParentNamespace();
         Module mod = getParentModule();
@@ -270,6 +271,18 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
 
     public Namespace getParentNamespace() {
         return parent(Namespace.class);
+    }
+
+    /**
+     * @return The parent Measurable of this Measurable
+     */
+    @Override
+    public Measurable getParent() {
+        Namespace ns = getParentNamespace();
+        if (ns == null)
+            return getParentModule();
+        else
+            return ns;
     }
 
     public List<Module> getParentModules() {
@@ -420,5 +433,9 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
         getFiles().forEach(file -> copy.addFile(file.copy(oldPrefix, newPrefix)));
 
         return copy;
+    }
+
+    public Reference createReference() {
+        return Reference.builder().refKey(getNsKey()).refType(RefType.NAMESPACE).create();
     }
 }

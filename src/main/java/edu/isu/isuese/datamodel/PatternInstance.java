@@ -78,8 +78,17 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
         return projects;
     }
 
+    @Override
     public Project getParentProject() {
         return parent(Project.class);
+    }
+
+    /**
+     * @return The parent Measurable of this Measurable
+     */
+    @Override
+    public Measurable getParent() {
+        return getParentProject();
     }
 
     public List<PatternChain> getParentPatternChain() {
@@ -124,6 +133,20 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
             }
         });
         return types;
+    }
+
+    public Role getRoleBoundTo(Type type) {
+        Role role = null;
+        List<RoleBinding> bindings = getRoleBindings();
+        for (RoleBinding binding : bindings) {
+            Reference ref = binding.getReference();
+            if (ref.equals(Reference.to(type))) {
+                role = binding.getRole();
+                break;
+            }
+        }
+
+        return role;
     }
 
     public List<Type> getAllTypes() { return getTypes(); }
@@ -209,11 +232,38 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
         return dests;
     }
 
+    public String getFamily() {
+        Pattern parent = getParentPattern();
+        if (parent != null) {
+            return parent.getFamily();
+        } else
+            return null;
+    }
+
     public PatternInstance copy(String oldPrefix, String newPrefix) {
         PatternInstance copy = PatternInstance.builder().instKey(this.getInstKey().replace(oldPrefix, newPrefix)).create();
 
         getRoleBindings().forEach(bind -> copy.addRoleBinding(bind.copy(oldPrefix, newPrefix)));
 
         return copy;
+    }
+
+    public List<RoleBinding> bindingsFor(Role r) {
+        List<RoleBinding> bindings = Lists.newArrayList();
+        getRoleBindings().forEach(rb -> {
+           if (rb.getRole().equals(r))
+               bindings.add(rb);
+        });
+
+        return bindings;
+    }
+
+    public Role findRole(String name) {
+        for (Role r : getRoles()) {
+            if (r.getName().equals(name))
+                return r;
+        }
+
+        return null;
     }
 }

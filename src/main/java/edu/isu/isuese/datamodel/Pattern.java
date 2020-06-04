@@ -26,9 +26,12 @@
  */
 package edu.isu.isuese.datamodel;
 
+import com.google.common.collect.Lists;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
@@ -37,6 +40,13 @@ import java.util.List;
 public class Pattern extends Model {
 
     public Pattern() {}
+
+    @Builder(buildMethodName = "create")
+    public Pattern(String name, String key) {
+        if (name != null && !name.isEmpty()) setName(name);
+        if (key != null && !key.isEmpty()) setString("patternKey", key);
+        save();
+    }
 
     public String getPatternKey() { return getString("patternKey"); }
 
@@ -58,5 +68,33 @@ public class Pattern extends Model {
 
     public PatternRepository getParentPatternRepository() {
         return parent(PatternRepository.class);
+    }
+
+    public String getFamily() { return getString("family"); }
+
+    public void setFamily(String family) { setString("family", family); save(); }
+
+    public List<Role> mandatoryRoles() {
+        List<Role> roles = Lists.newArrayList();
+        getRoles().forEach(role -> {
+            if (role.isMandatory())
+                roles.add(role);
+        });
+        return roles;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Pattern) {
+            Pattern role = (Pattern) o;
+            return role.getPatternKey().equals(this.getPatternKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getPatternKey());
     }
 }

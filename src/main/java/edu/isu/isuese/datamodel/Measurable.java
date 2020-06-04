@@ -36,4 +36,14 @@ public interface Measurable {
      * @return A key based on the id of this Measurable which will be used when constructing the reference held by a Measure
      */
     String getRefKey();
+
+    /**
+     * @return The parent Measurable of this Measurable
+     */
+    Measurable getParent();
+
+    /**
+     * @return The parent project of this Measurable
+     */
+    Project getParentProject();
 }

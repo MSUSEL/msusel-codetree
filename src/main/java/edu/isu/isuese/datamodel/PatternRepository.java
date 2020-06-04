@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -37,6 +38,17 @@ import java.util.List;
  * @version 1.3.0
  */
 public class PatternRepository extends Model {
+
+    public PatternRepository() {}
+
+    @Builder(buildMethodName = "create")
+    public PatternRepository(String name, String key, String toolName) {
+        if (name != null && !name.isEmpty()) setName(name);
+        if (key != null && !key.isEmpty()) set("repoKey", key);
+        if (toolName != null && !toolName.isEmpty()) setToolName(toolName);
+
+        save();
+    }
 
     public String getRepoKey() { return getString("repoKey"); }
 
@@ -49,6 +61,13 @@ public class PatternRepository extends Model {
     public void removePattern(Pattern pattern) { remove(pattern); save(); }
 
     public List<Pattern> getPatterns() { return getAll(Pattern.class); }
+
+    public String getToolName() { return getString("toolName"); }
+
+    public void setToolName(String toolName) {
+        setString("toolName", toolName);
+        save();
+    }
 
     public List<PatternInstance> getPatternInstances() {
         return DbUtils.getPatternInstances(this.getClass(), (Integer) getId());

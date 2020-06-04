@@ -220,6 +220,7 @@ public class File extends Model implements Measurable, ComponentContainer {
         return projects;
     }
 
+    @Override
     public Project getParentProject() {
         Namespace ns = getParentNamespace();
         if (ns != null)
@@ -250,6 +251,14 @@ public class File extends Model implements Measurable, ComponentContainer {
 
     public Namespace getParentNamespace() {
         return parent(Namespace.class);
+    }
+
+    /**
+     * @return The parent Measurable of this Measurable
+     */
+    @Override
+    public Measurable getParent() {
+        return getParentNamespace();
     }
 
     @Override
@@ -295,6 +304,15 @@ public class File extends Model implements Measurable, ComponentContainer {
 
     public String getFullPath() {
         return parent(Namespace.class).getFullPath(getType()) + getRelPath();
+    }
+
+    public Type getTypeByName(String name) {
+        for (Type t : getAllTypes()) {
+            if (t.getName().equals(name))
+                return t;
+        }
+
+        return null;
     }
 
     public List<Object> containing(int line) {

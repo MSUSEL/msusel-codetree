@@ -347,6 +347,17 @@ public class System extends Model implements Measurable, Structure {
         return getString("basePath");
     }
 
+    /**
+     * @return The parent Measurable of this Measurable
+     */
+    @Override
+    public Measurable getParent() {
+        return null;
+    }
+
+    @Override
+    public Project getParentProject() { return null; }
+
     public void updateKeys() {
         this.setKey(getName());
         getProjects().forEach(p -> p.updateKeys(getKey()));

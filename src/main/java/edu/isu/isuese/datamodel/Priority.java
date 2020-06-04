@@ -60,7 +60,18 @@ public enum Priority {
         return value;
     }
 
-    static Priority fromValue(int value) {
+    public static Priority fromValue(int value) {
         return map.get(value);
+    }
+
+    public static Priority fromValue(String name) {
+        switch(name) {
+            case "CRITICAL": return VERY_HIGH;
+            case "BLOCKER": return HIGH;
+            case "MAJOR": return MODERATE;
+            case "MINOR": return LOW;
+            case "INFO": return VERY_LOW;
+        }
+        return null;
     }
 }

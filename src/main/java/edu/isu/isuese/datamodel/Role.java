@@ -46,10 +46,11 @@ public class Role extends Model {
     public Role() {}
 
     @Builder(buildMethodName = "create")
-    public Role(String roleKey, String name, RoleType type) {
+    public Role(String roleKey, String name, RoleType type, boolean mandatory) {
         set("roleKey", roleKey);
         setName(name);
         setType(type);
+        setBoolean("mandatory", mandatory);
         save();
     }
 
@@ -98,5 +99,9 @@ public class Role extends Model {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getRoleKey());
+    }
+
+    public boolean isMandatory() {
+        return getBoolean("mandatory");
     }
 }

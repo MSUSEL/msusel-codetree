@@ -31,6 +31,7 @@ package edu.isu.isuese.datamodel.util;
  * @version 1.3.0
  */
 public class DbUtilsException extends Exception {
+
     public DbUtilsException() {
         super();
     }

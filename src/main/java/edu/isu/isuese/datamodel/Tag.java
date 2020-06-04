@@ -38,6 +38,16 @@ import java.util.List;
  */
 public class Tag extends Model {
 
+    public static Tag of(String name) {
+        Tag tag = Tag.findFirst("tag = ?", name);
+        if (tag == null) {
+            tag = Tag.create("tag", name);
+            tag.save();
+        }
+
+        return tag;
+    }
+
     public String getTag() { return getString("tag"); }
 
     public void setTag(String tag) { set("tag", tag); save(); }

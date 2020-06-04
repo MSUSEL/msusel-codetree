@@ -89,4 +89,36 @@ public class Rule extends Model {
     public String getDescription() {
         return getString("description");
     }
+
+    public void addTag(Tag tag) {
+        if (tag != null)
+            add(tag);
+        save();
+    }
+
+    public void removeTag(Tag tag) {
+        if (tag != null)
+            remove(tag);
+        save();
+    }
+
+    public List<Tag> getTags() {
+        return getAll(Tag.class);
+    }
+
+    public void addFinding(Finding finding) {
+        if (finding != null)
+            add(finding);
+        save();
+    }
+
+    public void removeFinding(Finding finding) {
+        if (finding != null)
+            remove(finding);
+        save();
+    }
+
+    public List<Finding> getFindings() {
+        return getAll(Finding.class);
+    }
 }

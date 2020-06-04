@@ -1,0 +1,66 @@
+package edu.isu.isuese.datamodel;
+
+import lombok.Builder;
+import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.BelongsTo;
+import org.javalite.activejdbc.annotations.Table;
+
+import java.util.Objects;
+
+/**
+ * @author Isaac Griffith
+ * @version 1.3.0
+ */
+@Table("finding_data_points")
+@BelongsTo(parent = FindingData.class, foreignKeyName = "finding_data_id")
+public class FindingDataPoint extends Model {
+
+    public FindingDataPoint() {
+    }
+
+    @Builder(buildMethodName = "create")
+    public FindingDataPoint(String handle, double value) {
+        if (handle != null && !handle.isEmpty()) setHandle(handle);
+        setValue(value);
+        save();
+    }
+
+    public double getValue() {
+        return getDouble("value");
+    }
+
+    public void setValue(double value) {
+        setDouble("value", value);
+        save();
+    }
+
+    public String getHandle() {
+        return getString("handle");
+    }
+
+    public void setHandle(String handle) {
+        if (handle != null && !handle.isEmpty())
+            setString("handle", handle);
+        save();
+    }
+
+    public FindingData getParentFindingData() {
+        return parent(FindingData.class);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof FindingDataPoint))
+            return false;
+
+        FindingDataPoint fd = (FindingDataPoint) obj;
+        if (!fd.getHandle().equals(getHandle()))
+            return false;
+        return Double.compare(fd.getValue(), getValue()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getHandle(), getValue());
+    }
+}

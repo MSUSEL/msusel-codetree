@@ -27,7 +27,9 @@
 package edu.isu.isuese.datamodel.cfg
 
 import com.google.common.graph.Graph
+import com.google.common.graph.GraphBuilder
 import com.google.common.graph.MutableGraph
+import edu.isu.isuese.datamodel.util.CFG2DOT
 
 /**
  * @author Isaac Griffith
@@ -63,12 +65,12 @@ class ControlFlowGraph {
     }
 
     static ControlFlowGraph fromString(String string) {
-        MutableGraph<ControlFlowNode> graph
+        MutableGraph<ControlFlowNode> graph = GraphBuilder.directed().build()
         ControlFlowNode start, end
         if (string.contains(':') && string.contains(',') && string.contains('|->|')) {
             def edges = string.split(',')
             edges.each { e ->
-                nodes = e.split(/\|->\|/)
+                def nodes = e.split(/\|->\|/)
                 def nodeU = processNode(nodes[0])
                 def nodeV = processNode(nodes[1])
 

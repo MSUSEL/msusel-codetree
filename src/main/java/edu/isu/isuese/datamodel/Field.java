@@ -83,4 +83,8 @@ public class Field extends TypedMember {
 
         return copy;
     }
+
+    public Reference createReference() {
+        return Reference.builder().refKey(getCompKey()).refType(RefType.FIELD).create();
+    }
 }

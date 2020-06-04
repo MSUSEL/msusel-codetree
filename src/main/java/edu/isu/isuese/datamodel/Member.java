@@ -50,6 +50,14 @@ public abstract class Member extends Component {
         return Lists.newArrayList();
     }
 
+    @Override
+    public Project getParentProject() {
+        Type parent = getParentType();
+        if (parent != null)
+            return parent.getParentProject();
+        return null;
+    }
+
     public List<Module> getParentModules() {
         Type parent = getParentType();
         if (parent != null)
@@ -116,6 +124,14 @@ public abstract class Member extends Component {
         }
 
         return parent;
+    }
+
+    /**
+     * @return The parent Measurable of this Measurable
+     */
+    @Override
+    public Measurable getParent() {
+        return getParentType();
     }
 
     @Override

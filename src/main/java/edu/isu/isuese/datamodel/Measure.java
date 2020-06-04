@@ -28,6 +28,8 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Many2Manies;
+import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.List;
 
@@ -35,6 +37,10 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@Many2Manies({
+        @Many2Many(other = Project.class, join = "projects_measures", sourceFKName = "project_id", targetFKName = "measure_id"),
+        @Many2Many(other = Metric.class, join = "metrics_measures", sourceFKName = "metric_id", targetFKName = "measure_id")
+})
 public class Measure extends Model {
 
     public String getMeasureKey() { return getString("measureKey"); }
@@ -58,6 +64,14 @@ public class Measure extends Model {
     public void removeReference(Reference ref) { remove(ref); save(); }
 
     public List<Reference> getReferences() { return getAll(Reference.class); }
+
+    public Reference getReference() {
+        List<Reference> refs = getReferences();
+        if (refs.isEmpty())
+            return null;
+
+        return getReferences().get(0);
+    }
 
     public System getParentSystems() {
         Project parent = getParentProject();
@@ -84,6 +98,8 @@ public class Measure extends Model {
     public static Measure of(String metricKey) {
         Measure m = Measure.create("metricKey", metricKey);
         m.save();
+        Metric met = Metric.findFirst("metricKey = ?", metricKey);
+        met.addMeasure(m);
         return m;
     }
 
@@ -91,6 +107,7 @@ public class Measure extends Model {
         Reference ref = Reference.createIt("refKey", m.getRefKey());
         add(ref);
         save();
+        m.getParentProject().addMeasure(this);
         return this;
     }
 
@@ -111,6 +128,11 @@ public class Measure extends Model {
     }
 
     public static Measure retrieve(Measurable m, String metricKey) {
+        List<Measure> candidates = Measure.find("metricKey = ?", metricKey);
+        for (Measure meas : candidates)
+            if (!meas.getReferences().isEmpty() && meas.getReferences().get(0).getRefKey().equals(m.getRefKey()))
+                return meas;
+
         return null;
     }
 
@@ -118,5 +140,82 @@ public class Measure extends Model {
         return Measure.of(this.getMetricKey())
                 .on(this.getReferences().get(0).copy(oldPrefix, newPrefix))
                 .withValue(this.getValue());
+    }
+
+    public static boolean hasMetric(Measurable comp, String metric) {
+        return false;
+    }
+
+    public static List<Double> getAllClassValues(Project proj, String metric) {
+        if (metric.contains(":")) {
+            String[] split = metric.split(":");
+            String repo = split[0];
+            String handle = split[1];
+
+            List<Double> values = Lists.newArrayList();
+
+            proj.getAllTypes().forEach(type -> {
+                values.add(valueFor(repo, handle, type));
+            });
+
+            return values;
+        }
+        return Lists.newArrayList();
+    }
+
+    public static List<Double> getAllFileValues(Project proj, String metric) {
+        if (metric.contains(":")) {
+            String[] split = metric.split(":");
+            String repo = split[0];
+            String handle = split[1];
+
+            List<Double> values = Lists.newArrayList();
+
+            proj.getFiles().forEach(type -> {
+                values.add(valueFor(repo, handle, type));
+            });
+
+            return values;
+        }
+        return Lists.newArrayList();
+    }
+
+    public static List<Double> getAllMethodValues(Project proj, String metric) {
+        if (metric.contains(":")) {
+            String[] split = metric.split(":");
+            String repo = split[0];
+            String handle = split[1];
+
+            List<Double> values = Lists.newArrayList();
+
+            proj.getAllMethods().forEach(type -> {
+                values.add(valueFor(repo, handle, type));
+            });
+
+            return values;
+        }
+        return Lists.newArrayList();
+    }
+
+    public static Double getProjectMetric(Project proj, String metric) {
+        if (metric.contains(":")) {
+            String[] split = metric.split(":");
+            String repo = split[0];
+            String handle = split[1];
+
+            return valueFor(repo, handle, proj);
+        }
+        return 0.0;
+    }
+
+    public static double valueFor(String repoKey, String handle, Measurable comp) {
+        Metric parent = Metric.findFirst("metricKey = ?", repoKey + ":" + handle);
+        double value = 0;
+        for (Measure measure : parent.getMeasures()) {
+            if (measure.getReference().getRefKey().equals(comp.getRefKey())) {
+                return measure.getValue();
+            }
+        }
+        return value;
     }
 }

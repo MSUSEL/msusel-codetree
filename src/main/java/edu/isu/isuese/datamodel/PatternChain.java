@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -36,6 +37,14 @@ import java.util.List;
  */
 public class PatternChain extends Model {
 
+    public PatternChain() {}
+
+    @Builder(buildMethodName = "create")
+    public PatternChain(String chainKey) {
+        set("chainKey", chainKey);
+        saveIt();
+    }
+
     public String getChainKey() { return getString("chainKey"); }
 
     public void addInstance(PatternInstance inst) { add(inst); save(); }
@@ -43,4 +52,10 @@ public class PatternChain extends Model {
     public void removeInstance(PatternInstance inst) { remove(inst); save(); }
 
     public List<PatternInstance> getInstances() { return getAll(PatternInstance.class); }
+
+    public void updateKey() {
+        System parent = parent(System.class);
+        setString("chainKey", parent.getKey() + ":" + getChainKey());
+        saveIt();
+    }
 }

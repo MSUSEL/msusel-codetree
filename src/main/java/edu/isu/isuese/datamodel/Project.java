@@ -115,6 +115,10 @@ public class Project extends Model implements Measurable, ComponentContainer {
         return getAll(Measure.class);
     }
 
+    public double getMeasuredValue(Component comp, String repo, String handle) {
+        return Objects.requireNonNull(Measure.retrieve(comp, "$repo:$handle")).getValue();
+    }
+
     public void addFinding(Finding find) {
         add(find);
         save();
@@ -127,6 +131,16 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
     public List<Finding> getFindings() {
         return getAll(Finding.class);
+    }
+
+    public List<Finding> getFindings(String rule) {
+        List<Finding> findings = Lists.newArrayList();
+        getFindings().forEach(f -> {
+            if (f.getParentRule().getName().equals(rule))
+                findings.add(f);
+        });
+
+        return findings;
     }
 
     public void addPatternInstance(PatternInstance inst) {
@@ -161,6 +175,15 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
     public List<SCM> getSCMs() {
         return getAll(SCM.class);
+    }
+
+    public SCM getSCM(SCMType type) {
+        for (SCM scm : getSCMs()) {
+            if (scm.getType().equals(type)) {
+                return scm;
+            }
+        }
+        return null;
     }
 
     public void addModule(Module mod) {
@@ -282,6 +305,16 @@ public class Project extends Model implements Measurable, ComponentContainer {
             return findInterface(attribute, value);
         if (hasEnum(attribute, value))
             return findEnum(attribute, value);
+        return null;
+    }
+
+    public Type findTypeByQualifiedName(String name) {
+        for (Type t : getAllTypes()) {
+            if (t.getCompKey().endsWith(name)) {
+                return t;
+            }
+        }
+
         return null;
     }
 
@@ -427,6 +460,17 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     @Override
+    public Project getParentProject() { return this; }
+
+    /**
+     * @return The parent Measurable of this Measurable
+     */
+    @Override
+    public Measurable getParent() {
+        return getParentSystem();
+    }
+
+    @Override
     public String getRefKey() {
         return getString("projKey");
     }
@@ -449,6 +493,26 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
         add(type);
         save();
+    }
+
+    public void addInjectedInstance(InjectedInstance inst) {
+        if (inst == null)
+            return;
+
+        add(inst);
+        save();
+    }
+
+    public void removeInjectedInstance(InjectedInstance inst) {
+        if (inst == null)
+            return;
+
+        remove(inst);
+        save();
+    }
+
+    public List<InjectedInstance> getInjectedInstances() {
+        return getAll(InjectedInstance.class);
     }
 
     public String getRelPath() {
@@ -520,6 +584,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         getMeasures().forEach(measure -> copy.addMeasure(measure.copy(this.getProjectKey(), copy.getProjectKey())));
         getFindings().forEach(finding -> copy.addFinding(finding.copy(this.getProjectKey(), copy.getProjectKey())));
         getPatternInstances().forEach(instance -> copy.addPatternInstance(instance.copy(this.getProjectKey(), copy.getProjectKey())));
+        getInjectedInstances().forEach(instance -> copy.addInjectedInstance(instance.copy(this.getProjectKey(), copy.getProjectKey())));
         getRelations().forEach(rel -> copy.addRelation(rel.copy(this.getProjectKey(), copy.getProjectKey())));
 
         return copy;

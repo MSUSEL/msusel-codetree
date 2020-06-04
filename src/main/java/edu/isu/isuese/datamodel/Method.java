@@ -222,8 +222,13 @@ public class Method extends TypedMember {
         return fieldsUsed;
     }
 
-    public Set<Field> getFieldsUsedSameClass(Type parent) {
-        return Sets.newHashSet();
+    public Set<Field> getFieldsUsedSameClass() {
+        Set<Field> set = Sets.newHashSet();
+        getFieldsUsed().forEach( member -> {
+            if (member.getParentType().equals(this.getParentType()))
+                set.add(member);
+        });
+        return set;
     }
 
     public Set<Method> getMethodsCalled() {
@@ -237,8 +242,13 @@ public class Method extends TypedMember {
         return methodsCalled;
     }
 
-    public Set<Method> getMethodsUsedSameClass(Type parent) {
-        return Sets.newHashSet();
+    public Set<Method> getMethodsUsedSameClass() {
+        Set<Method> set = Sets.newHashSet();
+        getMethodsCalled().forEach( member -> {
+            if (member.getParentType().equals(this.getParentType()))
+                set.add(member);
+        });
+        return set;
     }
 
     public List<Type> getTypesUsing() {

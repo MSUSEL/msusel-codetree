@@ -27,6 +27,7 @@
 package edu.isu.isuese.datamodel;
 
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -36,6 +37,16 @@ import java.util.List;
  * @version 1.3.0
  */
 public class MetricRepository extends Model {
+
+    public MetricRepository() {}
+
+    @Builder(buildMethodName = "create")
+    public MetricRepository(String key, String name) {
+        if (key != null && !key.isEmpty()) set("repoKey", key);
+        if (name != null && !name.isEmpty()) setName(name);
+
+        save();
+    }
 
     public String getRepoKey() { return getString("repoKey"); }
 

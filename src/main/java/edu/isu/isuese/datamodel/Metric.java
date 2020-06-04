@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -36,15 +37,30 @@ import java.util.List;
  */
 public class Metric extends Model {
 
+    public Metric() {}
+
+    @Builder(buildMethodName = "create")
+    public Metric(String key, String handle, String name, String description, String evaluator) {
+        if (key != null && !key.isEmpty()) setString("metricKey", key);
+        if (name != null && !name.isEmpty()) setName(name);
+        if (handle != null && !handle.isEmpty()) setHandle(handle);
+        if (description != null && !description.isEmpty()) setDescription(description);
+        save();
+    }
+
     public String getMetricKey() { return getString("metricKey"); }
 
     public String getDescription() { return getString("description"); }
 
-    public void getDescription(String desc) { set("description", desc); save(); }
+    public void setDescription(String desc) { set("description", desc); save(); }
 
     public String getName() { return getString("name"); }
 
     public void setName(String name) { set("name", name); save(); }
+
+    public String getHandle() { return getString("handle"); }
+
+    public void setHandle(String name) { set("handle", name); save(); }
 
     public void addMeasure(Measure measure) { add(measure); save(); }
 

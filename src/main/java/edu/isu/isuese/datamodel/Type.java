@@ -67,6 +67,22 @@ public abstract class Type extends Component implements ComponentContainer {
         save();
     }
 
+    @Override
+    public void addModifier(String mod) {
+        if (mod.equalsIgnoreCase("abstract"))
+            setAbstract(true);
+
+        super.addModifier(mod);
+    }
+
+    @Override
+    public void removeModifier(String mod) {
+        if (mod.equalsIgnoreCase("abstract"))
+            setAbstract(false);
+
+        super.removeModifier(mod);
+    }
+
     public List<System> getParentSystems() {
         File parent = getParentFile();
         if (parent != null)
@@ -94,6 +110,7 @@ public abstract class Type extends Component implements ComponentContainer {
     /**
      * @return The parent project of this type or null if no such parent has been defined
      */
+    @Override
     public Project getParentProject() {
         File file = getParentFile();
         if (file != null)
@@ -141,6 +158,14 @@ public abstract class Type extends Component implements ComponentContainer {
 
     public File getParentFile() {
         return parent(File.class);
+    }
+
+    /**
+     * @return The parent Measurable of this Measurable
+     */
+    @Override
+    public Measurable getParent() {
+        return getParentFile();
     }
 
     public void addMember(Member member) {
@@ -460,6 +485,15 @@ public abstract class Type extends Component implements ComponentContainer {
         }
 
         return overriding;
+    }
+
+    public Member findMemberInRange(int start, int end) {
+        for (Member m : getAllMembers()) {
+            if (m.getStart() >= start && m.getEnd() <= end)
+                return m;
+        }
+
+        return null;
     }
 
     public List<TemplateParam> getTemplateParams() {

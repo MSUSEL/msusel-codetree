@@ -28,6 +28,8 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Many2Manies;
+import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.List;
 
@@ -35,6 +37,10 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@Many2Manies({
+        @Many2Many(other = Project.class, join = "projects_findings", sourceFKName = "project_id", targetFKName = "finding_id"),
+        @Many2Many(other = Rule.class, join = "rules_findings", sourceFKName = "rule_id", targetFKName = "finding_id")
+})
 public class Finding extends Model {
 
     public String getFindingKey() { return getString("findingKey"); }
@@ -86,6 +92,8 @@ public class Finding extends Model {
     public static Finding of(String ruleKey) {
         Finding f = Finding.create("findingKey", ruleKey);
         f.save();
+        Rule rule = Rule.findFirst("ruleKey = ?", ruleKey);
+        rule.addFinding(f);
         return f;
     }
 
@@ -93,6 +101,31 @@ public class Finding extends Model {
         add(ref);
         save();
         return this;
+    }
+
+    public Finding on(Component comp) {
+        add(Reference.to(comp));
+        save();
+        comp.getParentProject().addFinding(this);
+        return this;
+    }
+
+    public void setStart(int start) {
+        setInteger("start", start);
+        save();
+    }
+
+    public int getStart() {
+        return getInteger("start");
+    }
+
+    public void setEnd(int end) {
+        setInteger("end", end);
+        save();
+    }
+
+    public int getEnd() {
+        return getInteger("end");
     }
 
     public Finding copy(String oldPrefix, String newPrefix) {

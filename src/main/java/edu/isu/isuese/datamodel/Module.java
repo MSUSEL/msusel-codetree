@@ -208,8 +208,17 @@ public class Module extends Model implements Measurable, ComponentContainer {
         return projects;
     }
 
+    @Override
     public Project getParentProject() {
         return parent(Project.class);
+    }
+
+    /**
+     * @return The parent Measurable of this Measurable
+     */
+    @Override
+    public Measurable getParent() {
+        return getParentProject();
     }
 
     @Override
@@ -247,6 +256,15 @@ public class Module extends Model implements Measurable, ComponentContainer {
 
     public void setSrcPath(String path) {
         setString("srcPath", path);
+        save();
+    }
+
+    public String getBinaryPath() {
+        return getString("binPath");
+    }
+
+    public void setBinPath(String path) {
+        setString("binPath", path);
         save();
     }
 

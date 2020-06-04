@@ -38,7 +38,7 @@ import java.util.Objects;
  * @version 1.3.0
  */
 @Table("refs")
-@BelongsToPolymorphic(parents = {Relation.class, Finding.class, Measure.class, RoleBinding.class, TypeRef.class})
+@BelongsToPolymorphic(parents = {Relation.class, Finding.class, Measure.class, RoleBinding.class, TypeRef.class, InjectedInstance.class})
 public class Reference extends Model {
 
     public Reference() {}
@@ -98,5 +98,42 @@ public class Reference extends Model {
                 .refKey(this.getRefKey().replace(oldPrefix, newPrefix))
                 .refType(this.getType())
                 .create();
+    }
+
+    public Component getReferencedComponent(Project project) {
+        switch(getType()) {
+            case CONSTRUCTOR:
+                for (Constructor c : project.getConstructors())
+                    if (c.getCompKey().equals(this.getRefKey()))
+                        return c;
+                break;
+            case FIELD:
+                for (Field f : project.getFields())
+                    if (f.getCompKey().equals(this.getRefKey()))
+                        return f;
+                break;
+            case INITIALIZER:
+                for (Initializer i : project.getInitializers())
+                    if (i.getCompKey().equals(this.getRefKey()))
+                        return i;
+                break;
+            case LITERAL:
+                for (Literal l : project.getLiterals())
+                    if (l.getCompKey().equals(this.getRefKey()))
+                        return l;
+                break;
+            case METHOD:
+                for (Method m : project.getMethods())
+                    if (m.getCompKey().equals(this.getRefKey()))
+                        return m;
+                break;
+            case TYPE:
+                for (Type t : project.getAllTypes())
+                    if (t.getCompKey().equals(this.getRefKey()))
+                        return t;
+                break;
+        }
+
+        return null;
     }
 }
