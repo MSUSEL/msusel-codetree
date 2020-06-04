@@ -59,7 +59,7 @@ import java.nio.file.Path
 
 /**
  * @author Isaac Griffith
- * @version 1.2.0
+ * @version 1.3.0
  */
 @Slf4j
 abstract class BaseModelBuilder {
@@ -117,6 +117,19 @@ abstract class BaseModelBuilder {
         extract.extractDependencies()
 
         system
+    }
+
+    void build(Project proj, String path) {
+        this.proj = proj
+        this.system = proj.getParentSystem()
+
+        getIdentifier().setProj(this.proj)
+        getIdentifier().identify(path)
+        final List<File> files = proj.getFilesByType(FileType.SOURCE)
+        parseStructure(files)
+        AssociationExtractor extract = new AssociationExtractor(proj)
+        extract.extractAssociations()
+        extract.extractDependencies()
     }
 
     /**

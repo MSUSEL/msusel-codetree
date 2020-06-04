@@ -4,6 +4,10 @@ import com.google.common.flogger.FluentLogger
 import groovy.sql.Sql
 import org.javalite.activejdbc.Base
 
+/**
+ * @author Isaac Griffith
+ * @version 1.3.0
+ */
 @Singleton
 class DBManager {
 

@@ -40,7 +40,6 @@ import java.nio.file.StandardOpenOption
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@Slf4j
 class CFG2DOT {
 
     static String generateDot(Graph<ControlFlowNode> graph, String name = null) {

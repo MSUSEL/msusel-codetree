@@ -29,6 +29,10 @@ package edu.isu.isuese
 import edu.isu.isuese.datamodel.*
 import org.javalite.activejdbc.ModelListener
 
+/**
+ * @author Isaac Griffith
+ * @version 1.3.0
+ */
 class AssociationExtractor {
 
     Project project

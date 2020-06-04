@@ -28,6 +28,10 @@ package edu.isu.isuese
 
 import edu.isu.isuese.datamodel.Project
 
+/**
+ * @author Isaac Griffith
+ * @version 1.3.0
+ */
 interface ArtifactIdentifier {
 
     void identify(String root)
