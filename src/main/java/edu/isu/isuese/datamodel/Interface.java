@@ -46,6 +46,7 @@ public class Interface extends Classifier {
     @Builder(buildMethodName = "create")
     public Interface(String name, int start, int end, String compKey, Accessibility accessibility) {
         set("name", name, "start", start, "end", end, "compKey", compKey);
+        save();
         setAbstract(true);
         if (accessibility != null)
             setAccessibility(accessibility);

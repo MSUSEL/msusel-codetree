@@ -44,89 +44,23 @@ class AssociationExtractor {
     void extractAssociations() {
         Set<Type> types = project.getAllTypes()
 
-        Class.findWith(new ModelListener<Class>() {
-            @Override
-            void onModel(Class cls) {
-                handleTypeAssociation(cls)
-            }
-        }, "")
-
-        Interface.findWith(new ModelListener<Interface>() {
-            @Override
-            void onModel(Interface inter) {
-                handleTypeAssociation(inter)
-            }
-        }, "")
-
-        Enum.findWith(new ModelListener<Enum>() {
-            @Override
-            void onModel(Enum enm) {
-                handleTypeAssociation(enm)
-            }
-        }, "")
+        types.each {
+            handleTypeAssociation(it)
+        }
     }
 
     private void handleTypeAssociation(Type type) {
-        type.getAll(Field.class).each { Field f ->
+        type.getFields().each { Field f ->
             if (f.getType() != null && f.getType().getReference() != null)
                 createAssociation(type, f.getType())
         }
     }
 
-    void extractDependencies() {
-        Set<Type> types = project.getAllTypes()
-
-        Class.findWith(new ModelListener<Class>() {
-            @Override
-            void onModel(Class cls) {
-                handleTypeDependency(cls)
-            }
-        }, "")
-
-        Interface.findWith(new ModelListener<Interface>() {
-            @Override
-            void onModel(Interface inter) {
-                handleTypeDependency(inter)
-            }
-        }, "")
-
-        Enum.findWith(new ModelListener<Enum>() {
-            @Override
-            void onModel(Enum enm) {
-                handleTypeDependency(enm)
-            }
-        }, "")
-    }
-
-    private void handleTypeDependency(Type type) {
-        type.getAll(Method.class).each { Method meth ->
-            if (meth.getType() instanceof TypeRef && meth.getType().getReferences().get(0) != null) {
-                createDependency(type, meth.getType())
-            }
-
-            meth.getParams().each { Parameter p ->
-                if (p.getType() instanceof TypeRef && p.getType().getReferences().get(0) != null) {
-                    createDependency(type, p.getType())
-                }
-            }
-        }
-    }
-
-    private void createAssociation(Type type, TypeRef abref) {
-        TypeRef ref = (TypeRef) abref
+    private void createAssociation(Type type, TypeRef ref) {
         Reference reference = ref.getReference()
-        if (reference) {
-            Type dep = project.findType("compKey", reference.getRefKey())
-            project.addRelation(type, dep, RelationType.ASSOCIATION)
-        }
-    }
-
-    private void createDependency(Type type, TypeRef abref) {
-        TypeRef ref = (TypeRef) abref
-        Reference reference = ref.getReference()
-        if (reference) {
-            Type dep = project.findType("compKey", reference.getRefKey())
-            project.addRelation(type, dep, RelationType.DEPENDENCY)
+        if (reference && ref.getType() == TypeRefType.Type) {
+            Type dep = ref.getType(project.getProjectKey())
+            type.associatedTo(dep)
         }
     }
 }

@@ -50,10 +50,12 @@ public class Parameter extends Model {
     public Parameter() {}
 
     @Builder(buildMethodName = "create")
-    public Parameter(String name, TypeRef type) {
+    public Parameter(String name, TypeRef type, boolean varg) {
         setName(name);
-        if (type != null)
+        setVarg(varg);
+        if (type != null) {
             setType(type);
+        }
     }
 
     public String getName() { return getString("name"); }
@@ -69,6 +71,15 @@ public class Parameter extends Model {
     public void removeModifier(Modifier mod) { remove(mod); save(); }
 
     public List<Modifier> getModifiers() { return getAll(Modifier.class); }
+
+    public boolean isVarg() {
+        return getBoolean("varg");
+    }
+
+    public void setVarg(boolean varg) {
+        setBoolean("varg", varg);
+        save();
+    }
 
     public void setType(TypeRef ref) {
         if (this.getAll(TypeRef.class).isEmpty()) {

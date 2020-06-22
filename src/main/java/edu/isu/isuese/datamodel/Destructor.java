@@ -60,7 +60,7 @@ public class Destructor extends Method {
                 .create();
 
         getModifiers().forEach(copy::addModifier);
-//        getTypeParams().forEach(param -> copy.addTemplateParam(param.copy()));
+        getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy(oldPrefix, newPrefix)));
         getExceptions().forEach(excep -> copy.addException(excep.getTypeRef().copy(oldPrefix, newPrefix)));
         getParams().forEach(param -> copy.addParameter(param.copy()));
 

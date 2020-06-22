@@ -38,7 +38,7 @@ import java.util.Objects;
  * @version 1.3.0
  */
 @Table("refs")
-@BelongsToPolymorphic(parents = {Relation.class, Finding.class, Measure.class, RoleBinding.class, TypeRef.class, InjectedInstance.class})
+@BelongsToPolymorphic(parents = {Relation.class, Finding.class, Measure.class, RoleBinding.class, TypeRef.class})
 public class Reference extends Model {
 
     public Reference() {}
@@ -64,6 +64,15 @@ public class Reference extends Model {
         return null;
     }
 
+    public static Reference to(PatternInstance inst) {
+        RefType type = RefType.PATTERN;
+        return new Reference(inst.getRefKey(), type);
+    }
+
+    public static Reference to(Namespace ns) {
+        RefType type = RefType.NAMESPACE;
+        return new Reference(ns.getRefKey(), type);
+    }
 
     @Builder(buildMethodName = "create")
     public Reference(String refKey, RefType refType) {

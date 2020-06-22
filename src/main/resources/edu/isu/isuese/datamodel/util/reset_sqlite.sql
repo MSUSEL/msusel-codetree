@@ -110,31 +110,6 @@ create table pattern_instances
     updated_at       NUMERIC
 );
 
-create table injected_instances
-(
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
-    created_at NUMERIC,
-    updated_at NUMERIC
-);
-
-create table projects_injected_instances
-(
-    id                   INTEGER NOT NULL PRIMARY KEY Autoincrement,
-    project_id           INTEGER REFERENCES projects (id),
-    injected_instance_id INTEGER REFERENCES injected_instances (id),
-    created_at           NUMERIC,
-    updated_at           NUMERIC
-);
-
-create table findings_injected_instances
-(
-    id                   INTEGER NOT NULL PRIMARY KEY Autoincrement,
-    finding_id           INTEGER REFERENCES findings (id),
-    injected_instance_id INTEGER REFERENCES injected_instances (id),
-    created_at           NUMERIC,
-    updated_at           NUMERIC
-);
-
 create table role_bindings
 (
     id                  INTEGER NOT NULL PRIMARY KEY Autoincrement,
@@ -158,6 +133,7 @@ create table findings
 (
     id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
     findingKey   VARCHAR,
+    injected     NUMERIC,
     start        INTEGER,
     end          INTEGER,
     created_at   NUMERIC,
@@ -326,6 +302,7 @@ create table modules
     srcPath    VARCHAR,
     binPath    VARCHAR,
     testPath   VARCHAR,
+    buildFiles VARCHAR,
     project_id INTEGER REFERENCES projects (id),
     created_at NUMERIC,
     updated_at NUMERIC
@@ -361,6 +338,7 @@ create table files
 (
     id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
     fileKey      VARCHAR,
+    pathIndex    INTEGER NOT NULL,
     name         VARCHAR,
     type         INTEGER,
     relPath      VARCHAR,
@@ -462,6 +440,7 @@ create table initializers
     end           INTEGER,
     compKey       VARCHAR,
     name          VARCHAR,
+    cfg           VARCHAR,
     accessibility INTEGER,
     parent_id     INTEGER,
     parent_type   VARCHAR,
@@ -507,6 +486,7 @@ create table constructors
     end           INTEGER,
     compKey       VARCHAR,
     name          VARCHAR,
+    cfg           VARCHAR,
     accessibility INTEGER,
     parent_id     INTEGER,
     parent_type   VARCHAR,
@@ -521,6 +501,7 @@ create table destructors
     end           INTEGER,
     compKey       VARCHAR,
     name          VARCHAR,
+    cfg           VARCHAR,
     accessibility INTEGER,
     parent_id     INTEGER,
     parent_type   VARCHAR,
@@ -748,6 +729,86 @@ create table parameters_modifiers
     updated_at   NUMERIC
 );
 
+create table template_params
+(
+    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    name       VARCHAR,
+    created_at NUMERIC,
+    updated_at NUMERIC
+);
+
+create table template_params_typerefs
+(
+    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    template_param_id INTEGER REFERENCES template_params (id),
+    typeref_id        INTEGER REFERENCES type_refs (id),
+    created_at        NUMERIC,
+    updated_at        NUMERIC
+);
+
+create table methods_template_params
+(
+    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    method_id         INTEGER REFERENCES methods (id),
+    template_param_id INTEGER REFERENCES template_params (id),
+    created_at        NUMERIC,
+    updated_at        NUMERIC
+);
+
+create table constructors_template_params
+(
+    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    constructor_id    INTEGER REFERENCES constructors (id),
+    template_param_id INTEGER REFERENCES template_params (id),
+    created_at        NUMERIC,
+    updated_at        NUMERIC
+);
+
+create table destructors_template_params
+(
+    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    destructor_id     INTEGER REFERENCES destructors (id),
+    template_param_id INTEGER REFERENCES template_params (id),
+    created_at        NUMERIC,
+    updated_at        NUMERIC
+);
+
+create table fields_template_params
+(
+    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    field_id          INTEGER REFERENCES fields (id),
+    template_param_id INTEGER REFERENCES template_params (id),
+    created_at        NUMERIC,
+    updated_at        NUMERIC
+);
+
+create table interfaces_template_params
+(
+    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    interface_id      INTEGER REFERENCES interfaces (id),
+    template_param_id INTEGER REFERENCES template_params (id),
+    created_at        NUMERIC,
+    updated_at        NUMERIC
+);
+
+create table classes_template_params
+(
+    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    class_id          INTEGER REFERENCES classes (id),
+    template_param_id INTEGER REFERENCES template_params (id),
+    created_at        NUMERIC,
+    updated_at        NUMERIC
+);
+
+create table enums_template_params
+(
+    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    enum_id           INTEGER REFERENCES enums (id),
+    template_param_id INTEGER REFERENCES template_params (id),
+    created_at        NUMERIC,
+    updated_at        NUMERIC
+);
+
 insert into modifiers (name)
 values ('STATIC'),
        ('FINAL'),
@@ -775,31 +836,3 @@ values ('STATIC'),
        ('IMPLICIT'),
        ('YIELD'),
        ('THIS');
-
-insert into pattern_repositories (repoKey, name)
-values ('gof', 'gof');
-
-insert into patterns (patternKey, name, pattern_repository_id)
-values ('gof:abstract_factory', 'Abstract Factory', 1),
-       ('gof:builder', 'Builder', 1),
-       ('gof:factory_method', 'Factory Method', 1),
-       ('gof:prototype', 'Prototype', 1),
-       ('gof:singleton', 'Singleton', 1),
-       ('gof:adapter', 'Adapter', 1),
-       ('gof:bridge', 'Bridge', 1),
-       ('gof:composite', 'Composite', 1),
-       ('gof:decorator', 'Decorator', 1),
-       ('gof:facade', 'Facade', 1),
-       ('gof:flyweight', 'Flyweight', 1),
-       ('gof:proxy', 'Proxy', 1),
-       ('gof:chain_of_responsibility', 'Chain of Responsibility', 1),
-       ('gof:command', 'Command', 1),
-       ('gof:interpreter', 'Interpreter', 1),
-       ('gof:iterator', 'Iterator', 1),
-       ('gof:mediator', 'Mediator', 1),
-       ('gof:memento', 'Memento', 1),
-       ('gof:observer', 'Observer', 1),
-       ('gof:state', 'State', 1),
-       ('gof:strategy', 'Strategy', 1),
-       ('gof:template_method', 'Template Method', 1),
-       ('gof:visitor', 'Visitor', 1);

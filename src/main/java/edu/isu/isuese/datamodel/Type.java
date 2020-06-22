@@ -54,7 +54,7 @@ public abstract class Type extends Component implements ComponentContainer {
      * @return true if this type is abstract; false otherwise.
      */
     public boolean isAbstract() {
-        return getBoolean("abstract");
+        return hasModifier("abstract");
     }
 
     /**
@@ -63,24 +63,11 @@ public abstract class Type extends Component implements ComponentContainer {
      * @param abst the new value of the abstract field
      */
     public void setAbstract(boolean abst) {
-        setBoolean("abstract", abst);
+        if (abst)
+            addModifier("abstract");
+        else
+            removeModifier("abstract");
         save();
-    }
-
-    @Override
-    public void addModifier(String mod) {
-        if (mod.equalsIgnoreCase("abstract"))
-            setAbstract(true);
-
-        super.addModifier(mod);
-    }
-
-    @Override
-    public void removeModifier(String mod) {
-        if (mod.equalsIgnoreCase("abstract"))
-            setAbstract(false);
-
-        super.removeModifier(mod);
     }
 
     public List<System> getParentSystems() {
@@ -191,6 +178,18 @@ public abstract class Type extends Component implements ComponentContainer {
         return getAll(Method.class);
     }
 
+    public Method getMethodWithName(String name) {
+        try {
+            return get(Method.class, "name = ?", name).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasMethodWithName(String name) {
+        return getMethodWithName(name) != null;
+    }
+
     @Override
     public List<Destructor> getDestructors() {
         return getAll(Destructor.class);
@@ -220,6 +219,18 @@ public abstract class Type extends Component implements ComponentContainer {
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
+    }
+
+    public Initializer getInitializerWithName(String name) {
+        try {
+            return get(Initializer.class, "name = ?", name).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasInitializerWithName(String name) {
+        return getInitializerWithName(name) != null;
     }
 
     public List<Literal> getLiterals() {
@@ -440,11 +451,20 @@ public abstract class Type extends Component implements ComponentContainer {
         return descendants;
     }
 
-    public List<Type> getContainedTypes() {
-        List<Type> children = Lists.newArrayList();
-        children.addAll(getContained());
+    public Type getContainingType() {
+        Type parent = parent(Interface.class);
+        if (parent == null) parent = parent(Enum.class);
+        if (parent == null) parent = parent(Class.class);
 
-        return children;
+        return parent;
+    }
+
+    public List<Type> getContainedTypes() {
+        List<Type> types = Lists.newArrayList();
+        types.addAll(getAll(Class.class));
+        types.addAll(getAll(Interface.class));
+        types.addAll(getAll(Enum.class));
+        return types;
     }
 
     public List<Method> findOverridingMethods(List<Method> given) {
@@ -615,16 +635,115 @@ public abstract class Type extends Component implements ComponentContainer {
         return Reference.builder().refKey(getCompKey()).refType(RefType.TYPE).create();
     }
 
+    public void addType(Type type) {
+        if (type != null) {
+            add(type);
+        }
+        save();
+    }
+
+    public void removeType(Type type) {
+        if (type != null) {
+            remove(type);
+        }
+        save();
+    }
+
+    public Type getTypeByName(String name) {
+        Type type = getClassByName(name) != null ? getClassByName(name) :
+                (getInterfaceByName(name) != null ? getInterfaceByName(name) : getEnumByName(name));
+
+        return type;
+    }
+
+    private Type getClassByName(String name) {
+        try {
+            return get(Class.class, "name = ?", name).get(0);
+        } catch(IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    private Type getInterfaceByName(String name) {
+        try {
+            return get(Interface.class, "name = ?", name).get(0);
+        } catch(IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    private Type getEnumByName(String name) {
+        try {
+            return get(Enum.class, "name = ?", name).get(0);
+        } catch(IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasTypeWithName(String name) {
+        return getTypeByName(name) != null;
+    }
+
+    public boolean hasTemplateParam(String name) {
+        return getTemplateParam(name) != null;
+    }
+
+    public TemplateParam getTemplateParam(String name) {
+        try {
+            return get(TemplateParam.class, "name = ?", name).get(0);
+        } catch(IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
     public Type copy(String oldPrefix, String newPrefix) {
         Type copy = copyType();
 
         getModifiers().forEach(copy::addModifier);
         getAllMembers().forEach(member -> copy.addMember(member.copy(oldPrefix, newPrefix)));
-//        getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy()));
-//        getChildTypes().forEach(type -> copy.add(type.copy()));
+        getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy(oldPrefix, newPrefix)));
+        getContained().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix)));
 
         return copy;
     }
 
     protected abstract Type copyType();
+
+    public Field getFieldWithName(String name) {
+        try {
+            return get(Field.class, "name = ?", name).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasFieldWithName(String name) {
+        return getFieldWithName(name) != null;
+    }
+
+    public Constructor getConstructorWithNParams(int numParams) {
+        for (Constructor c : getConstructors()) {
+            if (c.getParams().size() == numParams)
+                return c;
+        }
+
+        return null;
+    }
+
+    public boolean hasConstructorWithNParams(int numParams) {
+        return getConstructorWithNParams(numParams) != null;
+    }
+
+    public Method getMethodWithNameAndNumParams(String name, int numParams) {
+        for (Method m : get(Method.class, "name = ?", name)) {
+            if (m.getParams().size() == numParams)
+                return m;
+        }
+
+        return null;
+    }
+
+    public boolean hasMethodWithNameAndNumParams(String name, int numParams) {
+        return getMethodWithNameAndNumParams(name, numParams) != null;
+    }
 }

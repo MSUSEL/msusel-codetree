@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese
 
+import edu.isu.isuese.datamodel.File
 import edu.isu.isuese.datamodel.Project
 
 /**
@@ -37,4 +38,8 @@ interface ArtifactIdentifier {
     void identify(String root)
 
     void setProj(Project proj)
+
+    List<File> getFiles()
+
+    void setProjectPaths()
 }

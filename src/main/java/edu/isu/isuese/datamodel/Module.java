@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
@@ -88,6 +89,17 @@ public class Module extends Model implements Measurable, ComponentContainer {
         List<File> files = Lists.newArrayList();
         getNamespaces().forEach(ns -> files.addAll(ns.getFiles()));
         return files;
+    }
+
+    public List<File> getFilesByType(FileType type) {
+        List<File> files = getFiles();
+        List<File> ret = Lists.newArrayList();
+        for (File f : files) {
+            if (f.getType().equals(type))
+                ret.add(f);
+        }
+
+        return ret;
     }
 
     public List<Import> getImports() {
@@ -250,30 +262,114 @@ public class Module extends Model implements Measurable, ComponentContainer {
         save();
     }
 
+    public String[] getSrcPaths() {
+        String srcPaths = getString("srcPath");
+        if (srcPaths != null)
+            return srcPaths.split(",");
+        else
+            return new String[0];
+    }
+
     public String getSrcPath() {
-        return getString("srcPath");
+        return getSrcPath(0);
+    }
+
+    public String getSrcPath(int index) {
+        String[] paths = getSrcPaths();
+        if (paths.length > 0)
+            return paths[index];
+        else
+            return "";
     }
 
     public void setSrcPath(String path) {
-        setString("srcPath", path);
+        String[] paths = { path };
+        setSrcPath(paths);
+    }
+
+    public void setSrcPath(String[] paths) {
+        setPath("srcPath", paths);
+    }
+
+    private void setPath(String name, String[] paths) {
+        if (paths.length <= 0)
+            return;
+
+        StringBuilder path = new StringBuilder();
+        path.append(paths[0]);
+        for (int i = 1; i < paths.length; i++) {
+            path.append(",");
+            path.append(paths[i]);
+        }
+        setString(name, path.toString());
         save();
+    }
+
+    public String[] getBinaryPaths() {
+        String binPaths = getString("binPath");
+        if (binPaths != null)
+            return binPaths.split(",");
+        else
+            return new String[0];
     }
 
     public String getBinaryPath() {
-        return getString("binPath");
+        return getBinaryPath(0);
     }
 
-    public void setBinPath(String path) {
-        setString("binPath", path);
-        save();
+    public String getBinaryPath(int index) {
+        String[] paths = getBinaryPaths();
+        if (paths.length > 0)
+            return paths[index];
+        else
+            return "";
+    }
+
+    public void setBinPath(String[] paths) {
+        setPath("binPath", paths);
+    }
+
+    public String[] getTestPaths() {
+        String testPaths = getString("testPath");
+        if (testPaths != null)
+            return testPaths.split(",");
+        else
+            return new String[0];
     }
 
     public String getTestPath() {
-        return getString("testPath");
+        return getTestPath(0);
+    }
+
+    public String getTestPath(int index) {
+        String[] paths = getTestPaths();
+        if (paths.length > 0)
+            return paths[index];
+        else
+            return "";
     }
 
     public void setTestPath(String path) {
-        setString("testPath", path);
+        String[] paths = {path};
+        setTestPath(paths);
+    }
+
+    public void setTestPath(String[] path) {
+        setPath("testPath", path);
+    }
+
+    public String[] getBuildFiles() {
+        String files = getString("buildFiles");
+        return files.split(",");
+    }
+
+    public void addBuildFile(String file) {
+        String files = getString("buildFiles");
+        if (files != null && files.isEmpty()) {
+            setString("buildFiles", file);
+        } else {
+            setString("buildFiles", files + "," + file);
+        }
         save();
     }
 

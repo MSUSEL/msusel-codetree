@@ -30,8 +30,10 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Queues;
 import lombok.Builder;
 import org.javalite.activejdbc.Base;
+import org.javalite.activejdbc.LazyList;
 import org.javalite.activejdbc.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
@@ -157,6 +159,16 @@ public class Project extends Model implements Measurable, ComponentContainer {
         return getAll(PatternInstance.class);
     }
 
+    public PatternInstance findPatternInstance(Pattern pattern, String name) {
+        for (PatternInstance inst : getPatternInstances()) {
+            if (inst.getParentPattern().equals(pattern) && inst.getInstKey().endsWith(name)) {
+                return inst;
+            }
+        }
+
+        return null;
+    }
+
     public List<RoleBinding> getRoleBindings() {
         List<RoleBinding> bindings = Lists.newArrayList();
         getPatternInstances().forEach(inst -> bindings.addAll(inst.getRoleBindings()));
@@ -217,9 +229,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     public List<Namespace> getNamespaces() {
         List<Namespace> namespaces = Lists.newArrayList();
         Queue<Namespace> queue = Queues.newArrayDeque();
-        getModules().forEach(mod -> {
-            queue.addAll(mod.getNamespaces());
-        });
+        getModules().forEach(mod -> queue.addAll(mod.getNamespaces()));
 
         while (!queue.isEmpty()) {
             Namespace ns = queue.poll();
@@ -231,10 +241,12 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public Namespace findNamespace(String name) {
-        for (Namespace ns : getNamespaces()) {
-            if (ns.getName().equals(name))
+        List<Namespace> namespaces = Namespace.find("name = ?", name);
+        for (Namespace ns : namespaces) {
+            if (ns.getNsKey().startsWith(this.getProjectKey()))
                 return ns;
         }
+
         return null;
     }
 
@@ -242,22 +254,12 @@ public class Project extends Model implements Measurable, ComponentContainer {
         return findNamespace(name) != null;
     }
 
-    public void addFile(File file) {
-        if (file != null) {
-            add(file);
-            save();
-        }
-    }
-
-    public void removeFile(File file) {
-        if (file != null) {
-            remove(file);
-            save();
-        }
-    }
-
     public List<File> getFiles() {
-        return getAll(File.class);
+        List<File> files = new ArrayList<>();
+        for (Module m : getModules()) {
+            files.addAll(m.getFiles());
+        }
+        return files;
     }
 
     public List<File> getFilesByType(FileType type) {
@@ -292,9 +294,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     @Override
     public List<Type> getAllTypes() {
         List<Type> types = Lists.newArrayList();
-        getModules().forEach(mod -> {
-            types.addAll(mod.getAllTypes());
-        });
+        getModules().forEach(mod -> types.addAll(mod.getAllTypes()));
         return types;
     }
 
@@ -487,33 +487,13 @@ public class Project extends Model implements Measurable, ComponentContainer {
         add(rel);
     }
 
-    public void addUnknownType(UnknownType type) {
-        if (type == null)
-            return;
-
-        add(type);
-        save();
-    }
-
-    public void addInjectedInstance(InjectedInstance inst) {
-        if (inst == null)
-            return;
-
-        add(inst);
-        save();
-    }
-
-    public void removeInjectedInstance(InjectedInstance inst) {
-        if (inst == null)
-            return;
-
-        remove(inst);
-        save();
-    }
-
-    public List<InjectedInstance> getInjectedInstances() {
-        return getAll(InjectedInstance.class);
-    }
+//    public void addUnknownType(UnknownType type) {
+//        if (type == null)
+//            return;
+//
+//        add(type);
+//        save();
+//    }
 
     public String getRelPath() {
         return getString("relPath");
@@ -584,7 +564,6 @@ public class Project extends Model implements Measurable, ComponentContainer {
         getMeasures().forEach(measure -> copy.addMeasure(measure.copy(this.getProjectKey(), copy.getProjectKey())));
         getFindings().forEach(finding -> copy.addFinding(finding.copy(this.getProjectKey(), copy.getProjectKey())));
         getPatternInstances().forEach(instance -> copy.addPatternInstance(instance.copy(this.getProjectKey(), copy.getProjectKey())));
-        getInjectedInstances().forEach(instance -> copy.addInjectedInstance(instance.copy(this.getProjectKey(), copy.getProjectKey())));
         getRelations().forEach(rel -> copy.addRelation(rel.copy(this.getProjectKey(), copy.getProjectKey())));
 
         return copy;

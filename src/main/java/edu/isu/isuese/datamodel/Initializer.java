@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import edu.isu.isuese.datamodel.cfg.ControlFlowGraph;
 import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
@@ -72,5 +73,14 @@ public class Initializer extends Member {
         getModifiers().forEach(copy::addModifier);
 
         return copy;
+    }
+
+    public ControlFlowGraph getCfg() {
+        return ControlFlowGraph.fromString(getString("cfg"));
+    }
+
+    public void setCfg(ControlFlowGraph cfg) {
+        set("cfg", cfg.cfgToString());
+        save();
     }
 }

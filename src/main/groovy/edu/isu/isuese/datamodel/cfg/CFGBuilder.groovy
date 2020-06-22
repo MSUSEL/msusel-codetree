@@ -45,12 +45,18 @@ class CFGBuilder {
     int stmtCount = 1
     def labeledStatements = [:]
     ControlFlowNode loopNext
+    MethodStart start
+    MethodEnd end
 
     CFGBuilder() {
         currentCFG = GraphBuilder.directed().build()
         prevNode = null
         blocks = new Stack<>()
         methodNodes = new Stack<>()
+    }
+
+    ControlFlowGraph getCFG() {
+        return new ControlFlowGraph(currentCFG, start, end)
     }
 
     void inject(BlockStart start, BlockEnd end) {
@@ -236,16 +242,16 @@ class CFGBuilder {
 
     void startMethod() {
         currentCFG = GraphBuilder.directed().build()
-        MethodStart ms = new MethodStart()
-        MethodEnd me = new MethodEnd()
+        start = new MethodStart()
+        end = new MethodEnd()
 
-        methodNodes.push(Pair.of(ms, me))
+        methodNodes.push(Pair.of(start, end))
 
-        currentCFG.addNode(ms)
-        currentCFG.addNode(me)
-        currentCFG.putEdge(ms, me)
+        currentCFG.addNode(start)
+        currentCFG.addNode(end)
+        currentCFG.putEdge(start, end)
 
-        prevNode = ms
+        prevNode = start
     }
 
     void endMethod(Method method) {

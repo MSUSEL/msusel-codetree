@@ -63,8 +63,6 @@ public class Method extends TypedMember {
         save();
     }
 
-    private ControlFlowGraph cfg = null;
-
     public void addParameter(Parameter param) {
         add(param);
         save();
@@ -83,27 +81,12 @@ public class Method extends TypedMember {
         setType(ref);
     }
 
-    public List<TemplateParam> getTypeParams() {
-        return getAll(TemplateParam.class);
-    }
-
     public void setTypeParams(List<TemplateParam> params) {
         if (params == null || params.isEmpty())
             return;
 
         for (TemplateParam param : params)
-            add(param);
-        save();
-    }
-
-    public void addTemplateParam(TemplateParam param) {
-        add(param);
-        save();
-    }
-
-    public void removeTemplateParam(TemplateParam param) {
-        remove(param);
-        save();
+            addTemplateParam(param);
     }
 
     public void addException(TypeRef excep) {
@@ -172,15 +155,30 @@ public class Method extends TypedMember {
         return retVal;
     }
 
+    public String sigWithOutType() {
+        StringBuilder sig = new StringBuilder();
+        sig.append(getName());
+        sig.append("(");
+        for (Parameter param : getParams()) {
+            sig.append(param.getType().getTypeName());
+            sig.append(", ");
+        }
+
+        String retVal = sig.toString();
+        if (retVal.endsWith(", ")) {
+            retVal = retVal.trim();
+            retVal = retVal.substring(0, retVal.length() - 2);
+        }
+        retVal += ")";
+
+        return retVal;
+    }
+
     public Parameter getParameterByName(String param) {
         List<Parameter> named = get(Parameter.class, "name = ?", param);
         if (!named.isEmpty())
             return named.get(0);
         return null;
-    }
-
-    public TemplateParam getTypeParamByName(String paramName) {
-        return get(TemplateParam.class, "name = ?", paramName).get(0);
     }
 
     public MethodException getExceptionByName(String exception) {
@@ -200,13 +198,10 @@ public class Method extends TypedMember {
     }
 
     public ControlFlowGraph getCfg() {
-        if (cfg == null && getId() != null)
-            cfg = ControlFlowGraph.fromString(getString("cfg"));
-        return cfg;
+        return ControlFlowGraph.fromString(getString("cfg"));
     }
 
     public void setCfg(ControlFlowGraph cfg) {
-        this.cfg = cfg;
         set("cfg", cfg.cfgToString());
         save();
     }
@@ -291,9 +286,9 @@ public class Method extends TypedMember {
 
         String newKey;
         if (parent != null)
-            newKey = parent.getCompKey() + "#" + getName();
+            newKey = parent.getCompKey() + "#" + sigWithOutType();
         else
-            newKey = signature();
+            newKey = sigWithOutType();
 
         setString("compKey", newKey);
         save();
@@ -339,7 +334,7 @@ public class Method extends TypedMember {
                 .create();
 
         getModifiers().forEach(copy::addModifier);
-//        getTypeParams().forEach(param -> copy.addTemplateParam(param.copy()));
+        getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy(oldPrefix, newPrefix)));
         getExceptions().forEach(excep -> copy.addException(excep.getTypeRef().copy(oldPrefix, newPrefix)));
         getParams().forEach(param -> copy.addParameter(param.copy()));
 

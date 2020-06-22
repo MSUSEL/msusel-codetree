@@ -42,9 +42,10 @@ public class Pattern extends Model {
     public Pattern() {}
 
     @Builder(buildMethodName = "create")
-    public Pattern(String name, String key) {
+    public Pattern(String name, String key, String family) {
         if (name != null && !name.isEmpty()) setName(name);
         if (key != null && !key.isEmpty()) setString("patternKey", key);
+        if (family != null && !family.isEmpty()) setFamily(family);
         save();
     }
 

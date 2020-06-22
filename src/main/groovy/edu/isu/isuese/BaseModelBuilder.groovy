@@ -26,166 +26,59 @@
  */
 package edu.isu.isuese
 
-import com.google.common.collect.Lists
-import edu.isu.isuese.datamodel.Accessibility
-import edu.isu.isuese.datamodel.Constructor
-import edu.isu.isuese.datamodel.Destructor
-import edu.isu.isuese.datamodel.Field
-import edu.isu.isuese.datamodel.File
-import edu.isu.isuese.datamodel.FileType
-import edu.isu.isuese.datamodel.Initializer
-import edu.isu.isuese.datamodel.Member
-import edu.isu.isuese.datamodel.Method
-import edu.isu.isuese.datamodel.Modifier
-import edu.isu.isuese.datamodel.Namespace
-import edu.isu.isuese.datamodel.Parameter
-import edu.isu.isuese.datamodel.Project
-import edu.isu.isuese.datamodel.RelationType
-import edu.isu.isuese.datamodel.System
-import edu.isu.isuese.datamodel.Class
-import edu.isu.isuese.datamodel.Interface
-import edu.isu.isuese.datamodel.Enum
-import edu.isu.isuese.datamodel.RefType
-import edu.isu.isuese.datamodel.Reference
-import edu.isu.isuese.datamodel.Type
-import edu.isu.isuese.datamodel.TypeRef
-import edu.isu.isuese.datamodel.TypeRefType
-import edu.isu.isuese.datamodel.UnknownType
-import groovy.util.logging.Slf4j
-import org.antlr.v4.runtime.RecognitionException
-import org.antlr.v4.runtime.tree.ParseTreeListener
-
-import java.nio.file.Path
+import edu.isu.isuese.datamodel.*
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@Slf4j
 abstract class BaseModelBuilder {
 
-    ArtifactIdentifier identifier
     System system
     Project proj
     Namespace namespace
     File file
+    Stack<Type> types = []
+    Stack<Member> methods = []
+    Stack<Set<String>> scopes = []
+    TemplateParam currentTypeParam
+    Parameter currentParam
 
-    Stack<Type> types = new Stack<>()
-    Stack<TypeRef> currentTypeRef = new Stack<>()
-    Stack<Member> methods = new Stack<>()
-    Stack<Parameter> params = new Stack<>()
-    Stack<TypeRef> exceptions = new Stack<>()
-    Stack<TypeRef> typeParams = new Stack<>()
-    private List<Field> currentNodes = []
+    BaseModelBuilder(Project proj, File file) {
+        if (!proj || !file) {
+            throw new IllegalArgumentException("Project and File must not be null")
+        }
+        if (proj.getParentSystem() == null) {
+            throw new IllegalArgumentException("Project must be a part of a system")
+        }
+        if (proj.getModules().size() < 1) {
+            throw new IllegalArgumentException("Project must have at least one module")
+        }
 
-    BitSet flags = new BitSet(9)
-
-    public static final int FORMAL_PARAMETERS = 0
-    public static final int VARIABLE_MODIFIER = 1
-    public static final int TYPE_PARAMETER = 2
-    public static final int CONSTRUCTOR_MODIFIER = 3
-    public static final int METHOD_RESULT = 4
-    public static final int EXCEPTION_LIST = 5
-    public static final int METHOD_MODIFIER = 6
-    public static final int TYPE_DECL = 7
-    public static final int FIELD_DECL = 8
-
-    /**
-     * Constructs a new BaseModelBuilder
-     * @param identifier
-     */
-    BaseModelBuilder(ArtifactIdentifier identifier) {
-        this.identifier = identifier
-    }
-
-    /**
-     * Template method to construct the codetree for the given project key and root project path
-     * @param projectKey Project Key
-     * @param path root path for the project
-     * @return Code Tree constructed for the project
-     */
-    System build(String projectKey, String path) {
-        proj = Project.builder().projKey(projectKey).version().create()
-        system = System.builder()
-
-        getIdentifier().setProj(proj)
-        getIdentifier().identify(path)
-        final List<File> files = proj.getFilesByType(FileType.SOURCE)
-        parseStructure(files)
-        AssociationExtractor extract = new AssociationExtractor(proj)
-        extract.extractAssociations()
-        extract.extractDependencies()
-
-        system
-    }
-
-    void build(Project proj, String path) {
         this.proj = proj
         this.system = proj.getParentSystem()
-
-        getIdentifier().setProj(this.proj)
-        getIdentifier().identify(path)
-        final List<File> files = proj.getFilesByType(FileType.SOURCE)
-        parseStructure(files)
-        AssociationExtractor extract = new AssociationExtractor(proj)
-        extract.extractAssociations()
-        extract.extractDependencies()
+        this.file = file
+        if (file.getParentNamespace() != null)
+            namespace = file.getParentNamespace()
     }
 
-    /**
-     * Parses the code structure from the provided set of input files, adding
-     * this structure to the root project provided.
-     *
-     * @param files List of input files to be parsed
-     */
-    void parseStructure(final List<File> files) {
-        files.each { file ->
-            try {
-                gatherTypes(file.getFileKey())
-            } catch (final RecognitionException e) {
-                log.warn(e.getMessage(), e)
-            }
-        }
-
-        files.each { file ->
-            setFile(proj.getFile(file.getFileKey()))
-            gatherRelationships()
-            gatherTypeMembers()
+    //////////////////////
+    // Setup Methods
+    //////////////////////
+    void setFile(File file) {
+        this.file = file
+        if (file.getParentNamespace() != null) {
+            namespace = file.getParentNamespace()
         }
     }
 
-    /**
-     * Extracts the types defined in the file with the provided path
-     * @param file String encoding of the path for the file to be analyzed
-     */
-    abstract void gatherTypes(String file)
-
-    /**
-     * Extracts the relationships between types
-     */
-    abstract void gatherRelationships()
-
-    /**
-     * Extracts the members of types
-     */
-    abstract void gatherTypeMembers()
-
-    /**
-     * Executes the parser with the given listener attached
-     * @param listener Parse model listener which extracts information
-     */
-    abstract void utilizeParser(ParseTreeListener listener)
-
-    /**
-     * Finds or creates a Namespace for the given Namespace name.
-     * @param namespaceName Name of the namespace to find or create
-     * @return The namespace
-     */
-    Namespace getOrCreateNamespace(String namespaceName) {
-        Namespace current = proj.findNamespace(namespaceName)
+    //////////////////////
+    // Structures
+    //////////////////////
+    void createNamespace(String name) {
+        Namespace current = namespace
         if (current == null) {
-
-            String[] packageNames = namespaceName.split(/\./)
+            String[] packageNames = name.split(/\./)
 
             for (String seg : packageNames) {
                 String pKey = current == null ? "" : current.getNsKey()
@@ -193,16 +86,628 @@ abstract class BaseModelBuilder {
 
                 if (!proj.hasNamespace(key)) {
                     Namespace parent = current
-                    current = Namespace.createIt("nsKey", key, "name", key)
-                    parent.addNamespace(current)
+                    current = Namespace.builder()
+                            .name(key)
+                            .nsKey(key)
+                            .relPath(key)
+                            .create()
+                    if (parent != null)
+                        parent.addNamespace(current)
+                    else
+                        proj.getModules().get(0).addNamespace(current)
+                    current.updateKey()
                 } else {
                     Namespace parent = current
                     setParentNamespace(parent, current)
                     current = proj.findNamespace(key)
                 }
             }
+
+            current.addFile(file)
+            namespace = current
+            file.updateKey()
         }
-        return current
+    }
+
+    void createImport(String name, int start, int end) {
+        Import imp = Import.builder().name(name).start(start).end(end).create()
+
+        file.addImport(imp)
+    }
+
+    //////////////////////
+    // Types
+    //////////////////////
+
+    void endType() {
+        if (!types) {
+            Type type = types.pop()
+            if (types.isEmpty())
+                file.addType(type)
+            else
+                types.peek().addType(type)
+            type.updateKey()
+        }
+    }
+
+    void findClass(String name) {
+        Type type
+        if (types)
+            type = Class.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
+        else
+            type = Class.findFirst("key = ?", "${file.getFileKey()}:$name")
+        types.push(type)
+    }
+
+    void createClass(String name, int start, int stop) {
+        if (types.peek().getTypeByName(name) != null)
+            types.push(types.peek().getTypeByName(name))
+        else if (file.getTypeByName(name) != null) {
+            types.push(file.getTypeByName(name))
+        } else {
+            Class cls = Class.builder()
+                    .name(name)
+                    .compKey(name)
+                    .accessibility(Accessibility.PUBLIC)
+                    .start(start)
+                    .end(stop)
+                    .create()
+            if (types) {
+                types.peek().addType(cls)
+            } else {
+                file.addType(cls)
+            }
+            cls.updateKey()
+            types.push(cls)
+        }
+    }
+
+    void findEnum(String name) {
+        Type type
+        if (types)
+            type = Enum.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
+        else
+            type = Enum.findFirst("key = ?", "${file.getFileKey()}:$name")
+        types.push(type)
+    }
+
+    void createEnum(String name, int start, int stop) {
+        if (types.peek().getTypeByName(name) != null)
+            types.push(types.peek().getTypeByName(name))
+        else if (file.getTypeByName(name) != null) {
+            types.push(file.getTypeByName(name))
+        } else {
+            Enum enm = Enum.builder()
+                    .name(name)
+                    .compKey(name)
+                    .accessibility(Accessibility.PUBLIC)
+                    .start(start)
+                    .end(stop)
+                    .create()
+            if (types) {
+                types.peek().addType(enm)
+            } else {
+                file.addType(enm)
+            }
+            enm.updateKey()
+            types.push(enm)
+        }
+    }
+
+    void findInterface(String name) {
+        Type type
+        if (types)
+            type = Interface.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
+        else
+            type = Interface.findFirst("key = ?", "${file.getFileKey()}:$name")
+        types.push(type)
+    }
+
+    void createInterface(String name, int start, int stop) {
+        if (types.peek().getTypeByName(name) != null)
+            types.push(types.peek().getTypeByName(name))
+        else if (file.getTypeByName(name) != null) {
+            types.push(file.getTypeByName(name))
+        } else {
+            Interface ifc = Interface.builder()
+                    .name(name)
+                    .compKey(name)
+                    .accessibility(Accessibility.PUBLIC)
+                    .start(start)
+                    .end(stop)
+                    .create()
+            if (types) {
+                types.peek().addType(ifc)
+            } else {
+                file.addType(ifc)
+            }
+            ifc.updateKey()
+            types.push(ifc)
+        }
+    }
+
+    void findAnnotation(String name) {
+        findInterface(name)
+    }
+
+    void createAnnotation(String name, int start, int stop) {
+        createInterface(name, start, stop)
+    }
+
+    void setTypeModifiers(List<String> modifiers) {
+        if (types) {
+            modifiers.each { mod ->
+                Accessibility access = handleAccessibility(mod)
+                Modifier modifier = handleNamedModifiers(mod)
+                if (access) types.peek().setAccessibility(access)
+                if (modifier) types.peek().addModifier(modifier)
+            }
+        }
+    }
+
+    void createTypeTypeParameter(String name) {
+        if (types) {
+            if (types.peek().hasTemplateParam(name))
+                currentTypeParam = types.peek().getTemplateParam(name)
+            else {
+                currentTypeParam = TemplateParam.builder().name(name).create()
+
+                if (types) {
+                    types.peek().addTemplateParam(currentTypeParam)
+                }
+            }
+        }
+    }
+
+    ///////////////////
+    // Methods
+    ///////////////////
+
+    void findInitializer(String name, boolean instance) {
+        Initializer init = types ? Initializer.findFirst("key = ?", "${types.peek().getCompKey()}:$name") : null
+        if (init) methods.push(init)
+    }
+
+    void createInitializer(String name, boolean instance, int start, int end) {
+        if (types) {
+            if (types.peek().hasInitializerWithName(name)) {
+                methods.push(types.peek().getInitializerWithName(name))
+            } else {
+                Initializer init = Initializer.builder()
+                        .name(name)
+                        .compKey(name)
+                        .accessibility(Accessibility.PUBLIC)
+                        .start(start)
+                        .end(end)
+                        .instance(instance)
+                        .create()
+                types.peek().addMember(init)
+                init.updateKey()
+                methods.push(init)
+            }
+        }
+    }
+
+    void findMethod(String signature) {
+        Method meth = types ? Method.findFirst("compKey = ?", "${types.peek().getCompKey()}#$signature") : null
+        if (meth) methods.push(meth)
+    }
+
+    void createMethod(String name, int start, int end) {
+        if (types) {
+            if (types.peek().hasMethodWithName(name)) {
+                methods.push(types.peek().getMethodWithName(name))
+            } else {
+                Method meth = Method.builder()
+                        .name(name)
+                        .compKey(name)
+                        .accessibility(Accessibility.PUBLIC)
+                        .start(start)
+                        .end(end)
+                        .create()
+                types.peek().addMember(meth)
+                meth.updateKey()
+                methods.push(meth)
+            }
+        }
+    }
+
+    void findConstructor(String signature) {
+        Constructor cons = types ? Constructor.findFirst("compKey = ?", "${types.peek().getCompKey()}#$signature") : null
+        if (cons) methods.push(cons)
+    }
+
+    void createConstructor(String name, int start, int end) {
+        if (types) {
+            Constructor cons = Constructor.creator()
+                    .name(name)
+                    .compKey(name)
+                    .accessibility(Accessibility.PUBLIC)
+                    .start(start)
+                    .end(end)
+                    .create()
+            types.peek().addMember(cons)
+            cons.updateKey()
+            methods.push(cons)
+        }
+    }
+
+    void createMethodParameter() {
+        currentParam = Parameter.builder().varg(false).create()
+        if (methods && methods.peek() instanceof Method)
+            ((Method) methods.peek()).addParameter(currentParam)
+    }
+
+    void setVariableParameter(boolean varg) {
+        currentParam.setVarg(varg)
+    }
+
+    void addParameterModifier(String mod) {
+        currentParam.addModifier(mod)
+    }
+
+    void setMethodModifiers(List<String> mods) {
+        if (methods) {
+            mods.each { mod ->
+                Accessibility access = handleAccessibility(mod)
+                Modifier modifier = handleNamedModifiers(mod)
+                if (access) methods.peek().setAccessibility(access)
+                if (modifier) methods.peek().addModifier(modifier)
+            }
+        }
+    }
+
+    void createMethodTypeParameter(String name) {
+        currentTypeParam = TemplateParam.builder().name(name).create()
+        if (methods && methods.peek() instanceof Method) {
+            ((Method) methods.peek()).addTemplateParam(currentTypeParam)
+        }
+    }
+
+    void setParameterType(String type) {
+        Type t = findType(type)
+        currentParam.setType(t.createTypeRef())
+    }
+
+    void setParameterPrimitiveType(String type) {
+        currentParam.setType(TypeRef.createPrimitiveTypeRef(type))
+    }
+
+    void setMethodReturnType(String type) {
+        Type t = findType(type)
+        if (t && methods && methods.peek() instanceof Method)
+            ((Method) methods.peek()).setReturnType(t.createTypeRef())
+    }
+
+    void setMethodReturnTypeVoid() {
+        if (methods && methods.peek() instanceof Method)
+            ((Method) methods.peek()).setReturnType(TypeRef.createPrimitiveTypeRef("void"))
+    }
+
+    void setMethodReturnPrimitiveType(String type) {
+        if (methods && methods.peek() instanceof Method)
+            ((Method) methods.peek()).setReturnType(TypeRef.createPrimitiveTypeRef(type))
+    }
+
+    void addMethodException(String type) {
+        Type t = findType(type)
+        if (t && methods && methods.peek() instanceof Method)
+            ((Method) methods.peek()).addException(t.createTypeRef())
+    }
+
+    void finishMethod() {
+        methods.pop()
+    }
+
+    ///////////////////
+    // Fields
+    ///////////////////
+    void createField(String name, String fieldType, boolean primitive, int start, int end, List<String> modifiers) {
+        if (types) {
+            if (types.peek().hasFieldWithName(name))
+                return
+            else {
+                Field field = Field.builder()
+                        .name(name)
+                        .compKey(name)
+                        .accessibility(Accessibility.PUBLIC)
+                        .start(start)
+                        .end(end)
+                        .create()
+                if (primitive)
+                    field.setType(TypeRef.createPrimitiveTypeRef(fieldType))
+                else {
+                    Type t = findType(fieldType)
+                    if (t) field.setType(t.createTypeRef())
+                }
+                setFieldModifiers(field, modifiers)
+            }
+        }
+    }
+
+    void createEnumLiteral(String name, int start, int end) {
+        if (types && types.peek() instanceof Enum) {
+            Enum enm = (Enum) types.peek()
+            if (enm.hasLiteralWithName(name))
+                return
+            else {
+                Literal lit = Literal.builder()
+                        .name(name)
+                        .compKey(name)
+                        .start(start)
+                        .end(end)
+                        .create()
+                enm.addMember(lit)
+                lit.updateKey()
+            }
+        }
+    }
+
+    void setFieldModifiers(Field field, List<String> modifiers) {
+        modifiers.each { mod ->
+            Accessibility access = handleAccessibility(mod)
+            Modifier modifier = handleNamedModifiers(mod)
+            if (access) field.setAccessibility(access)
+            if (modifier) field.addModifier(modifier)
+        }
+    }
+
+    ///////////////////
+    // Relationships
+    ///////////////////
+
+    void addRealization(String typeName) {
+        if (types) {
+            types.peek().realizes(findType(typeName))
+        }
+    }
+
+    void addGeneralization(String typeName) {
+        if (types) {
+            types.peek().generalizedBy(findType(typeName))
+        }
+    }
+
+    void addAssociation(Type type) {
+        if (types) {
+            types.peek().associatedTo(type)
+        }
+    }
+
+    void addUseDependency(Type type) {
+        if (types) {
+            types.peek().useTo(type)
+        }
+    }
+
+    void addUseDependency(String type) {
+        if (types) {
+            types.peek().useTo(findType(type))
+        }
+    }
+
+    void addLocalVarToScope(String varName) {
+        if (scopes) {
+            scopes.peek().add(varName)
+        }
+    }
+
+    void processExpression(String expr) {
+        expr = cleanExpression(expr)
+        def list = expr.split(/\s+/)
+
+        Type type
+        list.each { str ->
+            println "\n$str"
+            String[] components = str.split(/\./)
+            components.eachWithIndex { comp, index ->
+                if (!comp.contains("(")) {
+                    type = handleNonMethodCall(type, comp, components, index)
+                } else {
+                    String args = comp.substring(comp.indexOf("(") + 1, comp.indexOf(")"))
+                    int numParams = args.split(",").size()
+                    type = handleMethodCall(type, comp, numParams)
+                }
+            }
+        }
+    }
+
+    abstract String cleanExpression(String expr)
+
+    Type handleNonMethodCall(Type type, String comp, String[] components, int index) {
+        switch (comp) {
+            case "this":
+                return handleThis(type)
+            case "super":
+                String name = components[index + 1]
+                return handleSuper(type, name)
+            default:
+                return handleIdentifier(type, comp)
+        }
+    }
+
+    Type handleMethodCall(Type type, String comp, int numParams) {
+        if (comp.startsWith("super")) {
+            if (type) {
+                findSuperTypeWithNParamConstructor(type, numParams)
+            } else {
+                findSuperTypeWithNParamConstructor(types.peek(), numParams)
+            }
+            return createConstructorCall(type, numParams)
+        } else if (comp.startsWith("this")) {
+            if (!type)
+                type = types.peek()
+            return createConstructorCall(type, numParams)
+        } else {
+            if (!type)
+                type = types.peek()
+            return createMethodCall(type, comp, numParams)
+        }
+    }
+
+    Type handleThis(Type type) {
+        if (!type)
+            return ((Stack<Type>) types).peek()
+        return type
+    }
+
+    Type handleSuper(Type type, String name) {
+        if (type) {
+            return findSuperTypeWithTypeFieldOrMethodNamed(type, name)
+        } else {
+            return findSuperTypeWithTypeFieldOrMethodNamed(types.peek(), name)
+        }
+    }
+
+    Type handleIdentifier(Type type, String comp) {
+        if (type) {
+            if (type.hasFieldWithName(comp)) {
+                return createFieldUse(type, comp)
+            } else {
+                return type.getTypeByName(comp)
+            }
+        } else {
+            if (checkIsLocalVar(comp)) {
+                // TODO Finish me
+                // set type
+            } else if (types.peek().hasFieldWithName(comp)) {
+                return createFieldUse(types.peek(), comp)
+            } else if (types.peek().hasTypeWithName(comp)) {
+                return types.peek().getTypeByName(comp)
+            }
+        }
+
+        return null
+    }
+
+    Type createMethodCall(Type current, String comp, int numParams) {
+        Type type = current
+        Method called = findMethodCalled(type, comp, numParams)
+
+        if (type && called) {
+            def m
+            if (((Stack<Member>) methods).peek() instanceof Method) {
+                m = (Method) ((Stack<Member>) methods).peek()
+                if (((Method) m).getType().getType() == TypeRefType.Type)
+                    type = m.getType().getType(proj.getProjectKey())
+            } else if (((Stack<Member>) methods).peek() instanceof Initializer) {
+                m = (Initializer) ((Stack<Member>) methods).peek()
+            }
+
+            if (m)
+                m.callsMethod(called)
+        }
+
+        return type
+    }
+
+    Method findMethodCalled(Type type, String comp, int numParams) {
+        if (type) {
+            Method called = type.getMethodWithNameAndNumParams(comp, numParams)
+
+            if (!called) {
+                for (Type anc : type.getAncestorTypes()) {
+                    if (anc.hasMethodWithNameAndNumParams(comp, numParams)) {
+                        type = anc
+                        break
+                    }
+                }
+                called = type.getMethodWithNameAndNumParams(comp, numParams)
+            }
+
+            return called
+        }
+
+        return null
+    }
+
+    void createConstructorCall(Type type, int numParams) {
+        if (type) {
+            def m
+
+            if (((Stack<Member>) methods).peek() instanceof Method) {
+                m = (Method) ((Stack<Member>) methods).peek()
+            } else if (((Stack<Member>) methods).peek() instanceof Initializer) {
+                m = (Initializer) ((Stack<Member>) methods).peek()
+            }
+
+            Constructor cons = type.getConstructorWithNParams(numParams)
+            if (m && cons)
+                m.callsMethod(cons)
+        }
+    }
+
+    Type findSuperTypeWithNParamConstructor(Type type, int numParams) {
+        if (type) {
+            for (Type anc : type.getAncestorTypes()) {
+                if (anc.hasConstructorWithNParams(numParams)) {
+                    return anc
+                }
+            }
+        }
+
+        return type
+    }
+
+    Type findSuperTypeWithTypeFieldOrMethodNamed(Type child, String name) {
+        Type type = child
+
+        if (type) {
+            for (Type anc : type.getAncestorTypes()) {
+                if (anc.hasTypeWithName(name) || anc.hasFieldWithName(name) || anc.hasMethodWithName(name)) {
+                    return anc
+                }
+            }
+        }
+
+        return type
+    }
+
+    Type createFieldUse(Type current, String comp) {
+        Type type = current
+
+        if (type) {
+            def m
+
+            if (((Stack<Member>) methods).peek() instanceof Method) {
+                m = (Method) ((Stack<Member>) methods).peek()
+            } else if (((Stack<Member>) methods).peek() instanceof Initializer) {
+                m = (Initializer) ((Stack<Member>) methods).peek()
+            }
+
+            Field f = type.getFieldWithName(comp)
+            if (f && m) {
+                m.usesField(f)
+                if (f.getType().getType() == TypeRefType.Type)
+                    type = (Type) f.getType().getType(proj.getProjectKey())
+            }
+        }
+
+        return type
+    }
+
+    ///////////////////
+    // Utilities
+    ///////////////////
+
+    def handleNamedModifiers(String mod) {
+        try {
+            return Modifier.forName(mod)
+        } catch (IllegalArgumentException e) {
+
+        }
+
+        null
+    }
+
+    def handleAccessibility(String mod) {
+        try {
+            return Accessibility.valueOf(mod.toUpperCase())
+        } catch (IllegalArgumentException e) {
+
+        }
+
+        null
     }
 
     /**
@@ -224,7 +729,7 @@ abstract class BaseModelBuilder {
      * @param name The name of the type
      * @return The Type corresponding to the provided type name.
      */
-    Type findType(String name) {
+    Type findType(String name) { // FIXME
         List<String> general = []
         List<String> specific = []
 
@@ -292,8 +797,8 @@ abstract class BaseModelBuilder {
             if (candidate == null)
                 candidate = UnknownType.builder().compKey("java.lang." + name).create()
 
-            if (candidate != null)
-                proj.addUnknownType((UnknownType) candidate)
+//            if (candidate != null)
+//                proj.addUnknownType((UnknownType) candidate)
         }
 
         candidate
@@ -322,461 +827,8 @@ abstract class BaseModelBuilder {
         }
     }
 
-    /**
-     * Method to reverse a stack
-     * @param stack The stack to reverse
-     * @return The reversed stack
-     */
-    protected static <T> Stack<T> reverseStack(Stack<T> stack) {
-        Stack<T> rev = new Stack<>()
-        while (!stack.empty())
-            rev.push(stack.pop())
-
-        rev
-    }
-
-    /**
-     *
-     * @param name
-     * @return
-     */
-    Type findTypeNode(String name) {
-        final String fullName = getFullName(name)
-        Type type = proj.findType("name", fullName)
-        types.push(type)
-        type
-    }
-
-    void clearFlags() {
-        flags.clear()
-    }
-
-    void setFlag(int flag) {
-        flags.set(flag)
-    }
-
-    void createInitializer(String initKey, boolean instance = true) {
-        String key = "${typeKey()}#${initKey}"
-        methods.push(Initializer.builder().compKey(key).instance(instance).create()) // FIXME need to add more info
-        types.peek() << methods.peek()
-    }
-
-    void createMethod(constructor = false) {
-        if (constructor) {
-            methods.push(Constructor.builder().create())
-        } else {
-            methods.push(Method.builder().create())
-        }
-    }
-
-    void handleMethodDeclarator(String name) {
-        methods.peek().setCompKey(generateMemberKey(name))
-    }
-
-    String generateMemberKey(String name) {
-        typeKey() + "#" + name
-    }
-
     String typeKey() {
         types.peek().getCompKey()
     }
 
-    void finalizeMethod(interfaceMethod = false) {
-        clearFlags()
-
-        if (interfaceMethod) {
-            methods.peek().setAccessibility(Accessibility.PUBLIC)
-            methods.peek().addModifier(Modifier.Values.ABSTRACT.toString())
-        }
-
-        setMethodParams()
-        types.peek() << methods.pop()
-    }
-
-    void setMethodParams() {
-        params = reverseStack(params)
-        Lists.newArrayList(params).each { ((Method) methods.peek()).addParameter(it) }
-        params = new Stack<>()
-    }
-
-    void createFormalParameter(String identifier = "", receiver = false) {
-        flags.set(FORMAL_PARAMETERS)
-        if (receiver) {
-            params.push(Parameter.builder().name(identifier).create())
-        } else {
-            params.push(Parameter.builder().create())
-        }
-    }
-
-    void finalizeFormalParameter() {
-        flags.clear(FORMAL_PARAMETERS)
-    }
-
-    protected void setCurrentNodeTypeRefs(TypeRef ref) {
-        if (flags.get(FORMAL_PARAMETERS)) {
-            params.peek().setType(ref)
-        } else if (flags.get(TYPE_PARAMETER) || flags.get(TYPE_DECL)) {
-            typeParams.peek().addBound(ref)
-        } else if (flags.get(METHOD_RESULT)) {
-            if (methods.peek() instanceof Method)
-                ((Method) methods.peek()).setType(ref)
-        } else if (flags.get(EXCEPTION_LIST)) {
-            exceptions.push(ref)
-        } else if (flags.get(FIELD_DECL)) {
-            if (currentTypeRef.empty())
-                currentTypeRef.push(ref)
-            else if (currentTypeRef.peek().ref == null && currentTypeRef.peek().dimensions != null)
-                currentTypeRef.peek().setReference(ref.getReferences()?.get(0))
-            for (Field node : currentNodes) {
-                node.setType(currentTypeRef.peek())
-            }
-        }
-
-    }
-
-    void handleVarDeclId(String identifier) {
-        if (flags.get(FORMAL_PARAMETERS)) {
-            params.peek().setName(identifier)
-        }
-    }
-
-    void createTypeParameter(String type) {
-        flags.set(TYPE_PARAMETER)
-        generateTypeVarTypeRef(type)
-    }
-
-    void finalizeTypeParameter() {
-        flags.clear(TYPE_PARAMETER)
-    }
-
-    void generateTypeVarTypeRef(String type) {
-        TypeRef param = TypeRef.createTypeVarTypeRef(type)
-        typeParams.push(param)
-    }
-
-    void startMethodExceptionList() {
-        flags.set(EXCEPTION_LIST)
-        exceptions = new Stack<>()
-    }
-
-    void finalizeMethodExceptionList() {
-        flags.clear(EXCEPTION_LIST)
-        exceptions = reverseStack(exceptions)
-        List<TypeRef> refs = Lists.newArrayList(exceptions)
-        refs.each {
-            if (methods.peek() instanceof Method)
-                ((Method) methods.peek()).addException(it)
-            else if (methods.peek() instanceof Constructor)
-                ((Constructor) methods.peek()).addException(it)
-            else if (methods.peek() instanceof Destructor)
-                ((Destructor) methods.peek()).addException(it)
-        }
-    }
-
-    void startTypeParamList() {
-        typeParams = new Stack<>()
-    }
-
-    void finalizeTypeParamList() {
-        if (!methods.isEmpty()) {
-            if (methods.peek() instanceof Method)
-                ((Method) methods.peek()).setTypeParams(Lists.newArrayList(reverseStack(typeParams)))
-            else if (methods.peek() instanceof Constructor)
-                ((Constructor) methods.peek()).setTypeParams(Lists.newArrayList(reverseStack(typeParams)))
-            else if (methods.peek() instanceof Destructor)
-                ((Destructor) methods.peek()).setTypeParams(Lists.newArrayList(reverseStack(typeParams)))
-        }
-        else if (flags.get(TYPE_DECL)) {
-            types.peek().setTemplateParams(Lists.newArrayList(reverseStack(typeParams)))
-        }
-    }
-
-    void startMethodModifier(String modifier) {
-        setFlag(METHOD_MODIFIER)
-        handleModifiers(modifier, false, false, true)
-    }
-
-    void finalizeMethodModifier() {
-        flags.clear(METHOD_MODIFIER)
-    }
-
-    void startVariableModifier(String modifier) {
-        setFlag(VARIABLE_MODIFIER)
-        handleModifiers(modifier, false, false, true)
-    }
-
-    void finalizeVariableModifier() {
-        flags.clear(VARIABLE_MODIFIER)
-    }
-
-    void createInnerTypeRef(String type) {
-        Type node = findType(type)
-        TypeRef ref = TypeRef.builder()
-                .ref(Reference.builder()
-                    .refKey(node.getCompKey())
-                    .refType(RefType.TYPE)
-                    .create())
-                .typeName(node.getName())
-                .create()
-        updateCurrentTypeRef(ref)
-        currentTypeRef.push(ref)
-    }
-
-    void constructOuterTypeRef(String typeId) {
-        Type type = this.findType(typeId)
-        TypeRef ref = TypeRef.builder()
-                .ref(Reference.builder()
-                    .refKey(type.getCompKey())
-                    .refType(RefType.TYPE)
-                    .create())
-                .typeName(type.getName())
-                .create()
-        setCurrentNodeTypeRefs(ref)
-        currentTypeRef.push(ref)
-    }
-
-    void finalizeTypeRef() {
-        currentTypeRef.pop()
-    }
-
-    void createArrayTypeRef(String dims, update = false) {
-        TypeRef ref = TypeRef.builder().dimensions(dims).create()
-        if (update) {
-            updateCurrentTypeRef(ref)
-        }
-        currentTypeRef.push(ref)
-    }
-
-    void createPrimitiveTypeRef(String type) {
-        setCurrentNodeTypeRefs(TypeRef.createPrimitiveTypeRef(type))
-    }
-
-    void updateCurrentTypeRef(TypeRef ref) {
-        if (!currentTypeRef.empty()) {
-            switch (currentTypeRef.peek().type) {
-                case TypeRefType.WildCard || TypeRefType.TypeVar:
-                    currentTypeRef.peek().addBound(ref)
-                    break
-                case TypeRefType.Primitive:
-                    break
-                default:
-                    if (currentTypeRef.peek().reference == null && currentTypeRef.peek().typeName == null) {
-                        currentTypeRef.peek().setReference(ref.getReferences().first())
-                        currentTypeRef.peek().setTypeName(ref.getTypeName())
-                        currentTypeRef.peek().setType(ref.getType())
-                    } else {
-                        currentTypeRef.peek().addTypeArg(ref)
-                    }
-            }
-        }
-        else setCurrentNodeTypeRefs(ref)
-    }
-
-    void createWildcardTypeRef() {
-        TypeRef ref = TypeRef.createWildCardTypeRef()
-        updateCurrentTypeRef(ref)
-        currentTypeRef.push(ref)
-    }
-
-    void constructNamespaceNode(String ns) {
-        namespace = getOrCreateNamespace(ns)
-    }
-
-    void createTypeVarTypeRef(String type) {
-        if (flags.get(TYPE_DECL)) {
-            generateTypeVarTypeRef(type)
-        } else {
-            updateCurrentTypeRef(TypeRef.createTypeVarTypeRef(type))
-        }
-    }
-
-    void createTypeVariable(String typeVar) {
-        setCurrentNodeTypeRefs(TypeRef.createTypeVarTypeRef(typeVar))
-    }
-
-    void dropTypeNode() {
-        clearFlags()
-        types.pop()
-    }
-
-    void startMethodReturnType(voidType) {
-        flags.set(METHOD_RESULT)
-
-        if (voidType) {
-            setCurrentNodeTypeRefs(TypeRef.createPrimitiveTypeRef("void"))
-        }
-    }
-
-    void finalizeMethodReturnType() {
-        flags.clear(METHOD_RESULT)
-    }
-
-    // TODO Fix this to use dimensions
-    void setMethodIdentifier(String methodId, String dimensions) {
-        methods.peek().setKey(generateMemberKey(methodId))
-    }
-
-    def findMethodFromSignature(String signature) {
-        Method method = types.peek().findMethodBySignature(signature)
-        if (method != null)
-            methods.push(method)
-        else
-            log.warn("Could not find method with sig: ${signature}")
-
-        method
-    }
-
-    void createClassNode(String name, int start, int end) {
-        setFlag(TYPE_DECL)
-
-        final String fullName = getFullName(name)
-        final Class node = Class.builder().compKey(fullName).name(name).start(start).end(end).create()
-        types.push(node)
-        file.add(node)
-    }
-
-    void createEnumNode(String name, int start, int end) {
-        setFlag(TYPE_DECL)
-
-        final String fullName = getFullName(name)
-        final Enum node = Enum.builder().compKey(fullName).name(name).start(start).end(end).create()
-        types.push(node)
-        file.add(node)
-    }
-
-    void createInterfaceNode(String name, int start, int end) {
-        setFlag(TYPE_DECL)
-
-        final String fullName = getFullName(name)
-        final Interface node = Interface.builder().compKey(fullName).name(name).start(start).end(end).create()
-        types.push(node)
-        file.add(node)
-    }
-
-    void handleModifiers(String mod, boolean type, boolean field, boolean method) {
-        Accessibility access = handleAccessibility(mod)
-        Modifier modifier = handleNamedModifiers(mod)
-
-        if (type) {
-            if (modifier != null)
-                types.peek().addModifier(modifier)
-            else if (access != null)
-                types.peek().setAccessibility(access)
-        }
-        else if (field) {
-            for (Field node : currentNodes) {
-                if (modifier != null)
-                    node.addModifier(modifier)
-                else if (access != null)
-                    node.setAccessibility(access)
-            }
-        }
-        else if (method) {
-            if (flags.get(CONSTRUCTOR_MODIFIER) || flags.get(METHOD_MODIFIER)) {
-                if (access != null)
-                    methods.peek().setAccessibility(access)
-                else if (modifier != null)
-                    methods.peek().addModifier(modifier)
-            } else if (flags.get(VARIABLE_MODIFIER)) {
-                params.peek().addModifier(modifier)
-            }
-        }
-    }
-
-    def handleNamedModifiers(String mod) {
-        try {
-            return Modifier.forName(mod)
-        } catch (IllegalArgumentException e) {
-
-        }
-
-        null
-    }
-
-    def handleAccessibility(String mod) {
-        try {
-            return Accessibility.valueOf(mod.toUpperCase())
-        } catch (IllegalArgumentException e) {
-
-        }
-
-        null
-    }
-
-    void createFloatingPointTypeRef(String type) {
-        createNumericalPrimitiveTypeRef(type)
-    }
-
-    void createIntegralTypeRef(String type) {
-        createNumericalPrimitiveTypeRef(type)
-    }
-
-    void createNumericalPrimitiveTypeRef(String type) {
-        TypeRef ref = TypeRef.createPrimitiveTypeRef(type)
-        if (!currentTypeRef.empty() && currentTypeRef.peek().reference == null && currentTypeRef.peek().typeName == null) {
-            currentTypeRef.peek().setTypeName(ref.typeName)
-            currentTypeRef.peek().setType(TypeRefType.Primitive)
-        }
-        else
-            currentTypeRef.push(ref)
-
-        for (Field node : currentNodes) {
-            node.setType(currentTypeRef.peek())
-        }
-    }
-
-    void createFieldNode(String name, int start, int end) {
-        flags.set(FIELD_DECL)
-        Field f = Field.builder().compKey(generateMemberKey(name)).start(start).end(end).create()
-        currentNodes.add(f)
-    }
-
-    void finalizeFieldNodes() {
-        for (Field node : currentNodes) {
-            types.peek() << node
-        }
-
-        currentNodes.clear()
-        currentTypeRef.clear()
-        clearFlags()
-    }
-
-    void createRealization(Type type, String implementsType) {
-        Type other = findType(implementsType)
-        //if (!(other instanceof UnknownType)) {
-        if (other != null)
-            proj.addRelation(type, other, RelationType.REALIZATION)
-        //}
-    }
-
-    void createGeneralization(Type type, String genType) {
-        Type other = findType(genType)
-        //if (!(other instanceof UnknownType)) {
-        if (other != null)
-            proj.addRelation(type, other, RelationType.GENERALIZATION)
-        //}
-    }
-
-    void createContainment(Type type) {
-        if (types.size() > 1) {
-            proj.addRelation(type, types.get(types.indexOf(type) - 1), RelationType.CONTAINMENT)
-        }
-    }
-
-    void addUseDependency(String name) {
-        Type type = findType(name)
-        proj.addRelation(types.peek(), type, RelationType.USE)
-    }
-
-    def findStaticInitializer(int num) {
-        Initializer init = types.peek().getStaticInitializer(num)
-        if (init != null) methods.push(init)
-        init
-    }
-
-    def findInstanceInitializer(int num) {
-        Initializer init = types.peek().getInstanceInitializer(num)
-        if (init != null) methods.push(init)
-        init
-    }
 }

@@ -26,61 +26,9 @@
  */
 package edu.isu.isuese.datamodel;
 
-import java.util.List;
+import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Table;
 
-/**
- * @author Isaac Griffith
- * @version 1.3.0
- */
-public abstract class TypedMember extends Member {
-
-    public void setType(TypeRef ref) {
-        if (this.getAll(TypeRef.class).size() == 0) {
-            add(ref);
-            save();
-        }
-        else {
-            List<TypeRef> refs = this.getAll(TypeRef.class);
-            for (TypeRef r : refs)
-                remove(r);
-
-            add(ref);
-            save();
-        }
-    }
-
-    public TypeRef getType() {
-        if (getAll(TypeRef.class).size() > 0)
-            return getAll(TypeRef.class).get(0);
-        else
-            return null;
-    }
-
-    public void addTemplateParam(TemplateParam param) {
-        if (param != null)
-            add(param);
-        save();
-    }
-
-    public void removeTemplateParam(TemplateParam param) {
-        if (param != null)
-            remove(param);
-        save();
-    }
-
-    public boolean hasTemplateParam(String name) {
-        return getTemplateParam(name) != null;
-    }
-
-    public TemplateParam getTemplateParam(String name) {
-        try {
-            return get(TemplateParam.class, "name = ?", name).get(0);
-        } catch(IndexOutOfBoundsException ex) {
-            return null;
-        }
-    }
-
-    public List<TemplateParam> getTemplateParams() {
-        return getAll(TemplateParam.class);
-    }
+@Table("enums_template_params")
+public class EnumTemplateParam extends Model {
 }

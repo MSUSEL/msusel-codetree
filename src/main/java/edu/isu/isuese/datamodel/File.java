@@ -49,10 +49,11 @@ public class File extends Model implements Measurable, ComponentContainer {
 
     @Builder(buildMethodName = "create")
     public File(String fileKey, String name, FileType type, String relPath, int start, int end) {
-        set("fileKey", fileKey, "name", name);
+        set("fileKey", fileKey, "name", name, "pathIndex", 0);
         setType(type);
-        if (relPath != null && !relPath.isEmpty())
+        if (relPath != null && !relPath.isEmpty()) {
             setRelPath(relPath);
+        }
         setStart(start);
         setEnd(end);
         save();
@@ -303,7 +304,15 @@ public class File extends Model implements Measurable, ComponentContainer {
     public void setRelPath(String path) { setString("relPath", path); save(); }
 
     public String getFullPath() {
-        return parent(Namespace.class).getFullPath(getType()) + getRelPath();
+        return parent(Namespace.class).getFullPath(getType(), getPathIndex()) + getRelPath();
+    }
+
+    public void setPathIndex(int index) {
+        setInteger("pathIndex", index);
+    }
+
+    public int getPathIndex() {
+        return getInteger("pathIndex");
     }
 
     public Type getTypeByName(String name) {

@@ -89,6 +89,15 @@ public class Finding extends Model {
         return parent(Project.class);
     }
 
+    public boolean isInjected() {
+        return getBoolean("injected");
+    }
+
+    public void setInjected(boolean injected) {
+        setBoolean("injected", injected);
+        save();
+    }
+
     public static Finding of(String ruleKey) {
         Finding f = Finding.create("findingKey", ruleKey);
         f.save();
@@ -107,6 +116,26 @@ public class Finding extends Model {
         add(Reference.to(comp));
         save();
         comp.getParentProject().addFinding(this);
+        return this;
+    }
+
+    public Finding on(PatternInstance inst) {
+        add(Reference.to(inst));
+        save();
+        inst.getParentProject().addFinding(this);
+        return this;
+    }
+
+    public Finding on(Namespace ns) {
+        add(Reference.to(ns));
+        save();
+        ns.getParentProject().addFinding(this);
+        return this;
+    }
+
+    public Finding injected() {
+        setInjected(true);
+        save();
         return this;
     }
 

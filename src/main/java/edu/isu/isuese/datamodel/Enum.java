@@ -66,4 +66,16 @@ public class Enum extends Classifier {
                 .end(this.getEnd())
                 .create();
     }
+
+    public boolean hasLiteralWithName(String name) {
+        return getLiteralWithName(name) != null;
+    }
+
+    public Literal getLiteralWithName(String name) {
+        try {
+            return get(Literal.class, "name = ?", name).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
 }

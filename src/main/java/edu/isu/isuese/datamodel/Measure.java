@@ -43,13 +43,22 @@ import java.util.List;
 })
 public class Measure extends Model {
 
-    public String getMeasureKey() { return getString("measureKey"); }
+    public String getMeasureKey() {
+        return getString("measureKey");
+    }
 
-    public String getMetricKey() { return getString("metricKey"); }
+    public String getMetricKey() {
+        return getString("metricKey");
+    }
 
-    public double getValue() { return getDouble("value"); }
+    public double getValue() {
+        return getDouble("value");
+    }
 
-    public void setValue(double value) { set("value", value); save(); }
+    public void setValue(double value) {
+        set("value", value);
+        save();
+    }
 
     public void setReference(Reference ref) {
         List<Reference> refs = Lists.newArrayList(getReferences());
@@ -61,9 +70,14 @@ public class Measure extends Model {
         save();
     }
 
-    public void removeReference(Reference ref) { remove(ref); save(); }
+    public void removeReference(Reference ref) {
+        remove(ref);
+        save();
+    }
 
-    public List<Reference> getReferences() { return getAll(Reference.class); }
+    public List<Reference> getReferences() {
+        return getAll(Reference.class);
+    }
 
     public Reference getReference() {
         List<Reference> refs = getReferences();
@@ -146,46 +160,27 @@ public class Measure extends Model {
         return false;
     }
 
-    public static List<Double> getAllClassValues(Project proj, String metric) {
-        if (metric.contains(":")) {
-            String[] split = metric.split(":");
-            String repo = split[0];
-            String handle = split[1];
+    public static List<Double> getAllClassValues(Project proj, String repo, String handle) {
+        List<Double> values = Lists.newArrayList();
 
-            List<Double> values = Lists.newArrayList();
+        proj.getAllTypes().forEach(type -> {
+            values.add(valueFor(repo, handle, type));
+        });
 
-            proj.getAllTypes().forEach(type -> {
-                values.add(valueFor(repo, handle, type));
-            });
-
-            return values;
-        }
-        return Lists.newArrayList();
+        return values;
     }
 
-    public static List<Double> getAllFileValues(Project proj, String metric) {
-        if (metric.contains(":")) {
-            String[] split = metric.split(":");
-            String repo = split[0];
-            String handle = split[1];
+    public static List<Double> getAllFileValues(Project proj, String repo, String handle) {
+        List<Double> values = Lists.newArrayList();
 
-            List<Double> values = Lists.newArrayList();
+        proj.getFiles().forEach(type -> {
+            values.add(valueFor(repo, handle, type));
+        });
 
-            proj.getFiles().forEach(type -> {
-                values.add(valueFor(repo, handle, type));
-            });
-
-            return values;
-        }
-        return Lists.newArrayList();
+        return values;
     }
 
-    public static List<Double> getAllMethodValues(Project proj, String metric) {
-        if (metric.contains(":")) {
-            String[] split = metric.split(":");
-            String repo = split[0];
-            String handle = split[1];
-
+    public static List<Double> getAllMethodValues(Project proj, String repo, String handle) {
             List<Double> values = Lists.newArrayList();
 
             proj.getAllMethods().forEach(type -> {
@@ -193,19 +188,10 @@ public class Measure extends Model {
             });
 
             return values;
-        }
-        return Lists.newArrayList();
     }
 
-    public static Double getProjectMetric(Project proj, String metric) {
-        if (metric.contains(":")) {
-            String[] split = metric.split(":");
-            String repo = split[0];
-            String handle = split[1];
-
-            return valueFor(repo, handle, proj);
-        }
-        return 0.0;
+    public static Double getProjectMetric(Project proj, String repo, String handle) {
+        return valueFor(repo, handle, proj);
     }
 
     public static double valueFor(String repoKey, String handle, Measurable comp) {

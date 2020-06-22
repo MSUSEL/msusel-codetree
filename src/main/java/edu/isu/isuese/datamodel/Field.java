@@ -80,6 +80,7 @@ public class Field extends TypedMember {
                 .create();
 
         getModifiers().forEach(copy::addModifier);
+        getTemplateParams().forEach(templateParam -> copy.addTemplateParam(templateParam.copy(oldPrefix, newPrefix)));
 
         return copy;
     }
