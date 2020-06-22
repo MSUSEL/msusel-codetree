@@ -2,13 +2,13 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/../isuese-detstrat" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../isuese-detstrat/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../isuese-detstrat/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../isuese-gitsearch" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../isuese-gitsearch/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../msusel-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../msusel-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../msusel-config/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
@@ -21,6 +21,7 @@
     <file url="file://$PROJECT_DIR$/../msusel-metrics" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../msusel-metrics/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../msusel-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../msusel-parent/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../msusel-pattern-generator" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources" charset="UTF-8" />

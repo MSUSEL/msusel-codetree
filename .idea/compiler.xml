@@ -24,19 +24,19 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="arc_test" target="1.8" />
-      <module name="isuese-detstrat" target="1.8" />
-      <module name="isuese-ghsearch" target="1.8" />
-      <module name="msusel-arc-framework" target="1.8" />
-      <module name="msusel-codetree" target="1.8" />
-      <module name="msusel-config" target="1.8" />
-      <module name="msusel-java-parser" target="1.8" />
-      <module name="msusel-loc-metrics" target="1.8" />
-      <module name="msusel-metrics" target="1.8" />
-      <module name="msusel-parent" target="1.8" />
-      <module name="msusel-pattern-generator" target="1.8" />
-      <module name="msusel-quamoco" target="1.8" />
-      <module name="msusel-rbml-dsl" target="1.8" />
-      <module name="msusel-software-injector" target="1.8" />
+      <module name="isuese-detstrat" target="11" />
+      <module name="isuese-ghsearch" target="11" />
+      <module name="msusel-arc-framework" target="11" />
+      <module name="msusel-codetree" target="11" />
+      <module name="msusel-config" target="11" />
+      <module name="msusel-java-parser" target="11" />
+      <module name="msusel-loc-metrics" target="11" />
+      <module name="msusel-metrics" target="11" />
+      <module name="msusel-parent" target="11" />
+      <module name="msusel-pattern-generator" target="11" />
+      <module name="msusel-quamoco" target="11" />
+      <module name="msusel-rbml-dsl" target="11" />
+      <module name="msusel-software-injector" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
