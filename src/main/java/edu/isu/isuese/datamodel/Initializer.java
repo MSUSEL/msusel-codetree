@@ -70,9 +70,18 @@ public class Initializer extends Member {
                 .end(this.getEnd())
                 .create();
 
+        copy.setLocalVarCount(getLocalVarCount());
         getModifiers().forEach(copy::addModifier);
 
         return copy;
+    }
+
+    public void setLocalVarCount(int count) {
+        setInteger("localVars", count);
+    }
+
+    public int getLocalVarCount() {
+        return getInteger("localVars");
     }
 
     public ControlFlowGraph getCfg() {

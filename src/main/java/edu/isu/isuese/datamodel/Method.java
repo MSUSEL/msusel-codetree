@@ -333,11 +333,20 @@ public class Method extends TypedMember {
                 .end(this.getEnd())
                 .create();
 
+        copy.setLocalVarCount(getLocalVarCount());
         getModifiers().forEach(copy::addModifier);
         getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy(oldPrefix, newPrefix)));
         getExceptions().forEach(excep -> copy.addException(excep.getTypeRef().copy(oldPrefix, newPrefix)));
         getParams().forEach(param -> copy.addParameter(param.copy()));
 
         return copy;
+    }
+
+    public void setLocalVarCount(int count) {
+        setInteger("localVars", count);
+    }
+
+    public int getLocalVarCount() {
+        return getInteger("localVars");
     }
 }
