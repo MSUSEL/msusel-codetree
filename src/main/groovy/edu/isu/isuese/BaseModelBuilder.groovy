@@ -172,7 +172,7 @@ abstract class BaseModelBuilder {
     }
 
     void createEnum(String name, int start, int stop) {
-        if (types.peek().getTypeByName(name) != null)
+        if (types && types.peek().getTypeByName(name) != null)
             types.push(types.peek().getTypeByName(name))
         else if (file.getTypeByName(name) != null) {
             types.push(file.getTypeByName(name))

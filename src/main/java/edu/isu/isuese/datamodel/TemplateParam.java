@@ -49,6 +49,8 @@ import java.util.Objects;
 @Many2Many(other = Enum.class, join = "enums_template_params", sourceFKName = "enum_id", targetFKName = "template_param_id")
 public class TemplateParam extends Model {
 
+    public TemplateParam() {}
+
     @Builder(buildMethodName = "create")
     public TemplateParam(String name) {
         setString("name", name);

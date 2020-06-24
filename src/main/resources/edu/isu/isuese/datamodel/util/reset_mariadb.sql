@@ -522,6 +522,7 @@ create table parameters
 (
     id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name        VARCHAR(1024),
+    varg        BOOLEAN,
     parent_id   INTEGER,
     parent_type VARCHAR(1024),
     created_at  DATETIME,
