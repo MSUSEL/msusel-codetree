@@ -4,149 +4,26 @@
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-config/data/dev.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-config/data/test.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-config/src/main/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-config/src/main/resources/database.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-config/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/experiment/StudyManager.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/experiment/TestEmpiricalStudy.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/experiment/TestStudyProperties.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/BasicJavaCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/JavaBuildCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/JavaDirectoryIdentifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/tool/BuildTool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/log4j2.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-java-parser/data/example-classes/AllInOne7.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-java-parser/data/example-classes/AllInOne8.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/groovy/edu/montana/gsoc/msusel/datamodel/parsers/JavaDirectorTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/JDTeste.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-config/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-config/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-parent/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/msusel-pattern-generator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/msusel-pattern-generator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/App.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/App.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/arc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/arc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/java-metrics.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/java-metrics.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/languages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/languages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/metrics.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/metrics.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/quamoco.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/quamoco.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/quamoco1.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/quamoco1.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/quamoco2.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/quamoco2.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/quamoco_metrics.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/quamoco_metrics.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/metrics.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/metrics.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/metrics_track.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/metrics_track.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/CLI.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/CLI.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/db/ConfigLoader.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/db/ConfigLoader.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/experiment/EmpiricalStudy.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/experiment/EmpiricalStudy.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsRuleProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsRuleProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/ghsearch/CLIProcessor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/ghsearch/CLIProcessor.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/ghsearch/Cloner.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/ghsearch/Cloner.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/ghsearch/GitHubSearchCommand.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/ghsearch/GitHubSearchCommand.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/ghsearch/Main.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/ghsearch/Searcher.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/ghsearch/Searcher.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/git/GitWorker.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/git/GitWorker.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/git/RepoWorker.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/git/RepoWorker.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/git/RepoWorkerException.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/git/RepoWorkerException.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/injector/InjectorConstants.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/injector/InjectorConstants.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/injector/InjectorProperties.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/injector/InjectorProperties.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/injector/SoftwareInjectorTool.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/injector/SoftwareInjectorTool.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/metrics/MetricsRepoProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/metrics/MetricsRepoProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/metrics/MetricsToolMetricsProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/metrics/MetricsToolMetricsProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Collector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Collector.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4PatternProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4PatternProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4RepoProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4RepoProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterngen/GeneratorConstants.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterngen/GeneratorConstants.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterngen/GeneratorProperties.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterngen/GeneratorProperties.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterngen/PatternGeneratorCommand.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterngen/PatternGeneratorCommand.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterngen/PatternGeneratorTool.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterngen/PatternGeneratorTool.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterns/PatternChainingCommand.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterns/PatternChainingCommand.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterns/PatternCoalescenceCommand.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterns/PatternCoalescenceCommand.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterns/PatternSizeEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterns/PatternSizeEvaluator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterns/PatternSizeMetricProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterns/PatternSizeMetricProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterns/PatternSizeRepoProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patterns/PatternSizeRepoProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pmd/PMDRuleProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pmd/PMDRuleProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/EffectivenessEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/EffectivenessEvaluator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/ExtendibilityEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/ExtendibilityEvaluator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/FlexibilityEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/FlexibilityEvaluator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/FunctionalityEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/FunctionalityEvaluator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodMetricProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodMetricProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodRepoProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodRepoProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/ReusabilityEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/ReusabilityEvaluator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/UnderstandabilityEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/qmood/UnderstandabilityEvaluator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quamoco/QuamocoMetricProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quamoco/QuamocoMetricProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quamoco/QuamocoRepoProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quamoco/QuamocoRepoProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/reporting/CSVReportWriter.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/reporting/CSVReportWriter.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/reporting/Report.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/reporting/Report.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/reporting/ReportWriter.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/reporting/ReportWriter.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/td/TechDebtMetricProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/td/TechDebtMetricProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/ArcContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/ArcContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/ArcProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/ArcProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/Collector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/Collector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/app/ArcConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/app/ArcConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/app/Experimenter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/app/ExperimenterCLI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/app/ExperimenterPropLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/app/ExperimenterPropLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/command/Phase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/command/Phase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/command/ToolCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/command/ToolCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/command/Workflow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/command/Workflow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/db/DbProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/db/DbProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/db/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/db/package-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsCollector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsCollector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/ghsearch/GitHubSearchConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/ghsearch/GitHubSearchConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/ghsearch/GitHubSearchProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/ghsearch/GitHubSearchProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/git/GitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/git/GitCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/git/GitConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/git/GitConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/git/GitProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/git/GitProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/gradle/GradleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/GradleCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/gradle/GradleConstants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/gradle/GradleTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/GradleConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/grime/GrimeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/grime/GrimeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/grime/GrimeDetectorCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/grime/GrimeDetectorCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/grime/GrimeProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/grime/GrimeProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/JavaAICommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/JavaAICommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/JavaConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/JavaConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/JavaTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/JavaTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/maven/MavenCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/MavenCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/maven/MavenConstants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/maven/MavenTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/java/MavenConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/metrics/ArcMetricsTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/metrics/ArcMetricsTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/metrics/MetricsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/metrics/MetricsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/metrics/MetricsConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/metrics/MetricsConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/metrics/MetricsProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/metrics/MetricsProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Properties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Tool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/patterns/ArcPatternConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/patterns/ArcPatternConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/patterns/ArcPatternTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/patterns/ArcPatternTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/patterns/PatternSizeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/patterns/PatternSizeCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDCollector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDCollector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/quamoco/QuamocoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/quamoco/QuamocoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/quamoco/QuamocoProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/quamoco/QuamocoProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/td/strategies/cast.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/td/strategies/cast.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/td/strategies/sonar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/td/strategies/sonar.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/provider/AbstractMetricProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/provider/AbstractMetricProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/provider/AbstractPatternProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/provider/AbstractPatternProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/provider/AbstractRepoProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/provider/AbstractRepoProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/provider/AbstractRuleProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/provider/AbstractRuleProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/provider/PatternProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/provider/PatternProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/tool/PatternOnlyTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/tool/PatternOnlyTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/edu/montana/gsoc/msusel/arc/impl/pattern4/patterns_rbml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/edu/montana/gsoc/msusel/arc/impl/pattern4/patterns_rbml.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/RoleBlock.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/conformance/RoleBlock.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/App.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/App.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/JavaDirector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/JavaDirector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/BaseTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/BaseTestClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/BasicTypesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/BasicTypesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/CFGTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/CFGTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/CouplingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/CouplingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/EnumsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/EnumsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/FieldsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/FieldsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/GenericsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/GenericsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/InheritanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/InheritanceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/JavaParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/JavaParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/MethodsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/MethodsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/PackagesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/PackagesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/TypesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/TypesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/UseDepsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/UseDepsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,15 +62,15 @@
       <list>
         <option value="Python Script" />
         <option value="Enum" />
-        <option value="JUnit4 Test Class" />
         <option value="package-info" />
         <option value="Interface" />
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-patterns-experimenter" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-java-parser" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -234,6 +111,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="GoToKeyword.includeLibraries" value="false" />
     <property name="GoToNamespace.includeLibraries" value="false" />
     <property name="LombokPluginEnabledInProject" value="true" />
@@ -245,6 +123,9 @@
     <property name="LombokPluginIS_LOMBOK_VERSION_CHECK_Enabled" value="false" />
     <property name="LombokPluginIS_MISSING_LOMBOK_CHECK_Enabled" value="true" />
     <property name="LombokPluginIS_VAL_Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -253,42 +134,37 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547682444928" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="org.javalite.activejdbc.test.DBSpec" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Spock" value="spock.lang.Specification" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/../isuese-detstrat/src/test/java/edu/isu/isuese/detstrat/impl" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../msusel-parent/src" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="edu.montana.gsoc.msusel.quamoco.processor.extents" />
-      <recent name="edu.montana.gsoc.msusel.inject.transform" />
-      <recent name="edu.montana.gsoc.msusel.inject.transform.model" />
-      <recent name="edu.isu.isuese.datamodel.util" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
       <recent name="org.javalite.activejdbc.test.DBSpec" />
+      <recent name="" />
       <recent name="spock.lang.Specification" />
       <recent name="edu.montana.gsoc.msusel.inject.transform.BaseSourceTransformSpec" />
       <recent name="edu.montana.gsoc.msusel.inject.transform.model.namespace.NamespaceModelTransformBaseTest" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="edu.montana.gsoc.msusel.datamodel.parsers" />
       <recent name="edu.isu.isuese.detstrat.impl" />
       <recent name="edu.isu.isuese.detstrat" />
       <recent name="edu.montana.gsoc.msusel.inject.transform.source" />
       <recent name="edu.montana.gsoc.msusel.inject" />
-      <recent name="edu.montana.gsoc.msusel.inject.grime" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="edu.isu.isuese.detstrat.impl.GrimeDetectorConstants" />
@@ -300,6 +176,13 @@
       <recent name="edu.montana.gsoc.msusel.arc.impl.patterns" />
       <recent name="edu.montana.gsoc.msusel.arc.impl.patternsize" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/java2" />
+      <recent name="$PROJECT_DIR$/src/main/resources/edu/isu/isuese/datamodel/util" />
+      <recent name="$PROJECT_DIR$/../msusel-patterns-experimenter/src" />
+      <recent name="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/edu/montana/gsoc/msusel/arc/db" />
+      <recent name="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/models" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../msusel-parent/src" />
       <recent name="$PROJECT_DIR$/../msusel-quamoco/src/main/resources" />
@@ -310,12 +193,11 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="edu.isu.isuese.datamodel.util" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/java2" />
-      <recent name="$PROJECT_DIR$/src/main/resources/edu/isu/isuese/datamodel/util" />
-      <recent name="$PROJECT_DIR$/../msusel-patterns-experimenter/src" />
-      <recent name="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/edu/montana/gsoc/msusel/arc/db" />
-      <recent name="$PROJECT_DIR$/../msusel-patterns-experimenter/config/quamoco/models" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="edu.montana.gsoc.msusel.quamoco.processor.extents" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform" />
+      <recent name="edu.montana.gsoc.msusel.inject.transform.model" />
+      <recent name="edu.isu.isuese.datamodel.util" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -325,7 +207,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ExpressionCleanerTest">
+  <component name="RunManager" selected="JUnit.JDTeste.process (1)">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -345,77 +227,65 @@
       <setting name="fixLineNumbers" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="ExpressionCleanerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.datamodel.parsers.ExpressionCleanerTest" />
+    <configuration name="All in msusel-java-parser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-arc-framework" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JDTeste" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="msusel-java-parser" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.isu.isuese.*" />
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.datamodel.parsers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FindBugsCollector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.arc.impl.findbugs.FindBugsCollector" />
-      <module name="msusel-arc-framework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.arc.impl.findbugs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ChainIdentifierSpec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-codetree" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.rbml.coalese.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.isu.isuese.datamodel.pattern" />
-      <option name="MAIN_CLASS_NAME" value="edu.isu.isuese.datamodel.pattern.ChainIdentifierSpec" />
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.datamodel.parsers" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.datamodel.parsers.JDTeste" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClassGrimeDetectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="isuese-detstrat" />
+    <configuration name="JDTeste.process" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-java-parser" />
+      <useClassPathOnly />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.isu.isuese.detstrat.impl.*" />
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.datamodel.parsers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.isu.isuese.detstrat.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.isu.isuese.detstrat.impl.ClassGrimeDetectorTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.datamodel.parsers" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.datamodel.parsers.JDTeste" />
+      <option name="METHOD_NAME" value="process" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClassGrimeDetectorTest.test constructMethodPairs happy path" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="isuese-detstrat" />
+    <configuration name="JDTeste.process" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-java-parser" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.isu.isuese.detstrat.impl.*" />
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.datamodel.parsers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.isu.isuese.detstrat.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.isu.isuese.detstrat.impl.ClassGrimeDetectorTest" />
-      <option name="METHOD_NAME" value="test constructMethodPairs happy path" />
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.datamodel.parsers" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.datamodel.parsers.JDTeste" />
+      <option name="METHOD_NAME" value="process" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -425,20 +295,29 @@
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="parsers in msusel-java-parser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-java-parser" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.FindBugsCollector" />
-      <item itemvalue="Application.ExpressionCleanerTest" />
-      <item itemvalue="JUnit.ClassGrimeDetectorTest" />
-      <item itemvalue="JUnit.ClassGrimeDetectorTest.test constructMethodPairs happy path" />
-      <item itemvalue="JUnit.ChainIdentifierSpec" />
+      <item itemvalue="JUnit.JDTeste" />
+      <item itemvalue="JUnit.JDTeste.process" />
+      <item itemvalue="JUnit.parsers in msusel-java-parser" />
+      <item itemvalue="JUnit.All in msusel-java-parser" />
+      <item itemvalue="JUnit.JDTeste.process (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ExpressionCleanerTest" />
-        <item itemvalue="Application.FindBugsCollector" />
-        <item itemvalue="JUnit.ChainIdentifierSpec" />
-        <item itemvalue="JUnit.ClassGrimeDetectorTest" />
-        <item itemvalue="JUnit.ClassGrimeDetectorTest.test constructMethodPairs happy path" />
+        <item itemvalue="JUnit.JDTeste.process (1)" />
+        <item itemvalue="JUnit.All in msusel-java-parser" />
+        <item itemvalue="JUnit.parsers in msusel-java-parser" />
+        <item itemvalue="JUnit.JDTeste.process" />
+        <item itemvalue="JUnit.JDTeste" />
       </list>
     </recent_temporary>
   </component>
@@ -958,7 +837,9 @@
       <workItem from="1592471286844" duration="17994000" />
       <workItem from="1592551684736" duration="2718000" />
       <workItem from="1592557475567" duration="37661000" />
-      <workItem from="1592762400749" duration="12222000" />
+      <workItem from="1592762400749" duration="17317000" />
+      <workItem from="1593029765013" duration="619000" />
+      <workItem from="1593030409138" duration="928000" />
     </task>
     <servers />
   </component>
@@ -981,6 +862,22 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="4347" y="83" width="895" height="904" key="#JDTeste.process_(1)" timestamp="1593031340780">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4347" y="83" width="895" height="904" key="#JDTeste.process_(1)/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593031340780" />
+    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest" timestamp="1593030098156">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest.identify" timestamp="1593030235255">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest.identify/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593030235255" />
+    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest.process" timestamp="1593030314577">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest.process/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593030314577" />
+    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593030098156" />
     <state x="4283" y="107" width="1024" height="856" key="#Project_Structure" timestamp="1592844839868">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
@@ -1010,10 +907,10 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4167" y="437" width="1266" height="196" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1590418795893" />
-    <state x="4360" y="362" width="1178" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1592762440789">
+    <state x="4360" y="362" width="1178" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593029970673">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="4360" y="362" width="1178" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592762440789" />
+    <state x="4360" y="362" width="1178" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593029970673" />
     <state x="4360" y="362" width="879" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1588973979332" />
     <state x="4437" y="181" width="715" height="707" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1591142487773">
       <screen x="3840" y="0" width="1920" height="1080" />
@@ -1028,22 +925,22 @@
     </state>
     <state x="4530" y="160" width="530" height="605" key="FileChooserDialogImpl/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592226954693" />
     <state x="4530" y="160" width="530" height="751" key="FileChooserDialogImpl/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1588963293275" />
-    <state width="1872" height="274" key="GridCell.Tab.0.bottom" timestamp="1592762371652">
+    <state width="1872" height="274" key="GridCell.Tab.0.bottom" timestamp="1593031201677">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="274" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592762371652" />
-    <state width="1872" height="274" key="GridCell.Tab.0.center" timestamp="1592762371651">
+    <state width="1872" height="274" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593031201677" />
+    <state width="1872" height="274" key="GridCell.Tab.0.center" timestamp="1593031201677">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="274" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592762371651" />
-    <state width="1872" height="274" key="GridCell.Tab.0.left" timestamp="1592762371651">
+    <state width="1872" height="274" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593031201677" />
+    <state width="1872" height="274" key="GridCell.Tab.0.left" timestamp="1593031201677">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="274" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592762371651" />
-    <state width="1872" height="274" key="GridCell.Tab.0.right" timestamp="1592762371652">
+    <state width="1872" height="274" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593031201677" />
+    <state width="1872" height="274" key="GridCell.Tab.0.right" timestamp="1593031201677">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="274" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592762371652" />
+    <state width="1872" height="274" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593031201677" />
     <state x="4280" y="207" width="824" height="534" key="IDE.errors.dialog" timestamp="1592557438377">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
@@ -1058,19 +955,31 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4601" y="468" width="397" height="133" key="ReplaceDuplicatesPrompt/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592472947552" />
-    <state x="4115" y="77" width="1396" height="912" key="SettingsEditor" timestamp="1592741074791">
+    <state x="4115" y="77" width="1396" height="912" key="SettingsEditor" timestamp="1593031157269">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="4115" y="77" width="1396" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592741074791" />
+    <state x="4115" y="77" width="1396" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593031157269" />
     <state x="3953" y="78" width="1231" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1588812063410" />
     <state x="4461" y="199" width="675" height="665" key="StructurePopup" timestamp="1592845196191">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4461" y="199" width="675" height="665" key="StructurePopup/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592845196191" />
-    <state x="2381" y="0" width="1183" height="973" maximized="true" key="dock-window-1" timestamp="1592762493725">
+    <state x="4547" y="314" width="486" height="448" key="chooseDestDirectoryDialog" timestamp="1592923954810">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4547" y="314" width="486" height="448" key="chooseDestDirectoryDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592923954810" />
+    <state x="4469" y="422" width="678" height="229" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1593031153001">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4469" y="422" width="678" height="229" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593031153001" />
+    <state x="4474" y="202" width="642" height="665" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1592923954821">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4474" y="202" width="642" height="665" key="com.intellij.testIntegration.createTest.CreateTestDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592923954821" />
+    <state x="2381" y="0" width="1183" height="973" key="dock-window-1" timestamp="1593030729295">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2381" y="0" width="1183" height="973" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592762493725" />
+    <state x="2381" y="0" width="1183" height="973" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593030729295" />
     <state x="2120" y="60" width="1720" height="811" key="dock-window-1/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1589067474104" />
     <state x="4533" y="239" width="572" height="592" key="extract.method.dialog" timestamp="1592472935311">
       <screen x="3840" y="0" width="1920" height="1080" />
