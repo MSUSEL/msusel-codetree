@@ -45,14 +45,6 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class Project extends Model implements Measurable, ComponentContainer {
 
-    public static void main(String[] args) {
-        Base.open("org.sqlite.JDBC", "jdbc:sqlite:data/dev.db", "dev1", "");
-        //Project sys = Project.createIt("version",  "1.0", "name", "java", "projKey", "3.0");
-
-        Project sys2 = Project.findById(1);
-        Base.close();
-    }
-
     public Project() {
     }
 
@@ -241,12 +233,13 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public Namespace findNamespace(String name) {
-        List<Namespace> namespaces = Namespace.find("name = ?", name);
-        for (Namespace ns : namespaces) {
-            if (ns.getNsKey().startsWith(this.getProjectKey()))
-                return ns;
+        if (name != null && !name.isEmpty()) {
+            try {
+                get(Namespace.class, "name = ?", name).get(0);
+            } catch (IndexOutOfBoundsException ex) {
+                return null;
+            }
         }
-
         return null;
     }
 
@@ -254,47 +247,16 @@ public class Project extends Model implements Measurable, ComponentContainer {
         return findNamespace(name) != null;
     }
 
-    public List<File> getFiles() {
-        List<File> files = new ArrayList<>();
-        for (Module m : getModules()) {
-            files.addAll(m.getFiles());
-        }
-        return files;
-    }
-
-    public List<File> getFilesByType(FileType type) {
-        List<File> files = getFiles();
-        List<File> ret = Lists.newArrayList();
-        for (File f : files) {
-            if (f.getType().equals(type))
-                ret.add(f);
-        }
-
-        return ret;
-    }
-
-    public File getFile(String key) {
-        try {
-            return get(File.class, "fileKey = ?", key).get(0);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
-        }
-    }
-
-    public boolean hasFile(String key) {
-        return getFile(key) != null;
-    }
-
     public List<Import> getImports() {
         List<Import> imports = Lists.newArrayList();
-        getModules().forEach(mod -> imports.addAll(mod.getImports()));
+        getFiles().forEach(file -> imports.addAll(file.getImports()));
         return imports;
     }
 
     @Override
     public List<Type> getAllTypes() {
         List<Type> types = Lists.newArrayList();
-        getModules().forEach(mod -> types.addAll(mod.getAllTypes()));
+        getNamespaces().forEach(namespace -> types.addAll(namespace.getAllTypes()));
         return types;
     }
 
@@ -325,18 +287,16 @@ public class Project extends Model implements Measurable, ComponentContainer {
     @Override
     public List<Class> getClasses() {
         List<Class> classes = Lists.newArrayList();
-        getModules().forEach(mod -> classes.addAll(mod.getClasses()));
+        getNamespaces().forEach(mod -> classes.addAll(mod.getClasses()));
         return classes;
     }
 
     public Type findClass(String attribute, String value) {
-        AtomicReference<Type> type = new AtomicReference<>();
-        getModules().forEach(mod -> {
-            Type t = mod.findClass(attribute, value);
-            if (t != null)
-                type.set(t);
-        });
-        return type.get();
+        for (Namespace ns : getNamespaces()) {
+            Type type = ns.findClass(attribute, value);
+            if (type != null) return type;
+        }
+        return null;
     }
 
     public boolean hasClass(String attribute, String value) {
@@ -346,18 +306,16 @@ public class Project extends Model implements Measurable, ComponentContainer {
     @Override
     public List<Interface> getInterfaces() {
         List<Interface> interfaces = Lists.newArrayList();
-        getModules().forEach(mod -> interfaces.addAll(mod.getInterfaces()));
+        getNamespaces().forEach(mod -> interfaces.addAll(mod.getInterfaces()));
         return interfaces;
     }
 
     public Type findInterface(String attribute, String value) {
-        AtomicReference<Type> type = new AtomicReference<>();
-        getModules().forEach(mod -> {
-            Type t = mod.findInterface(attribute, value);
-            if (t != null)
-                type.set(t);
-        });
-        return type.get();
+        for (Namespace ns : getNamespaces()) {
+            Type type = ns.findInterface(attribute, value);
+            if (type != null) return type;
+        }
+        return null;
     }
 
     public boolean hasInterface(String attribute, String value) {
@@ -367,18 +325,16 @@ public class Project extends Model implements Measurable, ComponentContainer {
     @Override
     public List<Enum> getEnums() {
         List<Enum> enums = Lists.newArrayList();
-        getModules().forEach(mod -> enums.addAll(mod.getEnums()));
+        getNamespaces().forEach(mod -> enums.addAll(mod.getEnums()));
         return enums;
     }
 
     public Type findEnum(String attribute, String value) {
-        AtomicReference<Type> type = new AtomicReference<>();
-        getModules().forEach(mod -> {
-            Type t = mod.findEnum(attribute, value);
-            if (t != null)
-                type.set(t);
-        });
-        return type.get();
+        for (Namespace ns : getNamespaces()) {
+            Type type = ns.findEnum(attribute, value);
+            if (type != null) return type;
+        }
+        return null;
     }
 
     public boolean hasEnum(String attribute, String value) {
@@ -388,35 +344,35 @@ public class Project extends Model implements Measurable, ComponentContainer {
     @Override
     public List<Member> getAllMembers() {
         List<Member> members = Lists.newArrayList();
-        getModules().forEach(mod -> members.addAll(mod.getAllMembers()));
+        getNamespaces().forEach(mod -> members.addAll(mod.getAllMembers()));
         return members;
     }
 
     @Override
     public List<Literal> getLiterals() {
         List<Literal> literals = Lists.newArrayList();
-        getModules().forEach(mod -> literals.addAll(mod.getLiterals()));
+        getNamespaces().forEach(mod -> literals.addAll(mod.getLiterals()));
         return literals;
     }
 
     @Override
     public List<Initializer> getInitializers() {
         List<Initializer> inits = Lists.newArrayList();
-        getModules().forEach(mod -> inits.addAll(mod.getInitializers()));
+        getNamespaces().forEach(mod -> inits.addAll(mod.getInitializers()));
         return inits;
     }
 
     @Override
     public List<TypedMember> getAllTypedMembers() {
         List<TypedMember> members = Lists.newArrayList();
-        getModules().forEach(mod -> members.addAll(mod.getAllTypedMembers()));
+        getNamespaces().forEach(mod -> members.addAll(mod.getAllTypedMembers()));
         return members;
     }
 
     @Override
     public List<Field> getFields() {
         List<Field> fields = Lists.newArrayList();
-        getModules().forEach(mod -> fields.addAll(mod.getFields()));
+        getNamespaces().forEach(mod -> fields.addAll(mod.getFields()));
         return fields;
     }
 
@@ -430,21 +386,21 @@ public class Project extends Model implements Measurable, ComponentContainer {
     @Override
     public List<Method> getMethods() {
         List<Method> methods = Lists.newArrayList();
-        getModules().forEach(mod -> methods.addAll(mod.getMethods()));
+        getNamespaces().forEach(mod -> methods.addAll(mod.getMethods()));
         return methods;
     }
 
     @Override
     public List<Constructor> getConstructors() {
         List<Constructor> constructors = Lists.newArrayList();
-        getModules().forEach(mod -> constructors.addAll(mod.getConstructors()));
+        getNamespaces().forEach(mod -> constructors.addAll(mod.getConstructors()));
         return constructors;
     }
 
     @Override
     public List<Destructor> getDestructors() {
         List<Destructor> destructors = Lists.newArrayList();
-        getModules().forEach(mod -> destructors.addAll(mod.getDestructors()));
+        getNamespaces().forEach(mod -> destructors.addAll(mod.getDestructors()));
         return destructors;
     }
 
@@ -508,7 +464,8 @@ public class Project extends Model implements Measurable, ComponentContainer {
         String newKey = parentKey + ":" + getName() + "-" + getVersion();
         setString("projKey", newKey);
         save();
-        getModules().forEach(Module::updateKey);
+        getNamespaces().forEach(Namespace::updateKey);
+        getFiles().forEach(File::updateKey);
     }
 
     public String getFullPath() {
@@ -522,7 +479,8 @@ public class Project extends Model implements Measurable, ComponentContainer {
             path += java.io.File.separator;
         }
 
-        path += getRelPath();
+        if (getRelPath() != null)
+            path += getRelPath();
 
         if (!path.endsWith(java.io.File.separator)) {
             path += java.io.File.separator;
@@ -565,7 +523,186 @@ public class Project extends Model implements Measurable, ComponentContainer {
         getFindings().forEach(finding -> copy.addFinding(finding.copy(this.getProjectKey(), copy.getProjectKey())));
         getPatternInstances().forEach(instance -> copy.addPatternInstance(instance.copy(this.getProjectKey(), copy.getProjectKey())));
         getRelations().forEach(rel -> copy.addRelation(rel.copy(this.getProjectKey(), copy.getProjectKey())));
+        getFiles().forEach(file -> copy.addFile(file.copy(this.getProjectKey(), copy.getProjectKey())));
 
         return copy;
+    }
+
+    public void addFile(File file) {
+        if (file != null)
+            add(file);
+        save();
+    }
+
+    public void removefile(File file) {
+        if (file != null)
+            remove(file);
+        save();
+    }
+
+    public File getFileByName(String name) {
+        try {
+            return get(File.class, "name = ?", name).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public List<File> getFilesByType(FileType type) {
+        return get(File.class, "type = ?", type.value());
+    }
+
+    public List<File> getFiles() {
+        return getAll(File.class);
+    }
+
+    public File getFile(String key) {
+        try {
+            return get(File.class, "fileKey = ?", key).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasFile(String key) {
+        return getFile(key) != null;
+    }
+
+    public String[] getSrcPaths() {
+        String srcPaths = getString("srcPath");
+        if (srcPaths != null)
+            return srcPaths.split(",");
+        else
+            return new String[0];
+    }
+
+    public String[] getSrcPaths(Module mod) {
+        List<String> paths = Lists.newArrayList();
+        String modPath = mod.getFullPath();
+        for (String path : getSrcPaths()) {
+            if (path.startsWith(modPath))
+                paths.add(path);
+        }
+        return paths.toArray(new String[0]);
+    }
+
+    public String getSrcPath() {
+        return getSrcPath(0);
+    }
+
+    public String getSrcPath(int index) {
+        String[] paths = getSrcPaths();
+        if (paths.length > 0)
+            return paths[index];
+        else
+            return "";
+    }
+
+    public void setSrcPath(String path) {
+        String[] paths = { path };
+        setSrcPath(paths);
+    }
+
+    public void setSrcPath(String[] paths) {
+        setPath("srcPath", paths);
+    }
+
+    private void setPath(String name, String[] paths) {
+        if (paths.length <= 0)
+            return;
+
+        StringBuilder path = new StringBuilder();
+        path.append(paths[0]);
+        for (int i = 1; i < paths.length; i++) {
+            path.append(",");
+            path.append(paths[i]);
+        }
+        setString(name, path.toString());
+        save();
+    }
+
+    public String[] getBinaryPaths() {
+        String binPaths = getString("binPath");
+        if (binPaths != null)
+            return binPaths.split(",");
+        else
+            return new String[0];
+    }
+
+    public String[] getBinaryPaths(Module mod) {
+        List<String> paths = Lists.newArrayList();
+        String modPath = mod.getFullPath();
+        for (String path : getBinaryPaths()) {
+            if (path.startsWith(modPath))
+                paths.add(path);
+        }
+        return paths.toArray(new String[0]);
+    }
+
+    public String getBinaryPath() {
+        return getBinaryPath(0);
+    }
+
+    public String getBinaryPath(int index) {
+        String[] paths = getBinaryPaths();
+        if (paths.length > 0)
+            return paths[index];
+        else
+            return "";
+    }
+
+    public void setBinPath(String[] paths) {
+        setPath("binPath", paths);
+    }
+
+    public String[] getTestPaths() {
+        String testPaths = getString("testPath");
+        if (testPaths != null)
+            return testPaths.split(",");
+        else
+            return new String[0];
+    }
+
+    public String[] getTestPaths(Module mod) {
+        List<String> paths = Lists.newArrayList();
+        String modPath = mod.getFullPath();
+        for (String path : getTestPaths()) {
+            if (path.startsWith(modPath))
+                paths.add(path);
+        }
+        return paths.toArray(new String[0]);
+    }
+
+    public String getTestPath() {
+        return getTestPath(0);
+    }
+
+    public String getTestPath(int index) {
+        String[] paths = getTestPaths();
+        if (paths.length > 0)
+            return paths[index];
+        else
+            return "";
+    }
+
+    public void setTestPath(String path) {
+        String[] paths = {path};
+        setTestPath(paths);
+    }
+
+    public void setTestPath(String[] path) {
+        setPath("testPath", path);
+    }
+
+    public void addUnknownType(UnknownType type) {
+        if (type != null)
+            add(type);
+        save();
+    }
+
+    public void removeUnknownType(UnknownType type) {
+        if (type != null)
+            remove(type);
+        save();
     }
 }

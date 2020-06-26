@@ -29,6 +29,7 @@ package edu.isu.isuese.datamodel.cfg
 import com.google.common.collect.Sets
 import com.google.common.graph.GraphBuilder
 import com.google.common.graph.MutableGraph
+import edu.isu.isuese.datamodel.Initializer
 import edu.isu.isuese.datamodel.Method
 import org.apache.commons.lang3.tuple.Pair
 
@@ -265,6 +266,16 @@ class CFGBuilder {
         stmtCount = 1
     }
 
+    void endMethod(Initializer method) {
+        Pair<MethodStart, MethodEnd> pair = methodNodes.pop()
+        method.setCfg(new ControlFlowGraph(currentCFG, pair.getLeft(), pair.getRight()))
+
+        //println(CFG2DOT.generateDot(currentCFG, (String)methods.peek().name()))
+
+        currentCFG = null
+        prevNode = null
+        stmtCount = 1
+    }
 
     void createReturnStatement() {
         ControlFlowNode s = createStatement(StatementType.RETURN, null, true, JumpTo.METHOD_END)

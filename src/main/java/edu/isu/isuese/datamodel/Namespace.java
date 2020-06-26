@@ -73,35 +73,44 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public void addFile(File file) {
-        add(file);
-        save();
+        if (file != null)
+            file.setParentNSID(getId());
     }
 
     public void removeFile(File file) {
-        remove(file);
-        save();
+        if (file != null && file.getParentNSID() != null && file.getParentNSID().equals(getId()))
+            file.setParentNSID(null);
     }
 
     public List<File> getFiles() {
-        return getAll(File.class);
+        return File.find("parent_ns_id = ?", getId());
     }
 
     public void addNamespace(Namespace ns) {
-        add(ns);
-        save();
+        if (ns != null)
+            ns.setParentNSID(getId());
     }
 
     public void removeNamespace(Namespace ns) {
-        remove(ns);
+        if (ns != null && ns.getParentNSID() != null && ns.getParentNSID().equals(getId()))
+            ns.setParentNSID(null);
+    }
+
+    public void setParentNSID(Object id) {
+        set("parent_ns_id", id);
         save();
     }
 
+    public Object getParentNSID() {
+        return get("parent_ns_id");
+    }
+
     public List<Namespace> getNamespaces() {
-        return getAll(Namespace.class);
+        return Namespace.find("parent_ns_id = ?", getId());
     }
 
     public boolean containsNamespace(Namespace ns) {
-        return getNamespaces().contains(ns);
+        return ns != null && ns.getParentNSID() != null && ns.getParentNSID().equals(getId());
     }
 
     public List<Import> getImports() {
@@ -111,34 +120,45 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
         return imports;
     }
 
+    public void addType(Type type) {
+        if (type != null) {
+            add(type);
+        }
+        save();
+    }
+
+    public void removeType(Type type) {
+        if (type != null)
+            remove(type);
+        save();
+    }
+
     @Override
     public List<Type> getAllTypes() {
         List<Type> types = Lists.newArrayList();
-        getFiles().forEach(f -> types.addAll(f.getAllTypes()));
-        getNamespaces().forEach(ns -> types.addAll(ns.getAllTypes()));
+        types.addAll(getClasses());
+        types.addAll(getInterfaces());
+        types.addAll(getEnums());
         return types;
     }
 
     @Override
     public List<Class> getClasses() {
-        List<Class> classes = Lists.newArrayList();
-        getFiles().forEach(f -> classes.addAll(f.getClasses()));
+        List<Class> classes = Lists.newArrayList(getAll(Class.class));
         getNamespaces().forEach(ns -> classes.addAll(ns.getClasses()));
         return classes;
     }
 
     @Override
     public List<Interface> getInterfaces() {
-        List<Interface> interfaces = Lists.newArrayList();
-        getFiles().forEach(f -> interfaces.addAll(f.getInterfaces()));
+        List<Interface> interfaces = Lists.newArrayList(getAll(Interface.class));
         getNamespaces().forEach(ns -> interfaces.addAll(ns.getInterfaces()));
         return interfaces;
     }
 
     @Override
     public List<Enum> getEnums() {
-        List<Enum> enums = Lists.newArrayList();
-        getFiles().forEach(f -> enums.addAll(f.getEnums()));
+        List<Enum> enums = Lists.newArrayList(getAll(Enum.class));
         getNamespaces().forEach(ns -> enums.addAll(ns.getEnums()));
         return enums;
     }
@@ -146,118 +166,89 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     @Override
     public List<Member> getAllMembers() {
         List<Member> members = Lists.newArrayList();
-        getFiles().forEach(f -> members.addAll(f.getAllMembers()));
-        getNamespaces().forEach(ns -> members.addAll(ns.getAllMembers()));
+        getAllTypes().forEach(f -> members.addAll(f.getAllMembers()));
         return members;
     }
 
     @Override
     public List<Literal> getLiterals() {
         List<Literal> literals = Lists.newArrayList();
-        getFiles().forEach(f -> literals.addAll(f.getLiterals()));
-        getNamespaces().forEach(ns -> literals.addAll(ns.getLiterals()));
+        getEnums().forEach(enm -> literals.addAll(enm.getLiterals()));
         return literals;
     }
 
     @Override
     public List<Initializer> getInitializers() {
         List<Initializer> initializers = Lists.newArrayList();
-        getFiles().forEach(f -> initializers.addAll(f.getInitializers()));
-        getNamespaces().forEach(ns -> initializers.addAll(ns.getInitializers()));
+        getAllTypes().forEach(f -> initializers.addAll(f.getInitializers()));
         return initializers;
     }
 
     @Override
     public List<TypedMember> getAllTypedMembers() {
         List<TypedMember> members = Lists.newArrayList();
-        getFiles().forEach(f -> members.addAll(f.getAllTypedMembers()));
-        getNamespaces().forEach(ns -> members.addAll(ns.getAllTypedMembers()));
+        getAllTypes().forEach(f -> members.addAll(f.getAllTypedMembers()));
         return members;
     }
 
     @Override
     public List<Field> getFields() {
         List<Field> fields = Lists.newArrayList();
-        getFiles().forEach(f -> fields.addAll(f.getFields()));
-        getNamespaces().forEach(ns -> fields.addAll(ns.getFields()));
+        getAllTypes().forEach(f -> fields.addAll(f.getFields()));
         return fields;
     }
 
     @Override
     public List<Method> getAllMethods() {
         List<Method> methods = Lists.newArrayList();
-        getFiles().forEach(f -> methods.addAll(f.getAllMethods()));
-        getNamespaces().forEach(ns -> methods.addAll(ns.getAllMethods()));
+        getAllTypes().forEach(f -> methods.addAll(f.getAllMethods()));
         return methods;
     }
 
     @Override
     public List<Method> getMethods() {
         List<Method> methods = Lists.newArrayList();
-        getFiles().forEach(f -> methods.addAll(f.getMethods()));
-        getNamespaces().forEach(ns -> methods.addAll(ns.getMethods()));
+        getAllTypes().forEach(f -> methods.addAll(f.getMethods()));
         return methods;
     }
 
     @Override
     public List<Constructor> getConstructors() {
         List<Constructor> constructors = Lists.newArrayList();
-        getFiles().forEach(f -> constructors.addAll(f.getConstructors()));
-        getNamespaces().forEach(ns -> constructors.addAll(ns.getConstructors()));
+        getAllTypes().forEach(f -> constructors.addAll(f.getConstructors()));
         return constructors;
     }
 
     @Override
     public List<Destructor> getDestructors() {
         List<Destructor> destructors = Lists.newArrayList();
-        getFiles().forEach(f -> destructors.addAll(f.getDestructors()));
-        getNamespaces().forEach(ns -> destructors.addAll(ns.getDestructors()));
+        getAllTypes().forEach(f -> destructors.addAll(f.getDestructors()));
         return destructors;
     }
 
     public List<System> getParentSystems() {
-        Namespace ns = getParentNamespace();
-        Module mod = getParentModule();
-        if (ns != null) {
-            return ns.getParentSystems();
-        } else if (mod != null) {
-            return mod.getParentSystems();
-        }
+        if (getParentProject() != null)
+            getParentProject().getParentSystems();
         return Lists.newArrayList();
     }
 
     public System getParentSystem() {
-        Namespace ns = getParentNamespace();
-        Module mod = getParentModule();
-        if (ns != null) {
-            return ns.getParentSystem();
-        } else if (mod != null) {
-            return mod.getParentSystem();
-        }
+        if (getParentProject() != null)
+            return getParentProject().getParentSystem();
         return null;
     }
 
     public List<Project> getParentProjects() {
         List<Project> projects = Lists.newLinkedList();
-        if (getParentNamespace() != null) {
-            projects.add(getParentNamespace().getParentProject());
-        } else if (getParentModule() != null) {
-            projects.add(getParentModule().getParentProject());
-        }
+        if (getParentProject() != null)
+            projects.add(getParentProject());
 
         return projects;
     }
 
     @Override
     public Project getParentProject() {
-        Namespace ns = getParentNamespace();
-        Module mod = getParentModule();
-        if (ns != null) {
-            return ns.getParentProject();
-        } else if (mod != null) {
-            return mod.getParentProject();
-        }
-        return null;
+        return parent(Project.class);
     }
 
     public String getFullName() {
@@ -270,7 +261,9 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public Namespace getParentNamespace() {
-        return parent(Namespace.class);
+        if (getParentNSID() != null)
+            return Namespace.findById(getParentNSID());
+        return null;
     }
 
     /**
@@ -280,21 +273,31 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     public Measurable getParent() {
         Namespace ns = getParentNamespace();
         if (ns == null)
-            return getParentModule();
+            return getParentProject();
         else
             return ns;
     }
 
+    public Object getParentModuleID() {
+        return get("parent_mod_id");
+    }
+
+    public void setParentModuleID(Object id) {
+        set("parent_mod_id", id);
+    }
+
     public List<Module> getParentModules() {
         List<Module> modules = Lists.newLinkedList();
-        Module mod = parent(Module.class);
+        Module mod = getParentModule();
         if (mod != null)
-            modules.add(parent(Module.class));
+            modules.add(mod);
         return modules;
     }
 
     public Module getParentModule() {
-        return parent(Module.class);
+        if (getParentModuleID() != null)
+            return Module.findById(getParentModuleID());
+        return null;
     }
 
     @Override
@@ -303,33 +306,33 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public void updateKey() {
-        Namespace pns = parent(Namespace.class);
-        Module pmod = parent(Module.class);
+        Project proj = parent(Project.class);
         String parentKey = null;
         String newKey;
-        if (pns != null)
-            parentKey = pns.getNsKey();
-        else if (pmod != null)
-            parentKey = pmod.getModuleKey();
+
+        if (proj != null)
+            parentKey = proj.getProjectKey();
 
         if (parentKey != null) {
-            newKey = parentKey + ":" + getName();
+            newKey = parentKey + ":" + getFullName();
         } else {
-            newKey = getName();
+            newKey = getFullName();
         }
 
         setString("nsKey", newKey);
         save();
-
-        getNamespaces().forEach(Namespace::updateKey);
-        getFiles().forEach(File::updateKey);
     }
 
-    public String getRelPath() { return getString("relPath"); }
+    public String getRelPath() {
+        return getString("relPath");
+    }
 
-    public void setRelPath(String path) { setString("relPath", path); save(); }
+    public void setRelPath(String path) {
+        setString("relPath", path);
+        save();
+    }
 
-    public String getFullPath(FileType type, int index) {
+    public String getFullPath(FileType type, int index) {  // FIXME
         String path = "";
         if (parent(Namespace.class) != null) {
             path = parent(Namespace.class).getFullPath(type, index);
@@ -363,63 +366,51 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public Type findInterface(String attribute, String value) {
-        AtomicReference<Type> type = new AtomicReference<>();
-        getFiles().forEach(f -> {
-            f.getInterfaces().forEach(t -> {
-                if (t.getString(attribute).equals(value))
-                    type.set(t);
-            });
-        });
+        for(File f : getFiles()) {
+            Type t = f.findInterface(attribute, value);
+            if (t != null)
+                return t;
+        }
 
-        if (type.get() != null)
-            return type.get();
-
-        getNamespaces().forEach(ns -> {
+        for (Namespace ns : getNamespaces()) {
             Type t = ns.findInterface(attribute, value);
             if (t != null)
-                type.set(t);
-        });
-        return type.get();
+                return t;
+        }
+
+        return null;
     }
 
     public Type findClass(String attribute, String value) {
-        AtomicReference<Type> type = new AtomicReference<>();
-        getFiles().forEach(f -> {
-            f.getClasses().forEach(t -> {
-                if (t.getString(attribute).equals(value))
-                    type.set(t);
-            });
-        });
+        for(File f : getFiles()) {
+            Type t = f.findClass(attribute, value);
+            if (t != null)
+                return t;
+        }
 
-        if (type.get() != null)
-            return type.get();
-
-        getNamespaces().forEach(ns -> {
+        for (Namespace ns : getNamespaces()) {
             Type t = ns.findClass(attribute, value);
             if (t != null)
-                type.set(t);
-        });
-        return type.get();
+                return t;
+        }
+
+        return null;
     }
 
     public Type findEnum(String attribute, String value) {
-        AtomicReference<Type> type = new AtomicReference<>();
-        getFiles().forEach(f -> {
-            f.getEnums().forEach(t -> {
-                if (t.getString(attribute).equals(value))
-                    type.set(t);
-            });
-        });
+        for(File f : getFiles()) {
+            Type t = f.findEnum(attribute, value);
+            if (t != null)
+                return t;
+        }
 
-        if (type.get() != null)
-            return type.get();
-
-        getNamespaces().forEach(ns -> {
+        for (Namespace ns : getNamespaces()) {
             Type t = ns.findEnum(attribute, value);
             if (t != null)
-                type.set(t);
-        });
-        return type.get();
+                return t;
+        }
+
+        return null;
     }
 
     public Namespace copy(String oldPrefix, String newPrefix) {
@@ -429,8 +420,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
                 .relPath(this.getRelPath())
                 .create();
 
-        getNamespaces().forEach(ns -> copy.addNamespace(ns.copy(oldPrefix, newPrefix)));
-        getFiles().forEach(file -> copy.addFile(file.copy(oldPrefix, newPrefix)));
+        getAllTypes().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix)));
 
         return copy;
     }

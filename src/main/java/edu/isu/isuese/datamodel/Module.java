@@ -26,14 +26,12 @@
  */
 package edu.isu.isuese.datamodel;
 
-import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Isaac Griffith
@@ -49,10 +47,6 @@ public class Module extends Model implements Measurable, ComponentContainer {
         set("moduleKey", moduleKey);
         if (relPath != null && !relPath.isEmpty())
             setRelPath(relPath);
-        if (srcPath != null && !srcPath.isEmpty())
-            setSrcPath(srcPath);
-        if (testPath != null && !testPath.isEmpty())
-            setTestPath(testPath);
         setName(name);
         save();
     }
@@ -72,17 +66,17 @@ public class Module extends Model implements Measurable, ComponentContainer {
     }
 
     public void addNamespace(Namespace ns) {
-        add(ns);
-        save();
+        if (ns != null)
+            ns.setParentModuleID(getId());
     }
 
     public void removeNamespace(Namespace ns) {
-        remove(ns);
-        save();
+        if (ns != null && ns.getParentModuleID() != null && ns.getParentModuleID().equals(getId()))
+            ns.setParentModuleID(null);
     }
 
     public List<Namespace> getNamespaces() {
-        return getAll(Namespace.class);
+        return Namespace.find("parent_mod_id = ?", getId());
     }
 
     public List<File> getFiles() {
@@ -92,9 +86,8 @@ public class Module extends Model implements Measurable, ComponentContainer {
     }
 
     public List<File> getFilesByType(FileType type) {
-        List<File> files = getFiles();
         List<File> ret = Lists.newArrayList();
-        for (File f : files) {
+        for (File f : getFiles()) {
             if (f.getType().equals(type))
                 ret.add(f);
         }
@@ -104,7 +97,7 @@ public class Module extends Model implements Measurable, ComponentContainer {
 
     public List<Import> getImports() {
         List<Import> imports = Lists.newArrayList();
-        getNamespaces().forEach(ns -> imports.addAll(ns.getImports()));
+        getFiles().forEach(ns -> imports.addAll(ns.getImports()));
         return imports;
     }
 
@@ -248,8 +241,6 @@ public class Module extends Model implements Measurable, ComponentContainer {
 
         setString("moduleKey", newKey);
         save();
-
-        getNamespaces().forEach(Namespace::updateKey);
     }
 
     public String getRelPath() {
@@ -263,11 +254,7 @@ public class Module extends Model implements Measurable, ComponentContainer {
     }
 
     public String[] getSrcPaths() {
-        String srcPaths = getString("srcPath");
-        if (srcPaths != null)
-            return srcPaths.split(",");
-        else
-            return new String[0];
+        return getParentProject().getSrcPaths(this);
     }
 
     public String getSrcPath() {
@@ -282,35 +269,8 @@ public class Module extends Model implements Measurable, ComponentContainer {
             return "";
     }
 
-    public void setSrcPath(String path) {
-        String[] paths = { path };
-        setSrcPath(paths);
-    }
-
-    public void setSrcPath(String[] paths) {
-        setPath("srcPath", paths);
-    }
-
-    private void setPath(String name, String[] paths) {
-        if (paths.length <= 0)
-            return;
-
-        StringBuilder path = new StringBuilder();
-        path.append(paths[0]);
-        for (int i = 1; i < paths.length; i++) {
-            path.append(",");
-            path.append(paths[i]);
-        }
-        setString(name, path.toString());
-        save();
-    }
-
     public String[] getBinaryPaths() {
-        String binPaths = getString("binPath");
-        if (binPaths != null)
-            return binPaths.split(",");
-        else
-            return new String[0];
+        return getParentProject().getBinaryPaths(this);
     }
 
     public String getBinaryPath() {
@@ -325,16 +285,8 @@ public class Module extends Model implements Measurable, ComponentContainer {
             return "";
     }
 
-    public void setBinPath(String[] paths) {
-        setPath("binPath", paths);
-    }
-
     public String[] getTestPaths() {
-        String testPaths = getString("testPath");
-        if (testPaths != null)
-            return testPaths.split(",");
-        else
-            return new String[0];
+        return getParentProject().getTestPaths(this);
     }
 
     public String getTestPath() {
@@ -349,32 +301,11 @@ public class Module extends Model implements Measurable, ComponentContainer {
             return "";
     }
 
-    public void setTestPath(String path) {
-        String[] paths = {path};
-        setTestPath(paths);
-    }
-
-    public void setTestPath(String[] path) {
-        setPath("testPath", path);
-    }
-
-    public String[] getBuildFiles() {
-        String files = getString("buildFiles");
-        return files.split(",");
-    }
-
-    public void addBuildFile(String file) {
-        String files = getString("buildFiles");
-        if (files != null && files.isEmpty()) {
-            setString("buildFiles", file);
-        } else {
-            setString("buildFiles", files + "," + file);
-        }
-        save();
-    }
-
     public String getFullPath() {
-        return parent(Project.class).getFullPath() + getRelPath() + java.io.File.separator;
+        if (getRelPath() != null)
+            return getParentProject().getFullPath() + getRelPath() + java.io.File.separator;
+        else
+            return getParentProject().getFullPath();
     }
 
     @Override
@@ -393,36 +324,30 @@ public class Module extends Model implements Measurable, ComponentContainer {
     }
 
     public Type findInterface(String attribute, String value) {
-        AtomicReference<Type> type = new AtomicReference<>();
-        getNamespaces().forEach(ns -> {
-                Type t = ns.findInterface(attribute, value);
-                if (t != null)
-                    type.set(t);
-        });
-
-        return type.get();
+        for (Namespace ns : getNamespaces()) {
+            Type t = ns.findInterface(attribute, value);
+            if (t != null)
+                return t;
+        }
+        return null;
     }
 
     public Type findClass(String attribute, String value) {
-        AtomicReference<Type> type = new AtomicReference<>();
-        getNamespaces().forEach(ns -> {
+        for (Namespace ns : getNamespaces()) {
             Type t = ns.findClass(attribute, value);
             if (t != null)
-                type.set(t);
-        });
-
-        return type.get();
+                return t;
+        }
+        return null;
     }
 
     public Type findEnum(String attribute, String value) {
-        AtomicReference<Type> type = new AtomicReference<>();
-        getNamespaces().forEach(ns -> {
+        for (Namespace ns : getNamespaces()) {
             Type t = ns.findEnum(attribute, value);
             if (t != null)
-                type.set(t);
-        });
-
-        return type.get();
+                return t;
+        }
+        return null;
     }
 
     public Module copy(String oldPrefix, String newPrefix) {
@@ -433,8 +358,6 @@ public class Module extends Model implements Measurable, ComponentContainer {
                 .srcPath(this.getSrcPath())
                 .testPath(this.getTestPath())
                 .create();
-
-        getNamespaces().forEach(ns -> copy.addNamespace(ns.copy(oldPrefix, newPrefix)));
 
         return copy;
     }

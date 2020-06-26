@@ -71,27 +71,26 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public List<System> getParentSystems() {
-        File parent = getParentFile();
-        if (parent != null)
-            return parent.getParentSystems();
-        return Lists.newArrayList();
+        List<System> systems = Lists.newLinkedList();
+        if (getParentSystem() != null)
+            systems.add(getParentSystem());
+        return systems;
     }
 
     /**
      * @return The parent system of this type or null if no such parent has been defined
      */
     public System getParentSystem() {
-        File file = getParentFile();
-        if (file != null)
-            return file.getParentSystem();
+        if (getParentProject() != null)
+            return getParentProject().getParentSystem();
         return null;
     }
 
     public List<Project> getParentProjects() {
         List<Project> projects = Lists.newLinkedList();
-        getParentNamespaces().forEach(ns -> projects.addAll(ns.getParentProjects()));
+        if (getParentProject() != null)
+            projects.add(getParentProject());
         return projects;
-//        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
     }
 
     /**
@@ -107,7 +106,8 @@ public abstract class Type extends Component implements ComponentContainer {
 
     public List<Module> getParentModules() {
         List<Module> parents = Lists.newLinkedList();
-        parents.add(getParentFile().getParentModule());
+        if (getParentModule() != null)
+            parents.add(getParentModule());
         return parents;
     }
 
@@ -115,25 +115,21 @@ public abstract class Type extends Component implements ComponentContainer {
      * @return The parent module of this type or null if no such parent has been defined
      */
     public Module getParentModule() {
-        File file = getParentFile();
-        if (file != null)
-            return file.getParentModule();
+        Namespace ns = getParentNamespace();
+        if (ns != null)
+            return ns.getParentModule();
         return null;
     }
 
     public List<Namespace> getParentNamespaces() {
         List<Namespace> parents = Lists.newLinkedList();
-        File parent = getParentFile();
-        if (parent != null)
-            parents.addAll(getParentFile().getParentNamespaces());
+        if (getParentNamespace() != null)
+            parents.add(getParentNamespace());
         return parents;
     }
 
     public Namespace getParentNamespace() {
-        File file = getParentFile();
-        if (file != null)
-            return file.getParentNamespace();
-        return null;
+        return parent(Namespace.class);
     }
 
     public List<File> getParentFiles() {
@@ -144,7 +140,10 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public File getParentFile() {
-        return parent(File.class);
+        if (getFileID() != null)
+            return File.findById(getFileID());
+        else
+            return null;
     }
 
     /**
@@ -452,18 +451,26 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public Type getContainingType() {
-        Type parent = parent(Interface.class);
-        if (parent == null) parent = parent(Enum.class);
-        if (parent == null) parent = parent(Class.class);
-
+        String type = getParentTypeType();
+        Object id = getParentTypeID();
+        Type parent = null;
+        if (type != null && id != null) {
+            if (type.equals(Class.class.getName())) {
+                parent = Class.findById(id);
+            } else if (type.equals(Interface.class.getName())) {
+                parent = Interface.findById(id);
+            } else if (type.equals(Enum.class.getName())) {
+                parent = Enum.findById(id);
+            }
+        }
         return parent;
     }
 
     public List<Type> getContainedTypes() {
         List<Type> types = Lists.newArrayList();
-        types.addAll(getAll(Class.class));
-        types.addAll(getAll(Interface.class));
-        types.addAll(getAll(Enum.class));
+        types.addAll(getClasses());
+        types.addAll(getInterfaces());
+        types.addAll(getEnums());
         return types;
     }
 
@@ -571,19 +578,23 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public List<Type> getAllTypes() {
-        return Lists.newArrayList();
+        List<Type> types = Lists.newArrayList();
+        types.addAll(getClasses());
+        types.addAll(getEnums());
+        types.addAll(getInterfaces());
+        return types;
     }
 
     public List<Class> getClasses() {
-        return Lists.newArrayList();
+        return Class.find("parent_type_id = ? and parent_type_type = ?", this.getId(), this.getClass().getName());
     }
 
     public List<Enum> getEnums() {
-        return Lists.newArrayList();
+        return Enum.find("parent_type_id = ? and parent_type_type = ?", this.getId(), this.getClass().getName());
     }
 
     public List<Interface> getInterfaces() {
-        return Lists.newArrayList();
+        return Interface.find("parent_type_id = ? and parent_type_type = ?", this.getId(), this.getClass().getName());
     }
 
     public List<Member> getAllMembers() {
@@ -637,45 +648,43 @@ public abstract class Type extends Component implements ComponentContainer {
 
     public void addType(Type type) {
         if (type != null) {
-            add(type);
+            type.setParentTypeID(getId());
+            type.setParentTypeType(this.getClass().getName());
         }
-        save();
     }
 
     public void removeType(Type type) {
         if (type != null) {
-            remove(type);
+            type.setParentTypeID(null);
+            type.setParentTypeType(null);
         }
-        save();
     }
 
     public Type getTypeByName(String name) {
-        Type type = getClassByName(name) != null ? getClassByName(name) :
+        return getClassByName(name) != null ? getClassByName(name) :
                 (getInterfaceByName(name) != null ? getInterfaceByName(name) : getEnumByName(name));
-
-        return type;
     }
 
     private Type getClassByName(String name) {
         try {
-            return get(Class.class, "name = ?", name).get(0);
-        } catch(IndexOutOfBoundsException ex) {
+            return get(Class.class, "name = ? and parent_type_id = ?", name, getId()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
     private Type getInterfaceByName(String name) {
         try {
-            return get(Interface.class, "name = ?", name).get(0);
-        } catch(IndexOutOfBoundsException ex) {
+            return get(Interface.class, "name = ? and parent_type_id = ?", name, getId()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
     private Type getEnumByName(String name) {
         try {
-            return get(Enum.class, "name = ?", name).get(0);
-        } catch(IndexOutOfBoundsException ex) {
+            return get(Enum.class, "name = ? and parent_type_id = ?", name, getId()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
@@ -691,7 +700,7 @@ public abstract class Type extends Component implements ComponentContainer {
     public TemplateParam getTemplateParam(String name) {
         try {
             return get(TemplateParam.class, "name = ?", name).get(0);
-        } catch(IndexOutOfBoundsException ex) {
+        } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
@@ -746,4 +755,32 @@ public abstract class Type extends Component implements ComponentContainer {
     public boolean hasMethodWithNameAndNumParams(String name, int numParams) {
         return getMethodWithNameAndNumParams(name, numParams) != null;
     }
+
+    public void setFileID(Object id) {
+        set("parent_file_id", id);
+        save();
+    }
+
+    public Object getFileID() {
+        return get("parent_file_id");
+    }
+
+    public void setParentTypeID(Object id) {
+        set("parent_type_id", id);
+        save();
+    }
+
+    public Object getParentTypeID() {
+        return get("parent_type_id");
+    }
+
+    public void setParentTypeType(String type) {
+        set("parent_type_type", type);
+        save();
+    }
+
+    public String getParentTypeType() {
+        return getString("parent_type_type");
+    }
+
 }

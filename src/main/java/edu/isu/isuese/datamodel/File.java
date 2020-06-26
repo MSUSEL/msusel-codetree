@@ -99,37 +99,61 @@ public class File extends Model implements Measurable, ComponentContainer {
     }
 
     public void addType(Type t) {
-        add(t);
-        save();
+        if (t != null)
+            t.setFileID(this.getId());
     }
 
     public void removeType(Type t) {
-        remove(t);
-        save();
+        if (t != null && t.getFileID() != null && t.getFileID().equals(getId()))
+            t.setFileID(null);
     }
 
     @Override
     public List<Type> getAllTypes() {
         List<Type> types = Lists.newArrayList();
-        types.addAll(getAll(Class.class));
-        types.addAll(getAll(Interface.class));
-        types.addAll(getAll(Enum.class));
+        types.addAll(getClasses());
+        types.addAll(getInterfaces());
+        types.addAll(getEnums());
         return types;
     }
 
     @Override
     public List<Class> getClasses() {
-        return getAll(Class.class);
+        return Class.find("parent_file_id = ?", this.getId());
+    }
+
+    public Class findClass(String attribute, Object value) {
+        try {
+            return (Class) Class.find(attribute + " = ? and parent_file_id = ?", value, this.getId()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
     }
 
     @Override
     public List<Interface> getInterfaces() {
-        return getAll(Interface.class);
+        return Interface.find("parent_file_id = ?", this.getId());
+    }
+
+    public Interface findInterface(String attribute, Object value) {
+        try {
+            return (Interface) Interface.find(attribute + " = ? and parent_file_id = ?", value, this.getId()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
     }
 
     @Override
     public List<Enum> getEnums() {
-        return getAll(Enum.class);
+        return Enum.find("parent_file_id = ?", this.getId());
+    }
+
+    public Enum findEnum(String attribute, Object value) {
+        try {
+            return (Enum) Enum.find(attribute + " = ? and parent_file_id = ?", value, this.getId()).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
     }
 
     @Override
@@ -142,7 +166,7 @@ public class File extends Model implements Measurable, ComponentContainer {
     @Override
     public List<Literal> getLiterals() {
         List<Literal> literals = Lists.newLinkedList();
-        getAllTypes().forEach(type -> literals.addAll(type.getLiterals()));
+        getEnums().forEach(type -> literals.addAll(type.getLiterals()));
         return literals;
     }
 
@@ -198,89 +222,6 @@ public class File extends Model implements Measurable, ComponentContainer {
         return destructors;
     }
 
-    public List<System> getParentSystems() {
-        Namespace parent = getParentNamespace();
-        if (parent != null)
-            return parent.getParentSystems();
-        return Lists.newArrayList();
-    }
-
-    public System getParentSystem() {
-        Namespace ns = getParentNamespace();
-        if (ns != null)
-            return ns.getParentSystem();
-        return null;
-    }
-
-    public List<Project> getParentProjects() {
-        List<Namespace> parents = getParentNamespaces();
-        List<Project> projects = Lists.newLinkedList();
-        parents.forEach(ns -> {
-            projects.addAll(ns.getParentProjects());
-        });
-        return projects;
-    }
-
-    @Override
-    public Project getParentProject() {
-        Namespace ns = getParentNamespace();
-        if (ns != null)
-            return ns.getParentProject();
-        return null;
-    }
-
-    public List<Module> getParentModules() {
-        Namespace ns = getParentNamespace();
-        if (ns != null)
-            return ns.getParentModules();
-        return Lists.newArrayList();
-    }
-
-    public Module getParentModule() {
-        Namespace ns = getParentNamespace();
-        if (ns != null)
-            return ns.getParentModule();
-        return null;
-    }
-
-    public List<Namespace> getParentNamespaces() {
-        List<Namespace> namespaces = Lists.newLinkedList();
-        if (getParentNamespace() != null)
-            namespaces.add(getParentNamespace());
-        return namespaces;
-    }
-
-    public Namespace getParentNamespace() {
-        return parent(Namespace.class);
-    }
-
-    /**
-     * @return The parent Measurable of this Measurable
-     */
-    @Override
-    public Measurable getParent() {
-        return getParentNamespace();
-    }
-
-    @Override
-    public String getRefKey() {
-        return getString("fileKey");
-    }
-
-    public void updateKey() {
-        Namespace parent = getParentNamespace();
-        String newKey;
-        if (parent != null)
-            newKey = parent.getNsKey() + ":" + getName();
-        else
-            newKey = getName();
-
-        setString("fileKey", newKey);
-        save();
-
-        getAllTypes().forEach(Type::updateKey);
-    }
-
     public void setStart(int start) {
         setInteger("start", start);
         save();
@@ -303,16 +244,92 @@ public class File extends Model implements Measurable, ComponentContainer {
 
     public void setRelPath(String path) { setString("relPath", path); save(); }
 
-    public String getFullPath() {
-        return parent(Namespace.class).getFullPath(getType(), getPathIndex()) + getRelPath();
-    }
-
     public void setPathIndex(int index) {
         setInteger("pathIndex", index);
     }
 
     public int getPathIndex() {
         return getInteger("pathIndex");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof File) {
+            File comp = (File) o;
+            return comp.getFileKey().equals(getFileKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFileKey());
+    }
+
+    public File copy(String oldPrefix, String newPrefix) {
+        File copy = File.builder()
+                .name(this.getName())
+                .fileKey(this.getName())
+                .relPath(this.getRelPath())
+                .type(this.getType())
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+
+        getAllTypes().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix))); // FIXME
+
+        return copy;
+    }
+
+    public List<System> getParentSystems() {
+        Project parent = getParentProject();
+        if (parent != null)
+            return parent.getParentSystems();
+        return Lists.newArrayList();
+    }
+
+    public System getParentSystem() {
+        Project parent = getParentProject();
+        if (parent != null)
+            return parent.getParentSystem();
+        return null;
+    }
+
+    public List<Project> getParentProjects() {
+        List<Project> projects = Lists.newLinkedList();
+        projects.add(getParentProject());
+        return projects;
+    }
+
+    @Override
+    public Project getParentProject() {
+        return parent(Project.class);
+    }
+
+    /**
+     * @return The parent Measurable of this Measurable
+     */
+    @Override
+    public Measurable getParent() {
+        return getParentProject();
+    }
+
+    @Override
+    public String getRefKey() {
+        return getString("fileKey");
+    }
+
+    public void updateKey() {
+        Project parent = getParentProject();
+        String newKey;
+        if (parent != null)
+            newKey = parent.getProjectKey() + ":" + getName();
+        else
+            newKey = getName();
+
+        setString("fileKey", newKey);
+        save();
     }
 
     public Type getTypeByName(String name) {
@@ -364,33 +381,27 @@ public class File extends Model implements Measurable, ComponentContainer {
         return following;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o instanceof File) {
-            File comp = (File) o;
-            return comp.getFileKey().equals(getFileKey());
+    public String getFullPath() {
+        char sep = java.io.File.separatorChar;
+        Project proj = getParentProject();
+        switch (getType()) {
+            case BINARY:
+                return proj.getFullPath() + sep + proj.getBinaryPath(getPathIndex()) + sep + getRelPath();
+            case SOURCE:
+                return proj.getFullPath() + sep + proj.getSrcPath(getPathIndex()) + sep + getRelPath();
+            case TEST:
+                return proj.getFullPath() + sep + proj.getTestPath(getPathIndex()) + sep + getRelPath();
+            default:
+                return proj.getFullPath() + sep + getRelPath();
         }
-
-        return false;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getFileKey());
+    public void setParentNSID(Object id) {
+        set("parent_ns_id", id);
+        save();
     }
 
-    public File copy(String oldPrefix, String newPrefix) {
-        File copy = File.builder()
-                .name(this.getName())
-                .fileKey(this.getName())
-                .relPath(this.getRelPath())
-                .type(this.getType())
-                .start(this.getStart())
-                .end(this.getEnd())
-                .create();
-
-        getAllTypes().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix)));
-
-        return copy;
+    public Object getParentNSID() {
+        return get("parent_ns_id");
     }
 }
