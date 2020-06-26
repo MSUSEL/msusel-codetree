@@ -705,4 +705,16 @@ public class Project extends Model implements Measurable, ComponentContainer {
             remove(type);
         save();
     }
+
+    public void addNamespace(Namespace ns) {
+        if (ns != null)
+            add(ns);
+        save();
+    }
+
+    public void removeNamespace(Namespace ns) {
+        if (ns != null)
+            remove(ns);
+        save();
+    }
 }

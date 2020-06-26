@@ -46,4 +46,9 @@ public interface Measurable {
      * @return The parent project of this Measurable
      */
     Project getParentProject();
+
+    /**
+     * @return The parent file of this Measurable
+     */
+    File getParentFile();
 }
