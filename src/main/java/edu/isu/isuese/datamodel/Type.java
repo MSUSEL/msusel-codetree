@@ -569,9 +569,9 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public String getFullName() {
-        List<Namespace> parentNs = getParentNamespaces();
-        if (parentNs != null && !parentNs.isEmpty()) {
-            return parentNs.get(0).getFullName() + "." + this.getName();
+        Namespace parentNs = getParentNamespace();
+        if (parentNs != null) {
+            return parentNs.getFullName() + "." + this.getName();
         }
 
         return this.getName();
@@ -620,10 +620,10 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public void updateKey() {
-        File parent = parent(File.class);
+        Namespace parent = getParentNamespace();
         String newKey;
         if (parent != null)
-            newKey = parent.getFileKey() + ":" + getName();
+            newKey = parent.getNsKey() + ":" + getName();
         else
             newKey = getName();
 
@@ -667,7 +667,7 @@ public abstract class Type extends Component implements ComponentContainer {
 
     private Type getClassByName(String name) {
         try {
-            return get(Class.class, "name = ? and parent_type_id = ?", name, getId()).get(0);
+            return (Type) Class.find("name = ? and parent_type_id = ?", name, getId()).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
@@ -675,7 +675,7 @@ public abstract class Type extends Component implements ComponentContainer {
 
     private Type getInterfaceByName(String name) {
         try {
-            return get(Interface.class, "name = ? and parent_type_id = ?", name, getId()).get(0);
+            return (Type) Interface.find("name = ? and parent_type_id = ?", name, getId()).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
@@ -683,7 +683,7 @@ public abstract class Type extends Component implements ComponentContainer {
 
     private Type getEnumByName(String name) {
         try {
-            return get(Enum.class, "name = ? and parent_type_id = ?", name, getId()).get(0);
+            return (Type) Enum.find("name = ? and parent_type_id = ?", name, getId()).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }

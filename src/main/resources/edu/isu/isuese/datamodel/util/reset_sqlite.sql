@@ -344,6 +344,7 @@ create table files
     relPath      VARCHAR,
     start        INTEGER,
     end          INTEGER,
+    parseStage   INTEGER,
     namespace_id INTEGER REFERENCES namespaces (id),
     created_at   NUMERIC,
     updated_at   NUMERIC

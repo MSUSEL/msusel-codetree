@@ -35,6 +35,9 @@
       </list>
     </option>
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/FindBugsOnly.java" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/classes" />
   </component>

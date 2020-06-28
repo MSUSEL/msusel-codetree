@@ -56,6 +56,7 @@ public class File extends Model implements Measurable, ComponentContainer {
         }
         setStart(start);
         setEnd(end);
+        setParseStage(0);
         save();
     }
 
@@ -403,5 +404,31 @@ public class File extends Model implements Measurable, ComponentContainer {
 
     public Object getParentNSID() {
         return get("parent_ns_id");
+    }
+
+    public Namespace getParentNamespace() {
+        if (getParentNSID() != null)
+            return Namespace.findById(getParentNSID());
+        return null;
+    }
+
+    /**
+     * @return The parent file of this Measurable
+     */
+    @Override
+    public File getParentFile() {
+        return this;
+    }
+
+    public int getParseStage() {
+        if (getInteger("parseStage") == null)
+            return 0;
+        else
+            return getInteger("parseStage");
+    }
+
+    public void setParseStage(int stage) {
+        setInteger("parseStage", stage);
+        save();
     }
 }

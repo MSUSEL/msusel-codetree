@@ -266,4 +266,12 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
 
         return null;
     }
+
+    /**
+     * @return The parent file of this Measurable
+     */
+    @Override
+    public File getParentFile() {
+        return null;
+    }
 }

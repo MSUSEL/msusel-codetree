@@ -38,6 +38,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 /**
  * @author Isaac Griffith
@@ -219,17 +220,11 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public List<Namespace> getNamespaces() {
-        List<Namespace> namespaces = Lists.newArrayList();
-        Queue<Namespace> queue = Queues.newArrayDeque();
-        getModules().forEach(mod -> queue.addAll(mod.getNamespaces()));
+        return getAll(Namespace.class);
+    }
 
-        while (!queue.isEmpty()) {
-            Namespace ns = queue.poll();
-            queue.addAll(ns.getNamespaces());
-            namespaces.add(ns);
-        }
-
-        return namespaces;
+    public List<Namespace> getRootNamespaces() {
+        return getNamespaces().stream().filter(namespace -> namespace.getParentNamespace() == null).collect(Collectors.toList());
     }
 
     public Namespace findNamespace(String name) {
@@ -267,8 +262,12 @@ public class Project extends Model implements Measurable, ComponentContainer {
             return findInterface(attribute, value);
         if (hasEnum(attribute, value))
             return findEnum(attribute, value);
+        if (isUnknownType(attribute, value))
+            return findUnknownType(attribute, value);
         return null;
     }
+
+
 
     public Type findTypeByQualifiedName(String name) {
         for (Type t : getAllTypes()) {
@@ -339,6 +338,18 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
     public boolean hasEnum(String attribute, String value) {
         return findEnum(attribute, value) != null;
+    }
+
+    public boolean isUnknownType(String attribute, String value) {
+        return findUnknownType(attribute, value) != null;
+    }
+
+    public Type findUnknownType(String attribute, String value) {
+        try {
+            return get(UnknownType.class, attribute + " = ?", value).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
     }
 
     @Override
@@ -460,8 +471,8 @@ public class Project extends Model implements Measurable, ComponentContainer {
         save();
     }
 
-    public void updateKeys(String parentKey) {
-        String newKey = parentKey + ":" + getName() + "-" + getVersion();
+    public void updateKeys() {
+        String newKey = getParentSystem() == null ? getName() + "-" + getVersion() : getParentSystem().getKey() + ":" + getName() + "-" + getVersion();
         setString("projKey", newKey);
         save();
         getNamespaces().forEach(Namespace::updateKey);
@@ -513,7 +524,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
                 .create();
 
         this.getParentSystem().add(copy);
-        copy.updateKeys(this.getParentSystem().getKey());
+        copy.updateKeys();
         copy.refresh();
 
         getModules().forEach(mod -> copy.addModule(mod.copy(this.getProjectKey(), copy.getProjectKey())));
@@ -549,7 +560,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public List<File> getFilesByType(FileType type) {
-        return get(File.class, "type = ?", type.value());
+        return Lists.newArrayList(get(File.class, "type = ?", type.value()));
     }
 
     public List<File> getFiles() {
@@ -716,5 +727,13 @@ public class Project extends Model implements Measurable, ComponentContainer {
         if (ns != null)
             remove(ns);
         save();
+    }
+
+    /**
+     * @return The parent file of this Measurable
+     */
+    @Override
+    public File getParentFile() {
+        return null;
     }
 }

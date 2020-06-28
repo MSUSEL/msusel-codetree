@@ -31,6 +31,8 @@ import com.google.common.graph.GraphBuilder
 import com.google.common.graph.MutableGraph
 import edu.isu.isuese.datamodel.Initializer
 import edu.isu.isuese.datamodel.Method
+import edu.isu.isuese.datamodel.util.DBCredentials
+import edu.isu.isuese.datamodel.util.DBManager
 import org.apache.commons.lang3.tuple.Pair
 
 /**
@@ -39,6 +41,7 @@ import org.apache.commons.lang3.tuple.Pair
  */
 class CFGBuilder {
 
+    DBCredentials credentials
     MutableGraph<ControlFlowNode> currentCFG
     ControlFlowNode prevNode
     Stack<Pair<BlockStart, BlockEnd>> blocks
@@ -49,7 +52,8 @@ class CFGBuilder {
     MethodStart start
     MethodEnd end
 
-    CFGBuilder() {
+    CFGBuilder(DBCredentials credentials) {
+        this.credentials = credentials
         currentCFG = GraphBuilder.directed().build()
         prevNode = null
         blocks = new Stack<>()
@@ -257,7 +261,10 @@ class CFGBuilder {
 
     void endMethod(Method method) {
         Pair<MethodStart, MethodEnd> pair = methodNodes.pop()
+
+        DBManager.instance.open(credentials)
         method.setCfg(new ControlFlowGraph(currentCFG, pair.getLeft(), pair.getRight()))
+        DBManager.instance.close()
 
         //println(CFG2DOT.generateDot(currentCFG, (String)methods.peek().name()))
 
@@ -268,7 +275,10 @@ class CFGBuilder {
 
     void endMethod(Initializer method) {
         Pair<MethodStart, MethodEnd> pair = methodNodes.pop()
+
+        DBManager.instance.open(credentials)
         method.setCfg(new ControlFlowGraph(currentCFG, pair.getLeft(), pair.getRight()))
+        DBManager.instance.close()
 
         //println(CFG2DOT.generateDot(currentCFG, (String)methods.peek().name()))
 

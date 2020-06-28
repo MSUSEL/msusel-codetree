@@ -56,6 +56,8 @@ public enum FileType {
         map.put(5, CI);
         map.put(6, DOC);
         map.put(7, CONFIG);
+        map.put(8, BINARY);
+        map.put(0, MODULE);
     }
 
     FileType(int value) { this.value = value; }

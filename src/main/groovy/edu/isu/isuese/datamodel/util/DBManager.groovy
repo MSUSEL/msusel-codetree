@@ -29,9 +29,12 @@ package edu.isu.isuese.datamodel.util
 import com.google.common.flogger.FluentLogger
 import groovy.sql.Sql
 import org.javalite.activejdbc.Base
+import org.javalite.activejdbc.DBException
 
 import java.sql.DatabaseMetaData
 import java.sql.ResultSet
+import java.util.concurrent.locks.ReadWriteLock
+import java.util.concurrent.locks.ReentrantReadWriteLock
 
 /**
  * @author Isaac Griffith
@@ -41,7 +44,8 @@ import java.sql.ResultSet
 class DBManager {
 
     public FluentLogger logger
-    boolean open;
+    boolean open
+    ReadWriteLock lock = new ReentrantReadWriteLock()
 
     List<String> tables = [
             'classes', 'classes_modifiers', 'constructors',
@@ -63,32 +67,35 @@ class DBManager {
             'type_refs', 'unknown_types'
     ]
 
-    def open(String driver, String url, String user, String pass) {
-        if (open)
-            return
+    def open(DBCredentials creds) {
+        lock.writeLock().lock()
+//        if (open)
+//            return
         if (logger) logger.atInfo().log("Opening connection to the database")
-        Base.open(driver, url, user, pass)
+        try { Base.open(creds.driver, creds.url, creds.user, creds.pass) }
+        catch (DBException ex) { return }
         if (logger) logger.atInfo().log("database connection open and ready.")
         open = true
     }
 
     def close() {
-        if (!open)
-            return
+//        if (!open)
+//            return
         if (logger) logger.atInfo().log("Closing connection to the database")
         Base.close()
         if (logger) logger.atInfo().log("Database connection closed.")
         open = false
+        lock.writeLock().unlock()
     }
 
-    void checkDatabaseAndCreateIfMissing(String dbType, String driver, String url, String user, String pass) {
+    void checkDatabaseAndCreateIfMissing(DBCredentials creds) {
         boolean missing = false
-        println "dbType: $dbType"
-        println "driver: $driver"
-        println "url: $url"
-        println "user: $user"
-        println "pass: $pass"
-        Sql.withInstance(url, user, pass, driver) { Sql sql ->
+        println "dbType: ${creds.type}"
+        println "driver: ${creds.driver}"
+        println "url: ${creds.url}"
+        println "user: ${creds.user}"
+        println "pass: ${creds.pass}"
+        Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { Sql sql ->
             DatabaseMetaData metaData = sql.connection.metaData
 
             tables.each { table ->
@@ -99,16 +106,16 @@ class DBManager {
         }
 
         if (missing)
-            createDatabase(dbType, driver, url, user, pass)
+            createDatabase(creds)
     }
 
-    void createDatabase(String dbType, String driver, String url, String user, String pass) {
-        resetDatabase(dbType, driver, url, user, pass)
+    void createDatabase(DBCredentials cred) {
+        resetDatabase(cred)
     }
 
-    void resetDatabase(String dbType, String driver, String url, String user, String pass) {
+    void resetDatabase(DBCredentials creds) {
         if (logger) logger.atInfo().log("Resetting the database to empty")
-        Sql.withInstance(url, user, pass, driver) { sql ->
+        Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { sql ->
 
             tables.each {
                 ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
@@ -116,7 +123,7 @@ class DBManager {
                     sql.execute("drop table $it;")
             }
 
-            def text = DBManager.class.getResourceAsStream("/edu/isu/isuese/datamodel/util/reset_${dbType.toLowerCase()}.sql").getText("UTF-8")
+            def text = DBManager.class.getResourceAsStream("/edu/isu/isuese/datamodel/util/reset_${creds.type.toLowerCase()}.sql").getText("UTF-8")
             String[] inst = text.split(";")
 
             for (int i = 0; i < inst.length; i++) {

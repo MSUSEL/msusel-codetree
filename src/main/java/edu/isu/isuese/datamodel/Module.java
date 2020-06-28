@@ -361,4 +361,12 @@ public class Module extends Model implements Measurable, ComponentContainer {
 
         return copy;
     }
+
+    /**
+     * @return The parent file of this Measurable
+     */
+    @Override
+    public File getParentFile() {
+        return null;
+    }
 }

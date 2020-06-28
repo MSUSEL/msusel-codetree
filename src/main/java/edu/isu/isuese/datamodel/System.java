@@ -360,7 +360,7 @@ public class System extends Model implements Measurable, Structure {
 
     public void updateKeys() {
         this.setKey(getName());
-        getProjects().forEach(p -> p.updateKeys(getKey()));
+        getProjects().forEach(Project::updateKeys);
     }
 
     @Override
@@ -376,5 +376,13 @@ public class System extends Model implements Measurable, Structure {
     @Override
     public int hashCode() {
         return Objects.hash(getKey());
+    }
+
+    /**
+     * @return The parent file of this Measurable
+     */
+    @Override
+    public File getParentFile() {
+        return null;
     }
 }

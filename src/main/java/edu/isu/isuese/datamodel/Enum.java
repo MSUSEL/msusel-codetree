@@ -35,10 +35,7 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsToParents({
-        @BelongsTo(foreignKeyName="file_id",parent=File.class),
-})
-@BelongsToPolymorphic(parents = {Class.class, Interface.class, Enum.class})
+@BelongsTo(parent = Namespace.class, foreignKeyName = "namespace_id")
 public class Enum extends Classifier {
 
     public Enum() {

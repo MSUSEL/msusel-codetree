@@ -326,6 +326,7 @@ create table files
     relPath      VARCHAR(1024),
     start        INTEGER,
     end          INTEGER,
+    parseStage   INTEGER,
     project_id   INTEGER REFERENCES projects (id),
     parent_ns_id INTEGER,
     created_at   DATETIME,

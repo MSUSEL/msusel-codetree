@@ -30,15 +30,14 @@ import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToParents;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
+import org.javalite.activejdbc.annotations.Table;
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsToParents({
-        @BelongsTo(foreignKeyName="file_id", parent=File.class),
-})
-@BelongsToPolymorphic(parents = {Class.class, Interface.class, Enum.class})
+@Table("classes")
+@BelongsTo(parent = Namespace.class, foreignKeyName = "namespace_id")
 public class Class extends Classifier {
 
     public Class() {

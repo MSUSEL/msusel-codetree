@@ -31,6 +31,7 @@ import lombok.Builder;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToParents;
+import org.javalite.activejdbc.annotations.HasMany;
 
 import java.util.List;
 import java.util.Objects;
@@ -40,10 +41,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsToParents({
-        @BelongsTo(foreignKeyName = "module_id", parent = Module.class),
-        @BelongsTo(foreignKeyName = "namespace_id", parent = Namespace.class)
-})
+@BelongsTo(parent = Project.class, foreignKeyName = "project_id")
 public class Namespace extends Model implements Measurable, ComponentContainer {
 
     public Namespace() {
@@ -427,5 +425,13 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
 
     public Reference createReference() {
         return Reference.builder().refKey(getNsKey()).refType(RefType.NAMESPACE).create();
+    }
+
+    /**
+     * @return The parent file of this Measurable
+     */
+    @Override
+    public File getParentFile() {
+        return null;
     }
 }
