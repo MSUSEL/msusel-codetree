@@ -121,7 +121,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     public void addType(Type type) {
         if (type != null) {
             add(type);
-            if (type.getContainingType() != null)
+            if (type.getContainingType() == null)
                 type.setQualifiedName(getName() + "." + type.getName());
         }
         save();
@@ -142,24 +142,34 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
         return types;
     }
 
+    public Type getTypeByName(String name) {
+        Type type = findClass("name", name);
+        if (type == null)
+            type = findInterface("name", name);
+        if (type == null)
+            type = findEnum("name", name);
+
+        return type;
+    }
+
     @Override
     public List<Class> getClasses() {
         List<Class> classes = Lists.newArrayList(getAll(Class.class));
-        getNamespaces().forEach(ns -> classes.addAll(ns.getClasses()));
+        //getNamespaces().forEach(ns -> classes.addAll(ns.getClasses()));
         return classes;
     }
 
     @Override
     public List<Interface> getInterfaces() {
         List<Interface> interfaces = Lists.newArrayList(getAll(Interface.class));
-        getNamespaces().forEach(ns -> interfaces.addAll(ns.getInterfaces()));
+        //getNamespaces().forEach(ns -> interfaces.addAll(ns.getInterfaces()));
         return interfaces;
     }
 
     @Override
     public List<Enum> getEnums() {
         List<Enum> enums = Lists.newArrayList(getAll(Enum.class));
-        getNamespaces().forEach(ns -> enums.addAll(ns.getEnums()));
+        //getNamespaces().forEach(ns -> enums.addAll(ns.getEnums()));
         return enums;
     }
 
@@ -252,12 +262,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public String getFullName() {
-        Namespace parent = getParentNamespace();
-        if (parent != null) {
-            return parent.getFullName() + "." + this.getName();
-        } else {
-            return this.getName();
-        }
+        return this.getName();
     }
 
     public Namespace getParentNamespace() {
@@ -366,51 +371,27 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public Type findInterface(String attribute, String value) {
-        for(File f : getFiles()) {
-            Type t = f.findInterface(attribute, value);
-            if (t != null)
-                return t;
+        try {
+            return get(Interface.class, attribute + " = ?", value).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
         }
-
-        for (Namespace ns : getNamespaces()) {
-            Type t = ns.findInterface(attribute, value);
-            if (t != null)
-                return t;
-        }
-
-        return null;
     }
 
     public Type findClass(String attribute, String value) {
-        for(File f : getFiles()) {
-            Type t = f.findClass(attribute, value);
-            if (t != null)
-                return t;
+        try {
+            return get(Class.class, attribute + " = ?", value).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
         }
-
-        for (Namespace ns : getNamespaces()) {
-            Type t = ns.findClass(attribute, value);
-            if (t != null)
-                return t;
-        }
-
-        return null;
     }
 
     public Type findEnum(String attribute, String value) {
-        for(File f : getFiles()) {
-            Type t = f.findEnum(attribute, value);
-            if (t != null)
-                return t;
+        try {
+            return get(Enum.class, attribute + " = ?", value).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
         }
-
-        for (Namespace ns : getNamespaces()) {
-            Type t = ns.findEnum(attribute, value);
-            if (t != null)
-                return t;
-        }
-
-        return null;
     }
 
     public Namespace copy(String oldPrefix, String newPrefix) {

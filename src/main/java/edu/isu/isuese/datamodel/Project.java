@@ -27,23 +27,19 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Queues;
 import lombok.Builder;
-import org.javalite.activejdbc.Base;
-import org.javalite.activejdbc.LazyList;
+import lombok.extern.log4j.Log4j2;
 import org.javalite.activejdbc.Model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@Log4j2
 public class Project extends Model implements Measurable, ComponentContainer {
 
     public Project() {
@@ -230,7 +226,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     public Namespace findNamespace(String name) {
         if (name != null && !name.isEmpty()) {
             try {
-                get(Namespace.class, "name = ?", name).get(0);
+                return get(Namespace.class, "name = ?", name).get(0);
             } catch (IndexOutOfBoundsException ex) {
                 return null;
             }
@@ -270,13 +266,24 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
 
     public Type findTypeByQualifiedName(String name) {
-        for (Type t : getAllTypes()) {
-            if (t.getCompKey().endsWith(name)) {
-                return t;
-            }
+        String nsName = name;
+        while (!hasNamespace(nsName))
+            nsName = name.substring(0, name.lastIndexOf("."));
+
+        String compName = name.replace(nsName, "").substring(1);
+
+        Namespace ns = findNamespace(nsName);
+
+        log.atInfo().log("Original Name: " + name);
+        log.atInfo().log("Found NS Name: " + nsName + " and namespace found? " + (ns != null));
+
+        Type type = null;
+        if (ns != null) {
+            type = ns.getTypeByName(compName);
+            log.atInfo().log("Component Name: " + compName + " and type found? " + (type != null));
         }
 
-        return null;
+        return type;
     }
 
     public boolean hasType(String attribute, String value) {

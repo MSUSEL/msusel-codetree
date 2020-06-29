@@ -31,6 +31,7 @@ import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Isaac Griffith
@@ -120,5 +121,19 @@ public class Rule extends Model {
 
     public List<Finding> getFindings() {
         return getAll(Finding.class);
+    }
+
+    public boolean hasFindingOn(Component comp) {
+        return getFindings().stream().anyMatch(finding -> {
+            List<Reference> refs = finding.getReferences();
+            if (refs.isEmpty() || comp == null) {
+                return false;
+            } else {
+                if (refs.get(0).getRefKey() == null) {
+                    return false;
+                }
+                return refs.get(0).getRefKey().equals(comp.getRefKey());
+            }
+        });
     }
 }
