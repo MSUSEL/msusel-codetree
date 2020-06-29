@@ -569,12 +569,7 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public String getFullName() {
-        Namespace parentNs = getParentNamespace();
-        if (parentNs != null) {
-            return parentNs.getFullName() + "." + this.getName();
-        }
-
-        return this.getName();
+        return getQualifiedName();
     }
 
     public List<Type> getAllTypes() {
@@ -650,6 +645,7 @@ public abstract class Type extends Component implements ComponentContainer {
         if (type != null) {
             type.setParentTypeID(getId());
             type.setParentTypeType(this.getClass().getName());
+            type.setQualifiedName(getQualifiedName() + "." + getName());
         }
     }
 
@@ -781,6 +777,16 @@ public abstract class Type extends Component implements ComponentContainer {
 
     public String getParentTypeType() {
         return getString("parent_type_type");
+    }
+
+    public String getQualifiedName() {
+        return getString("qualified_name");
+    }
+
+    public void setQualifiedName(String name) {
+        if (name != null)
+            setString("qualified_name", name);
+        save();
     }
 
 }

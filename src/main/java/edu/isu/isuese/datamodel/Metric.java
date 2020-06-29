@@ -37,7 +37,8 @@ import java.util.List;
  */
 public class Metric extends Model {
 
-    public Metric() {}
+    public Metric() {
+    }
 
     @Builder(buildMethodName = "create")
     public Metric(String key, String handle, String name, String description, String evaluator) {
@@ -45,30 +46,66 @@ public class Metric extends Model {
         if (name != null && !name.isEmpty()) setName(name);
         if (handle != null && !handle.isEmpty()) setHandle(handle);
         if (description != null && !description.isEmpty()) setDescription(description);
+        if (evaluator != null && !evaluator.isEmpty()) setEvaluator(evaluator);
         save();
     }
 
-    public String getMetricKey() { return getString("metricKey"); }
+    public String getMetricKey() {
+        return getString("metricKey");
+    }
 
-    public String getDescription() { return getString("description"); }
+    public String getDescription() {
+        return getString("description");
+    }
 
-    public void setDescription(String desc) { set("description", desc); save(); }
+    public void setDescription(String desc) {
+        set("description", desc);
+        save();
+    }
 
-    public String getName() { return getString("name"); }
+    public String getName() {
+        return getString("name");
+    }
 
-    public void setName(String name) { set("name", name); save(); }
+    public void setName(String name) {
+        set("name", name);
+        save();
+    }
 
-    public String getHandle() { return getString("handle"); }
+    public String getHandle() {
+        return getString("handle");
+    }
 
-    public void setHandle(String name) { set("handle", name); save(); }
+    public void setHandle(String name) {
+        set("handle", name);
+        save();
+    }
 
-    public void addMeasure(Measure measure) { add(measure); save(); }
+    public void addMeasure(Measure measure) {
+        add(measure);
+        save();
+    }
 
-    public void removeMeasure(Measure measure) { remove(measure); save(); }
+    public void removeMeasure(Measure measure) {
+        remove(measure);
+        save();
+    }
 
-    public List<Measure> getMeasures() { return getAll(Measure.class); }
+    public List<Measure> getMeasures() {
+        return getAll(Measure.class);
+    }
 
     public MetricRepository getParentMetricRepository() {
         return parent(MetricRepository.class);
+    }
+
+    public void setEvaluator(String evaluator) {
+        if (evaluator != null)
+            set("evaluator", evaluator);
+        save();
+    }
+
+    public String getEvaluator() {
+        return getString("evaluator");
     }
 }

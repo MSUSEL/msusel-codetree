@@ -121,6 +121,8 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     public void addType(Type type) {
         if (type != null) {
             add(type);
+            if (type.getContainingType() != null)
+                type.setQualifiedName(getName() + "." + type.getName());
         }
         save();
     }

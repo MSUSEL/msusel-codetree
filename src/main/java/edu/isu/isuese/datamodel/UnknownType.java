@@ -43,7 +43,7 @@ public class UnknownType extends Type {
 
     @Builder(buildMethodName = "create")
     public UnknownType(String name, int start, int end, String compKey, Accessibility accessibility) {
-        set("name", name, "start", start, "end", end, "compKey", compKey);
+        set("name", name, "start", start, "end", end, "compKey", compKey, "qualified_name", name);
         if (accessibility != null)
             setAccessibility(Accessibility.PUBLIC);
         save();

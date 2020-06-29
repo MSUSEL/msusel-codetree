@@ -91,6 +91,18 @@ public class System extends Model implements Measurable, Structure {
         return getAll(Project.class);
     }
 
+    public Project getProjectByName(String name) {
+        try {
+            return get(Project.class, "name = ?", name).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public boolean hasProjectWithName(String name) {
+        return getProjectByName(name) != null;
+    }
+
     public void addPatternChain(PatternChain p) {
         add(p);
         save();

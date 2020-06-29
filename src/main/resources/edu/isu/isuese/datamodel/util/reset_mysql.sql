@@ -230,7 +230,7 @@ create table metrics
     name                 VARCHAR(1024),
     description          VARCHAR(1024),
     handle               VARCHAR(1024),
-    evaluatior           VARCHAR(1024),
+    evaluator           VARCHAR(1024),
     metric_repository_id INTEGER REFERENCES metric_repositories (id),
     created_at           DATETIME,
     updated_at           DATETIME
@@ -346,15 +346,16 @@ create table imports
 
 create table unknown_types
 (
-    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    start         INTEGER,
-    end           INTEGER,
-    compKey       VARCHAR(1024),
-    name          VARCHAR(1024),
-    accessibility INTEGER,
-    project_id    INTEGER REFERENCES projects (id),
-    created_at    DATETIME,
-    updated_at    DATETIME
+    id             INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    start          INTEGER,
+    end            INTEGER,
+    compKey        VARCHAR(1024),
+    name           VARCHAR(1024),
+    accessibility  INTEGER,
+    qualified_name VARCHAR(1024),
+    project_id     INTEGER REFERENCES projects (id),
+    created_at     DATETIME,
+    updated_at     DATETIME
 );
 
 create table classes
@@ -366,6 +367,7 @@ create table classes
     name             VARCHAR(1024),
     abstract         INTEGER,
     accessibility    INTEGER,
+    qualified_name   VARCHAR(1024),
     namespace_id     INTEGER REFERENCES namespaces (id),
     parent_type_id   INTEGER,
     parent_type_type VARCHAR(1024),
@@ -382,6 +384,7 @@ create table enums
     compKey          VARCHAR(1024),
     name             VARCHAR(1024),
     accessibility    INTEGER,
+    qualified_name   VARCHAR(1024),
     namespace_id     INTEGER REFERENCES namespaces (id),
     parent_type_id   INTEGER,
     parent_type_type VARCHAR(1024),
@@ -398,6 +401,7 @@ create table interfaces
     compKey          VARCHAR(1024),
     name             VARCHAR(1024),
     accessibility    INTEGER,
+    qualified_name   VARCHAR(1024),
     namespace_id     INTEGER REFERENCES namespaces (id),
     parent_type_id   INTEGER,
     parent_type_type VARCHAR(1024),

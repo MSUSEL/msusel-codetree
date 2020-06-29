@@ -27,7 +27,7 @@
 
 create table systems
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name       VARCHAR,
     basePath   VARCHAR,
     sysKey     VARCHAR,
@@ -37,7 +37,7 @@ create table systems
 
 create table pattern_repositories
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     repoKey    VARCHAR,
     name       VARCHAR,
     created_at NUMERIC,
@@ -46,7 +46,7 @@ create table pattern_repositories
 
 create table patterns
 (
-    id                    INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                    INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     patternKey            VARCHAR,
     name                  VARCHAR,
     family                VARCHAR,
@@ -57,7 +57,7 @@ create table patterns
 
 create table roles
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     roleKey    VARCHAR,
     name       VARCHAR,
     type       INTEGER,
@@ -69,7 +69,7 @@ create table roles
 
 create table roles_role_bindings
 (
-    id              INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id              INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     role_id         INTEGER REFERENCES roles (id),
     role_binding_id INTEGER REFERENCES role_bindings (id),
     created_at      NUMERIC,
@@ -78,7 +78,7 @@ create table roles_role_bindings
 
 create table relations
 (
-    id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     relKey       VARCHAR,
     project_id   INTEGER,
     reference_id INTEGER,
@@ -91,7 +91,7 @@ create table relations
 
 create table pattern_chains
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     chainKey   VARCHAR,
     system_id  INTEGER REFERENCES systems (id),
     created_at NUMERIC,
@@ -100,7 +100,7 @@ create table pattern_chains
 
 create table pattern_instances
 (
-    id               INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     instKey          VARCHAR,
     pattern_size     INTEGER,
     pattern_chain_id INTEGER REFERENCES pattern_chains (id),
@@ -112,7 +112,7 @@ create table pattern_instances
 
 create table role_bindings
 (
-    id                  INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                  INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     pattern_instance_id INTEGER REFERENCES pattern_instances (id),
     created_at          NUMERIC,
     updated_at          NUMERIC
@@ -120,7 +120,7 @@ create table role_bindings
 
 create table refs
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     refKey      VARCHAR,
     type        INTEGER,
     parent_id   INTEGER,
@@ -131,7 +131,7 @@ create table refs
 
 create table findings
 (
-    id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     findingKey   VARCHAR,
     injected     NUMERIC,
     start        INTEGER,
@@ -142,7 +142,7 @@ create table findings
 
 create table projects_findings
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     project_id INTEGER REFERENCES projects (id),
     finding_id INTEGER REFERENCES findings (id),
     created_at NUMERIC,
@@ -151,7 +151,7 @@ create table projects_findings
 
 create table rules_findings
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     rule_id    INTEGER REFERENCES rules (id),
     finding_id INTEGER REFERENCES findings (id),
     created_at NUMERIC,
@@ -160,7 +160,7 @@ create table rules_findings
 
 create table finding_data
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     finding_id INTEGER,
     created_at NUMERIC,
     updated_at NUMERIC
@@ -168,7 +168,7 @@ create table finding_data
 
 create table finding_data_points
 (
-    id              INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id              INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     finding_data_id INTEGER,
     handle          VARCHAR,
     value           DOUBLE,
@@ -178,7 +178,7 @@ create table finding_data_points
 
 create table rules
 (
-    id                 INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                 INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     ruleKey            VARCHAR,
     name               VARCHAR,
     description        VARCHAR,
@@ -190,7 +190,7 @@ create table rules
 
 create table rules_tags
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     rule_id    INTEGER REFERENCES rules (id),
     tag_id     INTEGER REFERENCES tags (id),
     created_at NUMERIC,
@@ -199,7 +199,7 @@ create table rules_tags
 
 create table tags
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     tag        VARCHAR,
     created_at NUMERIC,
     updated_at NUMERIC
@@ -207,7 +207,7 @@ create table tags
 
 create table rule_repositories
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     repoKey    VARCHAR,
     name       VARCHAR,
     created_at NUMERIC,
@@ -216,7 +216,7 @@ create table rule_repositories
 
 create table measures
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     measureKey VARCHAR,
     value      DOUBLE,
     created_at NUMERIC,
@@ -225,7 +225,7 @@ create table measures
 
 create table metrics_measures
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     metric_id  INTEGER REFERENCES metrics (id),
     measure_id INTEGER REFERENCES measures (id),
     created_at NUMERIC,
@@ -234,7 +234,7 @@ create table metrics_measures
 
 create table projects_measures
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     project_id INTEGER REFERENCES projects (id),
     measure_id INTEGER REFERENCES measures (id),
     created_at NUMERIC,
@@ -243,12 +243,12 @@ create table projects_measures
 
 create table metrics
 (
-    id                   INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                   INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     metricKey            VARCHAR,
     name                 VARCHAR,
     description          VARCHAR,
     handle               VARCHAR,
-    evaluatior           VARCHAR,
+    evaluator            VARCHAR,
     metric_repository_id INTEGER REFERENCES metric_repositories (id),
     created_at           NUMERIC,
     updated_at           NUMERIC
@@ -256,7 +256,7 @@ create table metrics
 
 create table metric_repositories
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     repoKey    VARCHAR,
     name       VARCHAR,
     toolName   VARCHAR,
@@ -266,7 +266,7 @@ create table metric_repositories
 
 create table projects
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     projKey    VARCHAR,
     name       VARCHAR,
     version    VARCHAR,
@@ -281,7 +281,7 @@ create table projects
 
 create table languages
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name       VARCHAR,
     created_at NUMERIC,
     updated_at NUMERIC
@@ -289,7 +289,7 @@ create table languages
 
 create table projects_languages
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     project_id  INTEGER REFERENCES projects (id),
     language_id INTEGER REFERENCES languages (id),
     created_at  NUMERIC,
@@ -298,7 +298,7 @@ create table projects_languages
 
 create table modules
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     moduleKey  VARCHAR,
     name       VARCHAR,
     relPath    VARCHAR,
@@ -309,7 +309,7 @@ create table modules
 
 create table scms
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     scmKey     VARCHAR,
     name       VARCHAR,
     tag        VARCHAR,
@@ -323,7 +323,7 @@ create table scms
 
 create table namespaces
 (
-    id            INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nsKey         VARCHAR,
     name          VARCHAR,
     project_id    INTEGER REFERENCES projects (id),
@@ -336,7 +336,7 @@ create table namespaces
 
 create table files
 (
-    id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     fileKey      VARCHAR,
     pathIndex    INTEGER NOT NULL,
     name         VARCHAR,
@@ -353,7 +353,7 @@ create table files
 
 create table imports
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name       VARCHAR,
     start      INTEGER,
     end        INTEGER,
@@ -364,11 +364,12 @@ create table imports
 
 create table unknown_types
 (
-    id               INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start            INTEGER,
     end              INTEGER,
     compKey          VARCHAR,
     name             VARCHAR,
+    qualified_name   VARCHAR,
     accessibility    INTEGER,
     project_id       INTEGER REFERENCES projects (id),
     created_at       NUMERIC,
@@ -377,13 +378,14 @@ create table unknown_types
 
 create table classes
 (
-    id               INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start            INTEGER,
     end              INTEGER,
     compKey          VARCHAR,
     name             VARCHAR,
     abstract         INTEGER,
     accessibility    INTEGER,
+    qualified_name   VARCHAR,
     namespace_id     INTEGER REFERENCES namespaces (id),
     parent_type_id   INTEGER,
     parent_type_type VARCHAR,
@@ -394,12 +396,13 @@ create table classes
 
 create table enums
 (
-    id               INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start            INTEGER,
     end              INTEGER,
     compKey          VARCHAR,
     name             VARCHAR,
     accessibility    INTEGER,
+    qualified_name   VARCHAR,
     namespace_id     INTEGER REFERENCES namespaces (id),
     parent_type_id   INTEGER,
     parent_type_type VARCHAR,
@@ -410,12 +413,13 @@ create table enums
 
 create table interfaces
 (
-    id               INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start            INTEGER,
     end              INTEGER,
     compKey          VARCHAR,
     name             VARCHAR,
     accessibility    INTEGER,
+    qualified_name   VARCHAR,
     namespace_id     INTEGER REFERENCES namespaces (id),
     parent_type_id   INTEGER,
     parent_type_type VARCHAR,
@@ -426,7 +430,7 @@ create table interfaces
 
 create table literals
 (
-    id            INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
     compKey       VARCHAR,
@@ -440,7 +444,7 @@ create table literals
 
 create table initializers
 (
-    id            INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
     compKey       VARCHAR,
@@ -458,7 +462,7 @@ create table initializers
 
 create table fields
 (
-    id            INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
     compKey       VARCHAR,
@@ -472,7 +476,7 @@ create table fields
 
 create table methods
 (
-    id            INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
     compKey       VARCHAR,
@@ -488,7 +492,7 @@ create table methods
 
 create table constructors
 (
-    id            INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
     compKey       VARCHAR,
@@ -504,7 +508,7 @@ create table constructors
 
 create table destructors
 (
-    id            INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
     compKey       VARCHAR,
@@ -520,7 +524,7 @@ create table destructors
 
 create table parameters
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name        VARCHAR,
     varg        INTEGER,
     parent_id   INTEGER,
@@ -531,7 +535,7 @@ create table parameters
 
 create table method_exceptions
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     parent_id   INTEGER,
     parent_type VARCHAR,
     created_at  NUMERIC,
@@ -540,7 +544,7 @@ create table method_exceptions
 
 create table methods_method_exceptions
 (
-    id                  INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                  INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     method_id           INTEGER REFERENCES methods (id),
     method_exception_id INTEGER REFERENCES method_exceptions (id),
     created_at          NUMERIC,
@@ -549,7 +553,7 @@ create table methods_method_exceptions
 
 create table constructors_method_exceptions
 (
-    id                  INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                  INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     constructor_id      INTEGER REFERENCES constructors (id),
     method_exception_id INTEGER REFERENCES method_exceptions (id),
     created_at          NUMERIC,
@@ -558,7 +562,7 @@ create table constructors_method_exceptions
 
 create table destructors_method_exceptions
 (
-    id                  INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                  INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     destructor_id       INTEGER REFERENCES destructors (id),
     method_exception_id INTEGER REFERENCES method_exceptions (id),
     created_at          NUMERIC,
@@ -567,7 +571,7 @@ create table destructors_method_exceptions
 
 create table type_refs
 (
-    id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     dimensions   VARCHAR,
     typeName     VARCHAR,
     typeFullName VARCHAR,
@@ -580,7 +584,7 @@ create table type_refs
 
 create table parameters_typerefs
 (
-    id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     parameter_id INTEGER REFERENCES parameters (id),
     type_ref_id  INTEGER REFERENCES type_refs (id),
     created_at   NUMERIC,
@@ -589,7 +593,7 @@ create table parameters_typerefs
 
 create table methods_typerefs
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     method_id   INTEGER REFERENCES methods (id),
     type_ref_id INTEGER REFERENCES type_refs (id),
     created_at  NUMERIC,
@@ -598,7 +602,7 @@ create table methods_typerefs
 
 create table constructors_typerefs
 (
-    id             INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id             INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     constructor_id INTEGER REFERENCES constructors (id),
     type_ref_id    INTEGER REFERENCES type_refs (id),
     created_at     NUMERIC,
@@ -607,7 +611,7 @@ create table constructors_typerefs
 
 create table destructors_typerefs
 (
-    id            INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     destructor_id INTEGER REFERENCES destructors (id),
     type_ref_id   INTEGER REFERENCES type_refs (id),
     created_at    NUMERIC,
@@ -616,7 +620,7 @@ create table destructors_typerefs
 
 create table fields_typerefs
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     field_id    INTEGER REFERENCES fields (id),
     type_ref_id INTEGER REFERENCES type_refs (id),
     created_at  NUMERIC,
@@ -625,7 +629,7 @@ create table fields_typerefs
 
 create table methodexceptions_typerefs
 (
-    id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     exception_id INTEGER REFERENCES method_exceptions (id),
     type_ref_id  INTEGER REFERENCES type_refs (id),
     created_at   NUMERIC,
@@ -634,7 +638,7 @@ create table methodexceptions_typerefs
 
 create table typerefs_typerefs
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     parent_id  INTEGER REFERENCES parameters (id),
     child_id   INTEGER REFERENCES type_refs (id),
     created_at NUMERIC,
@@ -643,7 +647,7 @@ create table typerefs_typerefs
 
 create table modifiers
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name       VARCHAR,
     created_at NUMERIC,
     updated_at NUMERIC
@@ -651,7 +655,7 @@ create table modifiers
 
 create table classes_modifiers
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     class_id    INTEGER REFERENCES classes (id),
     modifier_id INTEGER REFERENCES modifiers (id),
     created_at  NUMERIC,
@@ -660,7 +664,7 @@ create table classes_modifiers
 
 create table enums_modifiers
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     enum_id     INTEGER REFERENCES enums (id),
     modifier_id INTEGER REFERENCES modifiers (id),
     created_at  NUMERIC,
@@ -669,7 +673,7 @@ create table enums_modifiers
 
 create table interfaces_modifiers
 (
-    id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     interface_id INTEGER REFERENCES interfaces (id),
     modifier_id  INTEGER REFERENCES modifiers (id),
     created_at   NUMERIC,
@@ -678,7 +682,7 @@ create table interfaces_modifiers
 
 create table literals_modifiers
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     literal_id  INTEGER REFERENCES literals (id),
     modifier_id INTEGER REFERENCES modifiers (id),
     created_at  NUMERIC,
@@ -687,7 +691,7 @@ create table literals_modifiers
 
 create table initializers_modifiers
 (
-    id             INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id             INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     initializer_id INTEGER REFERENCES initializers (id),
     modifier_id    INTEGER REFERENCES modifiers (id),
     created_at     NUMERIC,
@@ -696,7 +700,7 @@ create table initializers_modifiers
 
 create table fields_modifiers
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     field_id    INTEGER REFERENCES fields (id),
     modifier_id INTEGER REFERENCES modifiers (id),
     created_at  NUMERIC,
@@ -705,7 +709,7 @@ create table fields_modifiers
 
 create table methods_modifiers
 (
-    id          INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     method_id   INTEGER REFERENCES methods (id),
     modifier_id INTEGER REFERENCES modifiers (id),
     created_at  NUMERIC,
@@ -714,7 +718,7 @@ create table methods_modifiers
 
 create table constructors_modifiers
 (
-    id             INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id             INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     constructor_id INTEGER REFERENCES constructors (id),
     modifier_id    INTEGER REFERENCES modifiers (id),
     created_at     NUMERIC,
@@ -723,7 +727,7 @@ create table constructors_modifiers
 
 create table destructors_modifiers
 (
-    id            INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     destructor_id INTEGER REFERENCES destructors (id),
     modifier_id   INTEGER REFERENCES modifiers (id),
     created_at    NUMERIC,
@@ -732,7 +736,7 @@ create table destructors_modifiers
 
 create table parameters_modifiers
 (
-    id           INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     parameter_id INTEGER REFERENCES parameters (id),
     modifier_id  INTEGER REFERENCES modifiers (id),
     created_at   NUMERIC,
@@ -741,7 +745,7 @@ create table parameters_modifiers
 
 create table template_params
 (
-    id         INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name       VARCHAR,
     created_at NUMERIC,
     updated_at NUMERIC
@@ -749,7 +753,7 @@ create table template_params
 
 create table template_params_typerefs
 (
-    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     template_param_id INTEGER REFERENCES template_params (id),
     typeref_id        INTEGER REFERENCES type_refs (id),
     created_at        NUMERIC,
@@ -758,7 +762,7 @@ create table template_params_typerefs
 
 create table methods_template_params
 (
-    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     method_id         INTEGER REFERENCES methods (id),
     template_param_id INTEGER REFERENCES template_params (id),
     created_at        NUMERIC,
@@ -767,7 +771,7 @@ create table methods_template_params
 
 create table constructors_template_params
 (
-    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     constructor_id    INTEGER REFERENCES constructors (id),
     template_param_id INTEGER REFERENCES template_params (id),
     created_at        NUMERIC,
@@ -776,7 +780,7 @@ create table constructors_template_params
 
 create table destructors_template_params
 (
-    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     destructor_id     INTEGER REFERENCES destructors (id),
     template_param_id INTEGER REFERENCES template_params (id),
     created_at        NUMERIC,
@@ -785,7 +789,7 @@ create table destructors_template_params
 
 create table fields_template_params
 (
-    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     field_id          INTEGER REFERENCES fields (id),
     template_param_id INTEGER REFERENCES template_params (id),
     created_at        NUMERIC,
@@ -794,7 +798,7 @@ create table fields_template_params
 
 create table interfaces_template_params
 (
-    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     interface_id      INTEGER REFERENCES interfaces (id),
     template_param_id INTEGER REFERENCES template_params (id),
     created_at        NUMERIC,
@@ -803,7 +807,7 @@ create table interfaces_template_params
 
 create table classes_template_params
 (
-    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     class_id          INTEGER REFERENCES classes (id),
     template_param_id INTEGER REFERENCES template_params (id),
     created_at        NUMERIC,
@@ -812,7 +816,7 @@ create table classes_template_params
 
 create table enums_template_params
 (
-    id                INTEGER NOT NULL PRIMARY KEY Autoincrement,
+    id                INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     enum_id           INTEGER REFERENCES enums (id),
     template_param_id INTEGER REFERENCES template_params (id),
     created_at        NUMERIC,
