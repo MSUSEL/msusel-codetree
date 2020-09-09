@@ -30,6 +30,7 @@ import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Queue;
 import java.util.Set;
 
@@ -181,7 +182,11 @@ public abstract class Type extends Component implements ComponentContainer {
         try {
             return get(Method.class, "name = ?", name).get(0);
         } catch (IndexOutOfBoundsException ex) {
-            return null;
+            try {
+                return get(Constructor.class, "name = ?", name).get(0);
+            } catch (IndexOutOfBoundsException e) {
+                return null;
+            }
         }
     }
 
@@ -515,12 +520,8 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public Member findMemberInRange(int start, int end) {
-        for (Member m : getAllMembers()) {
-            if (m.getStart() >= start && m.getEnd() <= end)
-                return m;
-        }
-
-        return null;
+        Optional<Member> opt = getAllMembers().stream().filter(member -> member.getStart() >= start && member.getEnd() <= end).findFirst();
+        return opt.orElse(null);
     }
 
     public List<TemplateParam> getTemplateParams() {
@@ -629,16 +630,18 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public TypeRef createTypeRef() {
-        if (TypeRef.findFirst("typeFullName = ?", getFullName()) != null) {
-            return TypeRef.findFirst("typeFullName = ?", getFullName());
-        } else {
+//        if (TypeRef.findFirst("typeFullName = ?", getFullName()) != null) {
+//            return TypeRef.findFirst("typeFullName = ?", getFullName());
+//        } else {
             Reference ref = createReference();
-            return TypeRef.builder().typeName(getName()).typeFullName(getFullName()).type(TypeRefType.Type).ref(ref).create();
-        }
+            TypeRef tref = TypeRef.builder().typeName(getName()).typeFullName(getFullName()).type(TypeRefType.Type).create();
+            tref.setReference(ref);
+            return tref;
+//        }
     }
 
     public Reference createReference() {
-        return Reference.builder().refKey(getCompKey()).refType(RefType.TYPE).create();
+        return Reference.to(this);
     }
 
     public void addType(Type type) {

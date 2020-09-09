@@ -67,6 +67,14 @@ public class Pattern extends Model {
 
     public List<Role> getRoles() { return getAll(Role.class); }
 
+    public Role getRoleByName(String name) {
+        try {
+            return get(Role.class, "name = ?", name).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
     public PatternRepository getParentPatternRepository() {
         return parent(PatternRepository.class);
     }

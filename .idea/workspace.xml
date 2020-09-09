@@ -4,19 +4,24 @@
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/scripts/rulegen/PMDRuleUpdater.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/scripts/rulegen/pmd_rules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/edu/montana/gsoc/msusel/arc/impl/pmd/pmd_rules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/command/ToolCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/command/ToolCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsCollector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsCollector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Pattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Pattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/TypeRef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/TypeRef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseDirector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseDirector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/CLI.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/CLI.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/java/JavaPathsDetector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/java/JavaPathsDetector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Collector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Collector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4PatternProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4PatternProvider.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Tool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDCollector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDCollector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/pmd/PMDTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/edu/montana/gsoc/msusel/arc/impl/pmd/rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/edu/montana/gsoc/msusel/arc/impl/pmd/rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/edu/montana/gsoc/msusel/arc/impl/pattern4/patterns_rbml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/edu/montana/gsoc/msusel/arc/impl/pattern4/patterns_rbml.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/ExperimentalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/ExperimentalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/FindBugOnly.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/FindBugOnly.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +68,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-patterns-experimenter" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -140,7 +145,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -314,8 +319,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ExperimentalTest.testFindBugs" />
-        <item itemvalue="Application.PMDRuleUpdater" />
         <item itemvalue="JUnit.ExperimentalTest" />
+        <item itemvalue="Application.PMDRuleUpdater" />
         <item itemvalue="JUnit.JavaPathsDetectorTest" />
         <item itemvalue="JUnit.edu.montana.gsoc.msusel.arc in msusel-arc-framework" />
       </list>
@@ -843,7 +848,27 @@
       <workItem from="1593230575150" duration="18000" />
       <workItem from="1593230647259" duration="37940000" />
       <workItem from="1593320169088" duration="39219000" />
-      <workItem from="1593490106269" duration="7861000" />
+      <workItem from="1593490106269" duration="17223000" />
+      <workItem from="1593662641454" duration="27084000" />
+      <workItem from="1593865960963" duration="1127000" />
+      <workItem from="1593902788858" duration="5810000" />
+      <workItem from="1594575194894" duration="3005000" />
+      <workItem from="1595224253113" duration="1200000" />
+      <workItem from="1595418532540" duration="31000" />
+      <workItem from="1595418603864" duration="127000" />
+      <workItem from="1595418765992" duration="877000" />
+      <workItem from="1596210198979" duration="2429000" />
+      <workItem from="1596383795397" duration="628000" />
+      <workItem from="1596425524106" duration="609000" />
+      <workItem from="1596622853973" duration="1206000" />
+      <workItem from="1597688713134" duration="599000" />
+      <workItem from="1597865056365" duration="854000" />
+      <workItem from="1597898557691" duration="1485000" />
+      <workItem from="1597956878494" duration="395000" />
+      <workItem from="1599590546570" duration="334000" />
+      <workItem from="1599590917845" duration="659000" />
+      <workItem from="1599601111314" duration="1229000" />
+      <workItem from="1599670554174" duration="212000" />
     </task>
     <servers />
   </component>
@@ -886,6 +911,10 @@
     </state>
     <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest.process/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593030314577" />
     <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593030098156" />
+    <state x="4395" y="175" width="800" height="719" key="#Plugins" timestamp="1593778590130">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4395" y="175" width="800" height="719" key="#Plugins/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593778590130" />
     <state x="4283" y="107" width="1024" height="856" key="#Project_Structure" timestamp="1592844839868">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
@@ -905,33 +934,19 @@
     <state x="4561" y="168" width="468" height="733" key="#com.intellij.ide.util.MemberChooser" timestamp="1593309110646">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="721" y="184" width="468" height="733" key="#com.intellij.ide.util.MemberChooser/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@0.27.1920.1009" timestamp="1590663596940" />
     <state x="4561" y="168" width="468" height="733" key="#com.intellij.ide.util.MemberChooser/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593309110646" />
-    <state x="4467" y="264" width="655" height="556" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1589460535541">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4467" y="264" width="655" height="556" key="#com.intellij.ide.util.PackageChooserDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1589460535541" />
     <state x="4461" y="279" width="656" height="518" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1591142479276">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4461" y="279" width="656" height="518" key="#com.intellij.ide.util.TreeClassChooserDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1591142479276" />
-    <state x="4167" y="437" width="1266" height="196" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590418795893">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4167" y="437" width="1266" height="196" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1590418795893" />
     <state x="4360" y="362" width="1178" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593489651680">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4360" y="362" width="1178" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593489651680" />
-    <state x="4360" y="362" width="879" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1588973979332" />
     <state x="4437" y="181" width="715" height="707" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1591142487773">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4437" y="181" width="715" height="707" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1591142487773" />
-    <state x="4190" y="27" width="1201" height="1009" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590660518465">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4190" y="27" width="1201" height="1009" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1590660518465" />
     <state x="3940" y="127" width="1720" height="809" key="DiffContextDialog" timestamp="1593052226912">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
@@ -940,42 +955,34 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4530" y="160" width="530" height="605" key="FileChooserDialogImpl/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592226954693" />
-    <state x="4530" y="160" width="530" height="751" key="FileChooserDialogImpl/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1588963293275" />
-    <state width="1872" height="290" key="GridCell.Tab.0.bottom" timestamp="1593485773116">
+    <state width="1872" height="290" key="GridCell.Tab.0.bottom" timestamp="1599666738388">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="290" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593485773116" />
-    <state width="1872" height="290" key="GridCell.Tab.0.center" timestamp="1593485773115">
+    <state width="1872" height="290" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599666738388" />
+    <state width="1872" height="290" key="GridCell.Tab.0.center" timestamp="1599666738388">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="290" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593485773115" />
-    <state width="1872" height="290" key="GridCell.Tab.0.left" timestamp="1593485773115">
+    <state width="1872" height="290" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599666738388" />
+    <state width="1872" height="290" key="GridCell.Tab.0.left" timestamp="1599666738388">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="290" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593485773115" />
-    <state width="1872" height="290" key="GridCell.Tab.0.right" timestamp="1593485773116">
+    <state width="1872" height="290" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599666738388" />
+    <state width="1872" height="290" key="GridCell.Tab.0.right" timestamp="1599666738388">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="290" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593485773116" />
+    <state width="1872" height="290" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599666738388" />
     <state x="4280" y="207" width="824" height="534" key="IDE.errors.dialog" timestamp="1592557438377">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4280" y="207" width="824" height="534" key="IDE.errors.dialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592557438377" />
-    <state x="4280" y="207" width="1030" height="657" key="IDE.errors.dialog/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1588795552221" />
-    <state x="4316" y="65" width="958" height="941" key="NewModule_or_Project.wizard" timestamp="1590213054770">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4316" y="65" width="958" height="941" key="NewModule_or_Project.wizard/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1590213054770" />
-    <state x="4316" y="65" width="958" height="941" key="NewModule_or_Project.wizard/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1588963297181" />
     <state x="4601" y="468" width="397" height="133" key="ReplaceDuplicatesPrompt" timestamp="1592472947552">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4601" y="468" width="397" height="133" key="ReplaceDuplicatesPrompt/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592472947552" />
-    <state x="4115" y="77" width="1396" height="912" key="SettingsEditor" timestamp="1593058656784">
+    <state x="4115" y="77" width="1396" height="912" key="SettingsEditor" timestamp="1599590979887">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="4115" y="77" width="1396" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593058656784" />
-    <state x="3953" y="78" width="1231" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1588812063410" />
+    <state x="4115" y="77" width="1396" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599590979887" />
     <state x="4461" y="199" width="675" height="665" key="StructurePopup" timestamp="1592845196191">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
@@ -996,11 +1003,11 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4474" y="202" width="642" height="665" key="com.intellij.testIntegration.createTest.CreateTestDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592923954821" />
-    <state x="2480" y="0" width="1360" height="632" key="dock-window-1" timestamp="1593490388576">
+    <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1" timestamp="1599670766821">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2480" y="0" width="1360" height="632" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593490388576" />
-    <state x="2120" y="60" width="1720" height="811" key="dock-window-1/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1589067474104" />
+    <state x="560" y="27" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@0.27.1920.1009" timestamp="1596385466834" />
+    <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599601955606" />
     <state x="4533" y="239" width="572" height="592" key="extract.method.dialog" timestamp="1592472935311">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
@@ -1009,12 +1016,14 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4480" y="98" width="640" height="867" key="find.popup/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1591657658022" />
-    <state x="4380" y="238" width="840" height="1034" key="run.anything.popup" timestamp="1592286284321">
+    <state x="4077" y="97" width="1436" height="876" key="new project wizard" timestamp="1594005890899">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="4380" y="238" width="840" height="1034" key="run.anything.popup/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592286284321" />
-    <state x="4380" y="238" width="840" height="1034" key="run.anything.popup/3840.0.1920.1080/0.27.1920.1011/1920.0.1920.1080@3840.0.1920.1080" timestamp="1588976468438" />
-    <state x="4380" y="238" width="840" height="1034" key="run.anything.popup/3840.0.1920.1080/0.27.1920.1053/1920.0.1920.1080@3840.0.1920.1080" timestamp="1590398915549" />
+    <state x="4077" y="97" width="1436" height="876" key="new project wizard/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1594005890899" />
+    <state x="4380" y="238" width="840" height="1034" key="run.anything.popup" timestamp="1593692356276">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4380" y="238" width="840" height="1034" key="run.anything.popup/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593692356276" />
     <state x="4463" y="248" width="672" height="678" key="search.everywhere.popup" timestamp="1593405097842">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>

@@ -115,11 +115,14 @@ public abstract class Member extends Component {
     }
 
     public Type getParentType() {
-        Type parent = parent(Class.class);
-        if (parent == null) {
-            parent = parent(Enum.class);
-            if (parent == null) {
+        Type parent;
+        try {
+            parent = parent(Class.class);
+        } catch (IllegalArgumentException ex) {
+            try {
                 parent = parent(Interface.class);
+            } catch (IllegalArgumentException ee) {
+                parent = parent(Enum.class);
             }
         }
 
