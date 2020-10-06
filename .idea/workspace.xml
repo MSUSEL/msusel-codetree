@@ -190,7 +190,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ExperimentalTest.testFindBugs">
+  <component name="RunManager" selected="JUnit.ExperimentalTest">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -303,8 +303,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ExperimentalTest.testFindBugs" />
         <item itemvalue="JUnit.ExperimentalTest" />
+        <item itemvalue="JUnit.ExperimentalTest.testFindBugs" />
         <item itemvalue="Application.PMDRuleUpdater" />
         <item itemvalue="JUnit.JavaPathsDetectorTest" />
         <item itemvalue="JUnit.edu.montana.gsoc.msusel.arc in msusel-arc-framework" />
@@ -853,7 +853,8 @@
       <workItem from="1599590546570" duration="334000" />
       <workItem from="1599590917845" duration="659000" />
       <workItem from="1599601111314" duration="1229000" />
-      <workItem from="1599670554174" duration="5139000" />
+      <workItem from="1599670554174" duration="6345000" />
+      <workItem from="1601989755887" duration="2190000" />
     </task>
     <servers />
   </component>
@@ -876,135 +877,43 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="4347" y="83" width="895" height="904" key="#ExperimentalTest" timestamp="1593187347730">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4347" y="83" width="895" height="904" key="#ExperimentalTest/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593187347730" />
-    <state x="4347" y="83" width="895" height="904" key="#JDTeste.process_(1)" timestamp="1593031340780">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4347" y="83" width="895" height="904" key="#JDTeste.process_(1)/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593031340780" />
-    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest" timestamp="1593030098156">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest.identify" timestamp="1593030235255">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest.identify/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593030235255" />
-    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest.process" timestamp="1593030314577">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest.process/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593030314577" />
-    <state x="4347" y="83" width="895" height="904" key="#JavaDirectorTest/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593030098156" />
     <state x="4395" y="175" width="800" height="719" key="#Plugins" timestamp="1593778590130">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4395" y="175" width="800" height="719" key="#Plugins/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593778590130" />
-    <state x="4283" y="107" width="1024" height="856" key="#Project_Structure" timestamp="1592844839868">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4283" y="107" width="1024" height="856" key="#Project_Structure/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592844839868" />
-    <state x="3972" y="274" width="1645" height="522" key="#SQL_Dialects" timestamp="1593036399431">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="3972" y="274" width="1645" height="522" key="#SQL_Dialects/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593036399431" />
-    <state x="4258" y="189" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592579102492">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4258" y="189" key="#com.intellij.execution.impl.EditConfigurationsDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592579102492" />
-    <state x="3940" y="127" width="1720" height="809" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1593291041289">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="3940" y="127" width="1720" height="809" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593291041289" />
-    <state x="4561" y="168" width="468" height="733" key="#com.intellij.ide.util.MemberChooser" timestamp="1593309110646">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4561" y="168" width="468" height="733" key="#com.intellij.ide.util.MemberChooser/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593309110646" />
-    <state x="4461" y="279" width="656" height="518" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1591142479276">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4461" y="279" width="656" height="518" key="#com.intellij.ide.util.TreeClassChooserDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1591142479276" />
     <state x="4360" y="362" width="1178" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593489651680">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4360" y="362" width="1178" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593489651680" />
-    <state x="4437" y="181" width="715" height="707" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1591142487773">
+    <state width="1872" height="289" key="GridCell.Tab.0.bottom" timestamp="1601998813494">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="4437" y="181" width="715" height="707" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1591142487773" />
-    <state x="3940" y="127" width="1720" height="809" key="DiffContextDialog" timestamp="1593052226912">
+    <state width="2512" height="430" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
+    <state width="1872" height="289" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1601998813494" />
+    <state width="1872" height="289" key="GridCell.Tab.0.center" timestamp="1601998813494">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="3940" y="127" width="1720" height="809" key="DiffContextDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593052226912" />
-    <state x="4530" y="160" width="530" height="605" key="FileChooserDialogImpl" timestamp="1592226954694">
+    <state width="2512" height="430" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
+    <state width="1872" height="289" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1601998813494" />
+    <state width="1872" height="289" key="GridCell.Tab.0.left" timestamp="1601998813494">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="4530" y="160" width="530" height="605" key="FileChooserDialogImpl/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592226954693" />
-    <state width="2512" height="430" key="GridCell.Tab.0.bottom" timestamp="1599678574580">
-      <screen x="3840" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2512" height="430" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599678574580" />
-    <state width="1872" height="290" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599666738388" />
-    <state width="2512" height="430" key="GridCell.Tab.0.center" timestamp="1599678574580">
-      <screen x="3840" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2512" height="430" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599678574580" />
-    <state width="1872" height="290" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599666738388" />
-    <state width="2512" height="430" key="GridCell.Tab.0.left" timestamp="1599678574580">
-      <screen x="3840" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2512" height="430" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599678574580" />
-    <state width="1872" height="290" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599666738388" />
-    <state width="2512" height="430" key="GridCell.Tab.0.right" timestamp="1599678574580">
-      <screen x="3840" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2512" height="430" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599678574580" />
-    <state width="1872" height="290" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599666738388" />
-    <state x="4280" y="207" width="824" height="534" key="IDE.errors.dialog" timestamp="1592557438377">
+    <state width="2512" height="430" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
+    <state width="1872" height="289" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1601998813494" />
+    <state width="1872" height="289" key="GridCell.Tab.0.right" timestamp="1601998813494">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="4280" y="207" width="824" height="534" key="IDE.errors.dialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592557438377" />
-    <state x="4601" y="468" width="397" height="133" key="ReplaceDuplicatesPrompt" timestamp="1592472947552">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4601" y="468" width="397" height="133" key="ReplaceDuplicatesPrompt/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592472947552" />
+    <state width="2512" height="430" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
+    <state width="1872" height="289" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1601998813494" />
     <state x="4115" y="77" width="1396" height="912" key="SettingsEditor" timestamp="1599590979887">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4115" y="77" width="1396" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599590979887" />
-    <state x="4461" y="199" width="675" height="665" key="StructurePopup" timestamp="1592845196191">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4461" y="199" width="675" height="665" key="StructurePopup/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592845196191" />
-    <state x="4547" y="314" width="486" height="448" key="chooseDestDirectoryDialog" timestamp="1593058903221">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4547" y="314" width="486" height="448" key="chooseDestDirectoryDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593058903221" />
-    <state x="4469" y="422" width="678" height="229" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1593031153001">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4469" y="422" width="678" height="229" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593031153001" />
-    <state x="4410" y="140" width="770" height="789" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1593312185602">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4410" y="140" width="770" height="789" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593312185602" />
-    <state x="4474" y="202" width="642" height="665" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1592923954821">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4474" y="202" width="642" height="665" key="com.intellij.testIntegration.createTest.CreateTestDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592923954821" />
-    <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1" timestamp="1599670766821">
+    <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1" timestamp="1601989763276">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="27" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@0.27.1920.1009" timestamp="1596385466834" />
-    <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599601955606" />
-    <state x="4533" y="239" width="572" height="592" key="extract.method.dialog" timestamp="1592472935311">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4533" y="239" width="572" height="592" key="extract.method.dialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1592472935311" />
-    <state x="4480" y="98" width="640" height="867" key="find.popup" timestamp="1591657658022">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4480" y="98" width="640" height="867" key="find.popup/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1591657658022" />
+    <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1601989763276" />
     <state x="4077" y="97" width="1436" height="876" key="new project wizard" timestamp="1594005890899">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
