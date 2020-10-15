@@ -266,11 +266,9 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
 
     public Type findTypeByQualifiedName(String name) {
-        String nsName = name;
-        while (!hasNamespace(nsName)) {
-            java.lang.System.out.println("NsName: " + nsName);
-            nsName = name.substring(0, name.lastIndexOf("."));
-        }
+        String nsName = name.substring(0, name.lastIndexOf("."));
+        if (!hasNamespace(nsName))
+            return null;
 
         String compName = name.replace(nsName, "").substring(1);
 
