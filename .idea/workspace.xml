@@ -6,7 +6,11 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/AssociationExtractor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/AssociationExtractor.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsCollector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/findbugs/FindBugsCollector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/ExperimentalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/ExperimentalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/FindBugOnly.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/FindBugOnly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/TestStudy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/TestStudy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +57,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-java-parser" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -190,7 +194,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ExperimentalTest">
+  <component name="RunManager" selected="JUnit.ExperimentalTest.testFindBugs">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -239,6 +243,23 @@
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ExperimentalTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-arc-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.arc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.arc" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.arc.ExperimentalTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ExperimentalTest.testFindBugs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="msusel-arc-framework" />
       <extension name="coverage">
@@ -279,35 +300,20 @@
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="edu.montana.gsoc.msusel.arc in msusel-arc-framework" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-arc-framework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.arc.impl.java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.arc" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BSP.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.PMDRuleUpdater" />
-      <item itemvalue="JUnit.edu.montana.gsoc.msusel.arc in msusel-arc-framework" />
       <item itemvalue="JUnit.ExperimentalTest" />
       <item itemvalue="JUnit.JavaPathsDetectorTest" />
       <item itemvalue="JUnit.ExperimentalTest.testFindBugs" />
+      <item itemvalue="JUnit.ExperimentalTest.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ExperimentalTest" />
         <item itemvalue="JUnit.ExperimentalTest.testFindBugs" />
+        <item itemvalue="JUnit.ExperimentalTest" />
+        <item itemvalue="JUnit.ExperimentalTest.test" />
         <item itemvalue="Application.PMDRuleUpdater" />
         <item itemvalue="JUnit.JavaPathsDetectorTest" />
-        <item itemvalue="JUnit.edu.montana.gsoc.msusel.arc in msusel-arc-framework" />
       </list>
     </recent_temporary>
   </component>
@@ -854,7 +860,11 @@
       <workItem from="1599590917845" duration="659000" />
       <workItem from="1599601111314" duration="1229000" />
       <workItem from="1599670554174" duration="6345000" />
-      <workItem from="1601989755887" duration="3617000" />
+      <workItem from="1601989755887" duration="6347000" />
+      <workItem from="1602190454159" duration="1209000" />
+      <workItem from="1602503748518" duration="807000" />
+      <workItem from="1602508566682" duration="6000" />
+      <workItem from="1602607240973" duration="5099000" />
     </task>
     <servers />
   </component>
@@ -877,55 +887,51 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="4395" y="175" width="800" height="719" key="#Plugins" timestamp="1593778590130">
+    <state x="4583" y="227" width="424" height="616" key="FileChooserDialogImpl" timestamp="1602503950660">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="4395" y="175" width="800" height="719" key="#Plugins/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593778590130" />
-    <state x="4360" y="362" width="1178" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593489651680">
+    <state x="4583" y="227" width="424" height="616" key="FileChooserDialogImpl/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602503950660" />
+    <state width="1872" height="298" key="GridCell.Tab.0.bottom" timestamp="1602674231996">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state x="4360" y="362" width="1178" height="353" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593489651680" />
-    <state width="1872" height="289" key="GridCell.Tab.0.bottom" timestamp="1602002467929">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
+    <state width="1872" height="298" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1602674231996" />
     <state width="2512" height="430" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
-    <state width="1872" height="289" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602002467929" />
-    <state width="1872" height="289" key="GridCell.Tab.0.center" timestamp="1602002467928">
+    <state width="1872" height="289" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
+    <state width="1872" height="298" key="GridCell.Tab.0.center" timestamp="1602674231995">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
+    <state width="1872" height="298" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1602674231995" />
     <state width="2512" height="430" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
-    <state width="1872" height="289" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602002467928" />
-    <state width="1872" height="289" key="GridCell.Tab.0.left" timestamp="1602002467928">
+    <state width="1872" height="289" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
+    <state width="1872" height="298" key="GridCell.Tab.0.left" timestamp="1602674231995">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
+    <state width="1872" height="298" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1602674231995" />
     <state width="2512" height="430" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
-    <state width="1872" height="289" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602002467928" />
-    <state width="1872" height="289" key="GridCell.Tab.0.right" timestamp="1602002467928">
+    <state width="1872" height="289" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
+    <state width="1872" height="298" key="GridCell.Tab.0.right" timestamp="1602674231995">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
+    <state width="1872" height="298" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1602674231995" />
     <state width="2512" height="430" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
-    <state width="1872" height="289" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602002467928" />
+    <state width="1872" height="289" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
+    <state x="4375" y="150" width="840" height="770" key="NewModule_or_Project.wizard" timestamp="1602503954147">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4375" y="150" width="840" height="770" key="NewModule_or_Project.wizard/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602503954147" />
     <state x="4115" y="77" width="1396" height="912" key="SettingsEditor" timestamp="1599590979887">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4115" y="77" width="1396" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599590979887" />
-    <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1" timestamp="1601989763276">
+    <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1" timestamp="1602611991805">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="27" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@0.27.1920.1009" timestamp="1596385466834" />
-    <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1601989763276" />
+    <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602508574420" />
     <state x="4077" y="97" width="1436" height="876" key="new project wizard" timestamp="1594005890899">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4077" y="97" width="1436" height="876" key="new project wizard/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1594005890899" />
-    <state x="4380" y="238" width="840" height="1034" key="run.anything.popup" timestamp="1593692356276">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4380" y="238" width="840" height="1034" key="run.anything.popup/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593692356276" />
-    <state x="4463" y="248" width="672" height="678" key="search.everywhere.popup" timestamp="1593405097842">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4463" y="248" width="672" height="678" key="search.everywhere.popup/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1593405097842" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/msusel_codetree$edu_in_msusel_codetree.ic" NAME="edu in msusel-codetree Coverage Results" MODIFIED="1587187151273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

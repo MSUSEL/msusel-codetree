@@ -279,7 +279,11 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
         Type type = null;
         if (ns != null) {
-            type = ns.getTypeByName(compName);
+            for (Type t : ns.getClasses()) {
+                if (t.getName().equals(compName))
+                    type = t;
+            }
+            //type = ns.getTypeByName(compName);
             log.atInfo().log("Component Name: " + compName + " and type found? " + (type != null));
         }
 
