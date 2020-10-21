@@ -65,6 +65,9 @@ class ControlFlowGraph {
     }
 
     static ControlFlowGraph fromString(String string) {
+        if (string == null || string.isEmpty())
+            return null;
+
         MutableGraph<ControlFlowNode> graph = GraphBuilder.directed().build()
         ControlFlowNode start, end
         if (string.contains(':') && string.contains(',') && string.contains('|->|')) {

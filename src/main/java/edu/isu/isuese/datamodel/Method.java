@@ -28,7 +28,10 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.google.common.graph.GraphBuilder;
+import com.google.common.graph.MutableGraph;
 import edu.isu.isuese.datamodel.cfg.ControlFlowGraph;
+import edu.isu.isuese.datamodel.cfg.ControlFlowNode;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
@@ -198,7 +201,10 @@ public class Method extends TypedMember {
     }
 
     public ControlFlowGraph getCfg() {
-        return ControlFlowGraph.fromString(getString("cfg"));
+        ControlFlowGraph cfg = ControlFlowGraph.fromString(getString("cfg"));
+        if (cfg == null)
+            return new ControlFlowGraph(GraphBuilder.directed().build(), null, null);
+        return cfg;
     }
 
     public void setCfg(ControlFlowGraph cfg) {
