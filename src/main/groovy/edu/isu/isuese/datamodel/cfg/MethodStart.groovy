@@ -37,6 +37,6 @@ class MethodStart extends AbstractCFGNode {
     }
 
     String toString() {
-        "METHSTRT:${super.toString()}"
+        "METHOD_START:${super.toString()}"
     }
 }

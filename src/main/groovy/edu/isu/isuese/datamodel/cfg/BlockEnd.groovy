@@ -40,6 +40,6 @@ class BlockEnd extends AbstractCFGNode {
     }
 
     String toString() {
-        "BLKEND:${super.toString()}"
+        "BLOCK_END:${super.toString()}"
     }
 }

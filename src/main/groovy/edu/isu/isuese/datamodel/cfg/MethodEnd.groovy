@@ -37,6 +37,6 @@ class MethodEnd extends AbstractCFGNode {
     }
 
     String toString() {
-        "METHEND:${super.toString()}"
+        "METHOD_END:${super.toString()}"
     }
 }

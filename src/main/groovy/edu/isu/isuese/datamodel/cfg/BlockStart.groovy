@@ -44,6 +44,6 @@ class BlockStart extends AbstractCFGNode {
     }
 
     String toString() {
-        "BLKSTRT:${super.toString()}"
+        "BLOCK_START:${super.toString()}"
     }
 }
