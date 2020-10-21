@@ -33,10 +33,10 @@ package edu.isu.isuese.datamodel.cfg
 class MethodStart extends AbstractCFGNode {
 
     MethodStart() {
-        super(StatementType.METHOD_START, 0)
+        super(StatementType.METHSTRT, 0)
     }
 
     String toString() {
-        "METHOD_START:${super.toString()}"
+        "METHSTRT:${super.toString()}"
     }
 }

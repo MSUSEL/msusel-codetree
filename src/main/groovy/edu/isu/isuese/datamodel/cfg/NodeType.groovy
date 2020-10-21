@@ -32,11 +32,11 @@ package edu.isu.isuese.datamodel.cfg
  */
 interface NodeType {
 
-    String BLOCKEND = "BLKEND"
-    String BLOCKSTART = "BLKSTRT"
-    String LABELED = "LABEL"
-    String LOOPSTART = "LOOPSTRT"
-    String METHODEND = "METHEND"
-    String METHODSTART = "METHSTRT"
+    String BLKEND = "BLKEND"
+    String BLKSTRT = "BLKSTRT"
+    String LABELED = "LABELED"
+    String LOOPSTRT = "LOOPSTRT"
+    String METHEND = "METHEND"
+    String METHSTRT = "METHSTRT"
     String STATEMENT = "STMT"
 }

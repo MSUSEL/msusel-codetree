@@ -48,6 +48,6 @@ class LoopStart extends BlockStart {
     }
 
     String toString() {
-        "LOOPSTRT:${super.toString()}"
+        "LOOPSTRT:${type.toString()}_${label}"
     }
 }

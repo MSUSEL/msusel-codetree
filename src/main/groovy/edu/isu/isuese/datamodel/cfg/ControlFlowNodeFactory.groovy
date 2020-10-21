@@ -43,19 +43,19 @@ class ControlFlowNodeFactory {
         def stmttype = type.split(":")[1]
 
         switch (nodetype) {
-            case NodeType.BLOCKEND:
+            case NodeType.BLKEND:
                 return BlockEnd.builder().type(StatementType.valueOf(stmttype)).label(Integer.parseInt(label)).create()
-            case NodeType.BLOCKSTART:
+            case NodeType.BLKSTRT:
                 return BlockStart.builder().type(StatementType.valueOf(stmttype)).label(Integer.parseInt(label)).create()
             case NodeType.LABELED:
                 int intLabel = Integer.parseInt(label.split(":")[0])
                 String codeLabel = label.split(":")[1]
                 return LabeledStatement.builder().label(intLabel).codeLabel(codeLabel).create()
-            case NodeType.LOOPSTART:
+            case NodeType.LOOPSTRT:
                 return LoopStart.builder().type(StatementType.valueOf(stmttype)).label(Integer.parseInt(label)).create()
-            case NodeType.METHODEND:
+            case NodeType.METHEND:
                 return new MethodEnd()
-            case NodeType.METHODSTART:
+            case NodeType.METHSTRT:
                 return new MethodStart()
             case NodeType.STATEMENT:
                 return Statement.builder().type(StatementType.valueOf(stmttype)).label(Integer.parseInt(label)).create()

@@ -33,10 +33,10 @@ package edu.isu.isuese.datamodel.cfg
 class MethodEnd extends AbstractCFGNode {
 
     MethodEnd() {
-        super(StatementType.METHOD_END, 0)
+        super(StatementType.METHEND, 0)
     }
 
     String toString() {
-        "METHOD_END:${super.toString()}"
+        "METHEND:${super.toString()}"
     }
 }

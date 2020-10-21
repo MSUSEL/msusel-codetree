@@ -47,6 +47,6 @@ class LabeledStatement extends AbstractCFGNode {
      */
     @Override
     String toString() {
-        "LABEL:${super.toString()}:$codeLabel"
+        "LABELED:${super.toString()}:$codeLabel"
     }
 }

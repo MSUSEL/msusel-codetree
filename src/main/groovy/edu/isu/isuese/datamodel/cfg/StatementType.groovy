@@ -52,8 +52,8 @@ enum StatementType {
     VAR_DECL,
     WHILE,
 
-    BLOCK_START,
-    BLOCK_END,
-    METHOD_START,
-    METHOD_END
+    BLKSTRT,
+    BLKEND,
+    METHSTRT,
+    METHEND
 }

@@ -228,7 +228,7 @@ class CFGBuilder {
     }
 
     void startBlock(StatementType type, StatementType endType = StatementType.END) {
-        BlockStart bs = BlockStart.builder().type(type).label(stmtCount++).create()
+        BlockStart bs = BlockSt art.builder().type(type).label(stmtCount++).create()
         BlockEnd be = BlockEnd.builder().type(endType).label(stmtCount++).create()
 
         inject(bs, be)
