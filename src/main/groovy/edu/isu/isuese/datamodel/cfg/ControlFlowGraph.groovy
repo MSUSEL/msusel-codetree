@@ -75,8 +75,8 @@ class ControlFlowGraph {
             edges.each { e ->
                 def nodes = e.split(/\|->\|/)
                 System.out.println("Nodes: " + nodes)
-                def nodeU = processNode(nodes[0])
-                def nodeV = processNode(nodes[1])
+                def nodeU = ControlFlowNodeFactory.instance.createNode(nodes[0])
+                def nodeV = ControlFlowNodeFactory.instance.createNode(nodes[1])
 
                 graph.putEdge(nodeU, nodeV)
                 if (nodeU instanceof MethodStart)
@@ -91,10 +91,5 @@ class ControlFlowGraph {
         }
 
         return new ControlFlowGraph(graph, start, end)
-    }
-
-    private def processNode(String desc) {
-        ControlFlowNode cfn = ControlFlowNodeFactory.instance.createNode(desc)
-        return cfn
     }
 }
