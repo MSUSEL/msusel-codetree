@@ -49,7 +49,7 @@ enum StatementType {
     SYNCHRONIZED,
     THROW,
     TRY,
-    VAR_DECL,
+    VARDECL,
     WHILE,
 
     BLKSTRT,
