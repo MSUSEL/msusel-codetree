@@ -6,7 +6,7 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/AverageNumberOfAncestors.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/AverageNumberOfAncestors.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/MeasureOfAggregation.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/MeasureOfAggregation.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -863,7 +863,7 @@
       <workItem from="1602607240973" duration="13091000" />
       <workItem from="1602848841340" duration="1208000" />
       <workItem from="1603185267989" duration="21738000" />
-      <workItem from="1603316244953" duration="10935000" />
+      <workItem from="1603316244953" duration="12669000" />
     </task>
     <servers />
   </component>
@@ -890,28 +890,28 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4583" y="227" width="424" height="616" key="FileChooserDialogImpl/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602503950660" />
-    <state width="1872" height="298" key="GridCell.Tab.0.bottom" timestamp="1603384664843">
+    <state width="1872" height="298" key="GridCell.Tab.0.bottom" timestamp="1603386440887">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603384664843" />
+    <state width="1872" height="298" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603386440887" />
     <state width="2512" height="430" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.center" timestamp="1603384664842">
+    <state width="1872" height="298" key="GridCell.Tab.0.center" timestamp="1603386440887">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603384664842" />
+    <state width="1872" height="298" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603386440887" />
     <state width="2512" height="430" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.left" timestamp="1603384664842">
+    <state width="1872" height="298" key="GridCell.Tab.0.left" timestamp="1603386440887">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603384664842" />
+    <state width="1872" height="298" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603386440887" />
     <state width="2512" height="430" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.right" timestamp="1603384664843">
+    <state width="1872" height="298" key="GridCell.Tab.0.right" timestamp="1603386440887">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603384664843" />
+    <state width="1872" height="298" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603386440887" />
     <state width="2512" height="430" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
     <state x="4375" y="150" width="840" height="770" key="NewModule_or_Project.wizard" timestamp="1602503954147">
