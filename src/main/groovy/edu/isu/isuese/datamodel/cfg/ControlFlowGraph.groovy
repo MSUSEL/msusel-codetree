@@ -74,7 +74,6 @@ class ControlFlowGraph {
             def edges = string.split(',')
             edges.each { e ->
                 def nodes = e.split(/\|->\|/)
-                System.out.println("Nodes: " + nodes)
                 def nodeU = ControlFlowNodeFactory.instance.createNode(nodes[0])
                 def nodeV = ControlFlowNodeFactory.instance.createNode(nodes[1])
 
