@@ -107,7 +107,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public double getMeasuredValue(Component comp, String repo, String handle) {
-        return Objects.requireNonNull(Measure.retrieve(comp, "$repo:$handle")).getValue();
+        return Objects.requireNonNull(Measure.retrieve(comp, String.format("%s:%s", repo, handle))).getValue();
     }
 
     public void addFinding(Finding find) {

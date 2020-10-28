@@ -6,25 +6,7 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LinesOfCodePerClass.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LinesOfCodePerClass.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LogicalLinesOfCode.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/LogicalLinesOfCode.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfAncestorClasses.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfAncestorClasses.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassVariables.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClassVariables.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClasses.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfClasses.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfFields.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfFields.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfInstanceVariables.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfInstanceVariables.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfLocalVariables.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfLocalVariables.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfMethods.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfPrivateAttributes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfPrivateAttributes.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfProtectedAttributes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfProtectedAttributes.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfPublicMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfPublicMethods.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfStatements.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfStatements.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfTypes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/NumberOfTypes.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/PolymorphicMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/PolymorphicMethods.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfAttributes.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfAttributes.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfClasses.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfClasses.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfMethods.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/impl/TotalNumberOfMethods.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/metrics/ArcMetricsTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/metrics/ArcMetricsTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +53,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-metrics" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -883,7 +865,7 @@
       <workItem from="1603185267989" duration="21738000" />
       <workItem from="1603316244953" duration="13278000" />
       <workItem from="1603573717273" duration="1800000" />
-      <workItem from="1603757720961" duration="9352000" />
+      <workItem from="1603757720961" duration="11480000" />
     </task>
     <servers />
   </component>
@@ -914,28 +896,28 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4583" y="227" width="424" height="616" key="FileChooserDialogImpl/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602503950660" />
-    <state width="1872" height="298" key="GridCell.Tab.0.bottom" timestamp="1603834602078">
+    <state width="1872" height="298" key="GridCell.Tab.0.bottom" timestamp="1603837590864">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603834602078" />
+    <state width="1872" height="298" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603837590864" />
     <state width="2512" height="430" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.center" timestamp="1603834602078">
+    <state width="1872" height="298" key="GridCell.Tab.0.center" timestamp="1603837590864">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603834602078" />
+    <state width="1872" height="298" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603837590864" />
     <state width="2512" height="430" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.left" timestamp="1603834602078">
+    <state width="1872" height="298" key="GridCell.Tab.0.left" timestamp="1603837590864">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603834602078" />
+    <state width="1872" height="298" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603837590864" />
     <state width="2512" height="430" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.right" timestamp="1603834602078">
+    <state width="1872" height="298" key="GridCell.Tab.0.right" timestamp="1603837590864">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603834602078" />
+    <state width="1872" height="298" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603837590864" />
     <state width="2512" height="430" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
     <state x="4375" y="150" width="840" height="770" key="NewModule_or_Project.wizard" timestamp="1602503954147">
