@@ -157,7 +157,7 @@ public class Measure extends Model {
     }
 
     public static boolean hasMetric(Measurable comp, String metric) {
-        return false;
+        return retrieve(comp, metric) != null;
     }
 
     public static List<Double> getAllClassValues(Project proj, String repo, String handle) {
@@ -181,13 +181,13 @@ public class Measure extends Model {
     }
 
     public static List<Double> getAllMethodValues(Project proj, String repo, String handle) {
-            List<Double> values = Lists.newArrayList();
+        List<Double> values = Lists.newArrayList();
 
-            proj.getAllMethods().forEach(type -> {
-                values.add(valueFor(repo, handle, type));
-            });
+        proj.getAllMethods().forEach(type -> {
+            values.add(valueFor(repo, handle, type));
+        });
 
-            return values;
+        return values;
     }
 
     public static Double getProjectMetric(Project proj, String repo, String handle) {
