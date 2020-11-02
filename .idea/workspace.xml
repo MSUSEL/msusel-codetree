@@ -6,7 +6,8 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/qmood/QMoodCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -866,7 +867,9 @@
       <workItem from="1603316244953" duration="13278000" />
       <workItem from="1603573717273" duration="1800000" />
       <workItem from="1603757720961" duration="11480000" />
-      <workItem from="1603874093143" duration="1799000" />
+      <workItem from="1603874093143" duration="2404000" />
+      <workItem from="1604277178519" duration="3427000" />
+      <workItem from="1604308539523" duration="461000" />
     </task>
     <servers />
   </component>
@@ -929,10 +932,10 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4115" y="77" width="1396" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599590979887" />
-    <state x="2379" y="27" width="1360" height="591" key="dock-window-1" timestamp="1603874585432">
+    <state x="2379" y="27" width="1360" height="591" maximized="true" key="dock-window-1" timestamp="1604308964284">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2379" y="27" width="1360" height="591" key="dock-window-1/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1603874585432" />
+    <state x="2379" y="27" width="1360" height="591" maximized="true" key="dock-window-1/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604308964284" />
     <state x="560" y="27" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@0.27.1920.1009" timestamp="1596385466834" />
     <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602508574420" />
   </component>

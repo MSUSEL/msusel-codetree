@@ -56,7 +56,7 @@ public class Measure extends Model {
     }
 
     public void setValue(double value) {
-        set("value", value);
+        setDouble("value", value);
         save();
     }
 
@@ -132,7 +132,7 @@ public class Measure extends Model {
     }
 
     public Measure withValue(double value) {
-        set("value", value);
+        setValue(value);
         save();
         return this;
     }
