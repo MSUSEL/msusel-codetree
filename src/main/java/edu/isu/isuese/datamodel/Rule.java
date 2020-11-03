@@ -29,6 +29,8 @@ package edu.isu.isuese.datamodel;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Many2Manies;
+import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +39,9 @@ import java.util.stream.Collectors;
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@Many2Manies({
+        @Many2Many(other = Finding.class, join = "rules_findings", sourceFKName = "rule_id", targetFKName = "finding_id")
+})
 public class Rule extends Model {
 
     public Rule() {}
