@@ -6,14 +6,7 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Finding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Finding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Metric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Metric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Rule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FindingSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FindingSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/MeasureSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/MeasureSpec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/MethodExtentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/processor/extents/MethodExtentDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +53,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-quamoco" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -197,7 +190,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FindingSpec">
+  <component name="RunManager" selected="JUnit.ExperimentalTest.testFindBugs">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -315,9 +308,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExperimentalTest.testFindBugs" />
         <item itemvalue="JUnit.FindingSpec" />
         <item itemvalue="JUnit.MeasureSpec" />
-        <item itemvalue="JUnit.ExperimentalTest.testFindBugs" />
         <item itemvalue="JUnit.ExperimentalTest" />
         <item itemvalue="JUnit.ExperimentalTest.test" />
       </list>
@@ -878,7 +871,7 @@
       <workItem from="1603757720961" duration="11480000" />
       <workItem from="1603874093143" duration="2404000" />
       <workItem from="1604277178519" duration="3427000" />
-      <workItem from="1604308539523" duration="23622000" />
+      <workItem from="1604308539523" duration="26992000" />
     </task>
     <servers />
   </component>
@@ -909,28 +902,28 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4583" y="227" width="424" height="616" key="FileChooserDialogImpl/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602503950660" />
-    <state width="1872" height="298" key="GridCell.Tab.0.bottom" timestamp="1604380939156">
+    <state width="1872" height="298" key="GridCell.Tab.0.bottom" timestamp="1604384319186">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604380939156" />
+    <state width="1872" height="298" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604384319186" />
     <state width="2512" height="430" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.center" timestamp="1604380939156">
+    <state width="1872" height="298" key="GridCell.Tab.0.center" timestamp="1604384319185">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604380939156" />
+    <state width="1872" height="298" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604384319185" />
     <state width="2512" height="430" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.left" timestamp="1604380939156">
+    <state width="1872" height="298" key="GridCell.Tab.0.left" timestamp="1604384319185">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604380939156" />
+    <state width="1872" height="298" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604384319185" />
     <state width="2512" height="430" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.right" timestamp="1604380939156">
+    <state width="1872" height="298" key="GridCell.Tab.0.right" timestamp="1604384319185">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604380939156" />
+    <state width="1872" height="298" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604384319185" />
     <state width="2512" height="430" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
     <state x="4383" y="254" width="824" height="534" key="IDE.errors.dialog" timestamp="1604361729034">
