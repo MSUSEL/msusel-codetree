@@ -82,11 +82,15 @@ public class Finding extends Model {
     }
 
     public Rule getParentRule() {
-        return parent(Rule.class);
+        if (getAll(Rule.class).isEmpty())
+            return null;
+        return getAll(Rule.class).get(0);
     }
 
     public Project getParentProject() {
-        return parent(Project.class);
+        if (getAll(Project.class).isEmpty())
+            return null;
+        return getAll(Project.class).get(0);
     }
 
     public boolean isInjected() {

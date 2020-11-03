@@ -6,7 +6,14 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Finding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Finding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Metric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Metric.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FindingSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FindingSpec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/MeasureSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/MeasureSpec.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +197,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ExperimentalTest.testFindBugs">
+  <component name="RunManager" selected="JUnit.FindingSpec">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -209,19 +216,6 @@
       <setting name="configType" value="SPECIFY" />
       <setting name="fixLineNumbers" value="false" />
       <method v="2" />
-    </configuration>
-    <configuration name="PMDRuleUpdater" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.arc.impl.pmd.PMDRuleUpdater" />
-      <module name="msusel-arc-framework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.arc.impl.pmd.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="ExperimentalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="msusel-arc-framework" />
@@ -273,16 +267,32 @@
         <option name="BSP.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JavaPathsDetectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-arc-framework" />
+    <configuration name="FindingSpec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-codetree" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.montana.gsoc.msusel.arc.impl.java.*" />
+          <option name="PATTERN" value="edu.isu.isuese.datamodel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.arc.impl.java" />
-      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.arc.impl.java.JavaPathsDetectorTest" />
+      <option name="PACKAGE_NAME" value="edu.isu.isuese.datamodel" />
+      <option name="MAIN_CLASS_NAME" value="edu.isu.isuese.datamodel.FindingSpec" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MeasureSpec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-codetree" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.isu.isuese.datamodel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.isu.isuese.datamodel" />
+      <option name="MAIN_CLASS_NAME" value="edu.isu.isuese.datamodel.MeasureSpec" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -297,19 +307,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.PMDRuleUpdater" />
       <item itemvalue="JUnit.ExperimentalTest" />
-      <item itemvalue="JUnit.JavaPathsDetectorTest" />
       <item itemvalue="JUnit.ExperimentalTest.testFindBugs" />
       <item itemvalue="JUnit.ExperimentalTest.test" />
+      <item itemvalue="JUnit.FindingSpec" />
+      <item itemvalue="JUnit.MeasureSpec" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FindingSpec" />
+        <item itemvalue="JUnit.MeasureSpec" />
         <item itemvalue="JUnit.ExperimentalTest.testFindBugs" />
         <item itemvalue="JUnit.ExperimentalTest" />
         <item itemvalue="JUnit.ExperimentalTest.test" />
-        <item itemvalue="Application.PMDRuleUpdater" />
-        <item itemvalue="JUnit.JavaPathsDetectorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -868,7 +878,7 @@
       <workItem from="1603757720961" duration="11480000" />
       <workItem from="1603874093143" duration="2404000" />
       <workItem from="1604277178519" duration="3427000" />
-      <workItem from="1604308539523" duration="19888000" />
+      <workItem from="1604308539523" duration="23622000" />
     </task>
     <servers />
   </component>
@@ -899,30 +909,34 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4583" y="227" width="424" height="616" key="FileChooserDialogImpl/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602503950660" />
-    <state width="1872" height="298" key="GridCell.Tab.0.bottom" timestamp="1604357908029">
+    <state width="1872" height="298" key="GridCell.Tab.0.bottom" timestamp="1604380939156">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604357908029" />
+    <state width="1872" height="298" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604380939156" />
     <state width="2512" height="430" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.center" timestamp="1604357908029">
+    <state width="1872" height="298" key="GridCell.Tab.0.center" timestamp="1604380939156">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604357908029" />
+    <state width="1872" height="298" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604380939156" />
     <state width="2512" height="430" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.left" timestamp="1604357908029">
+    <state width="1872" height="298" key="GridCell.Tab.0.left" timestamp="1604380939156">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604357908029" />
+    <state width="1872" height="298" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604380939156" />
     <state width="2512" height="430" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
-    <state width="1872" height="298" key="GridCell.Tab.0.right" timestamp="1604357908029">
+    <state width="1872" height="298" key="GridCell.Tab.0.right" timestamp="1604380939156">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
-    <state width="1872" height="298" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604357908029" />
+    <state width="1872" height="298" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604380939156" />
     <state width="2512" height="430" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1009/3840.0.2560.1440@3840.0.2560.1440" timestamp="1599776957217" />
     <state width="1872" height="289" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602006626793" />
+    <state x="4383" y="254" width="824" height="534" key="IDE.errors.dialog" timestamp="1604361729034">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4383" y="254" width="824" height="534" key="IDE.errors.dialog/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604361729034" />
     <state x="4375" y="150" width="840" height="770" key="NewModule_or_Project.wizard" timestamp="1602503954147">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
@@ -931,10 +945,10 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4115" y="77" width="1396" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1599590979887" />
-    <state x="2184" y="27" width="1297" height="651" maximized="true" key="dock-window-1" timestamp="1604353874909">
+    <state x="2184" y="27" width="1297" height="651" maximized="true" key="dock-window-1" timestamp="1604378987623">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2184" y="27" width="1297" height="651" maximized="true" key="dock-window-1/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604353874909" />
+    <state x="2184" y="27" width="1297" height="651" maximized="true" key="dock-window-1/1920.0.1920.1080/0.27.1920.1009/3840.0.1920.1080@3840.0.1920.1080" timestamp="1604378987623" />
     <state x="560" y="27" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@0.27.1920.1009" timestamp="1596385466834" />
     <state x="2480" y="167" width="1360" height="591" maximized="true" key="dock-window-1/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1602508574420" />
   </component>

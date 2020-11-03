@@ -33,6 +33,7 @@ import org.javalite.activejdbc.annotations.Many2Manies;
 import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -140,5 +141,23 @@ public class Rule extends Model {
                 return refs.get(0).getRefKey().equals(comp.getRefKey());
             }
         });
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Rule) {
+            Rule other = (Rule) obj;
+            if (other.getDescription().equals(getDescription())) {
+                if (other.getName().equals(getName())) {
+                    return other.getKey().equals(getKey());
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDescription(), getName(), getKey());
     }
 }

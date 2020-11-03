@@ -85,4 +85,26 @@ public class MeasureSpec extends DBSpec {
         a(Measure.count()).shouldBeEqual(0);
         a(Reference.count()).shouldBeEqual(0);
     }
+
+    @Test
+    public void canBeAddedToProject() {
+        Project p = Project.createIt("name", "fake project", "projKey", "fake key", "version", "fake version");
+        Measure meas = Measure.createIt("measureKey", "meas", "value", 1.0);
+
+        p.addMeasure(meas);
+
+        a(Measure.belongsTo(Project.class)).shouldBeTrue();
+        a(meas.getParentProject()).shouldBeEqual(p);
+    }
+
+    @Test
+    public void canBeAddedToMetric() {
+        Metric metric = Metric.createIt("metricKey", "metric", "name", "metric", "description", "description");
+        Measure meas = Measure.createIt("measureKey", "meas", "value", 1.0);
+
+        metric.addMeasure(meas);
+
+        a(Measure.belongsTo(Metric.class)).shouldBeTrue();
+        a(meas.getParentMetric()).shouldBeEqual(metric);
+    }
 }

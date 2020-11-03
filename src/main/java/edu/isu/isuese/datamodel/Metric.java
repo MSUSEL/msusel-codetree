@@ -30,6 +30,7 @@ import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
@@ -107,5 +108,25 @@ public class Metric extends Model {
 
     public String getEvaluator() {
         return getString("evaluator");
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Metric) {
+            Metric other = (Metric) obj;
+            if (other.getDescription().equals(getDescription())) {
+                if (other.getName().equals(getName())) {
+                    if (other.getMetricKey().equals(getMetricKey())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDescription(), getName(), getMetricKey());
     }
 }

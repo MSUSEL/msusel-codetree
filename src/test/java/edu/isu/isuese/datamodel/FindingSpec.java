@@ -83,4 +83,28 @@ public class FindingSpec extends DBSpec {
         a(Finding.count()).shouldBeEqual(0);
         a(Reference.count()).shouldBeEqual(0);
     }
+
+    @Test
+    public void canBeAddedToProject() {
+        Project p = Project.createIt("name", "fake project", "projKey", "fake key", "version", "fake version");
+        Finding finding = Finding.createIt("findingKey", "finding");
+        finding.save();
+
+        p.addFinding(finding);
+
+        a(Finding.belongsTo(Project.class)).shouldBeTrue();
+        a(finding.getParentProject()).shouldBeEqual(p);
+    }
+
+    @Test
+    public void canBeAddedToRule() {
+        Rule rule = Rule.createIt("ruleKey", "fake key", "name", "fake name", "description", "fake content", "rule_repository_id", 1);
+        Finding finding = Finding.createIt("findingKey", "finding");
+        finding.save();
+
+        rule.addFinding(finding);
+
+        a(Finding.belongsTo(Rule.class)).shouldBeTrue();
+        a(finding.getParentRule()).shouldBeEqual(rule);
+    }
 }

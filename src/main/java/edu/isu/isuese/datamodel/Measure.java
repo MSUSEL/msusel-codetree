@@ -95,7 +95,9 @@ public class Measure extends Model {
     }
 
     public Project getParentProject() {
-        return parent(Project.class);
+        if (getAll(Project.class).isEmpty())
+            return null;
+        return getAll(Project.class).get(0);
     }
 
     public MetricRepository getParentMetricRepository() {
@@ -106,7 +108,9 @@ public class Measure extends Model {
     }
 
     public Metric getParentMetric() {
-        return parent(Metric.class);
+        if (getAll(Metric.class).isEmpty())
+            return null;
+        return getAll(Metric.class).get(0);
     }
 
     public static Measure of(String metricKey) {
