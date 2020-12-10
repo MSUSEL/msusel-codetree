@@ -43,35 +43,34 @@ public class Reference extends Model {
 
     public Reference() {}
 
-    public static Reference to(Component comp) {
+    public static Reference to(Object obj) {
         RefType type = null;
-        if (comp instanceof Type)
-            type = RefType.TYPE;
-        else if (comp instanceof Literal)
-            type = RefType.LITERAL;
-        else if (comp instanceof Constructor)
-            type = RefType.CONSTRUCTOR;
-        else if (comp instanceof Initializer)
-            type = RefType.INITIALIZER;
-        else if (comp instanceof Method)
-            type = RefType.METHOD;
-        else if (comp instanceof Field)
-            type = RefType.FIELD;
+        if (obj instanceof Component) {
+            Component comp = (Component) obj;
+            if (comp instanceof Type)
+                type = RefType.TYPE;
+            else if (comp instanceof Literal)
+                type = RefType.LITERAL;
+            else if (comp instanceof Constructor)
+                type = RefType.CONSTRUCTOR;
+            else if (comp instanceof Initializer)
+                type = RefType.INITIALIZER;
+            else if (comp instanceof Method)
+                type = RefType.METHOD;
+            else if (comp instanceof Field)
+                type = RefType.FIELD;
 
-        if (type != null)
-            return new Reference(comp.getRefKey(), type);
+            if (type != null)
+                return new Reference(comp.getRefKey(), type);
+        } if (obj instanceof PatternInstance) {
+            type = RefType.PATTERN;
+            return new Reference(((PatternInstance) obj).getRefKey(), type);
+        } else if (obj instanceof Namespace) {
+            type = RefType.NAMESPACE;
+            return new Reference(((Namespace) obj).getRefKey(), type);
+        }
 
         return null;
-    }
-
-    public static Reference to(PatternInstance inst) {
-        RefType type = RefType.PATTERN;
-        return new Reference(inst.getRefKey(), type);
-    }
-
-    public static Reference to(Namespace ns) {
-        RefType type = RefType.NAMESPACE;
-        return new Reference(ns.getRefKey(), type);
     }
 
     @Builder(buildMethodName = "create")
