@@ -283,27 +283,12 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
         Type type = null;
         if (ns != null) {
-            for (Type t : ns.getClasses()) {
-                if (t.getName().equals(compName)) {
-                    type = t;
-                    break;
-                }
+            type = ns.getClassByName(compName);
+            if (type == null) {
+                type = ns.getInterfaceByName(compName);
             }
             if (type == null) {
-                for (Type t : ns.getInterfaces()) {
-                    if (t.getName().equals(compName)) {
-                        type = t;
-                        break;
-                    }
-                }
-            }
-            if (type == null) {
-                for (Type t : ns.getEnums()) {
-                    if (t.getName().equals(compName)) {
-                        type = t;
-                        break;
-                    }
-                }
+                type = ns.getEnumByName(compName);
             }
             //type = ns.getTypeByName(compName);
             log.atInfo().log("Component Name: " + compName + " and type found? " + (type != null));

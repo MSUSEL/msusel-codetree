@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import lombok.Builder;
+import org.javalite.activejdbc.LazyList;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToParents;
@@ -159,6 +160,14 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
         return classes;
     }
 
+    public Class getClassByName(String name) {
+        LazyList<Class> list = get(Class.class, "name = ?", name);
+        if (!list.isEmpty())
+            return list.get(0);
+        else
+            return null;
+    }
+
     @Override
     public List<Interface> getInterfaces() {
         List<Interface> interfaces = Lists.newArrayList(getAll(Interface.class));
@@ -166,11 +175,27 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
         return interfaces;
     }
 
+    public Interface getInterfaceByName(String name) {
+        LazyList<Interface> list = get(Interface.class, "name = ?", name);
+        if (!list.isEmpty())
+            return list.get(0);
+        else
+            return null;
+    }
+
     @Override
     public List<Enum> getEnums() {
         List<Enum> enums = Lists.newArrayList(getAll(Enum.class));
         //getNamespaces().forEach(ns -> enums.addAll(ns.getEnums()));
         return enums;
+    }
+
+    public Enum getEnumByName(String name) {
+        LazyList<Enum> list = get(Enum.class, "name = ?", name);
+        if (!list.isEmpty())
+            return list.get(0);
+        else
+            return null;
     }
 
     @Override
