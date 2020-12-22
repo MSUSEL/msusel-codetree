@@ -493,6 +493,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         String newKey = getParentSystem() == null ? getName() + "-" + getVersion() : getParentSystem().getKey() + ":" + getName() + "-" + getVersion();
         setString("projKey", newKey);
         save();
+        getModules().forEach(Module::updateKey);
         getNamespaces().forEach(Namespace::updateKey);
         getFiles().forEach(File::updateKey);
     }

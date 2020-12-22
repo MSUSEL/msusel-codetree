@@ -331,6 +331,7 @@ public class File extends Model implements Measurable, ComponentContainer {
 
         setString("fileKey", newKey);
         save();
+        getAllTypes().forEach(Type::updateKey);
     }
 
     public Type getTypeByName(String name) {
