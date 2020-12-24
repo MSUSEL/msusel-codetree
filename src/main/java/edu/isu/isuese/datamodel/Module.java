@@ -241,6 +241,7 @@ public class Module extends Model implements Measurable, ComponentContainer {
 
         setString("moduleKey", newKey);
         save();
+        refresh();
         getNamespaces().forEach(Namespace::updateKey);
     }
 

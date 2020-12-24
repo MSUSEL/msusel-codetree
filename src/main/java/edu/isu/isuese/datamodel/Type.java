@@ -625,7 +625,7 @@ public abstract class Type extends Component implements ComponentContainer {
 
         setString("compKey", newKey);
         save();
-
+        refresh();
         getAllMembers().forEach(Member::updateKey);
     }
 

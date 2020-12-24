@@ -372,6 +372,7 @@ public class System extends Model implements Measurable, Structure {
 
     public void updateKeys() {
         this.setKey(getName());
+        refresh();
         getProjects().forEach(Project::updateKeys);
     }
 
