@@ -495,7 +495,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         save();
         refresh();
         getModules().forEach(Module::updateKey);
-        //getNamespaces().forEach(Namespace::updateKey);
+        getNamespaces().forEach(Namespace::updateKey);
         getFiles().forEach(File::updateKey);
     }
 
