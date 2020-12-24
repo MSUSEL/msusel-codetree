@@ -7,11 +7,8 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -885,7 +882,7 @@
       <workItem from="1608577091138" duration="9849000" />
       <workItem from="1608592293260" duration="291000" />
       <workItem from="1608592617487" duration="8940000" />
-      <workItem from="1608682239628" duration="2055000" />
+      <workItem from="1608682239628" duration="2756000" />
     </task>
     <servers />
   </component>
