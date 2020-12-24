@@ -336,12 +336,12 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public void updateKey() {
-        Project proj = parent(Project.class);
+        Module mod = parent(Module.class);
         String parentKey = null;
         String newKey;
 
-        if (proj != null)
-            parentKey = proj.getProjectKey();
+        if (mod != null)
+            parentKey = mod.getModuleKey();
 
         if (parentKey != null) {
             newKey = parentKey + ":" + getFullName();
