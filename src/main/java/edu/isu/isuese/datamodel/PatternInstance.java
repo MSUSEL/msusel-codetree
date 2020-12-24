@@ -108,9 +108,9 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
 
         bindings.forEach(binding -> {
             Reference ref = binding.getReference();
-            Type t = (Type) binding.getReference().getReferencedComponent(getParentProjects().get(0));
-            if (t != null)
-                types.add(t);
+            Component t = binding.getReference().getReferencedComponent(getParentProjects().get(0));
+            if (t instanceof Type)
+                types.add((Type) t);
 
 //            if (getParentProjects().size() > 0) {
 //                Type t = getParentProjects().get(0).findType("compKey", ref.getRefKey());
