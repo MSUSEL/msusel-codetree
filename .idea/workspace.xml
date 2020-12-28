@@ -4,9 +4,147 @@
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_beust_jcommander_1_72.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_github_javaparser_javaparser_core_3_15_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_github_peichhorn_lombok_pg_0_11_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_flogger_flogger_0_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_flogger_flogger_log4j2_backend_0_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_flogger_flogger_system_backend_0_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_guava_guava_28_1_jre.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_inject_extensions_guice_persist_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_inject_guice_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_thoughtworks_qdox_qdox_1_12_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__com_thoughtworks_xstream_xstream_1_4_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__commons_cli_commons_cli_1_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__edu_montana_gsoc_msusel_msusel_datamodel_1_3_0_idg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__edu_montana_gsoc_msusel_msusel_metrics_1_3_0_idg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__info_picocli_picocli_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__jaxen_jaxen_1_1_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__jline_jline_2_14_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__junit_junit_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_7_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_7_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__net_sourceforge_plantuml_plantuml_8059.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_antlr_antlr4_runtime_4_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apache_ant_ant_1_10_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apache_ant_ant_antlr_1_10_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apache_ant_ant_junit_1_10_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_10_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apache_commons_commons_csv_1_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apache_commons_commons_exec_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apache_commons_commons_math3_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_13_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_checkerframework_checker_compat_qual_2_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_checkerframework_checker_qual_2_8_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_gpars_gpars_1_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_ant_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_astbuilder_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_cli_picocli_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_console_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_datetime_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_docgenerator_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_groovydoc_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_groovysh_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_jmx_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_json_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_jsr223_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_macro_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_nio_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_servlet_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_sql_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_swing_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_templates_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_test_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_test_junit5_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_testng_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_xml_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_groovy_groovy_yaml_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_jsr166_mirror_jsr166y_1_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_easymock_easymock_3_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_easymock_easymockclassextension_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_eclipse_jdt_org_eclipse_jdt_annotation_2_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_javalite_activejdbc_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_javalite_app_config_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_javalite_javalite_common_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_jetbrains_annotations_15_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_junit_platform_junit_platform_launcher_1_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_junit_vintage_junit_vintage_engine_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_mariadb_jdbc_mariadb_java_client_2_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_mockito_mockito_core_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_multiverse_multiverse_core_0_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_reflections_reflections_0_9_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_spockframework_spock_core_2_0_M2_groovy_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_testng_testng_6_14_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_xerial_sqlite_jdbc_3_25_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__pl_pragmatists_JUnitParams_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__xmlpull_xmlpull_1_1_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/libraries/Maven__xpp3_xpp3_min_1_1_4c.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/ComponentFinding.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/FileFinding.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-parent/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/msusel-pattern-generator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/msusel-pattern-generator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/Finding.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/graph/node/Finding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/edge/FindingToMeasureEdgeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/edge/FindingToMeasureEdgeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToFactorFindingsEdgeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToFactorFindingsEdgeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToMeasureFindingsEdgeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToMeasureFindingsEdgeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToMeasureFindingsNumberEdgeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/edge/MeasureToMeasureFindingsNumberEdgeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingNodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingNodeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingsUnionNodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingsUnionNodeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/it/single/BaseTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/it/single/BaseTestClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/it/single/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/it/single/GraphTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/ExtentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/ExtentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/FindingsAggregatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/FindingsAggregatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsIntersectAggregatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsIntersectAggregatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsUnionAggregatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsUnionAggregatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/NullNormalizerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/NullNormalizerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/RangedNormalizerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/RangedNormalizerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/UnrangedNormalizerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/normalizers/UnrangedNormalizerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +191,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-parent" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -880,7 +1018,8 @@
       <workItem from="1608577091138" duration="9849000" />
       <workItem from="1608592293260" duration="291000" />
       <workItem from="1608592617487" duration="8940000" />
-      <workItem from="1608682239628" duration="5261000" />
+      <workItem from="1608682239628" duration="6460000" />
+      <workItem from="1608847661768" duration="1338000" />
     </task>
     <servers />
   </component>
