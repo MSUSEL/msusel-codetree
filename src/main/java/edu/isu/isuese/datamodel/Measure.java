@@ -200,7 +200,7 @@ public class Measure extends Model {
 
     public static double valueFor(String repoKey, String handle, Measurable comp) {
         Metric parent = Metric.findFirst("metricKey = ?", repoKey + ":" + handle);
-        System.out.println("Parent: " + parent);
+        java.lang.System.out.println("Parent: " + parent);
         double value = 0;
         for (Measure measure : parent.getMeasures()) {
             if (measure.getReference().getRefKey().equals(comp.getRefKey())) {
