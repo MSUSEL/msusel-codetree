@@ -408,7 +408,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     @Override
     public List<Method> getAllMethods() {
         List<Method> methods = Lists.newArrayList();
-        getModules().forEach(mod -> methods.addAll(mod.getAllMethods()));
+        getNamespaces().forEach(mod -> methods.addAll(mod.getAllMethods()));
         return methods;
     }
 
