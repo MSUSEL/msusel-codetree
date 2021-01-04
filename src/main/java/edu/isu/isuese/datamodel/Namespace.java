@@ -352,7 +352,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
         setString("nsKey", newKey);
         save();
         refresh();
-        //getAllTypes().forEach(Type::updateKey);
+        getAllTypes().forEach(Type::updateKey);
     }
 
     public String getRelPath() {
