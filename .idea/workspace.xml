@@ -5,34 +5,18 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-config/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-config/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/MetricRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/MetricRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Parameter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RuleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/RuleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/util/DbUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ClassSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ClassSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ConstructorSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ConstructorSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/DestructorSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/DestructorSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/EnumSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/EnumSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FieldSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FieldSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FileSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/FileSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/InterfaceSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/InterfaceSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/MethodSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/MethodSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ModuleSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/ModuleSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/NamespaceSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/NamespaceSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/PatternRepositorySpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/PatternRepositorySpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/PatternSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/PatternSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/SystemSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/SystemSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/TypeRefSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/TypeRefSpec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/util/DbUtilsSpec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel/util/DbUtilsSpec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-loc-metrics/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-loc-metrics/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-parent/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-parent/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +63,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-software-injector" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -910,7 +894,7 @@
       <workItem from="1610661499331" duration="599000" />
       <workItem from="1610728948036" duration="599000" />
       <workItem from="1611300323464" duration="29000" />
-      <workItem from="1614588496842" duration="12181000" />
+      <workItem from="1614588496842" duration="13225000" />
     </task>
     <servers />
   </component>
@@ -946,29 +930,29 @@
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state x="4583" y="227" width="424" height="616" key="FileChooserDialogImpl/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1608596146405" />
-    <state width="1872" height="312" key="GridCell.Tab.0.bottom" timestamp="1614600912462">
+    <state width="1872" height="312" key="GridCell.Tab.0.bottom" timestamp="1614601046468">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state width="1872" height="312" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@0.27.1920.1053" timestamp="1608632363875" />
-    <state width="1872" height="312" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614600912462" />
+    <state width="1872" height="312" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614601046468" />
     <state width="1872" height="288" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607633964296" />
-    <state width="1872" height="312" key="GridCell.Tab.0.center" timestamp="1614600912461">
+    <state width="1872" height="312" key="GridCell.Tab.0.center" timestamp="1614601046468">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state width="1872" height="312" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@0.27.1920.1053" timestamp="1608632363874" />
-    <state width="1872" height="312" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614600912461" />
+    <state width="1872" height="312" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614601046468" />
     <state width="1872" height="288" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607633964295" />
-    <state width="1872" height="312" key="GridCell.Tab.0.left" timestamp="1614600912461">
+    <state width="1872" height="312" key="GridCell.Tab.0.left" timestamp="1614601046467">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state width="1872" height="312" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@0.27.1920.1053" timestamp="1608632363874" />
-    <state width="1872" height="312" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614600912461" />
+    <state width="1872" height="312" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614601046467" />
     <state width="1872" height="288" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607633964295" />
-    <state width="1872" height="312" key="GridCell.Tab.0.right" timestamp="1614600912461">
+    <state width="1872" height="312" key="GridCell.Tab.0.right" timestamp="1614601046468">
       <screen x="3840" y="0" width="1920" height="1080" />
     </state>
     <state width="1872" height="312" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@0.27.1920.1053" timestamp="1608632363874" />
-    <state width="1872" height="312" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614600912461" />
+    <state width="1872" height="312" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614601046468" />
     <state width="1872" height="288" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607633964295" />
     <state x="4375" y="150" width="840" height="770" key="NewModule_or_Project.wizard" timestamp="1608572842858">
       <screen x="3840" y="0" width="1920" height="1080" />
