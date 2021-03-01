@@ -444,4 +444,18 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     public File getParentFile() {
         return null;
     }
+
+    public void addMeasure(Measure meas) {
+        add(meas);
+        save();
+    }
+
+    public void removeMeasure(Measure meas) {
+        remove(meas);
+        save();
+    }
+
+    public List<Measure> getMeasures() {
+        return getAll(Measure.class);
+    }
 }

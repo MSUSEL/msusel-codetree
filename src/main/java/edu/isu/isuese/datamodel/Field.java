@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
@@ -87,5 +88,15 @@ public class Field extends TypedMember {
 
     public Reference createReference() {
         return Reference.builder().refKey(getCompKey()).refType(RefType.FIELD).create();
+    }
+
+    public void addMeasure(Measure meas) {
+    }
+
+    public void removeMeasure(Measure meas) {
+    }
+
+    public List<Measure> getMeasures() {
+        return Lists.newArrayList();
     }
 }

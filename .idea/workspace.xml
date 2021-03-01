@@ -4,11 +4,27 @@
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/MetricEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/groovy/edu/montana/gsoc/msusel/metrics/MetricEvaluator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Literal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Literal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measurable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measurable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Measure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/FindBugOnly.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/FindBugOnly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/grime/GrimeDetectorCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/grime/GrimeDetectorCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +71,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-metrics" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -887,6 +903,13 @@
       <workItem from="1609196742165" duration="648000" />
       <workItem from="1609251090713" duration="7349000" />
       <workItem from="1609771566630" duration="10454000" />
+      <workItem from="1610418753340" duration="600000" />
+      <workItem from="1610490268800" duration="599000" />
+      <workItem from="1610491111427" duration="1281000" />
+      <workItem from="1610661499331" duration="599000" />
+      <workItem from="1610728948036" duration="599000" />
+      <workItem from="1611300323464" duration="29000" />
+      <workItem from="1614588496842" duration="2573000" />
     </task>
     <servers />
   </component>

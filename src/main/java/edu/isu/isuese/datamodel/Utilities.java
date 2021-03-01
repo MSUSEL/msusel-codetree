@@ -32,22 +32,16 @@ public class Utilities {
         switch(type) {
             case CONSTRUCTOR:
                 return findConstructor(compKey);
-                break;
             case FIELD:
                 return findField(compKey);
-                break;
             case INITIALIZER:
                 return findInitializer(compKey);
-                break;
             case LITERAL:
                 return findLiteral(compKey);
-                break;
             case METHOD:
                 return findMethod(compKey);
-                break;
             case TYPE:
                 return findType(compKey);
-                break;
         }
 
         return null;

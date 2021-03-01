@@ -26,6 +26,8 @@
  */
 package edu.isu.isuese.datamodel;
 
+import java.util.List;
+
 /**
  * @author Isaac Griffith
  * @version 1.3.0
@@ -51,4 +53,10 @@ public interface Measurable {
      * @return The parent file of this Measurable
      */
     File getParentFile();
+
+    void addMeasure(Measure meas);
+
+    void removeMeasure(Measure meas);
+
+    List<Measure> getMeasures();
 }

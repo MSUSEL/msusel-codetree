@@ -181,4 +181,18 @@ public abstract class Component extends Model implements Measurable {
     public int hashCode() {
         return Objects.hash(getCompKey());
     }
+
+    public void addMeasure(Measure meas) {
+        add(meas);
+        save();
+    }
+
+    public void removeMeasure(Measure meas) {
+        remove(meas);
+        save();
+    }
+
+    public List<Measure> getMeasures() {
+        return getAll(Measure.class);
+    }
 }

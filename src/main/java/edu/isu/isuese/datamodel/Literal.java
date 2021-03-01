@@ -26,8 +26,11 @@
  */
 package edu.isu.isuese.datamodel;
 
+import com.google.common.collect.Lists;
 import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
+
+import java.util.List;
 
 /**
  * @author Isaac Griffith
@@ -61,5 +64,15 @@ public class Literal extends Member {
         getModifiers().forEach(copy::addModifier);
 
         return copy;
+    }
+
+    public void addMeasure(Measure meas) {
+    }
+
+    public void removeMeasure(Measure meas) {
+    }
+
+    public List<Measure> getMeasures() {
+        return Lists.newArrayList();
     }
 }

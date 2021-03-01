@@ -38,8 +38,19 @@ import java.util.List;
  * @version 1.3.0
  */
 @Many2Manies({
-        @Many2Many(other = Project.class, join = "projects_measures", sourceFKName = "project_id", targetFKName = "measure_id"),
-        @Many2Many(other = Metric.class, join = "metrics_measures", sourceFKName = "metric_id", targetFKName = "measure_id")
+        @Many2Many(other = Project.class,     join = "projects_measures",     sourceFKName = "measure_id", targetFKName = "project_id"),
+        @Many2Many(other = Metric.class,      join = "metrics_measures",      sourceFKName = "measure_id", targetFKName = "metric_id"),
+        @Many2Many(other = Namespace.class,   join = "namespaces_measures",   sourceFKName = "measure_id", targetFKName = "namespace_id"),
+        @Many2Many(other = Pattern.class,     join = "patterns_measures",     sourceFKName = "measure_id", targetFKName = "pattern_id"),
+        @Many2Many(other = File.class,        join = "files_measures",        sourceFKName = "measure_id", targetFKName = "file_id"),
+        @Many2Many(other = Module.class,      join = "modules_measures",      sourceFKName = "measure_id", targetFKName = "module_id"),
+        @Many2Many(other = Initializer.class, join = "initializers_measures", sourceFKName = "measure_id", targetFKName = "initializer_id"),
+        @Many2Many(other = Method.class,      join = "methods_measures",      sourceFKName = "measure_id", targetFKName = "method_id"),
+        @Many2Many(other = Class.class,       join = "classes_measures",      sourceFKName = "measure_id", targetFKName = "class_id"),
+        @Many2Many(other = Enum.class,        join = "enums_measures",        sourceFKName = "measure_id", targetFKName = "enum_id"),
+        @Many2Many(other = Interface.class,   join = "interfaces_measures",   sourceFKName = "measure_id", targetFKName = "interface_id"),
+        @Many2Many(other = Constructor.class, join = "constructors_measures", sourceFKName = "measure_id", targetFKName = "constructor_id"),
+        @Many2Many(other = Destructor.class,  join = "destructors_measures",  sourceFKName = "measure_id", targetFKName = "destructor_id")
 })
 public class Measure extends Model {
 
@@ -125,7 +136,7 @@ public class Measure extends Model {
         Reference ref = Reference.createIt("refKey", m.getRefKey());
         add(ref);
         save();
-        m.getParentProject().addMeasure(this);
+        m.addMeasure(this);
         return this;
     }
 
@@ -168,7 +179,9 @@ public class Measure extends Model {
         List<Double> values = Lists.newArrayList();
 
         proj.getAllTypes().forEach(type -> {
-            values.add(valueFor(repo, handle, type));
+            List<Measure> m = type.get(Measure.class, "metricKey = ?", String.format("%s:%s", repo, handle));
+            if (!m.isEmpty())
+                values.add(m.get(0).getValue());
         });
 
         return values;
@@ -177,8 +190,10 @@ public class Measure extends Model {
     public static List<Double> getAllFileValues(Project proj, String repo, String handle) {
         List<Double> values = Lists.newArrayList();
 
-        proj.getFiles().forEach(type -> {
-            values.add(valueFor(repo, handle, type));
+        proj.getFiles().forEach(file -> {
+            List<Measure> m = file.get(Measure.class, "metricKey = ?", String.format("%s:%s", repo, handle));
+            if (!m.isEmpty())
+                values.add(m.get(0).getValue());
         });
 
         return values;
@@ -187,8 +202,10 @@ public class Measure extends Model {
     public static List<Double> getAllMethodValues(Project proj, String repo, String handle) {
         List<Double> values = Lists.newArrayList();
 
-        proj.getAllMethods().forEach(type -> {
-            values.add(valueFor(repo, handle, type));
+        proj.getAllMethods().forEach(method -> {
+            List<Measure> m = method.get(Measure.class, "metricKey = ?", String.format("%s:%s", repo, handle));
+            if (!m.isEmpty())
+                values.add(m.get(0).getValue());
         });
 
         return values;
