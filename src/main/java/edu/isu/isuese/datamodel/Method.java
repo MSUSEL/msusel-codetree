@@ -36,6 +36,7 @@ import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 import org.javalite.activejdbc.annotations.Many2Many;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Set;
@@ -151,7 +152,7 @@ public class Method extends TypedMember {
         String retVal = sig.toString();
         if (retVal.endsWith(", ")) {
             retVal = retVal.trim();
-            retVal = retVal.substring(0, retVal.length() - 2);
+            retVal = retVal.substring(0, retVal.length() - 1);
         }
         retVal += ")";
 
@@ -170,7 +171,7 @@ public class Method extends TypedMember {
         String retVal = sig.toString();
         if (retVal.endsWith(", ")) {
             retVal = retVal.trim();
-            retVal = retVal.substring(0, retVal.length() - 2);
+            retVal = retVal.substring(0, retVal.length() - 1);
         }
         retVal += ")";
 
@@ -273,6 +274,20 @@ public class Method extends TypedMember {
 
     @Override
     public void updateKey() {
+        Type parent = getPType();
+
+        String newKey;
+        if (parent != null)
+            newKey = parent.getCompKey() + "#" + sigWithOutType();
+        else
+            newKey = sigWithOutType();
+
+        setString("compKey", newKey);
+        save();
+    }
+
+    @Nullable
+    private Type getPType() {
         Type parent = null;
         try {
             if (parent(Class.class) != null)
@@ -289,15 +304,7 @@ public class Method extends TypedMember {
                 parent = parent(Enum.class);
         } catch (IllegalArgumentException e) {
         }
-
-        String newKey;
-        if (parent != null)
-            newKey = parent.getCompKey() + "#" + sigWithOutType();
-        else
-            newKey = sigWithOutType();
-
-        setString("compKey", newKey);
-        save();
+        return parent;
     }
 
     public void callsMethod(Method method) {
@@ -325,7 +332,13 @@ public class Method extends TypedMember {
     }
 
     public Reference createReference() {
-        return Reference.builder().refKey(getCompKey()).refType(RefType.METHOD).create();
+        String newKey;
+        Type parent = getPType();
+        if (parent != null)
+            newKey = parent.getCompKey() + "#" + sigWithOutType();
+        else
+            newKey = sigWithOutType();
+        return Reference.builder().refKey(newKey).refType(RefType.METHOD).create();
     }
 
     @Override

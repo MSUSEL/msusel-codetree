@@ -61,7 +61,7 @@ public class Constructor extends Method {
         String retVal = sig.toString();
         if (retVal.endsWith(", ")) {
             retVal = retVal.trim();
-            retVal = retVal.substring(0, retVal.length() - 2);
+            retVal = retVal.substring(0, retVal.length() - 1);
         }
         retVal += ")";
 

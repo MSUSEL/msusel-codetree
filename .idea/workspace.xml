@@ -5,7 +5,13 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Constructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/quamoco/QuamocoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/quamoco/QuamocoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/TestStudy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc/TestStudy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -885,7 +891,8 @@
       <workItem from="1611300323464" duration="29000" />
       <workItem from="1614588496842" duration="15256000" />
       <workItem from="1614606956356" duration="357000" />
-      <workItem from="1614607459148" duration="7249000" />
+      <workItem from="1614607459148" duration="7875000" />
+      <workItem from="1614629260555" duration="2242000" />
     </task>
     <servers />
   </component>
@@ -962,6 +969,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2497" y="27" width="1343" height="680" key="dock-window-2/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1608579601753" />
+    <state x="4533" y="289" width="524" height="508" key="extract.method.dialog" timestamp="1614632516858">
+      <screen x="3840" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4533" y="289" width="524" height="508" key="extract.method.dialog/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614632516858" />
     <state x="2560" y="120" width="775" height="867" key="find.popup" timestamp="1609421418895">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
