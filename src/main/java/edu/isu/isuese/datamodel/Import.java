@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel;
 
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.Objects;
 
@@ -35,6 +36,7 @@ import java.util.Objects;
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@Many2Many(other = File.class, join = "files_imports", sourceFKName = "import_id", targetFKName = "file_id")
 public class Import extends Model {
 
     public Import() {}

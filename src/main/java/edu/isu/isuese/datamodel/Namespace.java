@@ -72,13 +72,17 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public void addFile(File file) {
-        if (file != null)
+        if (file != null) {
             file.setParentNSID(getId());
+            file.save();
+        }
     }
 
     public void removeFile(File file) {
-        if (file != null && file.getParentNSID() != null && file.getParentNSID().equals(getId()))
+        if (file != null && file.getParentNSID() != null && file.getParentNSID().equals(getId())) {
             file.setParentNSID(null);
+            file.save();
+        }
     }
 
     public List<File> getFiles() {
@@ -86,13 +90,15 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public void addNamespace(Namespace ns) {
-        if (ns != null)
+        if (ns != null) {
             ns.setParentNSID(getId());
+        }
     }
 
     public void removeNamespace(Namespace ns) {
-        if (ns != null && ns.getParentNSID() != null && ns.getParentNSID().equals(getId()))
+        if (ns != null && ns.getParentNSID() != null && ns.getParentNSID().equals(getId())) {
             ns.setParentNSID(null);
+        }
     }
 
     public void setParentNSID(Object id) {
