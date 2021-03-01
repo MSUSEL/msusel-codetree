@@ -472,14 +472,6 @@ public class Project extends Model implements Measurable, ComponentContainer {
         add(rel);
     }
 
-//    public void addUnknownType(UnknownType type) {
-//        if (type == null)
-//            return;
-//
-//        add(type);
-//        save();
-//    }
-
     public String getRelPath() {
         return getString("relPath");
     }
