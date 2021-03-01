@@ -5,9 +5,8 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/data/dev.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/data/test.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -888,7 +887,7 @@
       <workItem from="1611300323464" duration="29000" />
       <workItem from="1614588496842" duration="15256000" />
       <workItem from="1614606956356" duration="357000" />
-      <workItem from="1614607459148" duration="6127000" />
+      <workItem from="1614607459148" duration="7249000" />
     </task>
     <servers />
   </component>
