@@ -26,11 +26,14 @@
  */
 package edu.isu.isuese.datamodel;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Isaac Griffith
@@ -61,6 +64,10 @@ public class MetricRepository extends Model {
     public List<Metric> getMetrics() { return getAll(Metric.class); }
 
     public List<Measure> getMeasures() {
-        return DbUtils.getMeasures(this.getClass(), (Integer) getId());
+        Set<Measure> measures = Sets.newHashSet();
+        getMetrics().forEach(metric -> {
+            measures.addAll(metric.getMeasures());
+        });
+        return Lists.newArrayList(measures);
     }
 }

@@ -51,9 +51,9 @@ public class ModuleSpec extends DBSpec {
         Module module = Module.createIt("moduleKey", "module", "name", "module");
         Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
 
-        a(module.getAll(Namespace.class).size()).shouldBeEqual(0);
-        module.add(ns);
-        a(module.getAll(Namespace.class).size()).shouldBeEqual(1);
+        a(module.getNamespaces().size()).shouldBeEqual(0);
+        module.addNamespace(ns);
+        a(module.getNamespaces().size()).shouldBeEqual(1);
     }
 
     @Test
@@ -61,12 +61,12 @@ public class ModuleSpec extends DBSpec {
         Module module = Module.createIt("moduleKey", "module", "name", "module");
         Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
 
-        module.add(ns);
+        module.addNamespace(ns);
 
         module = Module.findById(1);
-        module.remove(ns);
+        module.removeNamespace(ns);
 
-        a(module.getAll(Namespace.class).isEmpty()).shouldBeTrue();
+        a(module.getNamespaces().isEmpty()).shouldBeTrue();
     }
 
     @Test
@@ -74,10 +74,10 @@ public class ModuleSpec extends DBSpec {
         Module module = Module.createIt("moduleKey", "module", "name", "module");
         Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
 
-        module.add(ns);
+        module.addNamespace(ns);
         module.delete(true);
 
         a(Module.count()).shouldBeEqual(0);
-        a(Namespace.count()).shouldBeEqual(0);
+        a(Namespace.count()).shouldBeEqual(1);
     }
 }

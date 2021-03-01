@@ -51,7 +51,7 @@ public class NamespaceSpec extends DBSpec {
         Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
         Namespace ns2 = Namespace.createIt("nsKey", "ns2", "name", "ns2");
 
-        ns.add(ns2);
+        ns.addNamespace(ns2);
         a(ns.getNamespaces().size()).shouldBeEqual(1);
     }
 
@@ -60,9 +60,9 @@ public class NamespaceSpec extends DBSpec {
         Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
         Namespace ns2 = Namespace.createIt("nsKey", "ns2", "name", "ns2");
 
-        ns.add(ns2);
+        ns.addNamespace(ns2);
         ns = Namespace.findById(1);
-        ns.remove(ns2);
+        ns.removeNamespace(ns2);
         a(ns.getNamespaces().size()).shouldBeEqual(0);
     }
 
@@ -72,28 +72,28 @@ public class NamespaceSpec extends DBSpec {
         Namespace ns2 = Namespace.createIt("nsKey", "ns2", "name", "ns2");
         Module module = Module.createIt("moduleKey", "module", "name", "module");
 
-        ns.add(ns2);
-        module.add(ns);
-        module.add(ns2);
+        ns.addNamespace(ns2);
+        module.addNamespace(ns);
+        module.addNamespace(ns2);
 
-        a(module.getAll(Namespace.class).size()).shouldBeEqual(2);
-        a(ns.getAll(Namespace.class).size()).shouldBeEqual(1);
+        a(module.getNamespaces().size()).shouldBeEqual(2);
+        a(ns.getNamespaces().size()).shouldBeEqual(1);
     }
 
     @Test
     public void deleteHandlesCorrectly() {
         Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
         Namespace ns2 = Namespace.createIt("nsKey", "ns2", "name", "ns2");
-        File file = File.createIt("fileKey", "fileKey", "name", "file");
+        File file = File.createIt("fileKey", "fileKey", "name", "file", "pathIndex", 0);
         file.setType(FileType.SOURCE);
         file.save();
 
-        ns.add(ns2);
-        ns.add(file);
+        ns.addNamespace(ns2);
+        ns.addFile(file);
 
         ns.delete(true);
 
-        a(Namespace.count()).shouldBeEqual(0);
-        a(File.count()).shouldBeEqual(0);
+        a(Namespace.count()).shouldBeEqual(1);
+        a(File.count()).shouldBeEqual(1);
     }
 }

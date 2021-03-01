@@ -51,14 +51,4 @@ public class Tag extends Model {
     public String getTag() { return getString("tag"); }
 
     public void setTag(String tag) { set("tag", tag); save(); }
-
-    public List<RuleRepository> getParentRuleRepositories() {
-        return DbUtils.getParentRuleRepository(this.getClass(), (Integer) getId());
-    }
-
-    public List<Rule> getParentRule() {
-        List<Rule> rules = Lists.newLinkedList();
-        rules.add(parent(Rule.class));
-        return rules;
-    }
 }

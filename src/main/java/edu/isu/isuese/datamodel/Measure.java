@@ -38,19 +38,19 @@ import java.util.List;
  * @version 1.3.0
  */
 @Many2Manies({
-        @Many2Many(other = Project.class,     join = "projects_measures",     sourceFKName = "measure_id", targetFKName = "project_id"),
-        @Many2Many(other = Metric.class,      join = "metrics_measures",      sourceFKName = "measure_id", targetFKName = "metric_id"),
-        @Many2Many(other = Namespace.class,   join = "namespaces_measures",   sourceFKName = "measure_id", targetFKName = "namespace_id"),
-        @Many2Many(other = Pattern.class,     join = "patterns_measures",     sourceFKName = "measure_id", targetFKName = "pattern_id"),
-        @Many2Many(other = File.class,        join = "files_measures",        sourceFKName = "measure_id", targetFKName = "file_id"),
-        @Many2Many(other = Module.class,      join = "modules_measures",      sourceFKName = "measure_id", targetFKName = "module_id"),
-        @Many2Many(other = Initializer.class, join = "initializers_measures", sourceFKName = "measure_id", targetFKName = "initializer_id"),
-        @Many2Many(other = Method.class,      join = "methods_measures",      sourceFKName = "measure_id", targetFKName = "method_id"),
-        @Many2Many(other = Class.class,       join = "classes_measures",      sourceFKName = "measure_id", targetFKName = "class_id"),
-        @Many2Many(other = Enum.class,        join = "enums_measures",        sourceFKName = "measure_id", targetFKName = "enum_id"),
-        @Many2Many(other = Interface.class,   join = "interfaces_measures",   sourceFKName = "measure_id", targetFKName = "interface_id"),
-        @Many2Many(other = Constructor.class, join = "constructors_measures", sourceFKName = "measure_id", targetFKName = "constructor_id"),
-        @Many2Many(other = Destructor.class,  join = "destructors_measures",  sourceFKName = "measure_id", targetFKName = "destructor_id")
+        @Many2Many(other = Project.class,         join = "projects_measures",              sourceFKName = "measure_id", targetFKName = "project_id"),
+        @Many2Many(other = Metric.class,          join = "metrics_measures",               sourceFKName = "measure_id", targetFKName = "metric_id"),
+        @Many2Many(other = Namespace.class,       join = "namespaces_measures",            sourceFKName = "measure_id", targetFKName = "namespace_id"),
+        @Many2Many(other = PatternInstance.class, join = "pattern_instances_measures",     sourceFKName = "measure_id", targetFKName = "pattern_instance_id"),
+        @Many2Many(other = File.class,            join = "files_measures",                 sourceFKName = "measure_id", targetFKName = "file_id"),
+        @Many2Many(other = Module.class,          join = "modules_measures",               sourceFKName = "measure_id", targetFKName = "module_id"),
+        @Many2Many(other = Initializer.class,     join = "initializers_measures",          sourceFKName = "measure_id", targetFKName = "initializer_id"),
+        @Many2Many(other = Method.class,          join = "methods_measures",               sourceFKName = "measure_id", targetFKName = "method_id"),
+        @Many2Many(other = Class.class,           join = "classes_measures",               sourceFKName = "measure_id", targetFKName = "class_id"),
+        @Many2Many(other = Enum.class,            join = "enums_measures",                 sourceFKName = "measure_id", targetFKName = "enum_id"),
+        @Many2Many(other = Interface.class,       join = "interfaces_measures",            sourceFKName = "measure_id", targetFKName = "interface_id"),
+        @Many2Many(other = Constructor.class,     join = "constructors_measures",          sourceFKName = "measure_id", targetFKName = "constructor_id"),
+        @Many2Many(other = Destructor.class,      join = "destructors_measures",           sourceFKName = "measure_id", targetFKName = "destructor_id")
 })
 public class Measure extends Model {
 

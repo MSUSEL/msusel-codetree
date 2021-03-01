@@ -26,11 +26,14 @@
  */
 package edu.isu.isuese.datamodel;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Isaac Griffith
@@ -61,10 +64,18 @@ public class RuleRepository extends Model {
     public List<Rule> getRules() { return getAll(Rule.class); }
 
     public List<Finding> getFindings() {
-        return DbUtils.getFindings(this.getClass(), (Integer) getId());
+        Set<Finding> findings = Sets.newHashSet();
+        getRules().forEach(rule -> {
+            findings.addAll(rule.getFindings());
+        });
+        return Lists.newArrayList(findings);
     }
 
     public List<Tag> getTags() {
-        return DbUtils.getTags(this.getClass(), (Integer) getId());
+        Set<Tag> tags = Sets.newHashSet();
+        getRules().forEach(rule -> {
+            tags.addAll(rule.getTags());
+        });
+        return Lists.newArrayList(tags);
     }
 }

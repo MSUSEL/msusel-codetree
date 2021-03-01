@@ -106,27 +106,63 @@ public class Parameter extends Model {
     }
 
     public List<System> getParentSystems() {
-        return DbUtils.getParentSystem(this.getClass(), (Integer) getId());
+        if (parent(Method.class) != null)
+            return parent(Method.class).getParentSystems();
+        if (parent(Constructor.class) != null)
+            return parent(Constructor.class).getParentSystems();
+        if (parent(Destructor.class) != null)
+            return parent(Destructor.class).getParentSystems();
+        return Lists.newArrayList();
     }
 
     public List<Project> getParentProjects() {
-        return DbUtils.getParentProject(this.getClass(), (Integer) getId());
+        if (parent(Method.class) != null)
+            return parent(Method.class).getParentProjects();
+        if (parent(Constructor.class) != null)
+            return parent(Constructor.class).getParentProjects();
+        if (parent(Destructor.class) != null)
+            return parent(Destructor.class).getParentProjects();
+        return Lists.newArrayList();
     }
 
     public List<Module> getParentModules() {
-        return DbUtils.getParentModule(this.getClass(), (Integer) getId());
+        if (parent(Method.class) != null)
+            return parent(Method.class).getParentModules();
+        if (parent(Constructor.class) != null)
+            return parent(Constructor.class).getParentModules();
+        if (parent(Destructor.class) != null)
+            return parent(Destructor.class).getParentModules();
+        return Lists.newArrayList();
     }
 
     public List<Namespace> getParentNamespaces() {
-        return DbUtils.getParentNamespace(this.getClass(), (Integer) getId());
+        if (parent(Method.class) != null)
+            return parent(Method.class).getParentNamespaces();
+        if (parent(Constructor.class) != null)
+            return parent(Constructor.class).getParentNamespaces();
+        if (parent(Destructor.class) != null)
+            return parent(Destructor.class).getParentNamespaces();
+        return Lists.newArrayList();
     }
 
     public List<File> getParentFiles() {
-        return DbUtils.getParentFile(this.getClass(), (Integer) getId());
+        if (parent(Method.class) != null)
+            return parent(Method.class).getParentFiles();
+        if (parent(Constructor.class) != null)
+            return parent(Constructor.class).getParentFiles();
+        if (parent(Destructor.class) != null)
+            return parent(Destructor.class).getParentFiles();
+        return Lists.newArrayList();
     }
 
     public List<Type> getParentTypes() {
-        return DbUtils.getParentType(this.getClass(), (Integer) getId());
+        if (parent(Method.class) != null)
+            return parent(Method.class).getParentTypes();
+        if (parent(Constructor.class) != null)
+            return parent(Constructor.class).getParentTypes();
+        if (parent(Destructor.class) != null)
+            return parent(Destructor.class).getParentTypes();
+        return Lists.newArrayList();
     }
 
     public List<Method> getParentMethods() {

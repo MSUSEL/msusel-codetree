@@ -96,7 +96,7 @@ public class ConstructorSpec extends DBSpec {
         method.setReturnType(typeRef);
 
         a(method.getAll(TypeRef.class).size()).shouldBeEqual(1);
-        a(TypeRef.count()).shouldBeEqual(1);
+        a(TypeRef.count()).shouldBeEqual(2);
     }
 
     @Test
@@ -131,7 +131,7 @@ public class ConstructorSpec extends DBSpec {
         a(method.getAll(TypeRef.class).size()).shouldBeEqual(1);
         method.setType(typeRef2);
         a(method.getAll(TypeRef.class).size()).shouldBeEqual(1);
-        a(TypeRef.count()).shouldBeEqual(1);
+        a(TypeRef.count()).shouldBeEqual(2);
     }
 
     @Test

@@ -67,7 +67,7 @@ public class FieldSpec extends DBSpec {
         field.setType(typeRef);
 
         a(field.getAll(TypeRef.class).size()).shouldBeEqual(1);
-        a(TypeRef.count()).shouldBeEqual(1);
+        a(TypeRef.count()).shouldBeEqual(2);
     }
 
     @Test
@@ -80,7 +80,7 @@ public class FieldSpec extends DBSpec {
         a(field.getAll(TypeRef.class).size()).shouldBeEqual(1);
         field.setType(typeRef2);
         a(field.getAll(TypeRef.class).size()).shouldBeEqual(1);
-        a(TypeRef.count()).shouldBeEqual(1);
+        a(TypeRef.count()).shouldBeEqual(2);
     }
 
     @Test
@@ -90,7 +90,7 @@ public class FieldSpec extends DBSpec {
         field.addModifier(Modifier.Values.STATIC.name());
         field.save();
 
-        a(field.findById(1).getAll(Modifier.class).size()).shouldBeEqual(1);
+        a(Field.findById(1).getAll(Modifier.class).size()).shouldBeEqual(1);
     }
 
     @Test

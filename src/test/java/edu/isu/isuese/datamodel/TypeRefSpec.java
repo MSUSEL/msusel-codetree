@@ -168,8 +168,8 @@ public class TypeRefSpec extends DBSpec {
         typeRef.setReference(ref);
         a(typeRef.getAll(Reference.class).size()).shouldBeEqual(1);
         typeRef.setReference(ref2);
-        a(typeRef.getAll(Reference.class).size()).shouldBeEqual(1);
-        a(Reference.count()).shouldBeEqual(1);
+        a(typeRef.getAll(Reference.class).size()).shouldBeEqual(2);
+        a(Reference.count()).shouldBeEqual(2);
     }
 
     @Test

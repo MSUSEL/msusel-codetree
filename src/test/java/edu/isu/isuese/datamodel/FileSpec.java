@@ -36,7 +36,7 @@ public class FileSpec extends DBSpec {
         File file = new File();
         a(file).shouldBe("valid");
 //        //a(file.errors().get("author")).shouldBeEqual("Author must be provided");
-        file.set("fileKey", "fileKey", "name", "file");
+        file.set("fileKey", "fileKey", "name", "file", "pathIndex", 0);
         file.setType(FileType.SOURCE);
         a(file).shouldBe("valid");
         file.save();
@@ -51,7 +51,7 @@ public class FileSpec extends DBSpec {
 
     @Test
     public void canAddImport() {
-        File file = File.createIt("fileKey", "fileKey", "name", "file");
+        File file = File.createIt("fileKey", "fileKey", "name", "file", "pathIndex", 0);
         file.setType(FileType.SOURCE);
         file.save();
 
@@ -63,7 +63,7 @@ public class FileSpec extends DBSpec {
 
     @Test
     public void canRemoveImport() {
-        File file = File.createIt("fileKey", "fileKey", "name", "file");
+        File file = File.createIt("fileKey", "fileKey", "name", "file", "pathIndex", 0);
         file.setType(FileType.SOURCE);
         file.save();
 
@@ -78,7 +78,7 @@ public class FileSpec extends DBSpec {
 
     @Test
     public void canAddType() {
-        File file = File.createIt("fileKey", "fileKey", "name", "file");
+        File file = File.createIt("fileKey", "fileKey", "name", "file", "pathIndex", 0);
         file.setType(FileType.SOURCE);
         file.save();
 
@@ -87,7 +87,7 @@ public class FileSpec extends DBSpec {
 
     @Test
     public void canRemoveType() {
-        File file = File.createIt("fileKey", "fileKey", "name", "file");
+        File file = File.createIt("fileKey", "fileKey", "name", "file", "pathIndex", 0);
         file.setType(FileType.SOURCE);
         file.save();
 
@@ -98,7 +98,7 @@ public class FileSpec extends DBSpec {
 
     @Test
     public void deleteHandlesCorrectly() {
-        File file = File.createIt("fileKey", "fileKey", "name", "file");
+        File file = File.createIt("fileKey", "fileKey", "name", "file", "pathIndex", 0);
         file.setType(FileType.SOURCE);
         file.save();
 
@@ -109,12 +109,12 @@ public class FileSpec extends DBSpec {
         type.save();
 
         file.add(imp);
-        file.add(type);
+        file.addType(type);
 
         file.delete(true);
 
         a(File.count()).shouldBeEqual(0);
-        a(Class.count()).shouldBeEqual(0);
+        a(Class.count()).shouldBeEqual(1);
         a(Import.count()).shouldBeEqual(0);
     }
 }

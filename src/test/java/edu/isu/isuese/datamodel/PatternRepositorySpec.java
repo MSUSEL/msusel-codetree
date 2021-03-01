@@ -77,9 +77,9 @@ public class PatternRepositorySpec extends DBSpec {
         repo.save();
 
         a(PatternRepository.count()).shouldBeEqual(2);
-        a(Pattern.count()).shouldBeEqual(24);
+        a(Pattern.count()).shouldBeEqual(25);
         repo.delete(true);
         a(PatternRepository.count()).shouldBeEqual(1);
-        a(Pattern.count()).shouldBeEqual(23);
+        a(Pattern.count()).shouldBeEqual(24);
     }
 }

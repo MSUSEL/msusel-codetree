@@ -66,13 +66,17 @@ public class Module extends Model implements Measurable, ComponentContainer {
     }
 
     public void addNamespace(Namespace ns) {
-        if (ns != null)
+        if (ns != null) {
             ns.setParentModuleID(getId());
+            ns.save();
+        }
     }
 
     public void removeNamespace(Namespace ns) {
-        if (ns != null && ns.getParentModuleID() != null && ns.getParentModuleID().equals(getId()))
+        if (ns != null && ns.getParentModuleID() != null && ns.getParentModuleID().equals(getId())) {
             ns.setParentModuleID(null);
+            ns.save();
+        }
     }
 
     public List<Namespace> getNamespaces() {

@@ -124,7 +124,7 @@ public class EnumSpec extends DBSpec {
 
     @Test
     public void parentsWorksCorrectly() {
-        File file = File.createIt("fileKey", "fileKey", "name", "file");
+        File file = File.createIt("fileKey", "fileKey", "name", "file", "pathIndex", 0);
         file.setType(FileType.SOURCE);
         file.save();
 
@@ -132,15 +132,15 @@ public class EnumSpec extends DBSpec {
         type.setAccessibility(Accessibility.PUBLIC);
         type.save();
 
-        Type type2 = Enum.createIt("name", "TestClass2", "start", 1, "end", 100, "compKey", "TestClass");
+        Type type2 = Enum.createIt("name", "TestClass2", "start", 1, "end", 100, "compKey", "TestClass2");
         type.setAccessibility(Accessibility.PUBLIC);
         type.save();
 
-        type.add(type2);
-        file.add(type);
-        file.add(type2);
+        type.addType(type2);
+        file.addType(type);
+        file.addType(type2);
 
-        a(file.getAll(Enum.class).size()).shouldBeEqual(2);
-        a(type.getAll(Enum.class).size()).shouldBeEqual(1);
+        a(file.getEnums().size()).shouldBeEqual(2);
+        a(type.getEnums().size()).shouldBeEqual(1);
     }
 }

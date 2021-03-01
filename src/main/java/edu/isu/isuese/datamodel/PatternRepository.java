@@ -27,11 +27,13 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Isaac Griffith
@@ -70,7 +72,11 @@ public class PatternRepository extends Model {
     }
 
     public List<PatternInstance> getPatternInstances() {
-        return DbUtils.getPatternInstances(this.getClass(), (Integer) getId());
+        Set<PatternInstance> insts = Sets.newHashSet();
+        getPatterns().forEach(pattern -> {
+            insts.addAll(pattern.getInstances());
+        });
+        return Lists.newArrayList(insts);
     }
 
     public List<Role> getRoles() {
@@ -83,6 +89,10 @@ public class PatternRepository extends Model {
     }
 
     public List<RoleBinding> getRoleBindings() {
-        return DbUtils.getRoleBindings(this.getClass(), (Integer) getId());
+        Set<RoleBinding> bindings = Sets.newHashSet();
+        getPatternInstances().forEach(inst -> {
+            bindings.addAll(inst.getRoleBindings());
+        });
+        return Lists.newArrayList(bindings);
     }
 }

@@ -39,11 +39,11 @@ public class PatternSpec extends DBSpec {
         pattern.set("patternKey", "pattern", "name", "pattern");
         a(pattern).shouldBe("valid");
         pattern.save();
-        pattern = Pattern.findById(24);
+        pattern = Pattern.findById(25);
         a(pattern.getId()).shouldNotBeNull();
         a(pattern.get("name")).shouldBeEqual("pattern");
         a(pattern.get("patternKey")).shouldBeEqual("pattern");
-        a(Pattern.count()).shouldBeEqual(24);
+        a(Pattern.count()).shouldBeEqual(25);
     }
 
     @Test
@@ -101,11 +101,11 @@ public class PatternSpec extends DBSpec {
         pattern.addInstance(inst);
         pattern.save();
 
-        a(Pattern.count()).shouldBeEqual(24);
+        a(Pattern.count()).shouldBeEqual(25);
         a(Role.count()).shouldBeEqual(1);
         a(PatternInstance.count()).shouldBeEqual(1);
         pattern.delete(true);
-        a(Pattern.count()).shouldBeEqual(23);
+        a(Pattern.count()).shouldBeEqual(24);
         a(Role.count()).shouldBeEqual(0);
         a(PatternInstance.count()).shouldBeEqual(0);
     }

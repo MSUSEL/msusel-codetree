@@ -108,14 +108,16 @@ public class SystemSpec extends DBSpec {
         Project p = Project.createIt("name", "fake project", "projKey", "fake key", "version", "fake version");
         Module module = Module.createIt("moduleKey", "module", "name", "module");
         Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
-        File file = File.createIt("fileKey", "fileKey", "name", "file");
+        File file = File.createIt("fileKey", "fileKey", "name", "file", "pathIndex", 0);
         Type type = Class.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass");
-        Type type2 = Class.createIt("name", "TestClass2", "start", 1, "end", 100, "compKey", "TestClass");
+        Type type2 = Class.createIt("name", "TestClass2", "start", 1, "end", 100, "compKey", "TestClass2");
         type.setAccessibility(Accessibility.PUBLIC);
         system.addProject(p);
         p.addModule(module);
         module.addNamespace(ns);
-        ns.addFile(file);
+        p.addNamespace(ns);
+        p.addFile(file);
+        ns.addType(type);
         file.addType(type);
 
         List<Project> projs = system.getProjects();
@@ -130,25 +132,16 @@ public class SystemSpec extends DBSpec {
         List<File> files = system.getFiles();
         a(files.size()).shouldBeEqual(1);
 
-        List<Class> classes = Class.findBySQL("SELECT * FROM classes " +
-                "JOIN files ON classes.file_id = files.id " +
-                "JOIN namespaces ON files.namespace_id = namespaces.id " +
-                "JOIN modules ON namespaces.module_id = modules.id " +
-                "JOIN projects ON modules.project_id = projects.id " +
-                "JOIN systems ON projects.system_id = systems.id;");
+        List<Class> classes = system.getClasses();
         a(classes.size()).shouldBeEqual(1);
 
-        List<System> systems = System.findBySQL("SELECT * FROM systems " +
-                "JOIN projects ON systems.id = projects.system_id " +
-                "JOIN modules ON projects.id = modules.project_id " +
-                "JOIN namespaces ON modules.id = namespaces.module_id " +
-                "JOIN files ON namespaces.id = 1;");
+        List<System> systems = System.findAll();
         a(systems.size()).shouldBeEqual(1);
     }
 
     @Test
     public void checkProjectAssociations() {
         java.lang.System.out.println(Project.associations());
-        a(Project.associations().size()).shouldBeEqual(9);
+        a(Project.associations().size()).shouldBeEqual(14);
     }
 }
