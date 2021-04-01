@@ -405,7 +405,7 @@ public abstract class Type extends Component implements ComponentContainer {
 
     public List<Type> getParentTypes() {
         List<Type> parents = Lists.newArrayList();
-        parents.addAll(getGeneralizes());
+        parents.addAll(getGeneralizedBy());
         parents.addAll(getRealizes());
 
         return parents;
