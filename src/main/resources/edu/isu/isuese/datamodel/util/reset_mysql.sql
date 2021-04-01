@@ -28,43 +28,47 @@
 create table systems
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name       VARCHAR(1024),
-    basePath   VARCHAR(2048),
-    sysKey     VARCHAR(1024),
+    name       VARCHAR,
+    basePath   VARCHAR,
+    sysKey     VARCHAR,
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT systems_unique UNIQUE (sysKey)
 );
 
 create table pattern_repositories
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    repoKey    VARCHAR(1024),
-    name       VARCHAR(1024),
+    repoKey    VARCHAR,
+    name       VARCHAR,
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT pattern_repositories_unique UNIQUE (repoKey)
 );
 
 create table patterns
 (
     id                    INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    patternKey            VARCHAR(1024),
-    name                  VARCHAR(1024),
-    family                VARCHAR(1024),
+    patternKey            VARCHAR,
+    name                  VARCHAR,
+    family                VARCHAR,
     pattern_repository_id INTEGER REFERENCES pattern_repositories (id),
     created_at            DATETIME,
-    updated_at            DATETIME
+    updated_at            DATETIME,
+    CONSTRAINT patterns_unique UNIQUE (patternKey)
 );
 
 create table roles
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    roleKey    VARCHAR(1024),
-    name       VARCHAR(1024),
+    roleKey    VARCHAR,
+    name       VARCHAR,
     type       INTEGER,
     mandatory  BOOLEAN,
     pattern_id INTEGER REFERENCES patterns (id),
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT roles_unique UNIQUE (roleKey)
 );
 
 create table roles_role_bindings
@@ -79,7 +83,7 @@ create table roles_role_bindings
 create table relations
 (
     id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    relKey       VARCHAR(1024),
+    relKey       VARCHAR,
     project_id   INTEGER,
     reference_id INTEGER,
     to_id        INTEGER,
@@ -92,22 +96,24 @@ create table relations
 create table pattern_chains
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    chainKey   VARCHAR(1024),
+    chainKey   VARCHAR,
     system_id  INTEGER REFERENCES systems (id),
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT pattern_chains_unique UNIQUE (chainKey)
 );
 
 create table pattern_instances
 (
     id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    instKey          VARCHAR(1024),
+    instKey          VARCHAR,
     pattern_size     INTEGER,
     pattern_chain_id INTEGER REFERENCES pattern_chains (id),
     project_id       INTEGER REFERENCES projects (id),
     pattern_id       INTEGER REFERENCES patterns (id),
     created_at       DATETIME,
-    updated_at       DATETIME
+    updated_at       DATETIME,
+    CONSTRAINT pattern_instances_unique UNIQUE (instKey)
 );
 
 create table role_bindings
@@ -121,10 +127,10 @@ create table role_bindings
 create table refs
 (
     id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    refKey      VARCHAR(1024),
+    refKey      VARCHAR,
     type        INTEGER,
     parent_id   INTEGER,
-    parent_type VARCHAR(1024),
+    parent_type VARCHAR,
     created_at  DATETIME,
     updated_at  DATETIME
 );
@@ -132,8 +138,8 @@ create table refs
 create table findings
 (
     id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    findingKey   VARCHAR(1024),
-    injected     BOOLEAN,
+    findingKey   VARCHAR,
+    injected     NUMERIC,
     start        INTEGER,
     end          INTEGER,
     created_at   DATETIME,
@@ -158,16 +164,35 @@ create table rules_findings
     updated_at DATETIME
 );
 
+create table finding_data
+(
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    finding_id INTEGER,
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+create table finding_data_points
+(
+    id              INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    finding_data_id INTEGER,
+    handle          VARCHAR,
+    value           DOUBLE,
+    created_at       DATETIME,
+    updated_at       DATETIME
+);
+
 create table rules
 (
     id                 INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    ruleKey            VARCHAR(1024),
-    name               VARCHAR(1024),
-    description        VARCHAR(1024),
+    ruleKey            VARCHAR,
+    name               VARCHAR,
+    description        VARCHAR,
     priority           INTEGER,
     rule_repository_id INTEGER REFERENCES rule_repositories (id),
     created_at         DATETIME,
-    updated_at         DATETIME
+    updated_at         DATETIME,
+    CONSTRAINT rules_unique UNIQUE (ruleKey)
 );
 
 create table rules_tags
@@ -182,27 +207,31 @@ create table rules_tags
 create table tags
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    tag        VARCHAR(1024),
+    tag        VARCHAR,
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT tags_unique UNIQUE (tag)
 );
 
 create table rule_repositories
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    repoKey    VARCHAR(1024),
-    name       VARCHAR(1024),
+    repoKey    VARCHAR,
+    name       VARCHAR,
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT rule_repositories_unique UNIQUE (repoKey)
 );
 
 create table measures
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    measureKey VARCHAR(1024),
+    measureKey VARCHAR,
+    metricKey  VARCHAR,
     value      DOUBLE,
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT measures_unique UNIQUE (measureKey)
 );
 
 create table metrics_measures
@@ -223,50 +252,162 @@ create table projects_measures
     updated_at DATETIME
 );
 
+create table namespaces_measures
+(
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    namespace_id INTEGER REFERENCES namespaces (id),
+    measure_id   INTEGER REFERENCES measures (id),
+    created_at   DATETIME,
+    updated_at   DATETIME
+);
+
+create table systems_measures
+(
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    system_id  INTEGER REFERENCES systems (id),
+    measure_id INTEGER REFERENCES measures (id),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+create table pattern_instances_measures
+(
+    id                  INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    pattern_instance_id INTEGER REFERENCES pattern_instances (id),
+    measure_id          INTEGER REFERENCES measures (id),
+    created_at          DATETIME,
+    updated_at          DATETIME
+);
+
+create table files_measures
+(
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    file_id    INTEGER REFERENCES files (id),
+    measure_id INTEGER REFERENCES measures (id),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+create table modules_measures
+(
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    module_id  INTEGER REFERENCES projects (id),
+    measure_id INTEGER REFERENCES measures (id),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+create table initializers_measures
+(
+    id             INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    initializer_id INTEGER REFERENCES initializers (id),
+    measure_id     INTEGER REFERENCES measures (id),
+    created_at     DATETIME,
+    updated_at     DATETIME
+);
+
+create table methods_measures
+(
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    method_id  INTEGER REFERENCES methods (id),
+    measure_id INTEGER REFERENCES measures (id),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+create table classes_measures
+(
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    class_id   INTEGER REFERENCES classes (id),
+    measure_id INTEGER REFERENCES measures (id),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+create table enums_measures
+(
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    enum_id    INTEGER REFERENCES enums (id),
+    measure_id INTEGER REFERENCES measures (id),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+create table interfaces_measures
+(
+    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    interface_id INTEGER REFERENCES interfaces (id),
+    measure_id   INTEGER REFERENCES measures (id),
+    created_at   DATETIME,
+    updated_at   DATETIME
+);
+
+create table constructors_measures
+(
+    id             INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    constructor_id INTEGER REFERENCES constructors (id),
+    measure_id     INTEGER REFERENCES measures (id),
+    created_at     DATETIME,
+    updated_at     DATETIME
+);
+
+create table destructors_measures
+(
+    id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    destructor_id INTEGER REFERENCES destructors (id),
+    measure_id    INTEGER REFERENCES measures (id),
+    created_at    DATETIME,
+    updated_at    DATETIME
+);
+
 create table metrics
 (
     id                   INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    metricKey            VARCHAR(1024),
-    name                 VARCHAR(1024),
-    description          VARCHAR(1024),
-    handle               VARCHAR(1024),
-    evaluator           VARCHAR(1024),
+    metricKey            VARCHAR,
+    name                 VARCHAR,
+    description          VARCHAR,
+    handle               VARCHAR,
+    evaluator            VARCHAR,
     metric_repository_id INTEGER REFERENCES metric_repositories (id),
     created_at           DATETIME,
-    updated_at           DATETIME
+    updated_at           DATETIME,
+    CONSTRAINT metrics_unique UNIQUE (metricKey)
 );
 
 create table metric_repositories
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    repoKey    VARCHAR(1024),
-    name       VARCHAR(1024),
-    toolName   VARCHAR(1024),
+    repoKey    VARCHAR,
+    name       VARCHAR,
+    toolName   VARCHAR,
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT metric_repositories_unique UNIQUE (repoKey)
 );
 
 create table projects
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    projKey    VARCHAR(1024),
-    name       VARCHAR(1024),
-    version    VARCHAR(1024),
-    relPath    VARCHAR(1024),
-    srcPath    VARCHAR(2048),
-    binPath    VARCHAR(2048),
-    testPath   VARCHAR(2048),
+    projKey    VARCHAR,
+    name       VARCHAR,
+    version    VARCHAR,
+    relPath    VARCHAR,
+    srcPath    VARCHAR,
+    binPath    VARCHAR,
+    testPath   VARCHAR,
     system_id  INTEGER REFERENCES systems (id),
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT projects_unique UNIQUE (projKey)
 );
 
 create table languages
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name       VARCHAR(1024),
+    name       VARCHAR,
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT languages_unique UNIQUE (name)
 );
 
 create table projects_languages
@@ -281,81 +422,95 @@ create table projects_languages
 create table modules
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    moduleKey  VARCHAR(1024),
-    name       VARCHAR(1024),
-    relPath    VARCHAR(1024),
+    moduleKey  VARCHAR,
+    name       VARCHAR,
+    relPath    VARCHAR,
     project_id INTEGER REFERENCES projects (id),
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT modules_unique UNIQUE (moduleKey)
 );
 
 create table scms
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    scmKey     VARCHAR(1024),
-    name       VARCHAR(1024),
-    tag        VARCHAR(1024),
-    branch     VARCHAR(1024),
-    url        VARCHAR(1024),
+    scmKey     VARCHAR,
+    name       VARCHAR,
+    tag        VARCHAR,
+    branch     VARCHAR,
+    url        VARCHAR,
     project_id INTEGER REFERENCES projects (id),
     type       INTEGER,
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT scms_unique UNIQUE (scmKey)
 );
 
 create table namespaces
 (
     id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nsKey         VARCHAR(1024),
-    name          VARCHAR(1024),
+    nsKey         VARCHAR,
+    name          VARCHAR,
     project_id    INTEGER REFERENCES projects (id),
-    relPath       VARCHAR(1024),
+    relPath       VARCHAR,
     parent_ns_id  INTEGER,
     parent_mod_id INTEGER,
     created_at    DATETIME,
-    updated_at    DATETIME
+    updated_at    DATETIME,
+    CONSTRAINT namespaces_unique UNIQUE (nsKey)
 );
 
 create table files
 (
     id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    fileKey      VARCHAR(1024),
+    fileKey      VARCHAR,
     pathIndex    INTEGER NOT NULL,
-    name         VARCHAR(1024),
+    name         VARCHAR,
     type         INTEGER,
-    relPath      VARCHAR(1024),
+    relPath      VARCHAR,
     start        INTEGER,
     end          INTEGER,
     parseStage   INTEGER,
     project_id   INTEGER REFERENCES projects (id),
     parent_ns_id INTEGER,
     created_at   DATETIME,
-    updated_at   DATETIME
+    updated_at   DATETIME,
+    CONSTRAINT files_unique UNIQUE (fileKey)
 );
 
 create table imports
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name       VARCHAR(1024),
+    name       VARCHAR,
     start      INTEGER,
     end        INTEGER,
+    created_at DATETIME,
+    updated_at DATETIME,
+    CONSTRAINT imports_unique UNIQUE (name)
+);
+
+create table files_imports
+(
+    id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     file_id    INTEGER REFERENCES files (id),
+    import_id  INTEGER REFERENCES imports (id),
     created_at DATETIME,
     updated_at DATETIME
 );
 
 create table unknown_types
 (
-    id             INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    start          INTEGER,
-    end            INTEGER,
-    compKey        VARCHAR(1024),
-    name           VARCHAR(1024),
-    accessibility  INTEGER,
-    qualified_name VARCHAR(1024),
-    project_id     INTEGER REFERENCES projects (id),
-    created_at     DATETIME,
-    updated_at     DATETIME
+    id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    start            INTEGER,
+    end              INTEGER,
+    compKey          VARCHAR,
+    name             VARCHAR,
+    accessibility    INTEGER,
+    qualified_name   VARCHAR,
+    project_id       INTEGER REFERENCES projects (id),
+    created_at       DATETIME,
+    updated_at       DATETIME,
+    CONSTRAINT unknown_types_unique UNIQUE (compKey)
 );
 
 create table classes
@@ -363,17 +518,18 @@ create table classes
     id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start            INTEGER,
     end              INTEGER,
-    compKey          VARCHAR(1024),
-    name             VARCHAR(1024),
+    compKey          VARCHAR,
+    name             VARCHAR,
     abstract         INTEGER,
     accessibility    INTEGER,
-    qualified_name   VARCHAR(1024),
+    qualified_name   VARCHAR,
     namespace_id     INTEGER REFERENCES namespaces (id),
     parent_type_id   INTEGER,
-    parent_type_type VARCHAR(1024),
+    parent_type_type VARCHAR,
     parent_file_id   INTEGER,
     created_at       DATETIME,
-    updated_at       DATETIME
+    updated_at       DATETIME,
+    CONSTRAINT classes_unique UNIQUE (compKey)
 );
 
 create table enums
@@ -381,16 +537,17 @@ create table enums
     id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start            INTEGER,
     end              INTEGER,
-    compKey          VARCHAR(1024),
-    name             VARCHAR(1024),
+    compKey          VARCHAR,
+    name             VARCHAR,
     accessibility    INTEGER,
-    qualified_name   VARCHAR(1024),
+    qualified_name   VARCHAR,
     namespace_id     INTEGER REFERENCES namespaces (id),
     parent_type_id   INTEGER,
-    parent_type_type VARCHAR(1024),
+    parent_type_type VARCHAR,
     parent_file_id   INTEGER,
     created_at       DATETIME,
-    updated_at       DATETIME
+    updated_at       DATETIME,
+    CONSTRAINT enums_unique UNIQUE (compKey)
 );
 
 create table interfaces
@@ -398,16 +555,17 @@ create table interfaces
     id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start            INTEGER,
     end              INTEGER,
-    compKey          VARCHAR(1024),
-    name             VARCHAR(1024),
+    compKey          VARCHAR,
+    name             VARCHAR,
     accessibility    INTEGER,
-    qualified_name   VARCHAR(1024),
+    qualified_name   VARCHAR,
     namespace_id     INTEGER REFERENCES namespaces (id),
     parent_type_id   INTEGER,
-    parent_type_type VARCHAR(1024),
+    parent_type_type VARCHAR,
     parent_file_id   INTEGER,
     created_at       DATETIME,
-    updated_at       DATETIME
+    updated_at       DATETIME,
+    CONSTRAINT interfaces_unique UNIQUE (compKey)
 );
 
 create table literals
@@ -415,13 +573,14 @@ create table literals
     id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
-    compKey       VARCHAR(1024),
-    name          VARCHAR(1024),
+    compKey       VARCHAR,
+    name          VARCHAR,
     accessibility INTEGER,
     parent_id     INTEGER,
-    parent_type   VARCHAR(1024),
+    parent_type   VARCHAR,
     created_at    DATETIME,
-    updated_at    DATETIME
+    updated_at    DATETIME,
+    CONSTRAINT literals_unique UNIQUE (compKey)
 );
 
 create table initializers
@@ -429,16 +588,18 @@ create table initializers
     id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
-    compKey       VARCHAR(1024),
-    name          VARCHAR(1024),
-    cfg           VARCHAR(2048),
+    compKey       VARCHAR,
+    name          VARCHAR,
+    localVars     INTEGER,
+    cfg           VARCHAR,
     accessibility INTEGER,
     parent_id     INTEGER,
-    parent_type   VARCHAR(1024),
+    parent_type   VARCHAR,
     number        INTEGER,
     instance      INTEGER(1), -- boolean
     created_at    DATETIME,
-    updated_at    DATETIME
+    updated_at    DATETIME,
+    CONSTRAINT initialilzers_unique UNIQUE (compKey)
 );
 
 create table fields
@@ -446,13 +607,14 @@ create table fields
     id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
-    compKey       VARCHAR(1024),
-    name          VARCHAR(1024),
+    compKey       VARCHAR,
+    name          VARCHAR,
     accessibility INTEGER,
     parent_id     INTEGER,
-    parent_type   VARCHAR(1024),
+    parent_type   VARCHAR,
     created_at    DATETIME,
-    updated_at    DATETIME
+    updated_at    DATETIME,
+    CONSTRAINT fields_unique UNIQUE (compKey)
 );
 
 create table methods
@@ -460,12 +622,13 @@ create table methods
     id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
-    compKey       VARCHAR(1024),
-    name          VARCHAR(1024),
+    compKey       VARCHAR,
+    name          VARCHAR,
+    localVars     INTEGER,
     accessibility INTEGER,
-    cfg           VARCHAR(2048),
+    cfg           VARCHAR,
     parent_id     INTEGER,
-    parent_type   VARCHAR(1024),
+    parent_type   VARCHAR,
     created_at    DATETIME,
     updated_at    DATETIME
 );
@@ -475,12 +638,13 @@ create table constructors
     id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
-    compKey       VARCHAR(1024),
-    name          VARCHAR(1024),
-    cfg           VARCHAR(2048),
+    compKey       VARCHAR,
+    name          VARCHAR,
+    localVars     INTEGER,
+    cfg           VARCHAR,
     accessibility INTEGER,
     parent_id     INTEGER,
-    parent_type   VARCHAR(1024),
+    parent_type   VARCHAR,
     created_at    DATETIME,
     updated_at    DATETIME
 );
@@ -490,12 +654,13 @@ create table destructors
     id            INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     start         INTEGER,
     end           INTEGER,
-    compKey       VARCHAR(1024),
-    name          VARCHAR(1024),
-    cfg           VARCHAR(2048),
+    compKey       VARCHAR,
+    name          VARCHAR,
+    localVars     INTEGER,
+    cfg           VARCHAR,
     accessibility INTEGER,
     parent_id     INTEGER,
-    parent_type   VARCHAR(1024),
+    parent_type   VARCHAR,
     created_at    DATETIME,
     updated_at    DATETIME
 );
@@ -503,10 +668,10 @@ create table destructors
 create table parameters
 (
     id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name        VARCHAR(1024),
-    varg        BOOLEAN,
+    name        VARCHAR,
+    varg        INTEGER,
     parent_id   INTEGER,
-    parent_type VARCHAR(1024),
+    parent_type VARCHAR,
     created_at  DATETIME,
     updated_at  DATETIME
 );
@@ -515,7 +680,7 @@ create table method_exceptions
 (
     id          INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     parent_id   INTEGER,
-    parent_type VARCHAR(1024),
+    parent_type VARCHAR,
     created_at  DATETIME,
     updated_at  DATETIME
 );
@@ -550,9 +715,9 @@ create table destructors_method_exceptions
 create table type_refs
 (
     id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    dimensions   VARCHAR(1024),
-    typeName     VARCHAR(1024),
-    typeFullName VARCHAR(1024),
+    dimensions   VARCHAR,
+    typeName     VARCHAR,
+    typeFullName VARCHAR,
     type         INTEGER,
     typeref_id   INTEGER REFERENCES type_refs (id),
     is_bound     INTEGER(1),
@@ -626,9 +791,10 @@ create table typerefs_typerefs
 create table modifiers
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name       VARCHAR(1024),
+    name       VARCHAR,
     created_at DATETIME,
-    updated_at DATETIME
+    updated_at DATETIME,
+    CONSTRAINT modifiers_unique UNIQUE (name)
 );
 
 create table classes_modifiers
@@ -672,8 +838,8 @@ create table initializers_modifiers
     id             INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     initializer_id INTEGER REFERENCES initializers (id),
     modifier_id    INTEGER REFERENCES modifiers (id),
-    created_at     DATETIME,
-    updated_at     DATETIME
+    created_at   DATETIME,
+    updated_at   DATETIME
 );
 
 create table fields_modifiers
@@ -724,6 +890,7 @@ create table parameters_modifiers
 create table template_params
 (
     id         INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name       VARCHAR,
     created_at DATETIME,
     updated_at DATETIME
 );
