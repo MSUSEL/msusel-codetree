@@ -27,6 +27,7 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Queues;
 import com.google.common.collect.Sets;
 import com.google.common.graph.GraphBuilder;
 import com.google.common.graph.MutableGraph;
@@ -39,6 +40,7 @@ import org.javalite.activejdbc.annotations.Many2Many;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -130,11 +132,13 @@ public class Method extends TypedMember {
     }
 
     public boolean isOverriding() {
-        for (Type t : getParentTypes()) {
-            for (Type p : t.getParentTypes()) {
-                if (p.hasMethodWithMatchingSignature(this))
-                    return true;
-            }
+        Queue<Type> parents = Queues.newArrayDeque();
+        parents.offer(getParentType());
+        while (!parents.isEmpty()) {
+            Type p = parents.poll();
+            parents.addAll(p.getParentTypes());
+            if (p.hasMethodWithMatchingSignature(this))
+                return true;
         }
 
         return false;
