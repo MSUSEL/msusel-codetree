@@ -370,7 +370,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
         save();
     }
 
-    public String getFullPath(FileType type, int index) {  // FIXME
+    public String getFullPath(FileType type, int index) {
         String path = "";
         Namespace ns = getParentNamespace();
         Module mod = getParentModule();

@@ -601,7 +601,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
     public String[] getSrcPaths(Module mod) {
         List<String> paths = Lists.newArrayList();
-        String modPath = mod.getFullPath();
+        String modPath = mod.getRelPath();
         for (String path : getSrcPaths()) {
             if (path.startsWith(modPath))
                 paths.add(path);
