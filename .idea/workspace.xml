@@ -9,12 +9,9 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/BaseSourceTransformSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/BaseSourceTransformSpec.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/Test1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/Test13.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/Test2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test/test/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test/test/Test1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test/test/Test10.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test/test/Test10.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test/test/Test11.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test/test/Test11.java" afterDir="false" />
@@ -38,7 +35,6 @@
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test4/TypeY.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test4/TypeY.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test4/TypeYY.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test4/TypeYY.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test4/TypeZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/testdata/other/testmod/src/main/java/test4/TypeZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/projX/Test1.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/projX/other/src/main/java/test/test/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/testdata/projX/other/src/main/java/test/test/Test1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/projX/other/src/main/java/test/test/Test10.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/testdata/projX/other/src/main/java/test/test/Test10.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/testdata/projX/other/src/main/java/test/test/Test11.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/testdata/projX/other/src/main/java/test/test/Test11.java" afterDir="false" />
@@ -1011,7 +1007,7 @@
       <workItem from="1614629260555" duration="2890000" />
       <workItem from="1616580583406" duration="823000" />
       <workItem from="1617306292696" duration="3788000" />
-      <workItem from="1617977262318" duration="3297000" />
+      <workItem from="1617977262318" duration="4148000" />
     </task>
     <servers />
   </component>

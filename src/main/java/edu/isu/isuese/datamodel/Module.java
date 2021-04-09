@@ -270,7 +270,9 @@ public class Module extends Model implements Measurable, ComponentContainer {
     public String getSrcPath(int index) {
         String[] paths = getSrcPaths();
         if (paths.length > 0)
-            return paths[index];
+            if (paths[index].contains(getRelPath()))
+                return paths[index].replace(getRelPath() + "/", "");
+            else return paths[index];
         else
             return "";
     }
