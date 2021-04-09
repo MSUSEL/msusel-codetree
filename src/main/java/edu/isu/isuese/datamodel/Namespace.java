@@ -367,7 +367,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
 
     public void setRelPath(String path) {
         if (path.contains("."))
-            path = path.replaceAll("\\.", java.io.File.separator);
+            path = path.substring(path.lastIndexOf("."));
         setString("relPath", path);
         save();
     }
