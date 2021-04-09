@@ -367,7 +367,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
 
     public void setRelPath(String path) {
         if (path.contains("."))
-            path = path.substring(path.lastIndexOf("."));
+            path = path.substring(path.lastIndexOf(".") + 1);
         setString("relPath", path);
         save();
     }
