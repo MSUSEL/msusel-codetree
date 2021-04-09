@@ -387,15 +387,20 @@ public class File extends Model implements Measurable, ComponentContainer {
     public String getFullPath() {
         char sep = java.io.File.separatorChar;
         Project proj = getParentProject();
-        switch (getType()) {
-            case BINARY:
-                return proj.getFullPath() + sep + proj.getBinaryPath(getPathIndex()) + sep + getRelPath();
-            case SOURCE:
-                return proj.getFullPath() + sep + proj.getSrcPath(getPathIndex()) + sep + getRelPath();
-            case TEST:
-                return proj.getFullPath() + sep + proj.getTestPath(getPathIndex()) + sep + getRelPath();
-            default:
-                return proj.getFullPath() + sep + getRelPath();
+        Namespace ns = getParentNamespace();
+        if (ns != null)
+            return ns.getFullPath(getType(), getPathIndex()) + getRelPath();
+        else {
+            switch (getType()) {
+                case BINARY:
+                    return proj.getFullPath() + sep + proj.getBinaryPath(getPathIndex()) + sep + getRelPath();
+                case SOURCE:
+                    return proj.getFullPath() + sep + proj.getSrcPath(getPathIndex()) + sep + getRelPath();
+                case TEST:
+                    return proj.getFullPath() + sep + proj.getTestPath(getPathIndex()) + sep + getRelPath();
+                default:
+                    return proj.getFullPath() + sep + getRelPath();
+            }
         }
     }
 

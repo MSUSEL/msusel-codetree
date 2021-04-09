@@ -372,14 +372,23 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
 
     public String getFullPath(FileType type, int index) {  // FIXME
         String path = "";
-        if (parent(Namespace.class) != null) {
-            path = parent(Namespace.class).getFullPath(type, index);
-        } else if (parent(Module.class) != null) {
-            path = parent(Module.class).getFullPath();
+        Namespace ns = getParentNamespace();
+        Module mod = getParentModule();
+        Project proj = getParentProject();
+        if (ns != null) {
+            path = ns.getFullPath(type, index);
+        } else if (mod != null) {
+            path = mod.getFullPath();
             if (type == FileType.SOURCE)
-                path += parent(Module.class).getSrcPath(index);
+                path += mod.getSrcPath(index);
             else if (type == FileType.TEST)
-                path += parent(Module.class).getTestPath(index);
+                path += mod.getTestPath(index);
+        } else {
+            path = proj.getFullPath();
+            if (type == FileType.SOURCE)
+                path += proj.getSrcPath(index);
+            else if (type == FileType.TEST)
+                path += proj.getTestPath(index);
         }
 
         if (!path.endsWith(java.io.File.separator))

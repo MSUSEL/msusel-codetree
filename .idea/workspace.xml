@@ -7,131 +7,21 @@
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/ByteConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/ClientState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/ConfigurableConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/ConnectionContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/HelperState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/StatefulAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/StatelessConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/ByteConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/DynamicConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/FrameConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/LexerConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/MemoryAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/MemoryState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/MessageConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/MetadataAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/MutexAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/PrioritizedState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/SelectorConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/SerializableContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/StatefulConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/StatementAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/TimerConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/ViewConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/AbstractAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/BuilderConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/CloneableState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/CommandConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/DownloadContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/ExceptionConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/GenericConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/GraphAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/HashAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/ListConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/NotificationConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/SubscriberConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/TaskState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/state.tp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/AutomaticConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/BasicContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/CheckedConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/LocalizedConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/MultipleAbstractState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/PermissionConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/ProcessorAbstractState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/QueryConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/SimpleState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/TableConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/ThreadedState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/UploadAbstractState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-1/src/main/java/patterngen/State/VirtualConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/RequestState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/StableState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/StatefulContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-2/src/main/java/patterngen/State/TaskConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/BuilderState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/CompressorConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/ExecutableConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/ExtractorConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/FactoryAbstractState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/HashConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/ImporterConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/IntegerConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/InternalContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/IteratorConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/NodeConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/NonblockingConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/ObserverAbstractState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/ParserConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/ResourceState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/ResultConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/SecureConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/SmartConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/ThreadedConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/VectorAbstractState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/patterns/State/State-3/src/main/java/patterngen/State/VirtualAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/test.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/Director.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/Director.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/GeneratorContext.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/GeneratorContext.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/PatternManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/PatternManager.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/Cue.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/Cue.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/CueManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/CueManager.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/PatternCue.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/PatternCue.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/TypeCue.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/TypeCue.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/AbstractGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/AbstractGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/CodeGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/CodeGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaCodeGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaCodeGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaDirectoryGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaDirectoryGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaFieldGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaFieldGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaGitIgnoreGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaGitIgnoreGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaGradleBuildFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaGradleBuildFileGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaLanguageProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaLanguageProvider.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaLiteralGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaLiteralGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaMavenBuildFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaMavenBuildFileGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaMethodGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaMethodGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaModuleGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaModuleGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaNamespaceGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaNamespaceGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaProjectGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaProjectGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaSystemGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaSystemGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaTypeGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaTypeGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/ClassifierBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/ClassifierBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/FileBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/FileBuilder.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/GenHierBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/GenHierBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/NamespaceBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/NamespaceBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/PatternBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/PatternBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/RBML2DataModelManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/RBML2DataModelManager.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/RelationshipBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/RelationshipBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/SystemBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/SystemBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/adapter.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/adapter.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/bridge.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/bridge.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/chain_of_responsibility.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/chain_of_responsibility.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/command.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/command.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/composite.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/composite.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/decorator.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/decorator.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/factory_method.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/factory_method.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/flyweight.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/flyweight.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/observer.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/observer.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/prototype.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/prototype.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/proxy.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/proxy.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/singleton.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/singleton.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/state.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/java/state.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/strategy.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/strategy.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/template_method.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/template_method.tp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/template/visitor.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/visitor.tp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/tree/RampedHalfHalf.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/tree/RampedHalfHalf.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/tree/RandomBranch.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/tree/RandomBranch.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/tree/Tree.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/tree/Tree.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/java/state.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/java/state.tp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddField.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddField.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/AppTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/AppTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/BaseSourceTransformSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/BaseSourceTransformSpec.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,6 +69,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -1004,6 +902,7 @@
       <workItem from="1614629260555" duration="2890000" />
       <workItem from="1616580583406" duration="823000" />
       <workItem from="1617306292696" duration="3788000" />
+      <workItem from="1617977262318" duration="619000" />
     </task>
     <servers />
   </component>
@@ -1024,70 +923,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="4283" y="109" width="1024" height="852" key="#Project_Structure" timestamp="1607425666963">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4283" y="109" width="1024" height="852" key="#Project_Structure/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607425666963" />
-    <state x="4259" y="189" width="1101" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608595439418">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4259" y="189" width="1101" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1608595439418" />
-    <state x="4259" y="189" width="1101" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607425550585" />
-    <state x="4583" y="227" width="424" height="616" key="FileChooserDialogImpl" timestamp="1608596146405">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4583" y="227" width="424" height="616" key="FileChooserDialogImpl/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1608596146405" />
-    <state width="1872" height="312" key="GridCell.Tab.0.bottom" timestamp="1614605550276">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1872" height="312" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@0.27.1920.1053" timestamp="1608632363875" />
-    <state width="1872" height="312" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614605550276" />
-    <state width="1872" height="288" key="GridCell.Tab.0.bottom/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607633964296" />
-    <state width="1872" height="312" key="GridCell.Tab.0.center" timestamp="1614605550276">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1872" height="312" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@0.27.1920.1053" timestamp="1608632363874" />
-    <state width="1872" height="312" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614605550276" />
-    <state width="1872" height="288" key="GridCell.Tab.0.center/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607633964295" />
-    <state width="1872" height="312" key="GridCell.Tab.0.left" timestamp="1614605550276">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1872" height="312" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@0.27.1920.1053" timestamp="1608632363874" />
-    <state width="1872" height="312" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614605550276" />
-    <state width="1872" height="288" key="GridCell.Tab.0.left/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607633964295" />
-    <state width="1872" height="312" key="GridCell.Tab.0.right" timestamp="1614605550276">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1872" height="312" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@0.27.1920.1053" timestamp="1608632363874" />
-    <state width="1872" height="312" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614605550276" />
-    <state width="1872" height="288" key="GridCell.Tab.0.right/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607633964295" />
-    <state x="4375" y="150" width="840" height="770" key="NewModule_or_Project.wizard" timestamp="1608572842858">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4375" y="150" width="840" height="770" key="NewModule_or_Project.wizard/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1608572842858" />
-    <state x="4115" y="77" width="1037" height="737" key="SettingsEditor" timestamp="1608595199044">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4115" y="77" width="1037" height="737" key="SettingsEditor/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1608595199044" />
-    <state x="4115" y="77" width="1396" height="912" key="SettingsEditor/3840.0.1920.1080/0.27.1920.1009/1920.0.1920.1080@3840.0.1920.1080" timestamp="1607426459491" />
-    <state x="2497" y="63" width="1343" height="680" key="dock-window-1" timestamp="1608303466829">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2497" y="63" width="1343" height="680" key="dock-window-1/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1608303466829" />
-    <state x="2497" y="27" width="1343" height="680" key="dock-window-2" timestamp="1608579601753">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2497" y="27" width="1343" height="680" key="dock-window-2/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1608579601753" />
-    <state x="4533" y="289" width="524" height="508" key="extract.method.dialog" timestamp="1614632516858">
-      <screen x="3840" y="0" width="1920" height="1080" />
-    </state>
-    <state x="4533" y="289" width="524" height="508" key="extract.method.dialog/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@3840.0.1920.1080" timestamp="1614632516858" />
-    <state x="2560" y="120" width="775" height="867" key="find.popup" timestamp="1609421418895">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2560" y="120" width="775" height="867" key="find.popup/1920.0.1920.1080/0.27.1920.1053/3840.0.1920.1080@1920.0.1920.1080" timestamp="1609421418895" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/msusel_codetree$All_in_msusel_software_injector.ic" NAME="All in msusel-software-injector Coverage Results" MODIFIED="1587193611505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
