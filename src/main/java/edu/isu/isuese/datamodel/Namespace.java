@@ -293,6 +293,8 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public String getFullName() {
+        if (!this.getName().contains(".") && getParentNamespace() != null)
+            return getParentNamespace().getFullName() + "." + this.getName();
         return this.getName();
     }
 
