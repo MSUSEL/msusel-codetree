@@ -356,7 +356,7 @@ public class Method extends TypedMember {
                 .end(this.getEnd())
                 .create();
 
-        copy.setLocalVarCount(getLocalVarCount());
+//        copy.setLocalVarCount(getLocalVarCount());
         getModifiers().forEach(copy::addModifier);
         getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy(oldPrefix, newPrefix)));
         getExceptions().forEach(excep -> copy.addException(excep.getTypeRef().copy(oldPrefix, newPrefix)));
