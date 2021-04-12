@@ -409,6 +409,15 @@ public class System extends Model implements Measurable, Structure {
         save();
     }
 
+    public double getMeasureValueByName(String key) {
+        List<Measure> measures = getMeasures();
+        for (Measure m : measures) {
+            if (m.getMetricKey().equals(key))
+                return m.getValue();
+        }
+        return 0.0d;
+    }
+
 //    public List<Measure> getMeasures() {
 //        return getAll(Measure.class);
 //    }

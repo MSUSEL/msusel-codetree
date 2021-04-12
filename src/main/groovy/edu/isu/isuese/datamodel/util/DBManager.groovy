@@ -131,7 +131,6 @@ class DBManager {
                 // in order to not execute empty statements
                 if (inst[i].trim() != "") {
                     sql.execute(inst[i])
-                    System.out.println(">>" + inst[i])
                 }
             }
         }

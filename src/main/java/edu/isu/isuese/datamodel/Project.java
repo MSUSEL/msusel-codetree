@@ -748,4 +748,13 @@ public class Project extends Model implements Measurable, ComponentContainer {
     public File getParentFile() {
         return null;
     }
+
+    public double getMeasureValueByName(String key) {
+        List<Measure> measures = getMeasures();
+        for (Measure m : measures) {
+            if (m.getMetricKey().equals(key))
+                return m.getValue();
+        }
+        return 0.0d;
+    }
 }
