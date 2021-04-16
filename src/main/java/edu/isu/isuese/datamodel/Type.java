@@ -705,14 +705,14 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public Type copy(String oldPrefix, String newPrefix) {
-        Type copy = copyType();
+        return copyType();
+    }
 
+    public void copyContentsInto(Type copy, String oldPrefix, String newPrefix) {
         getModifiers().forEach(copy::addModifier);
         getAllMembers().forEach(member -> copy.addMember(member.copy(oldPrefix, newPrefix)));
         getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy(oldPrefix, newPrefix)));
         getContained().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix)));
-
-        return copy;
     }
 
     protected abstract Type copyType();

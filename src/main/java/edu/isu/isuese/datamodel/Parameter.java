@@ -188,10 +188,10 @@ public class Parameter extends Model {
         return Objects.hash(this.getName(), this.getType().getTypeName());
     }
 
-    public Parameter copy() {
+    public Parameter copy(String oldPrefix, String newPrefix) {
         Parameter copy = Parameter.builder()
                 .name(this.getName())
-                .type(this.getType())
+                .type(this.getType().copy(oldPrefix, newPrefix))
                 .create();
 
         getModifiers().forEach(copy::addModifier);

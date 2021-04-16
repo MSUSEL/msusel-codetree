@@ -238,6 +238,17 @@ public class Project extends Model implements Measurable, ComponentContainer {
         return null;
     }
 
+    public Module findModule(String name) {
+        if (name != null && !name.isEmpty()) {
+            try {
+                return get(Module.class, "name = ?", name).get(0);
+            } catch(IndexOutOfBoundsException ex) {
+                return null;
+            }
+        }
+        return null;
+    }
+
     public boolean hasNamespace(String name) {
         return findNamespace(name) != null;
     }
@@ -541,12 +552,22 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
         getModules().forEach(mod -> copy.addModule(mod.copy(this.getProjectKey(), copy.getProjectKey())));
         getSCMs().forEach(scm -> copy.addSCM(scm.copy(this.getProjectKey(), copy.getProjectKey())));
+        getNamespaces().forEach(ns -> copy.addNamespace(ns.copy(this.getProjectKey(), copy.getProjectKey())));
+        getFiles().forEach(file -> copy.addFile(file.copy(this.getProjectKey(), copy.getProjectKey())));
         getLanguages().forEach(copy::addLanguage);
         getMeasures().forEach(measure -> copy.addMeasure(measure.copy(this.getProjectKey(), copy.getProjectKey())));
         getFindings().forEach(finding -> copy.addFinding(finding.copy(this.getProjectKey(), copy.getProjectKey())));
         getPatternInstances().forEach(instance -> copy.addPatternInstance(instance.copy(this.getProjectKey(), copy.getProjectKey())));
         getRelations().forEach(rel -> copy.addRelation(rel.copy(this.getProjectKey(), copy.getProjectKey())));
         getFiles().forEach(file -> copy.addFile(file.copy(this.getProjectKey(), copy.getProjectKey())));
+
+        copy.getAllTypes().forEach(copyType -> {
+            Namespace origNs = findNamespace(copyType.getParentNamespace().getName());
+            Type origType = origNs.getTypeByName(copyType.getName());
+            origType.copyContentsInto(copyType, getProjectKey(), copy.getProjectKey());
+        });
+
+        getPatternInstances().forEach(pi -> copy.addPatternInstance(pi.copy(this.getProjectKey(), copy.getProjectKey())));
 
         return copy;
     }

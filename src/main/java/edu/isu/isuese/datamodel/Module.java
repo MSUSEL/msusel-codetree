@@ -358,16 +358,14 @@ public class Module extends Model implements Measurable, ComponentContainer {
         return null;
     }
 
-    public Module copy(String oldPrefix, String newPrefix) {
-        Module copy = Module.builder()
+    public Module copy(String oldProjectKey, String newProjectKey) {
+        return Module.builder()
                 .name(this.getName())
-                .moduleKey(this.getName())
+                .moduleKey(newProjectKey + ":" + this.getName())
                 .relPath(this.getRelPath())
                 .srcPath(this.getSrcPath())
                 .testPath(this.getTestPath())
                 .create();
-
-        return copy;
     }
 
     /**

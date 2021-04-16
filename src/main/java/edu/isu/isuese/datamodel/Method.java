@@ -360,7 +360,7 @@ public class Method extends TypedMember {
         getModifiers().forEach(copy::addModifier);
         getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy(oldPrefix, newPrefix)));
         getExceptions().forEach(excep -> copy.addException(excep.getTypeRef().copy(oldPrefix, newPrefix)));
-        getParams().forEach(param -> copy.addParameter(param.copy()));
+        getParams().forEach(param -> copy.addParameter(param.copy(oldPrefix, newPrefix)));
 
         return copy;
     }

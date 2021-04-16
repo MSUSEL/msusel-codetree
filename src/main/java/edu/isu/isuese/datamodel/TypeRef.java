@@ -272,14 +272,12 @@ public class TypeRef extends Model {
         if (getType().equals(TypeRefType.Primitive))
             return this;
 
-        TypeRef copy = TypeRef.builder()
+        return TypeRef.builder()
                 .typeFullName(this.getTypeFullName().replace(oldPrefix, newPrefix))
                 .typeName(this.getTypeName())
                 .dimensions(this.getDimensions())
                 .ref(this.getReference().copy(oldPrefix, newPrefix))
                 .type(this.getType())
                 .create();
-
-        return copy;
     }
 }

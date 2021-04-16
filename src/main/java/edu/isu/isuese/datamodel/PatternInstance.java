@@ -247,6 +247,7 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
         PatternInstance copy = PatternInstance.builder().instKey(this.getInstKey().replace(oldPrefix, newPrefix)).create();
 
         getRoleBindings().forEach(bind -> copy.addRoleBinding(bind.copy(oldPrefix, newPrefix)));
+        getParentPattern().addInstance(copy);
 
         return copy;
     }

@@ -113,7 +113,7 @@ public class SCM extends Model {
     public SCM copy(String oldPrefix, String newPrefix) {
         return SCM.builder()
                 .name(this.getName())
-                .key(this.getName())
+                .key(newPrefix + ":" + this.getName())
                 .branch(this.getBranch())
                 .tag(this.getTag())
                 .type(this.getType())
