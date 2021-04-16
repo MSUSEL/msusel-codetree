@@ -89,6 +89,14 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
         return File.find("parent_ns_id = ?", getId());
     }
 
+    public File getFileByName(String name) {
+        for (File file : getFiles()) {
+            if (file.getName().equals(name))
+                return file;
+        }
+        return null;
+    }
+
     public void addNamespace(Namespace ns) {
         if (ns != null) {
             ns.setParentNSID(getId());
