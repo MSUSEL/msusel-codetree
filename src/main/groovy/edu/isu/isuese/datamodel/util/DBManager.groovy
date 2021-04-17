@@ -121,7 +121,7 @@ class DBManager {
                 println("Table: $it")
                 ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
                 if (rs.next())
-                    sql.execute("drop table $it;")
+                    sql.execute("drop table ?;", it)
             }
 
             def text = DBManager.class.getResourceAsStream("/edu/isu/isuese/datamodel/util/reset_${creds.type.toLowerCase()}.sql").getText("UTF-8")
