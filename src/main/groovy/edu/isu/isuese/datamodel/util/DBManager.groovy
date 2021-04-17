@@ -132,13 +132,12 @@ class DBManager {
         if (logger) logger.atInfo().log("Resetting the database to empty")
         Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { sql ->
 
-//            tables.each {
-//                println("Table: $it")
-//                ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
-//                if (rs.next())
-//                    sql.execute("drop table $it")
-//            }
-            sql.execute("drop all;")
+            tables.each {
+                println("Table: $it")
+                ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
+                if (rs.next())
+                    sql.execute("drop table $it;")
+            }
 
             def text = DBManager.class.getResourceAsStream("/edu/isu/isuese/datamodel/util/reset_${creds.type.toLowerCase()}.sql").getText("UTF-8")
             String[] inst = text.split(";")
