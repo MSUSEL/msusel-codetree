@@ -48,23 +48,38 @@ class DBManager {
     ReadWriteLock lock = new ReentrantReadWriteLock()
 
     List<String> tables = [
-            'classes', 'classes_modifiers', 'constructors',
-            'constructors_method_exceptions', 'constructors_modifiers',
-            'destructors', 'destructors_method_exceptions',
-            'destructors_modifiers', 'enums', 'enums_modifiers',
-            'fields', 'fields_modifiers', 'files', 'findings',
-            'imports', 'initializers', 'initializers_modifiers',
-            'interfaces', 'interfaces_modifiers',
-            'languages', 'literals', 'literals_modifiers',
-            'measures', 'method_exceptions', 'methods',
-            'methods_method_exceptions', 'methods_modifiers',
-            'metric_repositories', 'metrics', 'modifiers',
-            'modules', 'namespaces', 'parameters', 'parameters_modifiers',
-            'pattern_chains', 'pattern_instances', 'pattern_repositories',
-            'patterns', 'projects', 'projects_languages', 'refs',
-            'relations', 'role_bindings', 'roles', 'rule_repositories',
-            'rules', 'rules_tags', 'scms', 'systems', 'tags',
-            'type_refs', 'unknown_types'
+            'classes', 'classes_measures', 'classes_modifiers', 'classes_template_params',
+            'constructors', 'constructors_measures', 'constructors_method_exceptions', 'constructors_modifiers', 'constructors_template_params', 'constructors_typerefs',
+            'destructors', 'destructors_measures', 'destructors_method_exceptions', 'destructors_modifiers', 'destructors_template_params', 'destructors_typerefs',
+            'enums', 'enums_measures', 'enums_modifiers', 'enums_template_params',
+            'fields', 'fields_modifiers', 'fields_template_params', 'fields_typerefs',
+            'files', 'files_imports', 'files_measures',
+            'findings', 'finding_data', 'finding_data_points',
+            'imports',
+            'initializers', 'initializers_measures', 'initializers_modifiers',
+            'interfaces', 'interfaces_measures', 'interfaces_modifiers', 'interfaces_template_params',
+            'languages',
+            'literals', 'literals_modifiers',
+            'measures',
+            'method_exceptions', 'methodexceptions_typerefs',
+            'methods', 'methods_measures', 'methods_method_exceptions', 'methods_modifiers', 'methods_template_params', 'methods_typerefs',
+            'metric_repositories', 'metrics', 'metrics_measures',
+            'modifiers',
+            'modules', 'modules_measures',
+            'namespaces', 'namespaces_measures',
+            'parameters', 'parameters_modifiers', 'parameters_typerefs',
+            'pattern_chains', 'pattern_instances', 'pattern_instances_measures', 'pattern_repositories', 'patterns',
+            'projects', 'projects_findings', 'projects_languages', 'projects_measures',
+            'refs',
+            'relations',
+            'role_bindings', 'roles', 'roles_role_bindings',
+            'rule_repositories', 'rules', 'rules_findings', 'rules_tags',
+            'scms',
+            'systems', 'systems_measures',
+            'tags',
+            'template_params', 'template_params_typerefs',
+            'type_refs', 'typerefs_typerefs',
+            'unknown_types'
     ]
 
     def open(DBCredentials creds) {
@@ -117,12 +132,13 @@ class DBManager {
         if (logger) logger.atInfo().log("Resetting the database to empty")
         Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { sql ->
 
-            tables.each {
-                println("Table: $it")
-                ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
-                if (rs.next())
-                    sql.execute("drop table ?;", it)
-            }
+//            tables.each {
+//                println("Table: $it")
+//                ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
+//                if (rs.next())
+//                    sql.execute("drop table $it")
+//            }
+            sql.execute("drop all;")
 
             def text = DBManager.class.getResourceAsStream("/edu/isu/isuese/datamodel/util/reset_${creds.type.toLowerCase()}.sql").getText("UTF-8")
             String[] inst = text.split(";")
