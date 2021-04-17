@@ -105,11 +105,6 @@ class DBManager {
 
     void checkDatabaseAndCreateIfMissing(DBCredentials creds) {
         boolean missing = false
-        println "dbType: ${creds.type}"
-        println "driver: ${creds.driver}"
-        println "url: ${creds.url}"
-        println "user: ${creds.user}"
-        println "pass: ${creds.pass}"
         Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { Sql sql ->
             DatabaseMetaData metaData = sql.connection.metaData
 
@@ -120,8 +115,8 @@ class DBManager {
             }
         }
 
-        if (missing)
-            createDatabase(creds)
+//        if (missing)
+//            createDatabase(creds)
     }
 
     void createDatabase(DBCredentials cred) {
