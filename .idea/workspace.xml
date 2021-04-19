@@ -8,20 +8,12 @@
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/util/DBManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/util/DBManager.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/Runner.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/Runner.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/SystemDropLoader.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/SystemDropLoader.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/results.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/results.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/CharacterState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/CollectionContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/FlexibleConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/OptimizedAbstractState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ResourceConcreteState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ThreadsafeConcreteState.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/test.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -913,6 +905,7 @@
       <workItem from="1618575320107" duration="598000" />
       <workItem from="1618656284280" duration="628000" />
       <workItem from="1618659544408" duration="9785000" />
+      <workItem from="1618799703098" duration="466000" />
     </task>
     <servers />
   </component>

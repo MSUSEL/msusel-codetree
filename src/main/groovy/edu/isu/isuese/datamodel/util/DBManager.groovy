@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel.util
 
 import com.google.common.flogger.FluentLogger
 import groovy.sql.Sql
+import groovy.util.logging.Log4j2
 import org.javalite.activejdbc.Base
 import org.javalite.activejdbc.DBException
 
@@ -41,9 +42,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock
  * @version 1.3.0
  */
 @Singleton
+@Log4j2
 class DBManager {
 
-    public FluentLogger logger
     boolean open
     ReadWriteLock lock = new ReentrantReadWriteLock()
 
@@ -86,19 +87,24 @@ class DBManager {
         lock.writeLock().lock()
 //        if (open)
 //            return
-        if (logger) logger.atInfo().log("Opening connection to the database")
-        try { Base.open(creds.driver, creds.url, creds.user, creds.pass) }
-        catch (DBException ex) { return }
-        if (logger) logger.atInfo().log("database connection open and ready.")
+        log.info("Opening connection to the database")
+        try {
+            Base.open(creds.driver, creds.url, creds.user, creds.pass)
+        }
+        catch (DBException ex) {
+            log.error(ex.getMessage())
+            return
+        }
+        log.info("database connection open and ready.")
         open = true
     }
 
     def close() {
 //        if (!open)
 //            return
-        if (logger) logger.atInfo().log("Closing connection to the database")
+        log.info("Closing connection to the database")
         Base.close()
-        if (logger) logger.atInfo().log("Database connection closed.")
+        log.info("Database connection closed.")
         open = false
         lock.writeLock().unlock()
     }
@@ -115,8 +121,8 @@ class DBManager {
             }
         }
 
-//        if (missing)
-//            createDatabase(creds)
+        if (missing)
+            createDatabase(creds)
     }
 
     void createDatabase(DBCredentials cred) {
@@ -124,17 +130,12 @@ class DBManager {
     }
 
     void resetDatabase(DBCredentials creds) {
-        if (logger) logger.atInfo().log("Resetting the database to empty")
-        Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { sql ->
-
-            if (creds.type == "sqlite") {
-                sql.execute """\
-                PRAGMA writable_schema = 1;
-                delete from sqlite_master where type in ('table', 'index', 'trigger');
-                PRAGMA writable_schema = 0;
-                VACUUM;
-                """
-            } else {
+        log.info("Resetting the database to empty")
+        if (creds.type == "sqlite") {
+            String filename = creds.url.split(":")[2]
+            new File(filename).delete()
+        } else {
+            Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { sql ->
                 tables.each {
                     println("Table: $it")
                     ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
@@ -142,7 +143,9 @@ class DBManager {
                         sql.execute("drop table $it")
                 }
             }
+        }
 
+        Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { sql ->
             def text = DBManager.class.getResourceAsStream("/edu/isu/isuese/datamodel/util/reset_${creds.type.toLowerCase()}.sql").getText("UTF-8")
             String[] inst = text.split(";")
 
@@ -154,6 +157,7 @@ class DBManager {
                 }
             }
         }
-        if (logger) logger.atInfo().log("Database reset and ready for fresh data.")
+
+        log.info("Database reset and ready for fresh data.")
     }
 }
