@@ -967,3 +967,32 @@ values ('STATIC'),
        ('IMPLICIT'),
        ('YIELD'),
        ('THIS');
+
+insert into pattern_repositories (repoKey, name)
+values ('gof', 'gof');
+
+insert into patterns (patternKey, name, pattern_repository_id)
+values ('gof:Abstract Factory', 'Abstract Factory', 1),
+       ('gof:Builder', 'Builder', 1),
+       ('gof:Factory Method', 'Factory Method', 1),
+       ('gof:Prototype', 'Prototype', 1),
+       ('gof:Singleton', 'Singleton', 1),
+       ('gof:Adapter', 'Adapter', 1),
+       ('gof:Bridge', 'Bridge', 1),
+       ('gof:Composite', 'Composite', 1),
+       ('gof:Decorator', 'Decorator', 1),
+       ('gof:Facade', 'Facade', 1),
+       ('gof:Flyweight', 'Flyweight', 1),
+       ('gof:Proxy', 'Proxy', 1),
+       ('gof:Proxy2', 'Proxy2', 1),
+       ('gof:Chain of Responsibility', 'Chain of Responsibility', 1),
+       ('gof:Command', 'Command', 1),
+       ('gof:Interpreter', 'Interpreter', 1),
+       ('gof:Iterator', 'Iterator', 1),
+       ('gof:Mediator', 'Mediator', 1),
+       ('gof:Memento', 'Memento', 1),
+       ('gof:Observer', 'Observer', 1),
+       ('gof:State', 'State', 1),
+       ('gof:Strategy', 'Strategy', 1),
+       ('gof:Template Method', 'Template Method', 1),
+       ('gof:Visitor', 'Visitor', 1);
