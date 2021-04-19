@@ -87,7 +87,6 @@ class DBManager {
         lock.writeLock().lock()
 //        if (open)
 //            return
-        log.info("Opening connection to the database")
         try {
             Base.open(creds.driver, creds.url, creds.user, creds.pass)
         }
@@ -95,16 +94,13 @@ class DBManager {
             log.error(ex.getMessage())
             return
         }
-        log.info("database connection open and ready.")
         open = true
     }
 
     def close() {
 //        if (!open)
 //            return
-        log.info("Closing connection to the database")
         Base.close()
-        log.info("Database connection closed.")
         open = false
         lock.writeLock().unlock()
     }
