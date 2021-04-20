@@ -310,7 +310,7 @@ public class Module extends Model implements Measurable, ComponentContainer {
     }
 
     public String getFullPath() {
-        if (getRelPath() != null)
+        if (!getName().equalsIgnoreCase("default"))
             return getParentProject().getFullPath() + getRelPath() + java.io.File.separator;
         else
             return getParentProject().getFullPath();

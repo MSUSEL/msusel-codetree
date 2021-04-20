@@ -393,13 +393,13 @@ public class File extends Model implements Measurable, ComponentContainer {
         else {
             switch (getType()) {
                 case BINARY:
-                    return proj.getFullPath() + sep + proj.getBinaryPath(getPathIndex()) + sep + getRelPath();
+                    return proj.getFullPath() + proj.getBinaryPath(getPathIndex()) + sep + getRelPath();
                 case SOURCE:
-                    return proj.getFullPath() + sep + proj.getSrcPath(getPathIndex()) + sep + getRelPath();
+                    return proj.getFullPath() + proj.getSrcPath(getPathIndex()) + sep + getRelPath();
                 case TEST:
-                    return proj.getFullPath() + sep + proj.getTestPath(getPathIndex()) + sep + getRelPath();
+                    return proj.getFullPath() + proj.getTestPath(getPathIndex()) + sep + getRelPath();
                 default:
-                    return proj.getFullPath() + sep + getRelPath();
+                    return proj.getFullPath() + getRelPath();
             }
         }
     }
