@@ -274,7 +274,7 @@ public class Module extends Model implements Measurable, ComponentContainer {
                 return paths[index].replace(getRelPath() + "/", "");
             else return paths[index];
         else
-            return "";
+            return getParentProject().getSrcPath(index);
     }
 
     public String[] getBinaryPaths() {
@@ -290,7 +290,7 @@ public class Module extends Model implements Measurable, ComponentContainer {
         if (paths.length > 0)
             return paths[index];
         else
-            return "";
+            return getParentProject().getBinaryPath(index);
     }
 
     public String[] getTestPaths() {
@@ -306,7 +306,7 @@ public class Module extends Model implements Measurable, ComponentContainer {
         if (paths.length > 0)
             return paths[index];
         else
-            return "";
+            return getParentProject().getTestPath(index);
     }
 
     public String getFullPath() {
