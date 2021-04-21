@@ -70,7 +70,7 @@ public class Initializer extends Member {
                 .end(this.getEnd())
                 .create();
 
-        copy.setLocalVarCount(getLocalVarCount());
+        //copy.setLocalVarCount(getLocalVarCount());
         getModifiers().forEach(copy::addModifier);
 
         return copy;
