@@ -633,6 +633,7 @@ public abstract class Type extends Component implements ComponentContainer {
 //        if (TypeRef.findFirst("typeFullName = ?", getFullName()) != null) {
 //            return TypeRef.findFirst("typeFullName = ?", getFullName());
 //        } else {
+            this.refresh();
             Reference ref = createReference();
             TypeRef tref = TypeRef.builder().typeName(getName()).typeFullName(getFullName()).type(TypeRefType.Type).create();
             tref.setReference(ref);
