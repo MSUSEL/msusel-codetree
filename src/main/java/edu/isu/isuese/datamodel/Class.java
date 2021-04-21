@@ -47,6 +47,7 @@ public class Class extends Classifier {
     @Builder(buildMethodName = "create")
     public Class(String name, int start, int end, String compKey, Accessibility accessibility) {
         set("name", name, "start", start, "end", end, "compKey", compKey, "qualified_name", name);
+        save();
         if (accessibility != null)
             setAccessibility(accessibility);
         else
