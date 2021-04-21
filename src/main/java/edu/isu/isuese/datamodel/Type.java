@@ -705,7 +705,7 @@ public abstract class Type extends Component implements ComponentContainer {
     }
 
     public Type copy(String oldPrefix, String newPrefix) {
-        return copyType();
+        return copyType(oldPrefix, newPrefix);
     }
 
     public void copyContentsInto(Type copy, String oldPrefix, String newPrefix) {
@@ -715,7 +715,7 @@ public abstract class Type extends Component implements ComponentContainer {
         getContained().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix)));
     }
 
-    protected abstract Type copyType();
+    protected abstract Type copyType(String oldPrefix, String newPrefix);
 
     public Field getFieldWithName(String name) {
         try {

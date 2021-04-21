@@ -57,10 +57,10 @@ public class UnknownType extends Type {
     }
 
     @Override
-    protected Type copyType() {
+    protected Type copyType(String oldPrefix, String newPrefix) {
         return UnknownType.builder()
                 .name(this.getName())
-                .compKey(this.getName())
+                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
                 .accessibility(this.getAccessibility())
                 .start(this.getStart())
                 .end(this.getEnd())
