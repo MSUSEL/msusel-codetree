@@ -48,24 +48,22 @@ public class Class extends Classifier {
     public Class(String name, int start, int end, String compKey, Accessibility accessibility) {
         set("name", name, "start", start, "end", end, "compKey", compKey, "qualified_name", name);
 
-//        if (accessibility != null)
-//            setAccessibility(accessibility);
-//        else
-//            setAccessibility(Accessibility.PUBLIC);
+        if (accessibility != null)
+            setAccessibility(accessibility);
+        else
+            setAccessibility(Accessibility.PUBLIC);
 
         save();
     }
 
     @Override
     protected Type copyType(String oldPrefix, String newPrefix) {
-        Type type = Class.builder()
+        return Class.builder()
                 .name(this.getName())
                 .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
-                //.accessibility(this.getAccessibility())
+                .accessibility(this.getAccessibility())
                 .start(this.getStart())
                 .end(this.getEnd())
                 .create();
-        type.setAccessibility(this.getAccessibility());
-        return type;
     }
 }

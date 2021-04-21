@@ -545,7 +545,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
                 .version(this.getVersion())
                 .relPath(relPath)
                 .create();
-
+        copy.save();
         this.getParentSystem().add(copy);
         copy.updateKeys();
         copy.refresh();
