@@ -123,13 +123,15 @@ public class Relation extends Model {
     }
 
     public Relation copy(String oldPrefix, String newPrefix) {
-        Reference to = getReferences().get(0);
-        Reference from = getReferences().get(1);
-        String fromKey = getReferences().get(0).getRefKey().replace(oldPrefix, newPrefix);
-        String toKey = getReferences().get(1).getRefKey().replace(oldPrefix, newPrefix);
+        Reference to = Reference.findById(getInteger("to_id"));
+        Reference from = Reference.findById(getInteger("from_id"));
+        Reference toCopy = to.copy(oldPrefix, newPrefix);
+        Reference fromCopy = from.copy(oldPrefix, newPrefix);
+        String fromKey = fromCopy.getRefKey();
+        String toKey = toCopy.getRefKey();
         Relation copy = Relation.createIt("relKey", fromKey + "-" + toKey);
         copy.saveIt();
-        copy.setToAndFromRefs(to.copy(oldPrefix, newPrefix), from.copy(oldPrefix, newPrefix));
+        copy.setToAndFromRefs(toCopy, fromCopy);
         copy.setType(this.getType());
         copy.saveIt();
 
