@@ -27,6 +27,7 @@
 package edu.isu.isuese.datamodel;
 
 import lombok.Builder;
+import lombok.extern.log4j.Log4j2;
 import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToParents;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
@@ -38,6 +39,7 @@ import org.javalite.activejdbc.annotations.Table;
  */
 @Table("classes")
 @BelongsTo(parent = Namespace.class, foreignKeyName = "namespace_id")
+@Log4j2
 public class Class extends Classifier {
 
     public Class() {
@@ -58,6 +60,7 @@ public class Class extends Classifier {
 
     @Override
     protected Type copyType(String oldPrefix, String newPrefix) {
+        log.info("Copying Class: " + getCompKey());
         return Class.builder()
                 .name(this.getName())
                 .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
