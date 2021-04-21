@@ -54,12 +54,15 @@ public class Interface extends Classifier {
 
     @Override
     protected Type copyType(String oldPrefix, String newPrefix) {
-        return Interface.builder()
+        Type type = Interface.builder()
                 .name(this.getName())
                 .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
-                .accessibility(this.getAccessibility())
+//                .accessibility(this.getAccessibility())
                 .start(this.getStart())
                 .end(this.getEnd())
                 .create();
+
+        type.setAccessibility(this.getAccessibility());
+        return type;
     }
 }

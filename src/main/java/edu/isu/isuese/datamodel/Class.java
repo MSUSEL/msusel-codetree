@@ -57,12 +57,14 @@ public class Class extends Classifier {
 
     @Override
     protected Type copyType(String oldPrefix, String newPrefix) {
-        return Class.builder()
+        Type type = Class.builder()
                 .name(this.getName())
                 .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
-                .accessibility(this.getAccessibility())
+                //.accessibility(this.getAccessibility())
                 .start(this.getStart())
                 .end(this.getEnd())
                 .create();
+        type.setAccessibility(this.getAccessibility());
+        return type;
     }
 }

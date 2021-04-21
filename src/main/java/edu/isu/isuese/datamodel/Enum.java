@@ -55,13 +55,15 @@ public class Enum extends Classifier {
 
     @Override
     protected Type copyType(String oldPrefix, String newPrefix) {
-        return Enum.builder()
+        Type type = Enum.builder()
                 .name(this.getName())
                 .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
-                .accessibility(this.getAccessibility())
+//                .accessibility(this.getAccessibility())
                 .start(this.getStart())
                 .end(this.getEnd())
                 .create();
+        type.setAccessibility(this.getAccessibility());
+        return type;
     }
 
     public boolean hasLiteralWithName(String name) {
