@@ -54,7 +54,7 @@ public class Interface extends Classifier {
 
     @Override
     protected Type copyType(String oldPrefix, String newPrefix) {
-        Type t = Class.findFirst(this.getCompKey().replace(oldPrefix, newPrefix));
+        Type t = Class.findFirst("compKey = ?", this.getCompKey().replace(oldPrefix, newPrefix));
         if (t != null)
             return t;
 
