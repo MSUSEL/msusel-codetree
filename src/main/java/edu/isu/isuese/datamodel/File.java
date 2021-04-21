@@ -278,7 +278,7 @@ public class File extends Model implements Measurable, ComponentContainer {
                 .end(this.getEnd())
                 .create();
 
-        getAllTypes().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix))); // FIXME
+        //getAllTypes().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix))); // FIXME
 
         return copy;
     }
