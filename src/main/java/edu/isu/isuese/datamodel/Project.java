@@ -569,8 +569,6 @@ public class Project extends Model implements Measurable, ComponentContainer {
             origType.copyContentsInto(copyType, getProjectKey(), copy.getProjectKey());
         });
 
-        getPatternInstances().forEach(pi -> copy.addPatternInstance(pi.copy(this.getProjectKey(), copy.getProjectKey())));
-
         return copy;
     }
 

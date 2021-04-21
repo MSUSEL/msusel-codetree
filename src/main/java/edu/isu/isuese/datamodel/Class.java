@@ -61,6 +61,11 @@ public class Class extends Classifier {
     @Override
     protected Type copyType(String oldPrefix, String newPrefix) {
         log.info("Copying Class: " + getCompKey());
+        Type t = Class.findFirst(this.getCompKey().replace(oldPrefix, newPrefix));
+
+        if (t != null)
+            return t;
+
         return Class.builder()
                 .name(this.getName())
                 .compKey(this.getCompKey().replace(oldPrefix, newPrefix))

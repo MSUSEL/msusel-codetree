@@ -54,6 +54,10 @@ public class Interface extends Classifier {
 
     @Override
     protected Type copyType(String oldPrefix, String newPrefix) {
+        Type t = Class.findFirst(this.getCompKey().replace(oldPrefix, newPrefix));
+        if (t != null)
+            return t;
+
         return Interface.builder()
                 .name(this.getName())
                 .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
