@@ -562,7 +562,6 @@ public class Project extends Model implements Measurable, ComponentContainer {
         getFindings().forEach(finding -> copy.addFinding(finding.copy(this.getProjectKey(), copy.getProjectKey())));
         getPatternInstances().forEach(instance -> copy.addPatternInstance(instance.copy(this.getProjectKey(), copy.getProjectKey())));
         getRelations().forEach(rel -> copy.addRelation(rel.copy(this.getProjectKey(), copy.getProjectKey())));
-        getFiles().forEach(file -> copy.addFile(file.copy(this.getProjectKey(), copy.getProjectKey())));
 
         copy.getAllTypes().forEach(copyType -> {
             Namespace origNs = findNamespace(copyType.getParentNamespace().getName());
