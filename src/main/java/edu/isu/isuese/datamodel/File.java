@@ -297,10 +297,10 @@ public class File extends Model implements Measurable, ComponentContainer {
             String key = ns.getNsKey();
             String copyKey = key.replace(oldPrefix, newPrefix);
             java.lang.System.out.println("Ns Key: " + key);
-            java.lang.System.out.println("Copy Ns Key: " + copyKey);
 
             Namespace nsCopy = Namespace.findFirst("nsKey = ?", key.replace(oldPrefix, newPrefix));
             if (nsCopy != null) {
+                java.lang.System.out.println("Copy Ns Key: " + copyKey);
                 nsCopy.addFile(copy);
                 nsCopy.save();
             }
