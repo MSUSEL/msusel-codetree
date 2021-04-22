@@ -7,91 +7,114 @@
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/results.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/AllocatorState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ByteConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/CommandConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/FlexibleConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/MetadataConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ModuleAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/PolicyConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/PrioritizedConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/SearchContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/TesterConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/UserAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ViewAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/AllocatorState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/ByteConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/CommandConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/FlexibleConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/MetadataConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/ModuleAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/PolicyConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/PrioritizedConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/SearchContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/TesterConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/UserAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/ViewAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/CheckedContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/HashState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/IntegerConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/QueryConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/ResourceConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/SimpleAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/CheckedContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/HashState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/IntegerConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/QueryConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/ResourceConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/SimpleAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/ClientState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/DefinitionContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/EncoderConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/HandlerAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/ScrollbarConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/StatefulConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/ExporterConcreteState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/MarshallerContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/RunnableState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/SetAbstractState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/test.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ConverterConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/JarAbstractState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/LegacyContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/NotificationConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ResourceConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ScannerConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/SimpleState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/VirtualConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/AutomaticConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/CheckedState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/DatabaseContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/ErrorCorrectingAbstractState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/ExecutableConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/LoaderConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/LocalizedConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/ObjectConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/PixelConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/RequestAbstractState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/ResponseConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/RunnableConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/SerializableConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/StatefulConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/StatementConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/TesterConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/ThreadsafeAbstractState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/TimestampConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/ValidatorAbstractState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/WriterConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/AutomaticConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/DecoderConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/InternalConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/LegacyAbstractState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/ListContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/ProcessorConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/QueryAbstractState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/ReadableConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/SharedState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/StatelessAbstractState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/StatelessConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/ValidatorConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/AdapterConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/OperationState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/ResponseConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/ScannerConcreteState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/SingletonAbstractState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/TokenizerContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/SourceInjectorExecutor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/SourceInjectorExecutor.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/AllocatorState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ByteConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/CommandConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/FlexibleConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/MetadataConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ModuleAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/PolicyConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/PrioritizedConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/SearchContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/TesterConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/UserAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ViewAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/AllocatorState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/ByteConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/CommandConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/FlexibleConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/MetadataConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/ModuleAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/PolicyConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/PrioritizedConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/SearchContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/TesterConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/UserAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1_copy/src/main/java/patterngen/state/ViewAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/CheckedContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/HashState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/IntegerConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/QueryConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/ResourceConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2/src/main/java/patterngen/state/SimpleAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/CheckedContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/HashState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/IntegerConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/QueryConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/ResourceConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-2_copy/src/main/java/patterngen/state/SimpleAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/ClientState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/DefinitionContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/EncoderConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/HandlerAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/ScrollbarConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-3/src/main/java/patterngen/state/StatefulConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/ExporterConcreteState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/MarshallerContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/RunnableState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/SetAbstractState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/test.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/tools/p4results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/tools/p4results.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/Director.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/Director.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -991,7 +1014,7 @@
       <workItem from="1619039711897" duration="32000" />
       <workItem from="1619082243275" duration="94000" />
       <workItem from="1619106281447" duration="47000" />
-      <workItem from="1619106346101" duration="984000" />
+      <workItem from="1619106346101" duration="1741000" />
     </task>
     <servers />
   </component>

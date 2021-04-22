@@ -300,7 +300,15 @@ public class File extends Model implements Measurable, ComponentContainer {
             }
         }
 
-        //getAllTypes().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix))); // FIXME
+        getAllTypes().forEach(type -> {
+            String copyKey = type.getCompKey().replace(oldPrefix, newPrefix);
+            if (type instanceof Class)
+                copy.addType(Class.findFirst("compKey = ?", copyKey));
+            else if (type instanceof Enum)
+                copy.addType(Enum.findFirst("compKey = ?", copyKey));
+            else if (type instanceof Interface)
+                copy.addType(Interface.findFirst("compKey = ?", copyKey));
+        });
 
         return copy;
     }
