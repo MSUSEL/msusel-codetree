@@ -493,7 +493,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public void updateKeys() {
-        String newKey = getParentSystem() == null ? getName() + "-" + getVersion() : getParentSystem().getKey() + ":" + getName() + "-" + getVersion();
+        String newKey = getParentSystem() == null ? getName() + ":" + getVersion() : getParentSystem().getKey() + ":" + getName() + ":" + getVersion();
         setString("projKey", newKey);
         save();
         refresh();
