@@ -290,6 +290,7 @@ public class File extends Model implements Measurable, ComponentContainer {
                 .start(this.getStart())
                 .end(this.getEnd())
                 .create();
+        copy.save();
 
         Namespace ns = this.getParentNamespace();
         if (ns != null) {
@@ -297,8 +298,10 @@ public class File extends Model implements Measurable, ComponentContainer {
             Namespace nsCopy = Namespace.findFirst("nsKey = ?", key.replace(oldPrefix, newPrefix));
             if (nsCopy != null) {
                 nsCopy.addFile(copy);
+                nsCopy.save();
             }
         }
+        copy.save();
 
         getAllTypes().forEach(type -> {
             String copyKey = type.getCompKey().replace(oldPrefix, newPrefix);
@@ -309,6 +312,7 @@ public class File extends Model implements Measurable, ComponentContainer {
             else if (type instanceof Interface)
                 copy.addType(Interface.findFirst("compKey = ?", copyKey));
         });
+        copy.save();
 
         return copy;
     }

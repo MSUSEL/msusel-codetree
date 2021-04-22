@@ -54,8 +54,9 @@
       <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/SingletonAbstractState.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-4/src/main/java/patterngen/state/TokenizerContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/dev.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/data/test.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/AllocatorState.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/test_data/state/state-1/src/main/java/patterngen/state/ByteConcreteState.java" beforeDir="false" />
@@ -1014,7 +1015,7 @@
       <workItem from="1619039711897" duration="32000" />
       <workItem from="1619082243275" duration="94000" />
       <workItem from="1619106281447" duration="47000" />
-      <workItem from="1619106346101" duration="1741000" />
+      <workItem from="1619106346101" duration="2076000" />
     </task>
     <servers />
   </component>
