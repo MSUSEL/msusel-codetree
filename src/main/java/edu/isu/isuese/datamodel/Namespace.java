@@ -451,7 +451,7 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     public Namespace copy(String oldPrefix, String newPrefix) {
         Namespace copy = Namespace.builder()
                 .name(this.getName())
-                .nsKey(this.getName())
+                .nsKey(this.getNsKey().replace(oldPrefix, newPrefix))
                 .relPath(this.getRelPath())
                 .create();
 
