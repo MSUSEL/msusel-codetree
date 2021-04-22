@@ -52,7 +52,7 @@ public class Destructor extends Method {
     public Member copy(String oldPrefix, String newPrefix) {
         Destructor copy = Destructor.creator()
                 .name(this.getName())
-                .compKey(this.getName())
+                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
                 .accessibility(this.getAccessibility())
                 .type(this.getType().copy(oldPrefix, newPrefix))
                 .start(this.getStart())

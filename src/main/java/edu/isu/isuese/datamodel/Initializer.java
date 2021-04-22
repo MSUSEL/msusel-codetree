@@ -63,7 +63,7 @@ public class Initializer extends Member {
     public Member copy(String oldPrefix, String newPrefix) {
         Initializer copy = Initializer.builder()
                 .name(this.getName())
-                .compKey(this.getName())
+                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
                 .accessibility(this.getAccessibility())
                 .instance(this.isInstance())
                 .start(this.getStart())

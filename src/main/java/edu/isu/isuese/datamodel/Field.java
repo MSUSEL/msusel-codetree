@@ -73,7 +73,7 @@ public class Field extends TypedMember {
     public Member copy(String oldPrefix, String newPrefix) {
         Field copy = Field.builder()
                 .name(this.getName())
-                .compKey(this.getName())
+                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
                 .accessibility(this.getAccessibility())
                 .type(this.getType().copy(oldPrefix, newPrefix))
                 .start(this.getStart())

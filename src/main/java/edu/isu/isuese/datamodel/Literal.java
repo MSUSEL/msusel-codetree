@@ -55,7 +55,7 @@ public class Literal extends Member {
     public Member copy(String oldPrefix, String newPrefix) {
         Literal copy = Literal.builder()
                 .name(this.getName())
-                .compKey(this.getName())
+                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
                 .accessibility(this.getAccessibility())
                 .start(this.getStart())
                 .end(this.getEnd())

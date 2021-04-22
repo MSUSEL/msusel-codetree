@@ -72,7 +72,7 @@ public class Constructor extends Method {
     public Member copy(String oldPrefix, String newPrefix) {
         Constructor copy = Constructor.creator()
                 .name(this.getName())
-                .compKey(this.getName())
+                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
                 .accessibility(this.getAccessibility())
                 .type(this.getType().copy(oldPrefix, newPrefix))
                 .start(this.getStart())
