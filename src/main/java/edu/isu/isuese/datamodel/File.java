@@ -269,14 +269,36 @@ public class File extends Model implements Measurable, ComponentContainer {
     }
 
     public File copy(String oldPrefix, String newPrefix) {
+        String[] oldSplit = oldPrefix.split(":");
+        String[] newSplit = newPrefix.split(":");
+        String toReplace = "";
+        String replacement = "";
+        if (oldSplit.length == 2) {
+            toReplace = oldSplit[0];
+            replacement = newSplit[0];
+        } else {
+            toReplace = oldSplit[1];
+            replacement = newSplit[1];
+        }
+        String copyName = getName().replace(toReplace, replacement);
+
         File copy = File.builder()
-                .name(this.getName())
-                .fileKey(this.getName())
+                .name(copyName)
+                .fileKey(oldPrefix + ":" + copyName)
                 .relPath(this.getRelPath())
                 .type(this.getType())
                 .start(this.getStart())
                 .end(this.getEnd())
                 .create();
+
+        Namespace ns = this.getParentNamespace();
+        if (ns != null) {
+            String key = ns.getNsKey();
+            Namespace nsCopy = Namespace.findFirst("nsKey = ?", key.replace(oldPrefix, newPrefix));
+            if (nsCopy != null) {
+                nsCopy.addFile(copy);
+            }
+        }
 
         //getAllTypes().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix))); // FIXME
 
