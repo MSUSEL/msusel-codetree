@@ -556,7 +556,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         getModules().forEach(mod -> copy.addModule(mod.copy(this.getProjectKey(), copy.getProjectKey())));
         getSCMs().forEach(scm -> copy.addSCM(scm.copy(this.getProjectKey(), copy.getProjectKey())));
         getNamespaces().forEach(ns -> {
-            Namespace nsCopy = ns.copy(this.getProjectKey(), copy.getProjectKey())
+            Namespace nsCopy = ns.copy(this.getProjectKey(), copy.getProjectKey());
             copy.addNamespace(nsCopy);
             nsCopy.save();
         });
