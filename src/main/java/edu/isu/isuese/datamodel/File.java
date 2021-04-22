@@ -295,6 +295,10 @@ public class File extends Model implements Measurable, ComponentContainer {
         Namespace ns = this.getParentNamespace();
         if (ns != null) {
             String key = ns.getNsKey();
+            String copyKey = key.replace(oldPrefix, newPrefix);
+            java.lang.System.out.println("Ns Key: " + key);
+            java.lang.System.out.println("Copy Ns Key: " + copyKey);
+
             Namespace nsCopy = Namespace.findFirst("nsKey = ?", key.replace(oldPrefix, newPrefix));
             if (nsCopy != null) {
                 nsCopy.addFile(copy);
