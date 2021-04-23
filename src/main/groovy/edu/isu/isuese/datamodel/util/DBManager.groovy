@@ -133,7 +133,6 @@ class DBManager {
         } else {
             Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { sql ->
                 tables.each {
-                    println("Table: $it")
                     ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
                     if (rs.next())
                         sql.execute("drop table $it")

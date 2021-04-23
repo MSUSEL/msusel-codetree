@@ -55,8 +55,6 @@ abstract class EnvironmentLoader {
             while ((line = br.readLine()) != null) {
                 def group = line =~ type
                 if (group.size() > 0) {
-                    println group.size()
-                    println group[0]
                     switch (group[0][1]) {
                         case "class":
                             constructClass(group[0][2], ns)

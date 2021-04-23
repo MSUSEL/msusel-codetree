@@ -498,7 +498,6 @@ abstract class BaseModelBuilder {
 
         Type type
         list.each { str ->
-            println "\n$str"
             String[] components = str.split(/\./)
             components.eachWithIndex { comp, index ->
                 if (!comp.contains("(")) {

@@ -31,11 +31,13 @@ import edu.isu.isuese.datamodel.PatternInstance
 import edu.isu.isuese.datamodel.Role
 import edu.isu.isuese.datamodel.RoleBinding
 import edu.isu.isuese.datamodel.System
+import groovy.util.logging.Log4j2
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@Log4j2
 class ChainIdentifier {
 
     def findChains(System system) {
@@ -97,7 +99,7 @@ class ChainIdentifier {
 
         PatternInstance last = chain.instances.last()
         if (last.getParentPattern() != inst.getParentPattern()) {
-            println "Not same parent pattern"
+            log.warn "Not same parent pattern"
             return false
         }
 
@@ -110,10 +112,8 @@ class ChainIdentifier {
             last.bindingsFor(r).each { RoleBinding rb ->
                 bindingMap[r] << rb.reference.refKey.replace(lastProjKey, "")
             }
-            println bindingMap[r].size()
             inst.bindingsFor(r).each { RoleBinding rb ->
                 bindingMap[r].remove(rb.reference.refKey.replace(instProjKey, ""))
-                println "- " + bindingMap[r].size()
             }
         }
 
