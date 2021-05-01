@@ -75,4 +75,8 @@ public class Literal extends Member {
     public List<Measure> getMeasures() {
         return Lists.newArrayList();
     }
+
+    public Reference createReference() {
+        return Reference.builder().refKey(getCompKey()).refType(RefType.LITERAL).create();
+    }
 }

@@ -92,4 +92,8 @@ public class Initializer extends Member {
         set("cfg", cfg.cfgToString());
         save();
     }
+
+    public Reference createReference() {
+        return Reference.builder().refKey(getCompKey()).refType(RefType.INITIALIZER).create();
+    }
 }

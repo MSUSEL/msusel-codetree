@@ -195,4 +195,6 @@ public abstract class Component extends Model implements Measurable {
     public List<Measure> getMeasures() {
         return getAll(Measure.class);
     }
+
+    public abstract Reference createReference();
 }
