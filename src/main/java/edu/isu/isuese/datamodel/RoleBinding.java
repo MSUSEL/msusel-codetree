@@ -27,6 +27,8 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
+import lombok.NonNull;
+import lombok.Validate;
 import lombok.extern.log4j.Log4j2;
 import org.javalite.activejdbc.Model;
 
@@ -40,7 +42,7 @@ import java.util.Objects;
 @Log4j2
 public class RoleBinding extends Model {
 
-    public static RoleBinding of(Role role, Reference ref) {
+    public static RoleBinding of(@NonNull Role role, @NonNull Reference ref) {
         RoleBinding binding = new RoleBinding();
         binding.saveIt();
         binding.setRoleRefPair(role, ref);
@@ -53,7 +55,7 @@ public class RoleBinding extends Model {
 
     private List<Reference> getRefs() { return Lists.newLinkedList(getAll(Reference.class)); }
 
-    public void setRoleRefPair(Role role, Reference ref) {
+    public void setRoleRefPair(@NonNull Role role, @NonNull Reference ref) {
 //        List<Role> roles = getRoles();
 //        if (!roles.isEmpty()) {
 //            for (Role r : roles) {
@@ -97,7 +99,7 @@ public class RoleBinding extends Model {
         return Objects.hash(super.hashCode(), getId());
     }
 
-    public RoleBinding copy(String oldPrefix, String newPrefix) {
+    public RoleBinding copy(@Validate.NotEmpty @NonNull String oldPrefix, @Validate.NotEmpty @NonNull String newPrefix) {
         log.info("RoleBinding ID: " + this.getId() + " with role: " + this.getRole().getName());
         return RoleBinding.of(this.getRole(), this.getReference().copy(oldPrefix, newPrefix));
     }
