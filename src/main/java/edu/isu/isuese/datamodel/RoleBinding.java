@@ -98,7 +98,7 @@ public class RoleBinding extends Model {
     }
 
     public RoleBinding copy(String oldPrefix, String newPrefix) {
-        log.info("Reference ID: " + this.getId() + " with role: " + this.getRole().getName());
+        log.info("RoleBinding ID: " + this.getId() + " with role: " + this.getRole().getName());
         return RoleBinding.of(this.getRole(), this.getReference().copy(oldPrefix, newPrefix));
     }
 }
