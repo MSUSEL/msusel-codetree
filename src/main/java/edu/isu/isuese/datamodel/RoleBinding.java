@@ -67,7 +67,7 @@ public class RoleBinding extends Model {
 //
 //        }
 //
-//        save();
+        save();
         add(role);
         add(ref);
         save();
