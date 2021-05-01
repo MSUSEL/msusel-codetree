@@ -52,22 +52,22 @@ public class RoleBinding extends Model {
     private List<Reference> getRefs() { return Lists.newLinkedList(getAll(Reference.class)); }
 
     public void setRoleRefPair(Role role, Reference ref) {
-        List<Role> roles = getRoles();
-        if (!roles.isEmpty()) {
-            for (Role r : roles) {
-                remove(r);
-            }
-        }
-
-        List<Reference> refs = getRefs();
-        if (!refs.isEmpty()) {
-            for (Reference r : refs) {
-                remove(r);
-            }
-
-        }
-
-        save();
+//        List<Role> roles = getRoles();
+//        if (!roles.isEmpty()) {
+//            for (Role r : roles) {
+//                remove(r);
+//            }
+//        }
+//
+//        List<Reference> refs = getRefs();
+//        if (!refs.isEmpty()) {
+//            for (Reference r : refs) {
+//                remove(r);
+//            }
+//
+//        }
+//
+//        save();
         add(role);
         add(ref);
         save();
