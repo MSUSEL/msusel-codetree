@@ -108,15 +108,17 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
 
         bindings.forEach(binding -> {
             Reference ref = binding.getReference();
-            Component t = binding.getReference().getReferencedComponent(getParentProjects().get(0));
-            if (t instanceof Type)
-                types.add((Type) t);
+            if (ref != null) {
+                Component t = binding.getReference().getReferencedComponent(getParentProjects().get(0));
+                if (t instanceof Type)
+                    types.add((Type) t);
 
 //            if (getParentProjects().size() > 0) {
 //                Type t = getParentProjects().get(0).findType("compKey", ref.getRefKey());
 //                if (t != null)
 //                    types.add(t);
 //            }
+            }
         });
 
         return types;
@@ -127,7 +129,7 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
         List<RoleBinding> bindings = getRoleBindings();
         bindings.forEach(binding -> {
             Reference ref = binding.getReference();
-            if (binding.getRole().equals(role)) {
+            if (ref != null && binding.getRole().equals(role)) {
                 if (getParentProjects().size() > 0) {
                     Type t = getParentProjects().get(0).findType("compKey", ref.getRefKey());
                     if (t != null)
@@ -143,7 +145,7 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
         List<RoleBinding> bindings = getRoleBindings();
         for (RoleBinding binding : bindings) {
             Reference ref = binding.getReference();
-            if (ref.equals(Reference.to(type))) {
+            if (ref != null && ref.equals(Reference.to(type))) {
                 role = binding.getRole();
                 break;
             }

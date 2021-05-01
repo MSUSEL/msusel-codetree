@@ -110,10 +110,12 @@ class ChainIdentifier {
         last.getParentPattern().mandatoryRoles().each { Role r ->
             bindingMap[r] = []
             last.bindingsFor(r).each { RoleBinding rb ->
-                bindingMap[r] << rb.reference.refKey.replace(lastProjKey, "")
+                if (rb.reference)
+                    bindingMap[r] << rb.reference.refKey.replace(lastProjKey, "")
             }
             inst.bindingsFor(r).each { RoleBinding rb ->
-                bindingMap[r].remove(rb.reference.refKey.replace(instProjKey, ""))
+                if (rb.reference)
+                    bindingMap[r].remove(rb.reference.refKey.replace(instProjKey, ""))
             }
         }
 

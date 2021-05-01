@@ -73,15 +73,14 @@ public class RoleBinding extends Model {
 //
         save();
         add(role);
-        role.save();
         add(ref);
-        ref.save();
         save();
-        refresh();
     }
 
     public Reference getReference() {
-        return getAll(Reference.class).get(0);
+        if (getAll(Reference.class).size() > 0)
+            return getAll(Reference.class).get(0);
+        return null;
     }
 
     @Override
