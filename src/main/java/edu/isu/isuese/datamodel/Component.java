@@ -118,16 +118,9 @@ public abstract class Component extends Model implements Measurable {
         Reference to, from;
         toComp.refresh();
         fromComp.refresh();
-        List toList = Reference.find("refKey = ?", toComp.getCompKey());
-        List fromList = Reference.find("refKey = ?", fromComp.getCompKey());
-        if (fromList.isEmpty())
-            from = Reference.builder().refKey(fromComp.getCompKey()).refType(fromType).create();
-        else
-            from = (Reference) fromList.get(0);
-        if (toList.isEmpty())
-            to = Reference.builder().refKey(toComp.getCompKey()).refType(toType).create();
-        else
-            to = (Reference) toList.get(0);
+
+        from = Reference.builder().refKey(fromComp.getCompKey()).refType(fromType).create();
+        to = Reference.builder().refKey(toComp.getCompKey()).refType(toType).create();
 
         Relation rel = Relation.createIt("relKey", fromComp.getCompKey() + "-" + toComp.getCompKey());
         rel.saveIt();

@@ -145,7 +145,7 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
         List<RoleBinding> bindings = getRoleBindings();
         for (RoleBinding binding : bindings) {
             Reference ref = binding.getReference();
-            if (ref != null && ref.equals(Reference.to(type))) {
+            if (ref != null && ref.getRefKey().equals(type.getCompKey())) {
                 role = binding.getRole();
                 break;
             }
