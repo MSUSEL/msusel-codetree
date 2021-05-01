@@ -27,6 +27,7 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
+import lombok.extern.log4j.Log4j2;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -36,6 +37,7 @@ import java.util.Objects;
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@Log4j2
 public class RoleBinding extends Model {
 
     public static RoleBinding of(Role role, Reference ref) {
@@ -69,8 +71,11 @@ public class RoleBinding extends Model {
 //
         save();
         add(role);
+        role.save();
         add(ref);
+        ref.save();
         save();
+        refresh();
     }
 
     public Reference getReference() {
@@ -93,6 +98,7 @@ public class RoleBinding extends Model {
     }
 
     public RoleBinding copy(String oldPrefix, String newPrefix) {
+        log.info("Reference ID: " + this.getId());
         return RoleBinding.of(this.getRole(), this.getReference().copy(oldPrefix, newPrefix));
     }
 }
