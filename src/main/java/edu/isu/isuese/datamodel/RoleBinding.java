@@ -99,7 +99,6 @@ public class RoleBinding extends Model {
     }
 
     public RoleBinding copy(@Validate.NotEmpty @NonNull String oldPrefix, @Validate.NotEmpty @NonNull String newPrefix) {
-        log.info("RoleBinding ID: " + this.getId() + " with role: " + this.getRole().getName());
         return RoleBinding.of(this.getRole(), this.getReference().copy(oldPrefix, newPrefix));
     }
 }
