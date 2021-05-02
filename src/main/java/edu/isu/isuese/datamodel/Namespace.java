@@ -74,14 +74,12 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     public void addFile(File file) {
         if (file != null) {
             file.setParentNSID(getId());
-            file.save();
         }
     }
 
     public void removeFile(File file) {
         if (file != null && file.getParentNSID() != null && file.getParentNSID().equals(getId())) {
             file.setParentNSID(null);
-            file.save();
         }
     }
 

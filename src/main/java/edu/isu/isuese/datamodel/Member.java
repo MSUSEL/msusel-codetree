@@ -161,6 +161,7 @@ public abstract class Member extends Component {
         }
 
         String newKey;
+        String oldKey = getCompKey();
         if (parent != null)
             newKey = parent.getCompKey() + "#" + getName();
         else
@@ -168,6 +169,8 @@ public abstract class Member extends Component {
 
         setString("compKey", newKey);
         save();
+        refresh();
+        updateReferences(oldKey);
     }
 
     public abstract Member copy(String oldPrefix, String newPrefix);

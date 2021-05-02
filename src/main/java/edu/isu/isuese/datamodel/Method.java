@@ -281,6 +281,7 @@ public class Method extends TypedMember {
         Type parent = getPType();
 
         String newKey;
+        String oldKey = getCompKey();
         if (parent != null)
             newKey = parent.getCompKey() + "#" + sigWithOutType();
         else
@@ -288,6 +289,8 @@ public class Method extends TypedMember {
 
         setString("compKey", newKey);
         save();
+        refresh();
+        updateReferences(oldKey);
     }
 
     @Nullable

@@ -41,7 +41,8 @@ import java.util.Objects;
 @BelongsToPolymorphic(parents = {Relation.class, Finding.class, Measure.class, RoleBinding.class, TypeRef.class})
 public class Reference extends Model {
 
-    public Reference() {}
+    public Reference() {
+    }
 
     public static Reference to(Object obj) {
         RefType type = null;
@@ -62,7 +63,8 @@ public class Reference extends Model {
 
             if (type != null)
                 return new Reference(comp.getRefKey(), type);
-        } if (obj instanceof PatternInstance) {
+        }
+        if (obj instanceof PatternInstance) {
             type = RefType.PATTERN;
             return new Reference(((PatternInstance) obj).getRefKey(), type);
         } else if (obj instanceof Namespace) {
@@ -80,11 +82,23 @@ public class Reference extends Model {
         save();
     }
 
-    public String getRefKey() { return getString("refKey"); }
+    public String getRefKey() {
+        return getString("refKey");
+    }
 
-    public RefType getType() { return RefType.fromValue(getInteger("type")); }
+    public void setRefKey(String key) {
+        setString("refKey", key);
+        save();
+    }
 
-    public void setType(RefType type) { set("type", type.value()); save(); }
+    public RefType getType() {
+        return RefType.fromValue(getInteger("type"));
+    }
+
+    public void setType(RefType type) {
+        set("type", type.value());
+        save();
+    }
 
     @Override
     public boolean equals(Object o) {

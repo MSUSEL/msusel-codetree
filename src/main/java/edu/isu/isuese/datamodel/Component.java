@@ -189,5 +189,12 @@ public abstract class Component extends Model implements Measurable {
         return getAll(Measure.class);
     }
 
+    public void updateReferences(String oldKey) {
+        Reference.find("refKey = ?", oldKey).forEach(model -> {
+            Reference ref = (Reference) model;
+            ref.setRefKey(this.getCompKey());
+        });
+    }
+
     public abstract Reference createReference();
 }

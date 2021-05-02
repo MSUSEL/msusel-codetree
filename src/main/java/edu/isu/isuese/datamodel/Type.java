@@ -617,6 +617,7 @@ public abstract class Type extends Component implements ComponentContainer {
 
     public void updateKey() {
         Namespace parent = getParentNamespace();
+        String oldKey = getCompKey();
         String newKey;
         if (parent != null)
             newKey = parent.getNsKey() + ":" + getName();
@@ -626,6 +627,7 @@ public abstract class Type extends Component implements ComponentContainer {
         setString("compKey", newKey);
         save();
         refresh();
+        updateReferences(oldKey);
         getAllMembers().forEach(Member::updateKey);
     }
 
