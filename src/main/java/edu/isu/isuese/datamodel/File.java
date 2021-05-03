@@ -316,6 +316,8 @@ public class File extends Model implements Measurable, ComponentContainer {
         });
         copy.save();
 
+        getImports().forEach(copy::addImport);
+
         return copy;
     }
 
