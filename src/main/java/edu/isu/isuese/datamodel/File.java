@@ -382,8 +382,8 @@ public class File extends Model implements Measurable, ComponentContainer {
         return null;
     }
 
-    public List<Object> containing(int line) {
-        List<Object> containing = Lists.newArrayList();
+    public List<Component> containing(int line) {
+        List<Component> containing = Lists.newArrayList();
         getAllTypes().forEach(aType -> {
             if (aType.getStart() <= line && aType.getEnd() >= line) {
                 containing.add(aType);
