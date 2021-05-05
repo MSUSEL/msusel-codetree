@@ -541,7 +541,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     public Project copy(String newKey, String relPath) {
         Project copy = Project.builder()
                 .name(newKey)
-                .projKey(newKey)
+                .projKey(getParentSystem().getKey() + ":" + newKey + ":" + getVersion())
                 .version(this.getVersion())
                 .relPath(relPath)
                 .create();
@@ -549,7 +549,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         copy.setBinPath(getBinaryPaths());
         copy.setTestPath(getTestPath());
         copy.save();
-        this.getParentSystem().add(copy);
+        this.getParentSystem().addProject(copy);
         copy.updateKeys();
         copy.refresh();
 
