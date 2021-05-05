@@ -405,16 +405,11 @@ public class File extends Model implements Measurable, ComponentContainer {
 
     public List<Object> following(int line) {
         List<Object> following = Lists.newArrayList();
-        getImports().forEach(anImport -> {
-            if (anImport.getStart() > line)
-                following.add(anImport);
-        });
-
         getAllTypes().forEach(aType -> {
-            if (aType.getStart() >= line)
+            if (aType.getStart() > line)
                 following.add(aType);
             aType.getAllMembers().forEach(member -> {
-                if (member.getStart() >= line)
+                if (member.getStart() > line)
                     following.add(member);
             });
         });
