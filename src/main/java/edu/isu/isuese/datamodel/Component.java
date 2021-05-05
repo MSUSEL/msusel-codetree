@@ -56,6 +56,7 @@ public abstract class Component extends Model implements Measurable {
     }
 
     public void setEnd(int end) {
+
         set("end", end);
         save();
     }
