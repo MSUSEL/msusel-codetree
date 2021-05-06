@@ -404,13 +404,11 @@ public class File extends Model implements Measurable, ComponentContainer {
             if (aType.getStart() > line)
                 following.add(aType);
             aType.getAllMembers().forEach(member -> {
-                java.lang.System.out.println("Member: " + member.getName());
                 if (member.getStart() > line)
                     following.add(member);
             });
         });
 
-        java.lang.System.out.println("Following Size: " + following.size());
         return following;
     }
 

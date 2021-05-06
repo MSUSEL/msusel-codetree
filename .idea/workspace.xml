@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/ComplicatedTransformsTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/ComplicatedTransformsTest.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -925,7 +926,7 @@
       <workItem from="1619995696423" duration="597000" />
       <workItem from="1620080602057" duration="6078000" />
       <workItem from="1620194229868" duration="4305000" />
-      <workItem from="1620256601890" duration="2120000" />
+      <workItem from="1620256601890" duration="2715000" />
     </task>
     <servers />
   </component>
