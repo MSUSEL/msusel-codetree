@@ -10,8 +10,11 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/ComplicatedTransformsTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/ComplicatedTransformsTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/JavaArtifactIdentifier.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/JavaArtifactIdentifier.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddField.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddField.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddFieldTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/test/groovy/edu/montana/gsoc/msusel/inject/transform/source/member/AddFieldTest.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +61,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-java-parser" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -926,7 +929,7 @@
       <workItem from="1619995696423" duration="597000" />
       <workItem from="1620080602057" duration="6078000" />
       <workItem from="1620194229868" duration="4305000" />
-      <workItem from="1620256601890" duration="2715000" />
+      <workItem from="1620256601890" duration="3915000" />
     </task>
     <servers />
   </component>
