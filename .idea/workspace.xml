@@ -12,7 +12,6 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -928,7 +927,7 @@
       <workItem from="1620080602057" duration="6078000" />
       <workItem from="1620194229868" duration="4305000" />
       <workItem from="1620256601890" duration="3985000" />
-      <workItem from="1620784438206" duration="1623000" />
+      <workItem from="1620784438206" duration="2163000" />
     </task>
     <servers />
   </component>
