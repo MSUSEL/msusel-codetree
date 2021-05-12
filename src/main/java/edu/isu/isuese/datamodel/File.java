@@ -390,7 +390,7 @@ public class File extends Model implements Measurable, ComponentContainer {
             }
 
             aType.getAllMethods().forEach(member -> {
-                if (member.getStart() <= line && member.getEnd() >= line)
+                if (member.getStart() < line && member.getEnd() > line)
                     containing.add(member);
             });
         });
