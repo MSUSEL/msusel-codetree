@@ -216,7 +216,6 @@ public class Measure extends Model {
     }
 
     public static double valueFor(String repoKey, String handle, Measurable comp) {
-        java.lang.System.out.println("Looking for metric with key: " + repoKey + ":" + handle);
         Metric parent = Metric.findFirst("metricKey = ?", repoKey + ":" + handle);
         double value = 0;
         for (Measure measure : parent.getMeasures()) {
