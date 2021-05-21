@@ -29,8 +29,17 @@ package edu.isu.isuese.datamodel.util
 import com.google.common.collect.HashBasedTable
 import com.google.common.collect.Table
 
-@Singleton
 class MeasureTable {
+
+    private MeasureTable() {}
+
+    private static final class Holder {
+        private static final MeasureTable INSTANCE = new MeasureTable()
+    }
+
+    static MeasureTable getInstance() {
+        return Holder.INSTANCE
+    }
 
     Table<String, String, Double> table = HashBasedTable.create()
 
@@ -46,7 +55,7 @@ class MeasureTable {
     }
 
     void reset() {
-        table = HashBasedTable.create()
+        table.clear()
     }
 
     boolean contains(String compKey, String metricKey) {
