@@ -150,13 +150,13 @@ public class Measure extends Model {
     public Measure withValue(double value) {
         setValue(value);
         save();
-        MeasureTable.instance.addMeasure(getReference().getRefKey(), getMetricKey(), value);
+        MeasureTable.getInstance().addMeasure(getReference().getRefKey(), getMetricKey(), value);
         return this;
     }
 
     public void store() {
         save();
-        MeasureTable.instance.addMeasure(getReference().getRefKey(), getMetricKey(), getValue());
+        MeasureTable.getInstance().addMeasure(getReference().getRefKey(), getMetricKey(), getValue());
     }
 
     public static Measure retrieve(Measurable m, String metricKey) {
@@ -221,8 +221,8 @@ public class Measure extends Model {
     public static double valueFor(String repoKey, String handle, Measurable comp) {
         String metricKey = repoKey + ":" + handle;
         String compKey = comp.getRefKey();
-        if (MeasureTable.instance.contains(compKey, metricKey)) {
-            return MeasureTable.instance.getValue(compKey, metricKey);
+        if (MeasureTable.getInstance().contains(compKey, metricKey)) {
+            return MeasureTable.getInstance().getValue(compKey, metricKey);
         } else {
             Metric parent = Metric.findFirst("metricKey = ?", metricKey);
             double value = 0;
