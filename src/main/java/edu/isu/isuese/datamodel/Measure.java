@@ -27,6 +27,7 @@
 package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
+import edu.isu.isuese.datamodel.util.MeasureTable;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.Many2Manies;
 import org.javalite.activejdbc.annotations.Many2Many;
@@ -149,11 +150,13 @@ public class Measure extends Model {
     public Measure withValue(double value) {
         setValue(value);
         save();
+        MeasureTable.instance.addMeasure(getReference().getRefKey(), getMetricKey(), value);
         return this;
     }
 
     public void store() {
         save();
+        MeasureTable.instance.addMeasure(getReference().getRefKey(), getMetricKey(), getValue());
     }
 
     public static Measure retrieve(Measurable m, String metricKey) {
@@ -216,13 +219,19 @@ public class Measure extends Model {
     }
 
     public static double valueFor(String repoKey, String handle, Measurable comp) {
-        Metric parent = Metric.findFirst("metricKey = ?", repoKey + ":" + handle);
-        double value = 0;
-        for (Measure measure : parent.getMeasures()) {
-            if (measure.getReference().getRefKey().equals(comp.getRefKey())) {
-                return measure.getValue();
+        String metricKey = repoKey + ":" + handle;
+        String compKey = comp.getRefKey();
+        if (MeasureTable.instance.contains(compKey, metricKey)) {
+            return MeasureTable.instance.getValue(compKey, metricKey);
+        } else {
+            Metric parent = Metric.findFirst("metricKey = ?", metricKey);
+            double value = 0;
+            for (Measure measure : parent.getMeasures()) {
+                if (measure.getReference().getRefKey().equals(comp.getRefKey())) {
+                    return measure.getValue();
+                }
             }
+            return value;
         }
-        return value;
     }
 }
