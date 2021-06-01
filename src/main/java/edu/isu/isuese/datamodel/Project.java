@@ -55,6 +55,10 @@ public class Project extends Model implements Measurable, ComponentContainer {
             addSCM(scm);
     }
 
+    public Namespace getDefaultNamespace() {
+        return Namespace.createDefaultNamespace(this);
+    }
+
     public String getProjectKey() {
         return getString("projKey");
     }

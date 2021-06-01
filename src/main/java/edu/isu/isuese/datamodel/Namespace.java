@@ -48,6 +48,20 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     public Namespace() {
     }
 
+    public static Namespace createDefaultNamespace(Project project) {
+        Namespace ns = Namespace.findFirst("nsKey = ?", project.getProjectKey() + ":" + "[DEFAULT]");
+        if (ns == null) {
+            ns = Namespace.builder()
+                    .name("")
+                    .nsKey(project.getProjectKey() + ":" + "[DEFAULT]")
+                    .relPath("")
+                    .create();
+            project.addNamespace(ns);
+        }
+
+        return ns;
+    }
+
     @Builder(buildMethodName = "create")
     public Namespace(String nsKey, String name, String relPath) {
         set("nsKey", nsKey);
