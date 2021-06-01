@@ -47,7 +47,8 @@ import java.util.Objects;
 @Table("PARAMETERS")
 public class Parameter extends Model {
 
-    public Parameter() {}
+    public Parameter() {
+    }
 
     @Builder(buildMethodName = "create")
     public Parameter(String name, TypeRef type, boolean varg) {
@@ -58,19 +59,38 @@ public class Parameter extends Model {
         }
     }
 
-    public String getName() { return getString("name"); }
+    public String getName() {
+        return getString("name");
+    }
 
-    public void setName(String name) { set("name", name); save(); }
+    public void setName(String name) {
+        set("name", name);
+        save();
+    }
 
-    public void addModifier(String mod) { add(Modifier.findFirst("name = ?", mod)); save(); }
+    public void addModifier(String mod) {
+        add(Modifier.forName(mod));
+        save();
+    }
 
-    public void addModifier(Modifier mod) { add(mod); save(); }
+    public void addModifier(Modifier mod) {
+        add(mod);
+        save();
+    }
 
-    public void removeModifier(String mod) { remove(Modifier.findFirst("name = ?", mod)); save(); }
+    public void removeModifier(String mod) {
+        remove(Modifier.forName(mod));
+        save();
+    }
 
-    public void removeModifier(Modifier mod) { remove(mod); save(); }
+    public void removeModifier(Modifier mod) {
+        remove(mod);
+        save();
+    }
 
-    public List<Modifier> getModifiers() { return getAll(Modifier.class); }
+    public List<Modifier> getModifiers() {
+        return getAll(Modifier.class);
+    }
 
     public boolean isVarg() {
         return getBoolean("varg");
@@ -85,8 +105,7 @@ public class Parameter extends Model {
         if (this.getAll(TypeRef.class).isEmpty()) {
             add(ref);
             save();
-        }
-        else {
+        } else {
             List<TypeRef> refs = Lists.newArrayList(this.getAll(TypeRef.class));
             for (TypeRef r : refs) {
                 remove(r);

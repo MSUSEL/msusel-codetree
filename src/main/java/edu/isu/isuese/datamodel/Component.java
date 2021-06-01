@@ -84,7 +84,7 @@ public abstract class Component extends Model implements Measurable {
     }
 
     public void addModifier(String mod) {
-        add(Modifier.findFirst("name = ?", mod.toUpperCase()));
+        add(Modifier.forName(mod));
         save();
     }
 
@@ -94,12 +94,12 @@ public abstract class Component extends Model implements Measurable {
     }
 
     public void removeModifier(String mod) {
-        remove(Modifier.findFirst("name = ?", mod.toUpperCase()));
+        remove(Modifier.forName(mod));
         save();
     }
 
     public void removeModifier(Modifier mod) {
-        remove(Modifier.findFirst("name = ?", mod.getName().toUpperCase()));
+        remove(mod);
         save();
     }
 
