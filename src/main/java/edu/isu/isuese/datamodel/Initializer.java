@@ -28,13 +28,13 @@ package edu.isu.isuese.datamodel;
 
 import edu.isu.isuese.datamodel.cfg.ControlFlowGraph;
 import lombok.Builder;
+import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 /**
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 public class Initializer extends Member {
 
     public Initializer() {}

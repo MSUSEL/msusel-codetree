@@ -111,47 +111,63 @@ public class File extends Model implements Measurable, ComponentContainer {
 
     @Override
     public List<Type> getAllTypes() {
-        List<Type> types = Lists.newArrayList();
-        types.addAll(getClasses());
-        types.addAll(getInterfaces());
-        types.addAll(getEnums());
-        return types;
+//        List<Type> types = Lists.newArrayList();
+//        types.addAll(getClasses());
+//        types.addAll(getInterfaces());
+//        types.addAll(getEnums());
+//        return types;
+        return Type.find("parent_file_id = ?", this.getId());
     }
 
     @Override
-    public List<Class> getClasses() {
-        return Class.find("parent_file_id = ?", this.getId());
+    public List<Type> getClasses() {
+        return Type.find("parent_file_id = ? and type = ?", this.getId(), Type.CLASS);
     }
 
-    public Class findClass(String attribute, Object value) {
+    public Type findClass(String attribute, Object value) {
+//        try {
+//            return (Class) Type.find(attribute + " = ? and parent_file_id = ?", value, this.getId()).get(0);
+//        } catch (IndexOutOfBoundsException ex) {
+//            return null;
+//        }
         try {
-            return (Class) Class.find(attribute + " = ? and parent_file_id = ?", value, this.getId()).get(0);
+            return get(Type.class, attribute + " = ? and parent_file_id = ? and type = ?", value, this.getId(), Type.CLASS).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
     @Override
-    public List<Interface> getInterfaces() {
-        return Interface.find("parent_file_id = ?", this.getId());
+    public List<Type> getInterfaces() {
+        return Type.find("parent_file_id = ? and type = ?", this.getId(), Type.INTERFACE);
     }
 
-    public Interface findInterface(String attribute, Object value) {
+    public Type findInterface(String attribute, Object value) {
+//        try {
+//            return (Interface) Interface.find(attribute + " = ? and parent_file_id = ?", value, this.getId()).get(0);
+//        } catch (IndexOutOfBoundsException ex) {
+//            return null;
+//        }
         try {
-            return (Interface) Interface.find(attribute + " = ? and parent_file_id = ?", value, this.getId()).get(0);
+            return get(Type.class, attribute + " = ? and parent_file_id = ? and type = ?", value, this.getId(), Type.INTERFACE).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
     @Override
-    public List<Enum> getEnums() {
-        return Enum.find("parent_file_id = ?", this.getId());
+    public List<Type> getEnums() {
+        return Type.find("parent_file_id = ? and type = ?", this.getId(), Type.ENUM);
     }
 
-    public Enum findEnum(String attribute, Object value) {
+    public Type findEnum(String attribute, Object value) {
+//        try {
+//            return (Enum) Enum.find(attribute + " = ? and parent_file_id = ?", value, this.getId()).get(0);
+//        } catch (IndexOutOfBoundsException ex) {
+//            return null;
+//        }
         try {
-            return (Enum) Enum.find(attribute + " = ? and parent_file_id = ?", value, this.getId()).get(0);
+            return get(Type.class, attribute + " = ? and parent_file_id = ? and type = ?", value, this.getId(), Type.ENUM).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
@@ -307,12 +323,13 @@ public class File extends Model implements Measurable, ComponentContainer {
 
         getAllTypes().forEach(type -> {
             String copyKey = type.getCompKey().replace(oldPrefix, newPrefix);
-            if (type instanceof Class)
-                copy.addType(Class.findFirst("compKey = ?", copyKey));
-            else if (type instanceof Enum)
-                copy.addType(Enum.findFirst("compKey = ?", copyKey));
-            else if (type instanceof Interface)
-                copy.addType(Interface.findFirst("compKey = ?", copyKey));
+//            if (type instanceof Class)
+//                copy.addType(Class.findFirst("compKey = ?", copyKey));
+//            else if (type instanceof Enum)
+//                copy.addType(Enum.findFirst("compKey = ?", copyKey));
+//            else if (type instanceof Interface)
+//                copy.addType(Interface.findFirst("compKey = ?", copyKey));
+            copy.addType(Type.findFirst("compKey = ?", copyKey));
         });
         copy.save();
 

@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import lombok.Builder;
+import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
 
 import java.util.List;
@@ -36,7 +37,6 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 public class Literal extends Member {
 
     public Literal() {}

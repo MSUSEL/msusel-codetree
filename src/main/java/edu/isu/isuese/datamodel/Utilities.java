@@ -49,22 +49,23 @@ public class Utilities {
     }
 
     private static Type findType(String compKey) {
-        Type val = findClass(compKey);
-        if (val == null) val = findEnum(compKey);
-        if (val == null) val = findInterface(compKey);
-        return val;
+//        Type val = findClass(compKey);
+//        if (val == null) val = findEnum(compKey);
+//        if (val == null) val = findInterface(compKey);
+//        return val;
+        return Type.findFirst("compKey = ?", compKey);
     }
 
     private static Type findClass(String compKey) {
-        return Class.findFirst("compKey = ?", compKey);
+        return Type.findFirst("compKey = ? and type = ?", compKey, Type.CLASS);
     }
 
     private static Type findEnum(String compKey) {
-        return Enum.findFirst("compKey = ?", compKey);
+        return Type.findFirst("compKey = ? and type = ?", compKey, Type.ENUM);
     }
 
     private static Type findInterface(String compKey) {
-        return Interface.findFirst("compKey = ?", compKey);
+        return Type.findFirst("compKey = ? and type = ?", compKey, Type.INTERFACE);
     }
 
     private static Member findInitializer(String compKey) {

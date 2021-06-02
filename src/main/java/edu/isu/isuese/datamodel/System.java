@@ -184,8 +184,8 @@ public class System extends Model implements Measurable, Structure {
     }
 
     @Override
-    public List<Class> getClasses() {
-        List<Class> classes = Lists.newArrayList();
+    public List<Type> getClasses() {
+        List<Type> classes = Lists.newArrayList();
         getProjects().forEach(proj -> classes.addAll(proj.getClasses()));
         return classes;
     }
@@ -205,8 +205,8 @@ public class System extends Model implements Measurable, Structure {
     }
 
     @Override
-    public List<Interface> getInterfaces() {
-        List<Interface> interfaces = Lists.newArrayList();
+    public List<Type> getInterfaces() {
+        List<Type> interfaces = Lists.newArrayList();
         getProjects().forEach(proj -> interfaces.addAll(proj.getInterfaces()));
         return interfaces;
     }
@@ -226,8 +226,8 @@ public class System extends Model implements Measurable, Structure {
     }
 
     @Override
-    public List<Enum> getEnums() {
-        List<Enum> enums = Lists.newArrayList();
+    public List<Type> getEnums() {
+        List<Type> enums = Lists.newArrayList();
         getProjects().forEach(proj -> enums.addAll(proj.getEnums()));
         return enums;
     }

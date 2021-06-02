@@ -36,11 +36,11 @@ public interface ComponentContainer {
 
     List<Type> getAllTypes();
 
-    List<Class> getClasses();
+    List<Type> getClasses();
 
-    List<Enum> getEnums();
+    List<Type> getEnums();
 
-    List<Interface> getInterfaces();
+    List<Type> getInterfaces();
 
     List<Member> getAllMembers();
 

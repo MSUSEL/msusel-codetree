@@ -32,5 +32,5 @@ import org.javalite.activejdbc.Model;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public class InterfacesModifiers extends Model {
+public class InterfacesModifiers/* extends Model*/ {
 }

@@ -133,9 +133,9 @@ abstract class BaseModelBuilder {
     void findClass(String name) {
         Type type
         if (types)
-            type = Class.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
+            type = Type.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
         else
-            type = Class.findFirst("key = ?", "${file.getFileKey()}:$name")
+            type = Type.findFirst("key = ?", "${file.getFileKey()}:$name")
         types.push(type)
     }
 
@@ -145,7 +145,7 @@ abstract class BaseModelBuilder {
         else if (file.getTypeByName(name) != null) {
             types.push(file.getTypeByName(name))
         } else {
-            Class cls = Class.builder()
+            Type cls = Type.builder().type(Type.CLASS)
                     .name(name)
                     .compKey(name)
                     .accessibility(Accessibility.PUBLIC)
@@ -165,9 +165,9 @@ abstract class BaseModelBuilder {
     void findEnum(String name) {
         Type type
         if (types)
-            type = Enum.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
+            type = Type.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
         else
-            type = Enum.findFirst("key = ?", "${file.getFileKey()}:$name")
+            type = Type.findFirst("key = ?", "${file.getFileKey()}:$name")
         types.push(type)
     }
 
@@ -177,7 +177,7 @@ abstract class BaseModelBuilder {
         else if (file.getTypeByName(name) != null) {
             types.push(file.getTypeByName(name))
         } else {
-            Enum enm = Enum.builder()
+            Type enm = Type.builder().type(Type.ENUM)
                     .name(name)
                     .compKey(name)
                     .accessibility(Accessibility.PUBLIC)
@@ -197,9 +197,9 @@ abstract class BaseModelBuilder {
     void findInterface(String name) {
         Type type
         if (types)
-            type = Interface.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
+            type = Type.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
         else
-            type = Interface.findFirst("key = ?", "${file.getFileKey()}:$name")
+            type = Type.findFirst("key = ?", "${file.getFileKey()}:$name")
         types.push(type)
     }
 
@@ -209,7 +209,8 @@ abstract class BaseModelBuilder {
         else if (file.getTypeByName(name) != null) {
             types.push(file.getTypeByName(name))
         } else {
-            Interface ifc = Interface.builder()
+            Type ifc = Type.builder()
+                    .type(Type.INTERFACE)
                     .name(name)
                     .compKey(name)
                     .accessibility(Accessibility.PUBLIC)
@@ -426,8 +427,8 @@ abstract class BaseModelBuilder {
     }
 
     void createEnumLiteral(String name, int start, int end) {
-        if (types && types.peek() instanceof Enum) {
-            Enum enm = (Enum) types.peek()
+        if (types && types.peek().getType() == Type.ENUM) {
+            Type enm = types.peek()
             if (enm.hasLiteralWithName(name))
                 return
             else {
@@ -783,18 +784,18 @@ abstract class BaseModelBuilder {
             if (!specific.isEmpty()) {
                 for (String spec : specific) {
                     if (spec.endsWith(name)) {
-                        candidate = UnknownType.builder().compKey(spec).create()
+                        candidate = Type.builder().type(Type.UNKNOWN).name(name).compKey(spec).create()
                         break
                     }
                 }
             }
 
             if (candidate == null && !general.isEmpty()) {
-                candidate = UnknownType.builder().compKey(general.get(0).substring(0, general.get(0).lastIndexOf(".")) + name).create()
+                candidate = Type.builder().name(name).type(Type.UNKNOWN).compKey(general.get(0).substring(0, general.get(0).lastIndexOf(".")) + name).create()
             }
 
             if (candidate == null)
-                candidate = UnknownType.builder().compKey("java.lang." + name).create()
+                candidate = Type.builder().name(name).type(Type.UNKNOWN).compKey("java.lang." + name).create()
 
 //            if (candidate != null)
 //                proj.addUnknownType((UnknownType) candidate)

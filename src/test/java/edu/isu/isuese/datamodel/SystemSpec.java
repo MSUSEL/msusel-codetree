@@ -109,8 +109,8 @@ public class SystemSpec extends DBSpec {
         Module module = Module.createIt("moduleKey", "module", "name", "module");
         Namespace ns = Namespace.createIt("nsKey", "ns", "name", "ns");
         File file = File.createIt("fileKey", "fileKey", "name", "file", "pathIndex", 0);
-        Type type = Class.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass");
-        Type type2 = Class.createIt("name", "TestClass2", "start", 1, "end", 100, "compKey", "TestClass2");
+        Type type = Type.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass", "type", Type.CLASS);
+        Type type2 = Type.createIt("name", "TestClass2", "start", 1, "end", 100, "compKey", "TestClass2", "type", Type.CLASS);
         type.setAccessibility(Accessibility.PUBLIC);
         system.addProject(p);
         p.addModule(module);
@@ -132,7 +132,7 @@ public class SystemSpec extends DBSpec {
         List<File> files = system.getFiles();
         a(files.size()).shouldBeEqual(1);
 
-        List<Class> classes = system.getClasses();
+        List<Type> classes = system.getClasses();
         a(classes.size()).shouldBeEqual(1);
 
         List<System> systems = System.findAll();

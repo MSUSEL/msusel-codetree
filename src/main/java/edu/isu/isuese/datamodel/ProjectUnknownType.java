@@ -26,18 +26,8 @@
  */
 package edu.isu.isuese.datamodel;
 
-import java.util.List;
+import org.javalite.activejdbc.annotations.Table;
 
-/**
- * @author Isaac Griffith
- * @version 1.3.0
- */
-public interface Structure extends ComponentContainer {
-
-    /**
-     * @return A list of files contained within the children of this structure
-     */
-    List<File> getFiles();
-
-    List<Type> getAllTypes();
+@Table("projects_unknowntypes")
+public class ProjectUnknownType {
 }

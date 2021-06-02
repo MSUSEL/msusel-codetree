@@ -29,6 +29,6 @@ package edu.isu.isuese.datamodel;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.Table;
 
-@Table("enums_template_params")
-public class EnumTemplateParam extends Model {
+//@Table("enums_template_params")
+public class EnumTemplateParam /*extends Model*/ {
 }

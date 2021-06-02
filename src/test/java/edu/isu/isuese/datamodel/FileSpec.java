@@ -104,7 +104,7 @@ public class FileSpec extends DBSpec {
 
         Import imp = Import.createIt("name", "imp");
 
-        Type type = Class.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass");
+        Type type = Type.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass", "type", Type.CLASS);
         type.setAccessibility(Accessibility.PUBLIC);
         type.save();
 
@@ -114,7 +114,7 @@ public class FileSpec extends DBSpec {
         file.delete(true);
 
         a(File.count()).shouldBeEqual(0);
-        a(Class.count()).shouldBeEqual(1);
+        a(Type.count()).shouldBeEqual(1);
         a(Import.count()).shouldBeEqual(0);
     }
 }

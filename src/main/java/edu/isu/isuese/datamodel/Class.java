@@ -37,36 +37,36 @@ import org.javalite.activejdbc.annotations.Table;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@Table("classes")
-@BelongsTo(parent = Namespace.class, foreignKeyName = "namespace_id")
+//@Table("classes")
+//@BelongsTo(parent = Namespace.class, foreignKeyName = "namespace_id")
 @Log4j2
-public class Class extends Classifier {
+public class Class /*extends Classifier*/ {
 
     public Class() {
         
     }
 
-    @Builder(buildMethodName = "create")
-    public Class(String name, int start, int end, String compKey, Accessibility accessibility) {
-        set("name", name, "start", start, "end", end, "compKey", compKey, "qualified_name", name);
-
-        if (accessibility != null)
-            setAccessibility(accessibility);
-        else
-            setAccessibility(Accessibility.PUBLIC);
-
-        save();
-    }
-
-    @Override
-    protected Type copyType(String oldPrefix, String newPrefix) {
-        log.info("Copying Class: " + getCompKey());
-        return Class.builder()
-                .name(this.getName())
-                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
-                .accessibility(this.getAccessibility())
-                .start(this.getStart())
-                .end(this.getEnd())
-                .create();
-    }
+//    @Builder(buildMethodName = "create")
+//    public Class(String name, int start, int end, String compKey, Accessibility accessibility) {
+//        set("name", name, "start", start, "end", end, "compKey", compKey, "qualified_name", name);
+//
+//        if (accessibility != null)
+//            setAccessibility(accessibility);
+//        else
+//            setAccessibility(Accessibility.PUBLIC);
+//
+//        save();
+//    }
+//
+//    @Override
+//    protected Type copyType(String oldPrefix, String newPrefix) {
+//        log.info("Copying Class: " + getCompKey());
+//        return Class.builder()
+//                .name(this.getName())
+//                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
+//                .accessibility(this.getAccessibility())
+//                .start(this.getStart())
+//                .end(this.getEnd())
+//                .create();
+//    }
 }

@@ -29,6 +29,6 @@ package edu.isu.isuese.datamodel;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.Table;
 
-@Table("interfaces_template_params")
-public class InterfaceTemplateParam extends Model {
+//@Table("interfaces_template_params")
+public class InterfaceTemplateParam /*extends Model*/ {
 }

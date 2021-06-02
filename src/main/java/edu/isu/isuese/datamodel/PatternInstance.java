@@ -156,29 +156,29 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
 
     public List<Type> getAllTypes() { return getTypes(); }
 
-    public List<Class> getClasses() {
-        List<Class> classes = Lists.newArrayList();
+    public List<Type> getClasses() {
+        List<Type> classes = Lists.newArrayList();
         getTypes().forEach(t -> {
-            if (t instanceof Class)
-                classes.add((Class) t);
+            if (t.getType() == Type.CLASS)
+                classes.add(t);
         });
         return classes;
     }
 
-    public List<Enum> getEnums() {
-        List<Enum> enums = Lists.newArrayList();
+    public List<Type> getEnums() {
+        List<Type> enums = Lists.newArrayList();
         getTypes().forEach(t -> {
-            if (t instanceof Enum)
-                enums.add((Enum) t);
+            if (t.getType() == Type.ENUM)
+                enums.add(t);
         });
         return enums;
     }
 
-    public List<Interface> getInterfaces() {
-        List<Interface> interfaces = Lists.newArrayList();
+    public List<Type> getInterfaces() {
+        List<Type> interfaces = Lists.newArrayList();
         getTypes().forEach(t -> {
-            if (t instanceof Interface)
-                interfaces.add((Interface) t);
+            if (t.getType() == Type.INTERFACE)
+                interfaces.add(t);
         });
         return interfaces;
     }

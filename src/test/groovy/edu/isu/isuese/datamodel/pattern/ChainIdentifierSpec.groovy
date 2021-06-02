@@ -220,15 +220,15 @@ class ChainIdentifierSpec extends DBSpec {
     void genPatternInstance1(int iteration, Project proj, Namespace ns) {
         // File and Type structure
         File fileA = File.builder().name("TypeA.java").type(FileType.SOURCE).relPath("TypeA.java").fileKey("TypeA.java").start(1).end(10).create()
-        Type typeA = Class.builder().name("TypeA").compKey("TypeA").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+        Type typeA = Type.builder().type(Type.CLASS).name("TypeA").compKey("TypeA").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
         fileA.addType(typeA)
         ns.addFile(fileA)
         File fileB = File.builder().name("TypeB.java").type(FileType.SOURCE).relPath("TypeB.java").fileKey("TypeB.java").start(1).end(10).create()
-        Type typeB = Class.builder().name("TypeB").compKey("TypeB").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+        Type typeB = Type.builder().type(Type.CLASS).name("TypeB").compKey("TypeB").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
         fileB.addType(typeB)
         ns.addFile(fileB)
         File fileC = File.builder().name("TypeC.java").type(FileType.SOURCE).relPath("TypeC.java").fileKey("TypeC.java").start(1).end(10).create()
-        Type typeC = Class.builder().name("TypeC").compKey("TypeC").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+        Type typeC = Type.builder().type(Type.CLASS).name("TypeC").compKey("TypeC").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
         fileC.addType(typeC)
         ns.addFile(fileC)
 
@@ -254,7 +254,7 @@ class ChainIdentifierSpec extends DBSpec {
 
         if (iteration == 1 || iteration == 2) {
             File fileD = File.builder().name("TypeD.java").type(FileType.SOURCE).relPath("TypeD.java").fileKey("TypeD.java").start(1).end(10).create()
-            Type typeD = Class.builder().name("TypeD").compKey("TypeD").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+            Type typeD = Type.builder().type(Type.CLASS).name("TypeD").compKey("TypeD").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
             fileD.addType(typeD)
             ns.addFile(fileD)
 
@@ -266,7 +266,7 @@ class ChainIdentifierSpec extends DBSpec {
 
             if (iteration == 2) {
                 File fileE = File.builder().name("TypeE.java").type(FileType.SOURCE).relPath("TypeE.java").fileKey("TypeE.java").start(1).end(10).create()
-                Type typeE = Class.builder().name("TypeE").compKey("TypeE").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+                Type typeE = Type.builder().type(Type.CLASS).name("TypeE").compKey("TypeE").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
                 fileE.addType(typeE)
                 ns.addFile(fileE)
 
@@ -290,15 +290,15 @@ class ChainIdentifierSpec extends DBSpec {
     void genPatternInstance2(int iteration, Project proj, Namespace ns) {
         // File and Type structure
         File fileF = File.builder().name("TypeF.java").type(FileType.SOURCE).relPath("TypeF.java").fileKey("TypeF.java").start(1).end(10).create()
-        Type typeF = Class.builder().name("TypeF").compKey("TypeF").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+        Type typeF = Type.builder().type(Type.CLASS).name("TypeF").compKey("TypeF").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
         fileF.addType(typeF)
         ns.addFile(fileF)
         File fileG = File.builder().name("TypeG.java").type(FileType.SOURCE).relPath("TypeG.java").fileKey("TypeG.java").start(1).end(10).create()
-        Type typeG = Class.builder().name("TypeG").compKey("TypeB").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+        Type typeG = Type.builder().type(Type.CLASS).name("TypeG").compKey("TypeB").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
         fileG.addType(typeG)
         ns.addFile(fileG)
         File fileH = File.builder().name("TypeH.java").type(FileType.SOURCE).relPath("TypeH.java").fileKey("TypeH.java").start(1).end(10).create()
-        Type TypeH = Class.builder().name("TypeH").compKey("TypeH").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+        Type TypeH = Type.builder().type(Type.CLASS).name("TypeH").compKey("TypeH").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
         fileH.addType(TypeH)
         ns.addFile(fileH)
 
@@ -324,7 +324,7 @@ class ChainIdentifierSpec extends DBSpec {
 
         if (iteration == 2) {
             File fileI = File.builder().name("TypeI.java").type(FileType.SOURCE).relPath("TypeI.java").fileKey("TypeI.java").start(1).end(10).create()
-            Type typeI = Class.builder().name("TypeI").compKey("TypeI").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+            Type typeI = Type.builder().type(Type.CLASS).name("TypeI").compKey("TypeI").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
             fileI.addType(typeI)
             ns.addFile(fileI)
 
@@ -348,15 +348,15 @@ class ChainIdentifierSpec extends DBSpec {
         if (iteration == 1 || iteration == 3) {
             // File and Type structure
             File fileJ = File.builder().name("TypeJ.java").type(FileType.SOURCE).relPath("TypeJ.java").fileKey("TypeJ.java").start(1).end(10).create()
-            Type typeJ = Class.builder().name("TypeJ").compKey("TypeJ").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+            Type typeJ = Type.builder().type(Type.CLASS).name("TypeJ").compKey("TypeJ").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
             fileJ.addType(typeJ)
             ns.addFile(fileJ)
             File fileK = File.builder().name("TypeK.java").type(FileType.SOURCE).relPath("TypeK.java").fileKey("TypeK.java").start(1).end(10).create()
-            Type typeK = Class.builder().name("TypeK").compKey("TypeK").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+            Type typeK = Type.builder().type(Type.CLASS).name("TypeK").compKey("TypeK").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
             fileK.addType(typeK)
             ns.addFile(fileK)
             File fileL = File.builder().name("TypeL.java").type(FileType.SOURCE).relPath("TypeL.java").fileKey("TypeL.java").start(1).end(10).create()
-            Type typeL = Class.builder().name("TypeL").compKey("TypeL").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+            Type typeL = Type.builder().type(Type.CLASS).name("TypeL").compKey("TypeL").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
             fileL.addType(typeL)
             ns.addFile(fileL)
 
@@ -382,7 +382,7 @@ class ChainIdentifierSpec extends DBSpec {
 
             if (iteration == 2) {
                 File fileM = File.builder().name("TypeM.java").type(FileType.SOURCE).relPath("TypeM.java").fileKey("TypeM.java").start(1).end(10).create()
-                Type typeM = Class.builder().name("TypeM").compKey("TypeM").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+                Type typeM = Type.builder().type(Type.CLASS).name("TypeM").compKey("TypeM").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
                 fileM.addType(typeM)
                 ns.addFile(fileM)
 
@@ -407,7 +407,7 @@ class ChainIdentifierSpec extends DBSpec {
         if (iteration == 3) {
             // File and Type structure
             File fileN = File.builder().name("TypeN.java").type(FileType.SOURCE).relPath("TypeN.java").fileKey("TypeN.java").start(1).end(10).create()
-            Type typeN = Class.builder().name("TypeN").compKey("TypeN").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
+            Type typeN = Type.builder().type(Type.CLASS).name("TypeN").compKey("TypeN").accessibility(Accessibility.PUBLIC).start(1).end(10).create()
             fileN.addType(typeN)
             ns.addFile(fileN)
 

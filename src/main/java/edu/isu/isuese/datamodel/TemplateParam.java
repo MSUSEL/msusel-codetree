@@ -44,9 +44,10 @@ import java.util.Objects;
 @Many2Many(other = Constructor.class, join = "constructors_template_params", sourceFKName = "constructor_id", targetFKName = "template_param_id")
 @Many2Many(other = Destructor.class, join = "destructors_template_params", sourceFKName = "destructor_id", targetFKName = "template_param_id")
 @Many2Many(other = Field.class, join = "fields_template_params", sourceFKName = "field_id", targetFKName = "template_param_id")
-@Many2Many(other = Class.class, join = "classes_template_params", sourceFKName = "class_id", targetFKName = "template_param_id")
-@Many2Many(other = Interface.class, join = "interfaces_template_params", sourceFKName = "interface_id", targetFKName = "template_param_id")
-@Many2Many(other = Enum.class, join = "enums_template_params", sourceFKName = "enum_id", targetFKName = "template_param_id")
+@Many2Many(other = Type.class, join = "types_template_params", sourceFKName = "type_id", targetFKName = "template_param_id")
+//@Many2Many(other = Class.class, join = "classes_template_params", sourceFKName = "class_id", targetFKName = "template_param_id")
+//@Many2Many(other = Interface.class, join = "interfaces_template_params", sourceFKName = "interface_id", targetFKName = "template_param_id")
+//@Many2Many(other = Enum.class, join = "enums_template_params", sourceFKName = "enum_id", targetFKName = "template_param_id")
 public class TemplateParam extends Model {
 
     public TemplateParam() {}

@@ -27,18 +27,13 @@
 package edu.isu.isuese.datamodel.util;
 
 import com.google.common.collect.Lists;
-import edu.isu.isuese.datamodel.*;
-import edu.isu.isuese.datamodel.Class;
-import edu.isu.isuese.datamodel.Enum;
 import edu.isu.isuese.datamodel.Module;
 import edu.isu.isuese.datamodel.System;
-import org.javalite.activejdbc.Model;
+import edu.isu.isuese.datamodel.*;
 import org.javalite.activejdbc.test.DBSpec;
 import org.junit.Test;
 
 import java.util.List;
-
-import static org.junit.Assert.fail;
 
 public class DbUtilsSpec extends DBSpec {
 
@@ -67,11 +62,11 @@ public class DbUtilsSpec extends DBSpec {
         File file2 = File.createIt("fileKey", "fileKey2", "name", "file", "pathIndex", 0);
         Import imp = Import.createIt("name", "imp");
         Import imp2 = Import.createIt("name", "imp2");
-        type = Class.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass");
+        type = Type.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass", "type", Type.CLASS);
         type.setAccessibility(Accessibility.PUBLIC);
-        Type type2 = Enum.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass");
+        Type type2 = Type.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass2", "type", Type.ENUM);
         type2.setAccessibility(Accessibility.PUBLIC);
-        Type type3 = Interface.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass");
+        Type type3 = Type.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass3", "type", Type.INTERFACE);
         type3.setAccessibility(Accessibility.PUBLIC);
         Member member = Literal.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass");
         member.setAccessibility(Accessibility.PUBLIC);

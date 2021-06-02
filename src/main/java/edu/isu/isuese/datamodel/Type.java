@@ -28,6 +28,10 @@ package edu.isu.isuese.datamodel;
 
 import com.google.common.collect.Lists;
 import edu.isu.isuese.datamodel.util.DbUtils;
+import lombok.Builder;
+import lombok.extern.log4j.Log4j2;
+import org.javalite.activejdbc.annotations.BelongsTo;
+import org.javalite.activejdbc.annotations.Table;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +44,15 @@ import java.util.Set;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-public abstract class Type extends Component implements ComponentContainer {
+@Table("types")
+@BelongsTo(parent = Namespace.class, foreignKeyName = "namespace_id")
+@Log4j2
+public class Type extends Component implements ComponentContainer {
+
+    public static int UNKNOWN = 0;
+    public static int CLASS = 1;
+    public static int INTERFACE = 2;
+    public static int ENUM = 3;
 
 //    @Builder(buildMethodName = "create")
 //    public Type(String name, int start, int end, String compKey, Accessibility accessibility) {
@@ -51,11 +63,40 @@ public abstract class Type extends Component implements ComponentContainer {
 //            setAccessibility(Accessibility.PUBLIC);
 //    }
 
+    public Type() {}
+
+    @Builder(buildMethodName = "create")
+    public Type(String name, int start, int end, String compKey, Accessibility accessibility, int type) {
+        set("name", name, "start", start, "end", end, "compKey", compKey, "qualified_name", name, "type", type);
+
+        if (accessibility != null)
+            setAccessibility(accessibility);
+        else
+            setAccessibility(Accessibility.PUBLIC);
+
+        save();
+    }
+
+    protected Type copyType(String oldPrefix, String newPrefix) {
+        log.info("Copying Class: " + getCompKey());
+        return Type.builder()
+                .name(this.getName())
+                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
+                .accessibility(this.getAccessibility())
+                .start(this.getStart())
+                .end(this.getEnd())
+                .create();
+    }
+
     /**
      * @return true if this type is abstract; false otherwise.
      */
     public boolean isAbstract() {
         return hasModifier("abstract");
+    }
+
+    public int getType() {
+        return getInteger("type");
     }
 
     /**
@@ -460,13 +501,15 @@ public abstract class Type extends Component implements ComponentContainer {
         Object id = getParentTypeID();
         Type parent = null;
         if (type != null && id != null) {
-            if (type.equals(Class.class.getName())) {
-                parent = Class.findById(id);
-            } else if (type.equals(Interface.class.getName())) {
-                parent = Interface.findById(id);
-            } else if (type.equals(Enum.class.getName())) {
-                parent = Enum.findById(id);
-            }
+//            if (type.equals(Class.class.getName())) {
+//                parent = Class.findById(id);
+//            } else if (type.equals(Interface.class.getName())) {
+//                parent = Interface.findById(id);
+//            } else if (type.equals(Enum.class.getName())) {
+//                parent = Enum.findById(id);
+//            }
+            if (type.equals(Type.class.getName()))
+                parent = Type.findById(id);
         }
         return parent;
     }
@@ -500,7 +543,7 @@ public abstract class Type extends Component implements ComponentContainer {
 
         outer:
         for (Type anc : ancestors) {
-            if (anc instanceof Class) {
+            if (anc.getType() == Type.CLASS) {
                 for (Method ancMethod : anc.getMethods()) {
                     List<Method> toRemove = Lists.newArrayList();
                     for (Method currMethod : getMethods()) {
@@ -581,16 +624,16 @@ public abstract class Type extends Component implements ComponentContainer {
         return types;
     }
 
-    public List<Class> getClasses() {
-        return Class.find("parent_type_id = ? and parent_type_type = ?", this.getId(), this.getClass().getName());
+    public List<Type> getClasses() {
+        return Type.find("parent_type_id = ? and parent_type_type = ?", this.getId(), this.getClass().getName());
     }
 
-    public List<Enum> getEnums() {
-        return Enum.find("parent_type_id = ? and parent_type_type = ?", this.getId(), this.getClass().getName());
+    public List<Type> getEnums() {
+        return Type.find("parent_type_id = ? and parent_type_type = ?", this.getId(), this.getClass().getName());
     }
 
-    public List<Interface> getInterfaces() {
-        return Interface.find("parent_type_id = ? and parent_type_type = ?", this.getId(), this.getClass().getName());
+    public List<Type> getInterfaces() {
+        return Type.find("parent_type_id = ? and parent_type_type = ?", this.getId(), this.getClass().getName());
     }
 
     public List<Member> getAllMembers() {
@@ -669,7 +712,7 @@ public abstract class Type extends Component implements ComponentContainer {
 
     private Type getClassByName(String name) {
         try {
-            return (Type) Class.find("name = ? and parent_type_id = ?", name, getId()).get(0);
+            return Type.findFirst("name = ? and parent_type_id = ? and type = ?", name, getId(), Type.CLASS);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
@@ -677,7 +720,7 @@ public abstract class Type extends Component implements ComponentContainer {
 
     private Type getInterfaceByName(String name) {
         try {
-            return (Type) Interface.find("name = ? and parent_type_id = ?", name, getId()).get(0);
+            return Type.findFirst("name = ? and parent_type_id = ? and type = ?", name, getId(), Type.INTERFACE);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
@@ -685,7 +728,7 @@ public abstract class Type extends Component implements ComponentContainer {
 
     private Type getEnumByName(String name) {
         try {
-            return (Type) Enum.find("name = ? and parent_type_id = ?", name, getId()).get(0);
+            return Type.findFirst("name = ? and parent_type_id = ? and type = ?", name, getId(), Type.ENUM);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
@@ -717,8 +760,6 @@ public abstract class Type extends Component implements ComponentContainer {
         getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy(oldPrefix, newPrefix)));
         getContained().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix)));
     }
-
-    protected abstract Type copyType(String oldPrefix, String newPrefix);
 
     public Field getFieldWithName(String name) {
         try {
@@ -795,4 +836,15 @@ public abstract class Type extends Component implements ComponentContainer {
         save();
     }
 
+    public boolean hasLiteralWithName(String name) {
+        return getLiteralWithName(name) != null;
+    }
+
+    public Literal getLiteralWithName(String name) {
+        try {
+            return get(Literal.class, "name = ?", name).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
 }

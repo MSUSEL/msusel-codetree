@@ -27,20 +27,11 @@
 package edu.isu.isuese.datamodel.util;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import edu.isu.isuese.datamodel.Class;
 import edu.isu.isuese.datamodel.*;
-import edu.isu.isuese.datamodel.Enum;
-import edu.isu.isuese.datamodel.System;
-import org.apache.commons.lang3.tuple.Pair;
-import org.javalite.activejdbc.Association;
-import org.javalite.activejdbc.Base;
-import org.javalite.activejdbc.Model;
-import org.javalite.activejdbc.associations.*;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Isaac Griffith
@@ -60,12 +51,14 @@ public class DbUtils {
             Set<Type> types = Sets.newHashSet();
 
             refs.forEach (ref -> {
-                if (!Enum.find("compKey = ?", ref.getRefKey()).isEmpty())
-                    types.add((Type) Enum.find("compKey = ?", ref.getRefKey()).get(0));
-                else if (!Interface.find("compKey = ?", ref.getRefKey()).isEmpty())
-                    types.add((Type) Interface.find("compKey = ?", ref.getRefKey()).get(0));
-                else if (!Class.find("compKey = ?", ref.getRefKey()).isEmpty())
-                    types.add((Type) Class.find("compKey = ?", ref.getRefKey()).get(0));
+//                if (!Enum.find("compKey = ?", ref.getRefKey()).isEmpty())
+//                    types.add((Type) Enum.find("compKey = ?", ref.getRefKey()).get(0));
+//                else if (!Interface.find("compKey = ?", ref.getRefKey()).isEmpty())
+//                    types.add((Type) Interface.find("compKey = ?", ref.getRefKey()).get(0));
+//                else if (!Class.find("compKey = ?", ref.getRefKey()).isEmpty())
+//                    types.add((Type) Class.find("compKey = ?", ref.getRefKey()).get(0));
+                if (Type.findFirst("compKey = ?", ref.getRefKey()) != null)
+                    types.add(Type.findFirst("compKey = ?", ref.getRefKey()));
             });
 
             return types;
@@ -87,12 +80,14 @@ public class DbUtils {
             Set<Type> types = Sets.newHashSet();
 
             refs.forEach (ref -> {
-                if (!Enum.find("compKey = ?", ref.getRefKey()).isEmpty())
-                    types.add((Type) Enum.find("compKey = ?", ref.getRefKey()).get(0));
-                else if (!Interface.find("compKey = ?", ref.getRefKey()).isEmpty())
-                    types.add((Type) Interface.find("compKey = ?", ref.getRefKey()).get(0));
-                else if (!Class.find("compKey = ?", ref.getRefKey()).isEmpty())
-                    types.add((Type) Class.find("compKey = ?", ref.getRefKey()).get(0));
+//                if (!Enum.find("compKey = ?", ref.getRefKey()).isEmpty())
+//                    types.add((Type) Enum.find("compKey = ?", ref.getRefKey()).get(0));
+//                else if (!Interface.find("compKey = ?", ref.getRefKey()).isEmpty())
+//                    types.add((Type) Interface.find("compKey = ?", ref.getRefKey()).get(0));
+//                else if (!Class.find("compKey = ?", ref.getRefKey()).isEmpty())
+//                    types.add((Type) Class.find("compKey = ?", ref.getRefKey()).get(0));
+                if (Type.findFirst("compKey = ?", ref.getRefKey()) != null)
+                    types.add(Type.findFirst("compKey = ?", ref.getRefKey()));
             });
 
             return types;

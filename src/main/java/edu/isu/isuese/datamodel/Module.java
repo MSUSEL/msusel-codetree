@@ -113,22 +113,22 @@ public class Module extends Model implements Measurable, ComponentContainer {
     }
 
     @Override
-    public List<Class> getClasses() {
-        List<Class> classes = Lists.newArrayList();
+    public List<Type> getClasses() {
+        List<Type> classes = Lists.newArrayList();
         getNamespaces().forEach(ns -> classes.addAll(ns.getClasses()));
         return classes;
     }
 
     @Override
-    public List<Interface> getInterfaces() {
-        List<Interface> interfaces = Lists.newArrayList();
+    public List<Type> getInterfaces() {
+        List<Type> interfaces = Lists.newArrayList();
         getNamespaces().forEach(ns -> interfaces.addAll(ns.getInterfaces()));
         return interfaces;
     }
 
     @Override
-    public List<Enum> getEnums() {
-        List<Enum> enums = Lists.newArrayList();
+    public List<Type> getEnums() {
+        List<Type> enums = Lists.newArrayList();
         getNamespaces().forEach(ns -> enums.addAll(ns.getEnums()));
         return enums;
     }

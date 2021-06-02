@@ -47,9 +47,10 @@ import java.util.List;
         @Many2Many(other = Module.class,          join = "modules_measures",               sourceFKName = "measure_id", targetFKName = "module_id"),
         @Many2Many(other = Initializer.class,     join = "initializers_measures",          sourceFKName = "measure_id", targetFKName = "initializer_id"),
         @Many2Many(other = Method.class,          join = "methods_measures",               sourceFKName = "measure_id", targetFKName = "method_id"),
-        @Many2Many(other = Class.class,           join = "classes_measures",               sourceFKName = "measure_id", targetFKName = "class_id"),
-        @Many2Many(other = Enum.class,            join = "enums_measures",                 sourceFKName = "measure_id", targetFKName = "enum_id"),
-        @Many2Many(other = Interface.class,       join = "interfaces_measures",            sourceFKName = "measure_id", targetFKName = "interface_id"),
+        @Many2Many(other = Type.class,            join = "types_measures",                 sourceFKName = "measure_id", targetFKName = "type_id"),
+//        @Many2Many(other = Class.class,           join = "classes_measures",               sourceFKName = "measure_id", targetFKName = "class_id"),
+//        @Many2Many(other = Enum.class,            join = "enums_measures",                 sourceFKName = "measure_id", targetFKName = "enum_id"),
+//        @Many2Many(other = Interface.class,       join = "interfaces_measures",            sourceFKName = "measure_id", targetFKName = "interface_id"),
         @Many2Many(other = Constructor.class,     join = "constructors_measures",          sourceFKName = "measure_id", targetFKName = "constructor_id"),
         @Many2Many(other = Destructor.class,      join = "destructors_measures",           sourceFKName = "measure_id", targetFKName = "destructor_id")
 })

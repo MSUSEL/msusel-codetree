@@ -30,12 +30,10 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Queues;
 import com.google.common.collect.Sets;
 import com.google.common.graph.GraphBuilder;
-import com.google.common.graph.MutableGraph;
 import edu.isu.isuese.datamodel.cfg.ControlFlowGraph;
-import edu.isu.isuese.datamodel.cfg.ControlFlowNode;
 import edu.isu.isuese.datamodel.util.DbUtils;
 import lombok.Builder;
-import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
+import org.javalite.activejdbc.annotations.BelongsTo;
 import org.javalite.activejdbc.annotations.Many2Many;
 import org.jetbrains.annotations.Nullable;
 
@@ -47,7 +45,6 @@ import java.util.Set;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsToPolymorphic(parents = {Class.class, Enum.class, Interface.class})
 @Many2Many(other = TypeRef.class, join = "methods_typerefs", sourceFKName = "method_id", targetFKName = "type_ref_id")
 public class Method extends TypedMember {
 
@@ -295,23 +292,24 @@ public class Method extends TypedMember {
 
     @Nullable
     private Type getPType() {
-        Type parent = null;
-        try {
-            if (parent(Class.class) != null)
-                parent = parent(Class.class);
-        } catch (IllegalArgumentException e) {
-        }
-        try {
-            if (parent(Interface.class) != null)
-                parent = parent(Class.class);
-        } catch (IllegalArgumentException e) {
-        }
-        try {
-            if (parent(Enum.class) != null)
-                parent = parent(Enum.class);
-        } catch (IllegalArgumentException e) {
-        }
-        return parent;
+//        Type parent = null;
+//        try {
+//            if (parent(Class.class) != null)
+//                parent = parent(Class.class);
+//        } catch (IllegalArgumentException e) {
+//        }
+//        try {
+//            if (parent(Interface.class) != null)
+//                parent = parent(Class.class);
+//        } catch (IllegalArgumentException e) {
+//        }
+//        try {
+//            if (parent(Enum.class) != null)
+//                parent = parent(Enum.class);
+//        } catch (IllegalArgumentException e) {
+//        }
+//        return parent;
+        return parent(Type.class);
     }
 
     public void callsMethod(Method method) {

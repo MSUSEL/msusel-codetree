@@ -222,9 +222,10 @@ public class TypeRef extends Model {
     public Type getType(String projKey) {
         List<Type> types = Lists.newLinkedList();
         if (getReference() != null) {
-            types.addAll(Class.find("compKey = ?", getReference().getRefKey()));
-            types.addAll(Interface.find("compKey = ?", getReference().getRefKey()));
-            types.addAll(Enum.find("compKey = ?", getReference().getRefKey()));
+//            types.addAll(Class.find("compKey = ?", getReference().getRefKey()));
+//            types.addAll(Interface.find("compKey = ?", getReference().getRefKey()));
+//            types.addAll(Enum.find("compKey = ?", getReference().getRefKey()));
+            types.addAll(Type.find("compKey = ?", getReference().getRefKey()));
 
             for (Type t : types) {
                 if (t.getParentProjects().get(0).getProjectKey().equals(projKey))

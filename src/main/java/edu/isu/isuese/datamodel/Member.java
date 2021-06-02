@@ -101,32 +101,36 @@ public abstract class Member extends Component {
     }
 
     public List<Type> getParentTypes() {
+//        List<Type> types = Lists.newLinkedList();
+//        try {
+//            types.add(parent(Class.class));
+//        } catch (IllegalArgumentException e) {}
+//        try {
+//            types.add(parent(Enum.class));
+//        } catch (IllegalArgumentException e) {}
+//        try {
+//            types.add(parent(Interface.class));
+//        } catch (IllegalArgumentException e) {}
+//        return types;
         List<Type> types = Lists.newLinkedList();
-        try {
-            types.add(parent(Class.class));
-        } catch (IllegalArgumentException e) {}
-        try {
-            types.add(parent(Enum.class));
-        } catch (IllegalArgumentException e) {}
-        try {
-            types.add(parent(Interface.class));
-        } catch (IllegalArgumentException e) {}
+        types.add(getParentType());
         return types;
     }
 
     public Type getParentType() {
-        Type parent;
-        try {
-            parent = parent(Class.class);
-        } catch (IllegalArgumentException ex) {
-            try {
-                parent = parent(Interface.class);
-            } catch (IllegalArgumentException ee) {
-                parent = parent(Enum.class);
-            }
-        }
-
-        return parent;
+//        Type parent;
+//        try {
+//            parent = parent(Class.class);
+//        } catch (IllegalArgumentException ex) {
+//            try {
+//                parent = parent(Interface.class);
+//            } catch (IllegalArgumentException ee) {
+//                parent = parent(Enum.class);
+//            }
+//        }
+//
+//        return parent;
+        return parent(Type.class);
     }
 
     /**
@@ -143,22 +147,23 @@ public abstract class Member extends Component {
     }
 
     public void updateKey() {
-        Type parent = null;
-        try {
-            if (parent(Class.class) != null)
-                parent = parent(Class.class);
-        } catch (IllegalArgumentException e) {
-        }
-        try {
-            if (parent(Interface.class) != null)
-                parent = parent(Class.class);
-        } catch (IllegalArgumentException e) {
-        }
-        try {
-            if (parent(Enum.class) != null)
-                parent = parent(Enum.class);
-        } catch (IllegalArgumentException e) {
-        }
+//        Type parent = null;
+//        try {
+//            if (parent(Class.class) != null)
+//                parent = parent(Class.class);
+//        } catch (IllegalArgumentException e) {
+//        }
+//        try {
+//            if (parent(Interface.class) != null)
+//                parent = parent(Class.class);
+//        } catch (IllegalArgumentException e) {
+//        }
+//        try {
+//            if (parent(Enum.class) != null)
+//                parent = parent(Enum.class);
+//        } catch (IllegalArgumentException e) {
+//        }
+        Type parent = parent(Type.class);
 
         String newKey;
         String oldKey = getCompKey();

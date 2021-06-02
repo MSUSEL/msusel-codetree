@@ -35,31 +35,31 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsTo(parent = Namespace.class, foreignKeyName = "namespace_id")
-public class Interface extends Classifier {
+//@BelongsTo(parent = Namespace.class, foreignKeyName = "namespace_id")
+public class Interface /*extends Classifier*/ {
 
     public Interface() {}
 
-    @Builder(buildMethodName = "create")
-    public Interface(String name, int start, int end, String compKey, Accessibility accessibility) {
-        set("name", name, "start", start, "end", end, "compKey", compKey, "qualified_name", name);
-        save();
-        setAbstract(true);
-        if (accessibility != null)
-            setAccessibility(accessibility);
-        else
-            setAccessibility(Accessibility.PUBLIC);
-        save();
-    }
-
-    @Override
-    protected Type copyType(String oldPrefix, String newPrefix) {
-        return Interface.builder()
-                .name(this.getName())
-                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
-                .accessibility(this.getAccessibility())
-                .start(this.getStart())
-                .end(this.getEnd())
-                .create();
-    }
+//    @Builder(buildMethodName = "create")
+//    public Interface(String name, int start, int end, String compKey, Accessibility accessibility) {
+//        set("name", name, "start", start, "end", end, "compKey", compKey, "qualified_name", name);
+//        save();
+//        setAbstract(true);
+//        if (accessibility != null)
+//            setAccessibility(accessibility);
+//        else
+//            setAccessibility(Accessibility.PUBLIC);
+//        save();
+//    }
+//
+//    @Override
+//    protected Type copyType(String oldPrefix, String newPrefix) {
+//        return Interface.builder()
+//                .name(this.getName())
+//                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
+//                .accessibility(this.getAccessibility())
+//                .start(this.getStart())
+//                .end(this.getEnd())
+//                .create();
+//    }
 }

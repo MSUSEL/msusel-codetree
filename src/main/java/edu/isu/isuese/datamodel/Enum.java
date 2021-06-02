@@ -35,44 +35,44 @@ import org.javalite.activejdbc.annotations.BelongsToPolymorphic;
  * @author Isaac Griffith
  * @version 1.3.0
  */
-@BelongsTo(parent = Namespace.class, foreignKeyName = "namespace_id")
-public class Enum extends Classifier {
+//@BelongsTo(parent = Namespace.class, foreignKeyName = "namespace_id")
+public class Enum /*extends Classifier*/ {
 
     public Enum() {
 
     }
 
-    @Builder(buildMethodName = "create")
-    public Enum(String name, int start, int end, String compKey, Accessibility accessibility) {
-        set("name", name, "start", start, "end", end, "compKey", compKey, "qualified_name", name);
-        if (accessibility != null)
-            setAccessibility(accessibility);
-        else
-            setAccessibility(Accessibility.PUBLIC);
+//    @Builder(buildMethodName = "create")
+//    public Enum(String name, int start, int end, String compKey, Accessibility accessibility) {
+//        set("name", name, "start", start, "end", end, "compKey", compKey, "qualified_name", name);
+//        if (accessibility != null)
+//            setAccessibility(accessibility);
+//        else
+//            setAccessibility(Accessibility.PUBLIC);
+//
+//        save();
+//    }
+//
+//    @Override
+//    protected Type copyType(String oldPrefix, String newPrefix) {
+//        return Enum.builder()
+//                .name(this.getName())
+//                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
+//                .accessibility(this.getAccessibility())
+//                .start(this.getStart())
+//                .end(this.getEnd())
+//                .create();
+//    }
 
-        save();
-    }
-
-    @Override
-    protected Type copyType(String oldPrefix, String newPrefix) {
-        return Enum.builder()
-                .name(this.getName())
-                .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
-                .accessibility(this.getAccessibility())
-                .start(this.getStart())
-                .end(this.getEnd())
-                .create();
-    }
-
-    public boolean hasLiteralWithName(String name) {
-        return getLiteralWithName(name) != null;
-    }
-
-    public Literal getLiteralWithName(String name) {
-        try {
-            return get(Literal.class, "name = ?", name).get(0);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
-        }
-    }
+//    public boolean hasLiteralWithName(String name) {
+//        return getLiteralWithName(name) != null;
+//    }
+//
+//    public Literal getLiteralWithName(String name) {
+//        try {
+//            return get(Literal.class, "name = ?", name).get(0);
+//        } catch (IndexOutOfBoundsException ex) {
+//            return null;
+//        }
+//    }
 }

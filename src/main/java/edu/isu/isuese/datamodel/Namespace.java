@@ -162,32 +162,39 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
 
     @Override
     public List<Type> getAllTypes() {
-        List<Type> types = Lists.newArrayList();
-        types.addAll(getClasses());
-        types.addAll(getInterfaces());
-        types.addAll(getEnums());
-        return types;
+//        List<Type> types = Lists.newArrayList();
+//        types.addAll(getClasses());
+//        types.addAll(getInterfaces());
+//        types.addAll(getEnums());
+//        return types;
+        return getAll(Type.class);
     }
 
     public Type getTypeByName(String name) {
-        Type type = findClass("name", name);
-        if (type == null)
-            type = findInterface("name", name);
-        if (type == null)
-            type = findEnum("name", name);
-
-        return type;
+//        Type type = findClass("name", name);
+//        if (type == null)
+//            type = findInterface("name", name);
+//        if (type == null)
+//            type = findEnum("name", name);
+//
+//        return type;
+        return findType("name", name);
     }
 
     @Override
-    public List<Class> getClasses() {
-        List<Class> classes = Lists.newArrayList(getAll(Class.class));
+    public List<Type> getClasses() {
+        return get(Type.class, "type = ?", Type.CLASS);
         //getNamespaces().forEach(ns -> classes.addAll(ns.getClasses()));
-        return classes;
+//        return classes;
     }
 
-    public Class getClassByName(String name) {
-        LazyList<Class> list = get(Class.class, "name = ?", name);
+    public Type getClassByName(String name) {
+//        LazyList<Class> list = get(Class.class, "name = ?", name);
+//        if (!list.isEmpty())
+//            return list.get(0);
+//        else
+//            return null;
+        LazyList<Type> list = get(Type.class, "type = ? and name = ?", Type.CLASS, name);
         if (!list.isEmpty())
             return list.get(0);
         else
@@ -195,14 +202,20 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     @Override
-    public List<Interface> getInterfaces() {
-        List<Interface> interfaces = Lists.newArrayList(getAll(Interface.class));
+    public List<Type> getInterfaces() {
+//        List<Interface> interfaces = Lists.newArrayList(getAll(Interface.class));
         //getNamespaces().forEach(ns -> interfaces.addAll(ns.getInterfaces()));
-        return interfaces;
+        return get(Type.class, "type = ?", Type.INTERFACE);
+//        return interfaces;
     }
 
-    public Interface getInterfaceByName(String name) {
-        LazyList<Interface> list = get(Interface.class, "name = ?", name);
+    public Type getInterfaceByName(String name) {
+//        LazyList<Interface> list = get(Interface.class, "name = ?", name);
+//        if (!list.isEmpty())
+//            return list.get(0);
+//        else
+//            return null;
+        LazyList<Type> list = get(Type.class, "type = ? and name = ?", Type.INTERFACE, name);
         if (!list.isEmpty())
             return list.get(0);
         else
@@ -210,14 +223,20 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     @Override
-    public List<Enum> getEnums() {
-        List<Enum> enums = Lists.newArrayList(getAll(Enum.class));
+    public List<Type> getEnums() {
+//        List<Enum> enums = Lists.newArrayList(getAll(Enum.class));
         //getNamespaces().forEach(ns -> enums.addAll(ns.getEnums()));
-        return enums;
+//        return enums;
+        return get(Type.class, "type = ?", Type.ENUM);
     }
 
-    public Enum getEnumByName(String name) {
-        LazyList<Enum> list = get(Enum.class, "name = ?", name);
+    public Type getEnumByName(String name) {
+//        LazyList<Enum> list = get(Enum.class, "name = ?", name);
+//        if (!list.isEmpty())
+//            return list.get(0);
+//        else
+//            return null;
+        LazyList<Type> list = get(Type.class, "type = ? and name = ?", Type.ENUM, name);
         if (!list.isEmpty())
             return list.get(0);
         else
@@ -437,24 +456,47 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public Type findInterface(String attribute, String value) {
+//        try {
+//            return get(Interface.class, attribute + " = ?", value).get(0);
+//        } catch (IndexOutOfBoundsException ex) {
+//            return null;
+//        }
         try {
-            return get(Interface.class, attribute + " = ?", value).get(0);
+            return get(Type.class, attribute + " = ? and type = ?", value, Type.INTERFACE).get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            return null;
+        }
+    }
+
+    public Type findType(String attribute, String value) {
+        try {
+            return get(Type.class, attribute + " = ?", value).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
     public Type findClass(String attribute, String value) {
+//        try {
+//            return get(Class.class, attribute + " = ?", value).get(0);
+//        } catch (IndexOutOfBoundsException ex) {
+//            return null;
+//        }
         try {
-            return get(Class.class, attribute + " = ?", value).get(0);
+            return get(Type.class, attribute + " = ? and type = ?", value, Type.CLASS).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
     public Type findEnum(String attribute, String value) {
+//        try {
+//            return get(Enum.class, attribute + " = ?", value).get(0);
+//        } catch (IndexOutOfBoundsException ex) {
+//            return null;
+//        }
         try {
-            return get(Enum.class, attribute + " = ?", value).get(0);
+            return get(Type.class, attribute + " = ? and type = ?", value, Type.ENUM).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }

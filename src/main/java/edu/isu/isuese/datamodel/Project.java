@@ -30,6 +30,7 @@ import com.google.common.collect.Lists;
 import lombok.Builder;
 import lombok.extern.log4j.Log4j2;
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Many2Many;
 
 import java.util.List;
 import java.util.Objects;
@@ -40,6 +41,7 @@ import java.util.stream.Collectors;
  * @version 1.3.0
  */
 @Log4j2
+@Many2Many(other = Type.class, sourceFKName = "project_id", targetFKName = "type_id", join = "projects_unknowntypes")
 public class Project extends Model implements Measurable, ComponentContainer {
 
     public Project() {
@@ -317,8 +319,8 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     @Override
-    public List<Class> getClasses() {
-        List<Class> classes = Lists.newArrayList();
+    public List<Type> getClasses() {
+        List<Type> classes = Lists.newArrayList();
         getNamespaces().forEach(mod -> classes.addAll(mod.getClasses()));
         return classes;
     }
@@ -336,8 +338,8 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     @Override
-    public List<Interface> getInterfaces() {
-        List<Interface> interfaces = Lists.newArrayList();
+    public List<Type> getInterfaces() {
+        List<Type> interfaces = Lists.newArrayList();
         getNamespaces().forEach(mod -> interfaces.addAll(mod.getInterfaces()));
         return interfaces;
     }
@@ -355,8 +357,8 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     @Override
-    public List<Enum> getEnums() {
-        List<Enum> enums = Lists.newArrayList();
+    public List<Type> getEnums() {
+        List<Type> enums = Lists.newArrayList();
         getNamespaces().forEach(mod -> enums.addAll(mod.getEnums()));
         return enums;
     }
@@ -379,7 +381,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
     public Type findUnknownType(String attribute, String value) {
         try {
-            return get(UnknownType.class, attribute + " = ?", value).get(0);
+            return get(Type.class, attribute + " = ? and type = ?", value, Type.UNKNOWN).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
@@ -746,13 +748,13 @@ public class Project extends Model implements Measurable, ComponentContainer {
         setPath("testPath", path);
     }
 
-    public void addUnknownType(UnknownType type) {
+    public void addUnknownType(Type type) {
         if (type != null)
             add(type);
         save();
     }
 
-    public void removeUnknownType(UnknownType type) {
+    public void removeUnknownType(Type type) {
         if (type != null)
             remove(type);
         save();
