@@ -748,6 +748,10 @@ public class Project extends Model implements Measurable, ComponentContainer {
         setPath("testPath", path);
     }
 
+    public List<Type> getUnknownTypes() {
+        return getAll(Type.class);
+    }
+
     public void addUnknownType(Type type) {
         if (type != null)
             add(type);

@@ -51,6 +51,7 @@ public class Type extends Component implements ComponentContainer {
 
     public static int UNKNOWN = 0;
     public static int CLASS = 1;
+    public static int ANNOTATION = 2;
     public static int INTERFACE = 2;
     public static int ENUM = 3;
 
@@ -97,6 +98,13 @@ public class Type extends Component implements ComponentContainer {
 
     public int getType() {
         return getInteger("type");
+    }
+
+    public void setType(int type) {
+        if (type >= UNKNOWN && type <= Type.ENUM) {
+            setInteger("type", type);
+            save();
+        }
     }
 
     /**
