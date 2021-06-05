@@ -7,40 +7,16 @@
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-quamoco/data/test.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/data/test.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/resources/activejdbc_models.bak.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8AbstractExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8AbstractExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8FileAndTypeExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8FileAndTypeExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8SinglePassExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8SinglePassExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/activejdbc_models.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/FieldCueSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/FieldCueSpec.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/MethodCueSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/MethodCueSpec.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/MethodCueTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/MethodCueTest.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/PatternCueSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/PatternCueSpec.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/PatternCueTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/PatternCueTest.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/TypeCueTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/test/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/TypeCueTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/util/DBManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/util/DBManager.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/groovy/edu/montana/gsoc/msusel/datamodel/parsers/JavaDirectorTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/groovy/edu/montana/gsoc/msusel/datamodel/parsers/JavaDirectorTest.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/resources/activejdbc_models.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/resources/activejdbc_models.bak.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingsUnionNodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/graph/node/FindingsUnionNodeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/it/single/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/it/single/GraphTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsIntersectAggregatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsIntersectAggregatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsUnionAggregatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/test/java/edu/montana/gsoc/msusel/quamoco/processor/aggregators/FindingsUnionAggregatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/test/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformanceSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/test/groovy/edu/montana/gsoc/msusel/rbml/conformance/SPSConformanceSpec.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/test/groovy/edu/montana/gsoc/msusel/rbml/io/SpecificationReaderSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/test/groovy/edu/montana/gsoc/msusel/rbml/io/SpecificationReaderSpec.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/test/groovy/edu/montana/gsoc/msusel/rbml/model/SPSSpec.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/test/groovy/edu/montana/gsoc/msusel/rbml/model/SPSSpec.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -940,6 +916,8 @@
       <workItem from="1622611703723" duration="13846000" />
       <workItem from="1622652613385" duration="10981000" />
       <workItem from="1622932399315" duration="417000" />
+      <workItem from="1622934158389" duration="259000" />
+      <workItem from="1622934447230" duration="22000" />
     </task>
     <servers />
   </component>
