@@ -16,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/edu/isu/isuese/datamodel/util/reset_sqlite.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/isu/isuese/datamodel/util/reset_sqlite.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/test.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/groovy/edu/montana/gsoc/msusel/datamodel/parsers/JavaDirectorTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/groovy/edu/montana/gsoc/msusel/datamodel/parsers/JavaDirectorTest.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/JDTeste.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -930,7 +929,7 @@
       <workItem from="1622932399315" duration="417000" />
       <workItem from="1622934158389" duration="259000" />
       <workItem from="1622934447230" duration="22000" />
-      <workItem from="1622935678445" duration="119000" />
+      <workItem from="1622935678445" duration="1025000" />
     </task>
     <servers />
   </component>
