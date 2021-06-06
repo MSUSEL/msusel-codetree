@@ -88,6 +88,18 @@ public class Parameter extends Model {
         save();
     }
 
+    public boolean hasModifier(String name) {
+        return !get(Modifier.class, "name = ?", name.toUpperCase()).isEmpty();
+    }
+
+    public boolean hasModifier(Modifier mod) {
+        return hasModifier(mod.getName().toUpperCase());
+    }
+
+    public boolean hasModifier(Modifier.Values value) {
+        return hasModifier(value.toString());
+    }
+
     public List<Modifier> getModifiers() {
         return getAll(Modifier.class);
     }

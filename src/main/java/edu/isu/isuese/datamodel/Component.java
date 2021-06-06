@@ -29,6 +29,7 @@ package edu.isu.isuese.datamodel;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -109,6 +110,10 @@ public abstract class Component extends Model implements Measurable {
 
     public boolean hasModifier(String name) {
         return !get(Modifier.class, "name = ?", name.toUpperCase()).isEmpty();
+    }
+
+    public boolean hasModifier(Modifier mod) {
+        return hasModifier(mod.getName().toUpperCase());
     }
 
     public boolean hasModifier(Modifier.Values value) {
