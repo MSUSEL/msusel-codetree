@@ -64,7 +64,8 @@ public class Type extends Component implements ComponentContainer {
 //            setAccessibility(Accessibility.PUBLIC);
 //    }
 
-    public Type() {}
+    public Type() {
+    }
 
     @Builder(buildMethodName = "create")
     public Type(String name, int start, int end, String compKey, Accessibility accessibility, int type) {
@@ -82,6 +83,7 @@ public class Type extends Component implements ComponentContainer {
         log.info("Copying Class: " + getCompKey());
         return Type.builder()
                 .name(this.getName())
+                .type(this.getType())
                 .compKey(this.getCompKey().replace(oldPrefix, newPrefix))
                 .accessibility(this.getAccessibility())
                 .start(this.getStart())
@@ -148,6 +150,9 @@ public class Type extends Component implements ComponentContainer {
      */
     @Override
     public Project getParentProject() {
+        if (this.getType() == Type.UNKNOWN)
+            return parent(Project.class);
+
         File file = getParentFile();
         if (file != null)
             return file.getParentProject();
@@ -165,6 +170,9 @@ public class Type extends Component implements ComponentContainer {
      * @return The parent module of this type or null if no such parent has been defined
      */
     public Module getParentModule() {
+        if (this.getType() == Type.UNKNOWN)
+            return null;
+
         Namespace ns = getParentNamespace();
         if (ns != null)
             return ns.getParentModule();
@@ -179,6 +187,8 @@ public class Type extends Component implements ComponentContainer {
     }
 
     public Namespace getParentNamespace() {
+        if (this.getType() == Type.UNKNOWN)
+            return null;
         return parent(Namespace.class);
     }
 
@@ -201,6 +211,8 @@ public class Type extends Component implements ComponentContainer {
      */
     @Override
     public Measurable getParent() {
+        if (getType() == Type.UNKNOWN)
+            return getParentProject();
         return getParentFile();
     }
 
@@ -621,6 +633,8 @@ public class Type extends Component implements ComponentContainer {
     }
 
     public String getFullName() {
+        if (getType() == Type.UNKNOWN)
+            return this.getName();
         return getQualifiedName();
     }
 
@@ -669,28 +683,37 @@ public class Type extends Component implements ComponentContainer {
     public void updateKey() {
         Namespace parent = getParentNamespace();
         String oldKey = getCompKey();
-        String newKey;
+        String newKey = null;
         if (parent != null)
             newKey = parent.getNsKey() + ":" + getName();
-        else
-            newKey = getName();
+        else {
+            if (getType() == Type.UNKNOWN) {
+                Project proj = parent(Project.class);
+                if (proj != null)
+                    setCompKey(proj.getProjectKey() + ":" + getName());
+            } else {
+                newKey = getName();
+            }
+        }
 
-        setString("compKey", newKey);
-        save();
-        refresh();
-        updateReferences(oldKey);
-        getAllMembers().forEach(Member::updateKey);
+        if (newKey != null) {
+            setString("compKey", newKey);
+            save();
+            refresh();
+            updateReferences(oldKey);
+            getAllMembers().forEach(Member::updateKey);
+        }
     }
 
     public TypeRef createTypeRef() {
 //        if (TypeRef.findFirst("typeFullName = ?", getFullName()) != null) {
 //            return TypeRef.findFirst("typeFullName = ?", getFullName());
 //        } else {
-            this.refresh();
-            Reference ref = createReference();
-            TypeRef tref = TypeRef.builder().typeName(getName()).typeFullName(getFullName()).type(TypeRefType.Type).create();
-            tref.setReference(ref);
-            return tref;
+        this.refresh();
+        Reference ref = createReference();
+        TypeRef tref = TypeRef.builder().typeName(getName()).typeFullName(getFullName()).type(TypeRefType.Type).create();
+        tref.setReference(ref);
+        return tref;
 //        }
     }
 
