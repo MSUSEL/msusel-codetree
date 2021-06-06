@@ -618,7 +618,7 @@ public class Type extends Component implements ComponentContainer {
     }
 
     public Method findMethodBySignature(String sig) {
-        for (Method m : getMethods()) {
+        for (Method m : getAllMethods()) {
             if (m.signature().equals(sig))
                 return m;
         }
