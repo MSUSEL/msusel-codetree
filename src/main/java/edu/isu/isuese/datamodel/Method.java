@@ -97,6 +97,7 @@ public class Method extends TypedMember {
             // Wrap in MethodException object
             MethodException me = MethodException.createIt();
             me.add(excep);
+            me.set("name", excep.getTypeName());
             me.save();
             add(me);
             save();
