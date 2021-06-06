@@ -691,7 +691,7 @@ public class Type extends Component implements ComponentContainer {
             newKey = parent.getNsKey() + ":" + getName();
         else {
             if (getType() == Type.UNKNOWN) {
-                Project proj = parent(Project.class);
+                Project proj = getParentProject();
                 if (proj != null)
                     setCompKey(proj.getProjectKey() + ":" + getName());
             } else {
