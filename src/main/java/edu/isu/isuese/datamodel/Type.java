@@ -150,8 +150,11 @@ public class Type extends Component implements ComponentContainer {
      */
     @Override
     public Project getParentProject() {
-        if (this.getType() == Type.UNKNOWN)
-            return parent(Project.class);
+        if (this.getType() == Type.UNKNOWN) {
+            List<Project> projects = getAll(Project.class);
+            if (!projects.isEmpty())
+                return projects.get(0);
+        }
 
         File file = getParentFile();
         if (file != null)
