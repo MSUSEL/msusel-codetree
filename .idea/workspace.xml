@@ -12,15 +12,10 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/isu/isuese/datamodel/util/reset_sqlite.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/isu/isuese/datamodel/util/reset_sqlite.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/test.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8SinglePassExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8SinglePassExtractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/BaseTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/BaseTestClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/MethodsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/MethodsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -933,7 +928,7 @@
       <workItem from="1622932399315" duration="417000" />
       <workItem from="1622934158389" duration="259000" />
       <workItem from="1622934447230" duration="22000" />
-      <workItem from="1622935678445" duration="10178000" />
+      <workItem from="1622935678445" duration="11396000" />
     </task>
     <servers />
   </component>

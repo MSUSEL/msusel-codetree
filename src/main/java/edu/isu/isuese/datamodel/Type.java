@@ -275,7 +275,7 @@ public class Type extends Component implements ComponentContainer {
 
     public Initializer getStaticInitializer(int num) {
         try {
-            return get(Initializer.class, "instance = ? AND number = ?", true, num).get(0);
+            return get(Initializer.class, "instance = ? AND number = ?", false, num).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
