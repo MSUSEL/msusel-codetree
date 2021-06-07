@@ -310,14 +310,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
 
         Type type = null;
         if (ns != null) {
-            type = ns.getClassByName(compName);
-            if (type == null) {
-                type = ns.getInterfaceByName(compName);
-            }
-            if (type == null) {
-                type = ns.getEnumByName(compName);
-            }
-            //type = ns.getTypeByName(compName);
+            type = ns.getTypeByName(compName);
             log.atInfo().log("Component Name: " + compName + " and type found? " + (type != null));
         }
 

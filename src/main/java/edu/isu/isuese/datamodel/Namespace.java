@@ -175,13 +175,6 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     }
 
     public Type getTypeByName(String name) {
-//        Type type = findClass("name", name);
-//        if (type == null)
-//            type = findInterface("name", name);
-//        if (type == null)
-//            type = findEnum("name", name);
-//
-//        return type;
         return findType("name", name);
     }
 
