@@ -745,6 +745,8 @@ public class Type extends Component implements ComponentContainer {
             type.setParentTypeID(getId());
             type.setParentTypeType(this.getClass().getName());
             type.setQualifiedName(getQualifiedName() + "." + getName());
+            this.contains(type);
+            type.containedBy(this);
         }
     }
 
