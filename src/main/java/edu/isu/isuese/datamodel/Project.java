@@ -248,7 +248,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         if (name != null && !name.isEmpty()) {
             try {
                 return get(Module.class, "name = ?", name).get(0);
-            } catch(IndexOutOfBoundsException ex) {
+            } catch (IndexOutOfBoundsException ex) {
                 return null;
             }
         }
@@ -284,16 +284,26 @@ public class Project extends Model implements Measurable, ComponentContainer {
         return null;
     }
 
-
-
     public Type findTypeByQualifiedName(String name) {
-        String nsName = name.substring(0, name.lastIndexOf("."));
-        if (!hasNamespace(nsName))
-            return null;
+        String nsName;
+        String compName;
+        if (name.contains(".")) {
+            nsName = name.substring(0, name.lastIndexOf("."));
+            if (!hasNamespace(nsName)) {
+                return null;
+            }
+            compName = name.replace(nsName, "").substring(1);
+        } else {
+            nsName = "";
+            compName = name;
+        }
 
-        String compName = name.replace(nsName, "").substring(1);
-
-        Namespace ns = findNamespace(nsName);
+        Namespace ns
+        if (nsName.isEmpty()) {
+            ns = getDefaultNamespace();
+        } else {
+            ns = findNamespace(nsName);
+        }
 
         log.atInfo().log("Original Name: " + name);
         log.atInfo().log("Found NS Name: " + nsName + " and namespace found? " + (ns != null));
@@ -462,7 +472,9 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     @Override
-    public Project getParentProject() { return this; }
+    public Project getParentProject() {
+        return this;
+    }
 
     /**
      * @return The parent Measurable of this Measurable
@@ -653,7 +665,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public void setSrcPath(String path) {
-        String[] paths = { path };
+        String[] paths = {path};
         setSrcPath(paths);
     }
 

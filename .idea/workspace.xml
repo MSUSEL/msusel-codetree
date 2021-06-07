@@ -7,24 +7,27 @@
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/Methods/Initializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/Coupling/BiDirectionalAssociation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/Coupling/BiDirectionalAssociation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/Coupling/ContainedClasses.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/Coupling/ContainedClasses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/Coupling/UniDirectionalAssociation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/Coupling/UniDirectionalAssociation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/Coupling/UseDependency.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/Coupling/UseDependency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/UseDeps/FieldAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/UseDeps/FieldAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/UseDeps/InstanceCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/UseDeps/InstanceCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/UseDeps/LocalVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/UseDeps/LocalVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/UseDeps/MethodParameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/java-example-project/UseDeps/MethodParameter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/test.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/AssociationExtractor.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/AssociationExtractor.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8MemberAndGenRealUseRelsExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8MemberAndGenRealUseRelsExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8SinglePassExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/Java8SinglePassExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/BaseTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/BaseTestClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/CouplingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/CouplingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/GenericsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/GenericsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/InheritanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/InheritanceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/MethodsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/MethodsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/UseDepsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/UseDepsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -937,7 +940,7 @@
       <workItem from="1622932399315" duration="417000" />
       <workItem from="1622934158389" duration="259000" />
       <workItem from="1622934447230" duration="22000" />
-      <workItem from="1622935678445" duration="13936000" />
+      <workItem from="1622935678445" duration="16167000" />
     </task>
     <servers />
   </component>
