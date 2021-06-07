@@ -338,6 +338,14 @@ public class Type extends Component implements ComponentContainer {
         createRelation(this, other, RefType.TYPE, RefType.TYPE, RelationType.CONTAINMENT);
     }
 
+    public boolean doesContain(Type other) {
+        return getContained().contains(other);
+    }
+
+    public boolean isContainedBy(Type other) {
+        return getContainedBy().contains(other);
+    }
+
     public Set<Type> getAssociatedTo() {
         return DbUtils.getRelationFrom(this, RelationType.ASSOCIATION);
     }
@@ -348,6 +356,10 @@ public class Type extends Component implements ComponentContainer {
 
     public void associatedTo(Type other) {
         createRelation(other, this, RefType.TYPE, RefType.TYPE, RelationType.ASSOCIATION);
+    }
+
+    public boolean isAssociatedFrom(Type other) {
+        return getAssociatedFrom().contains(other);
     }
 
     public void removeAssociatedTo(Type other) {
@@ -385,6 +397,10 @@ public class Type extends Component implements ComponentContainer {
 
     public boolean hasUseTo(Type type) {
         return getUseTo().contains(type);
+    }
+
+    public boolean hasUseFrom(Type type) {
+        return getUseFrom().contains(type);
     }
 
     public void useTo(Type other) {
