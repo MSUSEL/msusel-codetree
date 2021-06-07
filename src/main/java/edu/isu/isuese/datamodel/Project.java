@@ -298,7 +298,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
             compName = name;
         }
 
-        Namespace ns
+        Namespace ns;
         if (nsName.isEmpty()) {
             ns = getDefaultNamespace();
         } else {
