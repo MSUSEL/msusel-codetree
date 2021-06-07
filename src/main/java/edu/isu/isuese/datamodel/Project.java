@@ -305,13 +305,9 @@ public class Project extends Model implements Measurable, ComponentContainer {
             ns = findNamespace(nsName);
         }
 
-        log.atInfo().log("Original Name: " + name);
-        log.atInfo().log("Found NS Name: " + nsName + " and namespace found? " + (ns != null));
-
         Type type = null;
         if (ns != null) {
             type = ns.getTypeByName(compName);
-            log.atInfo().log("Component Name: " + compName + " and type found? " + (type != null));
         }
 
         return type;
