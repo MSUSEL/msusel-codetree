@@ -13,9 +13,10 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/data/test.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/BaseTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/test/java/edu/montana/gsoc/msusel/datamodel/parsers/BaseTestClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -230,17 +231,6 @@
       <setting name="configType" value="SPECIFY" />
       <setting name="fixLineNumbers" value="false" />
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="All in msusel-pattern-generator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="msusel-pattern-generator" />
@@ -929,7 +919,9 @@
       <workItem from="1622932399315" duration="417000" />
       <workItem from="1622934158389" duration="259000" />
       <workItem from="1622934447230" duration="22000" />
-      <workItem from="1622935678445" duration="20873000" />
+      <workItem from="1622935678445" duration="22074000" />
+      <workItem from="1623147439099" duration="598000" />
+      <workItem from="1623180822742" duration="1197000" />
     </task>
     <servers />
   </component>
