@@ -328,12 +328,6 @@ public class System extends Model implements Measurable, Structure {
         return languages;
     }
 
-    public List<Measure> getMeasures() {
-        List<Measure> measures = Lists.newArrayList();
-        getProjects().forEach(proj -> measures.addAll(proj.getMeasures()));
-        return measures;
-    }
-
     public List<RoleBinding> getRoleBindings() {
         List<RoleBinding> bindings = Lists.newArrayList();
         getProjects().forEach(proj -> bindings.addAll(proj.getRoleBindings()));
@@ -425,7 +419,16 @@ public class System extends Model implements Measurable, Structure {
         return 0.0d;
     }
 
-//    public List<Measure> getMeasures() {
-//        return getAll(Measure.class);
-//    }
+    public List<Measure> getMeasures() {
+        return getAll(Measure.class);
+    }
+
+    public double getValueFor(String metricKey) {
+        try {
+            Measure measure = get(Measure.class, "metricKey = ?", metricKey).get(0);
+            return measure.getValue();
+        } catch (IndexOutOfBoundsException ex) {
+            return 0.0;
+        }
+    }
 }

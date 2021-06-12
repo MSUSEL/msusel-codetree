@@ -793,4 +793,13 @@ public class Project extends Model implements Measurable, ComponentContainer {
         }
         return 0.0d;
     }
+
+    public double getValueFor(String metricKey) {
+        try {
+            Measure measure = get(Measure.class, "metricKey = ?", metricKey).get(0);
+            return measure.getValue();
+        } catch (IndexOutOfBoundsException ex) {
+            return 0.0;
+        }
+    }
 }

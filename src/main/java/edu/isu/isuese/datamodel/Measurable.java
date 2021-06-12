@@ -59,4 +59,6 @@ public interface Measurable {
     void removeMeasure(Measure meas);
 
     List<Measure> getMeasures();
+
+    double getValueFor(String metricKey);
 }

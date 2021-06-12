@@ -389,4 +389,13 @@ public class Module extends Model implements Measurable, ComponentContainer {
     public List<Measure> getMeasures() {
         return getAll(Measure.class);
     }
+
+    public double getValueFor(String metricKey) {
+        try {
+            Measure measure = get(Measure.class, "metricKey = ?", metricKey).get(0);
+            return measure.getValue();
+        } catch (IndexOutOfBoundsException ex) {
+            return 0.0;
+        }
+    }
 }
