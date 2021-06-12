@@ -39,5 +39,7 @@ public interface Structure extends ComponentContainer {
      */
     List<File> getFiles();
 
+    List<File> getFilesByType(FileType type);
+
     List<Type> getAllTypes();
 }

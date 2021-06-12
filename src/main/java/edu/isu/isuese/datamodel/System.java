@@ -156,6 +156,13 @@ public class System extends Model implements Measurable, Structure {
         return files;
     }
 
+    @Override
+    public List<File> getFilesByType(FileType type) {
+        List<File> files = Lists.newArrayList();
+        getProjects().forEach(proj -> files.addAll(proj.getFilesByType(type)));
+        return files;
+    }
+
     public List<Import> getImports() {
         List<Import> imports = Lists.newArrayList();
         getProjects().forEach(proj -> imports.addAll(proj.getImports()));
