@@ -49,7 +49,6 @@ class DBManager {
     ReadWriteLock lock = new ReentrantReadWriteLock()
 
     List<String> tables = [
-            //'classes', 'classes_measures', 'classes_modifiers', 'classes_template_params',
             'constructors', 'constructors_measures', 'constructors_method_exceptions', 'constructors_modifiers', 'constructors_template_params', 'constructors_typerefs',
             'destructors', 'destructors_measures', 'destructors_method_exceptions', 'destructors_modifiers', 'destructors_template_params', 'destructors_typerefs',
             'types', 'types_measures', 'types_modifiers', 'types_template_params',
@@ -58,7 +57,6 @@ class DBManager {
             'findings', 'finding_data', 'finding_data_points',
             'imports',
             'initializers', 'initializers_measures', 'initializers_modifiers',
-            //'interfaces', 'interfaces_measures', 'interfaces_modifiers', 'interfaces_template_params',
             'languages',
             'literals', 'literals_modifiers',
             'measures',
@@ -80,7 +78,6 @@ class DBManager {
             'tags',
             'template_params', 'template_params_typerefs',
             'type_refs', 'typerefs_typerefs'
-//            'unknown_types'
     ]
 
     def open(DBCredentials creds) {
