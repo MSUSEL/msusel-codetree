@@ -12,12 +12,14 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/sigcalibrate/SigCalibrationPhaseThree.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/sigcalibrate/SigCalibrationPhaseThree.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/java/JavaPathsDetector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/java/JavaPathsDetector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/ComponentBalance.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/ComponentBalance.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/ComponentIndependence.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/ComponentIndependence.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/Duplication.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/Duplication.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/data/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/data/dev.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/data/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/data/test.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/SigMainMetricEvaluator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/SigMainMetricEvaluator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/UnitSize.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/UnitSize.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -922,7 +924,7 @@
       <workItem from="1622935678445" duration="22074000" />
       <workItem from="1623147439099" duration="598000" />
       <workItem from="1623180822742" duration="1895000" />
-      <workItem from="1623357059249" duration="6964000" />
+      <workItem from="1623357059249" duration="8163000" />
     </task>
     <servers />
   </component>
