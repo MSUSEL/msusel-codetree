@@ -433,6 +433,11 @@ public class File extends Model implements Measurable, ComponentContainer {
         Namespace ns = getParentNamespace();
 
         String path = null;
+
+        Path p = Paths.get(getName());
+        if (Files.exists(p))
+            return p.toString();
+
         if (ns != null) {
             return ns.getFullPath(getType(), selectPathIndex()) + getRelPath();
         } else {
