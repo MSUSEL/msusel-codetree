@@ -30,6 +30,9 @@ import com.google.common.collect.Lists;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 
@@ -265,10 +268,6 @@ public class File extends Model implements Measurable, ComponentContainer {
         setInteger("pathIndex", index);
     }
 
-    public int getPathIndex() {
-        return getInteger("pathIndex");
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o instanceof File) {
@@ -430,23 +429,70 @@ public class File extends Model implements Measurable, ComponentContainer {
     }
 
     public String getFullPath() {
-        char sep = java.io.File.separatorChar;
         Project proj = getParentProject();
         Namespace ns = getParentNamespace();
-        if (ns != null)
-            return ns.getFullPath(getType(), getPathIndex()) + getRelPath();
-        else {
+
+        String path = null;
+        if (ns != null) {
+            return ns.getFullPath(getType(), selectPathIndex()) + getRelPath();
+        } else {
             switch (getType()) {
                 case BINARY:
-                    return proj.getFullPath() + proj.getBinaryPath(getPathIndex()) + sep + getRelPath();
+                    path = selectPath(proj.getBinaryPaths());
+                    break;
                 case SOURCE:
-                    return proj.getFullPath() + proj.getSrcPath(getPathIndex()) + sep + getRelPath();
+                    path = selectPath(proj.getSrcPaths());
+                    break;
                 case TEST:
-                    return proj.getFullPath() + proj.getTestPath(getPathIndex()) + sep + getRelPath();
-                default:
-                    return proj.getFullPath() + getRelPath();
+                    path = selectPath(proj.getTestPaths());
+                    break;
             }
         }
+
+        if (path == null)
+            path = proj.getFullPath() + getRelPath();;
+
+        return path;
+    }
+
+    public String selectPath(String[] paths) {
+        char sep = java.io.File.separatorChar;
+        Project proj = getParentProject();
+        for (String path : paths) {
+            Path p = Paths.get(proj.getFullPath() + path + sep + getRelPath());
+            if (Files.exists(p))
+                return proj.getFullPath() + path + sep + getRelPath();
+        }
+
+        return null;
+    }
+
+    public int selectPathIndex() {
+        char sep = java.io.File.separatorChar;
+        Project proj = getParentProject();
+        String[] paths = null;
+
+        switch (getType()) {
+            case BINARY:
+                paths = proj.getBinaryPaths();
+                break;
+            case SOURCE:
+                paths = proj.getSrcPaths();
+                break;
+            case TEST:
+                paths = proj.getTestPaths();
+                break;
+        }
+
+        if (paths != null) {
+            for (int i = 0; i < paths.length; i++) {
+                Path p = Paths.get(proj.getFullPath() + paths[i] + sep + getRelPath());
+                if (Files.exists(p))
+                    return i;
+            }
+        }
+
+        return 0;
     }
 
     public void setParentNSID(Object id) {
