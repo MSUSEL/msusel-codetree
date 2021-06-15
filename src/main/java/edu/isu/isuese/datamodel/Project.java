@@ -513,7 +513,8 @@ public class Project extends Model implements Measurable, ComponentContainer {
         String path = "";
 
         if (parent(System.class) != null) {
-            path = parent(System.class).getBasePath().replaceAll("/", java.io.File.separator);
+            if (parent(System.class).getBasePath().contains("/"))
+                path = parent(System.class).getBasePath().replaceAll("/", java.io.File.separator);
         }
 
         if (!path.endsWith(java.io.File.separator)) {
