@@ -134,12 +134,13 @@ class DBManager {
             new File(filename).delete()
         } else {
             Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { sql ->
-                
+                sql.execute("SET FOREIGN_KEY_CHECKS = 0;")
                 tables.each {
                     ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
                     if (rs.next())
                         sql.execute("drop table if exists `$it`;")
                 }
+                sql.execute("SET FOREIGN_KEY_CHECKS = 1;")
             }
         }
 
