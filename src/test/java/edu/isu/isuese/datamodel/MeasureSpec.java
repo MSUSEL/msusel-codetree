@@ -39,7 +39,7 @@ public class MeasureSpec extends DBSpec {
         meas.set("measureKey", "meas", "value", 1.0);
         a(meas).shouldBe("valid");
         meas.save();
-        meas = Measure.findById(1);
+        meas = (Measure) Measure.findAll().get(0);
         a(meas.getId()).shouldNotBeNull();
         a(meas.get("measureKey")).shouldBeEqual("meas");
         a(meas.get("value")).shouldBeEqual(1.0);

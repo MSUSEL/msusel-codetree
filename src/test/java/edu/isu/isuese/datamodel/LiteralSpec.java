@@ -40,7 +40,7 @@ public class LiteralSpec extends DBSpec {
         member.setAccessibility(Accessibility.PUBLIC);
         a(member).shouldBe("valid");
         member.save();
-        member = Literal.findById(1);
+        member = (Literal) Literal.findAll().get(0);
         a(member.getId()).shouldNotBeNull();
         a(member.get("accessibility")).shouldBeEqual(Accessibility.PUBLIC.value());
         a(member.getAccessibility()).shouldBeEqual(Accessibility.PUBLIC);
@@ -58,7 +58,7 @@ public class LiteralSpec extends DBSpec {
         member.addModifier(Modifier.Values.STATIC.name());
         member.save();
 
-        a(Literal.findById(1).getAll(Modifier.class).size()).shouldBeEqual(1);
+        a(Literal.findAll().get(0).getAll(Modifier.class).size()).shouldBeEqual(1);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class LiteralSpec extends DBSpec {
         member.addModifier(Modifier.Values.STATIC.name());
         member.save();
 
-        member = Literal.findById(1);
+        member = (Literal) Literal.findAll().get(0);
         member.removeModifier(Modifier.Values.STATIC.name());
         a(member.getAll(Modifier.class).size()).shouldBeEqual(0);
         a(LiteralsModifiers.count()).shouldBeEqual(0);

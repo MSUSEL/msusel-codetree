@@ -39,7 +39,7 @@ public class FindingSpec extends DBSpec {
         finding.set("findingKey", "finding");
         a(finding).shouldBe("valid");
         finding.save();
-        finding = Finding.findById(1);
+        finding = (Finding) Finding.findAll().get(0);
         a(finding.getId()).shouldNotBeNull();
         a(finding.get("findingKey")).shouldBeEqual("finding");
         a(Finding.count()).shouldBeEqual(1);

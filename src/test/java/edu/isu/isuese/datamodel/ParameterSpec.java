@@ -40,7 +40,7 @@ public class ParameterSpec extends DBSpec {
         param.set("name", "param");
         a(param).shouldBe("valid");
         param.save();
-        param = Parameter.findById(1);
+        param = (Parameter) Parameter.findAll().get(0);
         a(param.getId()).shouldNotBeNull();
         a(param.get("name")).shouldBeEqual("param");
         a(Parameter.count()).shouldBeEqual(1);
@@ -79,7 +79,7 @@ public class ParameterSpec extends DBSpec {
         param.addModifier(Modifier.Values.STATIC.name());
         param.save();
 
-        a(param.findById(1).getAll(Modifier.class).size()).shouldBeEqual(1);
+        a(Parameter.findAll().get(0).getAll(Modifier.class).size()).shouldBeEqual(1);
     }
 
     @Test
@@ -88,7 +88,7 @@ public class ParameterSpec extends DBSpec {
         param.addModifier(Modifier.Values.STATIC.name());
         param.save();
 
-        param = Parameter.findById(1);
+        param = (Parameter) Parameter.findAll().get(0);
         param.removeModifier(Modifier.Values.STATIC.name());
         a(param.getAll(Modifier.class).size()).shouldBeEqual(0);
         a(ParametersModifiers.count()).shouldBeEqual(0);

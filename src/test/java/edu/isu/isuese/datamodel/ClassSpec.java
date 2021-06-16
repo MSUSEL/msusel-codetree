@@ -40,7 +40,7 @@ public class ClassSpec extends DBSpec {
         type.setAccessibility(Accessibility.PUBLIC);
         a(type).shouldBe("valid");
         type.save();
-        type = Type.findById(1);
+        type = (Type) Type.findAll().get(0);
         a(type.getId()).shouldNotBeNull();
         a(type.get("accessibility")).shouldBeEqual(Accessibility.PUBLIC.value());
         a(type.getAccessibility()).shouldBeEqual(Accessibility.PUBLIC);
@@ -89,7 +89,7 @@ public class ClassSpec extends DBSpec {
         type.addModifier(Modifier.Values.STATIC.name());
         type.save();
 
-        a(Type.findById(1).getAll(Modifier.class).size()).shouldBeEqual(1);
+        a(Type.findAll().get(0).getAll(Modifier.class).size()).shouldBeEqual(1);
     }
 
     @Test
@@ -99,7 +99,7 @@ public class ClassSpec extends DBSpec {
         type.addModifier(Modifier.Values.STATIC.name());
         type.save();
 
-        type = Type.findById(1);
+        type = (Type) Type.findAll().get(0);
         type.removeModifier(Modifier.Values.STATIC.name());
         a(type.getAll(Modifier.class).size()).shouldBeEqual(0);
     }

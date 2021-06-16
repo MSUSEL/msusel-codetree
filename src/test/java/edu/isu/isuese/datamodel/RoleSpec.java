@@ -39,7 +39,7 @@ public class RoleSpec extends DBSpec {
         role.set("roleKey", "role", "name", "role");
         a(role).shouldBe("valid");
         role.save();
-        role = Role.findById(1);
+        role = (Role) Role.findAll().get(0);
         a(role.getId()).shouldNotBeNull();
         a(role.get("name")).shouldBeEqual("role");
         a(role.get("roleKey")).shouldBeEqual("role");

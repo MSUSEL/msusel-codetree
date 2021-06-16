@@ -40,7 +40,7 @@ public class FieldSpec extends DBSpec {
         member.setAccessibility(Accessibility.PUBLIC);
         a(member).shouldBe("valid");
         member.save();
-        member = Field.findById(1);
+        member = (Field) Field.findAll().get(0);
         a(member.getId()).shouldNotBeNull();
         a(member.get("accessibility")).shouldBeEqual(Accessibility.PUBLIC.value());
         a(member.getAccessibility()).shouldBeEqual(Accessibility.PUBLIC);
@@ -90,7 +90,7 @@ public class FieldSpec extends DBSpec {
         field.addModifier(Modifier.Values.STATIC.name());
         field.save();
 
-        a(Field.findById(1).getAll(Modifier.class).size()).shouldBeEqual(1);
+        a(Field.findAll().get(0).getAll(Modifier.class).size()).shouldBeEqual(1);
     }
 
     @Test
@@ -100,7 +100,7 @@ public class FieldSpec extends DBSpec {
         field.addModifier(Modifier.Values.STATIC.name());
         field.save();
 
-        field = Field.findById(1);
+        field = (Field) Field.findAll().get(0);
         field.removeModifier(Modifier.Values.STATIC.name());
         a(field.getAll(Modifier.class).size()).shouldBeEqual(0);
         a(FieldsModifiers.count()).shouldBeEqual(0);

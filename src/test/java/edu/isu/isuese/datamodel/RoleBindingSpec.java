@@ -39,7 +39,7 @@ public class RoleBindingSpec extends DBSpec {
         binding.set();
         a(binding).shouldBe("valid");
         binding.save();
-        binding = RoleBinding.findById(1);
+        binding = (RoleBinding) RoleBinding.findAll().get(0);
         a(binding.getId()).shouldNotBeNull();
         a(RoleBinding.count()).shouldBeEqual(1);
     }
@@ -71,7 +71,7 @@ public class RoleBindingSpec extends DBSpec {
         a(binding.getAll(Role.class).size()).shouldBeEqual(1);
         a(binding.getAll(Reference.class).size()).shouldBeEqual(1);
 
-        binding = RoleBinding.findById(1);
+        binding = (RoleBinding) RoleBinding.findAll().get(0);
         binding.remove(ref);
         binding.remove(role);
         a(binding.getAll(Role.class).size()).shouldBeEqual(0);

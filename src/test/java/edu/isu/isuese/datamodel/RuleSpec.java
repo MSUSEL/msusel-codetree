@@ -40,7 +40,7 @@ public class RuleSpec extends DBSpec {
         rule.setPriority(Priority.HIGH);
         a(rule).shouldBe("valid");
         rule.save();
-        rule = Rule.findById(1);
+        rule = (Rule) Rule.findAll().get(0);
         a(rule.getId()).shouldNotBeNull();
         a(rule.get("priority")).shouldBeEqual(4);
         a(rule.getPriority()).shouldBeEqual(Priority.HIGH);
@@ -71,7 +71,7 @@ public class RuleSpec extends DBSpec {
         rule.save();
 
         a(rule.getAll(Tag.class).size()).shouldBeEqual(1);
-        rule = Rule.findById(1);
+        rule = (Rule) Rule.findAll().get(0);
         rule.remove(t);
         a(rule.getAll(Tag.class).size()).shouldBeEqual(0);
     }
@@ -96,7 +96,7 @@ public class RuleSpec extends DBSpec {
         rule.save();
 
         a(rule.getAll(Finding.class).size()).shouldBeEqual(1);
-        rule = Rule.findById(1);
+        rule = (Rule) Rule.findAll().get(0);
         rule.remove(finding);
         a(rule.getAll(Finding.class).size()).shouldBeEqual(0);
     }

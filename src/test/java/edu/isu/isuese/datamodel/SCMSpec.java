@@ -40,7 +40,7 @@ public class SCMSpec extends DBSpec {
         scm.setType(SCMType.GIT);
         a(scm).shouldBe("valid");
         scm.save();
-        scm = SCM.findById(1);
+        scm = (SCM) SCM.findAll().get(0);
         a(scm.getId()).shouldNotBeNull();
         a(scm.get("scmKey")).shouldBeEqual("scm");
         a(scm.get("tag")).shouldBeEqual("1.0");

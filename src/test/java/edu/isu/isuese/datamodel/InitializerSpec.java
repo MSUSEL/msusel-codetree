@@ -40,7 +40,7 @@ public class InitializerSpec extends DBSpec {
         member.setAccessibility(Accessibility.PUBLIC);
         a(member).shouldBe("valid");
         member.save();
-        member = Initializer.findById(1);
+        member = (Initializer) Initializer.findAll().get(0);
         a(member.getId()).shouldNotBeNull();
         a(member.get("accessibility")).shouldBeEqual(Accessibility.PUBLIC.value());
         a(member.getAccessibility()).shouldBeEqual(Accessibility.PUBLIC);
@@ -58,7 +58,7 @@ public class InitializerSpec extends DBSpec {
         member.addModifier(Modifier.Values.STATIC.name());
         member.save();
 
-        a(Initializer.findById(1).getAll(Modifier.class).size()).shouldBeEqual(1);
+        a(Initializer.findAll().get(0).getAll(Modifier.class).size()).shouldBeEqual(1);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class InitializerSpec extends DBSpec {
         member.addModifier(Modifier.Values.STATIC.name());
         member.save();
 
-        member = Initializer.findById(1);
+        member = (Initializer) Initializer.findAll().get(0);
         member.removeModifier(Modifier.Values.STATIC.name());
         a(member.getAll(Modifier.class).size()).shouldBeEqual(0);
         a(InitializersModifiers.count()).shouldBeEqual(0);

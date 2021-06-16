@@ -39,7 +39,7 @@ public class ModuleSpec extends DBSpec {
         module.set("moduleKey", "module", "name", "module");
         a(module).shouldBe("valid");
         module.save();
-        module = Module.findById(1);
+        module = (Module) Module.findAll().get(0);
         a(module.getId()).shouldNotBeNull();
         a(module.get("name")).shouldBeEqual("module");
         a(module.get("moduleKey")).shouldBeEqual("module");
@@ -63,8 +63,9 @@ public class ModuleSpec extends DBSpec {
 
         module.addNamespace(ns);
 
-        module = Module.findById(1);
+        module = Module.findById(module.getId());
         module.removeNamespace(ns);
+        module.refresh();
 
         a(module.getNamespaces().isEmpty()).shouldBeTrue();
     }

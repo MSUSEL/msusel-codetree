@@ -80,9 +80,9 @@ public class DbUtilsSpec extends DBSpec {
         method2.setAccessibility(Accessibility.PUBLIC);
         Method method3 = Destructor.createIt("name", "TestClass3", "start", 1, "end", 100, "compKey", "TestClass");
         method3.setAccessibility(Accessibility.PUBLIC);
-        Parameter param = Parameter.createIt("name", "param");
-        Parameter param2 = Parameter.createIt("name", "param");
-        Parameter param3 = Parameter.createIt("name", "param");
+        Parameter param = Parameter.builder().name("param").create();
+        Parameter param2 = Parameter.builder().name("param").create();
+        Parameter param3 = Parameter.builder().name("param").create();
         Field field = Field.createIt("name", "TestClass", "start", 1, "end", 100, "compKey", "TestClass");
         field.setAccessibility(Accessibility.PUBLIC);
         TypeRef typeRef = TypeRef.createIt("typeName", "typeRef", "dimensions", null);

@@ -40,7 +40,7 @@ public class UnknownTypeSpec extends DBSpec {
         type.setAccessibility(Accessibility.PUBLIC);
         a(type).shouldBe("valid");
         type.save();
-        type = Type.findById(1);
+        type = (Type) Type.findAll().get(0);
         a(type.getId()).shouldNotBeNull();
         a(type.get("accessibility")).shouldBeEqual(Accessibility.PUBLIC.value());
         a(type.getAccessibility()).shouldBeEqual(Accessibility.PUBLIC);

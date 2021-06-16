@@ -39,7 +39,7 @@ public class RuleRepositorySpec extends DBSpec {
         repo.set("repoKey", "key", "name", "name");
         a(repo).shouldBe("valid");
         repo.save();
-        repo = RuleRepository.findById(1);
+        repo = (RuleRepository) RuleRepository.findAll().get(0);
         a(repo.getId()).shouldNotBeNull();
         a(repo.get("repoKey")).shouldBeEqual("key");
         a(repo.get("name")).shouldBeEqual("name");
@@ -66,7 +66,7 @@ public class RuleRepositorySpec extends DBSpec {
         repo.add(rule);
 
         a(repo.getAll(Rule.class).size()).shouldBeEqual(1);
-        repo = RuleRepository.findById(1);
+        repo = (RuleRepository) RuleRepository.findAll().get(0);
         repo.remove(rule);
         a(repo.getAll(Rule.class).size()).shouldBeEqual(0);
     }

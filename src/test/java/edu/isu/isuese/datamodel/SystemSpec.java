@@ -41,7 +41,7 @@ public class SystemSpec extends DBSpec {
         system.set("name", "fake name", "sysKey", "fake key");
         a(system).shouldBe("valid");
         system.save();
-        system = System.findById(1);
+        system = (System) System.findAll().get(0);
         a(system.getId()).shouldNotBeNull();
         a(system.get("name")).shouldBeEqual("fake name");
         a(system.get("sysKey")).shouldBeEqual("fake key");

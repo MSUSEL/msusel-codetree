@@ -40,7 +40,7 @@ public class RelationSpec extends DBSpec {
         rel.setType(RelationType.ASSOCIATION);
         a(rel).shouldBe("valid");
         rel.save();
-        rel = Relation.findById(1);
+        rel = (Relation) Relation.findAll().get(0);
         a(rel.getId()).shouldNotBeNull();
         a(rel.get("relKey")).shouldBeEqual("rel");
         a(rel.get("type")).shouldBeEqual(RelationType.ASSOCIATION.value());
@@ -70,7 +70,7 @@ public class RelationSpec extends DBSpec {
         rel.save();
 
         a(rel.getAll(Reference.class).size()).shouldBeEqual(1);
-        rel = Relation.findById(1);
+        rel = (Relation) Relation.findAll().get(0);
         rel.remove(ref);
         a(rel.getAll(Reference.class).size()).shouldBeEqual(0);
     }

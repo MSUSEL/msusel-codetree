@@ -40,7 +40,7 @@ public class DestructorSpec extends DBSpec {
         method.setAccessibility(Accessibility.PUBLIC);
         a(method).shouldBe("valid");
         method.save();
-        method = Destructor.findById(1);
+        method = (Destructor) Destructor.findAll().get(0);
         a(method.getId()).shouldNotBeNull();
         a(method.get("accessibility")).shouldBeEqual(Accessibility.PUBLIC.value());
         a(method.getAccessibility()).shouldBeEqual(Accessibility.PUBLIC);
@@ -73,7 +73,7 @@ public class DestructorSpec extends DBSpec {
         Parameter param = Parameter.createIt("name", "param");
         method.add(param);
 
-        method = Destructor.findById(1);
+        method = (Destructor) Destructor.findAll().get(0);
         method.remove(param);
 
         a(Parameter.count()).shouldBeEqual(0);
@@ -106,7 +106,7 @@ public class DestructorSpec extends DBSpec {
         method.addModifier(Modifier.Values.STATIC.name());
         method.save();
 
-        a(Destructor.findById(1).getAll(Modifier.class).size()).shouldBeEqual(1);
+        a(Destructor.findAll().get(0).getAll(Modifier.class).size()).shouldBeEqual(1);
     }
 
     @Test
@@ -116,7 +116,7 @@ public class DestructorSpec extends DBSpec {
         method.addModifier(Modifier.Values.STATIC.name());
         method.save();
 
-        method = Destructor.findById(1);
+        method = (Destructor) Destructor.findAll().get(0);
         method.removeModifier(Modifier.Values.STATIC.name());
         a(method.getAll(Modifier.class).size()).shouldBeEqual(0);
     }

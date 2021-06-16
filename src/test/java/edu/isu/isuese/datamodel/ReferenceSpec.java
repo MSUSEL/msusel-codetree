@@ -42,7 +42,7 @@ public class ReferenceSpec extends DBSpec {
         ref.setType(RefType.TYPE);
         a(ref).shouldBe("valid");
         ref.save();
-        ref = Reference.findById(1);
+        ref = (Reference) Reference.findAll().get(0);
         a(ref.getId()).shouldNotBeNull();
         a(ref.get("refKey")).shouldBeEqual("ref");
         a(ref.get("type")).shouldBeEqual(RefType.TYPE.value());

@@ -44,7 +44,6 @@ import java.util.Objects;
 @BelongsToPolymorphic(parents = {Method.class, Constructor.class, Destructor.class})
 @Many2Many(other = TypeRef.class, join = "parameters_typerefs", sourceFKName = "parameter_id", targetFKName = "type_ref_id")
 @Many2Many(other = Modifier.class, join = "parameters_modifiers", sourceFKName = "parameter_id", targetFKName = "modifier_id")
-@Table("PARAMETERS")
 public class Parameter extends Model {
 
     public Parameter() {
@@ -64,7 +63,7 @@ public class Parameter extends Model {
     }
 
     public void setName(String name) {
-        set("name", name);
+        setString("name", name);
         save();
     }
 

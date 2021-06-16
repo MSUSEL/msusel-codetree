@@ -39,7 +39,7 @@ public class PatternSpec extends DBSpec {
         pattern.set("patternKey", "pattern", "name", "pattern");
         a(pattern).shouldBe("valid");
         pattern.save();
-        pattern = Pattern.findById(25);
+        pattern = Pattern.findById(pattern.getId());
         a(pattern.getId()).shouldNotBeNull();
         a(pattern.get("name")).shouldBeEqual("pattern");
         a(pattern.get("patternKey")).shouldBeEqual("pattern");

@@ -76,6 +76,8 @@ public class Module extends Model implements Measurable, ComponentContainer {
         if (ns != null && ns.getParentModuleID() != null && ns.getParentModuleID().equals(getId())) {
             ns.setParentModuleID(null);
             ns.save();
+            java.lang.System.out.println("Updated module id");
+            ns.refresh();
         }
     }
 

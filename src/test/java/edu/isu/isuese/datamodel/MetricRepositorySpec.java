@@ -39,7 +39,7 @@ public class MetricRepositorySpec extends DBSpec {
         repo.set("repoKey", "key", "name", "repo");
         a(repo).shouldBe("valid");
         repo.save();
-        repo = MetricRepository.findById(1);
+        repo = (MetricRepository) MetricRepository.findAll().get(0);
         a(repo.getId()).shouldNotBeNull();
         a(repo.get("name")).shouldBeEqual("repo");
         a(repo.get("repoKey")).shouldBeEqual("key");
@@ -62,7 +62,7 @@ public class MetricRepositorySpec extends DBSpec {
 
         repo.add(metric);
         a(repo.getAll(Metric.class).size()).shouldBeEqual(1);
-        repo = MetricRepository.findById(1);
+        repo = (MetricRepository) MetricRepository.findAll().get(0);
         repo.removeMetric(metric);
         a(repo.getAll(Metric.class).size()).shouldBeEqual(0);
     }

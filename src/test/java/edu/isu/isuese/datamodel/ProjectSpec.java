@@ -39,7 +39,7 @@ public class ProjectSpec extends DBSpec {
         proj.set("projKey", "proj", "name", "proj", "version", "1.0");
         a(proj).shouldBe("valid");
         proj.save();
-        proj = Project.findById(1);
+        proj = (Project) Project.findAll().get(0);
         a(proj.getId()).shouldNotBeNull();
         a(proj.get("name")).shouldBeEqual("proj");
         a(proj.get("projKey")).shouldBeEqual("proj");
@@ -63,7 +63,7 @@ public class ProjectSpec extends DBSpec {
         p.addPatternInstance(inst);
 
         a(p.getAll(PatternInstance.class).size()).shouldBeEqual(1);
-        p = Project.findById(1);
+        p = (Project) Project.findAll().get(0);
         p.removePatternInstance(inst);
         a(p.getAll(PatternInstance.class).size()).shouldBeEqual(0);
     }
@@ -84,7 +84,7 @@ public class ProjectSpec extends DBSpec {
         p.addMeasure(meas);
 
         a(p.getAll(Measure.class).size()).shouldBeEqual(1);
-        p = Project.findById(1);
+        p = (Project) Project.findAll().get(0);
         p.removeMeasure(meas);
         a(p.getAll(Measure.class).size()).shouldBeEqual(0);
     }
@@ -105,7 +105,7 @@ public class ProjectSpec extends DBSpec {
         p.addFinding(finding);
 
         a(p.getAll(Finding.class).size()).shouldBeEqual(1);
-        p = Project.findById(1);
+        p = (Project) Project.findAll().get(0);
         p.removeFinding(finding);
         a(p.getAll(Finding.class).size()).shouldBeEqual(0);
     }
@@ -126,7 +126,7 @@ public class ProjectSpec extends DBSpec {
         p.addRelation(rel);
 
         a(p.getAll(Relation.class).size()).shouldBeEqual(1);
-        p = Project.findById(1);
+        p = (Project) Project.findAll().get(0);
         p.removeRelation(rel);
         a(p.getAll(Relation.class).size()).shouldBeEqual(0);
     }
@@ -149,7 +149,7 @@ public class ProjectSpec extends DBSpec {
         p.addSCM(scm);
 
         a(p.getAll(SCM.class).size()).shouldBeEqual(1);
-        p = Project.findById(1);
+        p = (Project) Project.findAll().get(0);
         p.removeSCM(scm);
         a(p.getAll(SCM.class).size()).shouldBeEqual(0);
     }
@@ -170,7 +170,7 @@ public class ProjectSpec extends DBSpec {
         p.addModule(module);
 
         a(p.getAll(Module.class).size()).shouldBeEqual(1);
-        p = Project.findById(1);
+        p = (Project) Project.findAll().get(0);
         p.removeModule(module);
         a(p.getAll(Module.class).size()).shouldBeEqual(0);
     }
@@ -191,7 +191,7 @@ public class ProjectSpec extends DBSpec {
         p.addLanguage(lang);
 
         a(p.getAll(Language.class).size()).shouldBeEqual(1);
-        p = Project.findById(1);
+        p = (Project) Project.findAll().get(0);
         p.removeLanguage(lang);
         a(p.getAll(Language.class).size()).shouldBeEqual(0);
     }

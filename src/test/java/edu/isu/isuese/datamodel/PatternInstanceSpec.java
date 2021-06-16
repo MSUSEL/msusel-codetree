@@ -39,7 +39,7 @@ public class PatternInstanceSpec extends DBSpec {
         inst.set("instKey", "inst");
         a(inst).shouldBe("valid");
         inst.save();
-        inst = PatternInstance.findById(1);
+        inst = (PatternInstance) PatternInstance.findAll().get(0);
         a(inst.getId()).shouldNotBeNull();
         a(inst.get("instKey")).shouldBeEqual("inst");
         a(PatternInstance.count()).shouldBeEqual(1);
@@ -61,7 +61,7 @@ public class PatternInstanceSpec extends DBSpec {
         inst.addRoleBinding(binding);
 
         a(inst.getRoleBindings().size()).shouldBeEqual(1);
-        inst = PatternInstance.findById(1);
+        inst = (PatternInstance) PatternInstance.findAll().get(0);
         inst.removeRoleBinding(binding);
         a(inst.getRoleBindings().size()).shouldBeEqual(0);
     }

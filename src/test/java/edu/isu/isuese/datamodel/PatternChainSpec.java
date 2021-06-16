@@ -39,7 +39,7 @@ public class PatternChainSpec extends DBSpec {
         chain.set("chainKey", "chain");
         a(chain).shouldBe("valid");
         chain.save();
-        chain = PatternChain.findById(1);
+        chain = (PatternChain) PatternChain.findAll().get(0);
         a(chain.getId()).shouldNotBeNull();
         a(chain.get("chainKey")).shouldBeEqual("chain");
         a(PatternChain.count()).shouldBeEqual(1);
@@ -63,7 +63,7 @@ public class PatternChainSpec extends DBSpec {
         chain.save();
 
         a(chain.getInstances().size()).shouldBeEqual(1);
-        chain = PatternChain.findById(1);
+        chain = (PatternChain) PatternChain.findAll().get(0);
         chain.remove(inst);
         a(chain.getInstances().size()).shouldBeEqual(0);
     }

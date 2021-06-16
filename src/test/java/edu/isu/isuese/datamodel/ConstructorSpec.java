@@ -26,6 +26,7 @@
  */
 package edu.isu.isuese.datamodel;
 
+import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.test.DBSpec;
 import org.junit.Test;
 
@@ -40,7 +41,7 @@ public class ConstructorSpec extends DBSpec {
         method.setAccessibility(Accessibility.PUBLIC);
         a(method).shouldBe("valid");
         method.save();
-        method = Constructor.findById(1);
+        method = (Constructor) Constructor.findAll().get(0);
         a(method.getId()).shouldNotBeNull();
         a(method.get("accessibility")).shouldBeEqual(Accessibility.PUBLIC.value());
         a(method.getAccessibility()).shouldBeEqual(Accessibility.PUBLIC);
@@ -73,7 +74,7 @@ public class ConstructorSpec extends DBSpec {
         Parameter param = Parameter.createIt("name", "param");
         method.add(param);
 
-        method = Constructor.findById(1);
+        method = (Constructor) Constructor.findAll().get(0);
         method.remove(param);
 
         a(Parameter.count()).shouldBeEqual(0);
@@ -106,7 +107,7 @@ public class ConstructorSpec extends DBSpec {
         method.addModifier(Modifier.Values.STATIC.name());
         method.save();
 
-        a(Constructor.findById(1).getAll(Modifier.class).size()).shouldBeEqual(1);
+        a(Constructor.findAll().get(0).getAll(Modifier.class).size()).shouldBeEqual(1);
     }
 
     @Test
@@ -116,7 +117,7 @@ public class ConstructorSpec extends DBSpec {
         method.addModifier(Modifier.Values.STATIC.name());
         method.save();
 
-        method = Constructor.findById(1);
+        method = (Constructor) Constructor.findAll().get(0);
         method.removeModifier(Modifier.Values.STATIC.name());
         a(method.getAll(Modifier.class).size()).shouldBeEqual(0);
     }

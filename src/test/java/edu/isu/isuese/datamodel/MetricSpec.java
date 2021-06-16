@@ -39,7 +39,7 @@ public class MetricSpec extends DBSpec {
         metric.set("metricKey", "metric", "name", "metric", "description", "description");
         a(metric).shouldBe("valid");
         metric.save();
-        metric = Metric.findById(1);
+        metric = (Metric) Metric.findAll().get(0);
         a(metric.getId()).shouldNotBeNull();
         a(metric.get("name")).shouldBeEqual("metric");
         a(metric.get("metricKey")).shouldBeEqual("metric");
@@ -63,7 +63,7 @@ public class MetricSpec extends DBSpec {
         metric.add(meas);
 
         a(metric.getMeasures().size()).shouldBeEqual(1);
-        metric = Metric.findById(1);
+        metric = (Metric) Metric.findAll().get(0);
         metric.removeMeasure(meas);
         a(metric.getMeasures().size()).shouldBeEqual(0);
     }

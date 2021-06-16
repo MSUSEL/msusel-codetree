@@ -40,7 +40,7 @@ public class FileSpec extends DBSpec {
         file.setType(FileType.SOURCE);
         a(file).shouldBe("valid");
         file.save();
-        file = File.findById(1);
+        file = (File) File.findAll().get(0);
         a(file.getId()).shouldNotBeNull();
         a(file.get("type")).shouldBeEqual(FileType.SOURCE.value());
         a(file.getType()).shouldBeEqual(FileType.SOURCE);
@@ -70,7 +70,7 @@ public class FileSpec extends DBSpec {
         Import imp = Import.createIt("name", "imp");
 
         file.addImport(imp);
-        file = File.findById(1);
+        file = (File) File.findAll().get(0);
         file.removeImport(imp);
 
         a(file.getAll(Import.class).isEmpty()).shouldBeTrue();

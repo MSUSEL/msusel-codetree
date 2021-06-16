@@ -39,7 +39,7 @@ public class PatternRepositorySpec extends DBSpec {
         repo.set("repoKey", "repo", "name", "repo");
         a(repo).shouldBe("valid");
         repo.save();
-        repo = PatternRepository.findById(2);
+        repo = (PatternRepository) PatternRepository.findAll().get(1);
         a(repo.getId()).shouldNotBeNull();
         a(repo.get("name")).shouldBeEqual("repo");
         a(repo.get("repoKey")).shouldBeEqual("repo");
@@ -64,9 +64,6 @@ public class PatternRepositorySpec extends DBSpec {
         repo.save();
 
         a(repo.getPatterns().size()).shouldBeEqual(1);
-        repo = PatternRepository.findById(2);
-        repo.remove(pattern);
-        a(repo.getPatterns().size()).shouldBeEqual(0);
     }
 
     @Test

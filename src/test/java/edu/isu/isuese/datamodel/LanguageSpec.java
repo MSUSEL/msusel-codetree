@@ -39,7 +39,7 @@ public class LanguageSpec extends DBSpec {
         lang.set("name", "lang");
         a(lang).shouldBe("valid");
         lang.save();
-        lang = Language.findById(1);
+        lang = (Language) Language.findAll().get(0);
         a(lang.getId()).shouldNotBeNull();
         a(lang.get("name")).shouldBeEqual("lang");
         a(Language.count()).shouldBeEqual(1);

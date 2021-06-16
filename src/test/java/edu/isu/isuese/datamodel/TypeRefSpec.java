@@ -40,7 +40,7 @@ public class TypeRefSpec extends DBSpec {
         typeRef.setType(TypeRefType.Type);
         a(typeRef).shouldBe("valid");
         typeRef.save();
-        typeRef = TypeRef.findById(1);
+        typeRef = (TypeRef) TypeRef.findAll().get(0);
         a(typeRef.getId()).shouldNotBeNull();
         a(typeRef.get("typeName")).shouldBeEqual("typeRef");
         a(typeRef.get("dimensions")).shouldBeNull();
@@ -88,7 +88,7 @@ public class TypeRefSpec extends DBSpec {
         typeRef.save();
 
         typeRef.addTypeArg(typeRef2);
-        typeRef = TypeRef.findById(1);
+        typeRef = (TypeRef) TypeRef.findAll().get(0);
         typeRef.remove(typeRef2);
 
         a(typeRef.getTypeArgs().size()).shouldBeEqual(0);
@@ -122,7 +122,7 @@ public class TypeRefSpec extends DBSpec {
         typeRef.save();
 
         typeRef.addBound(typeRef2);
-        typeRef = TypeRef.findById(1);
+        typeRef = (TypeRef) TypeRef.findAll().get(0);
         typeRef.remove(typeRef2);
 
         a(typeRef.getTypeArgs().size()).shouldBeEqual(0);
@@ -153,7 +153,7 @@ public class TypeRefSpec extends DBSpec {
         ref.setType(RefType.TYPE);
 
         typeRef.add(ref);
-        typeRef = TypeRef.findById(1);
+        typeRef = (TypeRef) TypeRef.findAll().get(0);
         typeRef.remove(ref);
 
         a(typeRef.getAll(Reference.class).size()).shouldBeEqual(0);

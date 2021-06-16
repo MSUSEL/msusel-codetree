@@ -39,7 +39,7 @@ public class NamespaceSpec extends DBSpec {
         ns.set("nsKey", "ns", "name", "ns");
         a(ns).shouldBe("valid");
         ns.save();
-        ns = Namespace.findById(1);
+        ns = (Namespace) Namespace.findAll().get(0);
         a(ns.getId()).shouldNotBeNull();
         a(ns.get("name")).shouldBeEqual("ns");
         a(ns.get("nsKey")).shouldBeEqual("ns");
@@ -61,7 +61,7 @@ public class NamespaceSpec extends DBSpec {
         Namespace ns2 = Namespace.createIt("nsKey", "ns2", "name", "ns2");
 
         ns.addNamespace(ns2);
-        ns = Namespace.findById(1);
+        ns = Namespace.findById(ns.getId());
         ns.removeNamespace(ns2);
         a(ns.getNamespaces().size()).shouldBeEqual(0);
     }

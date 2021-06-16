@@ -112,12 +112,14 @@ public class Namespace extends Model implements Measurable, ComponentContainer {
     public void addNamespace(Namespace ns) {
         if (ns != null && !ns.getName().equals(this.getName())) {
             ns.setParentNSID(getId());
+            ns.save();
         }
     }
 
     public void removeNamespace(Namespace ns) {
         if (ns != null && ns.getParentNSID() != null && ns.getParentNSID().equals(getId())) {
             ns.setParentNSID(null);
+            ns.save();
         }
     }
 

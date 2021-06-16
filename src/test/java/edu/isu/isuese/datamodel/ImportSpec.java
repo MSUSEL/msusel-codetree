@@ -39,7 +39,7 @@ public class ImportSpec extends DBSpec {
         imp.set("name", "imp");
         a(imp).shouldBe("valid");
         imp.save();
-        imp = Import.findById(1);
+        imp = (Import) Import.findAll().get(0);
         a(imp.getId()).shouldNotBeNull();
         a(imp.get("name")).shouldBeEqual("imp");
         a(Import.count()).shouldBeEqual(1);
