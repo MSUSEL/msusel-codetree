@@ -43,7 +43,7 @@ public class Initializer extends Member {
     @Builder(buildMethodName = "create")
     public Initializer(String name, int start, int end, String compKey, Accessibility accessibility, boolean instance) {
         set("name", name, "start", start, "end", end, "compKey", compKey, "instance", instance);
-        set("localVars", 0, "returnStmts", 0, "numStmts", 0, "numDecisionPoints", 0);
+        set("localVars", 0, "returnStmts", 1, "numStmts", 0, "numDecisionPoints", 0);
         if (accessibility != null)
             setAccessibility(accessibility);
         else

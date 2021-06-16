@@ -55,7 +55,7 @@ public class Method extends TypedMember {
     @Builder(buildMethodName = "create")
     public Method(String name, int start, int end, String compKey, Accessibility accessibility, TypeRef type) {
         set("name", name, "start", start, "end", end, "compKey", compKey);
-        set("localVars", 0, "returnStmts", 0, "numStmts", 0, "numDecisionPoints", 0);
+        set("localVars", 0, "returnStmts", 1, "numStmts", 0, "numDecisionPoints", 0);
         if (accessibility != null)
             setAccessibility(accessibility);
         else

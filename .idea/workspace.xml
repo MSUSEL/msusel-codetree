@@ -14,6 +14,8 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Initializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Initializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Method.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/BaseModelBuilder.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -945,7 +947,7 @@
       <workItem from="1623180822742" duration="1895000" />
       <workItem from="1623357059249" duration="8163000" />
       <workItem from="1623752966971" duration="3984000" />
-      <workItem from="1623849091388" duration="22725000" />
+      <workItem from="1623849091388" duration="23743000" />
     </task>
     <servers />
   </component>
