@@ -133,9 +133,9 @@ abstract class BaseModelBuilder {
     void findClass(String name) {
         Type type
         if (types)
-            type = Type.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
+            type = Type.findFirst("key = ?", (String) "${types.peek().getCompKey()}.$name")
         else
-            type = Type.findFirst("key = ?", "${file.getFileKey()}:$name")
+            type = Type.findFirst("key = ?", (String) "${file.getFileKey()}:$name")
         types.push(type)
     }
 
@@ -165,9 +165,9 @@ abstract class BaseModelBuilder {
     void findEnum(String name) {
         Type type
         if (types)
-            type = Type.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
+            type = Type.findFirst("key = ?", (String) "${types.peek().getCompKey()}.$name")
         else
-            type = Type.findFirst("key = ?", "${file.getFileKey()}:$name")
+            type = Type.findFirst("key = ?", (String) "${file.getFileKey()}:$name")
         types.push(type)
     }
 
@@ -197,9 +197,9 @@ abstract class BaseModelBuilder {
     void findInterface(String name) {
         Type type
         if (types)
-            type = Type.findFirst("key = ?", "${types.peek().getCompKey()}.$name")
+            type = Type.findFirst("key = ?", (String) "${types.peek().getCompKey()}.$name")
         else
-            type = Type.findFirst("key = ?", "${file.getFileKey()}:$name")
+            type = Type.findFirst("key = ?", (String) "${file.getFileKey()}:$name")
         types.push(type)
     }
 
@@ -265,7 +265,7 @@ abstract class BaseModelBuilder {
     ///////////////////
 
     void findInitializer(String name, boolean instance) {
-        Initializer init = types ? Initializer.findFirst("key = ?", "${types.peek().getCompKey()}:$name") : null
+        Initializer init = types ? Initializer.findFirst("key = ?", (String) "${types.peek().getCompKey()}:$name") : null
         if (init) methods.push(init)
     }
 
@@ -290,7 +290,7 @@ abstract class BaseModelBuilder {
     }
 
     void findMethod(String signature) {
-        Method meth = types ? Method.findFirst("compKey = ?", "${types.peek().getCompKey()}#$signature") : null
+        Method meth = types ? Method.findFirst("compKey = ?", (String) "${types.peek().getCompKey()}#$signature") : null
         if (meth) methods.push(meth)
     }
 
@@ -314,7 +314,7 @@ abstract class BaseModelBuilder {
     }
 
     void findConstructor(String signature) {
-        Constructor cons = types ? Constructor.findFirst("compKey = ?", "${types.peek().getCompKey()}#$signature") : null
+        Constructor cons = types ? Constructor.findFirst("compKey = ?", (String) "${types.peek().getCompKey()}#$signature") : null
         if (cons) methods.push(cons)
     }
 
