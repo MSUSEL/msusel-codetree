@@ -48,8 +48,11 @@ class ControlFlowNodeFactory {
             case NodeType.BLKSTRT:
                 return BlockStart.builder().type(StatementType.valueOf(stmttype)).label(Integer.parseInt(label)).create()
             case NodeType.LABELED:
-                int intLabel = Integer.parseInt(label.split(":")[0])
-                String codeLabel = label.split(":")[1]
+                String[] labels = label.split(":")
+                int intLabel = Integer.parseInt(labels[0])
+                String codeLabel = ""
+                if (labels.size() > 1)
+                    codeLabel = label.split(":")[1]
                 return LabeledStatement.builder().label(intLabel).codeLabel(codeLabel).create()
             case NodeType.LOOPSTRT:
                 return LoopStart.builder().type(StatementType.valueOf(stmttype)).label(Integer.parseInt(label)).create()
