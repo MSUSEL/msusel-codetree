@@ -12,7 +12,9 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/isu/isuese/datamodel/util/reset_mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/isu/isuese/datamodel/util/reset_mysql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/util/DBManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/util/DBManager.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -919,7 +921,7 @@
       <workItem from="1623180822742" duration="1895000" />
       <workItem from="1623357059249" duration="8163000" />
       <workItem from="1623752966971" duration="3984000" />
-      <workItem from="1623849091388" duration="4392000" />
+      <workItem from="1623849091388" duration="4517000" />
     </task>
     <servers />
   </component>

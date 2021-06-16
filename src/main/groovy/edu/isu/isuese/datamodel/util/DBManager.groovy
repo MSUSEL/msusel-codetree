@@ -134,10 +134,11 @@ class DBManager {
             new File(filename).delete()
         } else {
             Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { sql ->
+                
                 tables.each {
-                    ResultSet rs = sql.connection.metaData.getTables(null, "calibration", it, null)
+                    ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
                     if (rs.next())
-                        sql.execute("drop table `$it`;")
+                        sql.execute("drop table if exists `$it`;")
                 }
             }
         }
