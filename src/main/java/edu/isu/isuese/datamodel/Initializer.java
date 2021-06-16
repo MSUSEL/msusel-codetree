@@ -43,6 +43,7 @@ public class Initializer extends Member {
     @Builder(buildMethodName = "create")
     public Initializer(String name, int start, int end, String compKey, Accessibility accessibility, boolean instance) {
         set("name", name, "start", start, "end", end, "compKey", compKey, "instance", instance);
+        set("localVars", 0, "returnStmts", 0, "numStmts", 0, "numDecisionPoints", 0);
         if (accessibility != null)
             setAccessibility(accessibility);
         else
@@ -80,8 +81,40 @@ public class Initializer extends Member {
         setInteger("localVars", count);
     }
 
+    public void incrementLocalVarCount() {
+        setInteger("localVars", getInteger("localVars") + 1);
+        save();
+    }
+
     public int getLocalVarCount() {
         return getInteger("localVars");
+    }
+
+    public void incrementReturnStmts() {
+        setInteger("returnStmts", getInteger("returnStmts") + 1);
+        save();
+    }
+
+    public int getReturnStmts() {
+        return getInteger("returnStmts");
+    }
+
+    public void incrementNumberOfStmts() {
+        setInteger("numStmts", getInteger("numStmts") + 1);
+        save();
+    }
+
+    public int getNumStmts() {
+        return getInteger("numStmts");
+    }
+
+    public void incrementNumDecisionPoints() {
+        setInteger("numDecisionPoints", getInteger("numDecisionPoints") + 1);
+        save();
+    }
+
+    public int getNumDecisionPoints() {
+        return getInteger("numDecisionPoints");
     }
 
     public ControlFlowGraph getCfg() {

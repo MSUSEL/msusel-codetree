@@ -55,6 +55,7 @@ public class Method extends TypedMember {
     @Builder(buildMethodName = "create")
     public Method(String name, int start, int end, String compKey, Accessibility accessibility, TypeRef type) {
         set("name", name, "start", start, "end", end, "compKey", compKey);
+        set("localVars", 0, "returnStmts", 0, "numStmts", 0, "numDecisionPoints", 0);
         if (accessibility != null)
             setAccessibility(accessibility);
         else
@@ -228,7 +229,7 @@ public class Method extends TypedMember {
 
     public Set<Field> getFieldsUsedSameClass() {
         Set<Field> set = Sets.newHashSet();
-        getFieldsUsed().forEach( member -> {
+        getFieldsUsed().forEach(member -> {
             if (member.getParentType().equals(this.getParentType()))
                 set.add(member);
         });
@@ -248,7 +249,7 @@ public class Method extends TypedMember {
 
     public Set<Method> getMethodsUsedSameClass() {
         Set<Method> set = Sets.newHashSet();
-        getMethodsCalled().forEach( member -> {
+        getMethodsCalled().forEach(member -> {
             if (member.getParentType().equals(this.getParentType()))
                 set.add(member);
         });
@@ -369,9 +370,42 @@ public class Method extends TypedMember {
 
     public void setLocalVarCount(int count) {
         setInteger("localVars", count);
+        save();
+    }
+
+    public void incrementLocalVarCount() {
+        setInteger("localVars", getInteger("localVars") + 1);
+        save();
     }
 
     public int getLocalVarCount() {
         return getInteger("localVars");
+    }
+
+    public void incrementReturnStmts() {
+        setInteger("returnStmts", getInteger("returnStmts") + 1);
+        save();
+    }
+
+    public int getReturnStmts() {
+        return getInteger("returnStmts");
+    }
+
+    public void incrementNumberOfStmts() {
+        setInteger("numStmts", getInteger("numStmts") + 1);
+        save();
+    }
+
+    public int getNumStmts() {
+        return getInteger("numStmts");
+    }
+
+    public void incrementNumDecisionPoints() {
+        setInteger("numDecisionPoints", getInteger("numDecisionPoints") + 1);
+        save();
+    }
+
+    public int getNumDecisionPoints() {
+        return getInteger("numDecisionPoints");
     }
 }
