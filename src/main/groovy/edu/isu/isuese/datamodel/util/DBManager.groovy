@@ -26,7 +26,7 @@
  */
 package edu.isu.isuese.datamodel.util
 
-import com.google.common.flogger.FluentLogger
+
 import groovy.sql.Sql
 import groovy.util.logging.Log4j2
 import org.javalite.activejdbc.Base
@@ -134,13 +134,13 @@ class DBManager {
             new File(filename).delete()
         } else {
             Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { sql ->
-                sql.execute("SET FOREIGN_KEY_CHECKS = 0;")
+                sql.execute("SET FOREIGN_KEY_CHECKS = 0")
                 tables.each {
-                    ResultSet rs = sql.connection.metaData.getTables(null, null, it, null)
-                    if (rs.next())
-                        sql.execute("drop table if exists `$it`;")
+                    sql.execute """
+                        drop table if exists ${it}
+                    """
                 }
-                sql.execute("SET FOREIGN_KEY_CHECKS = 1;")
+                sql.execute("SET FOREIGN_KEY_CHECKS = 1")
             }
         }
 

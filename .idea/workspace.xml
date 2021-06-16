@@ -7,13 +7,14 @@
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/resources/database.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/migrations/20181120060107_create_test_db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/groovy/edu/isu/isuese/datamodel/util/DBManagerTest.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/GitHubSearchCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/util/DBManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/util/DBManager.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,13 +133,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547682444928" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Spock" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="org.javalite.activejdbc.test.DBSpec" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Spock" value="spock.lang.Specification" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/../msusel-patterns-experimenter/src/test/java/edu/montana/gsoc/msusel/arc" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/groovy/edu/isu/isuese/datamodel" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../msusel-quamoco" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -165,9 +166,9 @@
       <recent name="$PROJECT_DIR$/../msusel-parent/src/main/resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
+      <recent name="spock.lang.Specification" />
       <recent name="org.javalite.activejdbc.test.DBSpec" />
       <recent name="" />
-      <recent name="spock.lang.Specification" />
       <recent name="edu.montana.gsoc.msusel.inject.transform.BaseSourceTransformSpec" />
       <recent name="edu.montana.gsoc.msusel.inject.transform.model.namespace.NamespaceModelTransformBaseTest" />
     </key>
@@ -189,11 +190,11 @@
       <recent name="edu.isu.isuese" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="edu.isu.isuese.datamodel.util" />
       <recent name="edu.montana.gsoc.msusel.datamodel.parsers" />
       <recent name="edu.isu.isuese.detstrat.impl" />
       <recent name="edu.isu.isuese.detstrat" />
       <recent name="edu.montana.gsoc.msusel.inject.transform.source" />
-      <recent name="edu.montana.gsoc.msusel.inject" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="edu.isu.isuese.datamodel" />
@@ -208,7 +209,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in msusel-rbml-dsl">
+  <component name="RunManager" selected="JUnit.DBManagerTest">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -227,6 +228,17 @@
       <setting name="configType" value="SPECIFY" />
       <setting name="fixLineNumbers" value="false" />
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="All in msusel-pattern-generator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="msusel-pattern-generator" />
@@ -260,28 +272,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="datamodel in msusel-codetree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DBManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="msusel-codetree" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/edu/isu/isuese/datamodel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.isu.isuese.datamodel.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.isu.isuese.datamodel.util" />
+      <option name="MAIN_CLASS_NAME" value="edu.isu.isuese.datamodel.util.DBManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.datamodel in msusel-codetree" />
       <item itemvalue="JUnit.All in msusel-pattern-generator" />
       <item itemvalue="JUnit.All in msusel-quamoco" />
       <item itemvalue="JUnit.All in msusel-software-injector" />
       <item itemvalue="JUnit.All in msusel-rbml-dsl" />
+      <item itemvalue="JUnit.DBManagerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DBManagerTest" />
         <item itemvalue="JUnit.All in msusel-rbml-dsl" />
         <item itemvalue="JUnit.All in msusel-quamoco" />
         <item itemvalue="JUnit.All in msusel-software-injector" />
         <item itemvalue="JUnit.All in msusel-pattern-generator" />
-        <item itemvalue="JUnit.datamodel in msusel-codetree" />
       </list>
     </recent_temporary>
   </component>
@@ -920,7 +939,7 @@
       <workItem from="1623180822742" duration="1895000" />
       <workItem from="1623357059249" duration="8163000" />
       <workItem from="1623752966971" duration="3984000" />
-      <workItem from="1623849091388" duration="4586000" />
+      <workItem from="1623849091388" duration="6460000" />
     </task>
     <servers />
   </component>
