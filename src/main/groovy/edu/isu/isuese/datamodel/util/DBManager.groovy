@@ -46,7 +46,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock
 class DBManager {
 
     boolean open
-    ReadWriteLock lock = new ReentrantReadWriteLock()
+//    ReadWriteLock lock = new ReentrantReadWriteLock()
 
     List<String> tables = [
             'constructors', 'constructors_measures', 'constructors_method_exceptions', 'constructors_modifiers', 'constructors_template_params', 'constructors_typerefs',
@@ -81,7 +81,7 @@ class DBManager {
     ]
 
     def open(DBCredentials creds) {
-        lock.writeLock().lock()
+//        lock.writeLock().lock()
 //        if (open)
 //            return
         try {
