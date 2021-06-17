@@ -117,6 +117,11 @@ public class Initializer extends Member {
         return getInteger("numDecisionPoints");
     }
 
+    public void setCounts(int varCount, int returnCount, int stmtCount, int decisionCount) {
+        set("localVars", varCount, "returnStmts", returnCount, "numStmts", stmtCount, "numDecisionPoints", decisionCount);
+        save();
+    }
+
     public ControlFlowGraph getCfg() {
         return ControlFlowGraph.fromString(getString("cfg"));
     }

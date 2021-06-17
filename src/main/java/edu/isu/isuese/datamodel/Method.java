@@ -405,6 +405,11 @@ public class Method extends TypedMember {
         save();
     }
 
+    public void setCounts(int varCount, int returnCount, int stmtCount, int decisionCount) {
+        set("localVars", varCount, "returnStmts", returnCount, "numStmts", stmtCount, "numDecisionPoints", decisionCount);
+        save();
+    }
+
     public int getNumDecisionPoints() {
         return getInteger("numDecisionPoints");
     }
