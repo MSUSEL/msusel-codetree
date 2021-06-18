@@ -81,7 +81,7 @@ class DBManager {
     ]
 
     def open(DBCredentials creds) {
-//        lock.writeLock().lock()
+        lock.writeLock().lock()
         if (open)
             return
         try {
@@ -110,7 +110,7 @@ class DBManager {
             return
         } finally {
             open = false
-//            lock.writeLock().unlock()
+            lock.writeLock().unlock()
         }
     }
 
