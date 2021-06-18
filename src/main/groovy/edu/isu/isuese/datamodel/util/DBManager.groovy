@@ -90,8 +90,9 @@ class DBManager {
         catch (DBException ex) {
             log.error(ex.getMessage())
             return
+        } finally {
+            open = true
         }
-        open = true
     }
 
     def rollback() {
@@ -102,9 +103,15 @@ class DBManager {
     def close() {
 //        if (!open)
 //            return
-        Base.close()
-        open = false
-        lock.writeLock().unlock()
+        try {
+            Base.close()
+        } catch (DBException ex) {
+            log.error(ex.getMessage())
+            return
+        } finally {
+            open = false
+            lock.writeLock().unlock()
+        }
     }
 
     void checkDatabaseAndCreateIfMissing(DBCredentials creds) {
