@@ -136,6 +136,7 @@ public class Measure extends Model {
 
     public Measure on(Measurable m) {
         Reference ref = Reference.createIt("refKey", m.getRefKey());
+        set("measureKey", m.getRefKey() + ":" + getMetricKey());
         add(ref);
         save();
         m.addMeasure(this);

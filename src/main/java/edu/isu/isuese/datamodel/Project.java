@@ -801,4 +801,8 @@ public class Project extends Model implements Measurable, ComponentContainer {
             return 0.0;
         }
     }
+
+    public boolean hasValueFor(String metricKey) {
+        return get(Measure.class, "metricKey = ?", metricKey).size() > 0;
+    }
 }

@@ -61,4 +61,6 @@ public interface Measurable {
     List<Measure> getMeasures();
 
     double getValueFor(String metricKey);
+
+    boolean hasValueFor(String metricKey);
 }

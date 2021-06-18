@@ -211,5 +211,9 @@ public abstract class Component extends Model implements Measurable {
         }
     }
 
+    public boolean hasValueFor(String metricKey) {
+        return get(Measure.class, "metricKey = ?", metricKey).size() > 0;
+    }
+
     public abstract Reference createReference();
 }

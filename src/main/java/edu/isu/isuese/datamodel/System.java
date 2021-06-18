@@ -431,4 +431,8 @@ public class System extends Model implements Measurable, Structure {
             return 0.0;
         }
     }
+
+    public boolean hasValueFor(String metricKey) {
+        return get(Measure.class, "metricKey = ?", metricKey).size() > 0;
+    }
 }

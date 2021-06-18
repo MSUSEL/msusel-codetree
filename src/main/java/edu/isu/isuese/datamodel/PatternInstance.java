@@ -303,4 +303,8 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
             return 0.0;
         }
     }
+
+    public boolean hasValueFor(String metricKey) {
+        return get(Measure.class, "metricKey = ?", metricKey).size() > 0;
+    }
 }
