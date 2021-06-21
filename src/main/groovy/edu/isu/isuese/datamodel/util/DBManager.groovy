@@ -110,7 +110,8 @@ class DBManager {
             return
         } finally {
             open = false
-            lock.writeLock().unlock()
+            if (lock.isWriteLockedByCurrentThread())
+                lock.writeLock().unlock()
         }
     }
 
