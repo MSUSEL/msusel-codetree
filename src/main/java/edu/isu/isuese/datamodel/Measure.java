@@ -236,4 +236,17 @@ public class Measure extends Model {
             return value;
         }
     }
+
+    public static boolean hasValueFor(String repoKey, String handle, Measurable comp) {
+        String metricKey = repoKey + ":" + handle;
+        String compKey = comp.getRefKey();
+        Metric parent = Metric.findFirst("metricKey = ?", metricKey);
+
+        for (Measure measure : parent.getMeasures()) {
+            if (measure.getReference().getRefKey().equals(compKey)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
