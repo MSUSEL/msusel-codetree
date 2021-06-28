@@ -228,8 +228,10 @@ public class TypeRef extends Model {
             types.addAll(Type.find("compKey = ?", getReference().getRefKey()));
 
             for (Type t : types) {
-                if (t.getParentProjects().get(0).getProjectKey().equals(projKey))
-                    return t;
+                if (t.getParentProject() != null) {
+                    if (t.getParentProject().getProjectKey().equals(projKey))
+                        return t;
+                }
             }
         }
 
