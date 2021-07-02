@@ -204,7 +204,8 @@ public abstract class Component extends Model implements Measurable {
 
     public double getValueFor(String metricKey) {
         try {
-            Measure measure = get(Measure.class, "metricKey = ?", metricKey).get(0);
+            List<Measure> measures = get(Measure.class, "metricKey = ?", metricKey);
+            Measure measure = measures.get(measures.size() - 1);
             return measure.getValue();
         } catch (IndexOutOfBoundsException ex) {
             return 0.0;

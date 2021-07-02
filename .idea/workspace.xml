@@ -14,7 +14,15 @@
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/PatternGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../isuese-gitsearch/src/main/java/edu/isu/cs/isuese/arc/impl/ghsearch/Searcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/ParallelJavaArtifactIdentifier.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/groovy/edu/montana/gsoc/msusel/datamodel/parsers/ParallelJavaArtifactIdentifier.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Namespace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/System.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/ComponentEntanglement.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/ComponentEntanglement.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/Duplication.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/quality/sigmain/Duplication.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +69,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-java-parser" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -940,6 +948,7 @@
       <workItem from="1624299239920" duration="26284000" />
       <workItem from="1624570979887" duration="3200000" />
       <workItem from="1624750477255" duration="36796000" />
+      <workItem from="1625136277099" duration="9216000" />
     </task>
     <servers />
   </component>
