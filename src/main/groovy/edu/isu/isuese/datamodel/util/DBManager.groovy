@@ -115,6 +115,14 @@ class DBManager {
         }
     }
 
+    def openTransaction() {
+        Base.openTransaction()
+    }
+
+    def commitTransaction() {
+        Base.commitTransaction()
+    }
+
     void checkDatabaseAndCreateIfMissing(DBCredentials creds) {
         boolean missing = false
         Sql.withInstance(creds.url, creds.user, creds.pass, creds.driver) { Sql sql ->
