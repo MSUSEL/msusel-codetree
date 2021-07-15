@@ -129,6 +129,7 @@ public class Measure extends Model {
     public static Measure of(String metricKey) {
         Measure m = Measure.create("metricKey", metricKey);
         m.save();
+        java.lang.System.out.println("Metric Key: " + metricKey);
         Metric met = Metric.findFirst("metricKey = ?", metricKey);
         met.addMeasure(m);
         return m;
