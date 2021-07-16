@@ -129,7 +129,6 @@ public class Measure extends Model {
     public static Measure of(String metricKey) {
         Measure m = Measure.create("metricKey", metricKey);
         m.save();
-        java.lang.System.out.println("Metric Key: " + metricKey);
         Metric met = Metric.findFirst("metricKey = ?", metricKey);
         met.addMeasure(m);
         return m;
@@ -227,14 +226,7 @@ public class Measure extends Model {
         if (MeasureTable.getInstance().contains(compKey, metricKey)) {
             return MeasureTable.getInstance().getValue(compKey, metricKey);
         } else {
-            Metric parent = Metric.findFirst("metricKey = ?", metricKey);
-            double value = 0;
-            for (Measure measure : parent.getMeasures()) {
-                if (measure.getReference().getRefKey().equals(comp.getRefKey())) {
-                    return measure.getValue();
-                }
-            }
-            return value;
+            return comp.getValueFor(metricKey);
         }
     }
 
