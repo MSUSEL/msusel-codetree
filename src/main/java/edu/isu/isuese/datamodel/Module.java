@@ -272,7 +272,7 @@ public class Module extends Model implements Measurable, ComponentContainer {
         String[] paths = getSrcPaths();
         if (paths.length > 0)
             if (paths[index].contains(getRelPath()))
-                return paths[index].replace(getRelPath() + "/", "");
+                return paths[index].replace(getRelPath() + java.io.File.separator, "");
             else return paths[index];
         else
             return getParentProject().getSrcPath(index);
