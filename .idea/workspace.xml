@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../msusel-config/src/main/groovy/edu/montana/gsoc/msusel/config/DefaultConfigProvider.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-config/src/main/groovy/edu/montana/gsoc/msusel/config/DefaultConfigProvider.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/JavaEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/java/edu/montana/gsoc/msusel/datamodel/parsers/JavaEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaCodeGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaCodeGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/SystemBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/SystemBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/quality/quamoco/QuamocoConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/java/edu/montana/gsoc/msusel/arc/impl/quality/quamoco/QuamocoConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/eval/Evaluation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/MeasurementMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/java/edu/montana/gsoc/msusel/quamoco/model/measurement/MeasurementMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/Director.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/Director.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularOrgGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularOrgGrimeInjector.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/PackageOrgGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/PackageOrgGrimeInjector.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/AddFileModelTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/model/namespace/AddFileModelTransform.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/AbstractSourceTransform.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/AbstractSourceTransform.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddNamespace.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/transform/source/structural/AddNamespace.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -964,7 +955,7 @@
       <workItem from="1626048621742" duration="13686000" />
       <workItem from="1626374159850" duration="2092000" />
       <workItem from="1626376462763" duration="20775000" />
-      <workItem from="1626461772656" duration="26982000" />
+      <workItem from="1626461772656" duration="30587000" />
     </task>
     <servers />
   </component>
