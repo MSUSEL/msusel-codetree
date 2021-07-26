@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/PatternBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/PatternBuilder.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -943,7 +942,7 @@
       <workItem from="1626374159850" duration="2092000" />
       <workItem from="1626376462763" duration="20775000" />
       <workItem from="1626461772656" duration="31416000" />
-      <workItem from="1626981119619" duration="16193000" />
+      <workItem from="1626981119619" duration="16813000" />
     </task>
     <servers />
   </component>
