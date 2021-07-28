@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/java/visitor.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/java/visitor.tp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/resources/rbmldef/visitor.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/resources/rbmldef/visitor.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +54,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-rbml-dsl" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-pattern-generator" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -954,7 +956,7 @@
       <workItem from="1626376462763" duration="20775000" />
       <workItem from="1626461772656" duration="31416000" />
       <workItem from="1626981119619" duration="36220000" />
-      <workItem from="1627352441670" duration="34126000" />
+      <workItem from="1627352441670" duration="35213000" />
     </task>
     <servers />
   </component>
