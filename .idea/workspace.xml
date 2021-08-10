@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/Cue.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/Cue.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/CueManager.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/cue/CueManager.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaFieldGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaFieldGenerator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/RelationshipBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/pb/RelationshipBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/CLI.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/CLI.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/factory/BehavioralFeatureRoleFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/groovy/edu/montana/gsoc/msusel/rbml/factory/BehavioralFeatureRoleFactory.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaGradleBuildFileGenerator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/groovy/edu/montana/gsoc/msusel/pattern/gen/generators/java/JavaGradleBuildFileGenerator.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +53,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-rbml-dsl" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-software-injector" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -194,11 +189,11 @@
       <recent name="edu.montana.gsoc.msusel.inject.transform.source" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="edu.montana.gsoc.msusel.arc.app.runner.test" />
       <recent name="edu.montana.gsoc.msusel.arc.impl.java" />
       <recent name="edu.montana.gsoc.msusel.arc.impl.metrics" />
       <recent name="edu.isu.isuese.datamodel" />
       <recent name="edu.montana.gsoc.msusel.datamodel.parsers" />
-      <recent name="edu.isu.isuese.datamodel.util" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -208,7 +203,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.java in msusel-codetree">
+  <component name="RunManager" selected="JUnit.ClassGrimeInjectorTest">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -228,16 +223,29 @@
       <setting name="fixLineNumbers" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="ConstructorSpec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="msusel-codetree" />
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClassGrimeInjectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msusel-software-injector" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.isu.isuese.datamodel.*" />
+          <option name="PATTERN" value="edu.montana.gsoc.msusel.inject.grime.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.isu.isuese.datamodel" />
-      <option name="MAIN_CLASS_NAME" value="edu.isu.isuese.datamodel.ConstructorSpec" />
+      <option name="PACKAGE_NAME" value="edu.montana.gsoc.msusel.inject.grime" />
+      <option name="MAIN_CLASS_NAME" value="edu.montana.gsoc.msusel.inject.grime.ClassGrimeInjectorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -282,19 +290,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ConstructorSpec" />
       <item itemvalue="JUnit.datamodel in msusel-codetree" />
       <item itemvalue="JUnit.edu.isu.isuese.datamodel.util in msusel-codetree" />
       <item itemvalue="JUnit.groovy in msusel-codetree" />
       <item itemvalue="JUnit.java in msusel-codetree" />
+      <item itemvalue="JUnit.ClassGrimeInjectorTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClassGrimeInjectorTest" />
         <item itemvalue="JUnit.java in msusel-codetree" />
         <item itemvalue="JUnit.groovy in msusel-codetree" />
         <item itemvalue="JUnit.edu.isu.isuese.datamodel.util in msusel-codetree" />
         <item itemvalue="JUnit.datamodel in msusel-codetree" />
-        <item itemvalue="JUnit.ConstructorSpec" />
       </list>
     </recent_temporary>
   </component>
@@ -952,7 +960,12 @@
       <workItem from="1627352441670" duration="51226000" />
       <workItem from="1627486303973" duration="1550000" />
       <workItem from="1627495181616" duration="77458000" />
-      <workItem from="1627780073845" duration="1491000" />
+      <workItem from="1627780073845" duration="2092000" />
+      <workItem from="1627829931035" duration="917000" />
+      <workItem from="1627832196167" duration="233000" />
+      <workItem from="1627859483420" duration="3290000" />
+      <workItem from="1627896338337" duration="6863000" />
+      <workItem from="1628429182210" duration="6749000" />
     </task>
     <servers />
   </component>
