@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-java-parser/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-java-parser/src/main/resources/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-loc-metrics/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-loc-metrics/src/main/resources/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-metrics/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-metrics/src/main/resources/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/resources/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-quamoco/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-quamoco/src/main/resources/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-rbml-dsl/src/main/resources/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/resources/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/GrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/GrimeInjector.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,19 +223,6 @@
       <setting name="fixLineNumbers" value="false" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ClassGrimeInjectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="msusel-software-injector" />
       <extension name="coverage">
@@ -298,19 +277,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.ClassGrimeInjectorTest" />
       <item itemvalue="JUnit.datamodel in msusel-codetree" />
       <item itemvalue="JUnit.edu.isu.isuese.datamodel.util in msusel-codetree" />
       <item itemvalue="JUnit.groovy in msusel-codetree" />
       <item itemvalue="JUnit.java in msusel-codetree" />
-      <item itemvalue="JUnit.ClassGrimeInjectorTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClassGrimeInjectorTest" />
         <item itemvalue="JUnit.java in msusel-codetree" />
         <item itemvalue="JUnit.groovy in msusel-codetree" />
         <item itemvalue="JUnit.edu.isu.isuese.datamodel.util in msusel-codetree" />
         <item itemvalue="JUnit.datamodel in msusel-codetree" />
+        <item itemvalue="JUnit.ClassGrimeInjectorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -973,7 +952,7 @@
       <workItem from="1627832196167" duration="233000" />
       <workItem from="1627859483420" duration="3290000" />
       <workItem from="1627896338337" duration="6863000" />
-      <workItem from="1628429182210" duration="7020000" />
+      <workItem from="1628429182210" duration="8719000" />
     </task>
     <servers />
   </component>
