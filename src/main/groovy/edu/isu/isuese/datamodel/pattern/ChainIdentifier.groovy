@@ -60,8 +60,8 @@ class ChainIdentifier {
             Project next = projects[i + 1]
 
             Pattern.findAll().each { pattern ->
-                List<PatternInstance> currInsts = PatternInstance.find("project_id = ? AND pattern_id = ?", current.getId(), pattern.getId())
-                List<PatternInstance> nextInsts = PatternInstance.find("project_id = ? AND pattern_id = ?", next.getId(), pattern.getId())
+                List<PatternInstance> currInsts = PatternInstance.find("project_id = ? AND parent_pattern_id = ?", current.getId(), pattern.getId())
+                List<PatternInstance> nextInsts = PatternInstance.find("project_id = ? AND parent_pattern_id = ?", next.getId(), pattern.getId())
 
                 for (int currNdx = 0; currNdx < currInsts.size(); currNdx++) {
                     for (int nextNdx = 0; nextNdx < nextInsts.size(); nextNdx++) {
