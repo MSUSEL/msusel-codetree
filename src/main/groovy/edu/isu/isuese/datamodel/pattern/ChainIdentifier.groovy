@@ -73,6 +73,8 @@ class ChainIdentifier {
                     log.info "Current Instance ID: ${currInsts[currNdx].getId()}"
                     for (int nextNdx = 0; nextNdx < nextInsts.size(); nextNdx++) {
                         log.info "Next Instance ID: ${nextInsts[nextNdx].getId()}"
+                        if (nextInsts[nextNdx].isMatched())
+                            continue
                         if (checkMatchingInstances(currInsts[currNdx], nextInsts[nextNdx])) {
                             log.info "Match Found"
                             createGraphEntry(currInsts[currNdx], nextInsts[nextNdx])

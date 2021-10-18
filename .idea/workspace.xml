@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/pattern/ChainIdentifier.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/groovy/edu/isu/isuese/datamodel/pattern/ChainIdentifier.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/isu/isuese/datamodel/PatternInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/migrations/20210616060107_create_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/20210616060107_create_db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -969,7 +965,7 @@
       <workItem from="1628429182210" duration="10133000" />
       <workItem from="1629292204953" duration="744000" />
       <workItem from="1629395083890" duration="1804000" />
-      <workItem from="1634547442924" duration="8870000" />
+      <workItem from="1634547442924" duration="9371000" />
     </task>
     <servers />
   </component>
