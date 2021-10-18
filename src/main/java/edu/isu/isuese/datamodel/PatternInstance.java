@@ -45,10 +45,15 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
     @Builder(buildMethodName = "create")
     public PatternInstance(String instKey) {
         set("instKey", instKey);
+        set("matched", true);
         saveIt();
     }
 
     public String getInstKey() { return getString("instKey"); }
+
+    public boolean isMatched() { return getBoolean("matched"); }
+
+    public void setMatched(boolean matched) { setBoolean("matched", matched); save(); }
 
     public void addRoleBinding(RoleBinding binding) { add(binding); save(); }
 

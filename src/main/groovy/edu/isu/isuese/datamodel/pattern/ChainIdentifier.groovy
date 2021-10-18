@@ -127,6 +127,8 @@ class ChainIdentifier {
         if (!first || !second)
             return
 
+        second.setMatched(true)
+
         graph.addNode(first)
         graph.addNode(second)
         graph.putEdge(first, second)
