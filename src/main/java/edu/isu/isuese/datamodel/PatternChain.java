@@ -28,6 +28,7 @@ package edu.isu.isuese.datamodel;
 
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.BelongsTo;
 
 import java.util.List;
 
@@ -35,6 +36,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@BelongsTo(parent = System.class, foreignKeyName = "system_id")
 public class PatternChain extends Model {
 
     public PatternChain() {}
@@ -47,11 +49,19 @@ public class PatternChain extends Model {
 
     public String getChainKey() { return getString("chainKey"); }
 
-    public void addInstance(PatternInstance inst) { add(inst); save(); }
+    public void addInstance(PatternInstance inst) {
+        if (inst != null)
+            inst.setChainID(this.getId());
+    }
 
-    public void removeInstance(PatternInstance inst) { remove(inst); save(); }
+    public void removeInstance(PatternInstance inst) {
+        if (inst != null && inst.getChainID() != null && inst.getChainID().equals(getId()))
+            inst.setChainID(null);
+    }
 
-    public List<PatternInstance> getInstances() { return getAll(PatternInstance.class); }
+    public List<PatternInstance> getInstances() {
+        return PatternInstance.find("parent_chain_id = ?", this.getId());
+    }
 
     public void updateKey() {
         System parent = parent(System.class);

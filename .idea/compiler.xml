@@ -7,19 +7,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="msusel-software-injector" />
-        <module name="msusel-loc-metrics" />
-        <module name="msusel-codetree" />
         <module name="arc_test" />
-        <module name="isuese-detstrat" />
+      </profile>
+      <profile name="Annotation profile for Source Injector" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
+        </processorPath>
+        <module name="msusel-software-injector" />
+        <module name="msusel-codetree" />
         <module name="msusel-arc-framework" />
+        <module name="msusel-loc-metrics" />
         <module name="msusel-config" />
-        <module name="msusel-rbml-dsl" />
-        <module name="msusel-pattern-generator" />
         <module name="msusel-java-parser" />
-        <module name="msusel-quamoco" />
+        <module name="msusel-pattern-generator" />
+        <module name="msusel-rbml-dsl" />
         <module name="isuese-ghsearch" />
         <module name="msusel-metrics" />
+        <module name="msusel-quamoco" />
+        <module name="isuese-detstrat" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

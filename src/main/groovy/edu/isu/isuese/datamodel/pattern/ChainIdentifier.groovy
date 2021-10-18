@@ -26,10 +26,12 @@
  */
 package edu.isu.isuese.datamodel.pattern
 
+import com.google.common.graph.GraphBuilder
+import com.google.common.graph.MutableGraph
+import edu.isu.isuese.datamodel.Pattern
 import edu.isu.isuese.datamodel.PatternChain
 import edu.isu.isuese.datamodel.PatternInstance
-import edu.isu.isuese.datamodel.Role
-import edu.isu.isuese.datamodel.RoleBinding
+import edu.isu.isuese.datamodel.Project
 import edu.isu.isuese.datamodel.System
 import groovy.util.logging.Log4j2
 
@@ -40,89 +42,84 @@ import groovy.util.logging.Log4j2
 @Log4j2
 class ChainIdentifier {
 
+    MutableGraph<PatternInstance> graph
+
+    ChainIdentifier() {
+        graph = GraphBuilder.directed().build()
+    }
+
     def findChains(System system) {
         if (!system)
             throw new IllegalArgumentException("findChains: System cannot be null.")
 
-        int index = 0
-        def chains = system.getPatternChains()
         def projects = system.getProjects()
-        if (!chains) {
-            if (projects) {
-                chains = createChains(projects.first().getPatternInstances())
-            }
-        }
+        projects.sort {a, b -> a.version <=> b.version }
 
-        for (int i = 1; i < projects.size(); i++) {
-            for (PatternInstance p : projects[i].getPatternInstances()) {
-                PatternChain chain
-                for (PatternChain c : chains) {
-                    if (matches(c, p)) {
-                        chain = c
-                        break
+        for (int i = 0; i < projects.size() - 1; i++) {
+            Project current = projects[i]
+            Project next = projects[i + 1]
+
+            Pattern.findAll().each { pattern ->
+                List<PatternInstance> currInsts = PatternInstance.find("project_id = ? AND pattern_id = ?", current.getId(), pattern.getId())
+                List<PatternInstance> nextInsts = PatternInstance.find("project_id = ? AND pattern_id = ?", next.getId(), pattern.getId())
+
+                for (int currNdx = 0; currNdx < currInsts.size(); currNdx++) {
+                    for (int nextNdx = 0; nextNdx < nextInsts.size(); nextNdx++) {
+                        if (checkMatchingInstances(currInsts[currNdx], nextInsts[nextNdx])) {
+                            createGraphEntry(currInsts[currNdx], nextInsts[nextNdx])
+                            break
+                        }
                     }
                 }
-                if (chain) chain.addInstance(p)
-                else createChain(p)
             }
         }
     }
 
-    List<PatternChain> createChains(List<PatternInstance> insts) {
-        if (insts == null)
-            throw new IllegalArgumentException("createChains: pattern instance list cannot be null")
+    def constructChains(System sys) {
+        List<PatternInstance> chainStarts = graph.nodes().findAll { graph.inDegree(it) == 0 }.toList()
 
-        List<PatternChain> chains = []
-        insts.each {
-            chains << createChain(it)
+        chainStarts.each { start ->
+            PatternChain chain = PatternChain.builder()
+                    .chainKey(start.getInstKey() + "-chain")
+                    .create()
+
+            Stack<PatternInstance> stack = new Stack<>()
+            stack.push(start)
+            while (!stack.isEmpty()) {
+                PatternInstance inst = stack.pop()
+                chain.addInstance(inst)
+                for (PatternInstance succ : graph.successors(inst))
+                    stack.push(succ)
+            }
+            sys.addPatternChain(chain)
         }
-        chains
     }
 
-    PatternChain createChain(PatternInstance inst) {
-        if (!inst)
-            throw new IllegalArgumentException("createChain: pattern instance cannot be null")
+    boolean checkMatchingInstances(PatternInstance first, PatternInstance second) {
+        List<String> firstNames = extractRoleNames(first)
+        List<String> secondNames = extractRoleNames(second)
 
-        PatternChain chain = PatternChain.builder().chainKey(inst.getParentPattern().getName() + "-chain").create()
-        chain.add(inst)
-        inst.getParentProject().getParentSystem().add(chain)
-        chain.updateKey()
-        chain.refresh()
-        chain
+        return secondNames.containsAll(firstNames)
     }
 
-    boolean matches(PatternChain chain, PatternInstance inst) {
-        if (!chain)
-            throw new IllegalArgumentException("matches: pattern chain cannot be null")
-        if (!inst)
-            throw new IllegalArgumentException("matches: pattern instance cannot be null")
+    List<String> extractRoleNames(PatternInstance inst) {
+        List<String> names = []
 
-        PatternInstance last = chain.instances.last()
-        if (last.getParentPattern() != inst.getParentPattern()) {
-            log.warn "Not same parent pattern"
-            return false
+        String parentProjKey = inst.getParentProject().getProjectKey()
+        inst.getRoleBindings().each {binding ->
+            String refKey = binding.getReference().getRefKey()
+            names << refKey.replace(parentProjKey + ":", "")
         }
 
-        Map<Role, List<String>> bindingMap = [:]
-        String lastProjKey = last.getParentProject().getProjectKey()
-        String instProjKey = inst.getParentProject().getProjectKey()
+        return names
+    }
 
-        last.getParentPattern().mandatoryRoles().each { Role r ->
-            bindingMap[r] = []
-            last.bindingsFor(r).each { RoleBinding rb ->
-                if (rb.reference)
-                    bindingMap[r] << rb.reference.refKey.replace(lastProjKey, "")
-            }
-            inst.bindingsFor(r).each { RoleBinding rb ->
-                if (rb.reference)
-                    bindingMap[r].remove(rb.reference.refKey.replace(instProjKey, ""))
-            }
-        }
+    void createGraphEntry(PatternInstance first, PatternInstance second) {
+        if (!first || !second)
+            return
 
-        boolean retVal = true
-        bindingMap.each { key, values ->
-            retVal = retVal && values.isEmpty()
-        }
-        retVal
+        graph.addNode(first)
+        graph.addNode(second)
+        graph.putEdge(first, second)
     }
 }

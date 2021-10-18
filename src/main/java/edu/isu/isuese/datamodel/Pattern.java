@@ -29,6 +29,7 @@ package edu.isu.isuese.datamodel;
 import com.google.common.collect.Lists;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.BelongsTo;
 
 import java.util.List;
 import java.util.Objects;
@@ -37,6 +38,7 @@ import java.util.Objects;
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@BelongsTo(parent = PatternRepository.class, foreignKeyName = "pattern_repository_id")
 public class Pattern extends Model {
 
     public Pattern() {}
@@ -55,11 +57,19 @@ public class Pattern extends Model {
 
     public void setName(String name) { set("name", name); save(); }
 
-    public void addInstance(PatternInstance inst) { add(inst); save(); }
+    public void addInstance(PatternInstance inst) {
+        if (inst != null)
+            inst.setPatternID(this.getId());
+    }
 
-    public void removeInstance(PatternInstance inst) { remove(inst); save(); }
+    public void removeInstance(PatternInstance inst) {
+        if (inst != null && inst.getPatternID() != null && inst.getPatternID().equals(getId()))
+            inst.setPatternID(null);
+    }
 
-    public List<PatternInstance> getInstances() { return getAll(PatternInstance.class); }
+    public List<PatternInstance> getInstances() {
+        return PatternInstance.find("parent_pattern_id = ?", this.getId());
+    }
 
     public void addRole(Role role) { add(role); save(); }
 

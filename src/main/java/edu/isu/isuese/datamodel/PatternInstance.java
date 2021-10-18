@@ -29,6 +29,7 @@ package edu.isu.isuese.datamodel;
 import com.google.common.collect.Lists;
 import lombok.Builder;
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.BelongsTo;
 
 import java.util.List;
 
@@ -36,6 +37,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@BelongsTo(parent = Project.class, foreignKeyName = "project_id")
 public class PatternInstance extends Model implements Measurable, ComponentContainer {
 
     public PatternInstance() {}
@@ -62,7 +64,10 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
     }
 
     public Pattern getParentPattern() {
-        return parent(Pattern.class);
+        if (getPatternID() != null)
+            return Pattern.findById(getPatternID());
+        else
+            return null;
     }
 
     public List<System> getParentSystems() {
@@ -91,10 +96,11 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
         return getParentProject();
     }
 
-    public List<PatternChain> getParentPatternChain() {
-        List<PatternChain> chains = Lists.newLinkedList();
-        chains.add(parent(PatternChain.class));
-        return chains;
+    public PatternChain getParentPatternChain() {
+        if (getChainID() != null)
+            return PatternChain.findById(getChainID());
+        else
+            return null;
     }
 
     @Override
@@ -307,5 +313,23 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
 
     public boolean hasValueFor(String metricKey) {
         return get(Measure.class, "metricKey = ?", metricKey).size() > 0;
+    }
+
+    public void setPatternID(Object id) {
+        set("parent_pattern_id", id);
+        save();
+    }
+
+    public Object getPatternID() {
+        return get("parent_pattern_id");
+    }
+
+    public void setChainID(Object id) {
+        set("parent_chain_id", id);
+        save();
+    }
+
+    public Object getChainID() {
+        return get("parent_chain_id");
     }
 }
