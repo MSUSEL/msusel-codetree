@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-parent/src/migrations/20210616060107_create_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-parent/src/migrations/20210616060107_create_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Collector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/pattern4/Pattern4Collector.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -967,7 +967,7 @@
       <workItem from="1628429182210" duration="10133000" />
       <workItem from="1629292204953" duration="744000" />
       <workItem from="1629395083890" duration="1804000" />
-      <workItem from="1634547442924" duration="14055000" />
+      <workItem from="1634547442924" duration="16189000" />
     </task>
     <servers />
   </component>
