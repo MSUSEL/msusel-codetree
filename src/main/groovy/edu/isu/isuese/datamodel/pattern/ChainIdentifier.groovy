@@ -59,13 +59,22 @@ class ChainIdentifier {
             Project current = projects[i]
             Project next = projects[i + 1]
 
+            log.info "Current Version: ${current.getVersion()}"
+            log.info "Next Version: ${next.getVersion()}"
+
             Pattern.findAll().each { pattern ->
+                log.info ""
+                log.info "Chaining for Pattern: ${(pattern as Pattern).getName()}"
+                log.info ""
                 List<PatternInstance> currInsts = PatternInstance.find("project_id = ? AND parent_pattern_id = ?", current.getId(), pattern.getId())
                 List<PatternInstance> nextInsts = PatternInstance.find("project_id = ? AND parent_pattern_id = ?", next.getId(), pattern.getId())
 
                 for (int currNdx = 0; currNdx < currInsts.size(); currNdx++) {
+                    log.info "Current Instance ID: ${currInsts[currNdx].getId()}"
                     for (int nextNdx = 0; nextNdx < nextInsts.size(); nextNdx++) {
+                        log.info "Next Instance ID: ${nextInsts[nextNdx].getId()}"
                         if (checkMatchingInstances(currInsts[currNdx], nextInsts[nextNdx])) {
+                            log.info "Match Found"
                             createGraphEntry(currInsts[currNdx], nextInsts[nextNdx])
                             break
                         }
