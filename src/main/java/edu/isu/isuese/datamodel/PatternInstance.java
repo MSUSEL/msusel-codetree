@@ -46,6 +46,7 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
     public PatternInstance(String instKey) {
         set("instKey", instKey);
         set("matched", false);
+        set("extract", false);
         saveIt();
     }
 
@@ -332,6 +333,15 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
     public void setChainID(Object id) {
         set("parent_chain_id", id);
         save();
+    }
+
+    public void markForExtraction() {
+        setBoolean("extract", true);
+        save();
+    }
+
+    public boolean shouldExtract() {
+        return getBoolean("extract");
     }
 
     public Object getChainID() {

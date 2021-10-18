@@ -165,4 +165,8 @@ public class Finding extends Model {
         return Finding.of(this.getFindingKey())
                 .on(this.getReferences().get(0).copy(oldPrefix, newPrefix));
     }
+
+    public static List<Finding> getFindingsFor(String refKey) {
+        return Finding.findBySQL("SELECT findings.* FROM findings INNER JOIN refs ON findings.id = refs.parent_id AND refs.parent_type = ? AND refs.refKey = ?;", Finding.class.getCanonicalName(), refKey);
+    }
 }
