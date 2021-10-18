@@ -45,7 +45,7 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
     @Builder(buildMethodName = "create")
     public PatternInstance(String instKey) {
         set("instKey", instKey);
-        set("matched", true);
+        set("matched", false);
         saveIt();
     }
 
