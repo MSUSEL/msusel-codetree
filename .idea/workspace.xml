@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -970,7 +969,7 @@
       <workItem from="1634629812719" duration="609000" />
       <workItem from="1634635748778" duration="47000" />
       <workItem from="1634636669226" duration="3133000" />
-      <workItem from="1634809472258" duration="10885000" />
+      <workItem from="1634809472258" duration="12095000" />
     </task>
     <servers />
   </component>
