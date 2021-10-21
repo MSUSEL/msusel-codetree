@@ -137,6 +137,33 @@ public class Finding extends Model {
         return this;
     }
 
+    public Finding and(Reference ref) {
+        add(ref);
+        save();
+        return this;
+    }
+
+    public Finding and(Component comp) {
+        add(Reference.to(comp));
+        save();
+        comp.getParentProject().addFinding(this);
+        return this;
+    }
+
+    public Finding and(PatternInstance inst) {
+        add(Reference.to(inst));
+        save();
+        inst.getParentProject().addFinding(this);
+        return this;
+    }
+
+    public Finding and(Namespace ns) {
+        add(Reference.to(ns));
+        save();
+        ns.getParentProject().addFinding(this);
+        return this;
+    }
+
     public Finding injected() {
         setInjected(true);
         save();
@@ -162,8 +189,11 @@ public class Finding extends Model {
     }
 
     public Finding copy(String oldPrefix, String newPrefix) {
-        return Finding.of(this.getFindingKey())
-                .on(this.getReferences().get(0).copy(oldPrefix, newPrefix));
+        Finding f = Finding.of(this.getFindingKey());
+        for (Reference ref : getReferences()) {
+            f.on(ref.copy(oldPrefix, newPrefix));
+        }
+        return f;
     }
 
     public static List<Finding> getFindingsFor(String refKey) {
