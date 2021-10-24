@@ -37,6 +37,7 @@ import java.util.List;
  * @author Isaac Griffith
  * @version 1.3.0
  */
+@BelongsTo(parent = Type.class, foreignKeyName = "type_id")
 public class Literal extends Member {
 
     public Literal() {}
