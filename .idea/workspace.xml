@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="" />
+    <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationInjectorDirector.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationResultsReader.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationResultsWriter.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyPhaseFour.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyResultsExtractor.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patextract/InjectorControlGenerator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyConstants.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyConstants.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyPhaseOne.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyPhaseOne.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyPhaseThree.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyPhaseThree.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyPhaseTwo.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyPhaseTwo.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyRunner.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/app/runner/verification/VerificationStudyRunner.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patextract/PatternExtractorConstants.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patextract/PatternExtractorConstants.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patextract/VerificationUnitExtractorCommand.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/src/main/groovy/edu/montana/gsoc/msusel/arc/impl/patextract/VerificationUnitExtractorCommand.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/SourceInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/SourceInjector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeInjector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/GrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/GrimeInjector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularGrimeInjector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularOrgGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ModularOrgGrimeInjector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/PackageOrgGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/PackageOrgGrimeInjector.groovy" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +72,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-software-injector" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -967,7 +989,9 @@
       <workItem from="1634629812719" duration="609000" />
       <workItem from="1634635748778" duration="47000" />
       <workItem from="1634636669226" duration="3133000" />
-      <workItem from="1634809472258" duration="13563000" />
+      <workItem from="1634809472258" duration="16306000" />
+      <workItem from="1634931828625" duration="1954000" />
+      <workItem from="1634951820232" duration="20998000" />
     </task>
     <servers />
   </component>
