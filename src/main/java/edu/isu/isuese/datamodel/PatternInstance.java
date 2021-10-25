@@ -32,6 +32,7 @@ import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.BelongsTo;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Isaac Griffith
@@ -346,5 +347,20 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
 
     public Object getChainID() {
         return get("parent_chain_id");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof PatternInstance) {
+            PatternInstance inst = (PatternInstance) o;
+            return inst.getInstKey().equals(this.getInstKey());
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getInstKey());
     }
 }
