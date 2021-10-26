@@ -507,6 +507,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         getModules().forEach(Module::updateKey);
         getNamespaces().forEach(Namespace::updateKey);
         getFiles().forEach(File::updateKey);
+//        getPatternInstances().forEach(PatternInstance::updateKey);
     }
 
     public String getFullPath() {
@@ -548,7 +549,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         Project copy = Project.builder()
                 .name(newKey)
                 .projKey(getParentSystem().getKey() + ":" + newKey + ":" + getVersion())
-                .version(this.getVersion())
+                .version(this.getVersion() != null ? this.getVersion() : "")
                 .relPath(relPath)
                 .create();
         copy.setSrcPath(getSrcPath());
