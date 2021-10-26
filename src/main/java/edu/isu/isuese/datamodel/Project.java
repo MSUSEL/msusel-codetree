@@ -500,7 +500,8 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public void updateKeys() {
-        String newKey = getParentSystem() == null ? getName() + ":" + getVersion() : getParentSystem().getKey() + ":" + getName() + ":" + getVersion();
+        String nameVer = getVersion() == null ? getName() : getName() + ":" + getVersion();
+        String newKey = getParentSystem() == null ? nameVer : getParentSystem().getKey() + ":" + nameVer;
         setString("projKey", newKey);
         save();
         refresh();
@@ -546,9 +547,14 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public Project copy(String newKey, String relPath) {
+        String key
+        if (getVersion() != null)
+            key = getParentSystem().getKey() + ":" + newKey + ":" + getVersion();
+        else
+            key = getParentSystem().getKey() + ":" + newKey;
         Project copy = Project.builder()
                 .name(newKey)
-                .projKey(getParentSystem().getKey() + ":" + newKey + ":" + getVersion())
+                .projKey(key)
                 .version(this.getVersion() != null ? this.getVersion() : null)
                 .relPath(relPath)
                 .create();
