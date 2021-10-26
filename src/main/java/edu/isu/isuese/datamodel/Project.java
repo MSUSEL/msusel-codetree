@@ -547,7 +547,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
     }
 
     public Project copy(String newKey, String relPath) {
-        String key
+        String key;
         if (getVersion() != null)
             key = getParentSystem().getKey() + ":" + newKey + ":" + getVersion();
         else
