@@ -549,7 +549,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         Project copy = Project.builder()
                 .name(newKey)
                 .projKey(getParentSystem().getKey() + ":" + newKey + ":" + getVersion())
-                .version(this.getVersion() != null ? this.getVersion() : "")
+                .version(this.getVersion() != null ? this.getVersion() : null)
                 .relPath(relPath)
                 .create();
         copy.setSrcPath(getSrcPath());
