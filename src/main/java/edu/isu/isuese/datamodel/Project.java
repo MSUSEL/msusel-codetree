@@ -572,6 +572,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
             Namespace nsCopy = ns.copy(this.getProjectKey(), copy.getProjectKey());
             copy.addNamespace(nsCopy);
             nsCopy.save();
+            nsCopy.refresh();
         });
         getFiles().forEach(file -> copy.addFile(file.copy(this.getProjectKey(), copy.getProjectKey())));
         getLanguages().forEach(copy::addLanguage);
@@ -585,6 +586,8 @@ public class Project extends Model implements Measurable, ComponentContainer {
             Type origType = origNs.getTypeByName(copyType.getName());
             origType.copyContentsInto(copyType, getProjectKey(), copy.getProjectKey());
         });
+        copy.save();
+        copy.refresh();
 
         return copy;
     }

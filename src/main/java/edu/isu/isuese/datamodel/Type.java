@@ -811,6 +811,8 @@ public class Type extends Component implements ComponentContainer {
         getAllMembers().forEach(member -> copy.addMember(member.copy(oldPrefix, newPrefix)));
         getTemplateParams().forEach(param -> copy.addTemplateParam(param.copy(oldPrefix, newPrefix)));
         getContained().forEach(type -> copy.addType(type.copy(oldPrefix, newPrefix)));
+        copy.save();
+        copy.refresh();
     }
 
     public Field getFieldWithName(String name) {

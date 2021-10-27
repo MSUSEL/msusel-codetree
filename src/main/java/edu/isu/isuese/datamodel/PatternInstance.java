@@ -263,6 +263,8 @@ public class PatternInstance extends Model implements Measurable, ComponentConta
 
         getRoleBindings().forEach(bind -> copy.addRoleBinding(bind.copy(oldPrefix, newPrefix)));
         getParentPattern().addInstance(copy);
+        copy.save();
+        copy.refresh();
 
         return copy;
     }
