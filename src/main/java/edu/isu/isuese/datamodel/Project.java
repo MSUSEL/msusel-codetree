@@ -588,7 +588,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         });
         copy.save();
         copy.refresh();
-
+        copy.updateKeys();
         return copy;
     }
 
