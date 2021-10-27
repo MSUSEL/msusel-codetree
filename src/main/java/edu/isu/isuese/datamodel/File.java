@@ -324,8 +324,7 @@ public class File extends Model implements Measurable, ComponentContainer {
         copy.refresh();
 
         getAllTypes().forEach(type -> {
-            Project proj = Project.findFirst("projKey = ?", newPrefix);
-            Type other = proj.findTypeByQualifiedName(type.getQualifiedName());
+            Type other = Type.findFirst("compKey = ?", type.getCompKey().replace(oldPrefix, newPrefix));
             other.refresh();
             copy.addType(other);
             copy.save();
