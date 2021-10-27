@@ -309,28 +309,32 @@ public class File extends Model implements Measurable, ComponentContainer {
 
         Namespace ns = this.getParentNamespace();
         if (ns != null) {
-            String key = ns.getNsKey();
-            String copyKey = key.replace(oldPrefix, newPrefix);
-
-            Namespace nsCopy = Namespace.findFirst("nsKey = ?", key.replace(oldPrefix, newPrefix));
+            Project proj = Project.findFirst("projKey = ?", newPrefix);
+            Namespace nsCopy = proj.findNamespace(ns.getName());
+            nsCopy.refresh();
             if (nsCopy != null) {
                 nsCopy.addFile(copy);
                 nsCopy.save();
+                nsCopy.refresh();
+                copy.save();
+                copy.refresh();
             }
         }
         copy.save();
+        copy.refresh();
 
         getAllTypes().forEach(type -> {
-            String copyKey = type.getCompKey().replace(oldPrefix, newPrefix);
-//            if (type instanceof Class)
-//                copy.addType(Class.findFirst("compKey = ?", copyKey));
-//            else if (type instanceof Enum)
-//                copy.addType(Enum.findFirst("compKey = ?", copyKey));
-//            else if (type instanceof Interface)
-//                copy.addType(Interface.findFirst("compKey = ?", copyKey));
-            copy.addType(Type.findFirst("compKey = ?", copyKey));
+            Project proj = Project.findFirst("projKey = ?", newPrefix);
+            Type other = proj.findTypeByQualifiedName(type.getQualifiedName());
+            other.refresh();
+            copy.addType(other);
+            copy.save();
+            copy.refresh();
+            other.save();
+            other.refresh();
         });
         copy.save();
+        copy.refresh();
 
         getImports().forEach(copy::addImport);
 
