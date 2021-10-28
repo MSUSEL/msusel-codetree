@@ -552,6 +552,9 @@ public class Project extends Model implements Measurable, ComponentContainer {
             key = getParentSystem().getKey() + ":" + newKey + ":" + getVersion();
         else
             key = getParentSystem().getKey() + ":" + newKey;
+
+        log.info("Derived key");
+
         Project copy = Project.builder()
                 .name(newKey)
                 .projKey(key)
