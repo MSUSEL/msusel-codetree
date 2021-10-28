@@ -284,17 +284,6 @@ public class File extends Model implements Measurable, ComponentContainer {
     }
 
     public File copy(String oldPrefix, String newPrefix, String oldRelPath, String newRelPath) {
-        String[] oldSplit = oldPrefix.split(":");
-        String[] newSplit = newPrefix.split(":");
-        String toReplace = "";
-        String replacement = "";
-        if (oldSplit.length == 2) {
-            toReplace = oldSplit[0];
-            replacement = newSplit[0];
-        } else {
-            toReplace = oldSplit[1];
-            replacement = newSplit[1];
-        }
         String copyName = getName().replace(oldRelPath, newRelPath);
 
         File copy = File.builder()
@@ -306,19 +295,18 @@ public class File extends Model implements Measurable, ComponentContainer {
                 .end(this.getEnd())
                 .create();
         copy.save();
+        copy.refresh();
 
         Namespace ns = this.getParentNamespace();
         if (ns != null) {
             Project proj = Project.findFirst("projKey = ?", newPrefix);
             Namespace nsCopy = proj.findNamespace(ns.getName());
             nsCopy.refresh();
-            if (nsCopy != null) {
-                nsCopy.addFile(copy);
-                nsCopy.save();
-                nsCopy.refresh();
-                copy.save();
-                copy.refresh();
-            }
+            nsCopy.addFile(copy);
+            nsCopy.save();
+            nsCopy.refresh();
+            copy.save();
+            copy.refresh();
         }
         copy.save();
         copy.refresh();
