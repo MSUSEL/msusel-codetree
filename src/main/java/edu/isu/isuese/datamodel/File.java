@@ -295,12 +295,12 @@ public class File extends Model implements Measurable, ComponentContainer {
             toReplace = oldSplit[1];
             replacement = newSplit[1];
         }
-        String copyName = getName().replace(toReplace, replacement);
+        String copyName = getName().replace(oldRelPath, newRelPath);
 
         File copy = File.builder()
                 .name(copyName)
-                .fileKey(oldPrefix + ":" + copyName)
-                .relPath(this.getRelPath())
+                .fileKey(newPrefix + ":" + copyName)
+                .relPath(this.getRelPath().replace(oldRelPath, newRelPath))
                 .type(this.getType())
                 .start(this.getStart())
                 .end(this.getEnd())
