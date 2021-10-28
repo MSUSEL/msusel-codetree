@@ -564,6 +564,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         copy.save();
         this.getParentSystem().addProject(copy);
         copy.updateKeys();
+        copy.save();
         copy.refresh();
 
         getModules().forEach(mod -> copy.addModule(mod.copy(this.getProjectKey(), copy.getProjectKey())));
@@ -574,6 +575,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
             nsCopy.save();
             nsCopy.refresh();
         });
+        copy.refresh();
         getFiles().forEach(file -> copy.addFile(file.copy(this.getProjectKey(), copy.getProjectKey())));
         getLanguages().forEach(copy::addLanguage);
         getMeasures().forEach(measure -> copy.addMeasure(measure.copy(this.getProjectKey(), copy.getProjectKey())));
