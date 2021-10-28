@@ -553,7 +553,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
         else
             key = getParentSystem().getKey() + ":" + newKey;
 
-        log.info("Derived key");
+        log.info("Derived key: " + key);
 
         Project copy = Project.builder()
                 .name(newKey)
@@ -579,7 +579,7 @@ public class Project extends Model implements Measurable, ComponentContainer {
             nsCopy.refresh();
         });
         copy.refresh();
-        getFiles().forEach(file -> copy.addFile(file.copy(this.getProjectKey(), copy.getProjectKey())));
+        getFiles().forEach(file -> copy.addFile(file.copy(this.getProjectKey(), copy.getProjectKey(), this.getRelPath(), copy.getRelPath())));
         getLanguages().forEach(copy::addLanguage);
         getMeasures().forEach(measure -> copy.addMeasure(measure.copy(this.getProjectKey(), copy.getProjectKey())));
         getFindings().forEach(finding -> copy.addFinding(finding.copy(this.getProjectKey(), copy.getProjectKey())));

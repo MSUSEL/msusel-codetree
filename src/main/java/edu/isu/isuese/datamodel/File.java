@@ -283,7 +283,7 @@ public class File extends Model implements Measurable, ComponentContainer {
         return Objects.hash(getFileKey());
     }
 
-    public File copy(String oldPrefix, String newPrefix) {
+    public File copy(String oldPrefix, String newPrefix, String oldRelPath, String newRelPath) {
         String[] oldSplit = oldPrefix.split(":");
         String[] newSplit = newPrefix.split(":");
         String toReplace = "";
