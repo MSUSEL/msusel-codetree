@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeInjector.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -977,7 +976,7 @@
       <workItem from="1635192114659" duration="466000" />
       <workItem from="1635194575002" duration="250000" />
       <workItem from="1635200646490" duration="38684000" />
-      <workItem from="1635379429001" duration="22174000" />
+      <workItem from="1635379429001" duration="22835000" />
     </task>
     <servers />
   </component>
