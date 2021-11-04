@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd27009b-8779-41fd-99c7-a341d97636e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeInjector.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-software-injector/src/main/groovy/edu/montana/gsoc/msusel/inject/grime/ClassGrimeInjector.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uml/codetree2.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/uml/codetree2.mdj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/java/template_method.tp" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-pattern-generator/src/main/resources/cues/java/template_method.tp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msusel-patterns-experimenter/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +55,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-software-injector" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../msusel-pattern-generator" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -976,7 +979,10 @@
       <workItem from="1635192114659" duration="466000" />
       <workItem from="1635194575002" duration="250000" />
       <workItem from="1635200646490" duration="38684000" />
-      <workItem from="1635379429001" duration="23688000" />
+      <workItem from="1635379429001" duration="24926000" />
+      <workItem from="1635613031594" duration="640000" />
+      <workItem from="1635927700168" duration="5972000" />
+      <workItem from="1636002315878" duration="6655000" />
     </task>
     <servers />
   </component>
